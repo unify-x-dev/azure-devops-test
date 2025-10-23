@@ -1,0 +1,65 @@
+{
+	"appsUsed":[
+		"amazon_s3"
+	],
+	"createdTime":1720647462612,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1720648300485,
+		"deployedBy":287,
+		"deployedDefinitionId":"668f026c67e74e1fad41319c",
+		"status":"DEPLOYED",
+		"version":2,
+		"workflowVersion":2
+	},
+	"description":"",
+	"edges":[
+		
+	],
+	"grants":{
+		"configs":[
+			
+		]
+	},
+	"id":"668eff2667e74e1fad41317c",
+	"lastModifiedBy":-1,
+	"lcName":"s3_dub",
+	"modifiedTime":1721679259116,
+	"name":"s3_dub",
+	"nodes":[
+		{
+			"context":{
+				"appName":"amazon_s3",
+				"resourceVersion":374,
+				"connectionId":"668543e7e659aa0c90a71435",
+				"resourceName":"amazon_s3_on_new_file_polling"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"ZaPDx-1",
+			"id":"ZaPDx",
+			"index":0,
+			"inputs":{
+				"folderPath":"",
+				"bucketName":"vinaybucket007",
+				"nestedFiles":false,
+				"region":"us-east-1"
+			},
+			"skip":false,
+			"title":"New file via polling",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		}
+	],
+	"ownerUserId":287,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true
+	},
+	"standard":false,
+	"version":3
+}
