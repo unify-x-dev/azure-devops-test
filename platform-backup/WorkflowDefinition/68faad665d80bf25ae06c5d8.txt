@@ -1,9 +1,18 @@
 {
 	"appsUsed":[
+		"slack",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761258854362,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761258854527,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68faad6603b79b4cf2c9ca8e",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"qjdVT",
@@ -16,11 +25,18 @@
 			"fromNodeId":"4S8By",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"sjx76",
+			"toNodeId":"KKsSg",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"sjx76",
+			"fromNodeId":"KKsSg",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"0kHMA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"0kHMA",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"ZyXg8",
@@ -30,7 +46,7 @@
 	"id":"68faad665d80bf25ae06c5d8",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa29191187697",
-	"modifiedTime":1761258854446,
+	"modifiedTime":1761258955404,
 	"name":"changeSetQA29191187697",
 	"nodes":[
 		{
@@ -107,63 +123,50 @@
 		},
 		{
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":205,
-				"resourceName":"variable_by_unifyapps_create_variables",
+				"appName":"slack",
+				"resourceVersion":5043,
+				"connectionId":"6669a9f6af1e7e51fa555bb8",
+				"resourceName":"slack_list_users",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"xWsbB-1",
-			"id":"sjx76",
+			"id":"KKsSg",
 			"index":0,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{},
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"x":{
-							"type":"integer",
-							"title":"X"
-						},
-						"y":{
-							"type":"integer",
-							"title":"y"
-						}
-					},
-					"required":[]
-				}
-			},
 			"inputs":{
-				"x":"{{ 4S8By.outputs.properties.n }}",
-				"y":"{{ 4S8By.outputs.properties.m }}"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"x":{
-							"type":"integer",
-							"title":"X"
-						},
-						"y":{
-							"type":"integer",
-							"title":"y"
-						}
-					},
-					"required":[]
-				}
+				"limit":"{{ 4S8By.outputs.properties.n }}",
+				"include_locale":false
 			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create variables",
+			"subTitle":"Slack",
+			"title":"List users",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":230,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"xWsbB-1",
+			"id":"0kHMA",
+			"index":0,
+			"inputs":{
+				"automationId":"68faadca03b79b4cf2c9cb60",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		},
 		{
 			"context":{
@@ -181,7 +184,7 @@
 			"inputs":{
 				"result":{
 					"result":"{{ zOy1a.outputs.c }}",
-					"c":"= SUM({{ sjx76.outputs.x }},{{ sjx76.outputs.y }})"
+					"c":"= PRODUCT({{ 4S8By.outputs.properties.m }},{{ 4S8By.outputs.properties.n }})"
 				}
 			},
 			"skip":false,
@@ -203,5 +206,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
