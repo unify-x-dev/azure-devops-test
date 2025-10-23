@@ -13,12 +13,18 @@
 		"workflowVersion":1
 	},
 	"edges":[
-		
+		{
+			"fromNodeId":"n_MwcTR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HKaIa",
+			"type":"next"
+		}
 	],
 	"id":"68f9f82ddbd8504ba565b0a2",
 	"lastModifiedBy":124029,
 	"lcName":"test-rms bill",
-	"modifiedTime":1761221265701,
+	"modifiedTime":1761222672711,
 	"name":"test-rms bill",
 	"nodes":[
 		{
@@ -45,6 +51,28 @@
 				"type":"EVENT"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"bill",
+				"resourceVersion":518,
+				"connectionId":"68b565c1a0ef2435c1d88768",
+				"resourceName":"bill_get_bill",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_98A9v-1",
+			"id":"n_HKaIa",
+			"index":2,
+			"inputs":{
+				"id":"{{ n_MwcTR.outputs.batch[0].id }}"
+			},
+			"skip":false,
+			"subTitle":"Bill",
+			"title":"Get bill",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":124029,
@@ -64,5 +92,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
