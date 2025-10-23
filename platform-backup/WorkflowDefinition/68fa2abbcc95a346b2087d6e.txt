@@ -82,7 +82,7 @@
 	"id":"68fa2abbcc95a346b2087d6e",
 	"lastModifiedBy":161912,
 	"lcName":"hey1234",
-	"modifiedTime":1761225436589,
+	"modifiedTime":1761225462602,
 	"name":"hey1234",
 	"nodes":[
 		{
@@ -92,7 +92,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Jqz97-1",
 			"id":"n_pHlOD",
@@ -118,7 +118,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Jqz97-1",
 			"id":"n_FMhEi",
@@ -142,7 +142,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_FMhEi@_Jqz97-1@l",
 			"id":"n_mXBh7",
@@ -169,7 +169,6 @@
 				"a":"a - {{ n_FMhEi.outputs.index }}"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -198,7 +197,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Jqz97-1",
 			"id":"n_bwuNA",
@@ -222,7 +221,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_bwuNA@_Jqz97-1@l",
 			"id":"_xrhcT",
@@ -245,9 +244,10 @@
 					]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"a":"{{ n_bwuNA.outputs.index }}"
+			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -276,7 +276,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Jqz97-1",
 			"id":"_fNcMn",
@@ -300,7 +300,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fNcMn@_Jqz97-1@l",
 			"id":"_Ac9fX",
@@ -323,9 +323,10 @@
 					]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"a":"{{ _fNcMn.outputs.index }}"
+			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -351,7 +352,7 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Jqz97-1",
 			"id":"n_0auzv",
@@ -379,5 +380,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
