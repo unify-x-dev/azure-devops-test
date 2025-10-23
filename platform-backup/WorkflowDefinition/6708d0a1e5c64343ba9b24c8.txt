@@ -5,12 +5,12 @@
 	"createdTime":1728630945926,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1760296177211,
-		"deployedBy":-1,
-		"deployedDefinitionId":"68ebfcf1672fcc41fb70f018",
+		"deployedAt":1761235341519,
+		"deployedBy":45768,
+		"deployedDefinitionId":"68fa518d67cb9a322556a087",
 		"status":"DEPLOYED",
-		"version":108,
-		"workflowVersion":138
+		"version":109,
+		"workflowVersion":142
 	},
 	"edges":[
 		{
@@ -1064,7 +1064,7 @@
 	"id":"6708d0a1e5c64343ba9b24c8",
 	"lastModifiedBy":45768,
 	"lcName":"file chunker | knowledge",
-	"modifiedTime":1761235337279,
+	"modifiedTime":1761235537593,
 	"name":"File Chunker | Knowledge",
 	"nodes":[
 		{
@@ -2827,7 +2827,7 @@
 					"readVersion":"{{ _phUSg.outputs.knowledgeVersion }}",
 					"name":"{{ CGEl3.outputs.properties.name }}",
 					"limit":{
-						"websiteFetchLimit":"{{ CGEl3.outputs.properties.websiteImportInfo.webpageFetchLimit }}",
+						"websiteFetchLimit":0,
 						"fileDownloadLimit":0
 					},
 					"url_list":{
@@ -5501,5 +5501,5 @@
 		}
 	},
 	"standard":true,
-	"version":141
+	"version":143
 }
