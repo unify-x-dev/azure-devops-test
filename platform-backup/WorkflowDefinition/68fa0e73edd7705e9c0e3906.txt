@@ -30,11 +30,11 @@
 			"fromNodeId":"n_jr8kl",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_NgZHH",
+			"toNodeId":"n_n61PO",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_NgZHH",
+			"fromNodeId":"n_n61PO",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -45,7 +45,7 @@
 	"id":"68fa0e73edd7705e9c0e3906",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761219241839,
+	"modifiedTime":1761220183113,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -170,15 +170,46 @@
 			"type":"LOOP"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":915,
+				"resourceName":"callables_call_automation_batch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_jr8kl@_ZMmc1-1@l",
-			"id":"n_NgZHH",
+			"id":"n_n61PO",
 			"index":5,
+			"inputs":{
+				"automationId":"68fa12ead0e8762b65d27c4a",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"distributeWorkflowLoad":false,
+				"parametersList":{
+					"source":"{{ n_jr8kl.outputs.item }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"page":"{{ n_YC4yG.outputs.object }}",
+						"data_sources":{
+							"source":"{{ n_BCs9K.outputs.objects }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_BCs9K.outputs.objects[0] }}"
+						},
+						"checks":{
+							"source":"{{ n_jr8kl.outputs.item }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_jr8kl.outputs.item[0] }}"
+						}
+					}
+				},
+				"version":"-1"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":23949,
@@ -198,5 +229,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
