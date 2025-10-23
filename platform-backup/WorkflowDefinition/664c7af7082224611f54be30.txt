@@ -1,0 +1,72 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1716288247630,
+	"deleted":true,
+	"description":"desc123",
+	"edges":[
+		
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"A"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"664c7af7082224611f54be30",
+	"lastModifiedBy":206,
+	"lcName":"anuj test 2",
+	"modifiedTime":1716288296497,
+	"name":"anuj test 2",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":59,
+				"resourceName":"callables_from_api"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"lIFAO-1",
+			"id":"lIFAO",
+			"index":0,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"",
+							"filter":{
+								"operator":"EQUAL",
+								"value":""
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"Call Automation via API",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		}
+	],
+	"ownerUserId":206,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true
+	},
+	"standard":false,
+	"version":4
+}
