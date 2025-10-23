@@ -1,51 +1,76 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761244351041,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_aPkbW",
+			"fromNodeId":"n_9XA3l",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_DTg6W",
+			"toNodeId":"n_lV3rd",
 			"type":"next"
 		}
 	],
 	"id":"68fa74bf03b79b4cf2c8dfb8",
-	"lastModifiedBy":124029,
+	"lastModifiedBy":2621,
 	"lcName":"test",
-	"modifiedTime":1761244351041,
+	"modifiedTime":1761244466028,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_aPkbW-1",
-			"id":"_aPkbW",
-			"index":0,
+			"id":"n_9XA3l",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":36,
+				"connectionId":"68fa7525c29ccf0cbfd4e5d1",
+				"resourceName":"gmail_list_threads",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_aPkbW-1",
-			"id":"_DTg6W",
-			"index":0,
+			"id":"n_lV3rd",
+			"index":2,
+			"inputs":{
+				"userId":"yash.ahlawat@unifyapps.com"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"List threads",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":124029,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +84,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
