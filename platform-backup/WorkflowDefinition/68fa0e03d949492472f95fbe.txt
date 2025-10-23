@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"slack"
 	],
 	"createdTime":1761218051484,
 	"deleted":false,
@@ -111,6 +111,21 @@
 		},
 		{
 			"fromNodeId":"n_8D7b8",
+			"name":"3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8D7b8@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_8D7b8@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XmBwy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8D7b8",
 			"name":"default",
 			"priority":0,
 			"skip":false,
@@ -169,6 +184,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_XmBwy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cDfaw",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_D1JJd",
 			"priority":0,
 			"skip":false,
@@ -179,7 +201,7 @@
 	"id":"68fa0e03d949492472f95fbe",
 	"lastModifiedBy":308,
 	"lcName":"validatesans",
-	"modifiedTime":1761218303429,
+	"modifiedTime":1761223541923,
 	"name":"validateSans",
 	"nodes":[
 		{
@@ -272,6 +294,24 @@
 										"filter":{
 											"operator":"CONTAINS",
 											"value":"branch2"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"3",
+						"inputs":{
+							"name":"Branch 3",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_dvWvO.outputs.Array[0] }}",
+										"filter":{
+											"operator":"CONTAINS",
+											"value":"123"
 										}
 									}
 								],
@@ -400,7 +440,6 @@
 				"branch1":"=SUM({{ n_xu7kj.outputs.item }},{{ n_IINHV.outputs.index }})"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -539,7 +578,6 @@
 				"branch2":"=SUM({{ n_7o1qU.outputs.index }},{{ n_Q5zqh.outputs.index }})"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -592,6 +630,61 @@
 		},
 		{
 			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8D7b8@_ZzqHP-1@3",
+			"id":"n_8D7b8@3",
+			"index":12,
+			"inputs":{
+				"name":"Branch 3",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_dvWvO.outputs.Array[0] }}",
+							"filter":{
+								"operator":"CONTAINS",
+								"value":"123"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":3612,
+				"connectionId":"68f95de424fbff4b4810136f",
+				"resourceName":"slack_list_users",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8D7b8@_ZzqHP-1@3",
+			"id":"n_XmBwy",
+			"index":13,
+			"inputs":{
+				"limit":100,
+				"include_locale":false
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"List users",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":26,
 				"resourceName":"loop_for",
@@ -602,7 +695,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8D7b8@_ZzqHP-1@default",
 			"id":"n_D1JJd",
-			"index":12,
+			"index":14,
 			"inputs":{
 				"start":0,
 				"limit":"{{ n_dvWvO.outputs.inputField2 }}",
@@ -626,7 +719,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_D1JJd@n_8D7b8@_ZzqHP-1@default@l",
 			"id":"n_nCmQ3",
-			"index":13,
+			"index":15,
 			"inputs":{
 				"condition":{
 					"filters":[
@@ -659,7 +752,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_nCmQ3@n_D1JJd@n_8D7b8@_ZzqHP-1@default@l@l",
 			"id":"n_Zbqny",
-			"index":14,
+			"index":16,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -679,7 +772,6 @@
 				"defaultBranch":"=SUM({{ n_nCmQ3.outputs.index }},{{ n_D1JJd.outputs.index }})"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -709,7 +801,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_nCmQ3@n_D1JJd@n_8D7b8@_ZzqHP-1@default@l@l",
 			"id":"n_LrjwM",
-			"index":15,
+			"index":17,
 			"inputs":{
 				"loop":"n_nCmQ3",
 				"conditions":{
@@ -742,7 +834,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZzqHP-1",
 			"id":"n_cDfaw",
-			"index":16,
+			"index":18,
 			"inputs":{
 				"result":{
 					"output":"{{ n_wJTyA.outputs.branch1 }}{{ n_bgRKY.outputs.branch2 }}{{ n_Zbqny.outputs.defaultBranch }}"
@@ -764,5 +856,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":7
+	"version":8
 }
