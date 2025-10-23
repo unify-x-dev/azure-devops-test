@@ -1,0 +1,208 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1716902612993,
+	"deleted":true,
+	"description":"",
+	"edges":[
+		{
+			"fromNodeId":"YeGqM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"caHQf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"caHQf",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"AImoq",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"A"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"6655dad4faa076240a7c3b47",
+	"lastModifiedBy":1,
+	"lcName":"_bot_ understand dialog (copy)",
+	"modifiedTime":1716902753242,
+	"name":"_bot_ Understand dialog (Copy)",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":34,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"YeGqM-1",
+			"id":"YeGqM",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"actions":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"action":{
+										"type":"string",
+										"title":"Action"
+									},
+									"args":{
+										"type":"object",
+										"properties":{
+											"slot_name":{
+												"type":"string",
+												"title":"Slot Name"
+											},
+											"slot_value":{
+												"type":"string",
+												"title":"Slot Value"
+											},
+											"question":{
+												"type":"string",
+												"title":"Question"
+											},
+											"automationId":{
+												"type":"string",
+												"title":"Automation Id"
+											}
+										},
+										"title":"Args",
+										"required":[]
+									}
+								}
+							},
+							"title":"Actions",
+							"required":[]
+						}
+					},
+					"required":[]
+				},
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"",
+							"filter":{
+								"operator":"EQUAL",
+								"value":""
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"current_bot_automation":{
+							"type":"string",
+							"title":"Current Bot Automation"
+						},
+						"current_slot_id":{
+							"type":"string",
+							"title":"Current Slot Id"
+						},
+						"user_message":{
+							"type":"string",
+							"title":"User Message"
+						},
+						"messageHistory":{
+							"type":"string",
+							"title":"Message History"
+						},
+						"currentSlotDescription":{
+							"type":"string",
+							"title":"Current Slot Description"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"title":"Trigger from automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":0,
+				"resourceName":"standard_entities_get_automation_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"YeGqM-1",
+			"id":"caHQf",
+			"index":0,
+			"inputs":{
+				"workflowIds":"6652541147ee981bc09ebcf9,6654c5f00387e51a38eac93c,665331530759eb290742262e,66532da60759eb290742244d,6653827c91bddf1e3230ac3d,665320310759eb2907421a77,66531d6a0759eb2907421960,66531f0e0759eb29074219fd,6652557d47ee981bc09ebe41,66530648b018367b3da9acb9,66532ecd0759eb290742248a,665325250759eb2907421d9b,6653821991bddf1e3230ac23,66531f6c0759eb2907421a12,66555eca954b44336aa0d601"
+			},
+			"skip":false,
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"Get automation details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":30,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"YeGqM-1",
+			"id":"AImoq",
+			"index":0,
+			"inputs":{
+				"result":{
+					"automationToRun":"{{ RgBzM.outputs.automationDetails[0].id }}",
+					"actions":{
+						"ua:type":"mappedArray",
+						"items":{
+							"args":{
+								"slot_value":"{{ yawwl.outputs.result.actions[0].args.slot_value }}",
+								"question":"{{ yawwl.outputs.result.actions[0].args.question }}",
+								"automationId":"{{ yawwl.outputs.result.actions[0].args.flow_id }}",
+								"slot_name":"{{ yawwl.outputs.result.actions[0].args.slot_id }}"
+							},
+							"action":"{{ yawwl.outputs.result.actions[0].action }}"
+						},
+						"source":"{{ yawwl.outputs.result.actions }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Return data to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":1,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true
+	},
+	"standard":false,
+	"version":2
+}
