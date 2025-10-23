@@ -93,9 +93,9 @@
 		}
 	],
 	"id":"68f9f238bc928a07f8ccf16b",
-	"lastModifiedBy":45011,
+	"lastModifiedBy":46030,
 	"lcName":"[dnt] multi tenancy | fetch all identity providers",
-	"modifiedTime":1761217031938,
+	"modifiedTime":1761217311877,
 	"name":"[DNT] Multi Tenancy | Fetch All Identity Providers",
 	"nodes":[
 		{
@@ -568,7 +568,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_E9D2i",
@@ -589,7 +589,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_5sjiu",
@@ -907,7 +907,7 @@
 					"source":"{{ n_JU5Gr.outputs.response.objects }}",
 					"items":{
 						"assetClass":"MDM_MODEL",
-						"assetId":"{{ n_JU5Gr.outputs.response.objects[0].id }}"
+						"assetId":"hi"
 					}
 				},
 				"listName":"{{ n_uIfRr.outputs.items[0] }}"
@@ -1025,5 +1025,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
