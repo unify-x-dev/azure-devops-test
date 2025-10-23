@@ -6,46 +6,70 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_YVQ3O",
+			"fromNodeId":"n_jQwn0",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Kl8i1",
+			"toNodeId":"n_5QL0O",
 			"type":"next"
 		}
 	],
 	"id":"68fa5f1b090db2731b8f9b8b",
 	"lastModifiedBy":569,
 	"lcName":"test-kris",
-	"modifiedTime":1761238811629,
+	"modifiedTime":1761238850762,
 	"name":"test-kris",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_YVQ3O-1",
-			"id":"_YVQ3O",
-			"index":0,
+			"id":"n_jQwn0",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":946,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_YVQ3O-1",
-			"id":"_Kl8i1",
-			"index":0,
+			"id":"n_5QL0O",
+			"index":2,
+			"inputs":{
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Javascript",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":569,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +83,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
