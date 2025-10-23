@@ -5,12 +5,12 @@
 	"createdTime":1761129218322,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761216169792,
+		"deployedAt":1761216514489,
 		"deployedBy":103775,
-		"deployedDefinitionId":"68fa06a96da6a3064032ed38",
+		"deployedDefinitionId":"68fa08026da6a3064032fec1",
 		"status":"DEPLOYED",
-		"version":9,
-		"workflowVersion":25
+		"version":10,
+		"workflowVersion":26
 	},
 	"edges":[
 		{
@@ -118,7 +118,7 @@
 	"id":"68f8b30299a9792739a886b3",
 	"lastModifiedBy":103775,
 	"lcName":"digikey excel extraction",
-	"modifiedTime":1761216512428,
+	"modifiedTime":1761216514491,
 	"name":"Digikey Excel Extraction",
 	"nodes":[
 		{
@@ -214,6 +214,7 @@
 				"modelId":"e_ai_agent_openai_gpt_4.1"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -483,6 +484,7 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -523,7 +525,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_4PA8v-1",
 			"id":"n_9vS4f",
