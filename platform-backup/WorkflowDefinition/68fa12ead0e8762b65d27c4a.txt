@@ -17,6 +17,13 @@
 			"fromNodeId":"n_PQRFu",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_h8DaG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_h8DaG",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_nQDPb",
 			"type":"next"
 		}
@@ -24,7 +31,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761220122002,
+	"modifiedTime":1761228324371,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -39,7 +46,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -114,12 +121,6 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"page":{
-							"type":"object",
-							"properties":{},
-							"additionalProperties":false,
-							"title":"Page"
-						},
 						"data_sources":{
 							"type":"array",
 							"items":{
@@ -137,6 +138,27 @@
 								"additionalProperties":false
 							},
 							"title":"Checks"
+						},
+						"page":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"page_schema":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false,
+										"title":"page_schema"
+									},
+									"id":{
+										"type":"string",
+										"title":"Id"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Page"
 						}
 					}
 				}
@@ -150,6 +172,108 @@
 			"type":"START"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_z6eK1-1",
+			"id":"n_h8DaG",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"output":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"componentId":{
+										"type":"string",
+										"title":"componentId"
+									},
+									"ComponentName":{
+										"type":"string",
+										"title":"ComponentName"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"pageId":{
+										"type":"string",
+										"title":"Page Id"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"output"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"Pages":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"page_schema":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false,
+										"title":"page_schema"
+									},
+									"id":{
+										"type":"string",
+										"title":"id"
+									}
+								},
+								"additionalProperties":false,
+								"required":[
+									"page_schema",
+									"id"
+								]
+							},
+							"title":"Pages"
+						}
+					}
+				},
+				"code":"def inputArray = Pages\ndef output = []\n\n// Recursive function to traverse blocks\ndef checkBlocks\ncheckBlocks = { blocksMap, pageId ->\n    def results = []\n    blocksMap.each { blockId, blockData ->\n        def comp = blockData?.component\n        if (!comp) return\n\n        if (comp?.componentType == \"Repeatable\") {\n            def hasPagination = comp?.content?.addOns?.page != null\n            results << [\n                pageId        : pageId,\n                componentId   : blockId ?: \"\",\n                ComponentName : blockData?.displayName ?: \"\",\n                status        : hasPagination ? \"Pass\" : \"Fail\"\n            ]\n        }\n\n        // If block has nested blocks via content.blockIds, check recursively\n        def nestedIds = comp?.content?.blockIds ?: []\n        nestedIds.each { nestedId ->\n            def nestedBlock = blocksMap[nestedId]\n            if (nestedBlock) {\n                results.addAll(checkBlocks([(nestedId): nestedBlock], pageId))\n            }\n        }\n    }\n    return results\n}\n\ninputArray.each { pageObj ->\n    def pageId = pageObj?.id ?: \"\"\n    def schema = pageObj?.page_schema ?: [:]\n    def blocks = schema?.blocks ?: [:]\n\n    def pageResults = checkBlocks(blocks, pageId)\n    output.addAll(pageResults)   // only add when repeatables exist\n}\n\nreturn [output: output]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"Pages":{
+						"source":"{{ n_NIGU9.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"page_schema":"{{ n_NIGU9.outputs.items[0].page_schema }}",
+							"id":"{{ n_NIGU9.outputs.items[0].id }}"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1089,
@@ -157,11 +281,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"result":{
 					"entityVersion":1,
@@ -216,5 +340,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
