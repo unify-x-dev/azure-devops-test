@@ -440,6 +440,7 @@
 				"branch1":"=SUM({{ n_xu7kj.outputs.item }},{{ n_IINHV.outputs.index }})"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -578,6 +579,7 @@
 				"branch2":"=SUM({{ n_7o1qU.outputs.index }},{{ n_Q5zqh.outputs.index }})"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -636,7 +638,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_8D7b8@_ZzqHP-1@3",
 			"id":"n_8D7b8@3",
@@ -669,7 +671,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_8D7b8@_ZzqHP-1@3",
 			"id":"n_XmBwy",
@@ -772,6 +774,7 @@
 				"defaultBranch":"=SUM({{ n_nCmQ3.outputs.index }},{{ n_D1JJd.outputs.index }})"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
