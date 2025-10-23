@@ -68,7 +68,7 @@
 	"id":"68f8d176a4a9af05e1e3052e",
 	"lastModifiedBy":189756,
 	"lcName":"chirag_training",
-	"modifiedTime":1761221504523,
+	"modifiedTime":1761221690819,
 	"name":"chirag_training",
 	"nodes":[
 		{
@@ -503,7 +503,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fTPGq-1",
 			"id":"n_Nh80C",
@@ -512,6 +512,7 @@
 				"insertLocation":"START",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
+					"source":"{{ n_22cnx.outputs.rows }}",
 					"items":{
 						"obj":{
 							"details":{
@@ -625,5 +626,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":58
+	"version":59
 }
