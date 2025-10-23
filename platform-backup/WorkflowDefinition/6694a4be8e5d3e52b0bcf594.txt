@@ -1,0 +1,77 @@
+{
+	"appsUsed":[
+		"schedule",
+		"gforms"
+	],
+	"createdTime":1721017534123,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"DcM99",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"DJykY",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			
+		]
+	},
+	"id":"6694a4be8e5d3e52b0bcf594",
+	"lastModifiedBy":-1,
+	"lcName":"untitled",
+	"modifiedTime":1721679260579,
+	"name":"Untitled",
+	"nodes":[
+		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":33,
+				"resourceName":"schedule_default"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"DcM99-1",
+			"id":"DcM99",
+			"index":0,
+			"inputs":{
+				"cron":"INTERVAL",
+				"interval":15,
+				"frequency":"MINUTES"
+			},
+			"skip":false,
+			"title":"New recurring event",
+			"trigger":{
+				"type":"SCHEDULED"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"gforms",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"DcM99-1",
+			"id":"DJykY",
+			"index":0,
+			"skip":false,
+			"subTitle":"Google Forms",
+			"title":"Select an action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":520,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true
+	},
+	"standard":false,
+	"version":2
+}
