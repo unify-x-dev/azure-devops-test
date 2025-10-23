@@ -24,7 +24,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761220000728,
+	"modifiedTime":1761220119002,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -39,7 +39,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -130,9 +130,12 @@
 							"title":"Data Sources"
 						},
 						"checks":{
-							"type":"object",
-							"properties":{},
-							"additionalProperties":false,
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
 							"title":"Checks"
 						}
 					}
@@ -154,7 +157,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
@@ -213,5 +216,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
