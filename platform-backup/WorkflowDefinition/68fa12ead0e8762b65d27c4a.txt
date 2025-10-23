@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761228331254,
+		"deployedAt":1761233473064,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fa362b09a9645288269e74",
+		"deployedDefinitionId":"68fa4a405326c47f024bb0b3",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":5
+		"version":4,
+		"workflowVersion":6
 	},
 	"edges":[
 		{
@@ -47,7 +47,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761233471147,
+	"modifiedTime":1761233655067,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -319,7 +319,7 @@
 			"inputs":{
 				"filters":[
 					{
-						"property":"=LEN({{ n_h8DaG.outputs.result.outputList[0].blockId }})",
+						"property":"=LEN({{ n_h8DaG.outputs.result.outputList }})",
 						"filter":{
 							"operator":"EQUAL",
 							"value":"0"
@@ -417,5 +417,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
