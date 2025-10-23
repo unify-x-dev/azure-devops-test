@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761220121942,
+		"deployedAt":1761228331254,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fa16192f9999274c827a0d",
+		"deployedDefinitionId":"68fa362b09a9645288269e74",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":3
+		"version":3,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
@@ -24,14 +24,30 @@
 			"fromNodeId":"n_h8DaG",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_txMg9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_txMg9",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_nQDPb",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_txMg9",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_z1p2M",
 			"type":"next"
 		}
 	],
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761228329110,
+	"modifiedTime":1761233471147,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -134,8 +150,14 @@
 							"type":"array",
 							"items":{
 								"type":"object",
-								"properties":{},
-								"additionalProperties":false
+								"properties":{
+									"checkId":{
+										"type":"string",
+										"title":"checkId"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
 							},
 							"title":"Checks"
 						},
@@ -153,6 +175,14 @@
 									"id":{
 										"type":"string",
 										"title":"Id"
+									},
+									"entityType":{
+										"type":"string",
+										"title":"entityType"
+									},
+									"page_version":{
+										"type":"string",
+										"title":"page_version"
 									}
 								},
 								"additionalProperties":false,
@@ -193,20 +223,13 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
-						"output":{
+						"outputList":{
 							"type":"array",
 							"items":{
 								"type":"object",
 								"properties":{
-									"componentId":{
-										"type":"string",
-										"title":"componentId"
-									},
-									"ComponentName":{
-										"type":"string",
-										"title":"ComponentName"
-									},
 									"status":{
 										"type":"string",
 										"title":"status"
@@ -214,12 +237,19 @@
 									"pageId":{
 										"type":"string",
 										"title":"Page Id"
+									},
+									"blockId":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"blockId"
 									}
 								},
 								"additionalProperties":false,
 								"required":[]
 							},
-							"title":"output"
+							"title":"outputList"
 						}
 					}
 				},
@@ -254,24 +284,54 @@
 						}
 					}
 				},
-				"code":"def inputArray = Pages\ndef output = []\n\n// Recursive function to traverse blocks\ndef checkBlocks\ncheckBlocks = { blocksMap, pageId ->\n    def results = []\n    blocksMap.each { blockId, blockData ->\n        def comp = blockData?.component\n        if (!comp) return\n\n        if (comp?.componentType == \"Repeatable\") {\n            def hasPagination = comp?.content?.addOns?.page != null\n            results << [\n                pageId        : pageId,\n                componentId   : blockId ?: \"\",\n                ComponentName : blockData?.displayName ?: \"\",\n                status        : hasPagination ? \"Pass\" : \"Fail\"\n            ]\n        }\n\n        // If block has nested blocks via content.blockIds, check recursively\n        def nestedIds = comp?.content?.blockIds ?: []\n        nestedIds.each { nestedId ->\n            def nestedBlock = blocksMap[nestedId]\n            if (nestedBlock) {\n                results.addAll(checkBlocks([(nestedId): nestedBlock], pageId))\n            }\n        }\n    }\n    return results\n}\n\ninputArray.each { pageObj ->\n    def pageId = pageObj?.id ?: \"\"\n    def schema = pageObj?.page_schema ?: [:]\n    def blocks = schema?.blocks ?: [:]\n\n    def pageResults = checkBlocks(blocks, pageId)\n    output.addAll(pageResults)   // only add when repeatables exist\n}\n\nreturn [output: output]",
+				"code":"// 'page' is assumed to be the single page object provided as input\ndef outputList = []\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n * (Note: Added fix for recursive map context and slot traversal)\n */\ndef checkBlocks\ncheckBlocks = { blocksMap, pageId ->\n    // Initial call uses the provided blocksMap as the full context\n    checkBlocks(blocksMap, pageId, blocksMap)\n}\n\n// Overloaded version for recursion, carrying the full map\ncheckBlocks = { blocksToCheckMap, pageId, fullBlocksMap ->\n    def results = []\n    blocksToCheckMap.each { blockId, blockData ->\n        def comp = blockData?.component\n        if (!comp) return // Skip if component data is missing\n\n        // 1. Check if the component is a \"Repeatable\"\n        if (comp?.componentType == \"Repeatable\") {\n            // 2. Check if it has the pagination add-on\n            def hasPagination = comp?.content?.addOns?.page != null\n            // Add the full details temporarily\n            results << [\n                pageId        : pageId,\n                componentId   : blockId ?: \"\",\n                ComponentName : blockData?.displayName ?: \"\",\n                status        : hasPagination ? \"Pass\" : \"Fail\"\n            ]\n        }\n\n        // 3. Recursively check any nested blocks via content.blockIds\n        def nestedIds = comp?.content?.blockIds ?: []\n        nestedIds.each { nestedId ->\n            def nestedBlockData = fullBlocksMap[nestedId] // Look up in the full map\n            if (nestedBlockData) {\n                // Pass the specific block to check, pageId, and the full map for context\n                results.addAll(checkBlocks([(nestedId): nestedBlockData], pageId, fullBlocksMap))\n            }\n        }\n\n        // 4. Recursively check nested blocks via slots\n        def slots = comp?.slots ?: [:]\n        slots.each { slotName, slotData ->\n             def slotBlockId = slotData?.blockId\n             if (slotBlockId) {\n                 def slotBlockData = fullBlocksMap[slotBlockId] // Look up in the full map\n                 if (slotBlockData) {\n                    results.addAll(checkBlocks([(slotBlockId): slotBlockData], pageId, fullBlocksMap))\n                 }\n             }\n        }\n    }\n    return results\n}\n\n\n// --- Process the Single Page ---\ndef pageId = page?.id ?: \"\"\ndef schema = page?.page_schema ?: [:]\ndef blocks = schema?.blocks ?: [:] // This is the full map of blocks\n\n// Run the check starting with the top-level blocks\ndef pageResults = checkBlocks(blocks, pageId) // Initial call uses the simplified signature\noutputList.addAll(pageResults)\n\n// --- Filter and Format the Output ---\n// Find only the blocks that failed the pagination check\ndef failedBlocks = outputList.findAll { it.status == \"Fail\" }\ndef finalOutput = [:] // Initialize as empty map\n\n// Only populate the output map if failures were found\nif (!failedBlocks.isEmpty()) {\n    // If some blocks failed, output page ID, failed status, and the IDs of failed blocks\n    def failedBlockIds = failedBlocks.collect { it.componentId }\n    finalOutput = [\n        pageID: pageId,\n        status: \"failed\",\n        blocksIDs: failedBlockIds\n    ]\n}\n// If failedBlocks is empty, finalOutput remains an empty map {}\n\n// Return the map (either populated with failure info or empty)\nreturn finalOutput",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"Pages":{
-						"source":"{{ n_NIGU9.outputs.items }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"page_schema":"{{ n_NIGU9.outputs.items[0].page_schema }}",
-							"id":"{{ n_NIGU9.outputs.items[0].id }}"
-						}
+							"page_schema":"{{ n_PQRFu.outputs.page[0].page_schema }}",
+							"id":"{{ n_PQRFu.outputs.page[0].id }}"
+						},
+						"source":"{{ n_PQRFu.outputs.page }}"
 					}
 				}
 			},
-			"skip":true,
-			"subTitle":"Code by UnifyApps",
+			"skip":false,
+			"subTitle":"Repeatable + pagination",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_z6eK1-1",
+			"id":"n_txMg9",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"=LEN({{ n_h8DaG.outputs.result.outputList[0].blockId }})",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"0"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
 		},
 		{
 			"context":{
@@ -283,36 +343,53 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_z6eK1-1",
+			"groupId":"n_txMg9@_z6eK1-1@y",
 			"id":"n_nQDPb",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"result":{
-					"entityVersion":1,
-					"entityType":"1",
-					"entityId":"1",
-					"checkId":"1",
-					"status":"1",
+					"entityType":"{{ n_PQRFu.outputs.page[0].entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.page[0].id }}",
+					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
+					"status":"successful",
 					"entities":{
 						"blockIds":{
-							"source":"1",
+							"source":"{{ n_h8DaG.outputs.result.outputList[0].blockId }}",
 							"ua:type":"mappedArray",
-							"items":"1"
-						},
-						"variables":{
-							"source":"1",
+							"items":"{{ n_h8DaG.outputs.result.outputList[0].blockId[0] }}"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1089,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_txMg9@_z6eK1-1@n",
+			"id":"_z1p2M",
+			"index":5,
+			"inputs":{
+				"result":{
+					"entityType":"{{ n_PQRFu.outputs.page[0].entityType }}",
+					"entityId":"{{ n_h8DaG.outputs.result.outputList[0].pageId }}",
+					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
+					"status":"{{ n_h8DaG.outputs.result.outputList[0].status }}",
+					"entities":{
+						"blockIds":{
+							"source":"{{ n_h8DaG.outputs.result.outputList[0].blockId }}",
 							"ua:type":"mappedArray",
-							"items":"1"
-						},
-						"functions":{
-							"source":"1",
-							"ua:type":"mappedArray",
-							"items":"1"
-						},
-						"dataSources":{
-							"source":"1",
-							"ua:type":"mappedArray",
-							"items":"1"
+							"items":"{{ n_h8DaG.outputs.result.outputList[0].blockId[0] }}"
 						}
 					}
 				}
@@ -340,5 +417,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
