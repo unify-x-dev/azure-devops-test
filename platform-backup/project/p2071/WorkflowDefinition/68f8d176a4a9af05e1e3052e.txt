@@ -68,7 +68,7 @@
 	"id":"68f8d176a4a9af05e1e3052e",
 	"lastModifiedBy":189756,
 	"lcName":"chirag_training",
-	"modifiedTime":1761221832613,
+	"modifiedTime":1761221939206,
 	"name":"chirag_training",
 	"nodes":[
 		{
@@ -163,7 +163,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_fTPGq-1",
 			"id":"n_QbaI8",
@@ -503,6 +503,15 @@
 								},
 								"source":"{{ n_22cnx.outputs.rows }}"
 							}
+						},
+						"results":{
+							"source":"{{ n_22cnx.outputs.rows }}",
+							"ua:type":"mappedArray",
+							"items":{
+								"id":"{{ n_22cnx.outputs.rows[0].id__0 }}",
+								"name":"{{ n_22cnx.outputs.rows[0].name__1 }}",
+								"designation":"{{ n_22cnx.outputs.rows[0].designation__2 }}"
+							}
 						}
 					}
 				},
@@ -528,7 +537,7 @@
 			"index":5,
 			"inputs":{
 				"repeatMode":"SINGLE",
-				"listSource":"{{ n_QbaI8.outputs.items[0].obj.details[0] }}",
+				"listSource":"{{ n_QbaI8.outputs.items[0].results }}",
 				"captureIterations":false
 			},
 			"skip":false,
@@ -605,5 +614,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":63
+	"version":64
 }
