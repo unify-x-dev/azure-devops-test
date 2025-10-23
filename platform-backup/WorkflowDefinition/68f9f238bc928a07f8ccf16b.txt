@@ -95,7 +95,7 @@
 	"id":"68f9f238bc928a07f8ccf16b",
 	"lastModifiedBy":45011,
 	"lcName":"[dnt] multi tenancy | fetch all identity providers",
-	"modifiedTime":1761215622016,
+	"modifiedTime":1761217023737,
 	"name":"[DNT] Multi Tenancy | Fetch All Identity Providers",
 	"nodes":[
 		{
@@ -193,7 +193,6 @@
 				"limit":1000
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -466,7 +465,6 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -897,7 +895,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_bnMsV",
@@ -906,10 +904,10 @@
 				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
-					"source":"{{ n_5sjiu.outputs.result.response.objects }}",
+					"source":"{{ n_JU5Gr.outputs.response.objects }}",
 					"items":{
 						"assetClass":"MDM_MODEL",
-						"assetId":"{{ n_5sjiu.outputs.result.response.objects[0].id }}"
+						"assetId":"{{ n_JU5Gr.outputs.response.objects[0].id }}"
 					}
 				},
 				"listName":"{{ n_uIfRr.outputs.items[0] }}"
@@ -937,7 +935,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"=LEN({{ n_5sjiu.outputs.result.response.objects }})",
+							"property":"=LEN({{ n_feENT.outputs.objects }})",
 							"filter":{
 								"operator":"LT",
 								"value":"{{ n_pNNqv.outputs.limit }}"
@@ -1027,5 +1025,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
