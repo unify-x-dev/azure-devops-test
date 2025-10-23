@@ -179,7 +179,7 @@
 	"id":"68fa0e03d949492472f95fbe",
 	"lastModifiedBy":308,
 	"lcName":"validatesans",
-	"modifiedTime":1761218176906,
+	"modifiedTime":1761218249017,
 	"name":"validateSans",
 	"nodes":[
 		{
@@ -268,7 +268,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_NiNzJ.outputs.Array }}",
+										"property":"{{ n_dvWvO.outputs.Array }}",
 										"filter":{
 											"operator":"CONTAINS",
 											"value":"branch2"
@@ -359,7 +359,7 @@
 			"index":5,
 			"inputs":{
 				"start":0,
-				"limit":"{{ n_NiNzJ.outputs.inputField1 }}",
+				"limit":"{{ n_dvWvO.outputs.inputField1 }}",
 				"step":1,
 				"captureIterations":true
 			},
@@ -435,7 +435,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_NiNzJ.outputs.Array }}",
+							"property":"{{ n_dvWvO.outputs.Array }}",
 							"filter":{
 								"operator":"CONTAINS",
 								"value":"branch2"
@@ -466,7 +466,7 @@
 				"condition":{
 					"filters":[
 						{
-							"property":"{{ n_NiNzJ.outputs.inputField1 }}",
+							"property":"{{ n_dvWvO.outputs.inputField1 }}",
 							"filter":{
 								"operator":"LT",
 								"value":"5"
@@ -497,7 +497,7 @@
 			"index":9,
 			"inputs":{
 				"start":0,
-				"limit":"{{ n_NiNzJ.outputs.inputField2 }}",
+				"limit":"{{ n_dvWvO.outputs.inputField2 }}",
 				"step":1,
 				"captureIterations":true
 			},
@@ -569,7 +569,19 @@
 			"id":"n_maCpG",
 			"index":11,
 			"inputs":{
-				"loop":"n_7o1qU"
+				"loop":"n_7o1qU",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"subTitle":"Break",
@@ -591,7 +603,7 @@
 			"index":12,
 			"inputs":{
 				"start":0,
-				"limit":"{{ n_NiNzJ.outputs.inputField2 }}",
+				"limit":"{{ n_dvWvO.outputs.inputField2 }}",
 				"step":1,
 				"captureIterations":true
 			},
@@ -617,7 +629,7 @@
 				"condition":{
 					"filters":[
 						{
-							"property":"{{ n_NiNzJ.outputs.inputField1 }}",
+							"property":"{{ n_dvWvO.outputs.inputField1 }}",
 							"filter":{
 								"operator":"LT",
 								"value":"5"
@@ -696,7 +708,19 @@
 			"id":"n_LrjwM",
 			"index":15,
 			"inputs":{
-				"loop":"n_nCmQ3"
+				"loop":"n_nCmQ3",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"subTitle":"Break",
@@ -737,5 +761,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":5
+	"version":6
 }
