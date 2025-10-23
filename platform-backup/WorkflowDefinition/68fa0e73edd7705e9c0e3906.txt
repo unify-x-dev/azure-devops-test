@@ -9,14 +9,14 @@
 			"fromNodeId":"n_YC4yG",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_SnSHg",
+			"toNodeId":"n_BCs9K",
 			"type":"next"
 		}
 	],
 	"id":"68fa0e73edd7705e9c0e3906",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761218185238,
+	"modifiedTime":1761218347320,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -26,7 +26,7 @@
 				"resourceName":"storage_by_unifyapps_on_any_change"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_YC4yG",
@@ -43,14 +43,46 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4574,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
-			"id":"_SnSHg",
+			"id":"n_BCs9K",
 			"index":2,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_interfacePageId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_YC4yG.outputs.object.id }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"e_data_source",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":100
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
 		}
 	],
@@ -71,5 +103,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
