@@ -1,6 +1,14 @@
 {
 	"createdTime":1761259394381,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761259394725,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68faaf8203b79b4cf2c9d237",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":3
+	},
 	"edges":[
 		{
 			"fromNodeId":"3MWHo",
@@ -34,7 +42,7 @@
 	"id":"68faaeee5d80bf25ae06c6f8",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa25157994844",
-	"modifiedTime":1761259394381,
+	"modifiedTime":1761259394727,
 	"name":"changeSetQA25157994844",
 	"nodes":[
 		{
@@ -397,6 +405,7 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
