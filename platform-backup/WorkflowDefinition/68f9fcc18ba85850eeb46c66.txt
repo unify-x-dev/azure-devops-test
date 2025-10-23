@@ -9,14 +9,14 @@
 			"fromNodeId":"_bvl9M",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_EY5jr",
+			"toNodeId":"n_r1n02",
 			"type":"next"
 		}
 	],
 	"id":"68f9fcc18ba85850eeb46c66",
 	"lastModifiedBy":92316,
 	"lcName":"automation1",
-	"modifiedTime":1761213639418,
+	"modifiedTime":1761213670514,
 	"name":"automation1",
 	"nodes":[
 		{
@@ -34,15 +34,20 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_bvl9M-1",
-			"id":"_EY5jr",
+			"id":"n_r1n02",
 			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Select an action",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":92316,
@@ -62,5 +67,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
