@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761238616804,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_oMKEc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_WFQBq",
+			"type":"next"
+		}
+	],
+	"id":"68fa5e58090db2731b8f801a",
+	"lastModifiedBy":161163,
+	"lcName":"test mongo",
+	"modifiedTime":1761238616804,
+	"name":"Test Mongo",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_oMKEc-1",
+			"id":"_oMKEc",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_oMKEc-1",
+			"id":"_WFQBq",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":161163,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
