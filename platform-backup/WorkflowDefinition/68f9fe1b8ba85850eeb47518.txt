@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761213979254,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_TfGIk",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ilsfI",
+			"type":"next"
+		}
+	],
+	"id":"68f9fe1b8ba85850eeb47518",
+	"lastModifiedBy":92316,
+	"lcName":"automation",
+	"modifiedTime":1761213979254,
+	"name":"automation",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_TfGIk-1",
+			"id":"_TfGIk",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_TfGIk-1",
+			"id":"_ilsfI",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":92316,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
