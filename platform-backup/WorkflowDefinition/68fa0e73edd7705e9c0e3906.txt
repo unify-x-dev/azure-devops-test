@@ -1,12 +1,12 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761218163690,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_ZMmc1",
+			"fromNodeId":"n_YC4yG",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_SnSHg",
@@ -16,18 +16,27 @@
 	"id":"68fa0e73edd7705e9c0e3906",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761218163690,
+	"modifiedTime":1761218185238,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4544,
+				"resourceName":"storage_by_unifyapps_on_any_change"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
-			"id":"_ZMmc1",
-			"index":0,
+			"id":"n_YC4yG",
+			"index":1,
+			"inputs":{
+				"object_type":"e_component"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Changed record",
 			"trigger":{
 				"type":"EVENT"
 			},
@@ -39,13 +48,16 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"_SnSHg",
-			"index":0,
+			"index":2,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":23949,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +71,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
