@@ -45,11 +45,11 @@
 			"fromNodeId":"n_JU5Gr",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_4Dzew",
+			"toNodeId":"n_NhvIv",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_4Dzew",
+			"fromNodeId":"n_NhvIv",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_E9D2i",
@@ -102,7 +102,7 @@
 	"id":"68f9f238bc928a07f8ccf16b",
 	"lastModifiedBy":46030,
 	"lcName":"[dnt] multi tenancy | fetch all identity providers",
-	"modifiedTime":1761217549507,
+	"modifiedTime":1761217670439,
 	"name":"[DNT] Multi Tenancy | Fetch All Identity Providers",
 	"nodes":[
 		{
@@ -569,94 +569,55 @@
 		},
 		{
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1070,
-				"resourceName":"variable_by_unifyapps_create_variables",
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1015,
+				"resourceName":"code_by_unifyapps_groovy",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
-			"id":"n_4Dzew",
+			"id":"n_NhvIv",
 			"index":6,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{},
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"objec":{
-							"type":"object",
-							"properties":{},
-							"additionalProperties":false,
-							"title":"Objec"
-						},
-						"name":{
-							"type":"string",
-							"title":"Name"
-						},
-						"list":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{},
-								"additionalProperties":false
-							},
-							"title":"List"
-						}
-					},
-					"required":[
-						"name",
-						"list"
-					]
-				}
-			},
 			"inputs":{
-				"name":"{{ n_JU5Gr.outputs.name }}",
-				"list":{
-					"source":"{{ n_JU5Gr.outputs.response.objects }}",
-					"ua:type":"mappedArray"
-				},
-				"objec":"{{ n_JU5Gr.outputs.response }}"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"additionalProperties":false,
+				"output":{
 					"type":"object",
+					"additionalProperties":false,
+					"required":[],
 					"properties":{
-						"objec":{
+						"idps":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Idps"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"response":{
 							"type":"object",
 							"properties":{},
 							"additionalProperties":false,
-							"title":"Objec"
-						},
-						"name":{
-							"type":"string",
-							"title":"Name"
-						},
-						"list":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{},
-								"additionalProperties":false
-							},
-							"title":"List"
+							"title":"Response"
 						}
-					},
-					"required":[
-						"name",
-						"list"
-					]
+					}
+				},
+				"code":"return [\n  \"idps\": response.objects\n]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"response":"{{ n_JU5Gr.outputs.response }}"
 				}
 			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create variables",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
 		{
@@ -994,7 +955,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_bnMsV",
@@ -1003,10 +964,10 @@
 				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
-					"source":"{{ n_uIfRr.outputs.items }}",
+					"source":"{{ n_NhvIv.outputs.result.idps }}",
 					"items":{
 						"assetClass":"MDM_MODEL",
-						"assetId":"hi"
+						"assetId":"{{ n_NhvIv.outputs.result.idps[0] }}"
 					}
 				},
 				"listName":"{{ n_uIfRr.outputs.items[0] }}"
@@ -1124,5 +1085,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
