@@ -52,20 +52,6 @@
 			"fromNodeId":"n_NhvIv",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_E9D2i",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_E9D2i",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_5sjiu",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_5sjiu",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_bnMsV",
 			"type":"next"
 		},
@@ -100,9 +86,9 @@
 		}
 	],
 	"id":"68f9f238bc928a07f8ccf16b",
-	"lastModifiedBy":46030,
+	"lastModifiedBy":45011,
 	"lcName":"[dnt] multi tenancy | fetch all identity providers",
-	"modifiedTime":1761217777230,
+	"modifiedTime":1761218975929,
 	"name":"[DNT] Multi Tenancy | Fetch All Identity Providers",
 	"nodes":[
 		{
@@ -200,7 +186,6 @@
 				"limit":1000
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -473,7 +458,6 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -631,326 +615,6 @@
 			"type":"ACTION"
 		},
 		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1092,
-				"resourceName":"utility_by_unifyapps_to_json_string",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_pVMhd@_tT02q-1@l",
-			"id":"n_E9D2i",
-			"index":7,
-			"inputs":{
-				"object":"{{ n_JU5Gr.outputs.response }}"
-			},
-			"skip":true,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Serialise object to JSON string",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1081,
-				"resourceName":"utility_by_unifyapps_to_json_object",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_pVMhd@_tT02q-1@l",
-			"id":"n_5sjiu",
-			"index":8,
-			"inputs":{
-				"jsonSchema":{
-					"type":"object",
-					"additionalProperties":false,
-					"properties":{
-						"response":{
-							"type":"object",
-							"properties":{
-								"hasMore":{
-									"type":"boolean",
-									"title":"hasMore"
-								},
-								"objects":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{
-											"active":{
-												"type":"boolean",
-												"title":"active"
-											},
-											"allowPackagedSession":{
-												"type":"boolean",
-												"title":"allowPackagedSession"
-											},
-											"allowedMaxLoginFailures":{
-												"type":"integer",
-												"title":"allowedMaxLoginFailures"
-											},
-											"applicationId":{
-												"type":"string",
-												"title":"applicationId"
-											},
-											"autoCreateUser":{
-												"type":"boolean",
-												"title":"autoCreateUser"
-											},
-											"createTemporarySession":{
-												"type":"boolean",
-												"title":"createTemporarySession"
-											},
-											"createdTime":{
-												"type":"integer",
-												"title":"createdTime"
-											},
-											"deleted":{
-												"type":"boolean",
-												"title":"deleted"
-											},
-											"enableRefreshToken":{
-												"type":"boolean",
-												"title":"enableRefreshToken"
-											},
-											"excludeRedirectUrlFromResponse":{
-												"type":"boolean",
-												"title":"excludeRedirectUrlFromResponse"
-											},
-											"external":{
-												"type":"boolean",
-												"title":"external"
-											},
-											"id":{
-												"type":"string",
-												"title":"id"
-											},
-											"keepExternalSession":{
-												"type":"boolean",
-												"title":"keepExternalSession"
-											},
-											"lastModifiedBy":{
-												"type":"integer",
-												"title":"lastModifiedBy"
-											},
-											"modifiedTime":{
-												"type":"integer",
-												"title":"modifiedTime"
-											},
-											"name":{
-												"type":"string",
-												"title":"name"
-											},
-											"ownerUserId":{
-												"type":"integer",
-												"title":"ownerUserId"
-											},
-											"partitionDisabled":{
-												"type":"boolean",
-												"title":"partitionDisabled"
-											},
-											"restrictMultipleSessions":{
-												"type":"boolean",
-												"title":"restrictMultipleSessions"
-											},
-											"showRemainingLoginAttempts":{
-												"type":"boolean",
-												"title":"showRemainingLoginAttempts"
-											},
-											"singleTabSession":{
-												"type":"boolean",
-												"title":"singleTabSession"
-											},
-											"standard":{
-												"type":"boolean",
-												"title":"standard"
-											},
-											"type":{
-												"type":"string",
-												"title":"type"
-											},
-											"uiConfig":{
-												"type":"object",
-												"properties":{
-													"form":{
-														"type":"object",
-														"properties":{
-															"schema":{
-																"type":"object",
-																"properties":{
-																	"type":{
-																		"type":"string",
-																		"title":"type"
-																	},
-																	"properties":{
-																		"type":"object",
-																		"properties":{
-																			"username":{
-																				"type":"object",
-																				"properties":{
-																					"type":{
-																						"type":"string",
-																						"title":"type"
-																					},
-																					"title":{
-																						"type":"string",
-																						"title":"title"
-																					}
-																				},
-																				"title":"username",
-																				"additionalProperties":false
-																			},
-																			"password":{
-																				"type":"object",
-																				"properties":{
-																					"type":{
-																						"type":"string",
-																						"title":"type"
-																					},
-																					"title":{
-																						"type":"string",
-																						"title":"title"
-																					}
-																				},
-																				"title":"password",
-																				"additionalProperties":false
-																			},
-																			"rememberMe":{
-																				"type":"object",
-																				"properties":{
-																					"type":{
-																						"type":"string",
-																						"title":"type"
-																					}
-																				},
-																				"title":"rememberMe",
-																				"additionalProperties":false
-																			}
-																		},
-																		"title":"properties",
-																		"additionalProperties":false
-																	},
-																	"required":{
-																		"type":"array",
-																		"items":{
-																			"type":"string"
-																		},
-																		"title":"required"
-																	}
-																},
-																"title":"schema",
-																"additionalProperties":false
-															},
-															"componentType":{
-																"type":"string",
-																"title":"componentType"
-															},
-															"uiSchema":{
-																"type":"object",
-																"properties":{
-																	"username":{
-																		"type":"object",
-																		"properties":{
-																			"ui:title":{
-																				"type":"string",
-																				"title":"ui:title"
-																			},
-																			"ui:placeholder":{
-																				"type":"string",
-																				"title":"ui:placeholder"
-																			}
-																		},
-																		"title":"username",
-																		"additionalProperties":false
-																	},
-																	"password":{
-																		"type":"object",
-																		"properties":{
-																			"ui:title":{
-																				"type":"string",
-																				"title":"ui:title"
-																			},
-																			"ui:placeholder":{
-																				"type":"string",
-																				"title":"ui:placeholder"
-																			},
-																			"ui:widget":{
-																				"type":"string",
-																				"title":"ui:widget"
-																			}
-																		},
-																		"title":"password",
-																		"additionalProperties":false
-																	},
-																	"rememberMe":{
-																		"type":"object",
-																		"properties":{
-																			"ui:title":{
-																				"type":"string",
-																				"title":"ui:title"
-																			}
-																		},
-																		"title":"rememberMe",
-																		"additionalProperties":false
-																	}
-																},
-																"title":"uiSchema",
-																"additionalProperties":false
-															},
-															"blockIds":{
-																"type":"array",
-																"items":{
-																	"type":"string"
-																},
-																"title":"blockIds"
-															}
-														},
-														"title":"form",
-														"additionalProperties":false
-													},
-													"type":{
-														"type":"string",
-														"title":"type"
-													}
-												},
-												"title":"uiConfig",
-												"additionalProperties":false
-											},
-											"userCustomAttributesSync":{
-												"type":"boolean",
-												"title":"userCustomAttributesSync"
-											},
-											"version":{
-												"type":"integer",
-												"title":"version"
-											}
-										},
-										"additionalProperties":false
-									},
-									"title":"objects"
-								},
-								"type":{
-									"type":"string",
-									"title":"type"
-								}
-							},
-							"title":"response",
-							"additionalProperties":false
-						}
-					}
-				},
-				"jsonString":"{{ n_E9D2i.outputs.result }}"
-			},
-			"skip":true,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Deserialise string to JSON object",
-			"type":"ACTION"
-		},
-		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.itemsToAdd.items.assetClass",
@@ -969,7 +633,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_bnMsV",
-			"index":9,
+			"index":7,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -995,17 +659,17 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_iq93A",
-			"index":10,
+			"index":8,
 			"inputs":{
 				"loop":"n_pVMhd",
 				"conditions":{
 					"filters":[
 						{
-							"property":"=LEN({{ n_feENT.outputs.objects }})",
+							"property":"=LEN({{ n_NhvIv.outputs.result.idps }})",
 							"filter":{
 								"operator":"LT",
 								"value":"{{ n_pNNqv.outputs.limit }}"
@@ -1032,7 +696,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_v7zdl",
-			"index":11,
+			"index":9,
 			"inputs":{
 				"variables":[
 					{
@@ -1058,7 +722,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_tT02q-1",
 			"id":"n_1rXuq",
-			"index":12,
+			"index":10,
 			"inputs":{
 				"result":{}
 			},
@@ -1085,5 +749,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
