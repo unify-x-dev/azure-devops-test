@@ -3,7 +3,7 @@
 		
 	],
 	"createdTime":1761256965027,
-	"deleted":false,
+	"deleted":true,
 	"edges":[
 		{
 			"fromNodeId":"KGcta",
@@ -16,7 +16,7 @@
 	"id":"68faa5b564381e755be854ab",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa21761256885050eqtmtspaay",
-	"modifiedTime":1761256965027,
+	"modifiedTime":1761257070982,
 	"name":"changeSetQA21761256885050EQtMTspaAY",
 	"nodes":[
 		{
@@ -39,11 +39,11 @@
 						"properties":{
 							"b":{
 								"type":"integer",
-								"title":"b"
+								"title":"B"
 							},
 							"a":{
 								"type":"integer",
-								"title":"a"
+								"title":"A"
 							}
 						},
 						"additionalProperties":false,
@@ -85,16 +85,17 @@
 					"properties":{
 						"c":{
 							"type":"integer",
-							"title":"c"
+							"title":"C"
 						}
 					},
 					"required":[]
 				}
 			},
 			"inputs":{
-				"c":"=SUM({{ KGcta.outputs.body.a }},{{ KGcta.outputs.body.b }})"
+				"c":"=PRODUCT({{ KGcta.outputs.body.a }},{{ KGcta.outputs.body.b }})"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -102,7 +103,7 @@
 					"properties":{
 						"c":{
 							"type":"integer",
-							"title":"c"
+							"title":"C"
 						}
 					},
 					"required":[]
@@ -131,5 +132,5 @@
 	"tags":[
 		"CHANGE_SET_AUTO_DND"
 	],
-	"version":1
+	"version":3
 }
