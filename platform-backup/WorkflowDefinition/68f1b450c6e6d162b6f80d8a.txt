@@ -1,0 +1,1096 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1760670800608,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_hbvSt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_QPhrw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_QPhrw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IyV3n",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_IyV3n",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_85Cr9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_85Cr9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ub95J",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_ub95J",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Kam0s",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Kam0s",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aZ6Y8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_aZ6Y8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_u4ubl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_u4ubl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Ew4q6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Ew4q6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_8I5LX",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_8I5LX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_uHOnc",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_uHOnc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_QDUWj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_QDUWj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_0edHG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0edHG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_A8naE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_A8naE",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WXusD",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_WXusD",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_A8naE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_A8naE",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_MsQkl",
+			"type":"next"
+		}
+	],
+	"id":"68f1b450c6e6d162b6f80d8a",
+	"lastModifiedBy":59995,
+	"lcName":"test-extract-data-action",
+	"modifiedTime":1761213994208,
+	"name":"test-extract-data-action",
+	"nodes":[
+		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_hbvSt",
+			"index":1,
+			"skip":false,
+			"subTitle":"Webhook",
+			"title":"New event",
+			"trigger":{
+				"type":"WEBHOOK"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1077,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_QPhrw",
+			"index":2,
+			"inputs":{
+				"jsonSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"result":{
+							"type":"object",
+							"properties":{
+								"dataSource":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{
+											"2023 FW29 COGS $":{
+												"type":"integer",
+												"title":"2023 FW29 COGS $"
+											},
+											"2023 FW29 Sales $":{
+												"type":"integer",
+												"title":"2023 FW29 Sales $"
+											},
+											"2023 FW30 COGS $":{
+												"type":"integer",
+												"title":"2023 FW30 COGS $"
+											},
+											"2023 FW30 Sales $":{
+												"type":"integer",
+												"title":"2023 FW30 Sales $"
+											},
+											"2023 FW31 COGS $":{
+												"type":"integer",
+												"title":"2023 FW31 COGS $"
+											},
+											"2023 FW31 Sales $":{
+												"type":"integer",
+												"title":"2023 FW31 Sales $"
+											},
+											"2024 FW29 COGS $":{
+												"type":"integer",
+												"title":"2024 FW29 COGS $"
+											},
+											"2024 FW29 Sales $":{
+												"type":"integer",
+												"title":"2024 FW29 Sales $"
+											},
+											"2024 FW30 COGS $":{
+												"type":"integer",
+												"title":"2024 FW30 COGS $"
+											},
+											"2024 FW30 Sales $":{
+												"type":"integer",
+												"title":"2024 FW30 Sales $"
+											},
+											"2024 FW31 COGS $":{
+												"type":"integer",
+												"title":"2024 FW31 COGS $"
+											},
+											"2024 FW31 Sales $":{
+												"type":"integer",
+												"title":"2024 FW31 Sales $"
+											},
+											"2025 FW29 COGS $":{
+												"type":"string",
+												"title":"2025 FW29 COGS $"
+											},
+											"2025 FW29 Plan COGS $":{
+												"type":"string",
+												"title":"2025 FW29 Plan COGS $"
+											},
+											"2025 FW29 Plan Sales $":{
+												"type":"string",
+												"title":"2025 FW29 Plan Sales $"
+											},
+											"2025 FW29 Sales $":{
+												"type":"string",
+												"title":"2025 FW29 Sales $"
+											},
+											"2025 FW30 COGS $":{
+												"type":"integer",
+												"title":"2025 FW30 COGS $"
+											},
+											"2025 FW30 Plan COGS $":{
+												"type":"integer",
+												"title":"2025 FW30 Plan COGS $"
+											},
+											"2025 FW30 Plan Sales $":{
+												"type":"integer",
+												"title":"2025 FW30 Plan Sales $"
+											},
+											"2025 FW30 Sales $":{
+												"type":"integer",
+												"title":"2025 FW30 Sales $"
+											},
+											"2025 FW31 COGS $":{
+												"type":"integer",
+												"title":"2025 FW31 COGS $"
+											},
+											"2025 FW31 Plan COGS $":{
+												"type":"integer",
+												"title":"2025 FW31 Plan COGS $"
+											},
+											"2025 FW31 Plan Sales $":{
+												"type":"integer",
+												"title":"2025 FW31 Plan Sales $"
+											},
+											"2025 FW31 Sales $":{
+												"type":"integer",
+												"title":"2025 FW31 Sales $"
+											},
+											"Assortment #":{
+												"type":"string",
+												"title":"Assortment #"
+											},
+											"Assortment Name":{
+												"type":"string",
+												"title":"Assortment Name"
+											},
+											"Merchandise Division":{
+												"type":"string",
+												"title":"Merchandise Division"
+											},
+											"Merchandise Sub Division":{
+												"type":"string",
+												"title":"Merchandise Sub Division"
+											},
+											"Product Group #":{
+												"type":"string",
+												"title":"Product Group #"
+											},
+											"Product Group Name":{
+												"type":"string",
+												"title":"Product Group Name"
+											},
+											"Region":{
+												"type":"string",
+												"title":"Region"
+											},
+											"Region Name":{
+												"type":"string",
+												"title":"Region Name"
+											},
+											"comp2025Vs2024Percent":{
+												"type":"string",
+												"title":"comp2025Vs2024Percent"
+											},
+											"comp2YR2025Vs2023Percent":{
+												"type":"string",
+												"title":"comp2YR2025Vs2023Percent"
+											},
+											"fw29GmDeltaVsLyBps":{
+												"type":"string",
+												"title":"fw29GmDeltaVsLyBps"
+											},
+											"fw29GrossMargin2023Dollar":{
+												"type":"string",
+												"title":"fw29GrossMargin2023Dollar"
+											},
+											"fw29GrossMargin2023Percent":{
+												"type":"string",
+												"title":"fw29GrossMargin2023Percent"
+											},
+											"fw29GrossMargin2024Dollar":{
+												"type":"string",
+												"title":"fw29GrossMargin2024Dollar"
+											},
+											"fw29GrossMargin2024Percent":{
+												"type":"string",
+												"title":"fw29GrossMargin2024Percent"
+											},
+											"fw29GrossMargin2025Dollar":{
+												"type":"string",
+												"title":"fw29GrossMargin2025Dollar"
+											},
+											"fw29GrossMargin2025Percent":{
+												"type":"string",
+												"title":"fw29GrossMargin2025Percent"
+											},
+											"fw29PlanGrossMargin2025Dollar":{
+												"type":"string",
+												"title":"fw29PlanGrossMargin2025Dollar"
+											},
+											"fw29PlanGrossMargin2025Percent":{
+												"type":"string",
+												"title":"fw29PlanGrossMargin2025Percent"
+											},
+											"fw30GmDeltaVsLyBps":{
+												"type":"string",
+												"title":"fw30GmDeltaVsLyBps"
+											},
+											"fw30GrossMargin2023Dollar":{
+												"type":"string",
+												"title":"fw30GrossMargin2023Dollar"
+											},
+											"fw30GrossMargin2023Percent":{
+												"type":"string",
+												"title":"fw30GrossMargin2023Percent"
+											},
+											"fw30GrossMargin2024Dollar":{
+												"type":"string",
+												"title":"fw30GrossMargin2024Dollar"
+											},
+											"fw30GrossMargin2024Percent":{
+												"type":"string",
+												"title":"fw30GrossMargin2024Percent"
+											},
+											"fw30GrossMargin2025Dollar":{
+												"type":"string",
+												"title":"fw30GrossMargin2025Dollar"
+											},
+											"fw30GrossMargin2025Percent":{
+												"type":"string",
+												"title":"fw30GrossMargin2025Percent"
+											},
+											"fw30PlanGrossMargin2025Dollar":{
+												"type":"string",
+												"title":"fw30PlanGrossMargin2025Dollar"
+											},
+											"fw30PlanGrossMargin2025Percent":{
+												"type":"string",
+												"title":"fw30PlanGrossMargin2025Percent"
+											},
+											"fw31GmDeltaVsLyBps":{
+												"type":"string",
+												"title":"fw31GmDeltaVsLyBps"
+											},
+											"fw31GrossMargin2023Dollar":{
+												"type":"string",
+												"title":"fw31GrossMargin2023Dollar"
+											},
+											"fw31GrossMargin2023Percent":{
+												"type":"string",
+												"title":"fw31GrossMargin2023Percent"
+											},
+											"fw31GrossMargin2024Dollar":{
+												"type":"string",
+												"title":"fw31GrossMargin2024Dollar"
+											},
+											"fw31GrossMargin2024Percent":{
+												"type":"string",
+												"title":"fw31GrossMargin2024Percent"
+											},
+											"fw31GrossMargin2025Dollar":{
+												"type":"string",
+												"title":"fw31GrossMargin2025Dollar"
+											},
+											"fw31GrossMargin2025Percent":{
+												"type":"string",
+												"title":"fw31GrossMargin2025Percent"
+											},
+											"fw31PlanGrossMargin2025Dollar":{
+												"type":"string",
+												"title":"fw31PlanGrossMargin2025Dollar"
+											},
+											"fw31PlanGrossMargin2025Percent":{
+												"type":"string",
+												"title":"fw31PlanGrossMargin2025Percent"
+											},
+											"vsPlan2025Dollar":{
+												"type":"string",
+												"title":"vsPlan2025Dollar"
+											},
+											"vsPlan2025Percent":{
+												"type":"string",
+												"title":"vsPlan2025Percent"
+											}
+										},
+										"additionalProperties":false
+									},
+									"title":"dataSource"
+								},
+								"dropDownDetails":{
+									"type":"array",
+									"title":"dropDownDetails"
+								},
+								"dynamicHeaders":{
+									"type":"array",
+									"items":{
+										"type":"string"
+									},
+									"title":"dynamicHeaders"
+								},
+								"fileName":{
+									"type":"string",
+									"title":"fileName"
+								},
+								"fileType":{
+									"type":"string",
+									"title":"fileType"
+								},
+								"headerType":{
+									"type":"string",
+									"title":"headerType"
+								},
+								"sheetName":{
+									"type":"string",
+									"title":"sheetName"
+								}
+							},
+							"title":"result",
+							"additionalProperties":false
+						}
+					}
+				},
+				"jsonString":"{\n  \"result\": {\n\"dataSource\": [\n      {\n\"2023 FW29 COGS $\": 0,\n\"2023 FW29 Sales $\": 0,\n\"2023 FW30 COGS $\": 0,\n\"2023 FW30 Sales $\": 0,\n\"2023 FW31 COGS $\": 0,\n\"2023 FW31 Sales $\": 0,\n\"2024 FW29 COGS $\": 0,\n\"2024 FW29 Sales $\": 0,\n\"2024 FW30 COGS $\": 0,\n\"2024 FW30 Sales $\": 0,\n\"2024 FW31 COGS $\": 0,\n\"2024 FW31 Sales $\": 0,\n\"2025 FW29 COGS $\": \"24.621079999999996\",\n\"2025 FW29 Plan COGS $\": \"27.473010913727155\",\n\"2025 FW29 Plan Sales $\": \"43.11726932340914\",\n\"2025 FW29 Sales $\": \"37.674\",\n\"2025 FW30 COGS $\": 0,\n\"2025 FW30 Plan COGS $\": 0,\n\"2025 FW30 Plan Sales $\": 0,\n\"2025 FW30 Sales $\": 0,\n\"2025 FW31 COGS $\": 0,\n\"2025 FW31 Plan COGS $\": 0,\n\"2025 FW31 Plan Sales $\": 0,\n\"2025 FW31 Sales $\": 0,\n\"Assortment #\": \"20197\",\n\"Assortment Name\": \"SOS VENDOR DIRECT WATERNG CAN/MISTR\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510171\",\n\"Product Group Name\": \"SOS VENDOR DIRECT OUTDOOR FASHIONS\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1802)+VALUE(M1802)+VALUE(N1802))>0,((VALUE(O1802)+VALUE(P1802)+VALUE(Q1802))/(VALUE(L1802)+VALUE(M1802)+VALUE(N1802)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1802)+VALUE(J1802)+VALUE(K1802))>0,((VALUE(O1802)+VALUE(P1802)+VALUE(Q1802))/(VALUE(I1802)+VALUE(J1802)+VALUE(K1802)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1802)>0,VALUE(L1802)>0),((VALUE(O1802)-VALUE(AA1802))/VALUE(O1802)-(VALUE(L1802)-VALUE(X1802))/VALUE(L1802))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1802)-VALUE(U1802)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1802)>0,(VALUE(I1802)-VALUE(U1802))/VALUE(I1802),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1802)-VALUE(X1802)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1802)>0,(VALUE(L1802)-VALUE(X1802))/VALUE(L1802),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1802)-VALUE(AA1802)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1802)>0,(VALUE(O1802)-VALUE(AA1802))/VALUE(O1802),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1802)-VALUE(AD1802)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1802)>0,(VALUE(R1802)-VALUE(AD1802))/VALUE(R1802),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1802)>0,VALUE(M1802)>0),((VALUE(P1802)-VALUE(AB1802))/VALUE(P1802)-(VALUE(M1802)-VALUE(Y1802))/VALUE(M1802))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1802)-VALUE(V1802)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1802)>0,(VALUE(J1802)-VALUE(V1802))/VALUE(J1802),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1802)-VALUE(Y1802)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1802)>0,(VALUE(M1802)-VALUE(Y1802))/VALUE(M1802),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1802)-VALUE(AB1802)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1802)>0,(VALUE(P1802)-VALUE(AB1802))/VALUE(P1802),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1802)-VALUE(AE1802)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1802)>0,(VALUE(S1802)-VALUE(AE1802))/VALUE(S1802),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1802)>0,VALUE(N1802)>0),((VALUE(Q1802)-VALUE(AC1802))/VALUE(Q1802)-(VALUE(N1802)-VALUE(Z1802))/VALUE(N1802))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1802)-VALUE(W1802)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1802)>0,(VALUE(K1802)-VALUE(W1802))/VALUE(K1802),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1802)-VALUE(Z1802)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1802)>0,(VALUE(N1802)-VALUE(Z1802))/VALUE(N1802),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1802)-VALUE(AC1802)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1802)>0,(VALUE(Q1802)-VALUE(AC1802))/VALUE(Q1802),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1802)-VALUE(AF1802)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1802)>0,(VALUE(T1802)-VALUE(AF1802))/VALUE(T1802),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1802)+VALUE(P1802)+VALUE(Q1802))-(VALUE(R1802)+VALUE(S1802)+VALUE(T1802))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1802)+VALUE(S1802)+VALUE(T1802))>0,((VALUE(O1802)+VALUE(P1802)+VALUE(Q1802))-(VALUE(R1802)+VALUE(S1802)+VALUE(T1802)))/(VALUE(R1802)+VALUE(S1802)+VALUE(T1802)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": 0,\n\"2023 FW29 Sales $\": 0,\n\"2023 FW30 COGS $\": 0,\n\"2023 FW30 Sales $\": 0,\n\"2023 FW31 COGS $\": 0,\n\"2023 FW31 Sales $\": 0,\n\"2024 FW29 COGS $\": 0,\n\"2024 FW29 Sales $\": 0,\n\"2024 FW30 COGS $\": 0,\n\"2024 FW30 Sales $\": 0,\n\"2024 FW31 COGS $\": 0,\n\"2024 FW31 Sales $\": 0,\n\"2025 FW29 COGS $\": 0,\n\"2025 FW29 Plan COGS $\": 0,\n\"2025 FW29 Plan Sales $\": 0,\n\"2025 FW29 Sales $\": 0,\n\"2025 FW30 COGS $\": 0,\n\"2025 FW30 Plan COGS $\": 0,\n\"2025 FW30 Plan Sales $\": 0,\n\"2025 FW30 Sales $\": 0,\n\"2025 FW31 COGS $\": \"82.49223599999999\",\n\"2025 FW31 Plan COGS $\": \"77.73384866528532\",\n\"2025 FW31 Plan Sales $\": \"122.37943044034924\",\n\"2025 FW31 Sales $\": \"126.022\",\n\"Assortment #\": \"20198\",\n\"Assortment Name\": \"SOS VENDOR DIRECT WIRE BASKETS\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510171\",\n\"Product Group Name\": \"SOS VENDOR DIRECT OUTDOOR FASHIONS\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1803)+VALUE(M1803)+VALUE(N1803))>0,((VALUE(O1803)+VALUE(P1803)+VALUE(Q1803))/(VALUE(L1803)+VALUE(M1803)+VALUE(N1803)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1803)+VALUE(J1803)+VALUE(K1803))>0,((VALUE(O1803)+VALUE(P1803)+VALUE(Q1803))/(VALUE(I1803)+VALUE(J1803)+VALUE(K1803)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1803)>0,VALUE(L1803)>0),((VALUE(O1803)-VALUE(AA1803))/VALUE(O1803)-(VALUE(L1803)-VALUE(X1803))/VALUE(L1803))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1803)-VALUE(U1803)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1803)>0,(VALUE(I1803)-VALUE(U1803))/VALUE(I1803),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1803)-VALUE(X1803)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1803)>0,(VALUE(L1803)-VALUE(X1803))/VALUE(L1803),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1803)-VALUE(AA1803)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1803)>0,(VALUE(O1803)-VALUE(AA1803))/VALUE(O1803),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1803)-VALUE(AD1803)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1803)>0,(VALUE(R1803)-VALUE(AD1803))/VALUE(R1803),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1803)>0,VALUE(M1803)>0),((VALUE(P1803)-VALUE(AB1803))/VALUE(P1803)-(VALUE(M1803)-VALUE(Y1803))/VALUE(M1803))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1803)-VALUE(V1803)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1803)>0,(VALUE(J1803)-VALUE(V1803))/VALUE(J1803),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1803)-VALUE(Y1803)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1803)>0,(VALUE(M1803)-VALUE(Y1803))/VALUE(M1803),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1803)-VALUE(AB1803)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1803)>0,(VALUE(P1803)-VALUE(AB1803))/VALUE(P1803),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1803)-VALUE(AE1803)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1803)>0,(VALUE(S1803)-VALUE(AE1803))/VALUE(S1803),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1803)>0,VALUE(N1803)>0),((VALUE(Q1803)-VALUE(AC1803))/VALUE(Q1803)-(VALUE(N1803)-VALUE(Z1803))/VALUE(N1803))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1803)-VALUE(W1803)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1803)>0,(VALUE(K1803)-VALUE(W1803))/VALUE(K1803),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1803)-VALUE(Z1803)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1803)>0,(VALUE(N1803)-VALUE(Z1803))/VALUE(N1803),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1803)-VALUE(AC1803)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1803)>0,(VALUE(Q1803)-VALUE(AC1803))/VALUE(Q1803),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1803)-VALUE(AF1803)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1803)>0,(VALUE(T1803)-VALUE(AF1803))/VALUE(T1803),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1803)+VALUE(P1803)+VALUE(Q1803))-(VALUE(R1803)+VALUE(S1803)+VALUE(T1803))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1803)+VALUE(S1803)+VALUE(T1803))>0,((VALUE(O1803)+VALUE(P1803)+VALUE(Q1803))-(VALUE(R1803)+VALUE(S1803)+VALUE(T1803)))/(VALUE(R1803)+VALUE(S1803)+VALUE(T1803)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": \"-25.5612\",\n\"2023 FW29 Sales $\": \"-39.013000000000005\",\n\"2023 FW30 COGS $\": \"81.074025\",\n\"2023 FW30 Sales $\": \"123.409\",\n\"2023 FW31 COGS $\": \"131.13724\",\n\"2023 FW31 Sales $\": \"199.91400000000002\",\n\"2024 FW29 COGS $\": \"97.835364\",\n\"2024 FW29 Sales $\": \"149.47400000000002\",\n\"2024 FW30 COGS $\": 0,\n\"2024 FW30 Sales $\": 0,\n\"2024 FW31 COGS $\": \"15.096000000000002\",\n\"2024 FW31 Sales $\": \"23.035999999999998\",\n\"2025 FW29 COGS $\": \"47.207359999999994\",\n\"2025 FW29 Plan COGS $\": \"43.147473859722616\",\n\"2025 FW29 Plan Sales $\": \"67.72223279600676\",\n\"2025 FW29 Sales $\": \"72.22800000000001\",\n\"2025 FW30 COGS $\": 0,\n\"2025 FW30 Plan COGS $\": 0,\n\"2025 FW30 Plan Sales $\": 0,\n\"2025 FW30 Sales $\": 0,\n\"2025 FW31 COGS $\": \"93.11832\",\n\"2025 FW31 Plan COGS $\": \"69.40802721848144\",\n\"2025 FW31 Plan Sales $\": \"109.26595474311611\",\n\"2025 FW31 Sales $\": \"142.25900000000001\",\n\"Assortment #\": \"20199\",\n\"Assortment Name\": \"SOS VENDOR DIRECT PLNT STAND&CADDIE\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510171\",\n\"Product Group Name\": \"SOS VENDOR DIRECT OUTDOOR FASHIONS\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1804)+VALUE(M1804)+VALUE(N1804))>0,((VALUE(O1804)+VALUE(P1804)+VALUE(Q1804))/(VALUE(L1804)+VALUE(M1804)+VALUE(N1804)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1804)+VALUE(J1804)+VALUE(K1804))>0,((VALUE(O1804)+VALUE(P1804)+VALUE(Q1804))/(VALUE(I1804)+VALUE(J1804)+VALUE(K1804)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1804)>0,VALUE(L1804)>0),((VALUE(O1804)-VALUE(AA1804))/VALUE(O1804)-(VALUE(L1804)-VALUE(X1804))/VALUE(L1804))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1804)-VALUE(U1804)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1804)>0,(VALUE(I1804)-VALUE(U1804))/VALUE(I1804),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1804)-VALUE(X1804)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1804)>0,(VALUE(L1804)-VALUE(X1804))/VALUE(L1804),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1804)-VALUE(AA1804)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1804)>0,(VALUE(O1804)-VALUE(AA1804))/VALUE(O1804),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1804)-VALUE(AD1804)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1804)>0,(VALUE(R1804)-VALUE(AD1804))/VALUE(R1804),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1804)>0,VALUE(M1804)>0),((VALUE(P1804)-VALUE(AB1804))/VALUE(P1804)-(VALUE(M1804)-VALUE(Y1804))/VALUE(M1804))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1804)-VALUE(V1804)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1804)>0,(VALUE(J1804)-VALUE(V1804))/VALUE(J1804),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1804)-VALUE(Y1804)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1804)>0,(VALUE(M1804)-VALUE(Y1804))/VALUE(M1804),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1804)-VALUE(AB1804)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1804)>0,(VALUE(P1804)-VALUE(AB1804))/VALUE(P1804),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1804)-VALUE(AE1804)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1804)>0,(VALUE(S1804)-VALUE(AE1804))/VALUE(S1804),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1804)>0,VALUE(N1804)>0),((VALUE(Q1804)-VALUE(AC1804))/VALUE(Q1804)-(VALUE(N1804)-VALUE(Z1804))/VALUE(N1804))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1804)-VALUE(W1804)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1804)>0,(VALUE(K1804)-VALUE(W1804))/VALUE(K1804),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1804)-VALUE(Z1804)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1804)>0,(VALUE(N1804)-VALUE(Z1804))/VALUE(N1804),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1804)-VALUE(AC1804)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1804)>0,(VALUE(Q1804)-VALUE(AC1804))/VALUE(Q1804),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1804)-VALUE(AF1804)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1804)>0,(VALUE(T1804)-VALUE(AF1804))/VALUE(T1804),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1804)+VALUE(P1804)+VALUE(Q1804))-(VALUE(R1804)+VALUE(S1804)+VALUE(T1804))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1804)+VALUE(S1804)+VALUE(T1804))>0,((VALUE(O1804)+VALUE(P1804)+VALUE(Q1804))-(VALUE(R1804)+VALUE(S1804)+VALUE(T1804)))/(VALUE(R1804)+VALUE(S1804)+VALUE(T1804)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": 0,\n\"2023 FW29 Sales $\": 0,\n\"2023 FW30 COGS $\": 0,\n\"2023 FW30 Sales $\": 0,\n\"2023 FW31 COGS $\": \"7.76981\",\n\"2023 FW31 Sales $\": \"11.843\",\n\"2024 FW29 COGS $\": \"47.211192\",\n\"2024 FW29 Sales $\": \"72.124\",\n\"2024 FW30 COGS $\": \"82.532926\",\n\"2024 FW30 Sales $\": \"125.736\",\n\"2024 FW31 COGS $\": 0,\n\"2024 FW31 Sales $\": 0,\n\"2025 FW29 COGS $\": \"29.840341999999993\",\n\"2025 FW29 Plan COGS $\": \"29.78542120584384\",\n\"2025 FW29 Plan Sales $\": \"46.74943059793546\",\n\"2025 FW29 Sales $\": \"45.656\",\n\"2025 FW30 COGS $\": \"33.754549000000004\",\n\"2025 FW30 Plan COGS $\": \"33.583730351550805\",\n\"2025 FW30 Plan Sales $\": \"52.80078802773834\",\n\"2025 FW30 Sales $\": \"51.467000000000006\",\n\"2025 FW31 COGS $\": \"-16.586064\",\n\"2025 FW31 Plan COGS $\": \"-18.746189169533274\",\n\"2025 FW31 Plan Sales $\": \"-29.518329719267825\",\n\"2025 FW31 Sales $\": \"-25.337\",\n\"Assortment #\": \"20200\",\n\"Assortment Name\": \"VENDOR DIRECT TORCHES & CITRONELLA\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510171\",\n\"Product Group Name\": \"SOS VENDOR DIRECT OUTDOOR FASHIONS\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1805)+VALUE(M1805)+VALUE(N1805))>0,((VALUE(O1805)+VALUE(P1805)+VALUE(Q1805))/(VALUE(L1805)+VALUE(M1805)+VALUE(N1805)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1805)+VALUE(J1805)+VALUE(K1805))>0,((VALUE(O1805)+VALUE(P1805)+VALUE(Q1805))/(VALUE(I1805)+VALUE(J1805)+VALUE(K1805)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1805)>0,VALUE(L1805)>0),((VALUE(O1805)-VALUE(AA1805))/VALUE(O1805)-(VALUE(L1805)-VALUE(X1805))/VALUE(L1805))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1805)-VALUE(U1805)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1805)>0,(VALUE(I1805)-VALUE(U1805))/VALUE(I1805),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1805)-VALUE(X1805)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1805)>0,(VALUE(L1805)-VALUE(X1805))/VALUE(L1805),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1805)-VALUE(AA1805)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1805)>0,(VALUE(O1805)-VALUE(AA1805))/VALUE(O1805),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1805)-VALUE(AD1805)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1805)>0,(VALUE(R1805)-VALUE(AD1805))/VALUE(R1805),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1805)>0,VALUE(M1805)>0),((VALUE(P1805)-VALUE(AB1805))/VALUE(P1805)-(VALUE(M1805)-VALUE(Y1805))/VALUE(M1805))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1805)-VALUE(V1805)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1805)>0,(VALUE(J1805)-VALUE(V1805))/VALUE(J1805),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1805)-VALUE(Y1805)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1805)>0,(VALUE(M1805)-VALUE(Y1805))/VALUE(M1805),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1805)-VALUE(AB1805)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1805)>0,(VALUE(P1805)-VALUE(AB1805))/VALUE(P1805),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1805)-VALUE(AE1805)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1805)>0,(VALUE(S1805)-VALUE(AE1805))/VALUE(S1805),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1805)>0,VALUE(N1805)>0),((VALUE(Q1805)-VALUE(AC1805))/VALUE(Q1805)-(VALUE(N1805)-VALUE(Z1805))/VALUE(N1805))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1805)-VALUE(W1805)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1805)>0,(VALUE(K1805)-VALUE(W1805))/VALUE(K1805),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1805)-VALUE(Z1805)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1805)>0,(VALUE(N1805)-VALUE(Z1805))/VALUE(N1805),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1805)-VALUE(AC1805)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1805)>0,(VALUE(Q1805)-VALUE(AC1805))/VALUE(Q1805),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1805)-VALUE(AF1805)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1805)>0,(VALUE(T1805)-VALUE(AF1805))/VALUE(T1805),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1805)+VALUE(P1805)+VALUE(Q1805))-(VALUE(R1805)+VALUE(S1805)+VALUE(T1805))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1805)+VALUE(S1805)+VALUE(T1805))>0,((VALUE(O1805)+VALUE(P1805)+VALUE(Q1805))-(VALUE(R1805)+VALUE(S1805)+VALUE(T1805)))/(VALUE(R1805)+VALUE(S1805)+VALUE(T1805)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": \"4842.501\",\n\"2023 FW29 Sales $\": \"7389.499\",\n\"2023 FW30 COGS $\": \"5933.127825\",\n\"2023 FW30 Sales $\": \"9031.633\",\n\"2023 FW31 COGS $\": \"7377.868519999999\",\n\"2023 FW31 Sales $\": \"11247.366\",\n\"2024 FW29 COGS $\": \"4849.895519999999\",\n\"2024 FW29 Sales $\": \"7409.506\",\n\"2024 FW30 COGS $\": \"6167.2672760000005\",\n\"2024 FW30 Sales $\": \"9395.386\",\n\"2024 FW31 COGS $\": \"6910.1124\",\n\"2024 FW31 Sales $\": \"10544.612\",\n\"2025 FW29 COGS $\": \"5383.938363999999\",\n\"2025 FW29 Plan COGS $\": \"5674.378944262661\",\n\"2025 FW29 Plan Sales $\": \"8793.07189065245\",\n\"2025 FW29 Sales $\": \"8236.709\",\n\"2025 FW30 COGS $\": \"4997.755480000001\",\n\"2025 FW30 Plan COGS $\": \"5112.658323097858\",\n\"2025 FW30 Plan Sales $\": \"7935.380424562373\",\n\"2025 FW30 Sales $\": \"7621.185\",\n\"2025 FW31 COGS $\": \"6106.809455999999\",\n\"2025 FW31 Plan COGS $\": \"5919.672139591787\",\n\"2025 FW31 Plan Sales $\": \"9200.222010051462\",\n\"2025 FW31 Sales $\": \"9329.775\",\n\"Assortment #\": \"24049\",\n\"Assortment Name\": \"WATERING CANS/MISTERS\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510931\",\n\"Product Group Name\": \"YEAR ROUND OUTDOOR DECOR\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1810)+VALUE(M1810)+VALUE(N1810))>0,((VALUE(O1810)+VALUE(P1810)+VALUE(Q1810))/(VALUE(L1810)+VALUE(M1810)+VALUE(N1810)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1810)+VALUE(J1810)+VALUE(K1810))>0,((VALUE(O1810)+VALUE(P1810)+VALUE(Q1810))/(VALUE(I1810)+VALUE(J1810)+VALUE(K1810)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1810)>0,VALUE(L1810)>0),((VALUE(O1810)-VALUE(AA1810))/VALUE(O1810)-(VALUE(L1810)-VALUE(X1810))/VALUE(L1810))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1810)-VALUE(U1810)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1810)>0,(VALUE(I1810)-VALUE(U1810))/VALUE(I1810),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1810)-VALUE(X1810)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1810)>0,(VALUE(L1810)-VALUE(X1810))/VALUE(L1810),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1810)-VALUE(AA1810)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1810)>0,(VALUE(O1810)-VALUE(AA1810))/VALUE(O1810),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1810)-VALUE(AD1810)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1810)>0,(VALUE(R1810)-VALUE(AD1810))/VALUE(R1810),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1810)>0,VALUE(M1810)>0),((VALUE(P1810)-VALUE(AB1810))/VALUE(P1810)-(VALUE(M1810)-VALUE(Y1810))/VALUE(M1810))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1810)-VALUE(V1810)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1810)>0,(VALUE(J1810)-VALUE(V1810))/VALUE(J1810),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1810)-VALUE(Y1810)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1810)>0,(VALUE(M1810)-VALUE(Y1810))/VALUE(M1810),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1810)-VALUE(AB1810)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1810)>0,(VALUE(P1810)-VALUE(AB1810))/VALUE(P1810),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1810)-VALUE(AE1810)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1810)>0,(VALUE(S1810)-VALUE(AE1810))/VALUE(S1810),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1810)>0,VALUE(N1810)>0),((VALUE(Q1810)-VALUE(AC1810))/VALUE(Q1810)-(VALUE(N1810)-VALUE(Z1810))/VALUE(N1810))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1810)-VALUE(W1810)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1810)>0,(VALUE(K1810)-VALUE(W1810))/VALUE(K1810),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1810)-VALUE(Z1810)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1810)>0,(VALUE(N1810)-VALUE(Z1810))/VALUE(N1810),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1810)-VALUE(AC1810)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1810)>0,(VALUE(Q1810)-VALUE(AC1810))/VALUE(Q1810),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1810)-VALUE(AF1810)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1810)>0,(VALUE(T1810)-VALUE(AF1810))/VALUE(T1810),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1810)+VALUE(P1810)+VALUE(Q1810))-(VALUE(R1810)+VALUE(S1810)+VALUE(T1810))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1810)+VALUE(S1810)+VALUE(T1810))>0,((VALUE(O1810)+VALUE(P1810)+VALUE(Q1810))-(VALUE(R1810)+VALUE(S1810)+VALUE(T1810)))/(VALUE(R1810)+VALUE(S1810)+VALUE(T1810)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": \"3880.1106000000004\",\n\"2023 FW29 Sales $\": \"5920.928000000001\",\n\"2023 FW30 COGS $\": \"4140.808025\",\n\"2023 FW30 Sales $\": \"6303.284000000001\",\n\"2023 FW31 COGS $\": \"5000.633379999999\",\n\"2023 FW31 Sales $\": \"7623.330000000001\",\n\"2024 FW29 COGS $\": \"3555.6629399999997\",\n\"2024 FW29 Sales $\": \"5432.219\",\n\"2024 FW30 COGS $\": \"4770.797499\",\n\"2024 FW30 Sales $\": \"7267.9619999999995\",\n\"2024 FW31 COGS $\": \"5922.2321999999995\",\n\"2024 FW31 Sales $\": \"9037.132000000001\",\n\"2025 FW29 COGS $\": \"3985.5118899999993\",\n\"2025 FW29 Plan COGS $\": \"3779.2404616194676\",\n\"2025 FW29 Plan Sales $\": \"5856.345824455602\",\n\"2025 FW29 Sales $\": \"6097.312\",\n\"2025 FW30 COGS $\": \"4432.267266000001\",\n\"2025 FW30 Plan COGS $\": \"4708.6065213000875\",\n\"2025 FW30 Plan Sales $\": \"7308.252540978797\",\n\"2025 FW30 Sales $\": \"6758.856\",\n\"2025 FW31 COGS $\": \"7762.125132\",\n\"2025 FW31 Plan COGS $\": \"6343.032305613228\",\n\"2025 FW31 Plan Sales $\": \"9858.19845880043\",\n\"2025 FW31 Sales $\": \"11858.704\",\n\"Assortment #\": \"28221\",\n\"Assortment Name\": \"OPP SAUCERS & CORK MATS\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510931\",\n\"Product Group Name\": \"YEAR ROUND OUTDOOR DECOR\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1814)+VALUE(M1814)+VALUE(N1814))>0,((VALUE(O1814)+VALUE(P1814)+VALUE(Q1814))/(VALUE(L1814)+VALUE(M1814)+VALUE(N1814)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1814)+VALUE(J1814)+VALUE(K1814))>0,((VALUE(O1814)+VALUE(P1814)+VALUE(Q1814))/(VALUE(I1814)+VALUE(J1814)+VALUE(K1814)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1814)>0,VALUE(L1814)>0),((VALUE(O1814)-VALUE(AA1814))/VALUE(O1814)-(VALUE(L1814)-VALUE(X1814))/VALUE(L1814))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1814)-VALUE(U1814)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1814)>0,(VALUE(I1814)-VALUE(U1814))/VALUE(I1814),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1814)-VALUE(X1814)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1814)>0,(VALUE(L1814)-VALUE(X1814))/VALUE(L1814),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1814)-VALUE(AA1814)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1814)>0,(VALUE(O1814)-VALUE(AA1814))/VALUE(O1814),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1814)-VALUE(AD1814)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1814)>0,(VALUE(R1814)-VALUE(AD1814))/VALUE(R1814),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1814)>0,VALUE(M1814)>0),((VALUE(P1814)-VALUE(AB1814))/VALUE(P1814)-(VALUE(M1814)-VALUE(Y1814))/VALUE(M1814))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1814)-VALUE(V1814)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1814)>0,(VALUE(J1814)-VALUE(V1814))/VALUE(J1814),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1814)-VALUE(Y1814)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1814)>0,(VALUE(M1814)-VALUE(Y1814))/VALUE(M1814),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1814)-VALUE(AB1814)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1814)>0,(VALUE(P1814)-VALUE(AB1814))/VALUE(P1814),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1814)-VALUE(AE1814)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1814)>0,(VALUE(S1814)-VALUE(AE1814))/VALUE(S1814),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1814)>0,VALUE(N1814)>0),((VALUE(Q1814)-VALUE(AC1814))/VALUE(Q1814)-(VALUE(N1814)-VALUE(Z1814))/VALUE(N1814))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1814)-VALUE(W1814)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1814)>0,(VALUE(K1814)-VALUE(W1814))/VALUE(K1814),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1814)-VALUE(Z1814)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1814)>0,(VALUE(N1814)-VALUE(Z1814))/VALUE(N1814),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1814)-VALUE(AC1814)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1814)>0,(VALUE(Q1814)-VALUE(AC1814))/VALUE(Q1814),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1814)-VALUE(AF1814)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1814)>0,(VALUE(T1814)-VALUE(AF1814))/VALUE(T1814),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1814)+VALUE(P1814)+VALUE(Q1814))-(VALUE(R1814)+VALUE(S1814)+VALUE(T1814))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1814)+VALUE(S1814)+VALUE(T1814))>0,((VALUE(O1814)+VALUE(P1814)+VALUE(Q1814))-(VALUE(R1814)+VALUE(S1814)+VALUE(T1814)))/(VALUE(R1814)+VALUE(S1814)+VALUE(T1814)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": \"513.3558\",\n\"2023 FW29 Sales $\": \"783.3670000000001\",\n\"2023 FW30 COGS $\": \"558.233875\",\n\"2023 FW30 Sales $\": \"849.771\",\n\"2023 FW31 COGS $\": \"482.1264099999999\",\n\"2023 FW31 Sales $\": \"734.981\",\n\"2024 FW29 COGS $\": \"11.227175999999998\",\n\"2024 FW29 Sales $\": \"17.16\",\n\"2024 FW30 COGS $\": \"22.855429\",\n\"2024 FW30 Sales $\": \"34.814\",\n\"2024 FW31 COGS $\": \"6.538200000000001\",\n\"2024 FW31 Sales $\": \"9.984\",\n\"2025 FW29 COGS $\": 0,\n\"2025 FW29 Plan COGS $\": 0,\n\"2025 FW29 Plan Sales $\": 0,\n\"2025 FW29 Sales $\": 0,\n\"2025 FW30 COGS $\": 0,\n\"2025 FW30 Plan COGS $\": 0,\n\"2025 FW30 Plan Sales $\": 0,\n\"2025 FW30 Sales $\": 0,\n\"2025 FW31 COGS $\": \"6.938027999999999\",\n\"2025 FW31 Plan COGS $\": \"4.974547405323075\",\n\"2025 FW31 Plan Sales $\": \"7.7405932935056665\",\n\"2025 FW31 Sales $\": \"10.595\",\n\"Assortment #\": \"28225\",\n\"Assortment Name\": \"PROMO INDOOR PLANTERS\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510931\",\n\"Product Group Name\": \"YEAR ROUND OUTDOOR DECOR\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1815)+VALUE(M1815)+VALUE(N1815))>0,((VALUE(O1815)+VALUE(P1815)+VALUE(Q1815))/(VALUE(L1815)+VALUE(M1815)+VALUE(N1815)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1815)+VALUE(J1815)+VALUE(K1815))>0,((VALUE(O1815)+VALUE(P1815)+VALUE(Q1815))/(VALUE(I1815)+VALUE(J1815)+VALUE(K1815)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1815)>0,VALUE(L1815)>0),((VALUE(O1815)-VALUE(AA1815))/VALUE(O1815)-(VALUE(L1815)-VALUE(X1815))/VALUE(L1815))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1815)-VALUE(U1815)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1815)>0,(VALUE(I1815)-VALUE(U1815))/VALUE(I1815),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1815)-VALUE(X1815)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1815)>0,(VALUE(L1815)-VALUE(X1815))/VALUE(L1815),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1815)-VALUE(AA1815)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1815)>0,(VALUE(O1815)-VALUE(AA1815))/VALUE(O1815),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1815)-VALUE(AD1815)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1815)>0,(VALUE(R1815)-VALUE(AD1815))/VALUE(R1815),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1815)>0,VALUE(M1815)>0),((VALUE(P1815)-VALUE(AB1815))/VALUE(P1815)-(VALUE(M1815)-VALUE(Y1815))/VALUE(M1815))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1815)-VALUE(V1815)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1815)>0,(VALUE(J1815)-VALUE(V1815))/VALUE(J1815),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1815)-VALUE(Y1815)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1815)>0,(VALUE(M1815)-VALUE(Y1815))/VALUE(M1815),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1815)-VALUE(AB1815)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1815)>0,(VALUE(P1815)-VALUE(AB1815))/VALUE(P1815),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1815)-VALUE(AE1815)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1815)>0,(VALUE(S1815)-VALUE(AE1815))/VALUE(S1815),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1815)>0,VALUE(N1815)>0),((VALUE(Q1815)-VALUE(AC1815))/VALUE(Q1815)-(VALUE(N1815)-VALUE(Z1815))/VALUE(N1815))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1815)-VALUE(W1815)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1815)>0,(VALUE(K1815)-VALUE(W1815))/VALUE(K1815),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1815)-VALUE(Z1815)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1815)>0,(VALUE(N1815)-VALUE(Z1815))/VALUE(N1815),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1815)-VALUE(AC1815)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1815)>0,(VALUE(Q1815)-VALUE(AC1815))/VALUE(Q1815),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1815)-VALUE(AF1815)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1815)>0,(VALUE(T1815)-VALUE(AF1815))/VALUE(T1815),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1815)+VALUE(P1815)+VALUE(Q1815))-(VALUE(R1815)+VALUE(S1815)+VALUE(T1815))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1815)+VALUE(S1815)+VALUE(T1815))>0,((VALUE(O1815)+VALUE(P1815)+VALUE(Q1815))-(VALUE(R1815)+VALUE(S1815)+VALUE(T1815)))/(VALUE(R1815)+VALUE(S1815)+VALUE(T1815)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": \"1361.2512\",\n\"2023 FW29 Sales $\": \"2077.2309999999998\",\n\"2023 FW30 COGS $\": \"1715.20285\",\n\"2023 FW30 Sales $\": \"2610.9460000000004\",\n\"2023 FW31 COGS $\": \"1493.9884599999998\",\n\"2023 FW31 Sales $\": \"2277.5480000000002\",\n\"2024 FW29 COGS $\": \"447.79316399999993\",\n\"2024 FW29 Sales $\": \"684.125\",\n\"2024 FW30 COGS $\": \"387.42864000000003\",\n\"2024 FW30 Sales $\": \"590.213\",\n\"2024 FW31 COGS $\": \"921.1416\",\n\"2024 FW31 Sales $\": \"1405.6380000000001\",\n\"2025 FW29 COGS $\": \"500.7032359999999\",\n\"2025 FW29 Plan COGS $\": \"434.7594123076191\",\n\"2025 FW29 Plan Sales $\": \"673.707333178268\",\n\"2025 FW29 Sales $\": \"766.0120000000001\",\n\"2025 FW30 COGS $\": \"475.04398700000013\",\n\"2025 FW30 Plan COGS $\": \"453.7075589894233\",\n\"2025 FW30 Plan Sales $\": \"704.2053438927021\",\n\"2025 FW30 Sales $\": \"724.412\",\n\"2025 FW31 COGS $\": \"613.26666\",\n\"2025 FW31 Plan COGS $\": \"655.7238935069286\",\n\"2025 FW31 Plan Sales $\": \"1019.1043970421174\",\n\"2025 FW31 Sales $\": \"936.9230000000001\",\n\"Assortment #\": \"29188\",\n\"Assortment Name\": \"PROMO YEAR ROUND ODF\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510931\",\n\"Product Group Name\": \"YEAR ROUND OUTDOOR DECOR\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1816)+VALUE(M1816)+VALUE(N1816))>0,((VALUE(O1816)+VALUE(P1816)+VALUE(Q1816))/(VALUE(L1816)+VALUE(M1816)+VALUE(N1816)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1816)+VALUE(J1816)+VALUE(K1816))>0,((VALUE(O1816)+VALUE(P1816)+VALUE(Q1816))/(VALUE(I1816)+VALUE(J1816)+VALUE(K1816)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1816)>0,VALUE(L1816)>0),((VALUE(O1816)-VALUE(AA1816))/VALUE(O1816)-(VALUE(L1816)-VALUE(X1816))/VALUE(L1816))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1816)-VALUE(U1816)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1816)>0,(VALUE(I1816)-VALUE(U1816))/VALUE(I1816),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1816)-VALUE(X1816)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1816)>0,(VALUE(L1816)-VALUE(X1816))/VALUE(L1816),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1816)-VALUE(AA1816)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1816)>0,(VALUE(O1816)-VALUE(AA1816))/VALUE(O1816),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1816)-VALUE(AD1816)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1816)>0,(VALUE(R1816)-VALUE(AD1816))/VALUE(R1816),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1816)>0,VALUE(M1816)>0),((VALUE(P1816)-VALUE(AB1816))/VALUE(P1816)-(VALUE(M1816)-VALUE(Y1816))/VALUE(M1816))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1816)-VALUE(V1816)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1816)>0,(VALUE(J1816)-VALUE(V1816))/VALUE(J1816),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1816)-VALUE(Y1816)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1816)>0,(VALUE(M1816)-VALUE(Y1816))/VALUE(M1816),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1816)-VALUE(AB1816)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1816)>0,(VALUE(P1816)-VALUE(AB1816))/VALUE(P1816),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1816)-VALUE(AE1816)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1816)>0,(VALUE(S1816)-VALUE(AE1816))/VALUE(S1816),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1816)>0,VALUE(N1816)>0),((VALUE(Q1816)-VALUE(AC1816))/VALUE(Q1816)-(VALUE(N1816)-VALUE(Z1816))/VALUE(N1816))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1816)-VALUE(W1816)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1816)>0,(VALUE(K1816)-VALUE(W1816))/VALUE(K1816),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1816)-VALUE(Z1816)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1816)>0,(VALUE(N1816)-VALUE(Z1816))/VALUE(N1816),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1816)-VALUE(AC1816)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1816)>0,(VALUE(Q1816)-VALUE(AC1816))/VALUE(Q1816),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1816)-VALUE(AF1816)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1816)>0,(VALUE(T1816)-VALUE(AF1816))/VALUE(T1816),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1816)+VALUE(P1816)+VALUE(Q1816))-(VALUE(R1816)+VALUE(S1816)+VALUE(T1816))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1816)+VALUE(S1816)+VALUE(T1816))>0,((VALUE(O1816)+VALUE(P1816)+VALUE(Q1816))-(VALUE(R1816)+VALUE(S1816)+VALUE(T1816)))/(VALUE(R1816)+VALUE(S1816)+VALUE(T1816)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": \"5891.1936000000005\",\n\"2023 FW29 Sales $\": \"8989.773000000001\",\n\"2023 FW30 COGS $\": \"6297.4547999999995\",\n\"2023 FW30 Sales $\": \"9586.213\",\n\"2023 FW31 COGS $\": \"7455.209269999999\",\n\"2023 FW31 Sales $\": \"11365.263\",\n\"2024 FW29 COGS $\": \"6122.183147999999\",\n\"2024 FW29 Sales $\": \"9353.253\",\n\"2024 FW30 COGS $\": \"6457.573114000001\",\n\"2024 FW30 Sales $\": \"9837.659000000001\",\n\"2024 FW31 COGS $\": \"8409.9714\",\n\"2024 FW31 Sales $\": \"12833.34\",\n\"2025 FW29 COGS $\": \"6580.268501999999\",\n\"2025 FW29 Plan COGS $\": \"6384.761896956779\",\n\"2025 FW29 Plan Sales $\": \"9893.890145316953\",\n\"2025 FW29 Sales $\": \"10066.94\",\n\"2025 FW30 COGS $\": \"7235.374848000001\",\n\"2025 FW30 Plan COGS $\": \"6062.923454003819\",\n\"2025 FW30 Plan Sales $\": \"9410.282436803864\",\n\"2025 FW30 Sales $\": \"11033.373\",\n\"2025 FW31 COGS $\": \"8516.566907999999\",\n\"2025 FW31 Plan COGS $\": \"8592.300096758507\",\n\"2025 FW31 Plan Sales $\": \"13353.954465351535\",\n\"2025 FW31 Sales $\": \"13011.310000000001\",\n\"Assortment #\": \"29191\",\n\"Assortment Name\": \"PREMIUM SAUCERS & CORK MATS\",\n\"Merchandise Division\": \"LAWN & GARDEN\",\n\"Merchandise Sub Division\": \"PLANTERS & OUTDOOR DECOR\",\n\"Product Group #\": \"510931\",\n\"Product Group Name\": \"YEAR ROUND OUTDOOR DECOR\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1817)+VALUE(M1817)+VALUE(N1817))>0,((VALUE(O1817)+VALUE(P1817)+VALUE(Q1817))/(VALUE(L1817)+VALUE(M1817)+VALUE(N1817)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1817)+VALUE(J1817)+VALUE(K1817))>0,((VALUE(O1817)+VALUE(P1817)+VALUE(Q1817))/(VALUE(I1817)+VALUE(J1817)+VALUE(K1817)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1817)>0,VALUE(L1817)>0),((VALUE(O1817)-VALUE(AA1817))/VALUE(O1817)-(VALUE(L1817)-VALUE(X1817))/VALUE(L1817))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1817)-VALUE(U1817)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1817)>0,(VALUE(I1817)-VALUE(U1817))/VALUE(I1817),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1817)-VALUE(X1817)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1817)>0,(VALUE(L1817)-VALUE(X1817))/VALUE(L1817),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1817)-VALUE(AA1817)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1817)>0,(VALUE(O1817)-VALUE(AA1817))/VALUE(O1817),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1817)-VALUE(AD1817)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1817)>0,(VALUE(R1817)-VALUE(AD1817))/VALUE(R1817),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1817)>0,VALUE(M1817)>0),((VALUE(P1817)-VALUE(AB1817))/VALUE(P1817)-(VALUE(M1817)-VALUE(Y1817))/VALUE(M1817))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1817)-VALUE(V1817)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1817)>0,(VALUE(J1817)-VALUE(V1817))/VALUE(J1817),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1817)-VALUE(Y1817)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1817)>0,(VALUE(M1817)-VALUE(Y1817))/VALUE(M1817),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1817)-VALUE(AB1817)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1817)>0,(VALUE(P1817)-VALUE(AB1817))/VALUE(P1817),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1817)-VALUE(AE1817)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1817)>0,(VALUE(S1817)-VALUE(AE1817))/VALUE(S1817),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1817)>0,VALUE(N1817)>0),((VALUE(Q1817)-VALUE(AC1817))/VALUE(Q1817)-(VALUE(N1817)-VALUE(Z1817))/VALUE(N1817))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1817)-VALUE(W1817)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1817)>0,(VALUE(K1817)-VALUE(W1817))/VALUE(K1817),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1817)-VALUE(Z1817)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1817)>0,(VALUE(N1817)-VALUE(Z1817))/VALUE(N1817),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1817)-VALUE(AC1817)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1817)>0,(VALUE(Q1817)-VALUE(AC1817))/VALUE(Q1817),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1817)-VALUE(AF1817)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1817)>0,(VALUE(T1817)-VALUE(AF1817))/VALUE(T1817),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1817)+VALUE(P1817)+VALUE(Q1817))-(VALUE(R1817)+VALUE(S1817)+VALUE(T1817))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1817)+VALUE(S1817)+VALUE(T1817))>0,((VALUE(O1817)+VALUE(P1817)+VALUE(Q1817))-(VALUE(R1817)+VALUE(S1817)+VALUE(T1817)))/(VALUE(R1817)+VALUE(S1817)+VALUE(T1817)),\\\"\\\"),\\\"\\\")}\"\n      },\n      {\n\"2023 FW29 COGS $\": 0,\n\"2023 FW29 Sales $\": 0,\n\"2023 FW30 COGS $\": 0,\n\"2023 FW30 Sales $\": 0,\n\"2023 FW31 COGS $\": 0,\n\"2023 FW31 Sales $\": 0,\n\"2024 FW29 COGS $\": 0,\n\"2024 FW29 Sales $\": 0,\n\"2024 FW30 COGS $\": 0,\n\"2024 FW30 Sales $\": 0,\n\"2024 FW31 COGS $\": 0,\n\"2024 FW31 Sales $\": 0,\n\"2025 FW29 COGS $\": \"83.22331999999999\",\n\"2025 FW29 Plan COGS $\": \"84.35042088289256\",\n\"2025 FW29 Plan Sales $\": \"128.50560552275715\",\n\"2025 FW29 Sales $\": \"127.322\",\n\"2025 FW30 COGS $\": 0,\n\"2025 FW30 Plan COGS $\": 0,\n\"2025 FW30 Plan Sales $\": 0,\n\"2025 FW30 Sales $\": 0,\n\"2025 FW31 COGS $\": 0,\n\"2025 FW31 Plan COGS $\": 0,\n\"2025 FW31 Plan Sales $\": 0,\n\"2025 FW31 Sales $\": 0,\n\"Assortment #\": \"28656\",\n\"Assortment Name\": \"MW SHOP EXT HINGES\",\n\"Merchandise Division\": \"ADMIN, DELIVERY & MISC\",\n\"Merchandise Sub Division\": \"UNASSIGNED\",\n\"Product Group #\": \"588580\",\n\"Product Group Name\": \"MW SHOP COMPONENTS\",\n\"Region\": \"18\",\n\"Region Name\": \"BOSTON, MA\",\n\"comp2025Vs2024Percent\": \"{=IFERROR(IF((VALUE(L1919)+VALUE(M1919)+VALUE(N1919))>0,((VALUE(O1919)+VALUE(P1919)+VALUE(Q1919))/(VALUE(L1919)+VALUE(M1919)+VALUE(N1919)))-1,\\\"\\\"),\\\"\\\")}\",\n\"comp2YR2025Vs2023Percent\": \"{=IFERROR(IF((VALUE(I1919)+VALUE(J1919)+VALUE(K1919))>0,((VALUE(O1919)+VALUE(P1919)+VALUE(Q1919))/(VALUE(I1919)+VALUE(J1919)+VALUE(K1919)))-1,\\\"\\\"),\\\"\\\")}\",\n\"fw29GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(O1919)>0,VALUE(L1919)>0),((VALUE(O1919)-VALUE(AA1919))/VALUE(O1919)-(VALUE(L1919)-VALUE(X1919))/VALUE(L1919))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2023Dollar\": \"{=VALUE(I1919)-VALUE(U1919)}\",\n\"fw29GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(I1919)>0,(VALUE(I1919)-VALUE(U1919))/VALUE(I1919),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2024Dollar\": \"{=VALUE(L1919)-VALUE(X1919)}\",\n\"fw29GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(L1919)>0,(VALUE(L1919)-VALUE(X1919))/VALUE(L1919),\\\"\\\"),\\\"\\\")}\",\n\"fw29GrossMargin2025Dollar\": \"{=VALUE(O1919)-VALUE(AA1919)}\",\n\"fw29GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(O1919)>0,(VALUE(O1919)-VALUE(AA1919))/VALUE(O1919),\\\"\\\"),\\\"\\\")}\",\n\"fw29PlanGrossMargin2025Dollar\": \"{=VALUE(R1919)-VALUE(AD1919)}\",\n\"fw29PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(R1919)>0,(VALUE(R1919)-VALUE(AD1919))/VALUE(R1919),\\\"\\\"),\\\"\\\")}\",\n\"fw30GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(P1919)>0,VALUE(M1919)>0),((VALUE(P1919)-VALUE(AB1919))/VALUE(P1919)-(VALUE(M1919)-VALUE(Y1919))/VALUE(M1919))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2023Dollar\": \"{=VALUE(J1919)-VALUE(V1919)}\",\n\"fw30GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(J1919)>0,(VALUE(J1919)-VALUE(V1919))/VALUE(J1919),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2024Dollar\": \"{=VALUE(M1919)-VALUE(Y1919)}\",\n\"fw30GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(M1919)>0,(VALUE(M1919)-VALUE(Y1919))/VALUE(M1919),\\\"\\\"),\\\"\\\")}\",\n\"fw30GrossMargin2025Dollar\": \"{=VALUE(P1919)-VALUE(AB1919)}\",\n\"fw30GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(P1919)>0,(VALUE(P1919)-VALUE(AB1919))/VALUE(P1919),\\\"\\\"),\\\"\\\")}\",\n\"fw30PlanGrossMargin2025Dollar\": \"{=VALUE(S1919)-VALUE(AE1919)}\",\n\"fw30PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(S1919)>0,(VALUE(S1919)-VALUE(AE1919))/VALUE(S1919),\\\"\\\"),\\\"\\\")}\",\n\"fw31GmDeltaVsLyBps\": \"{=IFERROR(IF(AND(VALUE(Q1919)>0,VALUE(N1919)>0),((VALUE(Q1919)-VALUE(AC1919))/VALUE(Q1919)-(VALUE(N1919)-VALUE(Z1919))/VALUE(N1919))*10000,\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2023Dollar\": \"{=VALUE(K1919)-VALUE(W1919)}\",\n\"fw31GrossMargin2023Percent\": \"{=IFERROR(IF(VALUE(K1919)>0,(VALUE(K1919)-VALUE(W1919))/VALUE(K1919),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2024Dollar\": \"{=VALUE(N1919)-VALUE(Z1919)}\",\n\"fw31GrossMargin2024Percent\": \"{=IFERROR(IF(VALUE(N1919)>0,(VALUE(N1919)-VALUE(Z1919))/VALUE(N1919),\\\"\\\"),\\\"\\\")}\",\n\"fw31GrossMargin2025Dollar\": \"{=VALUE(Q1919)-VALUE(AC1919)}\",\n\"fw31GrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(Q1919)>0,(VALUE(Q1919)-VALUE(AC1919))/VALUE(Q1919),\\\"\\\"),\\\"\\\")}\",\n\"fw31PlanGrossMargin2025Dollar\": \"{=VALUE(T1919)-VALUE(AF1919)}\",\n\"fw31PlanGrossMargin2025Percent\": \"{=IFERROR(IF(VALUE(T1919)>0,(VALUE(T1919)-VALUE(AF1919))/VALUE(T1919),\\\"\\\"),\\\"\\\")}\",\n\"vsPlan2025Dollar\": \"{=(VALUE(O1919)+VALUE(P1919)+VALUE(Q1919))-(VALUE(R1919)+VALUE(S1919)+VALUE(T1919))}\",\n\"vsPlan2025Percent\": \"{=IFERROR(IF((VALUE(R1919)+VALUE(S1919)+VALUE(T1919))>0,((VALUE(O1919)+VALUE(P1919)+VALUE(Q1919))-(VALUE(R1919)+VALUE(S1919)+VALUE(T1919)))/(VALUE(R1919)+VALUE(S1919)+VALUE(T1919)),\\\"\\\"),\\\"\\\")}\"\n      }\n    ],\n\"dropDownDetails\": [],\n\"dynamicHeaders\": [\n\"Region\",\n\"Region Name\",\n\"Merchandise Division\",\n\"Merchandise Sub Division\",\n\"Product Group #\",\n\"Product Group Name\",\n\"Assortment #\",\n\"Assortment Name\",\n\"2023 FW29 Sales $\",\n\"2023 FW30 Sales $\",\n\"2023 FW31 Sales $\",\n\"2024 FW29 Sales $\",\n\"2024 FW30 Sales $\",\n\"2024 FW31 Sales $\",\n\"2025 FW29 Sales $\",\n\"2025 FW30 Sales $\",\n\"2025 FW31 Sales $\",\n\"2025 FW29 Plan Sales $\",\n\"2025 FW30 Plan Sales $\",\n\"2025 FW31 Plan Sales $\",\n\"2023 FW29 COGS $\",\n\"2023 FW30 COGS $\",\n\"2023 FW31 COGS $\",\n\"2024 FW29 COGS $\",\n\"2024 FW30 COGS $\",\n\"2024 FW31 COGS $\",\n\"2025 FW29 COGS $\",\n\"2025 FW30 COGS $\",\n\"2025 FW31 COGS $\",\n\"2025 FW29 Plan COGS $\",\n\"2025 FW30 Plan COGS $\",\n\"2025 FW31 Plan COGS $\",\n\"fw29GrossMargin2023Dollar\",\n\"fw30GrossMargin2023Dollar\",\n\"fw31GrossMargin2023Dollar\",\n\"fw29GrossMargin2024Dollar\",\n\"fw30GrossMargin2024Dollar\",\n\"fw31GrossMargin2024Dollar\",\n\"fw29GrossMargin2025Dollar\",\n\"fw30GrossMargin2025Dollar\",\n\"fw31GrossMargin2025Dollar\",\n\"fw29GrossMargin2023Percent\",\n\"fw30GrossMargin2023Percent\",\n\"fw31GrossMargin2023Percent\",\n\"fw29GrossMargin2024Percent\",\n\"fw30GrossMargin2024Percent\",\n\"fw31GrossMargin2024Percent\",\n\"fw29GrossMargin2025Percent\",\n\"fw30GrossMargin2025Percent\",\n\"fw31GrossMargin2025Percent\",\n\"fw29PlanGrossMargin2025Dollar\",\n\"fw30PlanGrossMargin2025Dollar\",\n\"fw31PlanGrossMargin2025Dollar\",\n\"fw29PlanGrossMargin2025Percent\",\n\"fw30PlanGrossMargin2025Percent\",\n\"fw31PlanGrossMargin2025Percent\",\n\"fw29GmDeltaVsLyBps\",\n\"fw30GmDeltaVsLyBps\",\n\"fw31GmDeltaVsLyBps\",\n\"vsPlan2025Dollar\",\n\"vsPlan2025Percent\",\n\"comp2025Vs2024Percent\",\n\"comp2YR2025Vs2023Percent\"\n    ],\n\"fileName\": \"new_file_1760465711298\",\n\"fileType\": \"xlsx\",\n\"headerType\": \"DYNAMIC\",\n\"sheetName\": \"result\"\n  }\n}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":850,
+				"resourceName":"excel_by_unifyapps_create_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_IyV3n",
+			"index":3,
+			"inputs":{
+				"fileType":"xls"
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Create an excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":851,
+				"resourceName":"excel_by_unifyapps_write_list_to_sheet",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_85Cr9",
+			"index":4,
+			"inputs":{
+				"rowOffset":30,
+				"columnOffset":30,
+				"fileDetails":"{{ n_IyV3n.outputs.fileDetails }}",
+				"sheetName":"Dummy1",
+				"headerType":"DYNAMIC",
+				"skipHeader":false,
+				"dataSource":"{{ n_QPhrw.outputs.result.result.dataSource }}",
+				"fileType":"xls",
+				"dynamicHeaders":{
+					"source":"{{ n_QPhrw.outputs.result.result.dynamicHeaders }}",
+					"ua:type":"mappedArray",
+					"items":"{{ n_QPhrw.outputs.result.result.dynamicHeaders[0] }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to sheet of Excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":851,
+				"resourceName":"excel_by_unifyapps_write_list_to_sheet",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"_ub95J",
+			"index":5,
+			"inputs":{
+				"rowOffset":3,
+				"columnOffset":3,
+				"fileDetails":"{{ n_IyV3n.outputs.fileDetails }}",
+				"sheetName":"Dummy",
+				"headerType":"DYNAMIC",
+				"skipHeader":false,
+				"dataSource":"{{ n_QPhrw.outputs.result.result.dataSource }}",
+				"fileType":"xls",
+				"dynamicHeaders":{
+					"source":"{{ n_QPhrw.outputs.result.result.dynamicHeaders }}",
+					"ua:type":"mappedArray",
+					"items":"{{ n_QPhrw.outputs.result.result.dynamicHeaders[0] }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to sheet of Excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"excel_by_unifyapps_extract_data",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_Kam0s",
+			"index":6,
+			"inputs":{
+				"endColumn":100,
+				"fileDetails":"{{ n_IyV3n.outputs.fileDetails }}",
+				"sheetName":"Dummy",
+				"startRow":1,
+				"startColumn":1,
+				"endRow":10,
+				"fileType":"xls"
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Extract Excel Data",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":906,
+				"resourceName":"excel_by_unifyapps_list_to_excel_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_aZ6Y8",
+			"index":7,
+			"inputs":{
+				"fileName":"{{ n_QPhrw.outputs.result.result.fileName }}",
+				"sheetName":"{{ n_QPhrw.outputs.result.result.sheetName }}",
+				"skipHeaderRow":false,
+				"headerType":"DYNAMIC",
+				"dataSource":"{{ n_QPhrw.outputs.result.result.dataSource }}",
+				"fileType":"xlsx",
+				"append":false,
+				"dynamicHeaders":{
+					"source":"{{ n_QPhrw.outputs.result.result.dynamicHeaders }}",
+					"ua:type":"mappedArray",
+					"items":"{{ n_QPhrw.outputs.result.result.dynamicHeaders[0] }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to Excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"excel_by_unifyapps_extract_data",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_u4ubl",
+			"index":8,
+			"inputs":{
+				"endColumn":100,
+				"fileDetails":"{{ n_aZ6Y8.outputs.fileDetails }}",
+				"startRow":10,
+				"startColumn":6,
+				"endRow":12,
+				"fileType":"xlsx"
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Extract Excel Data",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":850,
+				"resourceName":"excel_by_unifyapps_create_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"_Ew4q6",
+			"index":9,
+			"inputs":{
+				"fileType":"xlsb"
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Create an excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":851,
+				"resourceName":"excel_by_unifyapps_write_list_to_sheet",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"_8I5LX",
+			"index":10,
+			"inputs":{
+				"rowOffset":30,
+				"columnOffset":30,
+				"fileDetails":"{{ _Ew4q6.outputs.fileDetails }}",
+				"sheetName":"Dummy1",
+				"headerType":"DYNAMIC",
+				"skipHeader":false,
+				"dataSource":"{{ n_QPhrw.outputs.result.result.dataSource }}",
+				"fileType":"xlsb",
+				"dynamicHeaders":{
+					"source":"{{ n_QPhrw.outputs.result.result.dynamicHeaders }}",
+					"ua:type":"mappedArray",
+					"items":"{{ n_QPhrw.outputs.result.result.dynamicHeaders[0] }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to sheet of Excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":851,
+				"resourceName":"excel_by_unifyapps_write_list_to_sheet",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"_uHOnc",
+			"index":11,
+			"inputs":{
+				"rowOffset":3,
+				"columnOffset":3,
+				"fileDetails":"{{ _Ew4q6.outputs.fileDetails }}",
+				"sheetName":"Dummy",
+				"headerType":"DYNAMIC",
+				"skipHeader":false,
+				"dataSource":"{{ n_QPhrw.outputs.result.result.dataSource }}",
+				"fileType":"xlsb",
+				"dynamicHeaders":{
+					"source":"{{ n_QPhrw.outputs.result.result.dynamicHeaders }}",
+					"ua:type":"mappedArray",
+					"items":"{{ n_QPhrw.outputs.result.result.dynamicHeaders[0] }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to sheet of Excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"excel_by_unifyapps_extract_data",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"_QDUWj",
+			"index":12,
+			"inputs":{
+				"endColumn":100,
+				"fileDetails":"{{ _Ew4q6.outputs.fileDetails }}",
+				"sheetName":"Dummy",
+				"startRow":1,
+				"startColumn":1,
+				"endRow":10,
+				"fileType":"xlsb"
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Extract Excel Data",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1049,
+				"resourceName":"variable_by_unifyapps_create_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_0edHG",
+			"index":13,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"additionalProperties":false,
+									"type":[
+										"object",
+										"string",
+										"number",
+										"boolean",
+										"integer"
+									],
+									"properties":{}
+								}
+							}
+						}
+					}
+				}
+			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:list_type":"STRING"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"List",
+							"disableActions":true,
+							"items":{
+								"type":"string"
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_A8naE",
+			"index":14,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_u4ubl.outputs.data }}",
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":967,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_A8naE@_9riwf-1@l",
+			"id":"n_WXusD",
+			"index":15,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_A8naE.outputs.item }}",
+					"items":"{{ n_A8naE.outputs.item[0] }}"
+				},
+				"listName":"{{ n_0edHG.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9riwf-1",
+			"id":"n_MsQkl",
+			"index":16,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":59995,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":19
+}
