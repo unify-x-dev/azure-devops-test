@@ -1,51 +1,70 @@
 {
 	"appsUsed":[
-		
+		"mongo"
 	],
 	"createdTime":1761224879407,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_dVBAV",
+			"fromNodeId":"n_WWHyY",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Nx42i",
+			"toNodeId":"n_lfek7",
 			"type":"next"
 		}
 	],
 	"id":"68fa28afcc95a346b208750a",
 	"lastModifiedBy":15080,
 	"lcName":"asdf",
-	"modifiedTime":1761224879407,
+	"modifiedTime":1761224899571,
 	"name":"asdf",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dVBAV-1",
-			"id":"_dVBAV",
-			"index":0,
+			"id":"n_WWHyY",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"mongo",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dVBAV-1",
-			"id":"_Nx42i",
-			"index":0,
+			"id":"n_lfek7",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"MongoDB",
+			"title":"Select an action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15080,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +78,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
