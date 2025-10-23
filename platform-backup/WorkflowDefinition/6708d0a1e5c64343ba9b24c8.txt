@@ -5,12 +5,12 @@
 	"createdTime":1728630945926,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761235341519,
+		"deployedAt":1761235539687,
 		"deployedBy":45768,
-		"deployedDefinitionId":"68fa518d67cb9a322556a087",
+		"deployedDefinitionId":"68fa52535326c47f024bced6",
 		"status":"DEPLOYED",
-		"version":109,
-		"workflowVersion":142
+		"version":110,
+		"workflowVersion":143
 	},
 	"edges":[
 		{
@@ -1064,7 +1064,7 @@
 	"id":"6708d0a1e5c64343ba9b24c8",
 	"lastModifiedBy":45768,
 	"lcName":"file chunker | knowledge",
-	"modifiedTime":1761235537593,
+	"modifiedTime":1761235539689,
 	"name":"File Chunker | Knowledge",
 	"nodes":[
 		{
@@ -1427,6 +1427,7 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -2349,6 +2350,7 @@
 				"chunkMetadata":"{{ _phUSg.outputs.chunkMetadata }}"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -2811,7 +2813,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_XHyMi@_D4fGa@_TBvUz-1@3@y",
 			"id":"n_o0yZa",
@@ -3974,6 +3976,7 @@
 				"fileString":"{{ 5JODZ.outputs.fileContent }}"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -4276,7 +4279,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"w34h7@_D4fGa@_TBvUz-1@8@l",
 			"id":"CJQRb",
@@ -4457,6 +4460,7 @@
 				"fileObj":"{{ _phUSg.outputs.fileDetails }}"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -4682,6 +4686,7 @@
 				"imageParsingModel":"{{ uwueD.outputs.image.textExtractionModel }}"
 			},
 			"outputSchema":{
+				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
