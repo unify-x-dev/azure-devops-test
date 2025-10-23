@@ -4,27 +4,112 @@
 	],
 	"createdTime":1761259918191,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761259918371,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68fab18e0f27c97f9fd07703",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
-		
+		{
+			"fromNodeId":"lZXRK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"CPBFM",
+			"type":"next"
+		}
 	],
 	"id":"68fab18e0f27c97f9fd07701",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2autotdqrnglxyv",
-	"modifiedTime":1761259918191,
+	"modifiedTime":1761259918373,
 	"name":"changeSetQA2autotdQRnGLXYv",
 	"nodes":[
-		
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":125,
+				"resourceName":"callables_from_interface"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"3tFTv-1",
+			"id":"lZXRK",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"c":{
+							"type":"integer",
+							"title":"c"
+						}
+					},
+					"required":[]
+				},
+				"callableInterfaceId":"68fab18e0f27c97f9fd07700",
+				"setup":{
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"integer",
+							"title":"a"
+						},
+						"b":{
+							"type":"integer",
+							"title":"b"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger interface",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":125,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"3tFTv-1",
+			"id":"CPBFM",
+			"index":0,
+			"inputs":{
+				"result":{
+					"c":"=SUM({{ lZXRK.outputs.a }},{{ lZXRK.outputs.b }})"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true,
-		"route":{
-			"default":false,
-			"tierName":"global"
-		}
+		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":0
+	"tags":[
+		
+	],
+	"version":1
 }
