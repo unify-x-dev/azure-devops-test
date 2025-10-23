@@ -45,6 +45,13 @@
 			"fromNodeId":"n_JU5Gr",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_4Dzew",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4Dzew",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_E9D2i",
 			"type":"next"
 		},
@@ -95,7 +102,7 @@
 	"id":"68f9f238bc928a07f8ccf16b",
 	"lastModifiedBy":46030,
 	"lcName":"[dnt] multi tenancy | fetch all identity providers",
-	"modifiedTime":1761217311877,
+	"modifiedTime":1761217398418,
 	"name":"[DNT] Multi Tenancy | Fetch All Identity Providers",
 	"nodes":[
 		{
@@ -110,7 +117,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tT02q-1",
 			"id":"n_tWXv8",
@@ -163,7 +170,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tT02q-1",
 			"id":"n_pNNqv",
@@ -223,7 +230,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tT02q-1",
 			"id":"n_uIfRr",
@@ -508,7 +515,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tT02q-1",
 			"id":"n_pVMhd",
@@ -541,7 +548,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_JU5Gr",
@@ -562,17 +569,85 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1070,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_pVMhd@_tT02q-1@l",
+			"id":"n_4Dzew",
+			"index":6,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"objec":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Objec"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						}
+					},
+					"required":[
+						"name"
+					]
+				}
+			},
+			"inputs":{
+				"name":"{{ n_JU5Gr.outputs.name }}",
+				"objec":"{{ n_JU5Gr.outputs.response }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"objec":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Objec"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						}
+					},
+					"required":[
+						"name"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"utility_by_unifyapps",
 				"resourceVersion":1092,
 				"resourceName":"utility_by_unifyapps_to_json_string",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_E9D2i",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"object":"{{ n_JU5Gr.outputs.response }}"
 			},
@@ -589,11 +664,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_5sjiu",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -899,7 +974,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_bnMsV",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -925,11 +1000,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_iq93A",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"loop":"n_pVMhd",
 				"conditions":{
@@ -958,11 +1033,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@_tT02q-1@l",
 			"id":"n_v7zdl",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"variables":[
 					{
@@ -984,11 +1059,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tT02q-1",
 			"id":"n_1rXuq",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"result":{
 					"ugAssets":{
@@ -1025,5 +1100,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
