@@ -6,43 +6,87 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_TfGIk",
+			"fromNodeId":"n_Q28nj",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ilsfI",
+			"toNodeId":"n_RIJRZ",
 			"type":"next"
 		}
 	],
 	"id":"68f9fe1b8ba85850eeb47518",
 	"lastModifiedBy":92316,
 	"lcName":"automation",
-	"modifiedTime":1761213981425,
+	"modifiedTime":1761214194356,
 	"name":"automation",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1049,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TfGIk-1",
-			"id":"_TfGIk",
+			"id":"n_Q28nj",
 			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output"
+					],
+					"properties":{
+						"output":{
+							"type":"string",
+							"title":"Output"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"name":{
+							"type":"string",
+							"title":"Name"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1085,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TfGIk-1",
-			"id":"_ilsfI",
+			"id":"n_RIJRZ",
 			"index":2,
+			"inputs":{
+				"result":{
+					"output":"{{ n_Q28nj.outputs.name }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":92316,
@@ -62,5 +106,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
