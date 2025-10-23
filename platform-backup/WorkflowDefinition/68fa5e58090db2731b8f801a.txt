@@ -1,51 +1,244 @@
 {
 	"appsUsed":[
-		
+		"mongo"
 	],
 	"createdTime":1761238616804,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_oMKEc",
+			"fromNodeId":"n_NpbKZ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_WFQBq",
+			"toNodeId":"n_hlpaB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hlpaB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TNfcS",
 			"type":"next"
 		}
 	],
 	"id":"68fa5e58090db2731b8f801a",
 	"lastModifiedBy":161163,
 	"lcName":"test mongo",
-	"modifiedTime":1761238616804,
+	"modifiedTime":1761239780519,
 	"name":"Test Mongo",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oMKEc-1",
-			"id":"_oMKEc",
-			"index":0,
+			"id":"n_NpbKZ",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"mongo",
+				"resourceVersion":5516,
+				"connectionId":"681202198782846948e46c23",
+				"resourceName":"mongodb_find_documents",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oMKEc-1",
-			"id":"_WFQBq",
-			"index":0,
+			"id":"n_hlpaB",
+			"index":2,
+			"inputs":{
+				"document_schema":{
+					"type":"object",
+					"properties":{
+						"0":{
+							"type":"string"
+						},
+						"1":{
+							"type":"string"
+						},
+						"_id":{
+							"type":"string"
+						},
+						"arr3":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							}
+						},
+						"testing":{
+							"type":"string"
+						},
+						"arr8":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							}
+						},
+						"arr1":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							}
+						},
+						"sahil":{
+							"type":"string"
+						},
+						"therehereqwerty":{
+							"type":"string"
+						},
+						"sa2":{
+							"type":"string"
+						},
+						"sa6":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							}
+						},
+						"qwerty":{
+							"type":"string"
+						},
+						"arrgtyh1":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							}
+						},
+						"therehere":{
+							"type":"string"
+						},
+						"therehereqwertnmy":{
+							"type":"string"
+						},
+						"arr":{
+							"type":"string"
+						},
+						"bansal":{
+							"type":"string"
+						},
+						"sumit":{
+							"type":"string"
+						}
+					}
+				},
+				"objectSourceResourceName":"mongodb_fetch_collection_information",
+				"limit":10,
+				"skip":0,
+				"objectId":"AzureBlob"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"MongoDB",
+			"title":"Find documents",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.updateDocuments.items.filter",
+					"root.updateDocuments.items.updateFields.items.fieldName",
+					"root.updateDocuments.items.updateFields.items.actionType",
+					"root.updateDocuments.items.upsert",
+					"root.updateDocuments.items.multi"
+				]
+			},
+			"context":{
+				"appName":"mongo",
+				"resourceVersion":340,
+				"connectionId":"681202198782846948e46c23",
+				"resourceName":"mongodb_bulk_write_documents",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oMKEc-1",
+			"id":"n_TNfcS",
+			"index":3,
+			"inputs":{
+				"ordered":false,
+				"document_schema":{
+					"type":"object",
+					"properties":{
+						"document":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"1":{
+										"type":"string"
+									},
+									"_id":{
+										"type":"string"
+									},
+									"sahil":{
+										"type":"string"
+									}
+								}
+							}
+						}
+					}
+				},
+				"updateDocuments":{
+					"items":{
+						"filter":{
+							"filters":[
+								{
+									"property":"0",
+									"filter":{
+										"operator":"EQUAL",
+										"details":{
+											"fieldType":"TEXT"
+										},
+										"value":"10"
+									}
+								}
+							],
+							"operator":"AND"
+						},
+						"updateFields":[
+							{
+								"fieldName":"arr1",
+								"actionType":"ADD_TO_SET",
+								"setValue":"6789567890"
+							}
+						],
+						"upsert":true,
+						"multi":true
+					},
+					"ua:type":"mappedArray"
+				},
+				"collection":"AzureBlob"
+			},
+			"skip":false,
+			"subTitle":"MongoDB",
+			"title":"Bulk Write documents",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":161163,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +252,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
