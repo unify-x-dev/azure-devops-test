@@ -1064,7 +1064,7 @@
 	"id":"6708d0a1e5c64343ba9b24c8",
 	"lastModifiedBy":45768,
 	"lcName":"file chunker | knowledge",
-	"modifiedTime":1761234757753,
+	"modifiedTime":1761235337279,
 	"name":"File Chunker | Knowledge",
 	"nodes":[
 		{
@@ -2811,7 +2811,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_XHyMi@_D4fGa@_TBvUz-1@3@y",
 			"id":"n_o0yZa",
@@ -2822,19 +2822,19 @@
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{
+					"depth":"={{ _phUSg.outputs.depth }}-1",
 					"knowledgeId":"{{ _phUSg.outputs.knowledgeId }}",
 					"readVersion":"{{ _phUSg.outputs.knowledgeVersion }}",
+					"name":"{{ CGEl3.outputs.properties.name }}",
+					"limit":{
+						"websiteFetchLimit":"{{ CGEl3.outputs.properties.websiteImportInfo.webpageFetchLimit }}",
+						"fileDownloadLimit":0
+					},
 					"url_list":{
 						"source":"{{ n_CueL9.outputs.result.links }}",
 						"ua:type":"mappedArray",
 						"items":"{{ n_CueL9.outputs.result.links[0] }}"
-					},
-					"depth":"={{ _phUSg.outputs.depth }}-1",
-					"limit":{
-						"websiteFetchLimit":100,
-						"fileDownloadLimit":100
-					},
-					"name":"{{ CGEl3.outputs.properties.name }}"
+					}
 				}
 			},
 			"skip":false,
@@ -4276,7 +4276,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"w34h7@_D4fGa@_TBvUz-1@8@l",
 			"id":"CJQRb",
@@ -5501,5 +5501,5 @@
 		}
 	},
 	"standard":true,
-	"version":140
+	"version":141
 }
