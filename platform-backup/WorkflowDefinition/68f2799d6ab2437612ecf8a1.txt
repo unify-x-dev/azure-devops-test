@@ -5,12 +5,12 @@
 	"createdTime":1761206587375,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761213903437,
+		"deployedAt":1761214737382,
 		"deployedBy":175325,
-		"deployedDefinitionId":"68f9fdcf8ba85850eeb4733a",
+		"deployedDefinitionId":"68fa01118ba85850eeb48b95",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":10
+		"version":3,
+		"workflowVersion":11
 	},
 	"edges":[
 		{
@@ -38,7 +38,7 @@
 	"id":"68f2799d6ab2437612ecf8a1",
 	"lastModifiedBy":175325,
 	"lcName":"custom-response-transformer [dnt]",
-	"modifiedTime":1761213903438,
+	"modifiedTime":1761214975746,
 	"name":"custom-response-transformer [DNT]",
 	"nodes":[
 		{
@@ -268,7 +268,6 @@
 				"aaaa":"{{ __ENV__.outputs.xeds }}"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -382,5 +381,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":12
 }
