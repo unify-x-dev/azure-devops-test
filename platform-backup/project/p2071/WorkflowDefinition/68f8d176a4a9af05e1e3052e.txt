@@ -68,7 +68,7 @@
 	"id":"68f8d176a4a9af05e1e3052e",
 	"lastModifiedBy":189756,
 	"lcName":"chirag_training",
-	"modifiedTime":1761221725012,
+	"modifiedTime":1761221832613,
 	"name":"chirag_training",
 	"nodes":[
 		{
@@ -163,7 +163,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fTPGq-1",
 			"id":"n_QbaI8",
@@ -377,46 +377,36 @@
 										"integer"
 									],
 									"properties":{
-										"obj":{
-											"type":"object",
-											"properties":{
-												"details":{
-													"type":"array",
-													"items":{
-														"type":"object",
-														"properties":{
-															"id":{
-																"type":"number",
-																"title":"Id"
-															},
-															"name":{
-																"type":"string",
-																"title":"Name"
-															},
-															"des":{
-																"type":"string",
-																"title":"Des"
-															}
-														},
-														"additionalProperties":false,
-														"required":[
-															"id",
-															"name",
-															"des"
-														]
+										"results":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"id":{
+														"type":"number",
+														"title":"Id"
 													},
-													"title":"Details"
-												}
+													"name":{
+														"type":"string",
+														"title":"Name"
+													},
+													"designation":{
+														"type":"string",
+														"title":"Designation"
+													}
+												},
+												"additionalProperties":false,
+												"required":[
+													"id",
+													"name",
+													"designation"
+												]
 											},
-											"additionalProperties":false,
-											"title":"Obj",
-											"required":[
-												"details"
-											]
+											"title":"Results"
 										}
 									},
 									"required":[
-										"obj"
+										"results"
 									]
 								}
 							}
@@ -444,46 +434,36 @@
 							"items":{
 								"type":"object",
 								"properties":{
-									"obj":{
-										"type":"object",
-										"properties":{
-											"details":{
-												"type":"array",
-												"items":{
-													"type":"object",
-													"properties":{
-														"id":{
-															"type":"number",
-															"title":"Id"
-														},
-														"name":{
-															"type":"string",
-															"title":"Name"
-														},
-														"des":{
-															"type":"string",
-															"title":"Des"
-														}
-													},
-													"additionalProperties":false,
-													"required":[
-														"id",
-														"name",
-														"des"
-													]
+									"results":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{
+												"id":{
+													"type":"number",
+													"title":"Id"
 												},
-												"title":"Details"
-											}
+												"name":{
+													"type":"string",
+													"title":"Name"
+												},
+												"designation":{
+													"type":"string",
+													"title":"Designation"
+												}
+											},
+											"additionalProperties":false,
+											"required":[
+												"id",
+												"name",
+												"designation"
+											]
 										},
-										"additionalProperties":false,
-										"title":"Obj",
-										"required":[
-											"details"
-										]
+										"title":"Results"
 									}
 								},
 								"required":[
-									"obj"
+									"results"
 								]
 							}
 						}
@@ -625,5 +605,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":62
+	"version":63
 }
