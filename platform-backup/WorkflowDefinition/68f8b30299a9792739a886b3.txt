@@ -5,12 +5,12 @@
 	"createdTime":1761129218322,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761214576353,
+		"deployedAt":1761215035974,
 		"deployedBy":103775,
-		"deployedDefinitionId":"68fa00708ba85850eeb48722",
+		"deployedDefinitionId":"68fa023bed13324c652a6230",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":23
+		"version":8,
+		"workflowVersion":24
 	},
 	"edges":[
 		{
@@ -118,7 +118,7 @@
 	"id":"68f8b30299a9792739a886b3",
 	"lastModifiedBy":103775,
 	"lcName":"digikey excel extraction",
-	"modifiedTime":1761215034160,
+	"modifiedTime":1761216168092,
 	"name":"Digikey Excel Extraction",
 	"nodes":[
 		{
@@ -523,14 +523,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_4PA8v-1",
 			"id":"n_9vS4f",
 			"index":4,
 			"inputs":{
 				"fileDetails":"{{ n_BNU0f.outputs.file }}",
-				"fileType":"XLSX"
+				"fileType":"{{ n_BNU0f.outputs.file.fileType }}"
 			},
 			"skip":false,
 			"subTitle":"Excel by UnifyApps",
@@ -833,5 +833,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
