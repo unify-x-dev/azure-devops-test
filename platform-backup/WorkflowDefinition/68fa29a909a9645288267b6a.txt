@@ -16,7 +16,7 @@
 	"id":"68fa29a909a9645288267b6a",
 	"lastModifiedBy":49915,
 	"lcName":"test",
-	"modifiedTime":1761225687422,
+	"modifiedTime":1761225836958,
 	"name":"test",
 	"nodes":[
 		{
@@ -58,7 +58,7 @@
 			"id":"n_mHzsT",
 			"index":2,
 			"inputs":{
-				"query":"select *",
+				"query":"SELECT CONCAT(\"t_\",tempID) AS corrected_dlt_template_id,* FROM (SELECT R_1._pr_cntnt__templateId AS tempID,COUNT(R_1.count) AS",
 				"group":"ENTITY_REPORTING"
 			},
 			"skip":false,
@@ -84,5 +84,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
