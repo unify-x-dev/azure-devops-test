@@ -1,51 +1,83 @@
 {
 	"appsUsed":[
-		
+		"headout"
 	],
 	"createdTime":1761220473002,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_0lyL5",
+			"fromNodeId":"n_tnZ3g",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ET5mt",
+			"toNodeId":"n_caUIj",
 			"type":"next"
 		}
 	],
 	"id":"68fa17792f9999274c828c1f",
 	"lastModifiedBy":2621,
 	"lcName":"test",
-	"modifiedTime":1761220473002,
+	"modifiedTime":1761220611394,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0lyL5-1",
-			"id":"_0lyL5",
-			"index":0,
+			"id":"n_tnZ3g",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"headout",
+				"resourceVersion":161,
+				"connectionId":"68e80a3bc1fbcd6e64c01e11",
+				"resourceName":"headout_list_product_listing_city",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0lyL5-1",
-			"id":"_ET5mt",
-			"index":0,
+			"id":"n_caUIj",
+			"index":2,
+			"inputs":{
+				"userLatitude":25.2048,
+				"userLongitude":55.2708,
+				"offset":"0",
+				"cityCode":"Dubai",
+				"limit":10,
+				"language":"EN",
+				"currencyCode":"AED",
+				"fetchLimit":1000
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Headout",
+			"title":"List product listing by city",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":2621,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +91,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
