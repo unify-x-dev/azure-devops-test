@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_E71Yu",
+			"fromNodeId":"n_jjWHK",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_mHzsT",
@@ -16,20 +16,31 @@
 	"id":"68fa29a909a9645288267b6a",
 	"lastModifiedBy":49915,
 	"lcName":"test",
-	"modifiedTime":1761225683067,
+	"modifiedTime":1761225687422,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_E71Yu-1",
-			"id":"_E71Yu",
+			"id":"n_jjWHK",
 			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -73,5 +84,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
