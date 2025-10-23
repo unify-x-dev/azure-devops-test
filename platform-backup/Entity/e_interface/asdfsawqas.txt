@@ -29,8 +29,8 @@
 		]
 	},
 	"id":"asdfsawqas",
-	"lastModifiedBy":92316,
-	"modifiedTime":1761237768964,
+	"lastModifiedBy":19752,
+	"modifiedTime":1761238062189,
 	"ownerUserId":92316,
 	"properties":{
 		"standard":false,
@@ -152,34 +152,15 @@
 					]
 				},
 				"XL":{
-					"primary":[
-						{
-							"id":"nav_D847w",
-							"hiddenInOverflow":false
-						}
-					],
-					"navigationItem":{
-						"selectionVariant":"stroke",
-						"labelVariant":"expandable"
-					},
-					"navigationBar":{
-						"overflowDetails":{
-							"icon":"Menu01",
-							"label":"More"
-						},
-						"position":"start",
-						"type":"fixed",
-						"navigatorType":"None"
-					},
 					"styles":{
+						"height":"h-auto",
+						"borderColor":"border-tertiary",
 						"width":{
 							"custom":"56px"
 						},
-						"height":"h-auto",
 						"borderWidth":{
 							"r":"border-e"
 						},
-						"borderColor":"border-tertiary",
 						"borderRadius":{
 							"all":"rounded-none"
 						},
@@ -193,6 +174,54 @@
 							"y":"gap-y-lg"
 						}
 					},
+					"theme":"inherit",
+					"navigationBar":{
+						"position":"start",
+						"type":"fixed",
+						"overflowDetails":{
+							"icon":"Menu01",
+							"label":"More"
+						},
+						"navigatorType":"None"
+					},
+					"navigationItem":{
+						"selectionVariant":"stroke",
+						"background":{
+							"colors":{
+								"default":"transparent",
+								"hover":"#f5f6fa",
+								"active":"transparent"
+							}
+						},
+						"text":{
+							"colors":{
+								"default":"#1255df",
+								"hover":"#94961c",
+								"active":"#bec124"
+							},
+							"variant":"text-sm",
+							"weight":"semi-bold"
+						},
+						"icon":{
+							"colors":{
+								"default":"#667085",
+								"hover":"#475467",
+								"active":"#bec124"
+							},
+							"size":"md"
+						},
+						"labelVariant":"expandable"
+					},
+					"userReordered":{
+						"primary":false,
+						"secondary":false
+					},
+					"primary":[
+						{
+							"id":"nav_D847w",
+							"hiddenInOverflow":false
+						}
+					],
 					"secondary":[
 						{
 							"id":"userMenu",
@@ -287,40 +316,51 @@
 				"--palette-success-800":"#07331e",
 				"--palette-success-900":"#041d11",
 				"--palette-success-950":"#010604",
-				"--palette-brand-25":"#fdfdf6",
-				"--palette-brand-50":"#fcfdf2",
-				"--palette-brand-100":"#fbfbea",
-				"--palette-brand-200":"#f5f5cb",
-				"--palette-brand-300":"#eceda0",
-				"--palette-brand-400":"#dbde4f",
-				"--palette-brand-500":"#d5d931",
-				"--palette-brand-600":"#bec124",
-				"--palette-brand-700":"#94961c",
-				"--palette-brand-800":"#696b14",
-				"--palette-brand-900":"#545610",
-				"--palette-brand-950":"#3f400c",
-				"--palette-alpha-brand-05":"#94961c0d",
-				"--palette-alpha-brand-10":"#94961c1a",
-				"--palette-alpha-brand-20":"#94961c33",
-				"--palette-alpha-brand-30":"#94961c4d",
-				"--palette-alpha-brand-40":"#94961c66",
-				"--palette-alpha-brand-50":"#94961c80",
-				"--palette-alpha-brand-60":"#94961c99",
-				"--palette-alpha-brand-70":"#94961cb3",
-				"--palette-alpha-brand-80":"#94961ccc",
-				"--palette-alpha-brand-90":"#94961ce6",
-				"--palette-alpha-brand-100":"#94961c",
-				"--palette-brand-600-seed":"#bec124",
+				"--palette-brand-25":"#fdfdf7",
+				"--palette-brand-50":"#fcfcf3",
+				"--palette-brand-100":"#f9faeb",
+				"--palette-brand-200":"#f1f2cf",
+				"--palette-brand-300":"#e5e7a7",
+				"--palette-brand-400":"#e0e193",
+				"--palette-brand-500":"#d7da77",
+				"--palette-brand-600":"#cfd25a",
+				"--palette-brand-700":"#c0c435",
+				"--palette-brand-800":"#999c2a",
+				"--palette-brand-900":"#858825",
+				"--palette-brand-950":"#71731f",
+				"--palette-alpha-brand-05":"#c0c4350d",
+				"--palette-alpha-brand-10":"#c0c4351a",
+				"--palette-alpha-brand-20":"#c0c43533",
+				"--palette-alpha-brand-30":"#c0c4354d",
+				"--palette-alpha-brand-40":"#c0c43566",
+				"--palette-alpha-brand-50":"#c0c43580",
+				"--palette-alpha-brand-60":"#c0c43599",
+				"--palette-alpha-brand-70":"#c0c435b3",
+				"--palette-alpha-brand-80":"#c0c435cc",
+				"--palette-alpha-brand-90":"#c0c435e6",
+				"--palette-alpha-brand-100":"#c0c435",
+				"--palette-brand-600-seed":"#cfd25a",
 				"--text-primary":"#104dc9",
 				"--text-secondary":"#1255df",
 				"--text-tertiary":"#3572ef",
 				"--text-quaternary":"#5588f2",
 				"--text-placeholder":"#769ff4",
 				"--text-disabled":"#5588f2",
-				"--text-primary-seed":"#104dc9"
+				"--text-primary-seed":"#104dc9",
+				"--radius-none":"0rem",
+				"--radius-xxs":"0.125rem",
+				"--radius-xs":"0.25rem",
+				"--radius-sm":"0.375rem",
+				"--radius-md":"0.5rem",
+				"--radius-lg":"0.5rem",
+				"--radius-xl":"0.5rem",
+				"--radius-2xl":"0.5rem",
+				"--radius-3xl":"0.625rem",
+				"--radius-4xl":"0.75rem",
+				"--radius-full":"9999rem"
 			},
 			"defaultScheme":"light",
-			"output":"\n  .interface-theme,\n  .interface-theme [data-color-scheme='light'] {\n    --palette-success-25: #f6fefa; --palette-success-50: #f1fdf8; --palette-success-100: #e8fcf3; --palette-success-200: #c9f8e2; --palette-success-300: #9bf2ca; --palette-success-400: #1acc78; --palette-success-500: #17b26a; --palette-success-600: #128e54; --palette-success-700: #0c6139; --palette-success-800: #07331e; --palette-success-900: #041d11; --palette-success-950: #010604; --palette-brand-25: #fdfdf6; --palette-brand-50: #fcfdf2; --palette-brand-100: #fbfbea; --palette-brand-200: #f5f5cb; --palette-brand-300: #eceda0; --palette-brand-400: #dbde4f; --palette-brand-500: #d5d931; --palette-brand-600: #bec124; --palette-brand-700: #94961c; --palette-brand-800: #696b14; --palette-brand-900: #545610; --palette-brand-950: #3f400c; --palette-alpha-brand-05: #94961c0d; --palette-alpha-brand-10: #94961c1a; --palette-alpha-brand-20: #94961c33; --palette-alpha-brand-30: #94961c4d; --palette-alpha-brand-40: #94961c66; --palette-alpha-brand-50: #94961c80; --palette-alpha-brand-60: #94961c99; --palette-alpha-brand-70: #94961cb3; --palette-alpha-brand-80: #94961ccc; --palette-alpha-brand-90: #94961ce6; --palette-alpha-brand-100: #94961c; --palette-brand-600-seed: #bec124; --text-primary: #104dc9; --text-secondary: #1255df; --text-tertiary: #3572ef; --text-quaternary: #5588f2; --text-placeholder: #769ff4; --text-disabled: #5588f2; --text-primary-seed: #104dc9; --radius-none: 0rem; --radius-xxs: 0.125rem; --radius-xs: 0.25rem; --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.5rem; --radius-xl: 0.5rem; --radius-2xl: 0.5rem; --radius-3xl: 0.625rem; --radius-4xl: 0.75rem; --radius-full: 9999rem;  [data-size='xs'] { --button-radius: 0.375rem; }  [data-size='sm'] { --button-radius: 0.375rem; }  [data-size='md'] { --button-radius: 0.5rem; }  [data-size='lg'] { --button-radius: 0.5rem; }  .ua-input-vars[data-size='sm'] { --input-radius: 0.375rem; }  .ua-input-vars[data-size='md'] { --input-radius: 0.5rem; }  .ua-variable-data-pill { --variable-data-pill-radius: var(--radius-sm); }  .ua-chart-root { --chart-bar-radius: 0.375rem; }\n  }\n"
+			"output":"\n  .interface-theme,\n  .interface-theme [data-color-scheme='light'] {\n    --palette-success-25: #f6fefa; --palette-success-50: #f1fdf8; --palette-success-100: #e8fcf3; --palette-success-200: #c9f8e2; --palette-success-300: #9bf2ca; --palette-success-400: #1acc78; --palette-success-500: #17b26a; --palette-success-600: #128e54; --palette-success-700: #0c6139; --palette-success-800: #07331e; --palette-success-900: #041d11; --palette-success-950: #010604; --palette-brand-25: #fdfdf7; --palette-brand-50: #fcfcf3; --palette-brand-100: #f9faeb; --palette-brand-200: #f1f2cf; --palette-brand-300: #e5e7a7; --palette-brand-400: #e0e193; --palette-brand-500: #d7da77; --palette-brand-600: #cfd25a; --palette-brand-700: #c0c435; --palette-brand-800: #999c2a; --palette-brand-900: #858825; --palette-brand-950: #71731f; --palette-alpha-brand-05: #c0c4350d; --palette-alpha-brand-10: #c0c4351a; --palette-alpha-brand-20: #c0c43533; --palette-alpha-brand-30: #c0c4354d; --palette-alpha-brand-40: #c0c43566; --palette-alpha-brand-50: #c0c43580; --palette-alpha-brand-60: #c0c43599; --palette-alpha-brand-70: #c0c435b3; --palette-alpha-brand-80: #c0c435cc; --palette-alpha-brand-90: #c0c435e6; --palette-alpha-brand-100: #c0c435; --palette-brand-600-seed: #cfd25a; --text-primary: #104dc9; --text-secondary: #1255df; --text-tertiary: #3572ef; --text-quaternary: #5588f2; --text-placeholder: #769ff4; --text-disabled: #5588f2; --text-primary-seed: #104dc9; --radius-none: 0rem; --radius-xxs: 0.125rem; --radius-xs: 0.25rem; --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.5rem; --radius-xl: 0.5rem; --radius-2xl: 0.5rem; --radius-3xl: 0.625rem; --radius-4xl: 0.75rem; --radius-full: 9999rem;  [data-size='xs'] { --button-radius: 0.375rem; }  [data-size='sm'] { --button-radius: 0.375rem; }  [data-size='md'] { --button-radius: 0.5rem; }  [data-size='lg'] { --button-radius: 0.5rem; }  .ua-input-vars[data-size='sm'] { --input-radius: 0.375rem; }  .ua-input-vars[data-size='md'] { --input-radius: 0.5rem; }  .ua-variable-data-pill { --variable-data-pill-radius: var(--radius-sm); }  .ua-chart-root { --chart-bar-radius: 0.375rem; }\n  }\n"
 		},
 		"type":"application",
 		"locale":{
@@ -331,5 +371,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
