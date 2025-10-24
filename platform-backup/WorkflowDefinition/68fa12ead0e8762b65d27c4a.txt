@@ -76,11 +76,41 @@
 			"fromNodeId":"_0RL9l",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_qDjU3",
+			"toNodeId":"_B3jVo",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_jz638",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_B3jVo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_B3jVo",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_9v1XF",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_9v1XF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_2AsNQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_2AsNQ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_qDjU3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_B3jVo",
 			"name":"no",
 			"priority":0,
 			"skip":false,
@@ -121,7 +151,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761310177705,
+	"modifiedTime":1761311024602,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1037,8 +1067,238 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
-			"id":"n_qDjU3",
+			"id":"_B3jVo",
 			"index":9,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_PQRFu.outputs.check_id }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"CHECK_3"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.dataSources.items.schema",
+					"root.parameters.dataSources.items.id",
+					"root.parameters.dataSources.items.version",
+					"root.parameters.dataSources.items.entityType"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":947,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_B3jVo@_z6eK1-1@y",
+			"id":"_9v1XF",
+			"index":10,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"outputList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"blockIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"blockIds"
+									},
+									"variableIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"variableIds"
+									},
+									"functionIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"functionIds"
+									},
+									"dataSourceIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"dataSourceIds"
+									},
+									"pageId":{
+										"type":"string",
+										"title":"pageId"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"outputList"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"page"
+					],
+					"properties":{
+						"dataSources":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"schema":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false,
+										"title":"Schema"
+									},
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"version":{
+										"type":"integer",
+										"title":"Version"
+									},
+									"entityType":{
+										"type":"string",
+										"title":"entityType"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"dataSources"
+						},
+						"page":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Page"
+						}
+					}
+				},
+				"code":"(() => {\n  // `page` and `dataSources` are assumed to be provided\n  const outputList = [];\n\n  const getNestedTableWithNonManualDataSource = (blocks, dataSources) => {\n    const result = [];\n    \n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      \n      if (block.component.componentType === 'NestedTable') {\n        const columns = block.component.content.columns || [];\n        \n        // Check each column for nested table type\n        columns.forEach((column, columnIndex) => {\n          if (column.type === 'NESTED_TABLE' && column.data) {\n            // Extract data source ID from the data path\n            const dataMatch = column.data.match(/\\{\\{\\s*([^['\\s]+)\\['data'\\]/);\n            if (dataMatch) {\n              const dataSourceId = dataMatch[1];\n              const dataSource = dataSources[dataSourceId];\n              \n              if (dataSource && dataSource.properties?.advancedOptions?.runBehaviour !== 'manual') {\n                result.push({\n                  blockId,\n                  columnIndex,\n                  dataSourceId,\n                  runBehaviour: dataSource.properties?.advancedOptions?.runBehaviour\n                });\n              }\n            }\n          }\n        });\n      }\n    }\n    \n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedNestedTables = getNestedTableWithNonManualDataSource(blocks, dataSources);\n\n  if (failedNestedTables.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: [...new Set(failedNestedTables.map(item => item.blockId))]\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
+				"isAsync":false,
+				"parameters":{
+					"dataSources":{
+						"source":"{{ n_PQRFu.outputs.dataSources }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"schema":"{{ n_PQRFu.outputs.dataSources[0].schema }}",
+							"id":"{{ n_PQRFu.outputs.dataSources[0].id }}",
+							"version":"{{ n_PQRFu.outputs.dataSources[0].version }}",
+							"entityType":"{{ n_PQRFu.outputs.dataSources[0].entityType }}"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"CHECK_3",
+			"title":"Execute Javascript",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.entities.blockIds.items",
+					"root.itemToAdd.entities.variables.items",
+					"root.itemToAdd.entities.functions.items",
+					"root.itemToAdd.entities.dataSources.items"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1028,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_B3jVo@_z6eK1-1@y",
+			"id":"_2AsNQ",
+			"index":11,
+			"inputs":{
+				"itemToAdd":{
+					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
+					"entityType":"{{ n_PQRFu.outputs.entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.id }}",
+					"checkId":"{{ n_PQRFu.outputs.check_id }}",
+					"status":"{{ _9v1XF.outputs.result.outputList[0].status }}",
+					"entities":{
+						"dataSources":{
+							"ua:type":"mappedArray",
+							"source":"{{ _9v1XF.outputs.result.outputList[0].dataSourceIds }}",
+							"items":"{{ _9v1XF.outputs.result.outputList[0].dataSourceIds[0] }}"
+						},
+						"blockIds":{
+							"source":"{{ _9v1XF.outputs.result.outputList[0].blockIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _9v1XF.outputs.result.outputList[0].blockIds[0] }}"
+						},
+						"variables":{
+							"source":"{{ _9v1XF.outputs.result.outputList[0].variableIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _9v1XF.outputs.result.outputList[0].variableIds[0] }}"
+						},
+						"functions":{
+							"source":"{{ _9v1XF.outputs.result.outputList[0].functionIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _9v1XF.outputs.result.outputList[0].functionIds[0] }}"
+						}
+					}
+				},
+				"insertLocation":"END",
+				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_z6eK1-1",
+			"id":"n_qDjU3",
+			"index":12,
 			"inputs":{
 				"filters":[
 					{
@@ -1079,7 +1339,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
-			"index":10,
+			"index":13,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1209,7 +1469,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
-			"index":11,
+			"index":14,
 			"inputs":{
 				"itemToAdd":{
 					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
@@ -1260,7 +1520,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":12,
+			"index":15,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1300,5 +1560,5 @@
 	"tags":[
 		
 	],
-	"version":70
+	"version":71
 }
