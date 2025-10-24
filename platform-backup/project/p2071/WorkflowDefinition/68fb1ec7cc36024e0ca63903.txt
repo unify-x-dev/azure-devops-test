@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"gsheets"
+		"gsheets",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761287879606,
 	"deleted":false,
@@ -135,6 +136,13 @@
 			"fromNodeId":"n_RLeZ6",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_w3cux",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_w3cux",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
@@ -142,7 +150,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761298674610,
+	"modifiedTime":1761298792814,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -812,6 +820,48 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items.id",
+					"root.records.items.name",
+					"root.records.items.Department",
+					"root.records.items.bonusAmount",
+					"root.records.items.Leaves",
+					"root.records.items.quarter"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2513,
+				"resourceName":"storage_by_unifyapps_bulk_create_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"n_w3cux",
+			"index":14,
+			"inputs":{
+				"object_type":"automation_assignment_1",
+				"skipIfBlank":false,
+				"records":{
+					"items":{
+						"id":"{{ n_DWgRR.outputs.items[0].EmpId__0 }}",
+						"name":"{{ n_DWgRR.outputs.items[0].Name__1 }}",
+						"Department":"{{ n_DWgRR.outputs.items[0].Department__2 }}",
+						"bonusAmount":"{{ n_DWgRR.outputs.items[0].Bonus_Amount__3 }}",
+						"Leaves":"{{ n_DWgRR.outputs.items[0].Leaves__4 }}"
+					},
+					"ua:type":"mappedArray"
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create or update records in bulk",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
@@ -823,7 +873,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -847,5 +897,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":35
+	"version":36
 }
