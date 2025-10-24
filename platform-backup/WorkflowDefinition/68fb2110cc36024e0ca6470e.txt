@@ -140,7 +140,7 @@
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"new",
-	"modifiedTime":1761296156912,
+	"modifiedTime":1761296804308,
 	"name":"new",
 	"nodes":[
 		{
@@ -150,7 +150,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_lw3oK",
@@ -217,7 +217,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_8EGvJ",
@@ -490,7 +490,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"_Mdq6p",
@@ -766,7 +766,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_hlGem",
@@ -787,7 +787,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_Nftv5",
@@ -810,7 +810,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"_6gXBs",
@@ -835,7 +835,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"n_lqvmv",
@@ -856,7 +856,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"n_oiTuI",
@@ -932,7 +932,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"n_GCEfB",
@@ -955,7 +955,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"n_QLQ75",
@@ -1182,7 +1182,7 @@
 					}
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Python script",
 			"type":"ACTION"
@@ -1203,7 +1203,7 @@
 			"inputs":{
 				"listName":"{{ n_8EGvJ.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Remove all items from list",
 			"type":"ACTION"
@@ -1224,7 +1224,7 @@
 			"inputs":{
 				"listName":"{{ _Mdq6p.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Remove all items from list",
 			"type":"ACTION"
@@ -1260,7 +1260,7 @@
 				},
 				"listName":"{{ n_8EGvJ.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add items to list",
 			"type":"ACTION"
@@ -1296,7 +1296,7 @@
 				},
 				"listName":"{{ _Mdq6p.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add items to list",
 			"type":"ACTION"
@@ -1309,7 +1309,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_Mpy8B",
@@ -1347,5 +1347,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":17
 }
