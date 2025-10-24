@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761299027005,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761302111209,
+		"deployedBy":161852,
+		"deployedDefinitionId":"68fb565e80fb3c02df758751",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":6
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_wRUr6",
@@ -80,7 +88,7 @@
 	"id":"68fb4a538394b21a23111b17",
 	"lastModifiedBy":161852,
 	"lcName":"new approach",
-	"modifiedTime":1761302107012,
+	"modifiedTime":1761303453021,
 	"name":"new approach",
 	"nodes":[
 		{
@@ -169,7 +177,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_0SdyR",
@@ -515,7 +523,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"_6gXBs",
@@ -742,7 +750,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"_A7jOQ",
@@ -848,12 +856,12 @@
 						"source":"{{ n_0SdyR.outputs.items }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}",
 							"Name__1":"{{ n_0SdyR.outputs.items[0].Name__1 }}",
 							"Department__2":"{{ n_0SdyR.outputs.items[0].Department__2 }}",
 							"Bonus_Amount__3":"{{ n_0SdyR.outputs.items[0].Bonus_Amount__3 }}",
 							"Leaves_Taken__4":"{{ n_0SdyR.outputs.items[0].Leaves_Taken__4 }}",
-							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}"
+							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}",
+							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}"
 						}
 					}
 				}
@@ -911,5 +919,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
