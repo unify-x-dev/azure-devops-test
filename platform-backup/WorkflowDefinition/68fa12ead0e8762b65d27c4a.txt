@@ -91,7 +91,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761306161718,
+	"modifiedTime":1761306274316,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -767,16 +767,31 @@
 			"index":5,
 			"inputs":{
 				"itemToAdd":{
-					"entityVersion":"{{ n_PQRFu.outputs.page_version }}",
+					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
 					"entityType":"{{ n_PQRFu.outputs.entityType }}",
-					"entityId":"{{ n_PQRFu.outputs.entityVersion }}",
-					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
+					"entityId":"{{ n_PQRFu.outputs.id }}",
+					"checkId":"{{ n_PQRFu.outputs.check_id }}",
 					"status":"{{ n_h8DaG.outputs.result.outputList[0].status }}",
 					"entities":{
 						"blockIds":{
-							"source":"{{ n_h8DaG.outputs.result.outputList[0].blockIds }}",
 							"ua:type":"mappedArray",
-							"items":"{{ n_h8DaG.outputs.result.outputList[0].blockIds[0] }}"
+							"items":"{{ n_h8DaG.outputs.result.outputList[0].blockIds[0] }}",
+							"source":"{{ n_h8DaG.outputs.result.outputList[0].blockIds }}"
+						},
+						"variables":{
+							"source":"{{ n_h8DaG.outputs.result.outputList[0].variableIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_h8DaG.outputs.result.outputList[0].variableIds[0] }}"
+						},
+						"functions":{
+							"source":"{{ n_h8DaG.outputs.result.outputList[0].functionIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_h8DaG.outputs.result.outputList[0].functionIds[0] }}"
+						},
+						"dataSources":{
+							"source":"{{ n_h8DaG.outputs.result.outputList[0].dataSourceIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_h8DaG.outputs.result.outputList[0].dataSourceIds[0] }}"
 						}
 					}
 				},
@@ -1017,5 +1032,5 @@
 	"tags":[
 		
 	],
-	"version":37
+	"version":38
 }
