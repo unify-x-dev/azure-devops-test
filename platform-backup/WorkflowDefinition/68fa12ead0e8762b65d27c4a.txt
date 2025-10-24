@@ -234,7 +234,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761328889601,
+	"modifiedTime":1761331522602,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -802,7 +802,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_h8DaG",
@@ -870,7 +870,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` and `pageId` are assumed to be provided\n  const outputList = [];\n\n  const getRepeatableWithoutPagination = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (\n        block.component.componentType === 'Repeatable' &&\n        !block.component.content.addOns?.page\n      ) {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedBlockIds = getRepeatableWithoutPagination(blocks);\n\n  if (failedBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: failedBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `page` are assumed to be provided\n  const outputList = [];\n\n  const getRepeatableWithoutPagination = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (\n        block.component.componentType === 'Repeatable' &&\n        !block.component.content.addOns?.page\n      ) {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedBlockIds = getRepeatableWithoutPagination(blocks);\n\n  if (failedBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: failedBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}"
@@ -1387,7 +1387,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"_1JOjl",
@@ -1428,7 +1428,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_1JOjl@_z6eK1-1@y",
 			"id":"_3WswE",
@@ -1528,7 +1528,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_1JOjl@_z6eK1-1@y",
 			"id":"_E5dfz",
@@ -1579,7 +1579,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"_I3E75",
@@ -1620,7 +1620,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_I3E75@_z6eK1-1@y",
 			"id":"_0ITZ2",
@@ -1720,7 +1720,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_I3E75@_z6eK1-1@y",
 			"id":"_l2KGA",
@@ -2134,5 +2134,5 @@
 	"tags":[
 		
 	],
-	"version":84
+	"version":85
 }
