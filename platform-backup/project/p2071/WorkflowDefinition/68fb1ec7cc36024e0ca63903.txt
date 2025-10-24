@@ -163,7 +163,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761329839722,
+	"modifiedTime":1761332847181,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -461,7 +461,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_DWgRR",
@@ -933,6 +933,16 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.items.items.EmpId__0",
+					"root.parameters.items.items.Name__1",
+					"root.parameters.items.items.Department__2",
+					"root.parameters.items.items.Bonus_Amount__3",
+					"root.parameters.items.items.Leaves__4",
+					"root.parameters.items.items.Quarter"
+				]
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1024,
@@ -947,44 +957,62 @@
 			"index":16,
 			"inputs":{
 				"input":{
-					"type":"array",
-					"title":"UserData",
-					"disableActions":true,
-					"ua:__linkedVariable__":"n_DWgRR.outputs.items",
-					"items":{
-						"type":"object",
-						"properties":{
-							"EmpId__0":{
-								"type":"string",
-								"title":"EmpId__0"
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"items":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"EmpId__0":{
+										"type":"string",
+										"title":"EmpId__0"
+									},
+									"Name__1":{
+										"type":"string",
+										"title":"Name__1"
+									},
+									"Department__2":{
+										"type":"string",
+										"title":"Department__2"
+									},
+									"Bonus_Amount__3":{
+										"type":"string",
+										"title":"Bonus_Amount__3"
+									},
+									"Leaves__4":{
+										"type":"string",
+										"title":"Leaves__4"
+									},
+									"Quarter":{
+										"type":"string",
+										"title":"Quarter"
+									}
+								},
+								"additionalProperties":false
 							},
-							"Name__1":{
-								"type":"string",
-								"title":"Name__1"
-							},
-							"Department__2":{
-								"type":"string",
-								"title":"Department__2"
-							},
-							"Bonus_Amount__3":{
-								"type":"string",
-								"title":"Bonus_Amount__3"
-							},
-							"Leaves__4":{
-								"type":"string",
-								"title":"Leaves__4"
-							},
-							"Quarter":{
-								"type":"string",
-								"title":"Quarter"
-							}
-						},
-						"required":[]
+							"title":"items"
+						}
 					}
 				},
-				"code":"import groovy.json.JsonSlurper\nimport groovy.json.JsonOutput\n\n// Load JSON file (assuming it's just an array)\ndef file = new File('{{ n_DWgRR.outputs.items }}')\ndef records = new JsonSlurper().parse(file)  // no \".items\"\n\n// Group by Employee ID\ndef grouped = records.groupBy { it.EmpId__0 }\n\n// Aggregate data per employee\ndef aggregated = grouped.collect { empId, recs ->\n    [\n        EmpId       : empId,\n        Name        : recs[0].Name__1,\n        Department  : recs[0].Department__2.trim(),\n        TotalBonus  : recs.sum { it.Bonus_Amount__3.toInteger() },\n        TotalLeaves : recs.sum { it.Leaves__4.toInteger() },\n        AvgBonus    : (recs.sum { it.Bonus_Amount__3.toInteger() } / recs.size()).toInteger(),\n        Quarters    : recs.collect { it.Quarter }\n    ]\n}\n\n// Pretty-print aggregated result\nprintln JsonOutput.prettyPrint(JsonOutput.toJson(aggregated))\n",
+				"code":"def inputArray = items\n\ndef result = inputArray.groupBy { it.EmpId__0 }.collect { empId, entries ->\n    def first = entries[0]\n    [\n        EmpId__0: empId,\n        Name__1: first.Name__1,\n        Department__2: first.Department__2,\n        Total_Bonus: entries.sum { it.Bonus_Amount__3 ?: 0 },\n        Total_Leaves: entries.sum { it.Leaves__4 ?: 0 },\n        Quarters: entries.collect { it.Quarter }.unique()\n    ]\n}\n\nreturn result\n",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"items":{
+						"source":"{{ n_DWgRR.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"EmpId__0":"{{ n_DWgRR.outputs.items[0].EmpId__0 }}",
+							"Name__1":"{{ n_DWgRR.outputs.items[0].Name__1 }}",
+							"Department__2":"{{ n_DWgRR.outputs.items[0].Department__2 }}",
+							"Bonus_Amount__3":"{{ n_DWgRR.outputs.items[0].Bonus_Amount__3 }}",
+							"Leaves__4":"{{ n_DWgRR.outputs.items[0].Leaves__4 }}",
+							"Quarter":"{{ n_DWgRR.outputs.items[0].Quarter }}"
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -1027,5 +1055,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":49
+	"version":50
 }
