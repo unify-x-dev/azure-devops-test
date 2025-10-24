@@ -142,6 +142,13 @@
 			"fromNodeId":"_u9frw",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_8m7HQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_8m7HQ",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
@@ -149,7 +156,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761300404710,
+	"modifiedTime":1761300486810,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -875,6 +882,50 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.EmpId__0",
+					"root.itemsToAdd.items.Name__1",
+					"root.itemsToAdd.items.Department__2",
+					"root.itemsToAdd.items.Bonus_Amount__3",
+					"root.itemsToAdd.items.Leaves__4",
+					"root.itemsToAdd.items.Quarter"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":980,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"_8m7HQ",
+			"index":15,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_F7bG9.outputs.rows }}",
+					"items":{
+						"EmpId__0":"{{ n_F7bG9.outputs.rows[0].EmpId__0 }}",
+						"Name__1":"{{ n_F7bG9.outputs.rows[0].Name__1 }}",
+						"Department__2":"{{ n_F7bG9.outputs.rows[0].Department__2 }}",
+						"Bonus_Amount__3":"{{ n_F7bG9.outputs.rows[0].Bonus_Amount__3 }}",
+						"Leaves__4":"{{ n_F7bG9.outputs.rows[0].Leaves__4 }}",
+						"Quarter":"Q4"
+					}
+				},
+				"listName":"{{ n_DWgRR.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
@@ -886,7 +937,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -910,5 +961,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":40
+	"version":41
 }
