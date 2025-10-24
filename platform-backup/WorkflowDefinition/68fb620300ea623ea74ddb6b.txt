@@ -87,7 +87,7 @@
 	"id":"68fb620300ea623ea74ddb6b",
 	"lastModifiedBy":186875,
 	"lcName":"new approach (copy)",
-	"modifiedTime":1761305589409,
+	"modifiedTime":1761305649412,
 	"name":"new approach (copy)",
 	"nodes":[
 		{
@@ -660,7 +660,15 @@
 				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
-					"source":"{{ n_oiTuI.outputs.result.rows }}"
+					"source":"{{ n_oiTuI.outputs.result.rows }}",
+					"items":{
+						"EmployeeID__0":"{{ n_oiTuI.outputs.result.rows[0].EmployeeID__0 }}",
+						"Name__1":"{{ n_oiTuI.outputs.result.rows[0].Name__1 }}",
+						"Department__2":"{{ n_oiTuI.outputs.result.rows[0].Department__2 }}",
+						"Bonus_Amount__3":"{{ n_oiTuI.outputs.result.rows[0].Bonus_Amount__3 }}",
+						"Leaves_Taken__4":"{{ n_oiTuI.outputs.result.rows[0].Leaves_Taken__4 }}",
+						"rowNumber":"{{ n_oiTuI.outputs.result.rows[0].rowNumber }}"
+					}
 				},
 				"listName":"{{ n_0SdyR.outputs.items[0] }}"
 			},
@@ -963,5 +971,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
