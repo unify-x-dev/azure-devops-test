@@ -135,7 +135,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761298466118,
+	"modifiedTime":1761298517709,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -732,8 +732,8 @@
 			},
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":1037,
-				"resourceName":"variable_by_unifyapps_clear_list",
+				"resourceVersion":980,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -743,11 +743,23 @@
 			"id":"n_ch0Jl",
 			"index":12,
 			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_WZOLl.outputs.rows }}",
+					"items":{
+						"EmpId__0":"{{ n_WZOLl.outputs.rows[0].EmpId__0 }}",
+						"Name__1":"{{ n_WZOLl.outputs.rows[0].Name__1 }}",
+						"Department__2":"{{ n_WZOLl.outputs.rows[0].Department__2 }}",
+						"Bonus_Amount__3":"{{ n_WZOLl.outputs.rows[0].Bonus_Amount__3 }}",
+						"Leaves__4":"{{ n_WZOLl.outputs.rows[0].Leaves__4 }}"
+					}
+				},
 				"listName":"{{ n_DWgRR.outputs.items[0] }}"
 			},
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
-			"title":"Remove all items from list",
+			"title":"Add items to list",
 			"type":"ACTION"
 		},
 		{
@@ -786,5 +798,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":33
+	"version":34
 }
