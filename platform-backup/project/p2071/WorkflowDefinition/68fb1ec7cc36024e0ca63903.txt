@@ -51,13 +51,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_smbpB",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_PA1F6",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_lcWhV",
 			"name":"3",
 			"priority":0,
@@ -109,7 +102,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_PA1F6",
+			"fromNodeId":"_smbpB",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_DWgRR",
@@ -155,7 +148,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761297312105,
+	"modifiedTime":1761297319531,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -397,22 +390,6 @@
 		},
 		{
 			"context":{
-				"appName":"analytics_by_unifyapps",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_lcWhV@_m0AlG-1@2",
-			"id":"n_PA1F6",
-			"index":8,
-			"skip":false,
-			"subTitle":"Analytics by UnifyApps",
-			"title":"Select an action",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -423,7 +400,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@3",
 			"id":"n_lcWhV@3",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"name":"Q3"
 			},
@@ -444,7 +421,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@3",
 			"id":"_oIkgy",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"sheetName":"Sheet1",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -478,7 +455,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@3",
 			"id":"_wGemI",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"object_type":"automation_assignment_1",
 				"skipIfBlank":false,
@@ -511,7 +488,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@4",
 			"id":"n_lcWhV@4",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"name":"Q4"
 			},
@@ -532,7 +509,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@4",
 			"id":"n_F7bG9",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"sheetName":"Sheet1",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -566,7 +543,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@4",
 			"id":"_DbD3I",
-			"index":14,
+			"index":13,
 			"inputs":{
 				"object_type":"automation_assignment_1",
 				"skipIfBlank":false,
@@ -599,7 +576,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_DWgRR",
-			"index":15,
+			"index":14,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -903,7 +880,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_ch0Jl",
-			"index":16,
+			"index":15,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -978,7 +955,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":17,
+			"index":16,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -1009,5 +986,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
