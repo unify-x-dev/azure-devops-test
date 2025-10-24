@@ -190,7 +190,7 @@
 	"id":"68f9189c93948966f0cc80fd",
 	"lastModifiedBy":44109,
 	"lcName":"[dt] filtered and sort agent list",
-	"modifiedTime":1761309158603,
+	"modifiedTime":1761309177622,
 	"name":"[DT] Filtered and sort agent list",
 	"nodes":[
 		{
@@ -976,7 +976,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"n_wfW6L",
@@ -1018,7 +1018,7 @@
 					}
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"cachedFields",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -1031,7 +1031,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_UupXH",
@@ -1106,7 +1106,7 @@
 					"enabled":false
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"count agent message",
 			"title":"Call automation",
 			"type":"CALL_WORKFLOW"
@@ -1119,7 +1119,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"n_KyNCD",
@@ -1128,7 +1128,7 @@
 				"duration":2,
 				"unit":"SECONDS"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Delay",
 			"title":"Set delay duration",
 			"type":"DELAY"
@@ -1150,7 +1150,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_VEUCk",
@@ -1170,7 +1170,7 @@
 				},
 				"listName":"{{ n_HOWK6.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"agents",
 			"title":"Add items to list",
 			"type":"ACTION"
@@ -1423,5 +1423,5 @@
 	"tags":[
 		
 	],
-	"version":44
+	"version":45
 }
