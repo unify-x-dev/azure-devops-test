@@ -39,30 +39,7 @@
 			"fromNodeId":"n_h8DaG",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_txMg9",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_txMg9",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_2kbkq",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"n_txMg9",
-			"name":"no",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"_BKo2D",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_2kbkq",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_qDjU3",
 			"type":"next"
 		},
 		{
@@ -114,7 +91,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761303697902,
+	"modifiedTime":1761303760600,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -754,93 +731,26 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.entities.blockIds.items",
+					"root.itemToAdd.entities.variables.items",
+					"root.itemToAdd.entities.functions.items",
+					"root.itemToAdd.entities.dataSources.items"
+				]
+			},
 			"context":{
-				"appName":"if_else",
-				"resourceVersion":791,
-				"resourceName":"if_else_condition",
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1028,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
-			"id":"n_txMg9",
-			"index":5,
-			"inputs":{
-				"filters":[
-					{
-						"property":"=LEN({{ n_h8DaG.outputs.result.outputList }})",
-						"filter":{
-							"operator":"EQUAL",
-							"value":"0"
-						}
-					}
-				],
-				"operator":"AND"
-			},
-			"skip":false,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemToAdd.entities.blockIds.items",
-					"root.itemToAdd.entities.variables.items",
-					"root.itemToAdd.entities.functions.items",
-					"root.itemToAdd.entities.dataSources.items"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1028,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_txMg9@n_Lzq6H@_z6eK1-1@y@y",
-			"id":"n_2kbkq",
-			"index":6,
-			"inputs":{
-				"itemToAdd":{
-					"entityVersion":"{{ n_PQRFu.outputs.page_version }}",
-					"entityType":"{{ n_PQRFu.outputs.entityType }}",
-					"entityId":"{{ n_PQRFu.outputs.id }}",
-					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
-					"status":"successful"
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemToAdd.entities.blockIds.items",
-					"root.itemToAdd.entities.variables.items",
-					"root.itemToAdd.entities.functions.items",
-					"root.itemToAdd.entities.dataSources.items"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1028,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_txMg9@n_Lzq6H@_z6eK1-1@y@n",
 			"id":"_BKo2D",
-			"index":7,
+			"index":5,
 			"inputs":{
 				"itemToAdd":{
 					"entityVersion":"{{ n_PQRFu.outputs.page_version }}",
@@ -876,7 +786,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_qDjU3",
-			"index":8,
+			"index":6,
 			"inputs":{
 				"filters":[
 					{
@@ -915,7 +825,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
-			"index":9,
+			"index":7,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1013,7 +923,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
-			"index":10,
+			"index":8,
 			"inputs":{
 				"itemToAdd":{
 					"entityVersion":"{{ n_PQRFu.outputs.data_sources[0].version }}",
@@ -1049,7 +959,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":11,
+			"index":9,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1089,5 +999,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":28
 }
