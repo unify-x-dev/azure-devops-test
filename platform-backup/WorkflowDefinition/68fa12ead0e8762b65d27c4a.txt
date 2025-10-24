@@ -47,7 +47,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761283659316,
+	"modifiedTime":1761284133599,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -62,7 +62,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -205,12 +205,16 @@
 			"additional":{
 				"xsdSchemaConfig":{
 					"root":{}
-				}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.pages.items.id",
+					"root.parameters.pages.items.page_schema"
+				]
 			},
 			"context":{
 				"appName":"code_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"code_by_unifyapps_groovy",
+				"resourceVersion":947,
+				"resourceName":"code_by_unifyapps_javascript",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -230,20 +234,20 @@
 							"items":{
 								"type":"object",
 								"properties":{
+									"pageID":{
+										"type":"string",
+										"title":"pageID"
+									},
 									"status":{
 										"type":"string",
 										"title":"status"
 									},
-									"pageId":{
-										"type":"string",
-										"title":"Page Id"
-									},
-									"blockId":{
+									"blocksIDs":{
 										"type":"array",
 										"items":{
 											"type":"string"
 										},
-										"title":"blockId"
+										"title":"blocksIDs"
 									}
 								},
 								"additionalProperties":false,
@@ -258,7 +262,7 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"Pages":{
+						"pages":{
 							"type":"array",
 							"items":{
 								"type":"object",
@@ -275,33 +279,28 @@
 									}
 								},
 								"additionalProperties":false,
-								"required":[
-									"page_schema",
-									"id"
-								]
+								"required":[]
 							},
 							"title":"Pages"
 						}
 					}
 				},
-				"compileOnSave":false,
-				"code":"// `page` is assumed to be provided\nconst outputList = [];\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n */\nlet checkBlocks;\n\n// Public entry point signature — keeps full map for recursion\ncheckBlocks = (blocksMap, pageId) => {\n  return checkBlocksCore(blocksMap, pageId, blocksMap);\n};\n\n// Internal recursive with fullMap carried along\nconst checkBlocksCore = (blocksToCheckMap, pageId, fullBlocksMap) => {\n  const results = [];\n\n  Object.entries(blocksToCheckMap || {}).forEach(([blockId, blockData]) => {\n    const comp = blockData?.component;\n    if (!comp) return;\n\n    // 1. is Repeatable?\n    if (comp.componentType === \"Repeatable\") {\n      // 2. pagination?\n      const hasPagination = comp?.content?.addOns?.page != null;\n      results.push({\n        pageId: pageId,\n        componentId: blockId || \"\",\n        ComponentName: blockData?.displayName || \"\",\n        status: hasPagination ? \"Pass\" : \"Fail\",\n      });\n    }\n\n    // 3. nested via content.blockIds\n    const nestedIds = comp?.content?.blockIds || [];\n    nestedIds.forEach((nestedId) => {\n      const nestedBlockData = fullBlocksMap[nestedId];\n      if (nestedBlockData) {\n        results.push(\n          ...checkBlocksCore({ [nestedId]: nestedBlockData }, pageId, fullBlocksMap)\n        );\n      }\n    });\n\n    // 4. nested via slots\n    const slots = comp?.slots || {};\n    Object.values(slots).forEach((slotData) => {\n      const slotBlockId = slotData?.blockId;\n      if (slotBlockId) {\n        const slotBlockData = fullBlocksMap[slotBlockId];\n        if (slotBlockData) {\n          results.push(\n            ...checkBlocksCore({ [slotBlockId]: slotBlockData }, pageId, fullBlocksMap)\n          );\n        }\n      }\n    });\n  });\n\n  return results;\n};\n\n// --- Process the Single Page ---\nconst pageId = page?.id || \"\";\nconst schema = page?.page_schema || {};\nconst blocks = schema?.blocks || {}; // full map\n\n// Run\nconst pageResults = checkBlocks(blocks, pageId);\noutputList.push(...pageResults);\n\n// --- Filter & Output ---\nconst failedBlocks = outputList.filter((r) => r.status === \"Fail\");\nlet finalOutput = {};\n\nif (failedBlocks.length > 0) \n{\n  finalOutput = {\n    pageID: pageId,\n    status: \"failed\",\n    blocksIDs: failedBlocks.map((b) => b.componentId),\n  };\n}\n\n// return result\nreturn finalOutput;",
-				"compile_static":false,
-				"captureStdOutput":false,
+				"code":"// `page` is assumed to be provided\nconst outputList = [];\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n */\nlet checkBlocks;\n\n// Public entry point signature — keeps full map for recursion\ncheckBlocks = (blocksMap, pageId) => {\n  return checkBlocksCore(blocksMap, pageId, blocksMap);\n};\n\n// Internal recursive with fullMap carried along\nconst checkBlocksCore = (blocksToCheckMap, pageId, fullBlocksMap) => {\n  const results = [];\n\n  Object.entries(blocksToCheckMap || {}).forEach(([blockId, blockData]) => {\n    const comp = blockData?.component;\n    if (!comp) return;\n\n    // 1. is Repeatable?\n    if (comp.componentType === \"Repeatable\") {\n      // 2. pagination?\n      const hasPagination = comp?.content?.addOns?.page != null;\n      results.push({\n        pageId: pageId,\n        blockId: blockId || \"\",\n        ComponentName: blockData?.displayName || \"\",\n        status: hasPagination ? \"Pass\" : \"Fail\",\n      });\n    }\n\n    // 3. nested via content.blockIds\n    const nestedIds = comp?.content?.blockIds || [];\n    nestedIds.forEach((nestedId) => {\n      const nestedBlockData = fullBlocksMap[nestedId];\n      if (nestedBlockData) {\n        results.push(\n          ...checkBlocksCore({ [nestedId]: nestedBlockData }, pageId, fullBlocksMap)\n        );\n      }\n    });\n\n    // 4. nested via slots\n    const slots = comp?.slots || {};\n    Object.values(slots).forEach((slotData) => {\n      const slotBlockId = slotData?.blockId;\n      if (slotBlockId) {\n        const slotBlockData = fullBlocksMap[slotBlockId];\n        if (slotBlockData) {\n          results.push(\n            ...checkBlocksCore({ [slotBlockId]: slotBlockData }, pageId, fullBlocksMap)\n          );\n        }\n      }\n    });\n  });\n\n  return results;\n};\n\n// --- Process the Single Page ---\nconst pageId = page?.id || \"\";\nconst schema = page?.page_schema || {};\nconst blocks = schema?.blocks || {}; // full map\n\n// Run\nconst pageResults = checkBlocks(blocks, pageId);\noutputList.push(...pageResults);\n\n// --- Filter & Output ---\nconst failedBlocks = outputList.filter((r) => r.status === \"Fail\");\nlet finalOutput = {};\n\nif (failedBlocks.length > 0) {\n  finalOutput = {\n    pageID: pageId,\n    status: \"failed\",\n    blocksIDs: failedBlocks.map((b) => b.componentId),\n  };\n}\n\n// return result\nreturn finalOutput;\n",
+				"isAsync":false,
 				"parameters":{
-					"Pages":{
+					"pages":{
+						"source":"{{ n_PQRFu.outputs.page }}",
 						"ua:type":"mappedArray",
 						"items":{
 							"page_schema":"{{ n_PQRFu.outputs.page[0].page_schema }}",
 							"id":"{{ n_PQRFu.outputs.page[0].id }}"
-						},
-						"source":"{{ n_PQRFu.outputs.page }}"
+						}
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Repeatable + pagination",
-			"title":"Execute Groovy code",
+			"subTitle":"CHECK_1",
+			"title":"Execute Javascript",
 			"type":"ACTION"
 		},
 		{
@@ -312,7 +311,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_txMg9",
@@ -342,7 +341,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_txMg9@_z6eK1-1@y",
 			"id":"n_nQDPb",
@@ -375,7 +374,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_txMg9@_z6eK1-1@n",
 			"id":"_z1p2M",
@@ -418,5 +417,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
