@@ -16,7 +16,7 @@
 	"id":"68fb177341c2843a49c5a640",
 	"lastModifiedBy":33444,
 	"lcName":"test",
-	"modifiedTime":1761297628819,
+	"modifiedTime":1761297652311,
 	"name":"test",
 	"nodes":[
 		{
@@ -26,14 +26,28 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TjEAj-1",
 			"id":"n_dvEOb",
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"df":{
+								"type":"string",
+								"title":"Df",
+								"help":"sf"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"df"
+						]
+					}
 				}
 			},
 			"skip":false,
@@ -52,7 +66,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TjEAj-1",
 			"id":"n_DeBhU",
@@ -110,5 +124,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":7
+	"version":8
 }
