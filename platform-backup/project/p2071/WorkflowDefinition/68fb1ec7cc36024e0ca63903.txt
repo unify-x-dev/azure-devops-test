@@ -1,10 +1,18 @@
 {
 	"appsUsed":[
-		"gsheets",
-		"storage_by_unifyapps"
+		"gsheets"
 	],
 	"createdTime":1761287879606,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761298332331,
+		"deployedBy":189756,
+		"deployedDefinitionId":"68fb479cecc44120a88dfe28",
+		"deploymentTag":"V1",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":31
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_yM97Y",
@@ -29,13 +37,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_WZOLl",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_AKknv",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_lcWhV",
 			"name":"2",
 			"priority":0,
@@ -48,13 +49,6 @@
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_smbpB",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_smbpB",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_7rIBU",
 			"type":"next"
 		},
 		{
@@ -88,14 +82,14 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_AKknv",
+			"fromNodeId":"n_WZOLl",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_DWgRR",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_7rIBU",
+			"fromNodeId":"_smbpB",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_DWgRR",
@@ -141,7 +135,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761298325807,
+	"modifiedTime":1761298386907,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -294,50 +288,6 @@
 			"type":"ACTION"
 		},
 		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.records.items.id",
-					"root.records.items.name",
-					"root.records.items.Department",
-					"root.records.items.bonusAmount",
-					"root.records.items.Leaves",
-					"root.records.items.quarter"
-				]
-			},
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":2512,
-				"resourceName":"storage_by_unifyapps_bulk_create_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_lcWhV@_m0AlG-1@1",
-			"id":"n_AKknv",
-			"index":5,
-			"inputs":{
-				"object_type":"automation_assignment_1",
-				"skipIfBlank":false,
-				"records":{
-					"source":"{{ n_WZOLl.outputs.rows }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"id":"{{ n_WZOLl.outputs.rows[0].EmpId__0 }}",
-						"name":"{{ n_WZOLl.outputs.rows[0].Name__1 }}",
-						"Department":"{{ n_WZOLl.outputs.rows[0].Department__2 }}",
-						"bonusAmount":"{{ n_WZOLl.outputs.rows[0].Bonus_Amount__3 }}",
-						"Leaves":"{{ n_WZOLl.outputs.rows[0].Leaves__4 }}",
-						"quarter":"Q1"
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Create or update records in bulk",
-			"type":"ACTION"
-		},
-		{
 			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
@@ -349,7 +299,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@2",
 			"id":"n_lcWhV@2",
-			"index":6,
+			"index":5,
 			"inputs":{
 				"name":"Q2"
 			},
@@ -370,7 +320,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@2",
 			"id":"_smbpB",
-			"index":7,
+			"index":6,
 			"inputs":{
 				"sheetName":"Sheet1",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -381,50 +331,6 @@
 			"skip":false,
 			"subTitle":"Google Sheets",
 			"title":"Get rows",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.records.items.id",
-					"root.records.items.name",
-					"root.records.items.Department",
-					"root.records.items.bonusAmount",
-					"root.records.items.Leaves",
-					"root.records.items.quarter"
-				]
-			},
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":2512,
-				"resourceName":"storage_by_unifyapps_bulk_create_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_lcWhV@_m0AlG-1@2",
-			"id":"_7rIBU",
-			"index":8,
-			"inputs":{
-				"object_type":"automation_assignment_1",
-				"skipIfBlank":false,
-				"records":{
-					"source":"{{ _smbpB.outputs.rows }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"quarter":"Q2",
-						"id":"{{ _smbpB.outputs.rows[0].EmpId__0 }}",
-						"name":"{{ _smbpB.outputs.rows[0].Name__1 }}",
-						"Department":"{{ _smbpB.outputs.rows[0].Department__2 }}",
-						"bonusAmount":"{{ _smbpB.outputs.rows[0].Bonus_Amount__3 }}",
-						"Leaves":"{{ _smbpB.outputs.rows[0].Leaves__4 }}"
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Create or update records in bulk",
 			"type":"ACTION"
 		},
 		{
@@ -439,7 +345,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@3",
 			"id":"n_lcWhV@3",
-			"index":9,
+			"index":7,
 			"inputs":{
 				"name":"Q3"
 			},
@@ -460,7 +366,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@3",
 			"id":"_oIkgy",
-			"index":10,
+			"index":8,
 			"inputs":{
 				"sheetName":"Sheet1",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -485,7 +391,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@4",
 			"id":"n_lcWhV@4",
-			"index":11,
+			"index":9,
 			"inputs":{
 				"name":"Q4"
 			},
@@ -506,7 +412,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@4",
 			"id":"n_F7bG9",
-			"index":12,
+			"index":10,
 			"inputs":{
 				"sheetName":"Sheet1",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -527,11 +433,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_DWgRR",
-			"index":13,
+			"index":11,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -809,7 +715,7 @@
 					}
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Create list",
 			"type":"ACTION"
@@ -831,11 +737,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_ch0Jl",
-			"index":14,
+			"index":12,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -893,7 +799,7 @@
 				},
 				"listName":"{{ n_DWgRR.outputs.items[0] }}"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add items to list",
 			"type":"ACTION"
@@ -910,7 +816,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":15,
+			"index":13,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -934,5 +840,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":31
+	"version":32
 }
