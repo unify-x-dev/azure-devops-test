@@ -119,13 +119,6 @@
 			"fromNodeId":"n_ch0Jl",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_pZrqD",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_pZrqD",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
@@ -133,7 +126,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761293255278,
+	"modifiedTime":1761293769326,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -725,8 +718,7 @@
 					"root.itemsToAdd.items.Name__1",
 					"root.itemsToAdd.items.Department__2",
 					"root.itemsToAdd.items.Bonus_Amount__3",
-					"root.itemsToAdd.items.Leaves__4",
-					"root.itemsToAdd.items.rowNumber"
+					"root.itemsToAdd.items.Leaves__4"
 				]
 			},
 			"context":{
@@ -736,7 +728,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_ch0Jl",
@@ -804,90 +796,6 @@
 			"type":"ACTION"
 		},
 		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemsToAdd.items.EmpId__0",
-					"root.itemsToAdd.items.Name__1",
-					"root.itemsToAdd.items.Department__2",
-					"root.itemsToAdd.items.Bonus_Amount__3",
-					"root.itemsToAdd.items.Leaves__4"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":979,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_m0AlG-1",
-			"id":"_pZrqD",
-			"index":13,
-			"inputs":{
-				"insertLocation":"END",
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"source":"{{ _smbpB.outputs.rows }}",
-					"items":{
-						"EmpId__0":"{{ _smbpB.outputs.rows[0].EmpId__0 }}",
-						"Name__1":"{{ _smbpB.outputs.rows[0].Name__1 }}",
-						"Department__2":"{{ _smbpB.outputs.rows[0].Department__2 }}",
-						"Bonus_Amount__3":"{{ _smbpB.outputs.rows[0].Bonus_Amount__3 }}",
-						"Leaves__4":"{{ _smbpB.outputs.rows[0].Leaves__4 }}",
-						"UserYearlyData":{
-							"Q1":{
-								"ua:type":"mappedArray",
-								"items":{
-									"leaves":"{{ n_WZOLl.outputs.rows[0].Leaves__4 }}",
-									"bonus":"{{ n_WZOLl.outputs.rows[0].Bonus_Amount__3 }}",
-									"id":"{{ n_WZOLl.outputs.rows[0].EmpId__0 }}",
-									"name":"{{ n_WZOLl.outputs.rows[0].Name__1 }}"
-								},
-								"source":"{{ n_WZOLl.outputs.rows }}"
-							},
-							"Q2":{
-								"source":"{{ _smbpB.outputs.rows }}",
-								"ua:type":"mappedArray",
-								"items":{
-									"id":"{{ _smbpB.outputs.rows[0].EmpId__0 }}",
-									"name":"{{ _smbpB.outputs.rows[0].Name__1 }}",
-									"leaves":"{{ _smbpB.outputs.rows[0].Leaves__4 }}",
-									"Bonus":"{{ _smbpB.outputs.rows[0].Bonus_Amount__3 }}"
-								}
-							},
-							"Q3":{
-								"source":"{{ _oIkgy.outputs.rows }}",
-								"ua:type":"mappedArray",
-								"items":{
-									"id":"{{ _oIkgy.outputs.rows[0].EmpId__0 }}",
-									"name":"{{ _oIkgy.outputs.rows[0].Name__1 }}",
-									"leaves":"{{ _oIkgy.outputs.rows[0].Leaves__4 }}",
-									"Bonus":"{{ _oIkgy.outputs.rows[0].Bonus_Amount__3 }}"
-								}
-							},
-							"Q4":{
-								"source":"{{ n_F7bG9.outputs.rows }}",
-								"ua:type":"mappedArray",
-								"items":{
-									"id":"{{ n_F7bG9.outputs.rows[0].EmpId__0 }}",
-									"name":"{{ n_F7bG9.outputs.rows[0].Name__1 }}",
-									"leaves":"{{ n_F7bG9.outputs.rows[0].Leaves__4 }}",
-									"Bonus":"{{ n_F7bG9.outputs.rows[0].Bonus_Amount__3 }}"
-								}
-							}
-						}
-					}
-				},
-				"listName":"{{ n_DWgRR.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add items to list",
-			"type":"ACTION"
-		},
-		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
@@ -899,7 +807,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":14,
+			"index":13,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -930,5 +838,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
