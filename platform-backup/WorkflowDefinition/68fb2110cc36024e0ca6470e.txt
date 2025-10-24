@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"gsheets"
+		"gsheets",
+		"openai"
 	],
 	"createdTime":1761288464314,
 	"deleted":false,
@@ -64,6 +65,13 @@
 		},
 		{
 			"fromNodeId":"n_oiTuI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GCEfB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GCEfB",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_QLQ75",
@@ -132,7 +140,7 @@
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"new",
-	"modifiedTime":1761291475203,
+	"modifiedTime":1761292978338,
 	"name":"new",
 	"nodes":[
 		{
@@ -917,6 +925,29 @@
 		},
 		{
 			"context":{
+				"appName":"openai",
+				"resourceVersion":5471,
+				"connectionId":"68ea9540a5e5253b2d030eea",
+				"resourceName":"openai_analyze_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Nftv5@_XdQ9o-1@l",
+			"id":"n_GCEfB",
+			"index":9,
+			"inputs":{
+				"source_text":"{{ n_lw3oK.outputs.input }}",
+				"model":"gpt-4o"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Analyze text",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"if_else",
 				"resourceVersion":111,
 				"resourceName":"if_else_condition",
@@ -927,7 +958,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"n_QLQ75",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"filters":[
 					{
@@ -974,7 +1005,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"_A7jOQ",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1167,7 +1198,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"n_tiPDQ",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"listName":"{{ n_8EGvJ.outputs.items[0] }}"
 			},
@@ -1188,7 +1219,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"_sw37E",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"listName":"{{ _Mdq6p.outputs.items[0] }}"
 			},
@@ -1215,7 +1246,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"n_KPNN2",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -1251,7 +1282,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"_Ga0mE",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -1281,7 +1312,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_Mpy8B",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"result":{
 					"result":{
@@ -1315,5 +1346,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
