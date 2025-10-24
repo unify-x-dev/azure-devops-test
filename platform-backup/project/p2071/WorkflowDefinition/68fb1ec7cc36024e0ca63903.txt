@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"gsheets"
 	],
 	"createdTime":1761287879606,
 	"deleted":false,
@@ -17,22 +17,124 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_olnXn",
+			"toNodeId":"n_lcWhV",
 			"type":"if"
+		},
+		{
+			"fromNodeId":"n_lcWhV",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lcWhV@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_lcWhV@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WZOLl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lcWhV",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lcWhV@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_lcWhV@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_smbpB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lcWhV",
+			"name":"3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lcWhV@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_lcWhV@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_oIkgy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lcWhV",
+			"name":"4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lcWhV@4",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_lcWhV@4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_F7bG9",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"n_4ZwhX",
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_35yb7",
+			"toNodeId":"n_kfgKN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_WZOLl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KaoOy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_smbpB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KaoOy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_oIkgy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KaoOy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_F7bG9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KaoOy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lcWhV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KaoOy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_kfgKN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
 	],
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761288111339,
+	"modifiedTime":1761288532771,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -122,26 +224,285 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_4ZwhX@_m0AlG-1@y",
-			"id":"n_olnXn",
+			"id":"n_lcWhV",
 			"index":3,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Q1"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Q2"
+						}
+					},
+					{
+						"id":"3",
+						"inputs":{
+							"name":"Q3"
+						}
+					},
+					{
+						"id":"4",
+						"inputs":{
+							"name":"Q4"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@1",
+			"id":"n_lcWhV@1",
+			"index":4,
+			"inputs":{
+				"name":"Q1"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"gsheets",
+				"resourceVersion":6219,
+				"connectionId":"68f8d22717a0e608e140e5de",
+				"resourceName":"gsheets_get_rows_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@1",
+			"id":"n_WZOLl",
+			"index":5,
+			"inputs":{
+				"sheetName":"Sheet1",
+				"valueRenderOption":"FORMATTED_VALUE",
+				"objectSourceResourceName":"gsheets_fetch_columns",
+				"range":"A1:E11",
+				"spreadsheetId":"1JGsKbdbgyVpIXAQ4GAOY5zrXEz1PoP3t0HVp3gQ2I1o__Q1-Jan Mar"
+			},
+			"skip":false,
+			"subTitle":"Google Sheets",
+			"title":"Get rows",
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@2",
+			"id":"n_lcWhV@2",
+			"index":6,
+			"inputs":{
+				"name":"Q2"
+			},
+			"skip":true,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"gsheets",
+				"resourceVersion":6219,
+				"connectionId":"68f8d22717a0e608e140e5de",
+				"resourceName":"gsheets_get_rows_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@2",
+			"id":"_smbpB",
+			"index":7,
+			"inputs":{
+				"sheetName":"Sheet1",
+				"valueRenderOption":"FORMATTED_VALUE",
+				"objectSourceResourceName":"gsheets_fetch_columns",
+				"range":"A1:E11",
+				"spreadsheetId":"15o7BWQKvid-vMT713cCAR_05UasKaZWxbXhOJwEfqUg__Q2- Apr Jun"
+			},
+			"skip":false,
+			"subTitle":"Google Sheets",
+			"title":"Get rows",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@3",
+			"id":"n_lcWhV@3",
+			"index":8,
+			"inputs":{
+				"name":"Q3"
+			},
+			"skip":true,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"gsheets",
+				"resourceVersion":6219,
+				"connectionId":"68f8d22717a0e608e140e5de",
+				"resourceName":"gsheets_get_rows_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@3",
+			"id":"_oIkgy",
+			"index":9,
+			"inputs":{
+				"sheetName":"Sheet1",
+				"valueRenderOption":"FORMATTED_VALUE",
+				"objectSourceResourceName":"gsheets_fetch_columns",
+				"range":"A1:E11",
+				"spreadsheetId":"1SQjPc4e0uS4C7nV5M8bUVGyI2l_pXKzH6Lu4A1JDGgk__Q3- Jul Sept"
+			},
+			"skip":false,
+			"subTitle":"Google Sheets",
+			"title":"Get rows",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@4",
+			"id":"n_lcWhV@4",
+			"index":10,
+			"inputs":{
+				"name":"Q4"
+			},
+			"skip":true,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"gsheets",
+				"resourceVersion":6219,
+				"connectionId":"68f8d22717a0e608e140e5de",
+				"resourceName":"gsheets_get_rows_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lcWhV@n_4ZwhX@_m0AlG-1@y@4",
+			"id":"n_F7bG9",
+			"index":11,
+			"inputs":{
+				"sheetName":"Sheet1",
+				"valueRenderOption":"FORMATTED_VALUE",
+				"objectSourceResourceName":"gsheets_fetch_columns",
+				"range":"A1:E11",
+				"spreadsheetId":"1MIiUucfKUZWeoKfWrTrEjJGGDwLtKLkFFdpHgAOE-hI__Q4- Oct Dec"
+			},
+			"skip":false,
+			"subTitle":"Google Sheets",
+			"title":"Get rows",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gsheets",
+				"resourceVersion":6219,
+				"connectionId":"68f8d22717a0e608e140e5de",
+				"resourceName":"gsheets_get_rows_batch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_4ZwhX@_m0AlG-1@n",
-			"id":"n_35yb7",
-			"index":4,
+			"id":"n_kfgKN",
+			"index":12,
+			"inputs":{
+				"sheetName":"Sheet1",
+				"valueRenderOption":"FORMATTED_VALUE",
+				"objectSourceResourceName":"gsheets_fetch_columns",
+				"range":"A1:E11",
+				"spreadsheetId":"1JGsKbdbgyVpIXAQ4GAOY5zrXEz1PoP3t0HVp3gQ2I1o__Q1-Jan Mar"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Google Sheets",
+			"title":"Get rows",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1091,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"n_KaoOy",
+			"index":13,
+			"inputs":{
+				"result":{
+					"userId":"{{ n_yM97Y.outputs.userId }}",
+					"flag":"{{ n_yM97Y.outputs.flag }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":189756,
@@ -162,5 +523,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
