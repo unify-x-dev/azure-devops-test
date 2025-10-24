@@ -33,12 +33,33 @@
 			"skip":false,
 			"toNodeId":"n_r20kJ",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_r20kJ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_MfGqX",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_MfGqX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HsYB7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HsYB7",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_sqagt",
+			"type":"next"
 		}
 	],
 	"id":"68fb09389bb45819e17a885f",
-	"lastModifiedBy":161877,
+	"lastModifiedBy":308,
 	"lcName":"dnd",
-	"modifiedTime":1761291625823,
+	"modifiedTime":1761293605915,
 	"name":"dnd",
 	"nodes":[
 		{
@@ -59,20 +80,29 @@
 					"body":{
 						"type":"object",
 						"properties":{
-							"id":{
+							"SurveyID":{
 								"type":"integer",
-								"title":"Id"
+								"title":"Survey ID"
 							},
-							"str":{
+							"Question":{
 								"type":"string",
-								"title":"Str"
+								"title":"Question"
+							},
+							"Answer":{
+								"type":"integer",
+								"title":"Answer"
+							},
+							"UserID":{
+								"type":"string",
+								"title":"User ID"
+							},
+							"DateTime":{
+								"type":"string",
+								"title":"Date Time"
 							}
 						},
 						"additionalProperties":false,
-						"required":[
-							"id",
-							"str"
-						]
+						"required":[]
 					}
 				}
 			},
@@ -295,25 +325,6 @@
 									"type":"string",
 									"format":"ua:source",
 									"title":"List Item Source"
-								},
-								"items":{
-									"type":"object",
-									"properties":{
-										"id":{
-											"type":"integer",
-											"title":"Id"
-										},
-										"str":{
-											"type":"string",
-											"title":"Str"
-										}
-									},
-									"additionalProperties":false,
-									"required":[
-										"id",
-										"str"
-									],
-									"ua:__linkedVariable__":"n_o4Q3A.outputs.body"
 								}
 							}
 						}
@@ -357,7 +368,7 @@
 					}
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Create list",
 			"type":"ACTION"
@@ -377,13 +388,13 @@
 			"index":3,
 			"inputs":{
 				"itemToAdd":{
-					"id":"{{ n_o4Q3A.outputs.body.id }}",
-					"str":"{{ n_o4Q3A.outputs.body.str }}"
+					"id":"",
+					"str":""
 				},
 				"insertLocation":"START",
 				"listName":"{{ n_W3Kwl.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add item to list",
 			"type":"ACTION"
@@ -454,6 +465,423 @@
 				"ignoreTrailingSlashes":false,
 				"certificateType":"CERT_STRING"
 			},
+			"skip":true,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":6,
+				"resourceName":"variable_by_unifyapps_create_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_urfpc-1",
+			"id":"n_MfGqX",
+			"index":5,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"type":"object",
+									"properties":{
+										"SurveyID":{
+											"type":"integer",
+											"title":"SurveyID"
+										},
+										"Question":{
+											"type":"string",
+											"title":"Question"
+										},
+										"Answer":{
+											"type":"integer",
+											"title":"Answer"
+										},
+										"UserID":{
+											"type":"string",
+											"title":"UserID"
+										},
+										"DateTime":{
+											"type":"integer",
+											"title":"DateTime"
+										}
+									},
+									"additionalProperties":false,
+									"ua:__linkedVariable__":"n_rLLAt.outputs.body"
+								}
+							}
+						}
+					}
+				}
+			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"List",
+				"ua:list_type":"OBJECT"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"List",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{
+									"SurveyID":{
+										"type":"integer",
+										"title":"SurveyID"
+									},
+									"Question":{
+										"type":"string",
+										"title":"Question"
+									},
+									"Answer":{
+										"type":"integer",
+										"title":"Answer"
+									},
+									"UserID":{
+										"type":"string",
+										"title":"UserID"
+									},
+									"DateTime":{
+										"type":"integer",
+										"title":"DateTime"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.SurveyID",
+					"root.itemToAdd.Question",
+					"root.itemToAdd.Answer",
+					"root.itemToAdd.UserID",
+					"root.itemToAdd.DateTime"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":6,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_urfpc-1",
+			"id":"n_HsYB7",
+			"index":6,
+			"inputs":{
+				"itemToAdd":{
+					"SurveyID":"{{ n_MfGqX.outputs.items[0].SurveyID }}",
+					"Question":"{{ n_MfGqX.outputs.items[0].Question }}",
+					"Answer":"{{ n_MfGqX.outputs.items[0].Answer }}",
+					"UserID":"{{ n_MfGqX.outputs.items[0].UserID }}",
+					"DateTime":"{{ n_MfGqX.outputs.items[0].DateTime }}"
+				},
+				"insertLocation":"START",
+				"listName":"{{ n_MfGqX.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":16,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_urfpc-1",
+			"id":"_sqagt",
+			"index":7,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_MfGqX.outputs.items }}",
+					"items":{
+						"SurveyID":"{{ n_MfGqX.outputs.items[0].SurveyID }}",
+						"Question":"{{ n_MfGqX.outputs.items[0].Question }}",
+						"Answer":"{{ n_MfGqX.outputs.items[0].Answer }}",
+						"UserID":"{{ n_MfGqX.outputs.items[0].UserID }}",
+						"DateTime":"{{ n_MfGqX.outputs.items[0].DateTime }}"
+					}
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"dddffba0-6c17-4f34-9748-3fa5e08cc366/datasets/3c0fcb36-53d4-400f-9445-8b8424028014/rows",
+				"baseUrl":"https://api.powerbi.com",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"array",
+					"items":{
+						"type":"object",
+						"properties":{
+							"SurveyID":{
+								"type":"integer",
+								"title":"SurveyID"
+							},
+							"Question":{
+								"type":"string",
+								"title":"Question"
+							},
+							"Answer":{
+								"type":"integer",
+								"title":"Answer"
+							},
+							"UserID":{
+								"type":"string",
+								"title":"UserID"
+							},
+							"DateTime":{
+								"type":"integer",
+								"title":"DateTime"
+							}
+						},
+						"additionalProperties":false
+					}
+				},
+				"queryParamsList":[
+					{
+						"key":"experience",
+						"value":"power-bi"
+					},
+					{
+						"key":"key",
+						"value":"E8FRQBgjYfrgg%2FNAimnQHDniqDYg8FKjD5LqDqz6FWpM8tyir24H%2F5P2BV%2Bjg1aWyLbS4RPf6VLbBYyRvzoIdg%3D%3D"
+					}
+				],
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
 			"skip":false,
 			"subTitle":"Custom HTTP Endpoint",
 			"title":"Execute REST request",
@@ -477,5 +905,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
