@@ -112,6 +112,13 @@
 			"fromNodeId":"n_DWgRR",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_ch0Jl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ch0Jl",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
@@ -119,7 +126,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761289436144,
+	"modifiedTime":1761289544141,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -647,21 +654,21 @@
 																"type":"string",
 																"title":"Name"
 															},
-															"dep":{
-																"type":"string",
-																"title":"Dep"
-															},
 															"leaves":{
 																"type":"number",
 																"title":"Leaves"
+															},
+															"bonus":{
+																"type":"number",
+																"title":"Dep"
 															}
 														},
 														"additionalProperties":false,
 														"required":[
 															"id",
 															"name",
-															"dep",
-															"leaves"
+															"leaves",
+															"bonus"
 														]
 													},
 													"title":"Q 1"
@@ -817,21 +824,21 @@
 															"type":"string",
 															"title":"Name"
 														},
-														"dep":{
-															"type":"string",
-															"title":"Dep"
-														},
 														"leaves":{
 															"type":"number",
 															"title":"Leaves"
+														},
+														"bonus":{
+															"type":"number",
+															"title":"Dep"
 														}
 													},
 													"additionalProperties":false,
 													"required":[
 														"id",
 														"name",
-														"dep",
-														"leaves"
+														"leaves",
+														"bonus"
 													]
 												},
 												"title":"Q 1"
@@ -958,6 +965,38 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":979,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"n_ch0Jl",
+			"index":12,
+			"inputs":{
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"items":{
+						"UserYearlyData":{
+							"Q1":{
+								"source":"{{ n_WZOLl.outputs.rows[0] }}",
+								"ua:type":"mappedArray"
+							}
+						}
+					}
+				},
+				"listName":"{{ n_DWgRR.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
 				"resourceName":"callables_return_to_automation",
@@ -968,7 +1007,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -999,5 +1038,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
