@@ -54,7 +54,7 @@
 			"fromNodeId":"_smbpB",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_qIvry",
+			"toNodeId":"n_PA1F6",
 			"type":"next"
 		},
 		{
@@ -109,7 +109,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_qIvry",
+			"fromNodeId":"n_PA1F6",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_DWgRR",
@@ -155,7 +155,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761297107007,
+	"modifiedTime":1761297312105,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -396,45 +396,19 @@
 			"type":"ACTION"
 		},
 		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.records.items.id",
-					"root.records.items.name",
-					"root.records.items.Department",
-					"root.records.items.bonusAmount",
-					"root.records.items.Leaves"
-				]
-			},
 			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":2512,
-				"resourceName":"storage_by_unifyapps_bulk_create_records",
+				"appName":"analytics_by_unifyapps",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@2",
-			"id":"_qIvry",
+			"id":"n_PA1F6",
 			"index":8,
-			"inputs":{
-				"object_type":"automation_assignment_1",
-				"skipIfBlank":false,
-				"records":{
-					"source":"{{ _smbpB.outputs.rows }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"id":"{{ _smbpB.outputs.rows[0].EmpId__0 }}",
-						"name":"{{ _smbpB.outputs.rows[0].Name__1 }}",
-						"Department":"{{ _smbpB.outputs.rows[0].Department__2 }}",
-						"bonusAmount":"{{ _smbpB.outputs.rows[0].Bonus_Amount__3 }}",
-						"Leaves":"{{ _smbpB.outputs.rows[0].Leaves__4 }}"
-					}
-				}
-			},
 			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Create or update records in bulk",
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Select an action",
 			"type":"ACTION"
 		},
 		{
@@ -1035,5 +1009,5 @@
 	"tags":[
 		
 	],
-	"version":23
+	"version":24
 }
