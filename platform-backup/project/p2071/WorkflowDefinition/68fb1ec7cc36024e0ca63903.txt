@@ -163,7 +163,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761303958203,
+	"modifiedTime":1761304798410,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -461,7 +461,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_DWgRR",
@@ -945,7 +945,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KuVC7",
@@ -987,7 +987,7 @@
 						"required":[]
 					}
 				},
-				"code":"import groovy.json.JsonSlurper\n\n// Read and parse the JSON file\ndef jsonFile = new File('UserData.json')\ndef jsonData = new JsonSlurper().parseText(jsonFile.text)\n\n// Access the items list\ndef items = jsonData.items\n\n// Group by EmpId__0\ndef grouped = items.groupBy { it.EmpId__0 }\n\n// Aggregate totals for each employee\ndef result = grouped.collect { empId, records ->\n    def totalBonus = records.sum { it.Bonus_Amount__3.toBigDecimal() }\n    def totalLeaves = records.sum { it.Leaves__4.toInteger() }\n    [\n        EmpId: empId,\n        Name : records[0].Name__1,\n        Department: records[0].Department__2.trim(),\n        Total_Bonus_Amount: totalBonus,\n        Total_Leaves: totalLeaves\n    ]\n}\n\n// Print or return result\nprintln groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(result))\n",
+				"code":"import groovy.json.JsonSlurper\nimport groovy.json.JsonOutput\n\n// Load JSON file (replace with your file path)\ndef file = new File({{ n_DWgRR.outputs.items }})\ndef json = new JsonSlurper().parse(file)\n\n// Group by Employee ID\ndef grouped = json.items.groupBy { it.EmpId__0 }\n\n// Aggregate data per employee\ndef aggregated = grouped.collect { empId, records ->\n    [\n        EmpId       : empId,\n        Name        : records[0].Name__1,\n        Department  : records[0].Department__2.trim(),\n        TotalBonus  : records.sum { it.Bonus_Amount__3.toInteger() },\n        TotalLeaves : records.sum { it.Leaves__4.toInteger() },\n        AvgBonus    : (records.sum { it.Bonus_Amount__3.toInteger() } / records.size()).toInteger(),\n        Quarters    : records.collect { it.Quarter }\n    ]\n}\n\n// Pretty-print JSON result\nprintln JsonOutput.prettyPrint(JsonOutput.toJson(aggregated))\n",
 				"compile_static":false,
 				"captureStdOutput":false
 			},
@@ -1032,5 +1032,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":46
+	"version":47
 }
