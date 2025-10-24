@@ -5,12 +5,12 @@
 	"createdTime":1761283323374,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761309008929,
+		"deployedAt":1761309180727,
 		"deployedBy":44109,
-		"deployedDefinitionId":"68fb715000ea623ea74eb272",
+		"deployedDefinitionId":"68fb71fc00ea623ea74eb79f",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":42
+		"version":6,
+		"workflowVersion":45
 	},
 	"edges":[
 		{
@@ -190,7 +190,7 @@
 	"id":"68f9189c93948966f0cc80fd",
 	"lastModifiedBy":44109,
 	"lcName":"[dt] filtered and sort agent list",
-	"modifiedTime":1761309177622,
+	"modifiedTime":1761311441218,
 	"name":"[DT] Filtered and sort agent list",
 	"nodes":[
 		{
@@ -200,7 +200,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_vH4Qn",
@@ -224,6 +224,14 @@
 									"type":"string"
 								},
 								"title":"Tag List"
+							},
+							"limit":{
+								"type":"integer",
+								"title":"Limit"
+							},
+							"offset":{
+								"type":"integer",
+								"title":"Offset"
 							}
 						},
 						"additionalProperties":false,
@@ -292,7 +300,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_HOWK6",
@@ -586,7 +594,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_7xidW",
@@ -602,13 +610,18 @@
 						"offset":{
 							"type":"integer",
 							"title":"Offset"
+						},
+						"limit":{
+							"type":"integer",
+							"title":"Limit"
 						}
 					},
 					"required":[]
 				}
 			},
 			"inputs":{
-				"offset":0
+				"offset":"=IF(ISBLANK({{ n_vH4Qn.outputs.body.offset }}),0,{{ n_vH4Qn.outputs.body.offset }})",
+				"limit":"=IF(ISBLANK({{ n_vH4Qn.outputs.body.limit }}),1000,{{ n_vH4Qn.outputs.body.limit }})"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -619,6 +632,10 @@
 						"offset":{
 							"type":"integer",
 							"title":"Offset"
+						},
+						"limit":{
+							"type":"integer",
+							"title":"Limit"
 						}
 					},
 					"required":[]
@@ -637,7 +654,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_aUfr7",
@@ -658,7 +675,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_aUfr7@_5OzFd-1@l",
 			"id":"n_MnCI7",
@@ -687,7 +704,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@y",
 			"id":"n_3DzlV",
@@ -717,7 +734,7 @@
 				"translationsOption":"DEFAULT",
 				"page":{
 					"paginateBy":"OFFSET",
-					"limit":1000,
+					"limit":"{{ n_7xidW.outputs.limit }}",
 					"offset":"{{ n_7xidW.outputs.offset }}"
 				},
 				"numberOfRecordsToFetch":"MULTIPLE",
@@ -737,7 +754,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@y",
 			"id":"n_NuHJq",
@@ -761,7 +778,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_NuHJq@n_MnCI7@n_aUfr7@_5OzFd-1@l@y@l",
 			"id":"n_FvrXa",
@@ -802,7 +819,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_NuHJq@n_MnCI7@n_aUfr7@_5OzFd-1@l@y@l",
 			"id":"n_IURf1",
@@ -835,7 +852,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@y",
 			"id":"n_Z8tJo",
@@ -848,7 +865,7 @@
 							"property":"=LEN({{ n_3DzlV.outputs.objects }})",
 							"filter":{
 								"operator":"NOT_EQUAL",
-								"value":"1000"
+								"value":"{{ n_7xidW.outputs.limit }}"
 							}
 						}
 					],
@@ -868,7 +885,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_fP3iR",
@@ -886,7 +903,7 @@
 				"translationsOption":"DEFAULT",
 				"page":{
 					"paginateBy":"OFFSET",
-					"limit":1000,
+					"limit":"{{ n_7xidW.outputs.limit }}",
 					"offset":"{{ n_7xidW.outputs.offset }}"
 				},
 				"numberOfRecordsToFetch":"MULTIPLE",
@@ -915,7 +932,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_4GGND",
@@ -947,7 +964,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_wjSBm",
@@ -1183,7 +1200,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_5RyKI",
@@ -1196,7 +1213,7 @@
 							"property":"=LEN({{ _fP3iR.outputs.objects }})",
 							"filter":{
 								"operator":"NOT_EQUAL",
-								"value":"1000"
+								"value":"{{ n_7xidW.outputs.limit }}"
 							}
 						}
 					],
@@ -1216,7 +1233,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_aUfr7@_5OzFd-1@l",
 			"id":"n_AY347",
@@ -1252,7 +1269,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_1Xzlq",
@@ -1423,5 +1440,5 @@
 	"tags":[
 		
 	],
-	"version":45
+	"version":46
 }
