@@ -1,7 +1,6 @@
 {
 	"appsUsed":[
-		"gsheets",
-		"storage_by_unifyapps"
+		"gsheets"
 	],
 	"createdTime":1761287879606,
 	"deleted":false,
@@ -150,26 +149,11 @@
 			"fromNodeId":"_8m7HQ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_37OW6",
+			"toNodeId":"n_lSLD7",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_37OW6",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_s7EFk",
-			"type":"loop"
-		},
-		{
-			"fromNodeId":"n_s7EFk",
-			"name":"loopback",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_37OW6",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_37OW6",
+			"fromNodeId":"n_lSLD7",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -179,7 +163,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761329443509,
+	"modifiedTime":1761329839722,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -477,7 +461,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_DWgRR",
@@ -950,56 +934,61 @@
 		},
 		{
 			"context":{
-				"appName":"loop",
-				"resourceVersion":865,
-				"resourceName":"loop_for_each",
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1024,
+				"resourceName":"code_by_unifyapps_groovy",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
-			"id":"n_37OW6",
+			"id":"n_lSLD7",
 			"index":16,
 			"inputs":{
-				"repeatMode":"SINGLE",
-				"listSource":"{{ n_DWgRR.outputs.items }}",
-				"captureIterations":false
+				"input":{
+					"type":"array",
+					"title":"UserData",
+					"disableActions":true,
+					"ua:__linkedVariable__":"n_DWgRR.outputs.items",
+					"items":{
+						"type":"object",
+						"properties":{
+							"EmpId__0":{
+								"type":"string",
+								"title":"EmpId__0"
+							},
+							"Name__1":{
+								"type":"string",
+								"title":"Name__1"
+							},
+							"Department__2":{
+								"type":"string",
+								"title":"Department__2"
+							},
+							"Bonus_Amount__3":{
+								"type":"string",
+								"title":"Bonus_Amount__3"
+							},
+							"Leaves__4":{
+								"type":"string",
+								"title":"Leaves__4"
+							},
+							"Quarter":{
+								"type":"string",
+								"title":"Quarter"
+							}
+						},
+						"required":[]
+					}
+				},
+				"code":"import groovy.json.JsonSlurper\nimport groovy.json.JsonOutput\n\n// Load JSON file (assuming it's just an array)\ndef file = new File('{{ n_DWgRR.outputs.items }}')\ndef records = new JsonSlurper().parse(file)  // no \".items\"\n\n// Group by Employee ID\ndef grouped = records.groupBy { it.EmpId__0 }\n\n// Aggregate data per employee\ndef aggregated = grouped.collect { empId, recs ->\n    [\n        EmpId       : empId,\n        Name        : recs[0].Name__1,\n        Department  : recs[0].Department__2.trim(),\n        TotalBonus  : recs.sum { it.Bonus_Amount__3.toInteger() },\n        TotalLeaves : recs.sum { it.Leaves__4.toInteger() },\n        AvgBonus    : (recs.sum { it.Bonus_Amount__3.toInteger() } / recs.size()).toInteger(),\n        Quarters    : recs.collect { it.Quarter }\n    ]\n}\n\n// Pretty-print aggregated result\nprintln JsonOutput.prettyPrint(JsonOutput.toJson(aggregated))\n",
+				"compile_static":false,
+				"captureStdOutput":false
 			},
 			"skip":false,
-			"subTitle":"Loop",
-			"title":"For each loop",
-			"type":"LOOP"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4577,
-				"resourceName":"storage_by_unifyapps_create_record",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_37OW6@_m0AlG-1@l",
-			"id":"n_s7EFk",
-			"index":17,
-			"inputs":{
-				"writeThroughSessionVariables":false,
-				"object_type":"automation_assignment_1",
-				"skipIfBlank":false,
-				"record":{
-					"id":"{{ n_37OW6.outputs.item.EmpId__0 }}",
-					"name":"{{ n_37OW6.outputs.item.Name__1 }}",
-					"Department":"{{ n_37OW6.outputs.item.Department__2 }}",
-					"bonusAmount":"{{ n_37OW6.outputs.item.Bonus_Amount__3 }}",
-					"Leaves":"{{ n_37OW6.outputs.item.Leaves__4 }}",
-					"quarter":"{{ n_37OW6.outputs.item.Quarter }}"
-				}
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Create record",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
 		{
@@ -1014,7 +1003,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":18,
+			"index":17,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -1038,5 +1027,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":48
+	"version":49
 }
