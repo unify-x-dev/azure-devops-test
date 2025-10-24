@@ -121,7 +121,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761310167119,
+	"modifiedTime":1761310177705,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -956,7 +956,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` are assumed to be provided\n  const outputList = [];\n\n  const getRepeatableWithoutPrimaryKey = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (\n        block.component.componentType === 'Repeatable' &&\n        !block.component.content.primaryKey\n      ) {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedBlockIds = getRepeatableWithoutPrimaryKey(blocks);\n\n  if (failedBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: failedBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return outputList;\n})();",
+				"code":"(() => {\n  // `page` are assumed to be provided\n  const outputList = [];\n\n  const getRepeatableWithoutPrimaryKey = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (\n        block.component.componentType === 'Repeatable' &&\n        !block.component.content.primaryKey\n      ) {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedBlockIds = getRepeatableWithoutPrimaryKey(blocks);\n\n  if (failedBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: failedBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}"
@@ -1300,5 +1300,5 @@
 	"tags":[
 		
 	],
-	"version":69
+	"version":70
 }
