@@ -5,12 +5,12 @@
 	"createdTime":1761162179112,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761162230508,
-		"deployedBy":34802,
-		"deployedDefinitionId":"68f933f68dd66361f6b367b0",
+		"deployedAt":1761292912325,
+		"deployedBy":49915,
+		"deployedDefinitionId":"68fb32707c0ee5019833300a",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -36,9 +36,9 @@
 		}
 	],
 	"id":"68f933c38dd66361f6b365a9",
-	"lastModifiedBy":49915,
+	"lastModifiedBy":155543,
 	"lcName":"callable trigger twice",
-	"modifiedTime":1761292910086,
+	"modifiedTime":1761293446488,
 	"name":"Callable Trigger twice",
 	"nodes":[
 		{
@@ -48,7 +48,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hkcX2-1",
 			"id":"n_JhcXO",
@@ -62,6 +62,19 @@
 						"result":{
 							"type":"string",
 							"title":"Result"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"testing"
+					],
+					"properties":{
+						"testing":{
+							"type":"string",
+							"title":"Testing"
 						}
 					}
 				}
@@ -82,7 +95,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_hkcX2-1",
 			"id":"n_f6fBj",
@@ -188,5 +201,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
