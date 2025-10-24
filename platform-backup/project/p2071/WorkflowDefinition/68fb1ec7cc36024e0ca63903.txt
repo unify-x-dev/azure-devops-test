@@ -128,6 +128,13 @@
 			"fromNodeId":"n_ch0Jl",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_RLeZ6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RLeZ6",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
@@ -135,7 +142,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761298517709,
+	"modifiedTime":1761298674610,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -433,7 +440,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_DWgRR",
@@ -763,6 +770,48 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.EmpId__0",
+					"root.itemsToAdd.items.Name__1",
+					"root.itemsToAdd.items.Department__2",
+					"root.itemsToAdd.items.Bonus_Amount__3",
+					"root.itemsToAdd.items.Leaves__4"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":980,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"n_RLeZ6",
+			"index":13,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ _smbpB.outputs.rows }}",
+					"items":{
+						"EmpId__0":"{{ _smbpB.outputs.rows[0].EmpId__0 }}",
+						"Name__1":"{{ _smbpB.outputs.rows[0].Name__1 }}",
+						"Department__2":"{{ _smbpB.outputs.rows[0].Department__2 }}",
+						"Bonus_Amount__3":"{{ _smbpB.outputs.rows[0].Bonus_Amount__3 }}",
+						"Leaves__4":"{{ _smbpB.outputs.rows[0].Leaves__4 }}"
+					}
+				},
+				"listName":"{{ n_DWgRR.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
@@ -774,7 +823,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -798,5 +847,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":34
+	"version":35
 }
