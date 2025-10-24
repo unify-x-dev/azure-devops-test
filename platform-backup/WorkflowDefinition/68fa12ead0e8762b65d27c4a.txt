@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761296245434,
+		"deployedAt":1761297193921,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb3f741fe3ef545fd9a0e0",
+		"deployedDefinitionId":"68fb4329ecc44120a88dc8d2",
 		"status":"DEPLOYED",
-		"version":12,
-		"workflowVersion":25
+		"version":13,
+		"workflowVersion":26
 	},
 	"edges":[
 		{
@@ -114,7 +114,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761297190518,
+	"modifiedTime":1761303697902,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -129,7 +129,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -649,7 +649,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_Lzq6H",
@@ -744,7 +744,7 @@
 						}
 					}
 				},
-				"code":"// `page` is assumed to be provided\nconst outputList = [];\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n */\nlet checkBlocks;\n\n// Public entry point signature — keeps full map for recursion\ncheckBlocks = (blocksMap, pageId) => {\n  return checkBlocksCore(blocksMap, pageId, blocksMap);\n};\n\n// Internal recursive with fullMap carried along\nconst checkBlocksCore = (blocksToCheckMap, pageId, fullBlocksMap) => {\n  const results = [];\n\n  Object.entries(blocksToCheckMap || {}).forEach(([blockId, blockData]) => {\n    const comp = blockData?.component;\n    if (!comp) return;\n\n    // 1. is Repeatable?\n    if (comp.componentType === \"Repeatable\") {\n      // 2. pagination?\n      const hasPagination = comp?.content?.addOns?.page != null;\n      results.push({\n        pageId: pageId,\n        blockId: blockId || \"\",\n        ComponentName: blockData?.displayName || \"\",\n        status: hasPagination ? \"Pass\" : \"Fail\",\n      });\n    }\n\n    // 3. nested via content.blockIds\n    const nestedIds = comp?.content?.blockIds || [];\n    nestedIds.forEach((nestedId) => {\n      const nestedBlockData = fullBlocksMap[nestedId];\n      if (nestedBlockData) {\n        results.push(\n          ...checkBlocksCore({ [nestedId]: nestedBlockData }, pageId, fullBlocksMap)\n        );\n      }\n    });\n\n    // 4. nested via slots\n    const slots = comp?.slots || {};\n    Object.values(slots).forEach((slotData) => {\n      const slotBlockId = slotData?.blockId;\n      if (slotBlockId) {\n        const slotBlockData = fullBlocksMap[slotBlockId];\n        if (slotBlockData) {\n          results.push(\n            ...checkBlocksCore({ [slotBlockId]: slotBlockData }, pageId, fullBlocksMap)\n          );\n        }\n      }\n    });\n  });\n\n  return results;\n};\n\n// --- Process the Single Page ---\nconst pageId = page?.id || \"\";\nconst schema = page?.page_schema || {};\nconst blocks = schema?.blocks || {}; // full map\n\n// Run\nconst pageResults = checkBlocks(blocks, pageId);\noutputList.push(...pageResults);\n\n// --- Filter & Output ---\nconst failedBlocks = outputList.filter((r) => r.status === \"Fail\");\nlet finalOutput = {};\n\nif (failedBlocks.length > 0) {\n  finalOutput = {\n    pageID: pageId,\n    status: \"failed\",\n    blocksIDs: failedBlocks.map((b) => b.componentId),\n  };\n}\n\n// return result\nreturn finalOutput;\n",
+				"code":"// `page` is assumed to be provided\nconst outputList = [];\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n */\nlet checkBlocks;\n\n// Public entry point signature — keeps full map for recursion\ncheckBlocks = (blocksMap, pageId) => {\n  return checkBlocksCore(blocksMap, pageId, blocksMap);\n};\n\n// Internal recursive with fullMap carried along\nconst checkBlocksCore = (blocksToCheckMap, pageId, fullBlocksMap) => {\n  const results = [];\n\n  Object.entries(blocksToCheckMap || {}).forEach(([blockId, blockData]) => {\n    const comp = blockData?.component;\n    if (!comp) return;\n\n    // 1. is Repeatable?\n    if (comp.componentType === \"Repeatable\") {\n      // 2. pagination?\n      const hasPagination = comp?.content?.addOns?.page != null;\n      results.push({\n        pageId: pageId,\n        blockId: blockId || \"\",\n        ComponentName: blockData?.displayName || \"\",\n        status: hasPagination ? \"Pass\" : \"Fail\",\n      });\n    }\n\n    // 3. nested via content.blockIds\n    const nestedIds = comp?.content?.blockIds || [];\n    nestedIds.forEach((nestedId) => {\n      const nestedBlockData = fullBlocksMap[nestedId];\n      if (nestedBlockData) {\n        results.push(\n          ...checkBlocksCore({ [nestedId]: nestedBlockData }, pageId, fullBlocksMap)\n        );\n      }\n    });\n\n    // 4. nested via slots\n    const slots = comp?.slots || {};\n    Object.values(slots).forEach((slotData) => {\n      const slotBlockId = slotData?.blockId;\n      if (slotBlockId) {\n        const slotBlockData = fullBlocksMap[slotBlockId];\n        if (slotBlockData) {\n          results.push(\n            ...checkBlocksCore({ [slotBlockId]: slotBlockData }, pageId, fullBlocksMap)\n          );\n        }\n      }\n    });\n  });\n\n  return results;\n};\n\n// --- Process the Single Page ---\nconst pageId = page?.id || \"\";\nconst schema = page?.page_schema || {};\nconst blocks = schema?.blocks || {}; // full map\n\n// Run and keep all detailed results\nconst pageResults = checkBlocks(blocks, pageId);\noutputList.push(...pageResults);\n\n// --- Filter & prepare finalOutput ---\nconst failedBlocks = outputList.filter(r => r.status === \"Fail\");\n\nlet finalOutput = {\n  pageID: pageId,\n  status: failedBlocks.length > 0 ? \"failed\" : \"successful\",\n  blocksIDs: failedBlocks.map(b => b.blockId),\n};\n\n// Return the summary object\nreturn finalOutput;\n",
 				"isAsync":false,
 				"parameters":{}
 			},
@@ -761,7 +761,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_txMg9",
@@ -799,7 +799,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_txMg9@n_Lzq6H@_z6eK1-1@y@y",
 			"id":"n_2kbkq",
@@ -836,7 +836,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_txMg9@n_Lzq6H@_z6eK1-1@y@n",
 			"id":"_BKo2D",
@@ -872,7 +872,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_qDjU3",
@@ -911,7 +911,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
@@ -1009,7 +1009,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
@@ -1045,7 +1045,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
@@ -1089,5 +1089,5 @@
 	"tags":[
 		
 	],
-	"version":26
+	"version":27
 }
