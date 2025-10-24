@@ -91,7 +91,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761306328500,
+	"modifiedTime":1761306413611,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -989,16 +989,31 @@
 			"index":8,
 			"inputs":{
 				"itemToAdd":{
-					"entityVersion":"{{ n_PQRFu.outputs.dataSources[0].version }}",
-					"entityType":"{{ n_PQRFu.outputs.dataSources[0].entityType }}",
-					"entityId":"{{ n_PQRFu.outputs.dataSources[0].id }}",
-					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
-					"status":"{{ n_I5HTd.outputs.result.status }}",
+					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
+					"entityType":"{{ n_PQRFu.outputs.entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.id }}",
+					"checkId":"{{ n_PQRFu.outputs.check_id }}",
+					"status":"{{ n_I5HTd.outputs.result.outputList[0].status }}",
 					"entities":{
 						"dataSources":{
-							"source":"{{ n_I5HTd.outputs.result.dataSourceIds }}",
 							"ua:type":"mappedArray",
-							"items":"{{ n_I5HTd.outputs.result.dataSourceIds[0] }}"
+							"source":"{{ n_I5HTd.outputs.result.outputList[0].dataSourceIds }}",
+							"items":"{{ n_I5HTd.outputs.result.outputList[0].dataSourceIds[0] }}"
+						},
+						"blockIds":{
+							"source":"{{ n_I5HTd.outputs.result.outputList[0].blockIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_I5HTd.outputs.result.outputList[0].blockIds[0] }}"
+						},
+						"variables":{
+							"source":"{{ n_I5HTd.outputs.result.outputList[0].variableIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_I5HTd.outputs.result.outputList[0].variableIds[0] }}"
+						},
+						"functions":{
+							"source":"{{ n_I5HTd.outputs.result.outputList[0].functionIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_I5HTd.outputs.result.outputList[0].functionIds[0] }}"
 						}
 					}
 				},
@@ -1062,5 +1077,5 @@
 	"tags":[
 		
 	],
-	"version":39
+	"version":40
 }
