@@ -81,7 +81,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761308019121,
+	"modifiedTime":1761308063613,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -334,7 +334,15 @@
 										"boolean",
 										"integer"
 									],
-									"properties":{}
+									"properties":{
+										"result":{
+											"type":"string",
+											"title":"Result"
+										}
+									},
+									"required":[
+										"result"
+									]
 								}
 							}
 						}
@@ -342,7 +350,11 @@
 				}
 			},
 			"inputs":{
-				"ua:title":"List_email"
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"List_email",
+				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -355,7 +367,15 @@
 							"disableActions":true,
 							"items":{
 								"type":"object",
-								"properties":{}
+								"properties":{
+									"result":{
+										"type":"string",
+										"title":"Result"
+									}
+								},
+								"required":[
+									"result"
+								]
 							}
 						}
 					}
@@ -461,7 +481,9 @@
 			"id":"n_zINVv",
 			"index":6,
 			"inputs":{
-				"itemToAdd":"{{ n_soA6G.outputs.snippet }}",
+				"itemToAdd":{
+					"result":"{{ n_soA6G.outputs.snippet }}"
+				},
 				"insertLocation":"END",
 				"listName":"{{ n_vNDmq.outputs.items[0] }}"
 			},
@@ -595,5 +617,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
