@@ -134,12 +134,19 @@
 			"skip":false,
 			"toNodeId":"n_rl8DR",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rl8DR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lOmxs",
+			"type":"next"
 		}
 	],
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761318879801,
+	"modifiedTime":1761318970511,
 	"name":"test",
 	"nodes":[
 		{
@@ -631,6 +638,29 @@
 			"subTitle":"SFTP",
 			"title":"Delete file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"sftp",
+				"resourceVersion":5665,
+				"connectionId":"68fa00b5c003c13b8e97bde3",
+				"resourceName":"sftp_download_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SDPQ9-1",
+			"id":"n_lOmxs",
+			"index":20,
+			"inputs":{
+				"path":"/CTL/Stock_Trades_Quality_Test - Sheet1.csv",
+				"performAsync":true
+			},
+			"skip":false,
+			"subTitle":"SFTP",
+			"title":"Download file",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":46217,
@@ -650,5 +680,5 @@
 	"tags":[
 		
 	],
-	"version":63
+	"version":64
 }
