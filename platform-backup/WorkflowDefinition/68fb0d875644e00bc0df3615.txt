@@ -6,46 +6,132 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_25JK8",
+			"fromNodeId":"n_NbEPp",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_DgJBA",
+			"toNodeId":"n_yc5y1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yc5y1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GnVV7",
 			"type":"next"
 		}
 	],
 	"id":"68fb0d875644e00bc0df3615",
 	"lastModifiedBy":161877,
 	"lcName":"dnd-api",
-	"modifiedTime":1761283463518,
+	"modifiedTime":1761283504408,
 	"name":"dnd-api",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1144,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_25JK8-1",
-			"id":"_25JK8",
-			"index":0,
+			"id":"n_NbEPp",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1073,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_25JK8-1",
-			"id":"_DgJBA",
-			"index":0,
+			"id":"n_yc5y1",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					},
+					"required":[
+						"a"
+					]
+				}
+			},
+			"inputs":{},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					},
+					"required":[
+						"a"
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1113,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_25JK8-1",
+			"id":"n_GnVV7",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":161877,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +145,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
