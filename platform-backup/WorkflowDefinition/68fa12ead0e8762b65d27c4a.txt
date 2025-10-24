@@ -324,7 +324,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761332980409,
+	"modifiedTime":1761333084428,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -2169,7 +2169,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const blocks = page?.blocks || {};\n\n  // count blocks without Object.keys\n  let totalBlockCount = 0;\n  for (const _ in blocks) {\n    totalBlockCount++;\n  }\n\n  if (totalBlockCount > 300) {\n    outputList.push({\n      status: 'failed'\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const getButtonsMissingLoadingBinding = (blocks) => {\n    const failedBlockIds = [];\n    const failedDataSourceIds = [];\n\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (!block) continue;\n\n      const type = block.component?.componentType;\n      if (type !== \"Button\" && type !== \"IconButton\") continue;\n\n      const events = block.events || [];\n      const loadingConfig = block.component?.appearance?.styles?.loading;\n      const dpOn = block.dpOn || [];\n\n      const triggeredDataSources = [];\n\n      // Imperative loop to collect all triggered data sources\n      for (let i = 0; i < events.length; i++) {\n        const evt = events[i];\n        if (evt.eventType !== \"onClick\") continue;\n\n        const action = evt.action;\n        if (!action || action.actionType !== \"controlDataSource\") continue;\n\n        const payload = action.payload;\n        if (payload?.dataSourceId) {\n          triggeredDataSources.push(payload.dataSourceId);\n        }\n\n        const onSuccess = action.onSuccessActions || [];\n        const onError = action.onErrorActions || [];\n\n        for (let j = 0; j < onSuccess.length; j++) {\n          const sub = onSuccess[j];\n          if (sub?.actionType === \"controlDataSource\" && sub.payload?.dataSourceId) {\n            triggeredDataSources.push(sub.payload.dataSourceId);\n          }\n        }\n\n        for (let k = 0; k < onError.length; k++) {\n          const sub = onError[k];\n          if (sub?.actionType === \"controlDataSource\" && sub.payload?.dataSourceId) {\n            triggeredDataSources.push(sub.payload.dataSourceId);\n          }\n        }\n      }\n\n      if (triggeredDataSources.length === 0) continue;\n\n      const loadingStr = JSON.stringify(loadingConfig || \"\");\n      const dpStr = JSON.stringify(dpOn || \"\");\n\n      for (let i = 0; i < triggeredDataSources.length; i++) {\n        const dsId = triggeredDataSources[i];\n        const usedInLoading = loadingStr.includes(dsId) || dpStr.includes(dsId);\n        if (!usedInLoading) {\n          failedBlockIds.push(blockId);\n          failedDataSourceIds.push(dsId);\n        }\n      }\n    }\n\n    return { failedBlockIds, failedDataSourceIds };\n  };\n\n  const blocks = page?.blocks || {};\n  const { failedBlockIds, failedDataSourceIds } = getButtonsMissingLoadingBinding(blocks);\n\n  if (failedBlockIds.length > 0) {\n    outputList.push({\n      status: \"failed\",\n      blockIds: failedBlockIds,\n      dataSourceIds: failedDataSourceIds\n    });\n  } else {\n    outputList.push({\n      status: \"success\"\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}"
@@ -2839,5 +2839,5 @@
 	"tags":[
 		
 	],
-	"version":97
+	"version":98
 }
