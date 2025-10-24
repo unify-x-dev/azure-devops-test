@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761282360806,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761290750800,
+		"deployedBy":161877,
+		"deployedDefinitionId":"68fb29feefa5e92eae863856",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":5
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_o4Q3A",
@@ -30,7 +38,7 @@
 	"id":"68fb09389bb45819e17a885f",
 	"lastModifiedBy":161877,
 	"lcName":"dnd",
-	"modifiedTime":1761290558470,
+	"modifiedTime":1761291358879,
 	"name":"dnd",
 	"nodes":[
 		{
@@ -405,21 +413,41 @@
 				"httpMethod":"POST",
 				"body":{
 					"source":"{{ n_W3Kwl.outputs.items }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"id":"{{ n_W3Kwl.outputs.items[0].id }}",
-						"str":"{{ n_W3Kwl.outputs.items[0].str }}"
-					}
+					"ua:type":"mappedArray"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
 				"path":"api-endpoint/test-prajwal/debug-walkme",
+				"responseSchema":{
+					"type":"array",
+					"title":"List",
+					"disableActions":true,
+					"ua:__linkedVariable__":"n_W3Kwl.outputs.items",
+					"items":{
+						"type":"object",
+						"properties":{
+							"id":{
+								"type":"integer",
+								"title":"Id"
+							},
+							"str":{
+								"type":"string",
+								"title":"Str"
+							}
+						},
+						"required":[
+							"id",
+							"str"
+						]
+					}
+				},
 				"baseUrl":"https://api.qa.unifyapps.com",
 				"httpVersion":"HTTP_2",
 				"bodySchema":{
 					"type":"array",
 					"title":"List",
 					"disableActions":true,
+					"ua:__linkedVariable__":"n_W3Kwl.outputs.items",
 					"items":{
 						"type":"object",
 						"properties":{
@@ -468,5 +496,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
