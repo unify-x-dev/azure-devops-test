@@ -121,7 +121,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761310008010,
+	"modifiedTime":1761310026519,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -944,52 +944,22 @@
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
+					"required":[
+						"page"
+					],
 					"properties":{
-						"dataSources":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"schema":{
-										"type":"object",
-										"properties":{},
-										"additionalProperties":false,
-										"title":"Schema"
-									},
-									"id":{
-										"type":"string",
-										"title":"Id"
-									},
-									"version":{
-										"type":"integer",
-										"title":"Version"
-									},
-									"entityType":{
-										"type":"string",
-										"title":"entityType"
-									}
-								},
-								"additionalProperties":false,
-								"required":[]
-							},
-							"title":"dataSources"
+						"page":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Page"
 						}
 					}
 				},
 				"code":"(() => {\n  // `page` and `pageId` are assumed to be provided\n  const outputList = [];\n\n  const getRepeatableWithoutPrimaryKey = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (\n        block.component.componentType === 'Repeatable' &&\n        !block.component.content.primaryKey\n      ) {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedBlockIds = getRepeatableWithoutPrimaryKey(blocks);\n\n  if (failedBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: failedBlockIds,\n      pageId,\n    });\n  } else {\n    outputList.push({\n      status: 'passed',\n      pageId,\n    });\n  }\n\n  return outputList;\n})();",
 				"isAsync":false,
 				"parameters":{
-					"dataSources":{
-						"source":"{{ n_PQRFu.outputs.dataSources }}",
-						"ua:type":"mappedArray",
-						"items":{
-							"schema":"{{ n_PQRFu.outputs.dataSources[0].schema }}",
-							"id":"{{ n_PQRFu.outputs.dataSources[0].id }}",
-							"version":"{{ n_PQRFu.outputs.dataSources[0].version }}",
-							"entityType":"{{ n_PQRFu.outputs.dataSources[0].entityType }}"
-						}
-					}
+					"page":"{{ n_PQRFu.outputs.page }}"
 				}
 			},
 			"skip":false,
@@ -1330,5 +1300,5 @@
 	"tags":[
 		
 	],
-	"version":65
+	"version":66
 }
