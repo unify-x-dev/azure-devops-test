@@ -140,7 +140,7 @@
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"new",
-	"modifiedTime":1761292978338,
+	"modifiedTime":1761293294124,
 	"name":"new",
 	"nodes":[
 		{
@@ -939,6 +939,7 @@
 			"index":9,
 			"inputs":{
 				"source_text":"{{ n_lw3oK.outputs.input }}",
+				"instruction":"analyse the user input, \nif the user inputs \"getTop5\", \"show top 5 employees\" etc or something relating to this, then give the output as \"getTop5\".\nif the user inputs the employee id for example: \"E001\" or something like this, then give the input employee id",
 				"model":"gpt-4o"
 			},
 			"skip":false,
@@ -1346,5 +1347,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
