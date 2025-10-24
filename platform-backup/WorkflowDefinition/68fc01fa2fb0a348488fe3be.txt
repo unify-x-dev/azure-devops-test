@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761346042710,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761346043326,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68fc01fb2fb0a348488fe3bf",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"7pKsG",
@@ -16,7 +24,7 @@
 	"id":"68fc01fa2fb0a348488fe3be",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2d0nywioveftn",
-	"modifiedTime":1761346042907,
+	"modifiedTime":1761346075811,
 	"name":"changeSetQA2D0NYWIovefTn",
 	"nodes":[
 		{
@@ -87,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -109,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
