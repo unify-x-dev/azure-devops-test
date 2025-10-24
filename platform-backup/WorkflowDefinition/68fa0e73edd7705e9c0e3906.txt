@@ -5,12 +5,12 @@
 	"createdTime":1761218163690,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761233898599,
+		"deployedAt":1761287475071,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fa4bea67cb9a3225566de3",
+		"deployedDefinitionId":"68fb1d32cc36024e0ca62e31",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":12
+		"version":2,
+		"workflowVersion":14
 	},
 	"edges":[
 		{
@@ -60,7 +60,7 @@
 	"id":"68fa0e73edd7705e9c0e3906",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761287472828,
+	"modifiedTime":1761291280693,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -209,12 +209,17 @@
 						"data_sources":{
 							"source":"{{ n_BCs9K.outputs.objects }}",
 							"ua:type":"mappedArray",
-							"items":"{{ n_BCs9K.outputs.objects[0] }}"
+							"items":{
+								"id":"{{ n_BCs9K.outputs.objects[0].id }}",
+								"schema":"{{ n_BCs9K.outputs.objects[0].properties }}"
+							}
 						},
 						"checks":{
 							"source":"{{ n_jr8kl.outputs.item }}",
 							"ua:type":"mappedArray",
-							"items":"{{ n_jr8kl.outputs.item[0] }}"
+							"items":{
+								"checkId":"{{ n_jr8kl.outputs.item[0].properties.check_id }}"
+							}
 						},
 						"page_schema":"{{ n_YC4yG.outputs.properties }}",
 						"id":"{{ n_YC4yG.outputs.id }}",
@@ -262,5 +267,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
