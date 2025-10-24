@@ -74,13 +74,6 @@
 			"fromNodeId":"n_Nftv5",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Fr251",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_Fr251",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"_A7jOQ",
 			"type":"next"
 		},
@@ -95,7 +88,7 @@
 	"id":"68fb4a538394b21a23111b17",
 	"lastModifiedBy":161852,
 	"lcName":"new approach",
-	"modifiedTime":1761303612101,
+	"modifiedTime":1761303698901,
 	"name":"new approach",
 	"nodes":[
 		{
@@ -760,143 +753,8 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
-			"id":"_Fr251",
-			"index":9,
-			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"properties":{
-						"leavesTaken":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"EmployeeID__0":{
-										"type":"string",
-										"title":"EmployeeID__0"
-									},
-									"Leaves_Taken__4":{
-										"type":"string",
-										"title":"Leaves_Taken__4"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"leavesTaken"
-						},
-						"bonusIssued":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"EmployeeID__0":{
-										"type":"string",
-										"title":"EmployeeID__0"
-									},
-									"Bonus_Amount__3":{
-										"type":"string",
-										"title":"Bonus_Amount__3"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"bonusIssued"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"AggregatedList":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"EmployeeID__0":{
-										"type":"string",
-										"title":"EmployeeID__0"
-									},
-									"Name__1":{
-										"type":"string",
-										"title":"Name__1"
-									},
-									"Department__2":{
-										"type":"string",
-										"title":"Department__2"
-									},
-									"Bonus_Amount__3":{
-										"type":"string",
-										"title":"Bonus_Amount__3"
-									},
-									"Leaves_Taken__4":{
-										"type":"string",
-										"title":"Leaves_Taken__4"
-									},
-									"rowNumber":{
-										"type":"integer",
-										"title":"rowNumber"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"AggregatedList"
-						}
-					}
-				},
-				"configurationMode":"DEFAULT",
-				"code":"def fun(AggregatedList, checkValue):\n    \n    return AggregatedList\n    \nresult = fun(AggregatedList, checkValue)",
-				"isAsync":false,
-				"python_version":"3.12",
-				"captureStdOutput":false,
-				"parameters":{
-					"AggregatedList":{
-						"source":"{{ n_0SdyR.outputs.items }}",
-						"ua:type":"mappedArray",
-						"items":{
-							"Name__1":"{{ n_0SdyR.outputs.items[0].Name__1 }}",
-							"Department__2":"{{ n_0SdyR.outputs.items[0].Department__2 }}",
-							"Bonus_Amount__3":"{{ n_0SdyR.outputs.items[0].Bonus_Amount__3 }}",
-							"Leaves_Taken__4":"{{ n_0SdyR.outputs.items[0].Leaves_Taken__4 }}",
-							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}",
-							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}"
-						}
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Python script",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"xsdSchemaConfig":{
-					"root":{}
-				},
-				"visibleOptionalFields":[
-					"root.parameters.AggregatedList.items.EmployeeID__0",
-					"root.parameters.AggregatedList.items.Name__1",
-					"root.parameters.AggregatedList.items.Department__2",
-					"root.parameters.AggregatedList.items.Bonus_Amount__3",
-					"root.parameters.AggregatedList.items.Leaves_Taken__4",
-					"root.parameters.AggregatedList.items.rowNumber"
-				]
-			},
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":215,
-				"resourceName":"code_by_unifyapps_python",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_d8BnZ-1",
 			"id":"_A7jOQ",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -993,17 +851,17 @@
 				"python_version":"3.12",
 				"captureStdOutput":false,
 				"parameters":{
-					"checkValue":"{{ n_wRUr6.outputs.input }}",
+					"checkValue":"{{ n_aGsFN.outputs.fetchRecords }}",
 					"AggregatedList":{
 						"source":"{{ n_0SdyR.outputs.items }}",
 						"ua:type":"mappedArray",
 						"items":{
+							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}",
 							"Name__1":"{{ n_0SdyR.outputs.items[0].Name__1 }}",
 							"Department__2":"{{ n_0SdyR.outputs.items[0].Department__2 }}",
 							"Bonus_Amount__3":"{{ n_0SdyR.outputs.items[0].Bonus_Amount__3 }}",
 							"Leaves_Taken__4":"{{ n_0SdyR.outputs.items[0].Leaves_Taken__4 }}",
-							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}",
-							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}"
+							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}"
 						}
 					}
 				}
@@ -1025,7 +883,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_Mpy8B",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"result":{
 					"leavesTaken":{
@@ -1034,6 +892,14 @@
 						"items":{
 							"EmployeeID__0":"{{ _A7jOQ.outputs.result.leavesTaken[0].EmployeeID__0 }}",
 							"Leaves_Taken__4":"{{ _A7jOQ.outputs.result.leavesTaken[0].Leaves_Taken__4 }}"
+						}
+					},
+					"bonusIssued":{
+						"source":"{{ _A7jOQ.outputs.result.bonusIssued }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"EmployeeID__0":"{{ _A7jOQ.outputs.result.bonusIssued[0].EmployeeID__0 }}",
+							"Bonus_Amount__3":"{{ _A7jOQ.outputs.result.bonusIssued[0].Bonus_Amount__3 }}"
 						}
 					}
 				}
@@ -1061,5 +927,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
