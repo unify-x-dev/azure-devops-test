@@ -5,12 +5,12 @@
 	"createdTime":1761218163690,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761314227313,
+		"deployedAt":1761335949008,
 		"deployedBy":27,
-		"deployedDefinitionId":"68fb85b200ea623ea74f6e01",
+		"deployedDefinitionId":"68fbda8cbbb8bb5aecf36ebb",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":21
+		"version":9,
+		"workflowVersion":24
 	},
 	"edges":[
 		{
@@ -60,7 +60,7 @@
 	"id":"68fa0e73edd7705e9c0e3906",
 	"lastModifiedBy":27,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761314281915,
+	"modifiedTime":1761336577602,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -137,7 +137,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_Q36ak",
@@ -174,7 +174,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_jr8kl",
@@ -183,7 +183,7 @@
 				"repeatMode":"BATCH",
 				"listSource":"{{ n_Q36ak.outputs.objects }}",
 				"captureIterations":false,
-				"batchSize":10
+				"batchSize":5
 			},
 			"skip":false,
 			"subTitle":"Loop",
@@ -269,5 +269,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":25
 }
