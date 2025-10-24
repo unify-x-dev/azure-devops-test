@@ -5,12 +5,12 @@
 	"createdTime":1761218163690,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761297202618,
-		"deployedBy":115477,
-		"deployedDefinitionId":"68fb4332ecc44120a88dc9d9",
+		"deployedAt":1761314227313,
+		"deployedBy":27,
+		"deployedDefinitionId":"68fb85b200ea623ea74f6e01",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":19
+		"version":6,
+		"workflowVersion":21
 	},
 	"edges":[
 		{
@@ -60,7 +60,7 @@
 	"id":"68fa0e73edd7705e9c0e3906",
 	"lastModifiedBy":27,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761314221725,
+	"modifiedTime":1761314281915,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -137,7 +137,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_Q36ak",
@@ -146,6 +146,12 @@
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
 				"includeCurrentUserPermissions":false,
+				"sortBy":[
+					{
+						"field":"properties_check_id",
+						"order":"ASC"
+					}
+				],
 				"translationsOption":"DEFAULT",
 				"page":{
 					"paginateBy":"OFFSET",
@@ -263,5 +269,5 @@
 	"tags":[
 		
 	],
-	"version":21
+	"version":22
 }
