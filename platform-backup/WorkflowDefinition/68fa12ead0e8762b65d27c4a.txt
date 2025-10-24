@@ -47,7 +47,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761233657177,
+	"modifiedTime":1761283659316,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -214,7 +214,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_h8DaG",
@@ -284,7 +284,8 @@
 						}
 					}
 				},
-				"code":"// 'page' is assumed to be the single page object provided as input\ndef outputList = []\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n * (Note: Added fix for recursive map context and slot traversal)\n */\ndef checkBlocks\ncheckBlocks = { blocksMap, pageId ->\n    // Initial call uses the provided blocksMap as the full context\n    checkBlocks(blocksMap, pageId, blocksMap)\n}\n\n// Overloaded version for recursion, carrying the full map\ncheckBlocks = { blocksToCheckMap, pageId, fullBlocksMap ->\n    def results = []\n    blocksToCheckMap.each { blockId, blockData ->\n        def comp = blockData?.component\n        if (!comp) return // Skip if component data is missing\n\n        // 1. Check if the component is a \"Repeatable\"\n        if (comp?.componentType == \"Repeatable\") {\n            // 2. Check if it has the pagination add-on\n            def hasPagination = comp?.content?.addOns?.page != null\n            // Add the full details temporarily\n            results << [\n                pageId        : pageId,\n                componentId   : blockId ?: \"\",\n                ComponentName : blockData?.displayName ?: \"\",\n                status        : hasPagination ? \"Pass\" : \"Fail\"\n            ]\n        }\n\n        // 3. Recursively check any nested blocks via content.blockIds\n        def nestedIds = comp?.content?.blockIds ?: []\n        nestedIds.each { nestedId ->\n            def nestedBlockData = fullBlocksMap[nestedId] // Look up in the full map\n            if (nestedBlockData) {\n                // Pass the specific block to check, pageId, and the full map for context\n                results.addAll(checkBlocks([(nestedId): nestedBlockData], pageId, fullBlocksMap))\n            }\n        }\n\n        // 4. Recursively check nested blocks via slots\n        def slots = comp?.slots ?: [:]\n        slots.each { slotName, slotData ->\n             def slotBlockId = slotData?.blockId\n             if (slotBlockId) {\n                 def slotBlockData = fullBlocksMap[slotBlockId] // Look up in the full map\n                 if (slotBlockData) {\n                    results.addAll(checkBlocks([(slotBlockId): slotBlockData], pageId, fullBlocksMap))\n                 }\n             }\n        }\n    }\n    return results\n}\n\n\n// --- Process the Single Page ---\ndef pageId = page?.id ?: \"\"\ndef schema = page?.page_schema ?: [:]\ndef blocks = schema?.blocks ?: [:] // This is the full map of blocks\n\n// Run the check starting with the top-level blocks\ndef pageResults = checkBlocks(blocks, pageId) // Initial call uses the simplified signature\noutputList.addAll(pageResults)\n\n// --- Filter and Format the Output ---\n// Find only the blocks that failed the pagination check\ndef failedBlocks = outputList.findAll { it.status == \"Fail\" }\ndef finalOutput = [:] // Initialize as empty map\n\n// Only populate the output map if failures were found\nif (!failedBlocks.isEmpty()) {\n    // If some blocks failed, output page ID, failed status, and the IDs of failed blocks\n    def failedBlockIds = failedBlocks.collect { it.componentId }\n    finalOutput = [\n        pageID: pageId,\n        status: \"failed\",\n        blocksIDs: failedBlockIds\n    ]\n}\n// If failedBlocks is empty, finalOutput remains an empty map {}\n\n// Return the map (either populated with failure info or empty)\nreturn finalOutput",
+				"compileOnSave":false,
+				"code":"// `page` is assumed to be provided\nconst outputList = [];\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n */\nlet checkBlocks;\n\n// Public entry point signature — keeps full map for recursion\ncheckBlocks = (blocksMap, pageId) => {\n  return checkBlocksCore(blocksMap, pageId, blocksMap);\n};\n\n// Internal recursive with fullMap carried along\nconst checkBlocksCore = (blocksToCheckMap, pageId, fullBlocksMap) => {\n  const results = [];\n\n  Object.entries(blocksToCheckMap || {}).forEach(([blockId, blockData]) => {\n    const comp = blockData?.component;\n    if (!comp) return;\n\n    // 1. is Repeatable?\n    if (comp.componentType === \"Repeatable\") {\n      // 2. pagination?\n      const hasPagination = comp?.content?.addOns?.page != null;\n      results.push({\n        pageId: pageId,\n        componentId: blockId || \"\",\n        ComponentName: blockData?.displayName || \"\",\n        status: hasPagination ? \"Pass\" : \"Fail\",\n      });\n    }\n\n    // 3. nested via content.blockIds\n    const nestedIds = comp?.content?.blockIds || [];\n    nestedIds.forEach((nestedId) => {\n      const nestedBlockData = fullBlocksMap[nestedId];\n      if (nestedBlockData) {\n        results.push(\n          ...checkBlocksCore({ [nestedId]: nestedBlockData }, pageId, fullBlocksMap)\n        );\n      }\n    });\n\n    // 4. nested via slots\n    const slots = comp?.slots || {};\n    Object.values(slots).forEach((slotData) => {\n      const slotBlockId = slotData?.blockId;\n      if (slotBlockId) {\n        const slotBlockData = fullBlocksMap[slotBlockId];\n        if (slotBlockData) {\n          results.push(\n            ...checkBlocksCore({ [slotBlockId]: slotBlockData }, pageId, fullBlocksMap)\n          );\n        }\n      }\n    });\n  });\n\n  return results;\n};\n\n// --- Process the Single Page ---\nconst pageId = page?.id || \"\";\nconst schema = page?.page_schema || {};\nconst blocks = schema?.blocks || {}; // full map\n\n// Run\nconst pageResults = checkBlocks(blocks, pageId);\noutputList.push(...pageResults);\n\n// --- Filter & Output ---\nconst failedBlocks = outputList.filter((r) => r.status === \"Fail\");\nlet finalOutput = {};\n\nif (failedBlocks.length > 0) \n{\n  finalOutput = {\n    pageID: pageId,\n    status: \"failed\",\n    blocksIDs: failedBlocks.map((b) => b.componentId),\n  };\n}\n\n// return result\nreturn finalOutput;",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -417,5 +418,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
