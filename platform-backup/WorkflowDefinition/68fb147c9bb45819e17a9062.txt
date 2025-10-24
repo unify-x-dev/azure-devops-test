@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_KYYmd",
+			"fromNodeId":"n_hURMC",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_POyTX",
@@ -70,64 +70,54 @@
 			"fromNodeId":"n_POyTX",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_js8WQ",
+			"toNodeId":"n_5uP0M",
 			"type":"next"
 		}
 	],
 	"id":"68fb147c9bb45819e17a9062",
 	"lastModifiedBy":161912,
 	"lcName":"loopiterations1",
-	"modifiedTime":1761285325848,
+	"modifiedTime":1761285643030,
 	"name":"LoopIterations1",
 	"nodes":[
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1055,
-				"resourceName":"callables_from_automation"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hySvL-1",
-			"id":"n_KYYmd",
+			"id":"n_hURMC",
 			"index":1,
 			"inputs":{
-				"result":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"b"
-					],
-					"properties":{
-						"b":{
-							"type":"integer",
-							"title":"B"
-						}
-					}
-				},
-				"setup":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"a"
-					],
-					"properties":{
-						"a":{
-							"type":"array",
-							"items":{
-								"type":"integer"
-							},
-							"title":"A"
-						}
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"a":{
+								"type":"array",
+								"items":{
+									"type":"integer"
+								},
+								"title":"A"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"a"
+						]
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger via automation",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"CALLABLE"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -146,7 +136,7 @@
 			"index":2,
 			"inputs":{
 				"repeatMode":"SINGLE",
-				"listSource":"{{ n_KYYmd.outputs.a }}",
+				"listSource":"{{ n_hURMC.outputs.body.a }}",
 				"captureIterations":true
 			},
 			"skip":false,
@@ -162,7 +152,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_POyTX@_hySvL-1@l",
 			"id":"n_HlwbK",
@@ -192,7 +182,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_HlwbK@n_POyTX@_hySvL-1@l@y",
 			"id":"n_SV7TS",
@@ -216,7 +206,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_SV7TS@n_HlwbK@n_POyTX@_hySvL-1@l@y@l",
 			"id":"n_ztHhL",
@@ -271,7 +261,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_HlwbK@n_POyTX@_hySvL-1@l@n",
 			"id":"n_Mu36i",
@@ -286,25 +276,17 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":2010,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
+				"appName":"stop"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hySvL-1",
-			"id":"n_js8WQ",
+			"id":"n_5uP0M",
 			"index":7,
-			"inputs":{
-				"result":{
-					"b":"{{ n_ztHhL.outputs.a }}"
-				}
-			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
+			"subTitle":"Stop",
+			"title":"Stop",
 			"type":"STOP"
 		}
 	],
@@ -325,5 +307,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
