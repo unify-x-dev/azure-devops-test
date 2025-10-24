@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761284135547,
+		"deployedAt":1761286527777,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb10279bb45819e17a8d9b",
+		"deployedDefinitionId":"68fb197f41c2843a49c5b077",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":9
+		"version":7,
+		"workflowVersion":13
 	},
 	"edges":[
 		{
@@ -47,7 +47,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761286525650,
+	"modifiedTime":1761287411123,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -62,7 +62,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -161,34 +161,23 @@
 							},
 							"title":"Checks"
 						},
-						"page":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"page_schema":{
-										"type":"object",
-										"properties":{},
-										"additionalProperties":false,
-										"title":"page_schema"
-									},
-									"id":{
-										"type":"string",
-										"title":"Id"
-									},
-									"entityType":{
-										"type":"string",
-										"title":"entityType"
-									},
-									"page_version":{
-										"type":"string",
-										"title":"page_version"
-									}
-								},
-								"additionalProperties":false,
-								"required":[]
-							},
-							"title":"Page"
+						"page_schema":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"page_schema"
+						},
+						"id":{
+							"type":"string",
+							"title":"id"
+						},
+						"entityType":{
+							"type":"string",
+							"title":"entityType"
+						},
+						"page_version":{
+							"type":"integer",
+							"title":"page_version"
 						}
 					}
 				}
@@ -289,7 +278,7 @@
 				"isAsync":false,
 				"parameters":{
 					"pages":{
-						"source":"{{ n_PQRFu.outputs.page }}",
+						"source":"",
 						"ua:type":"mappedArray",
 						"items":{
 							"page_schema":"{{ n_PQRFu.outputs.page[0].page_schema }}",
@@ -417,5 +406,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
