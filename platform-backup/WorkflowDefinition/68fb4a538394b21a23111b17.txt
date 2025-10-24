@@ -86,9 +86,9 @@
 		}
 	],
 	"id":"68fb4a538394b21a23111b17",
-	"lastModifiedBy":161852,
+	"lastModifiedBy":186875,
 	"lcName":"new approach",
-	"modifiedTime":1761304583401,
+	"modifiedTime":1761304885811,
 	"name":"new approach",
 	"nodes":[
 		{
@@ -98,7 +98,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_wRUr6",
@@ -418,7 +418,15 @@
 			},
 			"inputs":{
 				"createList":{
-					"ua:type":"mappedArray"
+					"ua:type":"mappedArray",
+					"items":{
+						"EmployeeID__0":"0",
+						"Name__1":"0",
+						"Department__2":"0",
+						"Bonus_Amount__3":"0",
+						"Leaves_Taken__4":"0",
+						"rowNumber":0
+					}
 				},
 				"ua:title":"AggregatedList",
 				"ua:list_type":"OBJECT"
@@ -479,7 +487,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_hlGem",
@@ -500,7 +508,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_Nftv5",
@@ -523,7 +531,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"_6gXBs",
@@ -548,7 +556,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_lqvmv",
@@ -569,7 +577,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_oiTuI",
@@ -750,7 +758,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"_A7jOQ",
@@ -880,7 +888,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_Mpy8B",
@@ -928,5 +936,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
