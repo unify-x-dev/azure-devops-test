@@ -92,6 +92,36 @@
 			"fromNodeId":"n_I5HTd",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_gcxxs",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_gcxxs",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_G84mF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_G84mF",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_WTHq0",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_WTHq0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nQDPb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_G84mF",
+			"name":"no",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_nQDPb",
 			"type":"next"
 		},
@@ -107,7 +137,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761291929791,
+	"modifiedTime":1761295090957,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -209,6 +239,10 @@
 										"properties":{},
 										"additionalProperties":false,
 										"title":"schema"
+									},
+									"version":{
+										"type":"integer",
+										"title":"version"
 									}
 								},
 								"additionalProperties":false,
@@ -880,10 +914,19 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.DataSource.items.schema",
+					"root.parameters.DataSource.items.id"
+				]
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"code_by_unifyapps_groovy",
+				"resourceVersion":947,
+				"resourceName":"code_by_unifyapps_javascript",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -896,33 +939,22 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
-						"output":{
+						"status":{
+							"type":"string",
+							"title":"status"
+						},
+						"blocksIDs":{
 							"type":"array",
 							"items":{
-								"type":"object",
-								"properties":{
-									"datasourceId":{
-										"type":"string",
-										"title":"datasourceId"
-									},
-									"datasourceName":{
-										"type":"string",
-										"title":"datasourceName"
-									},
-									"interfacePageId":{
-										"type":"string",
-										"title":"Page Id"
-									},
-									"status":{
-										"type":"boolean",
-										"title":"status"
-									}
-								},
-								"additionalProperties":false,
-								"required":[]
+								"type":"string"
 							},
-							"title":"output"
+							"title":"blocksIDs"
+						},
+						"pageID":{
+							"type":"string",
+							"title":"pageID"
 						}
 					}
 				},
@@ -948,32 +980,138 @@
 									}
 								},
 								"additionalProperties":false,
-								"required":[
-									"schema",
-									"id"
-								]
+								"required":[]
 							},
 							"title":"Data Source"
 						}
 					}
 				},
-				"code":"def input = DataSource\n\n// Process input\ndef output = input.collect { item ->\n    def schema = item.schema\n    def advOptions = schema?.advancedOptions\n    def timing = advOptions?.timing\n    \n    def isAutomatic = advOptions?.runBehaviour == \"automatic\"\n    def onPageLoad = timing?.runQueryOnPageLoad as Boolean\n    \n    def status = (isAutomatic && onPageLoad) ? \"Pass\" : \"Fail\"\n    \n    [\n        datasourceId    : item.id,\n        datasourceName  : schema.name,\n        status          : status,\n        interfacePageId : schema.interfacePageId  // added\n    ]\n}\n\n// Print output\nreturn [output: output]",
-				"compile_static":false,
-				"captureStdOutput":false,
+				"code":"// `DataSource` is assumed to be provided\nconst outputList = [];\n\n// Assume all items have the same page ID\nconst pageID = DataSource.length > 0 ? DataSource[0].schema?.interfacePageId || \"\" : \"\";\n\n// Collect failed datasource IDs\nconst failedBlocksIDs = [];\n\nDataSource.forEach((item) => {\n  const schema = item.schema;\n  const advOptions = schema?.advancedOptions;\n  const timing = advOptions?.timing;\n  const isAutomatic = advOptions?.runBehaviour === \"automatic\";\n  const onPageLoad = Boolean(timing?.runQueryOnPageLoad);\n  const status = (isAutomatic && onPageLoad) ? \"Pass\" : \"Fail\";\n\n  if (status === \"Fail\") {\n    failedBlocksIDs.push(item.id);\n  }\n});\n\n// Push the final output into outputList\noutputList.push({\n  pageID: pageID,\n  status: failedBlocksIDs.length > 0 ? \"failed\" : \"successful\",\n  blocksIDs: failedBlocksIDs\n});\n\n// Return outputList (will contain a single object)\nreturn outputList;\n",
+				"isAsync":false,
 				"parameters":{
 					"DataSource":{
-						"source":"{{ n_Ib7o1.outputs.DataSource }}",
+						"source":"{{ n_PQRFu.outputs.data_sources }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"schema":"{{ n_Ib7o1.outputs.DataSource[0].schema }}",
-							"id":"{{ n_Ib7o1.outputs.DataSource[0].id }}"
+							"schema":"{{ n_PQRFu.outputs.data_sources[0].schema }}",
+							"id":"{{ n_PQRFu.outputs.data_sources[0].id }}"
 						}
 					}
 				}
 			},
-			"skip":true,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
+			"skip":false,
+			"subTitle":"CHECK_9",
+			"title":"Execute Javascript",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.entities.blockIds.items",
+					"root.itemToAdd.entities.variables.items",
+					"root.itemToAdd.entities.functions.items",
+					"root.itemToAdd.entities.dataSources.items"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1028,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_qDjU3@_z6eK1-1@y",
+			"id":"_gcxxs",
+			"index":10,
+			"inputs":{
+				"itemToAdd":{
+					"entityVersion":"{{ n_PQRFu.outputs.page_version }}",
+					"entityType":"{{ n_PQRFu.outputs.entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.id }}",
+					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
+					"status":"{{ n_h8DaG.outputs.result.outputList[0].status }}",
+					"entities":{
+						"blockIds":{
+							"source":"{{ n_h8DaG.outputs.result.outputList[0].blocksIDs }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_h8DaG.outputs.result.outputList[0].blocksIDs[0] }}"
+						}
+					}
+				},
+				"insertLocation":"END",
+				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_qDjU3@_z6eK1-1@y",
+			"id":"_G84mF",
+			"index":11,
+			"inputs":{
+				"filters":[
+					{
+						"property":"=LEN({{ n_I5HTd.outputs.result }})",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"0"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.entities.blockIds.items",
+					"root.itemToAdd.entities.variables.items",
+					"root.itemToAdd.entities.functions.items",
+					"root.itemToAdd.entities.dataSources.items"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1028,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_G84mF@n_qDjU3@_z6eK1-1@y@y",
+			"id":"_WTHq0",
+			"index":12,
+			"inputs":{
+				"itemToAdd":{
+					"entityType":"{{ n_PQRFu.outputs.entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.id }}",
+					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
+					"status":"successful"
+				},
+				"insertLocation":"END",
+				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
 			"type":"ACTION"
 		},
 		{
@@ -988,7 +1126,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":10,
+			"index":13,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1028,5 +1166,5 @@
 	"tags":[
 		
 	],
-	"version":23
+	"version":24
 }
