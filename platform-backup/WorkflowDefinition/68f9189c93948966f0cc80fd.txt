@@ -5,12 +5,12 @@
 	"createdTime":1761283323374,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761308602027,
+		"deployedAt":1761308979520,
 		"deployedBy":44109,
-		"deployedDefinitionId":"68fb6fb900ea623ea74e97a8",
+		"deployedDefinitionId":"68fb713300ea623ea74eb121",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":40
+		"version":4,
+		"workflowVersion":41
 	},
 	"edges":[
 		{
@@ -183,7 +183,7 @@
 	"id":"68f9189c93948966f0cc80fd",
 	"lastModifiedBy":44109,
 	"lcName":"[dt] filtered and sort agent list",
-	"modifiedTime":1761308977301,
+	"modifiedTime":1761309006712,
 	"name":"[DT] Filtered and sort agent list",
 	"nodes":[
 		{
@@ -908,7 +908,7 @@
 				"repeatMode":"BATCH",
 				"listSource":"{{ _fP3iR.outputs.objects }}",
 				"captureIterations":false,
-				"batchSize":150
+				"batchSize":100
 			},
 			"skip":false,
 			"subTitle":"Loop",
@@ -1375,5 +1375,5 @@
 	"tags":[
 		
 	],
-	"version":41
+	"version":42
 }
