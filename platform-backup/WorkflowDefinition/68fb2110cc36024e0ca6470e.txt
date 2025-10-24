@@ -124,7 +124,7 @@
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"new",
-	"modifiedTime":1761288776308,
+	"modifiedTime":1761288879075,
 	"name":"new",
 	"nodes":[
 		{
@@ -146,33 +146,30 @@
 					"required":[],
 					"properties":{
 						"result":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"top5byBonus":{
-										"type":"array",
-										"items":{
-											"type":"object",
-											"properties":{},
-											"additionalProperties":false
-										},
-										"title":"Top 5 By Bonus"
+							"type":"object",
+							"properties":{
+								"top5byBonus":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false
 									},
-									"leavesTaken":{
-										"type":"array",
-										"items":{
-											"type":"object",
-											"properties":{},
-											"additionalProperties":false
-										},
-										"title":"Leaves Taken"
-									}
+									"title":"Top 5 By Bonus"
 								},
-								"additionalProperties":false,
-								"required":[]
+								"leavesTaken":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false
+									},
+									"title":"Leaves Taken"
+								}
 							},
-							"title":"Result"
+							"additionalProperties":false,
+							"title":"Result",
+							"required":[]
 						}
 					}
 				},
@@ -1277,10 +1274,6 @@
 			"inputs":{
 				"result":{
 					"result":{
-						"top_5_by_bonus":{
-							"source":"{{ _oQ7wm.outputs.items }}",
-							"ua:type":"mappedArray"
-						},
 						"leavesTaken":{
 							"source":"{{ n_y1VDS.outputs.items }}",
 							"ua:type":"mappedArray"
@@ -1311,5 +1304,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
