@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761291252853,
+		"deployedAt":1761295092701,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb2bf4efa5e92eae864930",
+		"deployedDefinitionId":"68fb3af47c0ee50198337e82",
 		"status":"DEPLOYED",
-		"version":10,
-		"workflowVersion":20
+		"version":11,
+		"workflowVersion":24
 	},
 	"edges":[
 		{
@@ -137,7 +137,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761295090957,
+	"modifiedTime":1761296242401,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -243,6 +243,10 @@
 									"version":{
 										"type":"integer",
 										"title":"version"
+									},
+									"entityType":{
+										"type":"string",
+										"title":"entityType"
 									}
 								},
 								"additionalProperties":false,
@@ -1027,16 +1031,16 @@
 			"index":10,
 			"inputs":{
 				"itemToAdd":{
-					"entityVersion":"{{ n_PQRFu.outputs.page_version }}",
+					"entityVersion":"{{ n_PQRFu.outputs.data_sources[0].version }}",
 					"entityType":"{{ n_PQRFu.outputs.entityType }}",
 					"entityId":"{{ n_PQRFu.outputs.id }}",
 					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
 					"status":"{{ n_h8DaG.outputs.result.outputList[0].status }}",
 					"entities":{
 						"blockIds":{
-							"source":"{{ n_h8DaG.outputs.result.outputList[0].blocksIDs }}",
 							"ua:type":"mappedArray",
-							"items":"{{ n_h8DaG.outputs.result.outputList[0].blocksIDs[0] }}"
+							"source":"{{ n_I5HTd.outputs.result.blocksIDs }}",
+							"items":"{{ n_I5HTd.outputs.result.blocksIDs[0] }}"
 						}
 					}
 				},
@@ -1166,5 +1170,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
