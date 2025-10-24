@@ -1,7 +1,6 @@
 {
 	"appsUsed":[
-		"gsheets",
-		"openai"
+		"gsheets"
 	],
 	"createdTime":1761288464314,
 	"deleted":false,
@@ -18,18 +17,11 @@
 			"fromNodeId":"n_lw3oK",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8EGvJ",
+			"toNodeId":"n_0SdyR",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_8EGvJ",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_Mdq6p",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_Mdq6p",
+			"fromNodeId":"n_0SdyR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_hlGem",
@@ -67,63 +59,12 @@
 			"fromNodeId":"n_oiTuI",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_GCEfB",
+			"toNodeId":"n_saiBu",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_GCEfB",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_QLQ75",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_QLQ75",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_A7jOQ",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"_A7jOQ",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_tiPDQ",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_tiPDQ",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_sw37E",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_sw37E",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_KPNN2",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_KPNN2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_Ga0mE",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_Ga0mE",
+			"fromNodeId":"n_saiBu",
 			"name":"loopback",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Nftv5",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_QLQ75",
-			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Nftv5",
@@ -133,6 +74,13 @@
 			"fromNodeId":"n_Nftv5",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_A7jOQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_A7jOQ",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_Mpy8B",
 			"type":"next"
 		}
@@ -140,7 +88,7 @@
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761297523229,
+	"modifiedTime":1761311709616,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -150,7 +98,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_lw3oK",
@@ -161,31 +109,43 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"result":{
-							"type":"object",
-							"properties":{
-								"top5byBonus":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{},
-										"additionalProperties":false
+						"leavesTaken":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"EmployeeID__0":{
+										"type":"string",
+										"title":"EmployeeID__0"
 									},
-									"title":"Top 5 By Bonus"
+									"Leaves_Taken__4":{
+										"type":"string",
+										"title":"Leaves_Taken__4"
+									}
 								},
-								"leavesTaken":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{},
-										"additionalProperties":false
-									},
-									"title":"Leaves Taken"
-								}
+								"additionalProperties":false,
+								"required":[]
 							},
-							"additionalProperties":false,
-							"title":"Result",
-							"required":[]
+							"title":"Leaves Taken"
+						},
+						"bonusReceived":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"EmployeeID__0":{
+										"type":"string",
+										"title":"EmployeeID__0"
+									},
+									"Bonus_Amount__3":{
+										"type":"string",
+										"title":"Bonus_Amount__3"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Bonus Received"
 						}
 					}
 				},
@@ -212,15 +172,15 @@
 		{
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":221,
+				"resourceVersion":223,
 				"resourceName":"variable_by_unifyapps_create_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
-			"id":"n_8EGvJ",
+			"id":"n_0SdyR",
 			"index":2,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
@@ -424,13 +384,29 @@
 								"items":{
 									"type":"object",
 									"properties":{
-										"employee_id":{
+										"EmployeeID__0":{
 											"type":"string",
-											"title":"employee_id"
+											"title":"EmployeeID__0"
 										},
-										"leavesTaken":{
+										"Name__1":{
+											"type":"string",
+											"title":"Name__1"
+										},
+										"Department__2":{
+											"type":"string",
+											"title":"Department__2"
+										},
+										"Bonus_Amount__3":{
+											"type":"string",
+											"title":"Bonus_Amount__3"
+										},
+										"Leaves_Taken__4":{
+											"type":"string",
+											"title":"Leaves_Taken__4"
+										},
+										"rowNumber":{
 											"type":"integer",
-											"title":"leavesTaken"
+											"title":"rowNumber"
 										}
 									},
 									"additionalProperties":false
@@ -442,13 +418,9 @@
 			},
 			"inputs":{
 				"createList":{
-					"ua:type":"mappedArray",
-					"items":{
-						"employee_id":"0",
-						"leavesTaken":0
-					}
+					"ua:type":"mappedArray"
 				},
-				"ua:title":"LeavesList",
+				"ua:title":"AggregatedList",
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
@@ -458,295 +430,36 @@
 					"properties":{
 						"items":{
 							"type":"array",
-							"title":"LeavesList",
+							"title":"AggregatedList",
 							"disableActions":true,
 							"items":{
 								"type":"object",
 								"properties":{
-									"employee_id":{
+									"EmployeeID__0":{
 										"type":"string",
-										"title":"employee_id"
+										"title":"EmployeeID__0"
 									},
-									"leavesTaken":{
-										"type":"integer",
-										"title":"leavesTaken"
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":221,
-				"resourceName":"variable_by_unifyapps_create_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_XdQ9o-1",
-			"id":"_Mdq6p",
-			"index":3,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{
-					"createList":{
-						"ui:title":"",
-						"ua:type":{
-							"ui:widget":"hidden"
-						},
-						"items":{
-							"ui:title":"Initial list items",
-							"ui:description":"Set the initial values of the list (defaults to empty)"
-						},
-						"ui:order":[
-							"*",
-							"items"
-						]
-					},
-					"ua:title":{
-						"ui:widget":"hidden"
-					},
-					"ua:list_type":{
-						"ui:widget":"hidden"
-					}
-				},
-				"schema":{
-					"allOf":[
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"OBJECT"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"items":{
-												"type":"object",
-												"properties":{}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"STRING"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of String"
-											},
-											"items":{
-												"type":"string"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"INTEGER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Integers"
-											},
-											"items":{
-												"type":"integer"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"NUMBER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Numbers"
-											},
-											"items":{
-												"type":"number"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"BOOLEAN"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Booleans"
-											},
-											"items":{
-												"type":"boolean"
-											}
-										}
-									}
-								}
-							}
-						}
-					],
-					"format":"ua:list",
-					"type":"object",
-					"properties":{
-						"ua:title":{
-							"type":"string"
-						},
-						"ua:list_type":{
-							"type":"string",
-							"title":"List Type",
-							"oneOf":[
-								{
-									"const":"OBJECT",
-									"title":"Object"
-								},
-								{
-									"const":"STRING",
-									"title":"String"
-								},
-								{
-									"const":"NUMBER",
-									"title":"Number"
-								},
-								{
-									"const":"INTEGER",
-									"title":"Integer"
-								},
-								{
-									"const":"BOOLEAN",
-									"title":"Boolean"
-								}
-							],
-							"default":"OBJECT"
-						},
-						"createList":{
-							"type":"object",
-							"properties":{
-								"ua:type":{
-									"type":"string",
-									"default":"mappedArray"
-								},
-								"source":{
-									"type":"string",
-									"format":"ua:source",
-									"title":"List Item Source"
-								},
-								"items":{
-									"type":"object",
-									"properties":{
-										"employee_id":{
-											"type":"string",
-											"title":"employee_id"
-										},
-										"bonusTaken":{
-											"type":"integer",
-											"title":"bonusTaken"
-										}
-									},
-									"additionalProperties":false,
-									"required":[]
-								}
-							}
-						}
-					}
-				}
-			},
-			"inputs":{
-				"createList":{
-					"ua:type":"mappedArray",
-					"items":{
-						"employee_id":"0",
-						"bonusTaken":0
-					}
-				},
-				"ua:title":"BonusList",
-				"ua:list_type":"OBJECT"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"type":"object",
-					"properties":{
-						"items":{
-							"type":"array",
-							"title":"BonusList",
-							"disableActions":true,
-							"items":{
-								"type":"object",
-								"properties":{
-									"employee_id":{
+									"Name__1":{
 										"type":"string",
-										"title":"employee_id"
+										"title":"Name__1"
 									},
-									"bonusTaken":{
+									"Department__2":{
+										"type":"string",
+										"title":"Department__2"
+									},
+									"Bonus_Amount__3":{
+										"type":"string",
+										"title":"Bonus_Amount__3"
+									},
+									"Leaves_Taken__4":{
+										"type":"string",
+										"title":"Leaves_Taken__4"
+									},
+									"rowNumber":{
 										"type":"integer",
-										"title":"bonusTaken"
+										"title":"rowNumber"
 									}
-								},
-								"required":[]
+								}
 							}
 						}
 					}
@@ -766,11 +479,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_hlGem",
-			"index":4,
+			"index":3,
 			"inputs":{
 				"spreadsheetId":"1w5cXWxuvvc_267hr0OPbXbCikhJRv9FMMajP2tnmDnU"
 			},
@@ -787,11 +500,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_Nftv5",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"listSource":"{{ n_hlGem.outputs.sheets }}",
 				"captureIterations":true
@@ -810,16 +523,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"_6gXBs",
-			"index":6,
+			"index":5,
 			"inputs":{
 				"sheetName":"{{ n_Nftv5.outputs.item.properties.title }}",
 				"valueRenderOption":"FORMATTED_VALUE",
 				"objectSourceResourceName":"gsheets_fetch_columns",
-				"range":"2:20",
+				"range":"1:20",
 				"spreadsheetId":"1w5cXWxuvvc_267hr0OPbXbCikhJRv9FMMajP2tnmDnU__Bonus Data"
 			},
 			"skip":false,
@@ -835,11 +548,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"n_lqvmv",
-			"index":7,
+			"index":6,
 			"inputs":{
 				"object":"{{ _6gXBs.outputs }}"
 			},
@@ -856,16 +569,15 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
 			"id":"n_oiTuI",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
 					"properties":{
 						"spreadsheetId":{
 							"type":"string",
@@ -884,10 +596,6 @@
 							"items":{
 								"type":"object",
 								"properties":{
-									"EmployeeID__0":{
-										"type":"string",
-										"title":"EmployeeID__0"
-									},
 									"Name__1":{
 										"type":"string",
 										"title":"Name__1"
@@ -907,6 +615,10 @@
 									"rowNumber":{
 										"type":"integer",
 										"title":"rowNumber"
+									},
+									"Employee_ID__0":{
+										"type":"string",
+										"title":"EmployeeID__0"
 									}
 								},
 								"additionalProperties":false,
@@ -924,58 +636,98 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.EmployeeID__0",
+					"root.itemsToAdd.items.Name__1",
+					"root.itemsToAdd.items.Department__2",
+					"root.itemsToAdd.items.Bonus_Amount__3",
+					"root.itemsToAdd.items.Leaves_Taken__4",
+					"root.itemsToAdd.items.rowNumber"
+				]
+			},
 			"context":{
-				"appName":"openai",
-				"resourceVersion":5471,
-				"connectionId":"68ea9540a5e5253b2d030eea",
-				"resourceName":"openai_analyze_text",
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":222,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_XdQ9o-1@l",
-			"id":"n_GCEfB",
-			"index":9,
+			"id":"n_saiBu",
+			"index":8,
 			"inputs":{
-				"source_text":"{{ n_lw3oK.outputs.input }}",
-				"instruction":"analyse the user input, \nif the user inputs \"getTop5\", \"show top 5 employees\" etc or something relating to this, then give the output as \"getTop5\".\nif the user inputs the employee id for example: \"E001\" or something like this, then give the input provided by the user as ouput",
-				"model":"gpt-4o"
-			},
-			"skip":false,
-			"subTitle":"OpenAI",
-			"title":"Analyze text",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"if_else",
-				"resourceVersion":111,
-				"resourceName":"if_else_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_Nftv5@_XdQ9o-1@l",
-			"id":"n_QLQ75",
-			"index":10,
-			"inputs":{
-				"filters":[
-					{
-						"property":"{{ n_lw3oK.outputs.input }}",
-						"filter":{
-							"operator":"EQUAL",
-							"value":"{{ n_GCEfB.outputs.choices[0].message.content }}"
-						}
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_oiTuI.outputs.result.rows }}",
+					"items":{
+						"EmployeeID__0":"{{ n_oiTuI.outputs.result.rows[0].Employee_ID__0 }}",
+						"Name__1":"{{ n_oiTuI.outputs.result.rows[0].Name__1 }}",
+						"Department__2":"{{ n_oiTuI.outputs.result.rows[0].Department__2 }}",
+						"Bonus_Amount__3":"{{ n_oiTuI.outputs.result.rows[0].Bonus_Amount__3 }}",
+						"Leaves_Taken__4":"{{ n_oiTuI.outputs.result.rows[0].Leaves_Taken__4 }}",
+						"rowNumber":"{{ n_oiTuI.outputs.result.rows[0].rowNumber }}"
 					}
-				],
-				"operator":"AND"
+				},
+				"listName":"{{ n_0SdyR.outputs.items[0] }}"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
 			},
 			"skip":false,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
 		},
 		{
 			"additional":{
@@ -983,16 +735,12 @@
 					"root":{}
 				},
 				"visibleOptionalFields":[
-					"root.parameters.leavesTaken.items.EmployeeID__0",
-					"root.parameters.leavesTaken.items.Leaves_Taken__4",
-					"root.parameters.bonusIssued.items.EmployeeID__0",
-					"root.parameters.bonusIssued.items.Bonus_Amount__3",
-					"root.parameters.rows.items.EmployeeID__0",
-					"root.parameters.rows.items.Name__1",
-					"root.parameters.rows.items.Department__2",
-					"root.parameters.rows.items.Bonus_Amount__3",
-					"root.parameters.rows.items.Leaves_Taken__4",
-					"root.parameters.rows.items.rowNumber"
+					"root.parameters.AggregatedList.items.EmployeeID__0",
+					"root.parameters.AggregatedList.items.Name__1",
+					"root.parameters.AggregatedList.items.Department__2",
+					"root.parameters.AggregatedList.items.Bonus_Amount__3",
+					"root.parameters.AggregatedList.items.Leaves_Taken__4",
+					"root.parameters.AggregatedList.items.rowNumber"
 				]
 			},
 			"context":{
@@ -1002,70 +750,17 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
+			"groupId":"_XdQ9o-1",
 			"id":"_A7jOQ",
-			"index":11,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
 					"properties":{
-						"result":{
-							"type":"object",
-							"properties":{
-								"leavesTaken":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{
-											"Leaves_Taken__4":{
-												"type":"integer",
-												"title":"Leaves_Taken__4"
-											},
-											"EmployeeID__0":{
-												"type":"string",
-												"title":"EmployeeID__0"
-											}
-										},
-										"additionalProperties":false
-									},
-									"title":"leavesTaken"
-								},
-								"bonusTaken":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{
-											"Bonus_Amount__3":{
-												"type":"string",
-												"title":"Bonus_Amount__3"
-											},
-											"EmployeeID__0":{
-												"type":"string",
-												"title":"EmployeeID__0"
-											}
-										},
-										"additionalProperties":false
-									},
-									"title":"bonusTaken"
-								}
-							},
-							"title":"result",
-							"additionalProperties":false
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"leavesTaken",
-						"bonusTaken"
-					],
-					"properties":{
-						"rows":{
+						"leavesTaken":{
 							"type":"array",
 							"items":{
 								"type":"object",
@@ -1074,6 +769,47 @@
 										"type":"string",
 										"title":"EmployeeID__0"
 									},
+									"Leaves_Taken__4":{
+										"type":"string",
+										"title":"Leaves_Taken__4"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"leavesTaken"
+						},
+						"bonusIssued":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"EmployeeID__0":{
+										"type":"string",
+										"title":"EmployeeID__0"
+									},
+									"Bonus_Amount__3":{
+										"type":"string",
+										"title":"Bonus_Amount__3"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"bonusIssued"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"checkValue"
+					],
+					"properties":{
+						"AggregatedList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
 									"Name__1":{
 										"type":"string",
 										"title":"Name__1"
@@ -1093,21 +829,6 @@
 									"rowNumber":{
 										"type":"integer",
 										"title":"rowNumber"
-									}
-								},
-								"additionalProperties":false,
-								"required":[]
-							},
-							"title":"rows"
-						},
-						"leavesTaken":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"Leaves_Taken__4":{
-										"type":"number",
-										"title":"Leaves_Taken__4"
 									},
 									"EmployeeID__0":{
 										"type":"string",
@@ -1115,70 +836,34 @@
 									}
 								},
 								"additionalProperties":false,
-								"required":[
-									"Leaves_Taken__4",
-									"EmployeeID__0"
-								]
+								"required":[]
 							},
-							"title":"leavesTaken"
+							"title":"AggregatedList"
 						},
-						"bonusTaken":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"Bonus_Amount__3":{
-										"type":"number",
-										"title":"Bonus_Amount__3"
-									},
-									"EmployeeID__0":{
-										"type":"string",
-										"title":"EmployeeID__0*"
-									}
-								},
-								"additionalProperties":false,
-								"required":[
-									"Bonus_Amount__3",
-									"EmployeeID__0"
-								]
-							},
-							"title":"bonusTaken"
+						"checkValue":{
+							"type":"string",
+							"title":"checkValue"
 						}
 					}
 				},
 				"configurationMode":"DEFAULT",
-				"code":"def fun(rows, leavesTaken, bonusTaken):\n    # Aggregate leaves\n    for row in rows:\n        emp_id = row['EmployeeID__0']\n        leaves = int(row['Leaves_Taken__4'])\n        \n        existing = next((item for item in leavesTaken if item['EmployeeID__0'] == emp_id), None)\n        \n        if existing:\n            existing['Leaves_Taken__4'] += leaves\n        else:\n            leavesTaken.append({\n                'EmployeeID__0': emp_id,\n                'Leaves_Taken__4': leaves\n            })\n    \n    # Aggregate bonus\n    for row in rows:\n        emp_id = row['EmployeeID__0']\n        bonus = int(row['Bonus_Amount__3'])\n        \n        existing = next((item for item in bonusTaken if item['EmployeeID__0'] == emp_id), None)\n        \n        if existing:\n            existing['Bonus_Amount__3'] += bonus\n        else:\n            bonusTaken.append({\n                'EmployeeID__0': emp_id,\n                'Bonus_Amount__3': bonus\n            })\n    \n    return {\n        'leavesTaken': leavesTaken,\n        'bonusTaken': bonusTaken\n    }\n\nresult = fun(rows, leavesTaken, bonusTaken)",
+				"code":"def fun(AggregatedList, checkValue):\n    from collections import defaultdict\n    \n    # Aggregate data by EmployeeID\n    employee_data = defaultdict(lambda: {'total_bonus': 0, 'total_leaves': 0, 'name': '', 'department': ''})\n    \n    for record in AggregatedList:\n        emp_id = record['EmployeeID__0']\n        employee_data[emp_id]['total_bonus'] += int(record['Bonus_Amount__3'])\n        employee_data[emp_id]['total_leaves'] += int(record['Leaves_Taken__4'])\n        employee_data[emp_id]['name'] = record['Name__1']\n        employee_data[emp_id]['department'] = record['Department__2']\n    \n    # Check if we need top 5 or specific employee\n    if checkValue == \"getTop5\":\n        # Sort by total bonus (descending) and get top 5\n        top_bonus = sorted(employee_data.items(), key=lambda x: x[1]['total_bonus'], reverse=True)[:5]\n        \n        # Sort by total leaves (ascending) and get top 5 (least leaves)\n        least_leaves = sorted(employee_data.items(), key=lambda x: x[1]['total_leaves'])[:5]\n        \n        result = {\n            \"bonusIssued\": [\n                {\n                    \"EmployeeID__0\": emp_id,\n                    \"Name__1\": data['name'],\n                    \"Department__2\": data['department'],\n                    \"Bonus_Amount__3\": str(data['total_bonus'])\n                }\n                for emp_id, data in top_bonus\n            ],\n            \"leavesTaken\": [\n                {\n                    \"EmployeeID__0\": emp_id,\n                    \"Name__1\": data['name'],\n                    \"Department__2\": data['department'],\n                    \"Leaves_Taken__4\": str(data['total_leaves'])\n                }\n                for emp_id, data in least_leaves\n            ]\n        }\n    else:\n        # Return specific employee data\n        if checkValue in employee_data:\n            emp_data = employee_data[checkValue]\n            result = {\n                \"leavesTaken\": [\n                    {\n                        \"EmployeeID__0\": checkValue,\n                        \"Name__1\": emp_data['name'],\n                        \"Department__2\": emp_data['department'],\n                        \"Leaves_Taken__4\": str(emp_data['total_leaves'])\n                    }\n                ],\n                \"bonusIssued\": [\n                    {\n                        \"EmployeeID__0\": checkValue,\n                        \"Name__1\": emp_data['name'],\n                        \"Department__2\": emp_data['department'],\n                        \"Bonus_Amount__3\": str(emp_data['total_bonus'])\n                    }\n                ]\n            }\n        else:\n            result = {\"error\": f\"Employee {checkValue} not found\"}\n    \n    return result\n    \nresult = fun(AggregatedList, checkValue)",
 				"isAsync":false,
 				"python_version":"3.12",
 				"captureStdOutput":false,
 				"parameters":{
-					"rows":{
+					"checkValue":"{{ n_wRUr6.outputs.input }}",
+					"AggregatedList":{
+						"source":"{{ n_0SdyR.outputs.items }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"Name__1":"{{ n_oiTuI.outputs.result.rows[0].Name__1 }}",
-							"Department__2":"{{ n_oiTuI.outputs.result.rows[0].Department__2 }}",
-							"Bonus_Amount__3":"{{ n_oiTuI.outputs.result.rows[0].Bonus_Amount__3 }}",
-							"Leaves_Taken__4":"{{ n_oiTuI.outputs.result.rows[0].Leaves_Taken__4 }}",
-							"rowNumber":"{{ n_oiTuI.outputs.result.rows[0].rowNumber }}",
-							"EmployeeID__0":"{{ n_oiTuI.outputs.result.rows[0].EmployeeID__0 }}"
-						},
-						"source":"{{ n_oiTuI.outputs.result.rows }}"
-					},
-					"leavesTaken":{
-						"ua:type":"mappedArray",
-						"items":{
-							"Leaves_Taken__4":"{{ n_8EGvJ.outputs.items[0].leavesTaken }}",
-							"EmployeeID__0":"{{ n_8EGvJ.outputs.items[0].employee_id }}"
-						},
-						"source":"{{ n_8EGvJ.outputs.items }}"
-					},
-					"bonusTaken":{
-						"ua:type":"mappedArray",
-						"items":{
-							"Bonus_Amount__3":"{{ _Mdq6p.outputs.items[0].bonusTaken }}",
-							"EmployeeID__0":"{{ _Mdq6p.outputs.items[0].employee_id }}"
-						},
-						"source":"{{ _Mdq6p.outputs.items }}"
+							"Name__1":"{{ n_0SdyR.outputs.items[0].Name__1 }}",
+							"Department__2":"{{ n_0SdyR.outputs.items[0].Department__2 }}",
+							"Bonus_Amount__3":"{{ n_0SdyR.outputs.items[0].Bonus_Amount__3 }}",
+							"Leaves_Taken__4":"{{ n_0SdyR.outputs.items[0].Leaves_Taken__4 }}",
+							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}",
+							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}"
+						}
 					}
 				}
 			},
@@ -1189,137 +874,33 @@
 		},
 		{
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":220,
-				"resourceName":"variable_by_unifyapps_clear_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
-			"id":"n_tiPDQ",
-			"index":12,
-			"inputs":{
-				"listName":"{{ n_8EGvJ.outputs.items[0] }}"
-			},
-			"skip":true,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Remove all items from list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":220,
-				"resourceName":"variable_by_unifyapps_clear_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
-			"id":"_sw37E",
-			"index":13,
-			"inputs":{
-				"listName":"{{ _Mdq6p.outputs.items[0] }}"
-			},
-			"skip":true,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Remove all items from list",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemsToAdd.items.employee_id",
-					"root.itemsToAdd.items.leavesTaken"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":220,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
-			"id":"n_KPNN2",
-			"index":14,
-			"inputs":{
-				"insertLocation":"END",
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"source":"{{ _A7jOQ.outputs.result.result.leavesTaken }}",
-					"items":{
-						"employee_id":"{{ _A7jOQ.outputs.result.result.leavesTaken[0].EmployeeID__0 }}",
-						"leavesTaken":"{{ _A7jOQ.outputs.result.result.leavesTaken[0].Leaves_Taken__4 }}"
-					}
-				},
-				"listName":"{{ n_8EGvJ.outputs.items[0] }}"
-			},
-			"skip":true,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add items to list",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemsToAdd.items.employee_id",
-					"root.itemsToAdd.items.bonusTaken"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":220,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
-			"id":"_Ga0mE",
-			"index":15,
-			"inputs":{
-				"insertLocation":"END",
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"source":"{{ _A7jOQ.outputs.result.result.bonusTaken }}",
-					"items":{
-						"employee_id":"{{ _A7jOQ.outputs.result.result.bonusTaken[0].EmployeeID__0 }}",
-						"bonusTaken":"{{ _A7jOQ.outputs.result.result.bonusTaken[0].Bonus_Amount__3 }}"
-					}
-				},
-				"listName":"{{ _Mdq6p.outputs.items[0] }}"
-			},
-			"skip":true,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add items to list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":259,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_Mpy8B",
-			"index":16,
+			"index":10,
 			"inputs":{
 				"result":{
-					"result":{
-						"leavesTaken":{
-							"source":"{{ n_y1VDS.outputs.items }}",
-							"ua:type":"mappedArray"
+					"leavesTaken":{
+						"source":"{{ _A7jOQ.outputs.result.leavesTaken }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"EmployeeID__0":"{{ _A7jOQ.outputs.result.leavesTaken[0].EmployeeID__0 }}",
+							"Leaves_Taken__4":"{{ _A7jOQ.outputs.result.leavesTaken[0].Leaves_Taken__4 }}"
+						}
+					},
+					"bonusReceived":{
+						"source":"{{ _A7jOQ.outputs.result.bonusIssued }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"EmployeeID__0":"{{ _A7jOQ.outputs.result.bonusIssued[0].EmployeeID__0 }}",
+							"Bonus_Amount__3":"{{ _A7jOQ.outputs.result.bonusIssued[0].Bonus_Amount__3 }}"
 						}
 					}
 				}
@@ -1347,5 +928,5 @@
 	"tags":[
 		
 	],
-	"version":20
+	"version":21
 }
