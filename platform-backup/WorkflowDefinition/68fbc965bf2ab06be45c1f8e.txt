@@ -1,51 +1,121 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761331557607,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_tjXoz",
+			"fromNodeId":"n_KNXyq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_tSF6E",
+			"toNodeId":"n_f3Jvx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_f3Jvx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AIeMB",
 			"type":"next"
 		}
 	],
 	"id":"68fbc965bf2ab06be45c1f8e",
 	"lastModifiedBy":517,
 	"lcName":"deepu boi",
-	"modifiedTime":1761331557607,
+	"modifiedTime":1761332030383,
 	"name":"deepu boi",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tjXoz-1",
-			"id":"_tjXoz",
-			"index":0,
+			"id":"n_KNXyq",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"name":{
+								"type":"string",
+								"title":"Name"
+							},
+							"age":{
+								"type":"integer",
+								"title":"Age"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"name",
+							"age"
+						]
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4577,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tjXoz-1",
-			"id":"_tSF6E",
-			"index":0,
+			"id":"n_f3Jvx",
+			"index":2,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"deepu",
+				"skipIfBlank":false,
+				"record":{
+					"name":"{{ n_KNXyq.outputs.body.name }}",
+					"age":"{{ n_KNXyq.outputs.body.age }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_tjXoz-1",
+			"id":"n_AIeMB",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":517,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +129,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
