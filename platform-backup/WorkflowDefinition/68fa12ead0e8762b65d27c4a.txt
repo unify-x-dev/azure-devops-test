@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761303764809,
+		"deployedAt":1761315091715,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb5cd480fb3c02df75c3aa",
-		"status":"DEPLOYED",
-		"version":14,
-		"workflowVersion":28
+		"deployedDefinitionId":"68fb8912b819664d0bf83ef4",
+		"status":"PAUSED",
+		"version":15,
+		"workflowVersion":77
 	},
 	"edges":[
 		{
@@ -136,7 +136,7 @@
 			"fromNodeId":"_gcxxs",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_g70bo",
+			"toNodeId":"n_8vaQe",
 			"type":"next"
 		},
 		{
@@ -144,11 +144,27 @@
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_g70bo",
+			"toNodeId":"n_8vaQe",
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_8vaQe",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_g70bo",
+			"type":"if"
+		},
+		{
 			"fromNodeId":"n_g70bo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nQDPb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8vaQe",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_nQDPb",
@@ -158,7 +174,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761315086506,
+	"modifiedTime":1761315226424,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -322,7 +338,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_R9Gq8",
@@ -826,7 +842,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_zSG09",
@@ -1022,7 +1038,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_jz638@_z6eK1-1@y",
 			"id":"_0RL9l",
@@ -1253,7 +1269,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_B3jVo@_z6eK1-1@y",
 			"id":"_2AsNQ",
@@ -1475,7 +1491,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
@@ -1519,6 +1535,36 @@
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_z6eK1-1",
+			"id":"n_8vaQe",
+			"index":15,
+			"inputs":{
+				"filters":[
+					{
+						"property":"=LEN({{ n_R9Gq8.outputs.items }})",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"0"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.record.entities.blockIds.items",
@@ -1536,9 +1582,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_z6eK1-1",
+			"groupId":"n_8vaQe@_z6eK1-1@y",
 			"id":"n_g70bo",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"nocode_reports",
@@ -1590,7 +1636,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1630,5 +1676,5 @@
 	"tags":[
 		
 	],
-	"version":77
+	"version":78
 }
