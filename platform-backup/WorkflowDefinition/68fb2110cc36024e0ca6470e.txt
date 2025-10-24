@@ -119,19 +119,12 @@
 			"skip":false,
 			"toNodeId":"n_Mpy8B",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Mpy8B",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_6PZpR",
-			"type":"next"
 		}
 	],
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"new",
-	"modifiedTime":1761288662157,
+	"modifiedTime":1761288776308,
 	"name":"new",
 	"nodes":[
 		{
@@ -147,6 +140,42 @@
 			"id":"n_lw3oK",
 			"index":1,
 			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"top5byBonus":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{},
+											"additionalProperties":false
+										},
+										"title":"Top 5 By Bonus"
+									},
+									"leavesTaken":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{},
+											"additionalProperties":false
+										},
+										"title":"Leaves Taken"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Result"
+						}
+					}
+				},
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
@@ -1263,17 +1292,6 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_XdQ9o-1",
-			"id":"_6PZpR",
-			"index":16,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":161852,
@@ -1293,5 +1311,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
