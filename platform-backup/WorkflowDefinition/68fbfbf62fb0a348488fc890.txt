@@ -16,7 +16,7 @@
 	"id":"68fbfbf62fb0a348488fc890",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa21761344502519icielzirax",
-	"modifiedTime":1761344503010,
+	"modifiedTime":1761344555418,
 	"name":"changeSetQA21761344502519ICIeLzIRaX",
 	"nodes":[
 		{
@@ -87,7 +87,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -109,5 +109,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
