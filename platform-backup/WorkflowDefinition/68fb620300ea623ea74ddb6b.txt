@@ -51,6 +51,13 @@
 			"fromNodeId":"n_oiTuI",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_QMIFQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_QMIFQ",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_saiBu",
 			"type":"next"
 		},
@@ -80,7 +87,7 @@
 	"id":"68fb620300ea623ea74ddb6b",
 	"lastModifiedBy":186875,
 	"lcName":"new approach (copy)",
-	"modifiedTime":1761305427200,
+	"modifiedTime":1761305581402,
 	"name":"new approach (copy)",
 	"nodes":[
 		{
@@ -639,6 +646,42 @@
 			},
 			"context":{
 				"appName":"variable_by_unifyapps",
+				"resourceVersion":982,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Nftv5@_d8BnZ-1@l",
+			"id":"n_QMIFQ",
+			"index":8,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_oiTuI.outputs.result.rows }}"
+				},
+				"listName":"{{ n_0SdyR.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.EmployeeID__0",
+					"root.itemsToAdd.items.Name__1",
+					"root.itemsToAdd.items.Department__2",
+					"root.itemsToAdd.items.Bonus_Amount__3",
+					"root.itemsToAdd.items.Leaves_Taken__4",
+					"root.itemsToAdd.items.rowNumber"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
 				"resourceVersion":222,
 				"resourceName":"variable_by_unifyapps_add_items_to_list",
 				"type":"APPLICATION"
@@ -648,7 +691,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_saiBu",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -746,7 +789,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"_A7jOQ",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -876,7 +919,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_Mpy8B",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"result":{
 					"leavesTaken":{
@@ -920,5 +963,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
