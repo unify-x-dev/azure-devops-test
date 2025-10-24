@@ -6,46 +6,94 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_wozNA",
+			"fromNodeId":"n_2rZub",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ey5qy",
+			"toNodeId":"n_CqX36",
 			"type":"next"
 		}
 	],
 	"id":"68fb4f8b80fb3c02df754c7b",
 	"lastModifiedBy":32341,
 	"lcName":"autotest",
-	"modifiedTime":1761300363309,
+	"modifiedTime":1761301554518,
 	"name":"autoTEST",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wozNA-1",
-			"id":"_wozNA",
-			"index":0,
+			"id":"n_2rZub",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items._ua_ID",
+					"root.records.items.name",
+					"root.records.items.married",
+					"root.records.items.age"
+				]
+			},
+			"context":{
+				"appName":"mdm_by_unifyapps",
+				"resourceVersion":723,
+				"resourceName":"mdm_by_unifyapps_create_staging_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wozNA-1",
-			"id":"_ey5qy",
-			"index":0,
+			"id":"n_CqX36",
+			"index":2,
+			"inputs":{
+				"sourceId":"683243cc8319bd1a8db3f91f",
+				"modelId":"68fb4efa230d67189d454b1c",
+				"records":[
+					{
+						"_ua_ID":12,
+						"name":"RANDOM",
+						"married":true,
+						"age":8237
+					},
+					{
+						"_ua_ID":12,
+						"name":"hemanth",
+						"married":false,
+						"age":22
+					}
+				],
+				"unifiedEntityId":"68fb4f0f230d67189d454b44"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"UDM by UnifyApps",
+			"title":"Create Staging Records",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":32341,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +107,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
