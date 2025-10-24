@@ -6,46 +6,204 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_5nsSo",
+			"fromNodeId":"n_SmhH7",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_htjdJ",
+			"toNodeId":"_Hxb0R",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Hxb0R",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Dp8ir",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"_Dp8ir",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Hxb0R",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Hxb0R",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DMSp1",
 			"type":"next"
 		}
 	],
 	"id":"68fb5bda80fb3c02df75bc19",
 	"lastModifiedBy":308,
 	"lcName":"check",
-	"modifiedTime":1761303514413,
+	"modifiedTime":1761303780400,
 	"name":"check",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1058,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5nsSo-1",
-			"id":"_5nsSo",
-			"index":0,
+			"id":"n_SmhH7",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output"
+					],
+					"properties":{
+						"output":{
+							"type":"integer",
+							"title":"Output"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"var",
+						"A"
+					],
+					"properties":{
+						"var":{
+							"type":"array",
+							"items":{
+								"type":"integer"
+							},
+							"title":"Var"
+						},
+						"A":{
+							"type":"integer",
+							"title":"A"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":110,
+				"resourceName":"loop_for",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5nsSo-1",
-			"id":"_htjdJ",
-			"index":0,
+			"id":"_Hxb0R",
+			"index":2,
+			"inputs":{
+				"start":0,
+				"limit":"{{ n_SmhH7.outputs.A }}",
+				"step":1,
+				"captureIterations":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Loop",
+			"title":"For loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":3001,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Hxb0R@_5nsSo-1@l",
+			"id":"_Dp8ir",
+			"index":3,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"res":{
+							"type":"integer",
+							"title":"Res"
+						}
+					},
+					"required":[
+						"res"
+					]
+				}
+			},
+			"inputs":{
+				"res":"=SUM({{ _Hxb0R.outputs.index }},1)"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"res":{
+							"type":"integer",
+							"title":"Res"
+						}
+					},
+					"required":[
+						"res"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":3170,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_5nsSo-1",
+			"id":"n_DMSp1",
+			"index":4,
+			"inputs":{
+				"result":{
+					"output":"{{ _Dp8ir.outputs.res }}{{ n_SmhH7.outputs.A }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":308,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +217,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
