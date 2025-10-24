@@ -23,7 +23,7 @@
 	"id":"68faea8e9bb45819e17a6c0a",
 	"lastModifiedBy":49915,
 	"lcName":"groovy compile",
-	"modifiedTime":1761274583692,
+	"modifiedTime":1761274598752,
 	"name":"groovy compile",
 	"nodes":[
 		{
@@ -66,7 +66,7 @@
 			"index":2,
 			"inputs":{
 				"compileOnSave":true,
-				"code":"def x = (1 + 2",
+				"code":"def x = (1 + 2\n\nif (true) {\n    println \"hello\"\n",
 				"compile_static":false,
 				"captureStdOutput":false
 			},
@@ -90,7 +90,7 @@
 			"index":3,
 			"inputs":{
 				"compileOnSave":false,
-				"code":"def x = (1 + 2",
+				"code":"def x = (1 + 2\n\nif (true) {\n    println \"hello\"\n",
 				"compile_static":false,
 				"captureStdOutput":false
 			},
@@ -117,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
