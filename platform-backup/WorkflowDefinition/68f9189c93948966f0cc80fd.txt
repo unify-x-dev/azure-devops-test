@@ -5,12 +5,12 @@
 	"createdTime":1761283323374,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761308979520,
+		"deployedAt":1761309008929,
 		"deployedBy":44109,
-		"deployedDefinitionId":"68fb713300ea623ea74eb121",
+		"deployedDefinitionId":"68fb715000ea623ea74eb272",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":41
+		"version":5,
+		"workflowVersion":42
 	},
 	"edges":[
 		{
@@ -95,6 +95,13 @@
 		},
 		{
 			"fromNodeId":"_fP3iR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_4GGND",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_4GGND",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_wjSBm",
@@ -183,7 +190,7 @@
 	"id":"68f9189c93948966f0cc80fd",
 	"lastModifiedBy":44109,
 	"lcName":"[dt] filtered and sort agent list",
-	"modifiedTime":1761309006712,
+	"modifiedTime":1761309145408,
 	"name":"[DT] Filtered and sort agent list",
 	"nodes":[
 		{
@@ -892,6 +899,47 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.messageCount",
+					"root.itemsToAdd.items.id",
+					"root.itemsToAdd.items.name",
+					"root.itemsToAdd.items.description",
+					"root.itemsToAdd.items.createdTime"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":535,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
+			"id":"_4GGND",
+			"index":12,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ _fP3iR.outputs.objects }}",
+					"items":{
+						"id":"{{ _fP3iR.outputs.objects[0].id }}",
+						"name":"{{ _fP3iR.outputs.objects[0].properties.name }}",
+						"description":"{{ _fP3iR.outputs.objects[0].properties.role }}",
+						"createdTime":"{{ _fP3iR.outputs.objects[0].createdTime }}"
+					}
+				},
+				"listName":"{{ n_HOWK6.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"agents",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"loop",
 				"resourceVersion":463,
@@ -903,14 +951,14 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_wjSBm",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"repeatMode":"BATCH",
 				"listSource":"{{ _fP3iR.outputs.objects }}",
 				"captureIterations":false,
 				"batchSize":100
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Loop",
 			"title":"For each loop",
 			"type":"LOOP"
@@ -932,7 +980,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"n_wfW6L",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -987,7 +1035,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_UupXH",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"automationId":"68f9245c7f66d147d99eba99",
 				"runtimeConnections":{},
@@ -1075,7 +1123,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"n_KyNCD",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"duration":2,
 				"unit":"SECONDS"
@@ -1106,7 +1154,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_VEUCk",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -1139,7 +1187,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_5RyKI",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"loop":"n_aUfr7",
 				"conditions":{
@@ -1172,7 +1220,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_aUfr7@_5OzFd-1@l",
 			"id":"n_AY347",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"variables":[
 					{
@@ -1208,7 +1256,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_1Xzlq",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1330,11 +1378,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_Wc16Y",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1375,5 +1423,5 @@
 	"tags":[
 		
 	],
-	"version":42
+	"version":43
 }
