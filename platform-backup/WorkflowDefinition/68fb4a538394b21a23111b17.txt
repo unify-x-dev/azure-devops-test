@@ -80,7 +80,7 @@
 	"id":"68fb4a538394b21a23111b17",
 	"lastModifiedBy":161852,
 	"lcName":"new approach",
-	"modifiedTime":1761299900212,
+	"modifiedTime":1761300112305,
 	"name":"new approach",
 	"nodes":[
 		{
@@ -169,7 +169,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_0SdyR",
@@ -466,7 +466,7 @@
 			"context":{
 				"appName":"gsheets",
 				"resourceVersion":11561,
-				"connectionId":"68fb48c1999eb3677bd3bec4",
+				"connectionId":"68fb214e04f08f5c30f2fffa",
 				"resourceName":"gsheets_list_sheets",
 				"type":"APPLICATION"
 			},
@@ -477,7 +477,7 @@
 			"id":"n_hlGem",
 			"index":3,
 			"inputs":{
-				"spreadsheetId":"1ByZ7YI9hYOSaqQSA2f_xT4breMTQYSvh-V9SIfwRKuE"
+				"spreadsheetId":"1w5cXWxuvvc_267hr0OPbXbCikhJRv9FMMajP2tnmDnU"
 			},
 			"skip":false,
 			"subTitle":"Google Sheets",
@@ -510,7 +510,7 @@
 			"context":{
 				"appName":"gsheets",
 				"resourceVersion":11859,
-				"connectionId":"68fb48c1999eb3677bd3bec4",
+				"connectionId":"68fb214e04f08f5c30f2fffa",
 				"resourceName":"gsheets_get_rows_batch",
 				"type":"APPLICATION"
 			},
@@ -524,8 +524,8 @@
 				"sheetName":"{{ n_Nftv5.outputs.item.properties.title }}",
 				"valueRenderOption":"FORMATTED_VALUE",
 				"objectSourceResourceName":"gsheets_fetch_columns",
-				"range":"2:50",
-				"spreadsheetId":"1ByZ7YI9hYOSaqQSA2f_xT4breMTQYSvh-V9SIfwRKuE__Employee_Bonus_Data"
+				"range":"2:20",
+				"spreadsheetId":"1w5cXWxuvvc_267hr0OPbXbCikhJRv9FMMajP2tnmDnU__Bonus Data"
 			},
 			"skip":false,
 			"subTitle":"Google Sheets",
@@ -650,6 +650,7 @@
 			"id":"n_saiBu",
 			"index":8,
 			"inputs":{
+				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
 					"source":"{{ n_oiTuI.outputs.result.rows }}",
@@ -918,5 +919,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
