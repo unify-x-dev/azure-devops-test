@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761298390712,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761298890227,
+		"deployedBy":186875,
+		"deployedDefinitionId":"68fb49c98394b21a2311144a",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":5
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_aGsFN",
@@ -77,10 +85,54 @@
 			"type":"next"
 		}
 	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"EXPORT_AS_TEMPLATE",
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"TEST",
+					"VIEW_RUNS",
+					"E",
+					"V",
+					"VS",
+					"DEP"
+				],
+				"principalIds":[
+					"186893"
+				],
+				"principalType":"USER"
+			},
+			{
+				"permissions":[
+					"EXPORT_AS_TEMPLATE",
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"TEST",
+					"VIEW_RUNS",
+					"E",
+					"V",
+					"VS",
+					"DEP"
+				],
+				"principalIds":[
+					"161852"
+				],
+				"principalType":"USER"
+			}
+		]
+	},
 	"id":"68fb47d6ecc44120a88e008e",
-	"lastModifiedBy":186875,
+	"lastModifiedBy":161852,
 	"lcName":"assignment3_fagun",
-	"modifiedTime":1761298666406,
+	"modifiedTime":1761301502121,
 	"name":"Assignment3_fagun",
 	"nodes":[
 		{
@@ -165,7 +217,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_nfGTK-1",
 			"id":"n_0SdyR",
@@ -467,7 +519,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_nfGTK-1",
 			"id":"n_hlGem",
@@ -511,7 +563,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_nfGTK-1@l",
 			"id":"_6gXBs",
@@ -737,7 +789,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_nfGTK-1",
 			"id":"_A7jOQ",
@@ -914,5 +966,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":6
 }
