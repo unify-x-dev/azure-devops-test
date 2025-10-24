@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761287451158,
+		"deployedAt":1761287630591,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb1d1bcc36024e0ca62d82",
+		"deployedDefinitionId":"68fb1dcecc36024e0ca63212",
 		"status":"DEPLOYED",
-		"version":8,
-		"workflowVersion":15
+		"version":9,
+		"workflowVersion":19
 	},
 	"edges":[
 		{
@@ -63,7 +63,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761287628926,
+	"modifiedTime":1761291248267,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -161,8 +161,20 @@
 							"type":"array",
 							"items":{
 								"type":"object",
-								"properties":{},
-								"additionalProperties":false
+								"properties":{
+									"id":{
+										"type":"string",
+										"title":"id"
+									},
+									"schema":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false,
+										"title":"schema"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
 							},
 							"title":"Data Sources"
 						},
@@ -459,5 +471,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
