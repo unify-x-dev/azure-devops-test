@@ -118,7 +118,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761293455178,
+	"modifiedTime":1761293476466,
 	"name":"test",
 	"nodes":[
 		{
@@ -386,7 +386,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_5KOVj",
@@ -395,28 +395,37 @@
 				"document_schema":{
 					"type":"object",
 					"properties":{
-						"modifiedTime":{
-							"type":"integer"
-						},
-						"DOB":{
-							"type":"integer"
-						},
-						"State":{
+						"Order_Type":{
 							"type":"string"
 						},
-						"createdTime":{
-							"type":"integer"
+						"Price":{
+							"type":"string"
 						},
-						"Height":{
-							"type":"integer"
+						"Stock_Symbol":{
+							"type":"string"
+						},
+						"Is_Algo_Trade":{
+							"type":"string"
+						},
+						"Broker_ID":{
+							"type":"string"
+						},
+						"Quantity":{
+							"type":"string"
+						},
+						"Trade_ID":{
+							"type":"string"
+						},
+						"Trade_Date_Epoch":{
+							"type":"string"
 						},
 						"_id":{
 							"type":"string"
 						},
-						"Age":{
-							"type":"integer"
+						"Exchange_Code":{
+							"type":"string"
 						},
-						"Name":{
+						"Settlement_Amount":{
 							"type":"string"
 						}
 					}
@@ -424,7 +433,7 @@
 				"objectSourceResourceName":"mongodb_fetch_collection_information",
 				"limit":100,
 				"skip":0,
-				"objectId":"erafqgwe4grvqw4_shamyak_etl_2025_10_23_06"
+				"objectId":"jay_test__test_etl"
 			},
 			"skip":false,
 			"subTitle":"MongoDB",
@@ -540,5 +549,5 @@
 	"tags":[
 		
 	],
-	"version":50
+	"version":51
 }
