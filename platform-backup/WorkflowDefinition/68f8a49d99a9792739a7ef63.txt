@@ -75,7 +75,7 @@
 	"id":"68f8a49d99a9792739a7ef63",
 	"lastModifiedBy":46209,
 	"lcName":"testingg",
-	"modifiedTime":1761297330210,
+	"modifiedTime":1761297357528,
 	"name":"testingg",
 	"nodes":[
 		{
@@ -91,6 +91,17 @@
 			"id":"n_RTcIf",
 			"index":1,
 			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"string",
+							"title":"Result"
+						}
+					}
+				},
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
@@ -647,7 +658,11 @@
 			"groupId":"_B3QQa-1",
 			"id":"n_K7h6x",
 			"index":8,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"result":"true"
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -671,5 +686,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
