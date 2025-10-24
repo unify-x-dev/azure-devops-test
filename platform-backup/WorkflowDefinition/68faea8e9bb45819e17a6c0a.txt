@@ -6,46 +6,104 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_7EoLE",
+			"fromNodeId":"n_D8tTJ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_3IhcS",
+			"toNodeId":"n_a4bV0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_a4bV0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_tzlIe",
 			"type":"next"
 		}
 	],
 	"id":"68faea8e9bb45819e17a6c0a",
 	"lastModifiedBy":49915,
 	"lcName":"groovy compile",
-	"modifiedTime":1761274510020,
+	"modifiedTime":1761274583692,
 	"name":"groovy compile",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_7EoLE-1",
-			"id":"_7EoLE",
-			"index":0,
+			"id":"n_D8tTJ",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1020,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_7EoLE-1",
-			"id":"_3IhcS",
-			"index":0,
+			"id":"n_a4bV0",
+			"index":2,
+			"inputs":{
+				"compileOnSave":true,
+				"code":"def x = (1 + 2",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1020,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_7EoLE-1",
+			"id":"_tzlIe",
+			"index":3,
+			"inputs":{
+				"compileOnSave":false,
+				"code":"def x = (1 + 2",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":49915,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
