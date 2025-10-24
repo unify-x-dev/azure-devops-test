@@ -151,7 +151,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761311144608,
+	"modifiedTime":1761311309113,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -166,7 +166,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -315,7 +315,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_R9Gq8",
@@ -678,7 +678,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_Lzq6H",
@@ -717,7 +717,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_h8DaG",
@@ -817,7 +817,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_zSG09",
@@ -872,7 +872,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"_jz638",
@@ -913,7 +913,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_jz638@_z6eK1-1@y",
 			"id":"_Zs81h",
@@ -1013,7 +1013,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_jz638@_z6eK1-1@y",
 			"id":"_0RL9l",
@@ -1064,7 +1064,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"_B3jVo",
@@ -1207,7 +1207,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` and `dataSources` are assumed to be provided\n  const outputList = [];\n\n  const getNestedTableWithNonManualDataSource = (blocks, dataSources) => {\n    const result = [];\n    \n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      \n      if (block.component.componentType === 'NestedTable') {\n        const columns = block.component.content.columns || [];\n        \n        // Check each column for nested table type\n        columns.forEach((column, columnIndex) => {\n          if (column.type === 'NESTED_TABLE' && column.data) {\n            // Extract data source ID from the data path\n            const dataMatch = column.data.match(/\\{\\{\\s*([^['\\s]+)\\['data'\\]/);\n            if (dataMatch) {\n              const dataSourceId = dataMatch[1];\n              const dataSource = dataSources[dataSourceId].schema;\n              \n              if (dataSource && dataSource?.advancedOptions?.runBehaviour !== 'manual') {\n                result.push({\n                  blockId,\n                  columnIndex,\n                  dataSourceId,\n                  runBehaviour: dataSource?.advancedOptions?.runBehaviour\n                });\n              }\n            }\n          }\n        });\n      }\n    }\n    \n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedNestedTables = getNestedTableWithNonManualDataSource(blocks, dataSources);\n\n  if (failedNestedTables.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: [...new Set(failedNestedTables.map(item => item.blockId))]\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `page` and `dataSources` are assumed to be provided\n  const outputList = [];\n\n  const getNestedTableWithNonManualDataSource = (blocks, dataSources) => {\n    const result = [];\n    \n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      \n      if (block.component.componentType === 'NestedTable') {\n        const columns = block.component.content.columns || [];\n        \n        // Check each column for nested table type\n        columns.forEach((column, columnIndex) => {\n          if (column.type === 'NESTED_TABLE' && column.data) {\n            // Iterate through data source IDs to find which one is used in the data string\n            for (const dataSource of dataSources) {\n              if (column.data.includes(dataSource.id)) {\n                const schema = dataSource.schema; // equivalent to ds.properties\n                \n                if (schema && schema?.advancedOptions?.runBehaviour !== 'manual') {\n                  result.push({\n                    blockId,\n                    columnIndex,\n                    dataSourceId,\n                    runBehaviour: schema?.advancedOptions?.runBehaviour\n                  });\n                }\n                break; // Found the matching data source, no need to continue\n              }\n            }\n          }\n        });\n      }\n    }\n    \n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedNestedTables = getNestedTableWithNonManualDataSource(blocks, dataSources);\n\n  if (failedNestedTables.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: [...new Set(failedNestedTables.map(item => item.blockId))]\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}",
@@ -1244,7 +1244,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_B3jVo@_z6eK1-1@y",
 			"id":"_2AsNQ",
@@ -1295,7 +1295,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_qDjU3",
@@ -1336,7 +1336,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
@@ -1466,7 +1466,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
@@ -1517,7 +1517,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
@@ -1561,5 +1561,5 @@
 	"tags":[
 		
 	],
-	"version":74
+	"version":75
 }
