@@ -90,6 +90,13 @@
 			"fromNodeId":"n_5KOVj",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_NyUQd",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_NyUQd",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_2QKYn",
 			"type":"next"
 		},
@@ -118,7 +125,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761293476466,
+	"modifiedTime":1761293495571,
 	"name":"test",
 	"nodes":[
 		{
@@ -442,6 +449,28 @@
 		},
 		{
 			"context":{
+				"appName":"mongo",
+				"resourceVersion":4810,
+				"connectionId":"67eed8989f7b3d7aa7b8a529",
+				"resourceName":"mongodb_count_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SDPQ9-1",
+			"id":"n_NyUQd",
+			"index":13,
+			"inputs":{
+				"collectionName":"jay_test__test_etl"
+			},
+			"skip":false,
+			"subTitle":"MongoDB",
+			"title":"Count records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"analytics_by_unifyapps",
 				"resourceVersion":899,
 				"resourceName":"analytics_by_unifyapps_execute_query",
@@ -452,7 +481,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_2QKYn",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"query":"show ROUTINE LOAD where TableName = \"ENTITY_jay_test__shamyak_etl_2025_10_23_06\";",
 				"group":"ENTITY_REPORTING"
@@ -475,7 +504,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_GJM9g",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"objectSourceResourceName":"mysql_execute_sql_metadata",
 				"sql":"select * from big_table"
@@ -498,7 +527,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_X8nvd",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"path":"/"
 			},
@@ -520,7 +549,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_uCZ3C",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"path":"/file.csv",
 				"input_type":"url",
@@ -549,5 +578,5 @@
 	"tags":[
 		
 	],
-	"version":51
+	"version":52
 }
