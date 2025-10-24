@@ -158,7 +158,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761315061119,
+	"modifiedTime":1761315086506,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1561,13 +1561,13 @@
 							"items":"{{ n_R9Gq8.outputs.items[0].entities.dataSources[0] }}"
 						},
 						"functions":{
-							"source":"{{ n_R9Gq8.outputs.items[0].entities.functions }}",
 							"ua:type":"mappedArray",
-							"items":"{{ n_R9Gq8.outputs.items[0].entities.functions[0] }}"
+							"source":"{{ n_R9Gq8.outputs.items[0].entities.functionIds }}",
+							"items":"{{ n_R9Gq8.outputs.items[0].entities.functionIds[0] }}"
 						},
 						"variables":{
-							"source":"{{ n_R9Gq8.outputs.items[0].entities.variables }}",
 							"ua:type":"mappedArray",
+							"source":"{{ n_R9Gq8.outputs.items[0].entities.variableIds }}",
 							"items":"{{ n_R9Gq8.outputs.items[0].entities.variableIds[0] }}"
 						}
 					}
@@ -1630,5 +1630,5 @@
 	"tags":[
 		
 	],
-	"version":76
+	"version":77
 }
