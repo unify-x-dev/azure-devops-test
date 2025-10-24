@@ -5,12 +5,12 @@
 	"createdTime":1761283323374,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761309180727,
+		"deployedAt":1761311463820,
 		"deployedBy":44109,
-		"deployedDefinitionId":"68fb71fc00ea623ea74eb79f",
+		"deployedDefinitionId":"68fb7ae700ea623ea74f1046",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":45
+		"version":7,
+		"workflowVersion":48
 	},
 	"edges":[
 		{
@@ -190,7 +190,7 @@
 	"id":"68f9189c93948966f0cc80fd",
 	"lastModifiedBy":44109,
 	"lcName":"[dt] filtered and sort agent list",
-	"modifiedTime":1761311460804,
+	"modifiedTime":1761311911925,
 	"name":"[DT] Filtered and sort agent list",
 	"nodes":[
 		{
@@ -200,7 +200,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_vH4Qn",
@@ -300,7 +300,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_HOWK6",
@@ -594,7 +594,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_7xidW",
@@ -654,7 +654,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_aUfr7",
@@ -675,7 +675,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_aUfr7@_5OzFd-1@l",
 			"id":"n_MnCI7",
@@ -704,7 +704,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@y",
 			"id":"n_3DzlV",
@@ -754,7 +754,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@y",
 			"id":"n_NuHJq",
@@ -778,7 +778,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_NuHJq@n_MnCI7@n_aUfr7@_5OzFd-1@l@y@l",
 			"id":"n_FvrXa",
@@ -819,7 +819,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_NuHJq@n_MnCI7@n_aUfr7@_5OzFd-1@l@y@l",
 			"id":"n_IURf1",
@@ -852,7 +852,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@y",
 			"id":"n_Z8tJo",
@@ -867,9 +867,16 @@
 								"operator":"NOT_EQUAL",
 								"value":"{{ n_7xidW.outputs.limit }}"
 							}
+						},
+						{
+							"property":"=LEN({{ n_HOWK6.outputs.items }})",
+							"filter":{
+								"operator":"GTE",
+								"value":"{{ n_7xidW.outputs.limit }}"
+							}
 						}
 					],
-					"operator":"AND"
+					"operator":"OR"
 				}
 			},
 			"skip":false,
@@ -885,7 +892,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_fP3iR",
@@ -932,7 +939,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_4GGND",
@@ -964,7 +971,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_wjSBm",
@@ -993,7 +1000,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"n_wfW6L",
@@ -1048,7 +1055,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_UupXH",
@@ -1136,7 +1143,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"n_KyNCD",
@@ -1167,7 +1174,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_VEUCk",
@@ -1200,7 +1207,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_5RyKI",
@@ -1215,9 +1222,16 @@
 								"operator":"NOT_EQUAL",
 								"value":"{{ n_7xidW.outputs.limit }}"
 							}
+						},
+						{
+							"property":"=LEN({{ n_HOWK6.outputs.items }})",
+							"filter":{
+								"operator":"GTE",
+								"value":"{{ n_7xidW.outputs.limit }}"
+							}
 						}
 					],
-					"operator":"AND"
+					"operator":"OR"
 				}
 			},
 			"skip":false,
@@ -1233,7 +1247,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_aUfr7@_5OzFd-1@l",
 			"id":"n_AY347",
@@ -1269,7 +1283,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_1Xzlq",
@@ -1357,10 +1371,14 @@
 								"additionalProperties":false
 							},
 							"title":"Sort List"
+						},
+						"limit":{
+							"type":"integer",
+							"title":"Limit"
 						}
 					}
 				},
-				"code":"List sortAgents(List agentList, List sortList) {\n    def normalizedSortList = sortList.collect { it.toLowerCase().replaceAll(/\\s+/, '') }\n\n    return agentList.sort { a, b ->\n        for (String key : normalizedSortList) {\n            if (key.contains('mostused')) {\n                // Sort by messageCount DESC\n                if (a.messageCount != b.messageCount) {\n                    return b.messageCount <=> a.messageCount\n                }\n            } else if (key.contains('newestfirst')) {\n                // Sort by property.createdTime DESC\n                def timeA = a?.createdTime as long\n                def timeB = b?.createdTime as long\n                if (timeA != timeB) {\n                    return timeB <=> timeA\n                }\n            }\n        }\n        return 0\n    }\n}\n\ndef sortFields = [ \"mostUsed\" ]\n\nif(binding.hasVariable('sortList')) {\n    sortFields = sortList\n}\n\nif(binding.hasVariable('agentList')) {\n  return [ 'agentList': sortAgents(agentList, sortFields) ]\n}",
+				"code":"List sortAgents(List agentList, List sortList) {\n    def normalizedSortList = sortList.collect { it.toLowerCase().replaceAll(/\\s+/, '') }\n\n    return agentList.sort { a, b ->\n        for (String key : normalizedSortList) {\n            if (key.contains('mostused')) {\n                // Sort by messageCount DESC\n                if (a.messageCount != b.messageCount) {\n                    return b.messageCount <=> a.messageCount\n                }\n            } else if (key.contains('newestfirst')) {\n                // Sort by property.createdTime DESC\n                def timeA = a?.createdTime as long\n                def timeB = b?.createdTime as long\n                if (timeA != timeB) {\n                    return timeB <=> timeA\n                }\n            }\n        }\n        return 0\n    }\n}\n\ndef sortFields = [ \"mostUsed\" ]\n\nif(binding.hasVariable('sortList')) {\n    \n    sortFields = sortList\n}\n\nif(binding.hasVariable('agentList')) {\n  def limit = binding.hasVariable('limit') ? limit as int : agentList.size()\n  return [ 'agentList': sortAgents(agentList, sortFields).take(limit) ]\n}",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1395,7 +1413,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_Wc16Y",
@@ -1440,5 +1458,5 @@
 	"tags":[
 		
 	],
-	"version":48
+	"version":49
 }
