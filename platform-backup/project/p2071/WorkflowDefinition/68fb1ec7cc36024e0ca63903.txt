@@ -136,11 +136,11 @@
 			"fromNodeId":"n_RLeZ6",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_w3cux",
+			"toNodeId":"n_ZyD4Y",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_w3cux",
+			"fromNodeId":"n_ZyD4Y",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -150,7 +150,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761298792814,
+	"modifiedTime":1761298942105,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -840,18 +840,19 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
-			"id":"n_w3cux",
+			"id":"n_ZyD4Y",
 			"index":14,
 			"inputs":{
 				"object_type":"automation_assignment_1",
 				"skipIfBlank":false,
 				"records":{
 					"items":{
-						"id":"{{ n_DWgRR.outputs.items[0].EmpId__0 }}",
-						"name":"{{ n_DWgRR.outputs.items[0].Name__1 }}",
+						"id":"{{ n_DWgRR.outputs.items }}",
+						"name":"{{ n_DWgRR.outputs.items[0].EmpId__0 }}",
 						"Department":"{{ n_DWgRR.outputs.items[0].Department__2 }}",
 						"bonusAmount":"{{ n_DWgRR.outputs.items[0].Bonus_Amount__3 }}",
-						"Leaves":"{{ n_DWgRR.outputs.items[0].Leaves__4 }}"
+						"Leaves":"{{ n_DWgRR.outputs.items[0].Leaves__4 }}",
+						"quarter":"Q"
 					},
 					"ua:type":"mappedArray"
 				}
@@ -897,5 +898,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":36
+	"version":37
 }
