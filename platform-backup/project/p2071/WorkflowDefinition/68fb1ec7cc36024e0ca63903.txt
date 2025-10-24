@@ -6,40 +6,139 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_m0AlG",
+			"fromNodeId":"n_yM97Y",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_cHWtR",
+			"toNodeId":"n_4ZwhX",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4ZwhX",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_olnXn",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_4ZwhX",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_35yb7",
 			"type":"next"
 		}
 	],
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761287879606,
+	"modifiedTime":1761288111339,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1055,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
-			"id":"_m0AlG",
-			"index":0,
+			"id":"n_yM97Y",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"flag"
+					],
+					"properties":{
+						"userId":{
+							"type":"number",
+							"title":"User Id"
+						},
+						"flag":{
+							"type":"string",
+							"title":"Flag"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"flag"
+					],
+					"properties":{
+						"flag":{
+							"type":"string",
+							"title":"Flag"
+						},
+						"userId":{
+							"type":"number",
+							"title":"User Id"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
-			"id":"_cHWtR",
-			"index":0,
+			"id":"n_4ZwhX",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_yM97Y.outputs.flag }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"getTop5"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_4ZwhX@_m0AlG-1@y",
+			"id":"n_olnXn",
+			"index":3,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_4ZwhX@_m0AlG-1@n",
+			"id":"n_35yb7",
+			"index":4,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -47,6 +146,9 @@
 	],
 	"ownerUserId":189756,
 	"projectId":2071,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +162,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
