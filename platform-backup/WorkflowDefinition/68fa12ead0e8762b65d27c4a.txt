@@ -226,11 +226,41 @@
 			"fromNodeId":"_cOagd",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_qDjU3",
+			"toNodeId":"_M3LGh",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_yXiFc",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_M3LGh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_M3LGh",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Wnxfi",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_Wnxfi",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_LnrAW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_LnrAW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_qDjU3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_M3LGh",
 			"name":"no",
 			"priority":0,
 			"skip":false,
@@ -324,7 +354,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761333110204,
+	"modifiedTime":1761333304908,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -2241,8 +2271,197 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
-			"id":"n_qDjU3",
+			"id":"_M3LGh",
 			"index":24,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_PQRFu.outputs.check_id }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"CHECK_10"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.dataSources.items.schema",
+					"root.parameters.dataSources.items.id",
+					"root.parameters.dataSources.items.version",
+					"root.parameters.dataSources.items.entityType"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":947,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_M3LGh@_z6eK1-1@y",
+			"id":"_Wnxfi",
+			"index":25,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"outputList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"blockIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"blockIds"
+									},
+									"variableIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"variableIds"
+									},
+									"functionIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"functionIds"
+									},
+									"dataSourceIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"dataSourceIds"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"outputList"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"page"
+					],
+					"properties":{
+						"page":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Page"
+						}
+					}
+				},
+				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const failedBlockIds = [];\n  const failedFunctionIds = [];\n\n  // ---------- Check inside blocks ----------\n  const blocks = page?.blocks || {};\n  for (const blockId in blocks) {\n    const block = blocks[blockId];\n    if (!block) continue;\n\n    const events = block.events || [];\n    for (let i = 0; i < events.length; i++) {\n      const evt = events[i];\n      const action = evt?.action;\n      const codeStr = JSON.stringify(action || \"\");\n\n      if (codeStr.includes(\"console.\") || codeStr.includes(\"debugger\")) {\n        failedBlockIds.push(blockId);\n        break; // one hit per block is enough\n      }\n    }\n  }\n\n  // ---------- Check inside page functions ----------\n  const functions = page?.pageFunctions || {};\n  for (const funcId in functions) {\n    const func = functions[funcId];\n    if (!func) continue;\n\n    const code = func.functionBody || \"\";\n    if (code.includes(\"console.\") || code.includes(\"debugger\")) {\n      failedFunctionIds.push(funcId);\n    }\n  }\n\n  // ---------- Build output ----------\n  if (failedBlockIds.length > 0 || failedFunctionIds.length > 0) {\n    outputList.push({\n      status: \"failed\",\n      blockIds: failedBlockIds,\n      functionIds: failedFunctionIds\n    });\n  } else {\n    outputList.push({\n      status: \"success\"\n    });\n  }\n\n  return { outputList };\n})();",
+				"isAsync":false,
+				"parameters":{
+					"page":"{{ n_PQRFu.outputs.page }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"CHECK_10",
+			"title":"Execute Javascript",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.entities.blockIds.items",
+					"root.itemToAdd.entities.dataSources.items",
+					"root.itemToAdd.entities.functionIds.items",
+					"root.itemToAdd.entities.variableIds.items"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1028,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_M3LGh@_z6eK1-1@y",
+			"id":"_LnrAW",
+			"index":26,
+			"inputs":{
+				"itemToAdd":{
+					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
+					"entityType":"{{ n_PQRFu.outputs.entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.id }}",
+					"checkId":"{{ n_PQRFu.outputs.check_id }}",
+					"status":"{{ _Wnxfi.outputs.result.outputList[0].status }}",
+					"entities":{
+						"dataSources":{
+							"ua:type":"mappedArray",
+							"source":"{{ _Wnxfi.outputs.result.outputList[0].dataSourceIds }}",
+							"items":"{{ _Wnxfi.outputs.result.outputList[0].dataSourceIds[0] }}"
+						},
+						"blockIds":{
+							"source":"{{ _Wnxfi.outputs.result.outputList[0].blockIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _Wnxfi.outputs.result.outputList[0].blockIds[0] }}"
+						},
+						"functionIds":{
+							"source":"{{ _Wnxfi.outputs.result.outputList[0].functionIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _Wnxfi.outputs.result.outputList[0].functionIds[0] }}"
+						},
+						"variableIds":{
+							"source":"{{ _Wnxfi.outputs.result.outputList[0].variableIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _Wnxfi.outputs.result.outputList[0].variableIds[0] }}"
+						}
+					}
+				},
+				"insertLocation":"END",
+				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_z6eK1-1",
+			"id":"n_qDjU3",
+			"index":27,
 			"inputs":{
 				"filters":[
 					{
@@ -2290,7 +2509,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
-			"index":25,
+			"index":28,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2420,7 +2639,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
-			"index":26,
+			"index":29,
 			"inputs":{
 				"itemToAdd":{
 					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
@@ -2471,7 +2690,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"_r5N0L",
-			"index":27,
+			"index":30,
 			"inputs":{
 				"filters":[
 					{
@@ -2519,7 +2738,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_r5N0L@_z6eK1-1@y",
 			"id":"_g0vJS",
-			"index":28,
+			"index":31,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2649,7 +2868,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_r5N0L@_z6eK1-1@y",
 			"id":"_CzlUC",
-			"index":29,
+			"index":32,
 			"inputs":{
 				"itemToAdd":{
 					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
@@ -2700,7 +2919,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_8vaQe",
-			"index":30,
+			"index":33,
 			"inputs":{
 				"filters":[
 					{
@@ -2738,7 +2957,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8vaQe@_z6eK1-1@n",
 			"id":"n_g70bo",
-			"index":31,
+			"index":34,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"nocode_reports",
@@ -2790,7 +3009,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":32,
+			"index":35,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -2830,5 +3049,5 @@
 	"tags":[
 		
 	],
-	"version":101
+	"version":102
 }
