@@ -23,7 +23,7 @@
 	"id":"68fb0d875644e00bc0df3615",
 	"lastModifiedBy":161877,
 	"lcName":"dnd-api",
-	"modifiedTime":1761283504408,
+	"modifiedTime":1761283955517,
 	"name":"dnd-api",
 	"nodes":[
 		{
@@ -40,9 +40,35 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"array",
+						"items":{
+							"type":"object",
+							"properties":{
+								"id":{
+									"type":"integer",
+									"title":"id"
+								},
+								"str":{
+									"type":"string",
+									"title":"str"
+								}
+							},
+							"additionalProperties":false
+						}
+					}
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -84,7 +110,9 @@
 					]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"a":"a"
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -120,7 +148,9 @@
 			"id":"n_GnVV7",
 			"index":3,
 			"inputs":{
-				"streamingCompleted":true
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -145,5 +175,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
