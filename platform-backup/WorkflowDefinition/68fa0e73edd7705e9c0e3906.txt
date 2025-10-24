@@ -5,12 +5,12 @@
 	"createdTime":1761218163690,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761287475071,
+		"deployedAt":1761291489206,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb1d32cc36024e0ca62e31",
+		"deployedDefinitionId":"68fb2ce1efa5e92eae865079",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":14
+		"version":3,
+		"workflowVersion":16
 	},
 	"edges":[
 		{
@@ -60,7 +60,7 @@
 	"id":"68fa0e73edd7705e9c0e3906",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761291487752,
+	"modifiedTime":1761295108301,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -211,7 +211,8 @@
 							"ua:type":"mappedArray",
 							"items":{
 								"id":"{{ n_BCs9K.outputs.objects[0].id }}",
-								"schema":"{{ n_BCs9K.outputs.objects[0].properties }}"
+								"schema":"{{ n_BCs9K.outputs.objects[0].properties }}",
+								"version":"{{ n_BCs9K.outputs.objects[0].version }}"
 							}
 						},
 						"checks":{
@@ -267,5 +268,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":17
 }
