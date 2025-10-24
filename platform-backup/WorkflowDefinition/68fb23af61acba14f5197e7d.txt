@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"6891bf0e6a75a1a04357eacc"
+		"6891bf0e6a75a1a04357eacc",
+		"slack"
 	],
 	"createdTime":1761289135157,
 	"deleted":false,
@@ -11,12 +12,26 @@
 			"skip":false,
 			"toNodeId":"n_2hATo",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2hATo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_f3e5a",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_f3e5a",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_e8a41",
+			"type":"next"
 		}
 	],
 	"id":"68fb23af61acba14f5197e7d",
-	"lastModifiedBy":124029,
+	"lastModifiedBy":33444,
 	"lcName":"test",
-	"modifiedTime":1761292248527,
+	"modifiedTime":1761310651609,
 	"name":"test",
 	"nodes":[
 		{
@@ -26,14 +41,52 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_RNabD-1",
+			"groupId":"n_5F3CO-1",
 			"id":"n_5F3CO",
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"event_type":{
+								"type":"string",
+								"title":"Event Type"
+							},
+							"event_data":{
+								"type":"object",
+								"properties":{
+									"timestamp":{
+										"type":"string",
+										"title":"Timestamp"
+									},
+									"details":{
+										"type":"object",
+										"properties":{
+											"action":{
+												"type":"string",
+												"title":"Action"
+											},
+											"user_id":{
+												"type":"string",
+												"title":"User ID"
+											}
+										},
+										"title":"Event Details"
+									}
+								},
+								"title":"Event Data"
+							}
+						},
+						"required":[
+							"event_type",
+							"event_data"
+						],
+						"title":"Webhook Payload"
+					}
 				}
 			},
 			"skip":false,
@@ -53,16 +106,62 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_RNabD-1",
+			"groupId":"n_5F3CO-1",
 			"id":"n_2hATo",
 			"index":2,
-			"inputs":{},
+			"inputs":{
+				"fileName":"invoice.pdf",
+				"vendorBillId":"VB001",
+				"convertHtmlToPdf":false,
+				"fileContent":"Sample file content",
+				"folderId":123
+			},
 			"skip":false,
 			"subTitle":"Netsuite 2",
 			"title":"Attach file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceName":"slack_send_file_in_channel"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_5F3CO-1",
+			"id":"n_f3e5a",
+			"index":3,
+			"inputs":{
+				"files":[
+					{
+						"id":"{{ n_2hATo.outputs.data.fileId }}",
+						"title":"{{ n_2hATo.outputs.data.fileName }}"
+					}
+				],
+				"channel_id":"general"
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Send file in channel",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_5F3CO-1",
+			"id":"n_e8a41",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":2621,
@@ -82,5 +181,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
