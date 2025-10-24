@@ -149,6 +149,13 @@
 			"fromNodeId":"_8m7HQ",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_KuVC7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_KuVC7",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
@@ -156,7 +163,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761300700301,
+	"modifiedTime":1761302644734,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -166,7 +173,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_yM97Y",
@@ -221,7 +228,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_lcWhV",
@@ -270,7 +277,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@1",
 			"id":"n_lcWhV@1",
@@ -291,7 +298,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@1",
 			"id":"n_WZOLl",
@@ -316,7 +323,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@2",
 			"id":"n_lcWhV@2",
@@ -337,7 +344,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@2",
 			"id":"_smbpB",
@@ -383,7 +390,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@3",
 			"id":"_oIkgy",
@@ -429,7 +436,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lcWhV@_m0AlG-1@4",
 			"id":"n_F7bG9",
@@ -926,6 +933,70 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1021,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"n_KuVC7",
+			"index":16,
+			"inputs":{
+				"input":{
+					"type":"array",
+					"title":"UserData",
+					"disableActions":true,
+					"ua:__linkedVariable__":"n_DWgRR.outputs.items",
+					"items":{
+						"type":"object",
+						"properties":{
+							"EmpId__0":{
+								"type":"string",
+								"title":"EmpId__0"
+							},
+							"Name__1":{
+								"type":"string",
+								"title":"Name__1"
+							},
+							"Department__2":{
+								"type":"string",
+								"title":"Department__2"
+							},
+							"Bonus_Amount__3":{
+								"type":"string",
+								"title":"Bonus_Amount__3"
+							},
+							"Leaves__4":{
+								"type":"string",
+								"title":"Leaves__4"
+							},
+							"Quarter":{
+								"type":"string",
+								"title":"Quarter"
+							}
+						},
+						"required":[]
+					}
+				},
+				"code":"import groovy.json.JsonSlurper\nimport groovy.json.JsonOutput\n\n// Read JSON file (assuming it's saved as 'data.json')\ndef jsonFile = new File('data.json')\ndef data = new JsonSlurper().parseText(jsonFile.text)\n\n// Group by employee (using EmpId or Name)\ndef grouped = data.items.groupBy { it.EmpId__0 }\n\n// Aggregate totals\ndef aggregated = grouped.collect { empId, records ->\n    [\n        EmpId      : empId,\n        Name       : records[0].Name__1,\n        Department : records[0].Department__2.trim(),\n        TotalBonus : records.sum { it.Bonus_Amount__3.toInteger() },\n        TotalLeaves: records.sum { it.Leaves__4.toInteger() },\n        Quarters   : records.collect { it.Quarter }\n    ]\n}\n\n// Pretty print aggregated result\nprintln JsonOutput.prettyPrint(JsonOutput.toJson(aggregated))\n",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
@@ -933,11 +1004,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -961,5 +1032,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":43
+	"version":44
 }
