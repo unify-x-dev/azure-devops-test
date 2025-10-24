@@ -59,14 +59,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_Lzq6H",
-			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Qkkf1",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_2kbkq",
 			"priority":0,
 			"skip":false,
@@ -81,7 +73,8 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_Qkkf1",
+			"fromNodeId":"n_Lzq6H",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_qDjU3",
@@ -99,33 +92,12 @@
 			"fromNodeId":"n_I5HTd",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_X9exK",
+			"toNodeId":"n_nQDPb",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"n_qDjU3",
 			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_hIqr4",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_X9exK",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_8cVkS",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_hIqr4",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_8cVkS",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_8cVkS",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_nQDPb",
@@ -135,7 +107,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761291886063,
+	"modifiedTime":1761291924490,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -879,29 +851,6 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1091,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_Lzq6H@_z6eK1-1@n",
-			"id":"n_Qkkf1",
-			"index":8,
-			"inputs":{
-				"result":{
-					"result":"200"
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
-			"context":{
 				"appName":"if_else",
 				"resourceVersion":791,
 				"resourceName":"if_else_condition",
@@ -912,7 +861,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_qDjU3",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"filters":[
 					{
@@ -942,7 +891,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1028,44 +977,6 @@
 			"type":"ACTION"
 		},
 		{
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_qDjU3@_z6eK1-1@y",
-			"id":"n_X9exK",
-			"index":11,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
-		},
-		{
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_qDjU3@_z6eK1-1@n",
-			"id":"n_hIqr4",
-			"index":12,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_z6eK1-1",
-			"id":"n_8cVkS",
-			"index":13,
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Select an action",
-			"type":"CALL_WORKFLOW"
-		},
-		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1089,
@@ -1077,7 +988,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":14,
+			"index":10,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1117,5 +1028,5 @@
 	"tags":[
 		
 	],
-	"version":21
+	"version":22
 }
