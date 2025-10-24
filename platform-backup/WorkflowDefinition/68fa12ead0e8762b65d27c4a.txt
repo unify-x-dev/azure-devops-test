@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761315091715,
+		"deployedAt":1761315235020,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb8912b819664d0bf83ef4",
-		"status":"PAUSED",
-		"version":15,
-		"workflowVersion":77
+		"deployedDefinitionId":"68fb89a200ea623ea74f83f5",
+		"status":"DEPLOYED",
+		"version":16,
+		"workflowVersion":78
 	},
 	"edges":[
 		{
@@ -149,22 +149,22 @@
 		},
 		{
 			"fromNodeId":"n_8vaQe",
-			"name":"yes",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_g70bo",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"n_g70bo",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_nQDPb",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"n_8vaQe",
-			"name":"no",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nQDPb",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_g70bo",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_nQDPb",
@@ -174,7 +174,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761315226424,
+	"modifiedTime":1761315611810,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1542,7 +1542,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_8vaQe",
@@ -1582,7 +1582,7 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_8vaQe@_z6eK1-1@y",
+			"groupId":"n_8vaQe@_z6eK1-1@n",
 			"id":"n_g70bo",
 			"index":16,
 			"inputs":{
@@ -1676,5 +1676,5 @@
 	"tags":[
 		
 	],
-	"version":78
+	"version":79
 }
