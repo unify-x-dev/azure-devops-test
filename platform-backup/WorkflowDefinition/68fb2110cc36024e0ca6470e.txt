@@ -132,7 +132,7 @@
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"new",
-	"modifiedTime":1761290055051,
+	"modifiedTime":1761291013338,
 	"name":"new",
 	"nodes":[
 		{
@@ -209,7 +209,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_8EGvJ",
@@ -482,7 +482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"_Mdq6p",
@@ -1112,7 +1112,7 @@
 					}
 				},
 				"configurationMode":"DEFAULT",
-				"code":"def fun(rows, leavesTaken, bonusTaken):\n    for row in rows:\n        emp_id = row['EmployeeID']\n        leaves = int(row['Leaves_Taken'])\n        \n        existing = next((item for item in leavesTaken if item['EmployeeID'] == emp_id), None)\n        \n        if existing:\n            existing['Leaves_Taken'] += leaves\n        else:\n            leavesTaken.append({\n                'EmployeeID': emp_id,\n                'Leaves_Taken': leaves\n            })\n    \n    for row in rows:\n        emp_id = row['EmployeeID']\n        bonus = int(row['Bonus_Amount'])\n        \n        existing = next((item for item in bonusTaken if item['EmployeeID'] == emp_id), None)\n        \n        if existing:\n            existing['Bonus_Amount'] += bonus\n        else:\n            bonusTaken.append({\n                'EmployeeID': emp_id,\n                'Bonus_Amount': bonus\n            })\n    \n    return {\n        'leavesTaken': leavesTaken,\n        'bonusTaken': bonusTaken\n    }\nresult = fun(rows, leavesTaken, bonusTaken)",
+				"code":"def fun(rows, leavesTaken, bonusTaken):\n    # Aggregate leaves\n    for row in rows:\n        emp_id = row['EmployeeID__0']\n        leaves = int(row['Leaves_Taken__4'])\n        \n        existing = next((item for item in leavesTaken if item['EmployeeID__0'] == emp_id), None)\n        \n        if existing:\n            existing['Leaves_Taken__4'] += leaves\n        else:\n            leavesTaken.append({\n                'EmployeeID__0': emp_id,\n                'Leaves_Taken__4': leaves\n            })\n    \n    # Aggregate bonus\n    for row in rows:\n        emp_id = row['EmployeeID__0']\n        bonus = int(row['Bonus_Amount__3'])\n        \n        existing = next((item for item in bonusTaken if item['EmployeeID__0'] == emp_id), None)\n        \n        if existing:\n            existing['Bonus_Amount__3'] += bonus\n        else:\n            bonusTaken.append({\n                'EmployeeID__0': emp_id,\n                'Bonus_Amount__3': bonus\n            })\n    \n    return {\n        'leavesTaken': leavesTaken,\n        'bonusTaken': bonusTaken\n    }\n\nresult = fun(rows, leavesTaken, bonusTaken)",
 				"isAsync":false,
 				"python_version":"3.12",
 				"captureStdOutput":false,
@@ -1312,5 +1312,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
