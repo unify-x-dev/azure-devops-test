@@ -59,7 +59,7 @@
 	"id":"68fb09389bb45819e17a885f",
 	"lastModifiedBy":308,
 	"lcName":"dnd",
-	"modifiedTime":1761295999719,
+	"modifiedTime":1761296340906,
 	"name":"dnd",
 	"nodes":[
 		{
@@ -716,14 +716,7 @@
 			},
 			"inputs":{
 				"createList":{
-					"ua:type":"mappedArray",
-					"items":{
-						"SurveyID":"{{ n_o4Q3A.outputs.body.SurveyID }}",
-						"Question":"{{ n_o4Q3A.outputs.body.Question }}",
-						"Answer":"{{ n_o4Q3A.outputs.body.Answer }}",
-						"UserID":"{{ n_o4Q3A.outputs.body.UserID }}",
-						"DateTime":"{{ n_o4Q3A.outputs.body.DateTime }}"
-					}
+					"ua:type":"mappedArray"
 				},
 				"ua:title":"List",
 				"ua:list_type":"OBJECT"
@@ -804,7 +797,7 @@
 				"insertLocation":"START",
 				"listName":"{{ n_MfGqX.outputs.items[0] }}"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add item to list",
 			"type":"ACTION"
@@ -829,12 +822,19 @@
 				"httpMethod":"POST",
 				"body":{
 					"source":"{{ n_MfGqX.outputs.items }}",
-					"ua:type":"mappedArray"
+					"ua:type":"mappedArray",
+					"items":{
+						"SurveyID":"{{ n_MfGqX.outputs.items[0].SurveyID }}",
+						"Question":"{{ n_MfGqX.outputs.items[0].Question }}",
+						"Answer":"{{ n_MfGqX.outputs.items[0].Answer }}",
+						"UserID":"{{ n_MfGqX.outputs.items[0].UserID }}",
+						"DateTime":"{{ n_MfGqX.outputs.items[0].DateTime }}"
+					}
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
-				"path":"dddffba0-6c17-4f34-9748-3fa5e08cc366/datasets/3c0fcb36-53d4-400f-9445-8b8424028014/rows",
-				"baseUrl":"https://api.powerbi.com/beta",
+				"path":"/beta/dddffba0-6c17-4f34-9748-3fa5e08cc366/datasets/3c0fcb36-53d4-400f-9445-8b8424028014/rows",
+				"baseUrl":"https://api.powerbi.com",
 				"httpVersion":"HTTP_2",
 				"bodySchema":{
 					"type":"array",
@@ -905,5 +905,5 @@
 	"tags":[
 		
 	],
-	"version":20
+	"version":21
 }
