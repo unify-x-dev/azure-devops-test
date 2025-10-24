@@ -80,7 +80,7 @@
 	"id":"68fb620300ea623ea74ddb6b",
 	"lastModifiedBy":186875,
 	"lcName":"new approach (copy)",
-	"modifiedTime":1761305091923,
+	"modifiedTime":1761305299813,
 	"name":"new approach (copy)",
 	"nodes":[
 		{
@@ -169,7 +169,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_0SdyR",
@@ -416,7 +416,6 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -645,7 +644,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_saiBu",
@@ -654,15 +653,7 @@
 				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
-					"source":"{{ n_oiTuI.outputs.result.rows }}",
-					"items":{
-						"EmployeeID__0":"{{ n_oiTuI.outputs.result.rows[0].EmployeeID__0 }}",
-						"Name__1":"{{ n_oiTuI.outputs.result.rows[0].Name__1 }}",
-						"Department__2":"{{ n_oiTuI.outputs.result.rows[0].Department__2 }}",
-						"Bonus_Amount__3":"{{ n_oiTuI.outputs.result.rows[0].Bonus_Amount__3 }}",
-						"Leaves_Taken__4":"{{ n_oiTuI.outputs.result.rows[0].Leaves_Taken__4 }}",
-						"rowNumber":"{{ n_oiTuI.outputs.result.rows[0].rowNumber }}"
-					}
+					"source":"{{ n_oiTuI.outputs.result.rows }}"
 				},
 				"listName":"{{ n_0SdyR.outputs.items[0] }}"
 			},
@@ -921,5 +912,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
