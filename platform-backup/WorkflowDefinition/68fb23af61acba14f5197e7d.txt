@@ -1,59 +1,67 @@
 {
 	"appsUsed":[
-		
+		"6891bf0e6a75a1a04357eacc"
 	],
 	"createdTime":1761289135157,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_025kC",
+			"fromNodeId":"n_5F3CO",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Lw47u",
+			"toNodeId":"n_2hATo",
 			"type":"next"
 		}
 	],
 	"id":"68fb23af61acba14f5197e7d",
-	"lastModifiedBy":33444,
+	"lastModifiedBy":124029,
 	"lcName":"test",
-	"modifiedTime":1761291152021,
+	"modifiedTime":1761292248527,
 	"name":"test",
 	"nodes":[
 		{
 			"context":{
-				"appName":"schedule",
-				"resourceVersion":836,
-				"resourceName":"schedule_default"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RNabD-1",
-			"id":"n_025kC",
+			"id":"n_5F3CO",
 			"index":1,
 			"inputs":{
-				"cron":"INTERVAL",
-				"sequential":false,
-				"interval":5,
-				"frequency":"MINUTES"
+				"request":{
+					"contentType":"application/json"
+				}
 			},
 			"skip":false,
-			"subTitle":"Schedule",
-			"title":"New recurring event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"SCHEDULED"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"6891bf0e6a75a1a04357eacc",
+				"resourceVersion":674,
+				"connectionId":"68d3ca9750f89c3a51399e9a",
+				"resourceName":"6891bf0e6a75a1a04357eacc:68ac0abaaa495b37c5e7f59b",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RNabD-1",
-			"id":"_Lw47u",
+			"id":"n_2hATo",
 			"index":2,
+			"inputs":{},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Netsuite 2",
+			"title":"Attach file",
 			"type":"ACTION"
 		}
 	],
@@ -74,5 +82,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
