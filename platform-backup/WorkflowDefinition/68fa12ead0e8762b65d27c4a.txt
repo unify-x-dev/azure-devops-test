@@ -91,7 +91,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761306274316,
+	"modifiedTime":1761306328500,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -861,22 +861,52 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
 					"properties":{
-						"status":{
-							"type":"string",
-							"title":"status"
-						},
-						"pageId":{
-							"type":"string",
-							"title":"pageId"
-						},
-						"dataSourceIds":{
+						"outputList":{
 							"type":"array",
 							"items":{
-								"type":"string"
+								"type":"object",
+								"properties":{
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"blockIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"blockIds"
+									},
+									"variableIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"variableIds"
+									},
+									"functionIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"functionIds"
+									},
+									"dataSourceIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"dataSourceIds"
+									},
+									"pageId":{
+										"type":"string",
+										"title":"pageId"
+									}
+								},
+								"additionalProperties":false
 							},
-							"title":"dataSourceIds"
+							"title":"outputList"
 						}
 					}
 				},
@@ -1032,5 +1062,5 @@
 	"tags":[
 		
 	],
-	"version":38
+	"version":39
 }
