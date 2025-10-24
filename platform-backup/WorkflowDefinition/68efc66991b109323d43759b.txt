@@ -37,14 +37,66 @@
 			"fromNodeId":"n_n7yx8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_cMZgl",
+			"toNodeId":"n_fyOfP",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fyOfP",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fyOfP@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_fyOfP@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OpnlC",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fyOfP",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fyOfP@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_fyOfP@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_g9IJc",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OpnlC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IB22K",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_g9IJc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IB22K",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fyOfP",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IB22K",
+			"type":"branch"
 		}
 	],
 	"id":"68efc66991b109323d43759b",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb",
-	"modifiedTime":1761291414733,
+	"modifiedTime":1761292229429,
 	"name":"assignment_vb",
 	"nodes":[
 		{
@@ -59,7 +111,21 @@
 			"groupId":"_Ld9p8-1",
 			"id":"n_Op7RI",
 			"index":1,
-			"inputs":{},
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"input_query"
+					],
+					"properties":{
+						"input_query":{
+							"type":"string",
+							"title":"Input Query"
+						}
+					}
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Trigger via automation",
@@ -178,17 +244,108 @@
 		},
 		{
 			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":1010,
-				"resourceName":"code_by_unifyapps_groovy",
+				"appName":"branch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Ld9p8-1",
-			"id":"n_cMZgl",
+			"id":"n_fyOfP",
 			"index":6,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_Op7RI.outputs.input_query }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"getTop5"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_Op7RI.outputs.input_query }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"{{ n_ZyxUg.outputs.rows[0].Employee_ID__0 }}"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fyOfP@_Ld9p8-1@1",
+			"id":"n_fyOfP@1",
+			"index":7,
+			"inputs":{
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_Op7RI.outputs.input_query }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"getTop5"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1020,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fyOfP@_Ld9p8-1@1",
+			"id":"n_OpnlC",
+			"index":8,
 			"inputs":{
 				"input":{
 					"type":"object",
@@ -238,14 +395,166 @@
 						}
 					}
 				},
-				"code":"def q1 = readFrom('Q1_EmployeeData')\ndef q2 = readFrom('Q2_EmployeeData')\ndef q3 = readFrom('Q3_EmployeeData')\ndef q4 = readFrom('Q4_EmployeeData')\n\n// Flag and User ID (passed as parameters)\ndef getTop5 = input.get(\"getTop5\")         // Boolean flag\ndef userId = input.get(\"userId\")           // e.g., \"EMP101\"\n\n// ---------- MERGE & CLEANUP ----------\ndef allData = (q1 + q2 + q3 + q4)\n        .collect { row ->\n            [\n                EmployeeID   : row.EmployeeID?.trim(),\n                Name         : row.Name?.trim(),\n                Department   : row.Department?.trim(),\n                BonusAmount  : (row.BonusAmount ?: 0).toBigDecimal(),\n                LeavesTaken  : (row.LeavesTaken ?: 0).toInteger()\n            ]\n        }\n\n// Group by EmployeeID to get yearly totals\ndef summaryByEmployee = allData.groupBy { it.EmployeeID }.collect { empId, rows ->\n    [\n        EmployeeID  : empId,\n        Name        : rows[0].Name,\n        Department  : rows[0].Department,\n        TotalBonus  : rows.sum { it.BonusAmount },\n        TotalLeaves : rows.sum { it.LeavesTaken }\n    ]\n}\n\n// ---------- CASE 1: When getTop5 = true ----------\nif (getTop5) {\n    def top5Bonus = summaryByEmployee.sort { -it.TotalBonus }[0..<Math.min(5, summaryByEmployee.size())]\n    def top5LeastLeaves = summaryByEmployee.sort { it.TotalLeaves }[0..<Math.min(5, summaryByEmployee.size())]\n\n    return [\n        Top5_By_Total_Bonus: top5Bonus,\n        Top5_By_Least_Leaves: top5LeastLeaves\n    ]\n}\n\n// ---------- CASE 2: When userId is provided ----------\nif (userId) {\n    def employee = summaryByEmployee.find { it.EmployeeID == userId }\n    if (employee) {\n        return [\n            EmployeeID  : employee.EmployeeID,\n            Name        : employee.Name,\n            Department  : employee.Department,\n            TotalBonus  : employee.TotalBonus,\n            TotalLeaves : employee.TotalLeaves\n        ]\n    } else {\n        return [ message: \"EmployeeID '${userId}' not found.\" ]\n    }\n}\n\n// ---------- DEFAULT OUTPUT ----------\nreturn [ message: \"Please pass either 'getTop5' flag or a specific 'userId'.\" ]\n",
+				"code":"// ---------- READ INPUT SHEETS ----------\ndef q1 = readFrom('sheet_1')\ndef q2 = readFrom('sheet_2')\ndef q3 = readFrom('sheet_3')\ndef q4 = readFrom('sheet_4')\n\n// Combine all quarters into one unified list\ndef allData = (q1 + q2 + q3 + q4)\n        .findAll { it.EmployeeID }  // ensure valid rows\n        .collect { row ->\n            [\n                EmployeeID  : row.EmployeeID?.trim(),\n                Name        : row.Name?.trim(),\n                Department  : row.Department?.trim(),\n                BonusAmount : (row['Bonus Amount'] ?: 0).toBigDecimal(),\n                LeavesTaken : (row['Leave Taken'] ?: 0).toInteger()\n            ]\n        }\n\n// ---------- AGGREGATE YEARLY TOTALS ----------\ndef summaryByEmployee = allData.groupBy { it.EmployeeID }.collect { empId, records ->\n    [\n        EmployeeID  : empId,\n        Name        : records[0].Name,\n        Department  : records[0].Department,\n        TotalBonus  : records.sum { it.BonusAmount },\n        TotalLeaves : records.sum { it.LeavesTaken }\n    ]\n}\n\n// ---------- FIND TOP 5 BY BONUS ----------\ndef top5ByBonus = summaryByEmployee\n        .sort { -it.TotalBonus }\n        .take(5)\n\n// ---------- FIND TOP 5 WITH LEAST LEAVES ----------\ndef top5LeastLeaves = summaryByEmployee\n        .sort { it.TotalLeaves }\n        .take(5)\n\n// ---------- RETURN OUTPUT ----------\nreturn [\n    \"Top 5 Employees by Total Bonus\": top5ByBonus,\n    \"Top 5 Employees with Least Leaves\": top5LeastLeaves\n]\n",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"sheet_1":[
+						"{{ n_ZyxUg.outputs.rows }}"
+					],
+					"sheet_2":[
+						"{{ n_Gc5iU.outputs.rows }}"
+					],
+					"sheet_3":[
+						"{{ _uhtK3.outputs.rows }}"
+					],
+					"sheet_4":[
+						"{{ n_n7yx8.outputs.rows }}"
+					]
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fyOfP@_Ld9p8-1@2",
+			"id":"n_fyOfP@2",
+			"index":9,
+			"inputs":{
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_Op7RI.outputs.input_query }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_ZyxUg.outputs.rows[0].Employee_ID__0 }}"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1020,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fyOfP@_Ld9p8-1@2",
+			"id":"n_g9IJc",
+			"index":10,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"sheet_1",
+						"sheet_2",
+						"sheet_3",
+						"sheet_4"
+					],
+					"properties":{
+						"sheet_1":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Sheet 1"
+						},
+						"sheet_2":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Sheet 2"
+						},
+						"sheet_3":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Sheet 3"
+						},
+						"sheet_4":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Sheet 4"
+						}
+					}
+				},
+				"code":"// ---------- READ INPUT SHEETS ----------\ndef q1 = readFrom('sheet_1')\ndef q2 = readFrom('sheet_2')\ndef q3 = readFrom('sheet_3')\ndef q4 = readFrom('sheet_4')\n\n// ---------- READ EMPLOYEE ID INPUT ----------\ndef empId = input.get(\"EmployeeID\")  // e.g. \"EMP102\"\n\n// Validate input\nif (!empId) {\n    return [ message: \"Please provide EmployeeID in input.\" ]\n}\n\n// ---------- MERGE AND CLEAN DATA ----------\ndef allData = (q1 + q2 + q3 + q4)\n        .findAll { it.EmployeeID }  // ignore blank rows\n        .collect { row ->\n            [\n                EmployeeID  : row.EmployeeID?.trim(),\n                Name        : row.Name?.trim(),\n                Department  : row.Department?.trim(),\n                BonusAmount : (row['Bonus Amount'] ?: 0).toBigDecimal(),\n                LeavesTaken : (row['Leave Taken'] ?: 0).toInteger()\n            ]\n        }\n\n// ---------- GROUP AND SUMMARIZE BY EMPLOYEE ----------\ndef summaryByEmployee = allData.groupBy { it.EmployeeID }.collect { emp, records ->\n    [\n        EmployeeID  : emp,\n        Name        : records[0].Name,\n        Department  : records[0].Department,\n        TotalBonus  : records.sum { it.BonusAmount },\n        TotalLeaves : records.sum { it.LeavesTaken }\n    ]\n}\n\n// ---------- FIND REQUESTED EMPLOYEE ----------\ndef employeeSummary = summaryByEmployee.find { it.EmployeeID == empId }\n\nif (employeeSummary) {\n    return [\n        EmployeeID  : employeeSummary.EmployeeID,\n        Name        : employeeSummary.Name,\n        Department  : employeeSummary.Department,\n        TotalBonus  : employeeSummary.TotalBonus,\n        TotalLeaves : employeeSummary.TotalLeaves\n    ]\n} else {\n    return [ message: \"EmployeeID '${empId}' not found in data.\" ]\n}\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"sheet_1":[
+						"{{ n_ZyxUg.outputs.rows }}"
+					],
+					"sheet_2":[
+						"{{ n_Gc5iU.outputs.rows }}"
+					],
+					"sheet_3":[
+						"{{ _uhtK3.outputs.rows }}"
+					],
+					"sheet_4":[
+						"{{ n_n7yx8.outputs.rows }}"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1091,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Ld9p8-1",
+			"id":"n_IB22K",
+			"index":11,
+			"inputs":{
+				"result":"done"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":161861,
@@ -265,5 +574,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
