@@ -17,21 +17,6 @@
 			"fromNodeId":"n_PQRFu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_AQpqT",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_AQpqT",
-			"name":"1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_AQpqT@1",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_AQpqT@1",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_h8DaG",
 			"type":"next"
 		},
@@ -57,20 +42,12 @@
 			"skip":false,
 			"toNodeId":"_z1p2M",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_AQpqT",
-			"name":"2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_AQpqT@2",
-			"type":"branch"
 		}
 	],
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761284290931,
+	"modifiedTime":1761286525650,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -85,7 +62,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -225,85 +202,6 @@
 			"type":"START"
 		},
 		{
-			"context":{
-				"appName":"branch",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_z6eK1-1",
-			"id":"n_AQpqT",
-			"index":2,
-			"inputs":{
-				"branches":[
-					{
-						"id":"1",
-						"inputs":{
-							"name":"Branch 1",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_PQRFu.outputs.checks[0].checkId }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"CHECK_1"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"2",
-						"inputs":{
-							"name":"Branch 2"
-						}
-					},
-					{
-						"id":"default"
-					}
-				]
-			},
-			"skip":false,
-			"subTitle":"Branch",
-			"title":"",
-			"type":"BRANCH"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_AQpqT@_z6eK1-1@1",
-			"id":"n_AQpqT@1",
-			"index":3,
-			"inputs":{
-				"name":"Branch 1",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_PQRFu.outputs.checks[0].checkId }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"CHECK_1"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
 			"additional":{
 				"xsdSchemaConfig":{
 					"root":{}
@@ -322,9 +220,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_AQpqT@_z6eK1-1@1",
+			"groupId":"_z6eK1-1",
 			"id":"n_h8DaG",
-			"index":4,
+			"index":2,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -415,9 +313,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_AQpqT@_z6eK1-1@1",
+			"groupId":"_z6eK1-1",
 			"id":"n_txMg9",
-			"index":5,
+			"index":3,
 			"inputs":{
 				"filters":[
 					{
@@ -445,9 +343,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_txMg9@n_AQpqT@_z6eK1-1@1@y",
+			"groupId":"n_txMg9@_z6eK1-1@y",
 			"id":"n_nQDPb",
-			"index":6,
+			"index":4,
 			"inputs":{
 				"result":{
 					"entityType":"{{ n_PQRFu.outputs.page[0].entityType }}",
@@ -478,9 +376,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_txMg9@n_AQpqT@_z6eK1-1@1@n",
+			"groupId":"n_txMg9@_z6eK1-1@n",
 			"id":"_z1p2M",
-			"index":7,
+			"index":5,
 			"inputs":{
 				"result":{
 					"entityType":"{{ n_PQRFu.outputs.page[0].entityType }}",
@@ -500,26 +398,6 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_AQpqT@_z6eK1-1@2",
-			"id":"n_AQpqT@2",
-			"index":8,
-			"inputs":{
-				"name":"Branch 2"
-			},
-			"skip":true,
-			"title":"",
-			"type":"BRANCH_CONDITION"
 		}
 	],
 	"ownerUserId":115477,
@@ -539,5 +417,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
