@@ -86,9 +86,9 @@
 		}
 	],
 	"id":"68fb4a538394b21a23111b17",
-	"lastModifiedBy":186875,
+	"lastModifiedBy":161852,
 	"lcName":"new approach",
-	"modifiedTime":1761303909003,
+	"modifiedTime":1761304337661,
 	"name":"new approach",
 	"nodes":[
 		{
@@ -98,7 +98,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_wRUr6",
@@ -177,7 +177,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_0SdyR",
@@ -479,7 +479,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_hlGem",
@@ -500,7 +500,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_Nftv5",
@@ -523,7 +523,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"_6gXBs",
@@ -548,7 +548,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_lqvmv",
@@ -569,7 +569,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_oiTuI",
@@ -652,7 +652,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_saiBu",
@@ -750,7 +750,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"_A7jOQ",
@@ -897,7 +897,7 @@
 							"Leaves_Taken__4":"{{ _A7jOQ.outputs.result.leavesTaken[0].Leaves_Taken__4 }}"
 						}
 					},
-					"bonusIssued":{
+					"bonusReceived":{
 						"source":"{{ _A7jOQ.outputs.result.bonusIssued }}",
 						"ua:type":"mappedArray",
 						"items":{
@@ -930,5 +930,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
