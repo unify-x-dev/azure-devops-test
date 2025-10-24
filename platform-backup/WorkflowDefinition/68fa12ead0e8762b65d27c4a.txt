@@ -46,13 +46,6 @@
 			"fromNodeId":"n_zSG09",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_BKo2D",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_BKo2D",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_qDjU3",
 			"type":"next"
 		},
@@ -98,7 +91,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761308697918,
+	"modifiedTime":1761308703600,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -817,65 +810,6 @@
 			"type":"ACTION"
 		},
 		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemToAdd.entities.blockIds.items",
-					"root.itemToAdd.entities.variables.items",
-					"root.itemToAdd.entities.functions.items",
-					"root.itemToAdd.entities.dataSources.items"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1028,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_Lzq6H@_z6eK1-1@y",
-			"id":"_BKo2D",
-			"index":6,
-			"inputs":{
-				"itemToAdd":{
-					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
-					"entityType":"{{ n_PQRFu.outputs.entityType }}",
-					"entityId":"{{ n_PQRFu.outputs.id }}",
-					"checkId":"{{ n_PQRFu.outputs.check_id }}",
-					"status":"{{ n_h8DaG.outputs.result.outputList[0].status }}",
-					"entities":{
-						"blockIds":{
-							"ua:type":"mappedArray",
-							"items":"{{ n_h8DaG.outputs.result.outputList[0].blockIds[0] }}",
-							"source":"{{ n_h8DaG.outputs.result.outputList[0].blockIds }}"
-						},
-						"variables":{
-							"source":"{{ n_h8DaG.outputs.result.outputList[0].variableIds }}",
-							"ua:type":"mappedArray",
-							"items":"{{ n_h8DaG.outputs.result.outputList[0].variableIds[0] }}"
-						},
-						"functions":{
-							"source":"{{ n_h8DaG.outputs.result.outputList[0].functionIds }}",
-							"ua:type":"mappedArray",
-							"items":"{{ n_h8DaG.outputs.result.outputList[0].functionIds[0] }}"
-						},
-						"dataSources":{
-							"source":"{{ n_h8DaG.outputs.result.outputList[0].dataSourceIds }}",
-							"ua:type":"mappedArray",
-							"items":"{{ n_h8DaG.outputs.result.outputList[0].dataSourceIds[0] }}"
-						}
-					}
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
-			"type":"ACTION"
-		},
-		{
 			"context":{
 				"appName":"if_else",
 				"resourceVersion":791,
@@ -887,7 +821,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_qDjU3",
-			"index":7,
+			"index":6,
 			"inputs":{
 				"filters":[
 					{
@@ -928,7 +862,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1058,7 +992,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"itemToAdd":{
 					"entityVersion":"{{ n_PQRFu.outputs.entityVersion }}",
@@ -1109,7 +1043,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1149,5 +1083,5 @@
 	"tags":[
 		
 	],
-	"version":56
+	"version":57
 }
