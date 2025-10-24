@@ -86,9 +86,9 @@
 		}
 	],
 	"id":"68fb4a538394b21a23111b17",
-	"lastModifiedBy":161852,
+	"lastModifiedBy":186875,
 	"lcName":"new approach",
-	"modifiedTime":1761303718701,
+	"modifiedTime":1761303909003,
 	"name":"new approach",
 	"nodes":[
 		{
@@ -810,10 +810,6 @@
 							"items":{
 								"type":"object",
 								"properties":{
-									"EmployeeID__0":{
-										"type":"string",
-										"title":"EmployeeID__0"
-									},
 									"Name__1":{
 										"type":"string",
 										"title":"Name__1"
@@ -833,9 +829,16 @@
 									"rowNumber":{
 										"type":"integer",
 										"title":"rowNumber"
+									},
+									"EmployeeID__0":{
+										"type":"string",
+										"title":"EmployeeID__0"
 									}
 								},
-								"additionalProperties":false
+								"additionalProperties":false,
+								"required":[
+									"EmployeeID__0"
+								]
 							},
 							"title":"AggregatedList"
 						},
@@ -856,12 +859,12 @@
 						"source":"{{ n_0SdyR.outputs.items }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}",
 							"Name__1":"{{ n_0SdyR.outputs.items[0].Name__1 }}",
 							"Department__2":"{{ n_0SdyR.outputs.items[0].Department__2 }}",
 							"Bonus_Amount__3":"{{ n_0SdyR.outputs.items[0].Bonus_Amount__3 }}",
 							"Leaves_Taken__4":"{{ n_0SdyR.outputs.items[0].Leaves_Taken__4 }}",
-							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}"
+							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}",
+							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}"
 						}
 					}
 				}
@@ -927,5 +930,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
