@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761315695414,
+		"deployedAt":1761315739826,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb8b6f00ea623ea74f8b78",
+		"deployedDefinitionId":"68fb8b9b00ea623ea74f8c22",
 		"status":"DEPLOYED",
-		"version":18,
-		"workflowVersion":80
+		"version":19,
+		"workflowVersion":81
 	},
 	"edges":[
 		{
@@ -174,7 +174,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761315737911,
+	"modifiedTime":1761316019301,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1089,7 +1089,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"_B3jVo",
@@ -1101,6 +1101,13 @@
 						"filter":{
 							"operator":"EQUAL",
 							"value":"CHECK_3"
+						}
+					},
+					{
+						"property":"=LEN({{ n_PQRFu.outputs.dataSources }})",
+						"filter":{
+							"operator":"NOT_EQUAL",
+							"value":"0"
 						}
 					}
 				],
@@ -1683,5 +1690,5 @@
 	"tags":[
 		
 	],
-	"version":81
+	"version":82
 }
