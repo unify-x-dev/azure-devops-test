@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761219306778,
 	"deleted":false,
@@ -136,7 +136,7 @@
 			"fromNodeId":"_gcxxs",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_nQDPb",
+			"toNodeId":"n_g70bo",
 			"type":"next"
 		},
 		{
@@ -144,14 +144,21 @@
 			"name":"no",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_g70bo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_g70bo",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_nQDPb",
 			"type":"next"
 		}
 	],
 	"id":"68fa12ead0e8762b65d27c4a",
-	"lastModifiedBy":27,
+	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761311309113,
+	"modifiedTime":1761315061119,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -315,7 +322,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_R9Gq8",
@@ -536,30 +543,31 @@
 													},
 													"title":"blockIds"
 												},
-												"variables":{
-													"type":"array",
-													"items":{
-														"type":"string"
-													},
-													"title":"variables"
-												},
-												"functions":{
-													"type":"array",
-													"items":{
-														"type":"string"
-													},
-													"title":"functions"
-												},
 												"dataSources":{
 													"type":"array",
 													"items":{
 														"type":"string"
 													},
 													"title":"dataSources"
+												},
+												"functionIds":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"functionIds"
+												},
+												"variableIds":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"variableIds"
 												}
 											},
 											"title":"entities",
-											"additionalProperties":false
+											"additionalProperties":false,
+											"required":[]
 										},
 										"entityType":{
 											"type":"string",
@@ -618,30 +626,31 @@
 												},
 												"title":"blockIds"
 											},
-											"variables":{
-												"type":"array",
-												"items":{
-													"type":"string"
-												},
-												"title":"variables"
-											},
-											"functions":{
-												"type":"array",
-												"items":{
-													"type":"string"
-												},
-												"title":"functions"
-											},
 											"dataSources":{
 												"type":"array",
 												"items":{
 													"type":"string"
 												},
 												"title":"dataSources"
+											},
+											"functionIds":{
+												"type":"array",
+												"items":{
+													"type":"string"
+												},
+												"title":"functionIds"
+											},
+											"variableIds":{
+												"type":"array",
+												"items":{
+													"type":"string"
+												},
+												"title":"variableIds"
 											}
 										},
 										"title":"entities",
-										"additionalProperties":false
+										"additionalProperties":false,
+										"required":[]
 									},
 									"entityType":{
 										"type":"string",
@@ -801,13 +810,13 @@
 				"visibleOptionalFields":[
 					"root.itemsToAdd.items.entityVersion",
 					"root.itemsToAdd.items.entities.blockIds.items",
-					"root.itemsToAdd.items.entities.variables.items",
-					"root.itemsToAdd.items.entities.functions.items",
 					"root.itemsToAdd.items.entities.dataSources.items",
 					"root.itemsToAdd.items.entityType",
 					"root.itemsToAdd.items.entityId",
 					"root.itemsToAdd.items.checkId",
-					"root.itemsToAdd.items.status"
+					"root.itemsToAdd.items.status",
+					"root.itemsToAdd.items.entities.functionIds.items",
+					"root.itemsToAdd.items.entities.variableIds.items"
 				]
 			},
 			"context":{
@@ -817,7 +826,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_zSG09",
@@ -839,20 +848,20 @@
 								"ua:type":"mappedArray",
 								"items":"{{ n_h8DaG.outputs.result.outputList[0].blockIds[0] }}"
 							},
-							"variables":{
-								"source":"{{ n_h8DaG.outputs.result.outputList[0].variableIds }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_h8DaG.outputs.result.outputList[0].variableIds[0] }}"
-							},
-							"functions":{
-								"source":"{{ n_h8DaG.outputs.result.outputList[0].functionIds }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_h8DaG.outputs.result.outputList[0].functionIds[0] }}"
-							},
 							"dataSources":{
 								"source":"{{ n_h8DaG.outputs.result.outputList[0].dataSourceIds }}",
 								"ua:type":"mappedArray",
 								"items":"{{ n_h8DaG.outputs.result.outputList[0].dataSourceIds[0] }}"
+							},
+							"functionIds":{
+								"source":"{{ n_h8DaG.outputs.result.outputList[0].functionIds }}",
+								"ua:type":"mappedArray",
+								"items":"{{ n_h8DaG.outputs.result.outputList[0].functionIds[0] }}"
+							},
+							"variableIds":{
+								"source":"{{ n_h8DaG.outputs.result.outputList[0].variableIds }}",
+								"ua:type":"mappedArray",
+								"items":"{{ n_h8DaG.outputs.result.outputList[0].variableIds[0] }}"
 							}
 						}
 					}
@@ -1001,9 +1010,9 @@
 			"additional":{
 				"visibleOptionalFields":[
 					"root.itemToAdd.entities.blockIds.items",
-					"root.itemToAdd.entities.variables.items",
-					"root.itemToAdd.entities.functions.items",
-					"root.itemToAdd.entities.dataSources.items"
+					"root.itemToAdd.entities.dataSources.items",
+					"root.itemToAdd.entities.functionIds.items",
+					"root.itemToAdd.entities.variableIds.items"
 				]
 			},
 			"context":{
@@ -1013,7 +1022,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_jz638@_z6eK1-1@y",
 			"id":"_0RL9l",
@@ -1036,15 +1045,15 @@
 							"ua:type":"mappedArray",
 							"items":"{{ _Zs81h.outputs.result.outputList[0].blockIds[0] }}"
 						},
-						"variables":{
-							"source":"{{ _Zs81h.outputs.result.outputList[0].variableIds }}",
-							"ua:type":"mappedArray",
-							"items":"{{ _Zs81h.outputs.result.outputList[0].variableIds[0] }}"
-						},
-						"functions":{
+						"functionIds":{
 							"source":"{{ _Zs81h.outputs.result.outputList[0].functionIds }}",
 							"ua:type":"mappedArray",
 							"items":"{{ _Zs81h.outputs.result.outputList[0].functionIds[0] }}"
+						},
+						"variableIds":{
+							"source":"{{ _Zs81h.outputs.result.outputList[0].variableIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _Zs81h.outputs.result.outputList[0].variableIds[0] }}"
 						}
 					}
 				},
@@ -1105,7 +1114,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_B3jVo@_z6eK1-1@y",
 			"id":"_9v1XF",
@@ -1232,9 +1241,9 @@
 			"additional":{
 				"visibleOptionalFields":[
 					"root.itemToAdd.entities.blockIds.items",
-					"root.itemToAdd.entities.variables.items",
-					"root.itemToAdd.entities.functions.items",
-					"root.itemToAdd.entities.dataSources.items"
+					"root.itemToAdd.entities.dataSources.items",
+					"root.itemToAdd.entities.functionIds.items",
+					"root.itemToAdd.entities.variableIds.items"
 				]
 			},
 			"context":{
@@ -1244,7 +1253,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_B3jVo@_z6eK1-1@y",
 			"id":"_2AsNQ",
@@ -1267,15 +1276,15 @@
 							"ua:type":"mappedArray",
 							"items":"{{ _9v1XF.outputs.result.outputList[0].blockIds[0] }}"
 						},
-						"variables":{
-							"source":"{{ _9v1XF.outputs.result.outputList[0].variableIds }}",
-							"ua:type":"mappedArray",
-							"items":"{{ _9v1XF.outputs.result.outputList[0].variableIds[0] }}"
-						},
-						"functions":{
+						"functionIds":{
 							"source":"{{ _9v1XF.outputs.result.outputList[0].functionIds }}",
 							"ua:type":"mappedArray",
 							"items":"{{ _9v1XF.outputs.result.outputList[0].functionIds[0] }}"
+						},
+						"variableIds":{
+							"source":"{{ _9v1XF.outputs.result.outputList[0].variableIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _9v1XF.outputs.result.outputList[0].variableIds[0] }}"
 						}
 					}
 				},
@@ -1454,9 +1463,9 @@
 			"additional":{
 				"visibleOptionalFields":[
 					"root.itemToAdd.entities.blockIds.items",
-					"root.itemToAdd.entities.variables.items",
-					"root.itemToAdd.entities.functions.items",
-					"root.itemToAdd.entities.dataSources.items"
+					"root.itemToAdd.entities.dataSources.items",
+					"root.itemToAdd.entities.functionIds.items",
+					"root.itemToAdd.entities.variableIds.items"
 				]
 			},
 			"context":{
@@ -1466,7 +1475,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
@@ -1489,15 +1498,15 @@
 							"ua:type":"mappedArray",
 							"items":"{{ n_I5HTd.outputs.result.outputList[0].blockIds[0] }}"
 						},
-						"variables":{
-							"source":"{{ n_I5HTd.outputs.result.outputList[0].variableIds }}",
-							"ua:type":"mappedArray",
-							"items":"{{ n_I5HTd.outputs.result.outputList[0].variableIds[0] }}"
-						},
-						"functions":{
+						"functionIds":{
 							"source":"{{ n_I5HTd.outputs.result.outputList[0].functionIds }}",
 							"ua:type":"mappedArray",
 							"items":"{{ n_I5HTd.outputs.result.outputList[0].functionIds[0] }}"
+						},
+						"variableIds":{
+							"source":"{{ n_I5HTd.outputs.result.outputList[0].variableIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_I5HTd.outputs.result.outputList[0].variableIds[0] }}"
 						}
 					}
 				},
@@ -1507,6 +1516,66 @@
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add item to list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.entities.blockIds.items",
+					"root.record.entities.dataSources.items",
+					"root.record.entities.functions.items",
+					"root.record.entities.variables.items"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4576,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_z6eK1-1",
+			"id":"n_g70bo",
+			"index":15,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"nocode_reports",
+				"skipIfBlank":false,
+				"record":{
+					"status":"{{ n_R9Gq8.outputs.items[0].status }}",
+					"entityType":"{{ n_R9Gq8.outputs.items[0].entityType }}",
+					"entityId":"{{ n_R9Gq8.outputs.items[0].entityId }}",
+					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
+					"checkId":"{{ n_R9Gq8.outputs.items[0].checkId }}",
+					"entities":{
+						"blockIds":{
+							"source":"{{ n_R9Gq8.outputs.items[0].entities.blockIds }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_R9Gq8.outputs.items[0].entities.blockIds[0] }}"
+						},
+						"dataSources":{
+							"source":"{{ n_R9Gq8.outputs.items[0].entities.dataSources }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_R9Gq8.outputs.items[0].entities.dataSources[0] }}"
+						},
+						"functions":{
+							"source":"{{ n_R9Gq8.outputs.items[0].entities.functions }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_R9Gq8.outputs.items[0].entities.functions[0] }}"
+						},
+						"variables":{
+							"source":"{{ n_R9Gq8.outputs.items[0].entities.variables }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_R9Gq8.outputs.items[0].entities.variableIds[0] }}"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -1521,7 +1590,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1561,5 +1630,5 @@
 	"tags":[
 		
 	],
-	"version":75
+	"version":76
 }
