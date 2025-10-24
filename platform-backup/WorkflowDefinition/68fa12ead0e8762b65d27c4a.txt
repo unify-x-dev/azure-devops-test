@@ -91,7 +91,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761304658713,
+	"modifiedTime":1761304975902,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -145,16 +145,17 @@
 									},
 									"title":"functions"
 								},
-								"dataSources":{
+								"dataSourceIds":{
 									"type":"array",
 									"items":{
 										"type":"string"
 									},
-									"title":"dataSources"
+									"title":"dataSourceIds"
 								}
 							},
 							"title":"entities",
-							"additionalProperties":false
+							"additionalProperties":false,
+							"required":[]
 						},
 						"entityType":{
 							"type":"string",
@@ -179,35 +180,6 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"data_sources":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"id":{
-										"type":"string",
-										"title":"id"
-									},
-									"schema":{
-										"type":"object",
-										"properties":{},
-										"additionalProperties":false,
-										"title":"schema"
-									},
-									"version":{
-										"type":"integer",
-										"title":"version"
-									},
-									"entityType":{
-										"type":"string",
-										"title":"entityType"
-									}
-								},
-								"additionalProperties":false,
-								"required":[]
-							},
-							"title":"Data Sources"
-						},
 						"checks":{
 							"type":"array",
 							"items":{
@@ -240,6 +212,35 @@
 						"page_version":{
 							"type":"integer",
 							"title":"page_version"
+						},
+						"dataSources":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"string",
+										"title":"id"
+									},
+									"schema":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false,
+										"title":"schema"
+									},
+									"version":{
+										"type":"integer",
+										"title":"version"
+									},
+									"entityType":{
+										"type":"string",
+										"title":"entityType"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"dataSources"
 						}
 					}
 				}
@@ -841,16 +842,16 @@
 							"type":"string",
 							"title":"status"
 						},
-						"blockIds":{
+						"pageId":{
+							"type":"string",
+							"title":"pageId"
+						},
+						"dataSourceIds":{
 							"type":"array",
 							"items":{
 								"type":"string"
 							},
-							"title":"blockIds"
-						},
-						"pageId":{
-							"type":"string",
-							"title":"pageId"
+							"title":"dataSourceIds"
 						}
 					}
 				},
@@ -890,17 +891,17 @@
 						}
 					}
 				},
-				"code":"// `DataSource` is assumed to be provided\nconst outputList = [];\n\n// Assume all items have the same page ID\nconst pageId = dataSources.length > 0 ? dataSources[0].schema?.interfacePageId || \"\" : \"\";\n\n// Collect failed datasource IDs\nconst failedBlocksIDs = [];\n\ndataSources.forEach((item) => {\n  const schema = item.schema;\n  const advOptions = schema?.advancedOptions;\n  const timing = advOptions?.timing;\n  const isAutomatic = advOptions?.runBehaviour === \"automatic\";\n  const onPageLoad = Boolean(timing?.runQueryOnPageLoad);\n  const status = (isAutomatic && onPageLoad) ? \"Pass\" : \"Fail\";\n\n  if (status === \"Fail\") {\n    failedBlocksIDs.push(item.id);\n  }\n});\n\n// Push the final output into outputList\noutputList.push({\n  pageId: pageId,\n  status: failedBlocksIDs.length > 0 ? \"failed\" : \"successful\",\n  blockIds: failedBlocksIDs\n});\n\n// Return outputList (will contain a single object)\nreturn outputList;\n",
+				"code":"// `DataSource` is assumed to be provided\nconst outputList = [];\n\n// Assume all items have the same page ID\nconst pageId = dataSources.length > 0 ? dataSources[0].schema?.interfacePageId || \"\" : \"\";\n\n// Collect failed datasource IDs\nconst failedBlocksIDs = [];\n\ndataSources.forEach((item) => {\n  const schema = item.schema;\n  const advOptions = schema?.advancedOptions;\n  const timing = advOptions?.timing;\n  const isAutomatic = advOptions?.runBehaviour === \"automatic\";\n  const onPageLoad = Boolean(timing?.runQueryOnPageLoad);\n  const status = (isAutomatic && onPageLoad) ? \"Pass\" : \"Fail\";\n\n  if (status === \"Fail\") {\n    failedBlocksIDs.push(item.id);\n  }\n});\n\n// Push the final output into outputList\noutputList.push({\n  pageId: pageId,\n  status: failedBlocksIDs.length > 0 ? \"failed\" : \"successful\",\n  dataSourceIds: failedBlocksIDs\n});\n\n// Return outputList (will contain a single object)\nreturn outputList;\n",
 				"isAsync":false,
 				"parameters":{
 					"dataSources":{
-						"source":"{{ n_PQRFu.outputs.data_sources }}",
+						"source":"{{ n_PQRFu.outputs.dataSources }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"schema":"{{ n_PQRFu.outputs.data_sources[0].schema }}",
-							"id":"{{ n_PQRFu.outputs.data_sources[0].id }}",
-							"version":"{{ n_PQRFu.outputs.data_sources[0].version }}",
-							"entityType":"{{ n_PQRFu.outputs.data_sources[0].entityType }}"
+							"schema":"{{ n_PQRFu.outputs.dataSources[0].schema }}",
+							"id":"{{ n_PQRFu.outputs.dataSources[0].id }}",
+							"version":"{{ n_PQRFu.outputs.dataSources[0].version }}",
+							"entityType":"{{ n_PQRFu.outputs.dataSources[0].entityType }}"
 						}
 					}
 				}
@@ -933,16 +934,16 @@
 			"index":8,
 			"inputs":{
 				"itemToAdd":{
-					"entityVersion":"{{ n_PQRFu.outputs.data_sources[0].version }}",
-					"entityType":"{{ n_PQRFu.outputs.data_sources[0].entityType }}",
-					"entityId":"{{ n_PQRFu.outputs.data_sources[0].id }}",
+					"entityVersion":"{{ n_PQRFu.outputs.dataSources[0].version }}",
+					"entityType":"{{ n_PQRFu.outputs.dataSources[0].entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.dataSources[0].id }}",
 					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
 					"status":"{{ n_I5HTd.outputs.result.status }}",
 					"entities":{
 						"dataSources":{
-							"source":"{{ n_I5HTd.outputs.result.blockIds }}",
+							"source":"{{ n_I5HTd.outputs.result.dataSourceIds }}",
 							"ua:type":"mappedArray",
-							"items":"{{ n_I5HTd.outputs.result.blockIds[0] }}"
+							"items":"{{ n_I5HTd.outputs.result.dataSourceIds[0] }}"
 						}
 					}
 				},
@@ -1006,5 +1007,5 @@
 	"tags":[
 		
 	],
-	"version":33
+	"version":34
 }
