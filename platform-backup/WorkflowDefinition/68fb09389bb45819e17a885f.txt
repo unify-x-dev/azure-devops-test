@@ -59,7 +59,7 @@
 	"id":"68fb09389bb45819e17a885f",
 	"lastModifiedBy":308,
 	"lcName":"dnd",
-	"modifiedTime":1761294300820,
+	"modifiedTime":1761295301021,
 	"name":"dnd",
 	"nodes":[
 		{
@@ -716,7 +716,8 @@
 			},
 			"inputs":{
 				"createList":{
-					"ua:type":"mappedArray"
+					"ua:type":"mappedArray",
+					"source":"{{ n_W3Kwl.outputs.items }}"
 				},
 				"ua:title":"List",
 				"ua:list_type":"OBJECT"
@@ -822,14 +823,7 @@
 				"httpMethod":"POST",
 				"body":{
 					"ua:type":"mappedArray",
-					"source":"{{ n_MfGqX.outputs.items }}",
-					"items":{
-						"SurveyID":"{{ n_MfGqX.outputs.items[0].SurveyID }}",
-						"Question":"{{ n_MfGqX.outputs.items[0].Question }}",
-						"Answer":"{{ n_MfGqX.outputs.items[0].Answer }}",
-						"UserID":"{{ n_MfGqX.outputs.items[0].UserID }}",
-						"DateTime":"{{ n_MfGqX.outputs.items[0].DateTime }}"
-					}
+					"source":"{{ n_MfGqX.outputs.items }}"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
@@ -905,5 +899,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":15
 }
