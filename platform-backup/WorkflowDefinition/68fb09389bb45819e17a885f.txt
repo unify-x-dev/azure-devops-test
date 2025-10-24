@@ -30,7 +30,7 @@
 	"id":"68fb09389bb45819e17a885f",
 	"lastModifiedBy":161877,
 	"lcName":"dnd",
-	"modifiedTime":1761290408990,
+	"modifiedTime":1761290481862,
 	"name":"dnd",
 	"nodes":[
 		{
@@ -40,7 +40,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"n_o4Q3A",
@@ -84,7 +84,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"n_W3Kwl",
@@ -362,7 +362,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"n_v5382",
@@ -413,6 +413,8 @@
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
+				"path":"api-endpoint/test-prajwal/debug-walkme",
+				"baseUrl":"https://api.qa.unifyapps.com",
 				"httpVersion":"HTTP_2",
 				"bodySchema":{
 					"type":"array",
@@ -467,5 +469,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
