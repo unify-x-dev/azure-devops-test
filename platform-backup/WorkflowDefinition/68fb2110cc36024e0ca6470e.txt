@@ -132,7 +132,7 @@
 	"id":"68fb2110cc36024e0ca6470e",
 	"lastModifiedBy":161852,
 	"lcName":"new",
-	"modifiedTime":1761289504701,
+	"modifiedTime":1761290055051,
 	"name":"new",
 	"nodes":[
 		{
@@ -209,7 +209,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"n_8EGvJ",
@@ -482,7 +482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XdQ9o-1",
 			"id":"_Mdq6p",
@@ -1112,7 +1112,7 @@
 					}
 				},
 				"configurationMode":"DEFAULT",
-				"code":"def fun(rows, leavesTaken, bonusTaken):\n    for row in rows:\n        emp_id = row['EmployeeID']\n        leaves = int(row['Leaves_Taken'])\n        \n        existing = next((item for item in leavesTaken if item['EmployeeID'] == emp_id), None)\n        \n        if existing:\n            existing['Leaves_Taken'] += leaves\n        else:\n            leavesTaken.append({\n                'EmployeeID': emp_id,\n                'Leaves_Taken': leaves\n            })\n    \n    for row in rows:\n        emp_id = row['EmployeeID']\n        bonus = int(row['Bonus_Amount'])\n        \n        existing = next((item for item in bonusTaken if item['EmployeeID'] == emp_id), None)\n        \n        if existing:\n            existing['Bonus_Amount'] += bonus\n        else:\n            bonusTaken.append({\n                'EmployeeID': emp_id,\n                'Bonus_Amount': bonus\n            })\n    \n    return {\n        'leavesTaken': leavesTaken,\n        'bonusTaken': bonusTaken\n    }\n",
+				"code":"def fun(rows, leavesTaken, bonusTaken):\n    for row in rows:\n        emp_id = row['EmployeeID']\n        leaves = int(row['Leaves_Taken'])\n        \n        existing = next((item for item in leavesTaken if item['EmployeeID'] == emp_id), None)\n        \n        if existing:\n            existing['Leaves_Taken'] += leaves\n        else:\n            leavesTaken.append({\n                'EmployeeID': emp_id,\n                'Leaves_Taken': leaves\n            })\n    \n    for row in rows:\n        emp_id = row['EmployeeID']\n        bonus = int(row['Bonus_Amount'])\n        \n        existing = next((item for item in bonusTaken if item['EmployeeID'] == emp_id), None)\n        \n        if existing:\n            existing['Bonus_Amount'] += bonus\n        else:\n            bonusTaken.append({\n                'EmployeeID': emp_id,\n                'Bonus_Amount': bonus\n            })\n    \n    return {\n        'leavesTaken': leavesTaken,\n        'bonusTaken': bonusTaken\n    }\nresult = fun(rows, leavesTaken, bonusTaken)",
 				"isAsync":false,
 				"python_version":"3.12",
 				"captureStdOutput":false,
@@ -1160,7 +1160,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"n_tiPDQ",
@@ -1168,7 +1168,7 @@
 			"inputs":{
 				"listName":"{{ n_8EGvJ.outputs.items[0] }}"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Remove all items from list",
 			"type":"ACTION"
@@ -1181,7 +1181,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"_sw37E",
@@ -1189,7 +1189,7 @@
 			"inputs":{
 				"listName":"{{ _Mdq6p.outputs.items[0] }}"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Remove all items from list",
 			"type":"ACTION"
@@ -1208,7 +1208,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"n_KPNN2",
@@ -1225,7 +1225,7 @@
 				},
 				"listName":"{{ n_8EGvJ.outputs.items[0] }}"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add items to list",
 			"type":"ACTION"
@@ -1244,7 +1244,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_QLQ75@n_Nftv5@_XdQ9o-1@l@y",
 			"id":"_Ga0mE",
@@ -1261,7 +1261,7 @@
 				},
 				"listName":"{{ _Mdq6p.outputs.items[0] }}"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add items to list",
 			"type":"ACTION"
@@ -1312,5 +1312,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
