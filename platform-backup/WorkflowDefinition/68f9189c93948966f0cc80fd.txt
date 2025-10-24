@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761283323374,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761283323516,
+		"deployedBy":44109,
+		"deployedDefinitionId":"68fb0cfb9bb45819e17a8ae3",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":36
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_vH4Qn",
@@ -110,6 +118,13 @@
 			"fromNodeId":"_UupXH",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_KyNCD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_KyNCD",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_VEUCk",
 			"type":"next"
 		},
@@ -168,7 +183,7 @@
 	"id":"68f9189c93948966f0cc80fd",
 	"lastModifiedBy":44109,
 	"lcName":"[dt] filtered and sort agent list",
-	"modifiedTime":1761283323374,
+	"modifiedTime":1761308406500,
 	"name":"[DT] Filtered and sort agent list",
 	"nodes":[
 		{
@@ -884,7 +899,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_wjSBm",
@@ -893,7 +908,7 @@
 				"repeatMode":"BATCH",
 				"listSource":"{{ _fP3iR.outputs.objects }}",
 				"captureIterations":false,
-				"batchSize":500
+				"batchSize":250
 			},
 			"skip":false,
 			"subTitle":"Loop",
@@ -968,7 +983,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_UupXH",
@@ -1049,6 +1064,28 @@
 			"type":"CALL_WORKFLOW"
 		},
 		{
+			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
+			"id":"n_KyNCD",
+			"index":15,
+			"inputs":{
+				"duration":2,
+				"unit":"SECONDS"
+			},
+			"skip":false,
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
+		},
+		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.itemsToAdd.items.messageCount",
@@ -1069,7 +1106,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_wjSBm@n_MnCI7@n_aUfr7@_5OzFd-1@l@n@l",
 			"id":"_VEUCk",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -1102,7 +1139,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_MnCI7@n_aUfr7@_5OzFd-1@l@n",
 			"id":"_5RyKI",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"loop":"n_aUfr7",
 				"conditions":{
@@ -1135,7 +1172,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_aUfr7@_5OzFd-1@l",
 			"id":"n_AY347",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"variables":[
 					{
@@ -1171,7 +1208,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_1Xzlq",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1297,7 +1334,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
 			"id":"n_Wc16Y",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1338,5 +1375,5 @@
 	"tags":[
 		
 	],
-	"version":36
+	"version":37
 }
