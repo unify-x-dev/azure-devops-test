@@ -58,9 +58,9 @@
 		}
 	],
 	"id":"68fa0e73edd7705e9c0e3906",
-	"lastModifiedBy":27,
+	"lastModifiedBy":115477,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761287278914,
+	"modifiedTime":1761287472828,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -70,7 +70,7 @@
 				"resourceName":"storage_by_unifyapps_on_update_record"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_YC4yG",
@@ -94,7 +94,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_BCs9K",
@@ -216,15 +216,10 @@
 							"ua:type":"mappedArray",
 							"items":"{{ n_jr8kl.outputs.item[0] }}"
 						},
-						"page":{
-							"ua:type":"mappedArray",
-							"items":{
-								"id":"{{ n_YC4yG.outputs.id }}",
-								"entityType":"{{ n_YC4yG.outputs.entityType }}",
-								"page_version":"{{ n_YC4yG.outputs.version }}",
-								"page_schema":"{{ n_YC4yG.outputs.properties }}"
-							}
-						}
+						"page_schema":"{{ n_YC4yG.outputs.properties }}",
+						"id":"{{ n_YC4yG.outputs.id }}",
+						"entityType":"{{ n_YC4yG.outputs.entityType }}",
+						"page_version":"{{ n_YC4yG.outputs.version }}"
 					}
 				},
 				"version":"-1"
@@ -267,5 +262,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
