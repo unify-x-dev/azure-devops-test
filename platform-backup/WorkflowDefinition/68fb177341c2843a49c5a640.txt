@@ -16,7 +16,7 @@
 	"id":"68fb177341c2843a49c5a640",
 	"lastModifiedBy":33444,
 	"lcName":"test",
-	"modifiedTime":1761297652311,
+	"modifiedTime":1761297673007,
 	"name":"test",
 	"nodes":[
 		{
@@ -41,11 +41,17 @@
 								"type":"string",
 								"title":"Df",
 								"help":"sf"
+							},
+							"revtv":{
+								"type":"string",
+								"title":"Revtv",
+								"help":"wfe"
 							}
 						},
 						"additionalProperties":false,
 						"required":[
-							"df"
+							"df",
+							"revtv"
 						]
 					}
 				}
@@ -124,5 +130,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":8
+	"version":9
 }
