@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761289441270,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761305484931,
+		"deployedBy":43498,
+		"deployedDefinitionId":"68fb638c00ea623ea74de923",
+		"status":"PAUSED",
+		"version":1,
+		"workflowVersion":7
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_yLcOy",
@@ -23,7 +31,7 @@
 	"id":"68fb24e1969ad113ace95889",
 	"lastModifiedBy":43498,
 	"lcName":"sdcvf",
-	"modifiedTime":1761305481012,
+	"modifiedTime":1761306846021,
 	"name":"sdcvf",
 	"nodes":[
 		{
@@ -42,9 +50,9 @@
 				"changeType":"ANY",
 				"entityTypes":[
 					"CALLABLE_INTERFACE",
-					"CONNECTION",
 					"PERMISSION_GROUP",
-					"IDENTITY_PROVIDER"
+					"IDENTITY_PROVIDER",
+					"PLATFORM_CONNECTION"
 				]
 			},
 			"skip":false,
@@ -117,5 +125,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
