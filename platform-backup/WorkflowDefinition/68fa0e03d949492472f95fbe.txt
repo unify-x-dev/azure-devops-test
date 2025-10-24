@@ -201,7 +201,7 @@
 	"id":"68fa0e03d949492472f95fbe",
 	"lastModifiedBy":308,
 	"lcName":"validatesans",
-	"modifiedTime":1761223541923,
+	"modifiedTime":1761328279024,
 	"name":"validateSans",
 	"nodes":[
 		{
@@ -440,7 +440,6 @@
 				"branch1":"=SUM({{ n_xu7kj.outputs.item }},{{ n_IINHV.outputs.index }})"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -579,7 +578,6 @@
 				"branch2":"=SUM({{ n_7o1qU.outputs.index }},{{ n_Q5zqh.outputs.index }})"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -666,12 +664,12 @@
 			"context":{
 				"appName":"slack",
 				"resourceVersion":3612,
-				"connectionId":"68f95de424fbff4b4810136f",
+				"connectionId":"68fabaecc29ccf0cbfd7f0a5",
 				"resourceName":"slack_list_users",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8D7b8@_ZzqHP-1@3",
 			"id":"n_XmBwy",
@@ -774,7 +772,6 @@
 				"defaultBranch":"=SUM({{ n_nCmQ3.outputs.index }},{{ n_D1JJd.outputs.index }})"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -859,5 +856,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":8
+	"version":9
 }
