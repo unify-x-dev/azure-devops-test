@@ -5,12 +5,12 @@
 	"createdTime":1723198830590,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1743768781643,
-		"deployedBy":522,
-		"deployedDefinitionId":"67efcccd7266f671e49fb5de",
+		"deployedAt":1761307497816,
+		"deployedBy":155543,
+		"deployedDefinitionId":"68fb6b6900ea623ea74e340c",
 		"status":"DEPLOYED",
-		"version":25,
-		"workflowVersion":82
+		"version":26,
+		"workflowVersion":84
 	},
 	"edges":[
 		{
@@ -22,13 +22,6 @@
 		},
 		{
 			"fromNodeId":"uhcUP",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_68yql",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_68yql",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"wNl4q",
@@ -52,7 +45,7 @@
 	"id":"66b5ed6e10bbb330fd247b6a",
 	"lastModifiedBy":155543,
 	"lcName":"export and send notification",
-	"modifiedTime":1761307494105,
+	"modifiedTime":1761307761609,
 	"name":"export and send notification",
 	"nodes":[
 		{
@@ -143,28 +136,6 @@
 		},
 		{
 			"context":{
-				"appName":"delay",
-				"resourceVersion":809,
-				"resourceName":"delay_for",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"QhmaL-1",
-			"id":"n_68yql",
-			"index":3,
-			"inputs":{
-				"duration":10,
-				"unit":"SECONDS"
-			},
-			"skip":false,
-			"subTitle":"Delay",
-			"title":"Set delay duration",
-			"type":"DELAY"
-		},
-		{
-			"context":{
 				"appName":"notification_by_unifyapps",
 				"resourceVersion":0,
 				"resourceName":"notification_by_unifyapps_send_notification",
@@ -175,7 +146,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"QhmaL-1",
 			"id":"wNl4q",
-			"index":4,
+			"index":3,
 			"inputs":{
 				"cta":{
 					"type":"url",
@@ -218,7 +189,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"QhmaL-1",
 			"id":"iklcx",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"result":{
 					"success":"true"
@@ -238,7 +209,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"QhmaL-1",
 			"id":"RVdgI",
-			"index":6,
+			"index":5,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -256,5 +227,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":84
+	"version":85
 }
