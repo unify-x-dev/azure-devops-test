@@ -11,19 +11,12 @@
 			"skip":false,
 			"toNodeId":"n_a4bV0",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_a4bV0",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_tzlIe",
-			"type":"next"
 		}
 	],
 	"id":"68faea8e9bb45819e17a6c0a",
 	"lastModifiedBy":49915,
 	"lcName":"groovy compile",
-	"modifiedTime":1761274598752,
+	"modifiedTime":1761274610380,
 	"name":"groovy compile",
 	"nodes":[
 		{
@@ -74,30 +67,6 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":1020,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_7EoLE-1",
-			"id":"_tzlIe",
-			"index":3,
-			"inputs":{
-				"compileOnSave":false,
-				"code":"def x = (1 + 2\n\nif (true) {\n    println \"hello\"\n",
-				"compile_static":false,
-				"captureStdOutput":false
-			},
-			"skip":false,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":49915,
@@ -117,5 +86,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
