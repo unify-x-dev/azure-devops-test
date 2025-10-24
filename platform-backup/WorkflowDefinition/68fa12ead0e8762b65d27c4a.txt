@@ -50,12 +50,20 @@
 			"skip":false,
 			"toNodeId":"_z1p2M",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Lzq6H",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Qkkf1",
+			"type":"next"
 		}
 	],
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761287563152,
+	"modifiedTime":1761287592131,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -405,6 +413,25 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1091,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Lzq6H@_z6eK1-1@n",
+			"id":"n_Qkkf1",
+			"index":7,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":115477,
@@ -424,5 +451,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":18
 }
