@@ -155,7 +155,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761296964508,
+	"modifiedTime":1761297107007,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -421,6 +421,7 @@
 				"object_type":"automation_assignment_1",
 				"skipIfBlank":false,
 				"records":{
+					"source":"{{ _smbpB.outputs.rows }}",
 					"ua:type":"mappedArray",
 					"items":{
 						"id":"{{ _smbpB.outputs.rows[0].EmpId__0 }}",
@@ -428,8 +429,7 @@
 						"Department":"{{ _smbpB.outputs.rows[0].Department__2 }}",
 						"bonusAmount":"{{ _smbpB.outputs.rows[0].Bonus_Amount__3 }}",
 						"Leaves":"{{ _smbpB.outputs.rows[0].Leaves__4 }}"
-					},
-					"source":"{{ _smbpB.outputs.rows }}"
+					}
 				}
 			},
 			"skip":false,
@@ -1035,5 +1035,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":23
 }
