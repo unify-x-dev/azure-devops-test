@@ -6,46 +6,60 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_e8PFJ",
+			"fromNodeId":"n_6VGe8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ba4Na",
+			"toNodeId":"n_GzWQ9",
 			"type":"next"
 		}
 	],
 	"id":"68fb57fa80fb3c02df7596a2",
 	"lastModifiedBy":43498,
 	"lcName":"udm trigger",
-	"modifiedTime":1761302522801,
+	"modifiedTime":1761308830019,
 	"name":"udm trigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"mdm_by_unifyapps",
+				"resourceVersion":17,
+				"resourceName":"mdm_by_unifyapps_on_new_unified_data_model"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_e8PFJ-1",
-			"id":"_e8PFJ",
-			"index":0,
+			"id":"n_6VGe8",
+			"index":1,
+			"inputs":{},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"UDM by UnifyApps",
+			"title":"New unified data model is created",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"stop"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_e8PFJ-1",
-			"id":"_ba4Na",
-			"index":0,
+			"id":"n_GzWQ9",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":43498,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +73,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
