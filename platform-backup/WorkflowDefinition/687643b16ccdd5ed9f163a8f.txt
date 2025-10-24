@@ -227,9 +227,9 @@
 		]
 	},
 	"id":"687643b16ccdd5ed9f163a8f",
-	"lastModifiedBy":45768,
+	"lastModifiedBy":186893,
 	"lcName":"website or file indexing | page indexer",
-	"modifiedTime":1761233327423,
+	"modifiedTime":1761283437640,
 	"name":"Website or File Indexing | Page Indexer",
 	"nodes":[
 		{
@@ -403,7 +403,6 @@
 			},
 			"inputs":{},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -510,7 +509,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"MANUAL",
 			"groupId":"ZUZL3@n_JOyjL@_Yv0XF-1@y@error",
 			"id":"iM4rQ",
@@ -549,9 +548,11 @@
 					}
 				],
 				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
 				"authType":"CUSTOM",
 				"requestContentType":"application/json",
-				"ignoreTrailingSlashes":false
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
 			},
 			"options":{
 				"businessHoursConfig":{
@@ -1280,5 +1281,5 @@
 	"tags":[
 		
 	],
-	"version":99
+	"version":100
 }
