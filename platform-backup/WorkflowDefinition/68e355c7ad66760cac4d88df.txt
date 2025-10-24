@@ -118,7 +118,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761246525471,
+	"modifiedTime":1761293455178,
 	"name":"test",
 	"nodes":[
 		{
@@ -268,7 +268,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_w5oM1",
@@ -276,8 +276,8 @@
 			"inputs":{
 				"blocksize":1024,
 				"replication":1,
-				"sourceUrl":"https://docs.google.com/spreadsheets/d/1EMHq0GTqofSSvawbbUo7GEjZfgcZepGNXjZpe4Cuvxc/export?format=tsv&sheet=Sheet1",
-				"path":"/test_etl/example.parquet",
+				"sourceUrl":"https://docs.google.com/spreadsheets/d/1EMHq0GTqofSSvawbbUo7GEjZfgcZepGNXjZpe4Cuvxc/export?format=csv&sheet=Sheet1",
+				"path":"/test_etl/example.csv",
 				"inputType":"URL",
 				"overwrite":false,
 				"content":"fceqwrvcaewqr"
@@ -540,5 +540,5 @@
 	"tags":[
 		
 	],
-	"version":49
+	"version":50
 }
