@@ -132,7 +132,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761293656865,
+	"modifiedTime":1761305367711,
 	"name":"test",
 	"nodes":[
 		{
@@ -216,13 +216,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_9qaQu",
 			"index":4,
 			"inputs":{
-				"path":"/test_etl/jay_testing_file.parquet"
+				"path":"/test_etl/example.csv"
 			},
 			"skip":false,
 			"subTitle":"Hadoop",
@@ -310,13 +310,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_oBeQ2",
 			"index":8,
 			"inputs":{
-				"path":"/test_etl/68ee0517fb9d1f03555f6bc9.parquet"
+				"path":"/test_etl/example.csv"
 			},
 			"skip":false,
 			"subTitle":"Hadoop",
@@ -356,13 +356,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_1QMIm",
 			"index":10,
 			"inputs":{
-				"path":"/test_etl/68ee0517fb9d1f03555f6bc9.parquet"
+				"path":"/test_etl/example.csv"
 			},
 			"skip":false,
 			"subTitle":"Hadoop",
@@ -621,5 +621,5 @@
 	"tags":[
 		
 	],
-	"version":55
+	"version":56
 }
