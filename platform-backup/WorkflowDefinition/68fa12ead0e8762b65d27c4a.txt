@@ -121,7 +121,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761310121816,
+	"modifiedTime":1761310167119,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1169,7 +1169,7 @@
 						}
 					}
 				},
-				"code":"// `dataSources` is assumed to be provided\nconst outputList = [];\n\n// Collect failed datasource IDs\nconst failedDataSourceIds = [];\n\ndataSources.forEach((item) => {\n  const schema = item.schema;\n  const advOptions = schema?.advancedOptions;\n  const timing = advOptions?.timing;\n  const isAutomatic = advOptions?.runBehaviour === \"automatic\";\n  const onPageLoad = Boolean(timing?.runQueryOnPageLoad);\n  const status = (isAutomatic && onPageLoad) ? \"passed\" : \"failed\";\n\n  if (status === \"failed\") {\n    failedDataSourceIds.push(item.id);\n  }\n});\n\n// Push the final output into outputList\noutputList.push({\n  status: failedBlocksIDs.length > 0 ? \"failed\" : \"passed\",\n  dataSourceIds: failedDataSourceIds\n});\n\nreturn outputList;\n",
+				"code":"(() => {\n  // `dataSources` is assumed to be provided\n  const outputList = [];\n\n  // Collect failed datasource IDs\n  const failedDataSourceIds = [];\n\n  dataSources.forEach((item) => {\n    const schema = item.schema;\n    const advOptions = schema?.advancedOptions;\n    const timing = advOptions?.timing;\n    const isAutomatic = advOptions?.runBehaviour === \"automatic\";\n    const onPageLoad = Boolean(timing?.runQueryOnPageLoad);\n    const status = (isAutomatic && onPageLoad) ? \"passed\" : \"failed\";\n\n    if (status === \"failed\") {\n      failedDataSourceIds.push(item.id);\n    }\n  });\n\n  // Push the final output into outputList\n  outputList.push({\n    status: failedDataSourceIds.length > 0 ? \"failed\" : \"passed\",\n    dataSourceIds: failedDataSourceIds\n  });\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"dataSources":{
@@ -1300,5 +1300,5 @@
 	"tags":[
 		
 	],
-	"version":68
+	"version":69
 }
