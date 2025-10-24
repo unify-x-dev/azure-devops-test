@@ -132,7 +132,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761293521883,
+	"modifiedTime":1761293543054,
 	"name":"test",
 	"nodes":[
 		{
@@ -491,6 +491,20 @@
 			"id":"n_LTl0h",
 			"index":14,
 			"inputs":{
+				"filter":{
+					"filters":[
+						{
+							"property":"Trade_ID",
+							"filter":{
+								"operator":"EXISTS",
+								"details":{
+									"fieldType":"TEXT"
+								}
+							}
+						}
+					],
+					"operator":"AND"
+				},
 				"collection":"jay_test__test_etl"
 			},
 			"skip":false,
@@ -607,5 +621,5 @@
 	"tags":[
 		
 	],
-	"version":53
+	"version":54
 }
