@@ -5,20 +5,28 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761286527777,
+		"deployedAt":1761287451158,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb197f41c2843a49c5b077",
+		"deployedDefinitionId":"68fb1d1bcc36024e0ca62d82",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":13
+		"version":8,
+		"workflowVersion":15
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_PQRFu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_h8DaG",
+			"toNodeId":"n_Lzq6H",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Lzq6H",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_h8DaG",
+			"type":"if"
 		},
 		{
 			"fromNodeId":"n_h8DaG",
@@ -47,7 +55,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761287446645,
+	"modifiedTime":1761287554886,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -191,6 +199,36 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_z6eK1-1",
+			"id":"n_Lzq6H",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_PQRFu.outputs.checks[0].checkId }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"CHECK_1"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
 			"additional":{
 				"xsdSchemaConfig":{
 					"root":{}
@@ -209,9 +247,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_z6eK1-1",
+			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_h8DaG",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -282,9 +320,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_z6eK1-1",
+			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_txMg9",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"filters":[
 					{
@@ -312,9 +350,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_txMg9@_z6eK1-1@y",
+			"groupId":"n_txMg9@n_Lzq6H@_z6eK1-1@y@y",
 			"id":"n_nQDPb",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"result":{
 					"entityType":"{{ n_PQRFu.outputs.page[0].entityType }}",
@@ -345,9 +383,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_txMg9@_z6eK1-1@n",
+			"groupId":"n_txMg9@n_Lzq6H@_z6eK1-1@y@n",
 			"id":"_z1p2M",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"result":{
 					"entityType":"{{ n_PQRFu.outputs.page[0].entityType }}",
@@ -386,5 +424,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":16
 }
