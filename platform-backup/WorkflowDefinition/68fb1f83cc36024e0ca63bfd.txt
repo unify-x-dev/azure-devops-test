@@ -82,7 +82,7 @@
 	"id":"68fb1f83cc36024e0ca63bfd",
 	"lastModifiedBy":308,
 	"lcName":"test",
-	"modifiedTime":1761288148985,
+	"modifiedTime":1761288187726,
 	"name":"test",
 	"nodes":[
 		{
@@ -404,7 +404,7 @@
 										"property":"{{ n_RyvSD.outputs.items }}",
 										"filter":{
 											"operator":"CONTAINS",
-											"value":"{{ n_y3gAB.outputs.input }}"
+											"value":"{{ n_jQ7n2.outputs.input }}"
 										}
 									}
 								],
@@ -419,7 +419,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_y3gAB.outputs.input }}",
+										"property":"{{ n_jQ7n2.outputs.input }}",
 										"filter":{
 											"operator":"NOT_CONTAINS",
 											"value":"=INT(7)"
@@ -461,7 +461,7 @@
 							"property":"{{ n_RyvSD.outputs.items }}",
 							"filter":{
 								"operator":"CONTAINS",
-								"value":"{{ n_y3gAB.outputs.input }}"
+								"value":"{{ n_jQ7n2.outputs.input }}"
 							}
 						}
 					],
@@ -545,7 +545,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_y3gAB.outputs.input }}",
+							"property":"{{ n_jQ7n2.outputs.input }}",
 							"filter":{
 								"operator":"NOT_CONTAINS",
 								"value":"=INT(7)"
@@ -942,5 +942,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
