@@ -63,7 +63,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761287592131,
+	"modifiedTime":1761287628926,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -145,6 +145,10 @@
 						"status":{
 							"type":"string",
 							"title":"status"
+						},
+						"result":{
+							"type":"string",
+							"title":"Result"
 						}
 					}
 				},
@@ -427,7 +431,11 @@
 			"groupId":"n_Lzq6H@_z6eK1-1@n",
 			"id":"n_Qkkf1",
 			"index":7,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"result":"200"
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -451,5 +459,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
