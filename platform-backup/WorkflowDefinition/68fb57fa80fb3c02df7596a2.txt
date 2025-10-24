@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761302522801,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_e8PFJ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ba4Na",
+			"type":"next"
+		}
+	],
+	"id":"68fb57fa80fb3c02df7596a2",
+	"lastModifiedBy":43498,
+	"lcName":"udm trigger",
+	"modifiedTime":1761302522801,
+	"name":"udm trigger",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_e8PFJ-1",
+			"id":"_e8PFJ",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_e8PFJ-1",
+			"id":"_ba4Na",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":43498,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
