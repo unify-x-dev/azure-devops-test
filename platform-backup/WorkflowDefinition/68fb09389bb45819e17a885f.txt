@@ -59,7 +59,7 @@
 	"id":"68fb09389bb45819e17a885f",
 	"lastModifiedBy":308,
 	"lcName":"dnd",
-	"modifiedTime":1761296340906,
+	"modifiedTime":1761296466427,
 	"name":"dnd",
 	"nodes":[
 		{
@@ -788,11 +788,11 @@
 			"index":6,
 			"inputs":{
 				"itemToAdd":{
-					"SurveyID":"{{ n_MfGqX.outputs.items[0].SurveyID }}",
-					"Question":"{{ n_MfGqX.outputs.items[0].Question }}",
-					"Answer":"{{ n_MfGqX.outputs.items[0].Answer }}",
-					"UserID":"{{ n_MfGqX.outputs.items[0].UserID }}",
-					"DateTime":"{{ n_MfGqX.outputs.items[0].DateTime }}"
+					"SurveyID":"{{ n_o4Q3A.outputs.body.SurveyID }}",
+					"Question":"{{ n_o4Q3A.outputs.body.Question }}",
+					"Answer":"{{ n_o4Q3A.outputs.body.Answer }}",
+					"UserID":"{{ n_o4Q3A.outputs.body.UserID }}",
+					"DateTime":"{{ n_o4Q3A.outputs.body.DateTime }}"
 				},
 				"insertLocation":"START",
 				"listName":"{{ n_MfGqX.outputs.items[0] }}"
@@ -810,7 +810,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"_sqagt",
@@ -905,5 +905,5 @@
 	"tags":[
 		
 	],
-	"version":21
+	"version":22
 }
