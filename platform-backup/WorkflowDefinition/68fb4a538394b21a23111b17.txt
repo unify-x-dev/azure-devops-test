@@ -80,7 +80,7 @@
 	"id":"68fb4a538394b21a23111b17",
 	"lastModifiedBy":161852,
 	"lcName":"new approach",
-	"modifiedTime":1761300139518,
+	"modifiedTime":1761302107012,
 	"name":"new approach",
 	"nodes":[
 		{
@@ -90,7 +90,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_wRUr6",
@@ -169,7 +169,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_0SdyR",
@@ -471,7 +471,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_hlGem",
@@ -492,7 +492,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_Nftv5",
@@ -524,7 +524,7 @@
 				"sheetName":"{{ n_Nftv5.outputs.item.properties.title }}",
 				"valueRenderOption":"FORMATTED_VALUE",
 				"objectSourceResourceName":"gsheets_fetch_columns",
-				"range":"2:20",
+				"range":"1:20",
 				"spreadsheetId":"1w5cXWxuvvc_267hr0OPbXbCikhJRv9FMMajP2tnmDnU__Bonus Data"
 			},
 			"skip":false,
@@ -540,7 +540,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_lqvmv",
@@ -561,7 +561,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_oiTuI",
@@ -644,7 +644,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Nftv5@_d8BnZ-1@l",
 			"id":"n_saiBu",
@@ -742,7 +742,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"_A7jOQ",
@@ -871,7 +871,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_d8BnZ-1",
 			"id":"n_Mpy8B",
@@ -884,14 +884,6 @@
 						"items":{
 							"EmployeeID__0":"{{ _A7jOQ.outputs.result.leavesTaken[0].EmployeeID__0 }}",
 							"Leaves_Taken__4":"{{ _A7jOQ.outputs.result.leavesTaken[0].Leaves_Taken__4 }}"
-						}
-					},
-					"bonusIssued":{
-						"source":"{{ _A7jOQ.outputs.result.bonusIssued }}",
-						"ua:type":"mappedArray",
-						"items":{
-							"EmployeeID__0":"{{ _A7jOQ.outputs.result.bonusIssued[0].EmployeeID__0 }}",
-							"Bonus_Amount__3":"{{ _A7jOQ.outputs.result.bonusIssued[0].Bonus_Amount__3 }}"
 						}
 					}
 				}
@@ -919,5 +911,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":6
 }
