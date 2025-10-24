@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761320988710,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761321475709,
+		"deployedBy":46209,
+		"deployedDefinitionId":"68fba2035c901523ab26d14d",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_UY6e7",
@@ -23,7 +31,7 @@
 	"id":"68fba01c5c901523ab26c7f0",
 	"lastModifiedBy":46209,
 	"lcName":"testhttp",
-	"modifiedTime":1761321471108,
+	"modifiedTime":1761321616601,
 	"name":"testHttp",
 	"nodes":[
 		{
@@ -88,6 +96,12 @@
 				"httpVersion":"HTTP_2",
 				"responseContentType":"application/json",
 				"followRedirects":"NORMAL",
+				"headersList":[
+					{
+						"key":"Content-Type",
+						"value":"application/json"
+					}
+				],
 				"authType":"CUSTOM",
 				"requestContentType":"application/json",
 				"ignoreTrailingSlashes":false,
@@ -139,5 +153,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
