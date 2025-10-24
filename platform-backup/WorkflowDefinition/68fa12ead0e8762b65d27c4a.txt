@@ -151,7 +151,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761311074500,
+	"modifiedTime":1761311084807,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1210,6 +1210,7 @@
 				"code":"(() => {\n  // `page` and `dataSources` are assumed to be provided\n  const outputList = [];\n\n  const getNestedTableWithNonManualDataSource = (blocks, dataSources) => {\n    const result = [];\n    \n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      \n      if (block.component.componentType === 'NestedTable') {\n        const columns = block.component.content.columns || [];\n        \n        // Check each column for nested table type\n        columns.forEach((column, columnIndex) => {\n          if (column.type === 'NESTED_TABLE' && column.data) {\n            // Extract data source ID from the data path\n            const dataMatch = column.data.match(/\\{\\{\\s*([^['\\s]+)\\['data'\\]/);\n            if (dataMatch) {\n              const dataSourceId = dataMatch[1];\n              const dataSource = dataSources[dataSourceId];\n              \n              if (dataSource && dataSource.properties?.advancedOptions?.runBehaviour !== 'manual') {\n                result.push({\n                  blockId,\n                  columnIndex,\n                  dataSourceId,\n                  runBehaviour: dataSource.properties?.advancedOptions?.runBehaviour\n                });\n              }\n            }\n          }\n        });\n      }\n    }\n    \n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedNestedTables = getNestedTableWithNonManualDataSource(blocks, dataSources);\n\n  if (failedNestedTables.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: [...new Set(failedNestedTables.map(item => item.blockId))]\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
+					"page":"{{ n_PQRFu.outputs.page }}",
 					"dataSources":{
 						"source":"{{ n_PQRFu.outputs.dataSources }}",
 						"ua:type":"mappedArray",
@@ -1560,5 +1561,5 @@
 	"tags":[
 		
 	],
-	"version":72
+	"version":73
 }
