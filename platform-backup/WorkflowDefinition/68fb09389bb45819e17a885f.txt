@@ -59,7 +59,7 @@
 	"id":"68fb09389bb45819e17a885f",
 	"lastModifiedBy":308,
 	"lcName":"dnd",
-	"modifiedTime":1761295332223,
+	"modifiedTime":1761295999719,
 	"name":"dnd",
 	"nodes":[
 		{
@@ -69,7 +69,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"n_o4Q3A",
@@ -122,7 +122,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"n_W3Kwl",
@@ -381,7 +381,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"n_v5382",
@@ -412,7 +412,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_urfpc-1",
 			"id":"n_r20kJ",
@@ -716,7 +716,14 @@
 			},
 			"inputs":{
 				"createList":{
-					"ua:type":"mappedArray"
+					"ua:type":"mappedArray",
+					"items":{
+						"SurveyID":"{{ n_o4Q3A.outputs.body.SurveyID }}",
+						"Question":"{{ n_o4Q3A.outputs.body.Question }}",
+						"Answer":"{{ n_o4Q3A.outputs.body.Answer }}",
+						"UserID":"{{ n_o4Q3A.outputs.body.UserID }}",
+						"DateTime":"{{ n_o4Q3A.outputs.body.DateTime }}"
+					}
 				},
 				"ua:title":"List",
 				"ua:list_type":"OBJECT"
@@ -797,7 +804,7 @@
 				"insertLocation":"START",
 				"listName":"{{ n_MfGqX.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add item to list",
 			"type":"ACTION"
@@ -821,8 +828,8 @@
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
-					"ua:type":"mappedArray",
-					"source":"{{ n_MfGqX.outputs.items }}"
+					"source":"{{ n_MfGqX.outputs.items }}",
+					"ua:type":"mappedArray"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
@@ -898,5 +905,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
