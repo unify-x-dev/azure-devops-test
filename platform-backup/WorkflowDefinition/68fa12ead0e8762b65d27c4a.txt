@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761297193921,
+		"deployedAt":1761303764809,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb4329ecc44120a88dc8d2",
+		"deployedDefinitionId":"68fb5cd480fb3c02df75c3aa",
 		"status":"DEPLOYED",
-		"version":13,
-		"workflowVersion":26
+		"version":14,
+		"workflowVersion":28
 	},
 	"edges":[
 		{
@@ -91,7 +91,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761303760600,
+	"modifiedTime":1761303779313,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -723,7 +723,10 @@
 				},
 				"code":"// `page` is assumed to be provided\nconst outputList = [];\n\n/**\n * Recursive function to traverse all blocks and nested blocks\n * to find \"Repeatable\" components and check their pagination.\n */\nlet checkBlocks;\n\n// Public entry point signature — keeps full map for recursion\ncheckBlocks = (blocksMap, pageId) => {\n  return checkBlocksCore(blocksMap, pageId, blocksMap);\n};\n\n// Internal recursive with fullMap carried along\nconst checkBlocksCore = (blocksToCheckMap, pageId, fullBlocksMap) => {\n  const results = [];\n\n  Object.entries(blocksToCheckMap || {}).forEach(([blockId, blockData]) => {\n    const comp = blockData?.component;\n    if (!comp) return;\n\n    // 1. is Repeatable?\n    if (comp.componentType === \"Repeatable\") {\n      // 2. pagination?\n      const hasPagination = comp?.content?.addOns?.page != null;\n      results.push({\n        pageId: pageId,\n        blockId: blockId || \"\",\n        ComponentName: blockData?.displayName || \"\",\n        status: hasPagination ? \"Pass\" : \"Fail\",\n      });\n    }\n\n    // 3. nested via content.blockIds\n    const nestedIds = comp?.content?.blockIds || [];\n    nestedIds.forEach((nestedId) => {\n      const nestedBlockData = fullBlocksMap[nestedId];\n      if (nestedBlockData) {\n        results.push(\n          ...checkBlocksCore({ [nestedId]: nestedBlockData }, pageId, fullBlocksMap)\n        );\n      }\n    });\n\n    // 4. nested via slots\n    const slots = comp?.slots || {};\n    Object.values(slots).forEach((slotData) => {\n      const slotBlockId = slotData?.blockId;\n      if (slotBlockId) {\n        const slotBlockData = fullBlocksMap[slotBlockId];\n        if (slotBlockData) {\n          results.push(\n            ...checkBlocksCore({ [slotBlockId]: slotBlockData }, pageId, fullBlocksMap)\n          );\n        }\n      }\n    });\n  });\n\n  return results;\n};\n\n// --- Process the Single Page ---\nconst pageId = page?.id || \"\";\nconst schema = page?.page_schema || {};\nconst blocks = schema?.blocks || {}; // full map\n\n// Run and keep all detailed results\nconst pageResults = checkBlocks(blocks, pageId);\noutputList.push(...pageResults);\n\n// --- Filter & prepare finalOutput ---\nconst failedBlocks = outputList.filter(r => r.status === \"Fail\");\n\nlet finalOutput = {\n  pageID: pageId,\n  status: failedBlocks.length > 0 ? \"failed\" : \"successful\",\n  blocksIDs: failedBlocks.map(b => b.blockId),\n};\n\n// Return the summary object\nreturn finalOutput;\n",
 				"isAsync":false,
-				"parameters":{}
+				"parameters":{
+					"page_schema":"{{ n_PQRFu.outputs.page_schema }}",
+					"id":"{{ n_PQRFu.outputs.id }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"CHECK_1",
@@ -999,5 +1002,5 @@
 	"tags":[
 		
 	],
-	"version":28
+	"version":29
 }
