@@ -1,0 +1,147 @@
+{
+	"appsUsed":[
+		"storage_by_unifyapps"
+	],
+	"createdTime":1761131801123,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_Y9Ksu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_29AKv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_29AKv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_beruX",
+			"type":"next"
+		}
+	],
+	"id":"68f8bd1999a9792739a8cb60",
+	"lastModifiedBy":59995,
+	"lcName":"test-excel-write",
+	"modifiedTime":1761304992114,
+	"name":"test-excel-write",
+	"nodes":[
+		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iArmL-1",
+			"id":"n_Y9Ksu",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
+			"skip":false,
+			"subTitle":"Webhook",
+			"title":"New event",
+			"trigger":{
+				"type":"WEBHOOK"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4567,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iArmL-1",
+			"id":"n_29AKv",
+			"index":2,
+			"inputs":{
+				"object_type":"test_export_data_source",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":911,
+				"resourceName":"excel_by_unifyapps_list_to_excel_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iArmL-1",
+			"id":"n_beruX",
+			"index":3,
+			"inputs":{
+				"staticHeaders":[
+					{
+						"key":"id",
+						"value":"{{ n_29AKv.outputs.objects[0].id }}"
+					},
+					{
+						"key":"test",
+						"value":"{{ n_29AKv.outputs.objects[0].properties.test1 }}"
+					},
+					{
+						"key":"craeted time",
+						"value":"{{ n_29AKv.outputs.objects[0].createdTime }}"
+					},
+					{
+						"key":"modified",
+						"value":"{{ n_29AKv.outputs.objects[0].modifiedTime }}"
+					}
+				],
+				"skipHeaderRow":false,
+				"headerType":"STATIC",
+				"dataSource":"{{ n_29AKv.outputs.objects }}",
+				"fileType":"xlsx",
+				"append":false
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to Excel file",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":59995,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":2
+}
