@@ -6,46 +6,140 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_HCM3W",
+			"fromNodeId":"n_fR7HU",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_2bDo0",
+			"toNodeId":"n_k2fDF",
 			"type":"next"
 		}
 	],
 	"id":"68fb57df80fb3c02df7595b6",
 	"lastModifiedBy":186865,
 	"lcName":"ak_scd2_test",
-	"modifiedTime":1761302495507,
+	"modifiedTime":1761302715017,
 	"name":"AK_SCD2_Test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_HCM3W-1",
-			"id":"_HCM3W",
-			"index":0,
+			"id":"n_fR7HU",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items._ua_ID",
+					"root.records.items.DOB",
+					"root.records.items.Age",
+					"root.records.items.Name"
+				]
+			},
+			"context":{
+				"appName":"mdm_by_unifyapps",
+				"resourceVersion":726,
+				"resourceName":"mdm_by_unifyapps_create_staging_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_HCM3W-1",
-			"id":"_2bDo0",
-			"index":0,
+			"id":"n_k2fDF",
+			"index":2,
+			"inputs":{
+				"sourceId":"683243cc8319bd1a8db3f91f",
+				"modelId":"68fb4efa230d67189d454b1c",
+				"records":{
+					"items":{
+						"_ua_ID":"1",
+						"Age":23,
+						"Name":"Awanish",
+						"DOB":"26/12/2022"
+					},
+					"ua:type":"mappedArray"
+				},
+				"unifiedEntityId":"awanish_test_scd"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"UDM by UnifyApps",
+			"title":"Create Staging Records",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":186865,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +153,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
