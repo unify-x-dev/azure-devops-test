@@ -121,7 +121,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761309959326,
+	"modifiedTime":1761310008010,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -136,7 +136,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_PQRFu",
@@ -285,7 +285,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_R9Gq8",
@@ -648,7 +648,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_Lzq6H",
@@ -687,7 +687,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_h8DaG",
@@ -747,10 +747,6 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"id":{
-							"type":"string",
-							"title":"id"
-						},
 						"page":{
 							"type":"object",
 							"properties":{},
@@ -762,7 +758,6 @@
 				"code":"(() => {\n  // `page` and `pageId` are assumed to be provided\n  const outputList = [];\n\n  const getRepeatableWithoutPagination = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (\n        block.component.componentType === 'Repeatable' &&\n        !block.component.content.addOns?.page\n      ) {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedBlockIds = getRepeatableWithoutPagination(blocks);\n\n  if (failedBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: failedBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
-					"id":"{{ n_PQRFu.outputs.id }}",
 					"page":"{{ n_PQRFu.outputs.page }}"
 				}
 			},
@@ -792,7 +787,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Lzq6H@_z6eK1-1@y",
 			"id":"n_zSG09",
@@ -1069,7 +1064,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_qDjU3",
@@ -1110,7 +1105,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"n_I5HTd",
@@ -1240,7 +1235,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_qDjU3@_z6eK1-1@y",
 			"id":"_gcxxs",
@@ -1291,7 +1286,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
@@ -1335,5 +1330,5 @@
 	"tags":[
 		
 	],
-	"version":64
+	"version":65
 }
