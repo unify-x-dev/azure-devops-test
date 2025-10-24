@@ -18,12 +18,19 @@
 			"skip":false,
 			"toNodeId":"n_beruX",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_beruX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tajxB",
+			"type":"next"
 		}
 	],
 	"id":"68f8bd1999a9792739a8cb60",
 	"lastModifiedBy":59995,
 	"lcName":"test-excel-write",
-	"modifiedTime":1761304992114,
+	"modifiedTime":1761305150204,
 	"name":"test-excel-write",
 	"nodes":[
 		{
@@ -124,6 +131,46 @@
 			"subTitle":"Excel by UnifyApps",
 			"title":"Write data to Excel file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"notification_by_unifyapps",
+				"resourceVersion":932,
+				"resourceName":"notification_by_unifyapps_send_notification",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iArmL-1",
+			"id":"n_tajxB",
+			"index":4,
+			"inputs":{
+				"cta":{
+					"type":"url",
+					"width":{
+						"custom":"400px"
+					}
+				},
+				"receiver":[
+					"59995"
+				],
+				"receiverType":"USER",
+				"module":"automation",
+				"eventType":"workflow_alert",
+				"applicationId":"",
+				"notificationPreviewTime":5,
+				"content":{
+					"templateId":"e_export_entity_template",
+					"input_schema":{
+						"fileUrl":"{{ n_beruX.outputs.fileDetails.sourceType }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Notification by UnifyApps",
+			"title":"Send notification",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":59995,
@@ -143,5 +190,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
