@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761295092701,
+		"deployedAt":1761296245434,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fb3af47c0ee50198337e82",
+		"deployedDefinitionId":"68fb3f741fe3ef545fd9a0e0",
 		"status":"DEPLOYED",
-		"version":11,
-		"workflowVersion":24
+		"version":12,
+		"workflowVersion":25
 	},
 	"edges":[
 		{
@@ -99,29 +99,6 @@
 			"fromNodeId":"_gcxxs",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_G84mF",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_G84mF",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_WTHq0",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"_WTHq0",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_nQDPb",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_G84mF",
-			"name":"no",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_nQDPb",
 			"type":"next"
 		},
@@ -137,7 +114,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761296242401,
+	"modifiedTime":1761297190518,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -981,6 +958,14 @@
 									"id":{
 										"type":"string",
 										"title":"Id"
+									},
+									"version":{
+										"type":"integer",
+										"title":"Version"
+									},
+									"entityType":{
+										"type":"string",
+										"title":"entityType"
 									}
 								},
 								"additionalProperties":false,
@@ -1032,83 +1017,17 @@
 			"inputs":{
 				"itemToAdd":{
 					"entityVersion":"{{ n_PQRFu.outputs.data_sources[0].version }}",
-					"entityType":"{{ n_PQRFu.outputs.entityType }}",
-					"entityId":"{{ n_PQRFu.outputs.id }}",
+					"entityType":"{{ n_PQRFu.outputs.data_sources[0].entityType }}",
+					"entityId":"{{ n_PQRFu.outputs.data_sources[0].id }}",
 					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
-					"status":"{{ n_h8DaG.outputs.result.outputList[0].status }}",
+					"status":"{{ n_I5HTd.outputs.result.status }}",
 					"entities":{
-						"blockIds":{
-							"ua:type":"mappedArray",
+						"dataSources":{
 							"source":"{{ n_I5HTd.outputs.result.blocksIDs }}",
+							"ua:type":"mappedArray",
 							"items":"{{ n_I5HTd.outputs.result.blocksIDs[0] }}"
 						}
 					}
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"if_else",
-				"resourceVersion":791,
-				"resourceName":"if_else_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_qDjU3@_z6eK1-1@y",
-			"id":"_G84mF",
-			"index":11,
-			"inputs":{
-				"filters":[
-					{
-						"property":"=LEN({{ n_I5HTd.outputs.result }})",
-						"filter":{
-							"operator":"EQUAL",
-							"value":"0"
-						}
-					}
-				],
-				"operator":"AND"
-			},
-			"skip":false,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemToAdd.entities.blockIds.items",
-					"root.itemToAdd.entities.variables.items",
-					"root.itemToAdd.entities.functions.items",
-					"root.itemToAdd.entities.dataSources.items"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1028,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_G84mF@n_qDjU3@_z6eK1-1@y@y",
-			"id":"_WTHq0",
-			"index":12,
-			"inputs":{
-				"itemToAdd":{
-					"entityType":"{{ n_PQRFu.outputs.entityType }}",
-					"entityId":"{{ n_PQRFu.outputs.id }}",
-					"checkId":"{{ n_PQRFu.outputs.checks[0].checkId }}",
-					"status":"successful"
 				},
 				"insertLocation":"END",
 				"listName":"{{ n_R9Gq8.outputs.items[0] }}"
@@ -1130,7 +1049,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_z6eK1-1",
 			"id":"n_nQDPb",
-			"index":13,
+			"index":11,
 			"inputs":{
 				"result":{
 					"entityVersion":"{{ n_R9Gq8.outputs.items[0].entityVersion }}",
@@ -1170,5 +1089,5 @@
 	"tags":[
 		
 	],
-	"version":25
+	"version":26
 }
