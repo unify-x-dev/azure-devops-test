@@ -1,51 +1,97 @@
 {
 	"appsUsed":[
-		
+		"jira"
 	],
 	"createdTime":1761284847437,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_7SbUB",
+			"fromNodeId":"n_UqXBN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_5L0Zq",
+			"toNodeId":"n_6bhtD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_6bhtD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Tu73o",
 			"type":"next"
 		}
 	],
 	"id":"68fb12ef9bb45819e17a8f56",
 	"lastModifiedBy":186875,
 	"lcName":"test_auto",
-	"modifiedTime":1761284847437,
+	"modifiedTime":1761285903103,
 	"name":"test_auto",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1055,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_7SbUB-1",
-			"id":"_7SbUB",
-			"index":0,
+			"id":"n_UqXBN",
+			"index":1,
+			"inputs":{},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"jira",
+				"resourceVersion":2946,
+				"connectionId":"68fa3902e81605149bcc5b9b",
+				"resourceName":"jira_get_all_projects",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_7SbUB-1",
-			"id":"_5L0Zq",
-			"index":0,
+			"id":"n_6bhtD",
+			"index":2,
+			"inputs":{},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Jira",
+			"title":"Get all projects",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"jira",
+				"resourceVersion":2947,
+				"connectionId":"68fa3902e81605149bcc5b9b",
+				"resourceName":"jira_get_all_projects",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_7SbUB-1",
+			"id":"n_Tu73o",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Jira",
+			"title":"Get all projects",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":186875,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +105,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
