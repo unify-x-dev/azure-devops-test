@@ -96,7 +96,7 @@
 	"id":"68efc66991b109323d43759b",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb",
-	"modifiedTime":1761292229429,
+	"modifiedTime":1761292363569,
 	"name":"assignment_vb",
 	"nodes":[
 		{
@@ -347,6 +347,34 @@
 			"id":"n_OpnlC",
 			"index":8,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"top5ByBonus",
+						"top5LeastLeaves"
+					],
+					"properties":{
+						"top5ByBonus":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Top 5 By Bonus"
+						},
+						"top5LeastLeaves":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Top 5 Least Leaves"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -574,5 +602,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
