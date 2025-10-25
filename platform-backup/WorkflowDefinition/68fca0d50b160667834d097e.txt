@@ -138,6 +138,13 @@
 			"fromNodeId":"n_CwkwC",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_c9Z4u",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_c9Z4u",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -145,7 +152,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761387271379,
+	"modifiedTime":1761387281064,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -645,6 +652,31 @@
 		{
 			"context":{
 				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_c9Z4u",
+			"index":19,
+			"inputs":{
+				"automationId":"68fca08a0b160667834d0606",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
@@ -654,7 +686,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -683,5 +715,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
