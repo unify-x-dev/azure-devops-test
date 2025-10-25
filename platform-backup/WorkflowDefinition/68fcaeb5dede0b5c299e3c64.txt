@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"microsoft_fabric_data_lakehouse"
 	],
 	"createdTime":1761390261708,
 	"deleted":false,
@@ -9,14 +9,14 @@
 			"fromNodeId":"_1CszR",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Y6jUB",
+			"toNodeId":"n_jAKxP",
 			"type":"next"
 		}
 	],
 	"id":"68fcaeb5dede0b5c299e3c64",
 	"lastModifiedBy":100894,
 	"lcName":"jvh",
-	"modifiedTime":1761390261708,
+	"modifiedTime":1761399692368,
 	"name":"jvh",
 	"nodes":[
 		{
@@ -25,7 +25,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_1CszR-1",
 			"id":"_1CszR",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +34,32 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"microsoft_fabric_data_lakehouse",
+				"resourceVersion":16,
+				"connectionId":"68fcb848a8ce3f5297076806",
+				"resourceName":"microsoft_fabric_data_lakehouse_execute_graph_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1CszR-1",
-			"id":"_Y6jUB",
-			"index":0,
+			"id":"n_jAKxP",
+			"index":2,
+			"inputs":{
+				"workspaceId":"2fdd0698-e12a-40fd-8d81-da410b48ed55"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Microsoft Fabric Data Lakehouse",
+			"title":"Execute Graph API",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":100894,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +73,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
