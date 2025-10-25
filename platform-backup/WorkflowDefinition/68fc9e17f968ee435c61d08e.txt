@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"67f650d8f8038f3612dbce75"
+		"67f650d8f8038f3612dbce75",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761386007036,
 	"deleted":false,
@@ -25,12 +26,19 @@
 			"skip":false,
 			"toNodeId":"n_XBS5h",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XBS5h",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_swf1D",
+			"type":"next"
 		}
 	],
 	"id":"68fc9e17f968ee435c61d08e",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for saved version",
-	"modifiedTime":1761386183906,
+	"modifiedTime":1761386205009,
 	"name":"check dependencies for saved version",
 	"nodes":[
 		{
@@ -157,6 +165,37 @@
 			"subTitle":"Streams by UnifyApps",
 			"title":"Publish event to stream",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_swf1D",
+			"index":5,
+			"inputs":{
+				"object_type":"ChangeSetEzHUGtGhqYcEccaoRNkm",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":37018,
@@ -176,5 +215,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
