@@ -6,46 +6,74 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_FNcMj",
+			"fromNodeId":"n_ydLjX",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_vPkDN",
+			"toNodeId":"n_XVZJm",
 			"type":"next"
 		}
 	],
 	"id":"68fca6f282714d7b7f8278b3",
 	"lastModifiedBy":511,
 	"lcName":"triggerworkflow-1",
-	"modifiedTime":1761388274179,
+	"modifiedTime":1761388287551,
 	"name":"TriggerWorkflow-1",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_FNcMj-1",
-			"id":"_FNcMj",
-			"index":0,
+			"id":"n_ydLjX",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_FNcMj-1",
-			"id":"_vPkDN",
-			"index":0,
+			"id":"n_XVZJm",
+			"index":2,
+			"inputs":{
+				"automationId":"68fca0d50b160667834d097e",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":511,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +87,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
