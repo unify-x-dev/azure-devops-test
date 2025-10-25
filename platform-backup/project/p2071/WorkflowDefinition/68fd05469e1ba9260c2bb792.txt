@@ -1,48 +1,121 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761412422003,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_JiodF",
+			"fromNodeId":"n_3qj6b",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_5BFcl",
+			"toNodeId":"n_HV5q4",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HV5q4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KYrgH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_KYrgH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IaM8S",
 			"type":"next"
 		}
 	],
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761412428048,
+	"modifiedTime":1761412966368,
 	"name":"Assignment_2",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1060,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
-			"id":"_JiodF",
+			"id":"n_3qj6b",
 			"index":1,
+			"inputs":{},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":4413,
+				"connectionId":"68fd065c6a75bb47174efa30",
+				"resourceName":"gmail_list_emails",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
-			"id":"_5BFcl",
+			"id":"n_HV5q4",
 			"index":2,
+			"inputs":{
+				"count":5
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"List Emails",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":4042,
+				"connectionId":"68fd065c6a75bb47174efa30",
+				"resourceName":"gmail_get_message_specifics",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_JiodF-1",
+			"id":"n_KYrgH",
+			"index":3,
+			"inputs":{
+				"id":"{{ n_HV5q4.outputs.messages[0].id }}"
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Get message specifics",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_JiodF-1",
+			"id":"n_IaM8S",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":189756,
@@ -63,5 +136,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
