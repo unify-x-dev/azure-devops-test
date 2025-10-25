@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761388274179,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_FNcMj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_vPkDN",
+			"type":"next"
+		}
+	],
+	"id":"68fca6f282714d7b7f8278b3",
+	"lastModifiedBy":511,
+	"lcName":"triggerworkflow-1",
+	"modifiedTime":1761388274179,
+	"name":"TriggerWorkflow-1",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_FNcMj-1",
+			"id":"_FNcMj",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_FNcMj-1",
+			"id":"_vPkDN",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":511,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
