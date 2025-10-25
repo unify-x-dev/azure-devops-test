@@ -6,46 +6,95 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_iwFIS",
+			"fromNodeId":"n_FgZ6G",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_881G7",
+			"toNodeId":"n_Uc7B4",
 			"type":"next"
 		}
 	],
 	"id":"68fc9ee9f968ee435c61d3e0",
 	"lastModifiedBy":511,
 	"lcName":"executeworkflow-1",
-	"modifiedTime":1761386217706,
+	"modifiedTime":1761386416470,
 	"name":"executeWorkflow-1",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1060,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iwFIS-1",
-			"id":"_iwFIS",
-			"index":0,
+			"id":"n_FgZ6G",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"a"
+					],
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"a"
+					],
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iwFIS-1",
-			"id":"_881G7",
-			"index":0,
+			"id":"n_Uc7B4",
+			"index":2,
+			"inputs":{
+				"result":{
+					"a":"{{ n_FgZ6G.outputs.a }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":511,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +108,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
