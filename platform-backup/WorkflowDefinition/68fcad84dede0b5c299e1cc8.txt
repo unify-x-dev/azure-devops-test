@@ -23,6 +23,13 @@
 			"fromNodeId":"n_u2GsM",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_X4F6n",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_X4F6n",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6OuEr",
 			"type":"next"
 		}
@@ -30,7 +37,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check score",
-	"modifiedTime":1761391735650,
+	"modifiedTime":1761394014353,
 	"name":"Best Practices | Check Score",
 	"nodes":[
 		{
@@ -157,6 +164,58 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1025,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"n_X4F6n",
+			"index":4,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"reports":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"reports"
+						},
+						"checks":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"checks"
+						},
+						"category":{
+							"type":"string",
+							"title":"category"
+						}
+					}
+				},
+				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    def relevantChecks = category ? checks.findAll { it.properties.category == category } : checks\n    if (!relevantChecks) return [category: category ?: \"all\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.properties.checkId) }\n    if (!filteredReports) return [category: category ?: \"all\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    def passedCount = filteredReports.count { it.properties.status == 'passed' }\n    def passPercentage = (passedCount / filteredReports.size()) * 100\n\n    return [\n        category: category ?: \"all\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\n",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -167,7 +226,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
-			"index":4,
+			"index":5,
 			"inputs":{},
 			"skip":false,
 			"subTitle":"Callable",
@@ -192,5 +251,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
