@@ -6,46 +6,99 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_RL5Oj",
+			"fromNodeId":"n_crdkx",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_E9lYN",
+			"toNodeId":"n_lUIdx",
 			"type":"next"
 		}
 	],
 	"id":"68fc52a2058e4477a11b5bd8",
 	"lastModifiedBy":108247,
 	"lcName":"test",
-	"modifiedTime":1761366690798,
+	"modifiedTime":1761372261386,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RL5Oj-1",
-			"id":"_RL5Oj",
-			"index":0,
+			"id":"n_crdkx",
+			"index":1,
 			"skip":false,
+			"subTitle":"Callable",
 			"title":"Select a trigger event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":951,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RL5Oj-1",
-			"id":"_E9lYN",
-			"index":0,
+			"id":"n_lUIdx",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"result":{
+							"type":"object",
+							"properties":{
+								"result":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{
+											"column_number":{
+												"type":"integer",
+												"title":"column_number"
+											},
+											"column_name":{
+												"type":"string",
+												"title":"column_name"
+											},
+											"formula":{
+												"type":"string",
+												"title":"formula"
+											}
+										},
+										"additionalProperties":false
+									},
+									"title":"result"
+								}
+							},
+							"title":"result",
+							"additionalProperties":false
+						}
+					}
+				},
+				"code":"function parseColumns() {\n  const text = `\nColumn 1: FW29 Gross Margin 2023 Dollar Formula: =IFERROR(VALUE([2023 FW29 Sales $])-VALUE([2023 FW29 COGS $]),\"\")\nColumn 2: FW30 Gross Margin 2023 Dollar Formula: =IFERROR(VALUE([2023 FW30 Sales $])-VALUE([2023 FW30 COGS $]),\"\")\nColumn 10: FW29 Gross Margin 2023 Percent Formula: =IFERROR(IF(VALUE([2023 FW29 Sales $])>0,(VALUE([2023 FW29 Sales $])-VALUE([2023 FW29 COGS $]))/VALUE([2023 FW29 Sales $]),\"\"),\"\")\n  `;\n\n  const regex = /Column (\\d+): ([\\s\\S]*?) Formula: ([\\s\\S]*?)(?=\\nColumn \\d+:|$)/g;\n\n  const records = [];\n  let match;\n\n  while ((match = regex.exec(text)) !== null) {\n    records.push({\n      column_number: parseInt(match[1], 10),\n      column_name: match[2].trim(),\n      formula: match[3].trim(),\n    });\n  }\n\n  return { result: records };\n}\n\n// ✅ Call the function to get output\nparseColumns();\n",
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Javascript",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":108247,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +112,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
