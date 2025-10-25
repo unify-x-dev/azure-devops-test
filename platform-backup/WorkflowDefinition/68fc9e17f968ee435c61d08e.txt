@@ -33,12 +33,19 @@
 			"skip":false,
 			"toNodeId":"n_swf1D",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_swf1D",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jdXHr",
+			"type":"next"
 		}
 	],
 	"id":"68fc9e17f968ee435c61d08e",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for saved version",
-	"modifiedTime":1761386205009,
+	"modifiedTime":1761386260405,
 	"name":"check dependencies for saved version",
 	"nodes":[
 		{
@@ -48,7 +55,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_xp4zQ",
@@ -75,7 +82,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_wqGgG",
@@ -97,7 +104,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_Z8LEA",
@@ -152,7 +159,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_XBS5h",
@@ -174,7 +181,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_swf1D",
@@ -196,6 +203,31 @@
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_jdXHr",
+			"index":6,
+			"inputs":{
+				"automationId":"68fc2540d2a77a3080f83bae",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":37018,
@@ -215,5 +247,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
