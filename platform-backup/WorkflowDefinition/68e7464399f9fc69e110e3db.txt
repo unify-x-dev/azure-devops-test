@@ -5,12 +5,12 @@
 	"createdTime":1759987267245,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761219827119,
-		"deployedBy":45011,
-		"deployedDefinitionId":"68fa14f22f9999274c826ace",
+		"deployedAt":1761393301123,
+		"deployedBy":178108,
+		"deployedDefinitionId":"68fcba95dede0b5c299e8b06",
 		"status":"DEPLOYED",
-		"version":22,
-		"workflowVersion":97
+		"version":23,
+		"workflowVersion":98
 	},
 	"edges":[
 		{
@@ -840,7 +840,7 @@
 	"id":"68e7464399f9fc69e110e3db",
 	"lastModifiedBy":178108,
 	"lcName":"[dnt] multi tenancy | move all assets",
-	"modifiedTime":1761393297564,
+	"modifiedTime":1761401430319,
 	"name":"[DNT] Multi Tenancy | Move All assets",
 	"nodes":[
 		{
@@ -2085,7 +2085,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@1",
 			"id":"_XNmSH",
@@ -2119,7 +2119,7 @@
 						}
 					}
 				},
-				"code":"def csAssetClassList = [\n  \"ai_agent\",\n  \"ai_agent_llm_model\",\n  \"e_action_ai_agent\",\n  \"e_ai_team_task\",\n  \"e_business_holiday\",\n  \"e_business_hours\",\n  \"e_campaign\",\n  \"e_code_snippet\",\n  \"e_decision_table\",\n  \"e_env_variables\",\n  \"e_interface\",\n  \"e_java_archive\",\n  \"e_masking_config\",\n  \"e_masking_keys\",\n  \"e_on_prem_agent\",\n  \"e_on_prem_group\",\n  \"e_platform_navigation\",\n  \"e_python_function\",\n  \"e_streams\",\n  \"e_template\",\n  \"e_topic_ai_agent\",\n  \"gaurd_rail\",\n  \"knowledge\"\n]\n\nreturn [\n  \"filter\" : [\n    \"op\" : \"IN\",\n    \"field\": \"id\",\n    \"values\" : csAssetClassList\n  ]\n]\n",
+				"code":"def csAssetClassList = [\n  \"ai_agent\",\n  \"ai_agent_llm_model\",\n  \"e_action_ai_agent\",\n  \"e_ai_team_task\",\n  \"e_business_holiday\",\n  \"e_business_hours\",\n  \"e_campaign\",\n  \"e_code_snippet\",\n  \"e_decision_table\",\n  \"e_env_variables\",\n  \"e_interface\",\n  \"e_java_archive\",\n  \"e_masking_config\",\n  \"e_masking_keys\",\n  \"e_on_prem_agent\",\n  \"e_on_prem_group\",\n  \"e_platform_navigation\",\n  \"e_python_function\",\n  \"e_streams\",\n  \"e_template\",\n  \"e_topic_ai_agent\",\n  \"gaurd_rail\"\n]\n\nreturn [\n  \"filter\" : [\n    \"op\" : \"IN\",\n    \"field\": \"id\",\n    \"values\" : csAssetClassList\n  ]\n]\n",
 				"compile_static":false,
 				"captureStdOutput":false
 			},
@@ -2837,7 +2837,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_hysoc@_3cmKd@_CIVBa@n_6tLoP@_WUbts-1@1@l@l@3",
 			"id":"_6ozji",
@@ -2914,7 +2914,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_hysoc@_3cmKd@_CIVBa@n_6tLoP@_WUbts-1@1@l@l@3",
 			"id":"_hLanm",
@@ -3524,7 +3524,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@2",
 			"id":"n_ShZqU",
@@ -6147,5 +6147,5 @@
 	"tags":[
 		
 	],
-	"version":98
+	"version":99
 }
