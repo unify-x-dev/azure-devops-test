@@ -30,7 +30,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761413024584,
+	"modifiedTime":1761413629609,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -40,7 +40,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_3qj6b",
@@ -77,7 +77,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_HV5q4",
@@ -93,9 +93,9 @@
 		{
 			"context":{
 				"appName":"gmail",
-				"resourceVersion":4042,
+				"resourceVersion":5642,
 				"connectionId":"68fd065c6a75bb47174efa30",
-				"resourceName":"gmail_get_message_specifics",
+				"resourceName":"gmail_get_message",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -105,11 +105,12 @@
 			"id":"n_KYrgH",
 			"index":3,
 			"inputs":{
-				"id":"{{ n_HV5q4.outputs.messages }}"
+				"format":"raw",
+				"id":"{{ n_HV5q4.outputs.messages[0].id }}"
 			},
 			"skip":false,
 			"subTitle":"Gmail",
-			"title":"Get message specifics",
+			"title":"Get message",
 			"type":"ACTION"
 		},
 		{
@@ -120,7 +121,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
@@ -154,5 +155,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
