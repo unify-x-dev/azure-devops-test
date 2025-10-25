@@ -6,46 +6,393 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_bp2hO",
+			"fromNodeId":"n_87S97",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_cwQdn",
+			"toNodeId":"n_vdNaZ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vdNaZ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_q74kR",
+			"type":"scope"
+		},
+		{
+			"fromNodeId":"n_q74kR",
+			"name":"scope-loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vdNaZ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vdNaZ",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oLOQK",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"n_vdNaZ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tCgZS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oLOQK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tCgZS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CLAQU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tCgZS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tCgZS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CLAQU",
+			"type":"scope"
+		},
+		{
+			"fromNodeId":"n_tCgZS",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LQCyP",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"n_tCgZS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1WmX3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LQCyP",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1WmX3",
 			"type":"next"
 		}
 	],
 	"id":"68fca2060b160667834d17bf",
 	"lastModifiedBy":569,
 	"lcName":"test-scope",
-	"modifiedTime":1761387014442,
+	"modifiedTime":1761387111317,
 	"name":"test-scope",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_bp2hO-1",
-			"id":"_bp2hO",
-			"index":0,
+			"id":"n_87S97",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"scope",
+				"resourceVersion":289,
+				"resourceName":"scope_trigger_scope",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
+			"fallbackMode":"MANUAL",
+			"groupId":"_bp2hO-1",
+			"id":"n_vdNaZ",
+			"index":2,
+			"inputs":{},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Scope",
+			"title":"Trigger Scope",
+			"type":"SCOPE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1078,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION",
+				"scopeNodeId":"n_vdNaZ"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_vdNaZ@_bp2hO-1@s",
+			"id":"n_q74kR",
+			"index":3,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"xsc":{
+							"type":"string",
+							"title":"Xsc"
+						}
+					},
+					"required":[
+						"xsc"
+					]
+				}
+			},
+			"inputs":{
+				"xsc":"sxdc"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"xsc":{
+							"type":"string",
+							"title":"Xsc"
+						}
+					},
+					"required":[
+						"xsc"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"scope",
+				"resourceVersion":289,
+				"resourceName":"scope_trigger_scope",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"MANUAL",
+			"groupId":"_bp2hO-1",
+			"id":"n_tCgZS",
+			"index":4,
+			"inputs":{},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Scope",
+			"title":"Trigger Scope",
+			"type":"SCOPE"
+		},
+		{
+			"context":{
+				"appName":"test_http",
+				"resourceVersion":3677,
+				"connectionId":"66b0ee649c311126267a17b7",
+				"resourceName":"test_http_post_api",
+				"type":"APPLICATION",
+				"scopeNodeId":"n_tCgZS"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_tCgZS@_bp2hO-1@s",
+			"id":"n_CLAQU",
+			"index":5,
+			"inputs":{
+				"field1":"sdcf",
+				"field2":true
+			},
+			"skip":false,
+			"subTitle":"Test HTTP API",
+			"title":"Test HTTP Post API",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_bp2hO-1",
-			"id":"_cwQdn",
-			"index":0,
+			"id":"n_1WmX3",
+			"index":6,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_tCgZS@_bp2hO-1@error",
+			"id":"n_LQCyP",
+			"index":7,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_vdNaZ@_bp2hO-1@error",
+			"id":"n_oLOQK",
+			"index":8,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":569,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +406,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
