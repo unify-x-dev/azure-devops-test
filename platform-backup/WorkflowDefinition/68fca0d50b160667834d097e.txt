@@ -1,16 +1,17 @@
 {
 	"appsUsed":[
+		"slack",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761386709219,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761386775591,
+		"deployedAt":1761386804349,
 		"deployedBy":511,
-		"deployedDefinitionId":"68fca1170b160667834d0cd5",
+		"deployedDefinitionId":"68fca1340b160667834d0e3e",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -31,6 +32,13 @@
 			"fromNodeId":"n_S671S",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_C4CYB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_C4CYB",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -38,7 +46,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761386802990,
+	"modifiedTime":1761386833668,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -139,6 +147,29 @@
 		},
 		{
 			"context":{
+				"appName":"slack",
+				"resourceVersion":6345,
+				"connectionId":"68f81bf3a46a456d73b2cb46",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_C4CYB",
+			"index":4,
+			"inputs":{
+				"link_names":true,
+				"mrkdwn":true
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Post message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -149,7 +180,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -178,5 +209,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
