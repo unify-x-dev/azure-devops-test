@@ -38,6 +38,20 @@
 			"fromNodeId":"n_swf1D",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_8d9P4",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8d9P4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_xcBFU",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_xcBFU",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_jdXHr",
 			"type":"next"
 		},
@@ -59,7 +73,7 @@
 	"id":"68fca4a20b160667834d3ca7",
 	"lastModifiedBy":37018,
 	"lcName":"callable check dependencies for deployed version (copy) (copy)",
-	"modifiedTime":1761387805216,
+	"modifiedTime":1761387942567,
 	"name":"callable check dependencies for deployed version (copy) (copy)",
 	"nodes":[
 		{
@@ -243,6 +257,49 @@
 		},
 		{
 			"context":{
+				"appName":"decision_table_by_unifyapps",
+				"resourceVersion":897,
+				"resourceName":"decision_table_by_unifyapps_execute_table",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_8d9P4",
+			"index":6,
+			"inputs":{
+				"responseType":"FINAL_MATCH",
+				"entityId":"e_68faaafe205ddf61d20c62eb"
+			},
+			"skip":false,
+			"subTitle":"Decision Table by UnifyApps",
+			"title":"Execute a Decision Table",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"template_by_unifyapps",
+				"resourceVersion":949,
+				"resourceName":"template_by_unifyapps_compile_template",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_xcBFU",
+			"index":7,
+			"inputs":{
+				"template_id":"e_68fc22343187ab108d173448"
+			},
+			"skip":false,
+			"subTitle":"Template by UnifyApps",
+			"title":"Compile template",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1116,
 				"resourceName":"callables_call_automation",
@@ -253,7 +310,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_jdXHr",
-			"index":6,
+			"index":8,
 			"inputs":{
 				"automationId":"68fc2540d2a77a3080f83bae",
 				"runtimeConnections":{},
@@ -278,7 +335,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_aPspO",
-			"index":7,
+			"index":9,
 			"inputs":{
 				"automationId":"68fc9f360b160667834cf795",
 				"runtimeConnections":{},
@@ -358,7 +415,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_9Kh9I",
-			"index":8,
+			"index":10,
 			"inputs":{
 				"result":{
 					"b":"bvc"
@@ -387,5 +444,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
