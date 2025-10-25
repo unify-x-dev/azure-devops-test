@@ -37,7 +37,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761414536341,
+	"modifiedTime":1761414627618,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -141,28 +141,47 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"preview":{
-							"type":"string",
-							"title":"Preview"
-						},
-						"name":{
-							"type":"string",
-							"title":"Name"
-						},
 						"value":{
 							"type":"string",
 							"title":"Value"
+						},
+						"header":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"value":{
+										"type":"string",
+										"title":"Value"
+									}
+								},
+								"additionalProperties":false,
+								"required":[
+									"name",
+									"value"
+								]
+							},
+							"title":"Header"
 						}
 					},
 					"required":[
-						"name",
-						"value"
+						"value",
+						"header"
 					]
 				}
 			},
 			"inputs":{
-				"preview":"{{ n_KYrgH.outputs.snippet }}",
-				"name":"{{ n_KYrgH.outputs.payload.headers[0].name }}",
+				"header":{
+					"source":"{{ n_KYrgH.outputs.payload.headers }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}"
+					}
+				},
 				"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}"
 			},
 			"outputSchema":{
@@ -171,22 +190,36 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"preview":{
-							"type":"string",
-							"title":"Preview"
-						},
-						"name":{
-							"type":"string",
-							"title":"Name"
-						},
 						"value":{
 							"type":"string",
 							"title":"Value"
+						},
+						"header":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"value":{
+										"type":"string",
+										"title":"Value"
+									}
+								},
+								"additionalProperties":false,
+								"required":[
+									"name",
+									"value"
+								]
+							},
+							"title":"Header"
 						}
 					},
 					"required":[
-						"name",
-						"value"
+						"value",
+						"header"
 					]
 				}
 			},
@@ -237,5 +270,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
