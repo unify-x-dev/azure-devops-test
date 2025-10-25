@@ -6,46 +6,113 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_vqMOh",
+			"fromNodeId":"n_y9HCR",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_rlmIf",
+			"toNodeId":"n_8qLe8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8qLe8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AcG13",
 			"type":"next"
 		}
 	],
 	"id":"68fc6e21f0707c78126694ea",
 	"lastModifiedBy":124029,
 	"lcName":"test",
-	"modifiedTime":1761373729371,
+	"modifiedTime":1761374114659,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vqMOh-1",
-			"id":"_vqMOh",
-			"index":0,
+			"id":"n_y9HCR",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":871,
+				"resourceName":"excel_by_unifyapps_create_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vqMOh-1",
-			"id":"_rlmIf",
-			"index":0,
+			"id":"n_8qLe8",
+			"index":2,
+			"inputs":{
+				"fileName":"Sample",
+				"fileType":"xlsx"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Excel by UnifyApps",
+			"title":"Create an excel file",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.formulas.items.column",
+					"root.formulas.items.header"
+				]
+			},
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":45,
+				"resourceName":"excel_by_unifyapps_add_columns_with_formulas",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_vqMOh-1",
+			"id":"n_AcG13",
+			"index":3,
+			"inputs":{
+				"evaluateFormulas":false,
+				"fileDetails":"{{ n_8qLe8.outputs.fileDetails }}",
+				"formulas":[
+					{
+						"column":"A",
+						"header":"Name"
+					}
+				],
+				"keepExactFileName":false
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Add Columns with Formulas to Excel",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":124029,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +126,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
