@@ -2,6 +2,7 @@
 	"appsUsed":[
 		"67f650d8f8038f3612dbce75",
 		"68fc1510f0f3384b1821d378",
+		"slack",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761386506102,
@@ -61,6 +62,13 @@
 			"fromNodeId":"n_swf1D",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_XVvWg",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XVvWg",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_jdXHr",
 			"type":"next"
 		},
@@ -75,7 +83,7 @@
 	"id":"68fca00a0b160667834cffe8",
 	"lastModifiedBy":37018,
 	"lcName":"webhook check dependencies for deployed version (copy)",
-	"modifiedTime":1761386941273,
+	"modifiedTime":1761387008298,
 	"name":"webhook check dependencies for deployed version (copy)",
 	"nodes":[
 		{
@@ -281,6 +289,29 @@
 		},
 		{
 			"context":{
+				"appName":"slack",
+				"resourceVersion":3621,
+				"connectionId":"68fc1a0c177d70447bebfe15",
+				"resourceName":"slack_list_users",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_XVvWg",
+			"index":8,
+			"inputs":{
+				"limit":100,
+				"include_locale":false
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"List users",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1116,
 				"resourceName":"callables_call_automation",
@@ -291,7 +322,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_jdXHr",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"automationId":"68fc2540d2a77a3080f83bae",
 				"runtimeConnections":{},
@@ -316,7 +347,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_aPspO",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"automationId":"68fc9f360b160667834cf795",
 				"runtimeConnections":{},
@@ -402,5 +433,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
