@@ -1,51 +1,124 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761386709219,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_oXLGL",
+			"fromNodeId":"n_rNSgs",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_bXf3r",
+			"toNodeId":"n_2Whyk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2Whyk",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
 	],
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761386709219,
+	"modifiedTime":1761386773930,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1060,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
-			"id":"_oXLGL",
-			"index":0,
+			"id":"n_rNSgs",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"var"
+					],
+					"properties":{
+						"var":{
+							"type":"string",
+							"title":"Var"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4578,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
-			"id":"_bXf3r",
-			"index":0,
+			"id":"n_2Whyk",
+			"index":2,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"dnt_anlaytics_object",
+				"skipIfBlank":false,
+				"record":{
+					"Name":"qw",
+					"Age":12,
+					"Profession":"as",
+					"Rank":1,
+					"Id":1
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_6Ee4k",
+			"index":3,
+			"inputs":{
+				"result":{
+					"var":"cool"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":511,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +132,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
