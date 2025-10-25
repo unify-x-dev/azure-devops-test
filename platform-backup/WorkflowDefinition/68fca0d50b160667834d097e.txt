@@ -7,12 +7,12 @@
 	"createdTime":1761386709219,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761386904967,
+		"deployedAt":1761386924289,
 		"deployedBy":511,
-		"deployedDefinitionId":"68fca1980b160667834d12b5",
+		"deployedDefinitionId":"68fca1ac0b160667834d1380",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":4
+		"version":5,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
@@ -54,6 +54,13 @@
 			"fromNodeId":"n_dZsnv",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_dUqY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dUqY6",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -61,7 +68,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761386922531,
+	"modifiedTime":1761387034976,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -225,6 +232,30 @@
 		{
 			"context":{
 				"appName":"callables",
+				"resourceVersion":1061,
+				"resourceName":"callables_call_interface",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_dUqY6",
+			"index":7,
+			"inputs":{
+				"callableInterfaceId":"675ebde6ff5f7c09416c6231",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"DEFAULT"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call interface",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
@@ -234,7 +265,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -263,5 +294,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
