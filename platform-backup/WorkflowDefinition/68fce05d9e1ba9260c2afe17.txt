@@ -68,21 +68,21 @@
 			"fromNodeId":"_im8Th",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8l4q3",
+			"toNodeId":"n_HPBH8",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_ASiPq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8l4q3",
+			"toNodeId":"n_HPBH8",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_mO25t",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8l4q3",
+			"toNodeId":"n_HPBH8",
 			"type":"next"
 		},
 		{
@@ -90,28 +90,14 @@
 			"name":"default",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8l4q3",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_8l4q3",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_2zbro",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_2zbro",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_HPBH8",
-			"type":"next"
+			"type":"branch"
 		}
 	],
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761403214448,
+	"modifiedTime":1761403350407,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -511,69 +497,6 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.record.fileDetails.name",
-					"root.record.fileDetails.source",
-					"root.record.fileDetails.sourceType",
-					"root.record.fileDetails.fileType",
-					"root.record.fileDetails.size"
-				]
-			},
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4527,
-				"resourceName":"storage_by_unifyapps_create_record",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_kdzrB-1",
-			"id":"n_8l4q3",
-			"index":10,
-			"inputs":{
-				"writeThroughSessionVariables":false,
-				"object_type":"e_tcc",
-				"skipIfBlank":false,
-				"record":{
-					"fileDetails":{
-						"name":"{{ n_UcSUx.outputs.fileDetails[0].name }}",
-						"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
-						"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
-						"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}",
-						"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}"
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Create record",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1034,
-				"resourceName":"utility_by_unifyapps_generate_public_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_kdzrB-1",
-			"id":"n_2zbro",
-			"index":11,
-			"inputs":{
-				"file":"{{ n_8l4q3.outputs.properties.fileDetails }}",
-				"expiryTime":1
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Generate public file URL",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
 					"root.result.aiJustification",
 					"root.result.status",
 					"root.result.userCommentConsistency"
@@ -590,7 +513,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdzrB-1",
 			"id":"n_HPBH8",
-			"index":12,
+			"index":10,
 			"inputs":{
 				"result":{
 					"result":"200"
@@ -619,5 +542,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
