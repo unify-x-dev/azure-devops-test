@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"coupa"
 	],
 	"createdTime":1761388484228,
 	"deleted":false,
@@ -9,14 +9,14 @@
 			"fromNodeId":"_pqAlo",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_7CVxQ",
+			"toNodeId":"n_vYhB2",
 			"type":"next"
 		}
 	],
 	"id":"68fca7c4ec6071110b7fe27a",
-	"lastModifiedBy":33167,
+	"lastModifiedBy":2621,
 	"lcName":"jh",
-	"modifiedTime":1761388484228,
+	"modifiedTime":1761389687988,
 	"name":"jh",
 	"nodes":[
 		{
@@ -25,7 +25,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_pqAlo-1",
 			"id":"_pqAlo",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +34,31 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":809,
+				"resourceName":"coupa_get_invoice",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pqAlo-1",
-			"id":"_7CVxQ",
-			"index":0,
+			"id":"n_vYhB2",
+			"index":2,
+			"inputs":{
+				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Coupa",
+			"title":"Get invoice",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33167,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +72,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
