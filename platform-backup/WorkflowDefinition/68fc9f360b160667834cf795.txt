@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761386294350,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_CDrt4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ZeLvd",
+			"type":"next"
+		}
+	],
+	"id":"68fc9f360b160667834cf795",
+	"lastModifiedBy":37018,
+	"lcName":"automation_with_business_hours",
+	"modifiedTime":1761386294350,
+	"name":"automation_with_business_hours",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_CDrt4-1",
+			"id":"_CDrt4",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_CDrt4-1",
+			"id":"_ZeLvd",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":37018,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
