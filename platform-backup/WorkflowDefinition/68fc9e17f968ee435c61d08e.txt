@@ -1,51 +1,77 @@
 {
 	"appsUsed":[
-		
+		"67f650d8f8038f3612dbce75"
 	],
 	"createdTime":1761386007036,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_mnkFD",
+			"fromNodeId":"n_xp4zQ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_XaEib",
+			"toNodeId":"n_wqGgG",
 			"type":"next"
 		}
 	],
 	"id":"68fc9e17f968ee435c61d08e",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for saved version",
-	"modifiedTime":1761386007036,
+	"modifiedTime":1761386139915,
 	"name":"check dependencies for saved version",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
-			"id":"_mnkFD",
-			"index":0,
+			"id":"n_xp4zQ",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"67f650d8f8038f3612dbce75",
+				"resourceVersion":2322,
+				"connectionId":"67f650eff8038f3612dbce8a",
+				"resourceName":"67f650d8f8038f3612dbce75:67f650def8038f3612dbce7e",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
-			"id":"_XaEib",
-			"index":0,
+			"id":"n_wqGgG",
+			"index":2,
+			"inputs":{
+				"types":"abc",
+				"limit":"abc"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"DND_ConnectorSdk_slack123",
+			"title":"List conversations",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":37018,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +85,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
