@@ -8,12 +8,12 @@
 	"createdTime":1761382133945,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761382405148,
+		"deployedAt":1761383784643,
 		"deployedBy":33877,
-		"deployedDefinitionId":"68fc9002e0ea8817c4988cd0",
+		"deployedDefinitionId":"68fc95684ea8b501d7fa14fb",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":4
+		"version":2,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
@@ -62,6 +62,13 @@
 			"fromNodeId":"_Ekkp1",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_fmBgW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fmBgW",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_DMyeX",
 			"type":"next"
 		},
@@ -104,7 +111,7 @@
 	"id":"68fc8ef5e0ea8817c49882b3",
 	"lastModifiedBy":33877,
 	"lcName":"test",
-	"modifiedTime":1761383782099,
+	"modifiedTime":1761385028776,
 	"name":"test",
 	"nodes":[
 		{
@@ -212,7 +219,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_Lqfth",
@@ -346,6 +353,38 @@
 		{
 			"context":{
 				"appName":"microsoft_teams",
+				"resourceVersion":386,
+				"connectionId":"68a85b8308b8b42a8fa36a80",
+				"resourceName":"microsoft_teams_invite_participants",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_fmBgW",
+			"index":8,
+			"inputs":{
+				"participants":{
+					"items":{
+						"identity":{
+							"user":{
+								"displayName":"{{ _Ekkp1.outputs.targets[0].identity.user.displayName }}",
+								"id":"{{ _Ekkp1.outputs.targets[0].identity.user.id }}"
+							}
+						}
+					},
+					"ua:type":"mappedArray"
+				}
+			},
+			"skip":false,
+			"subTitle":"Microsoft Teams",
+			"title":"Invite participants",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"microsoft_teams",
 				"resourceVersion":4,
 				"connectionId":"68a85b8308b8b42a8fa36a80",
 				"resourceName":"microsoft_teams_get_call",
@@ -356,7 +395,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_DMyeX",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"callId":"{{ _Ekkp1.outputs.id }}"
 			},
@@ -377,7 +416,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_lXlH6",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"code":"sleep(180000)\n//Wait time for 3 min",
 				"compile_static":false,
@@ -400,7 +439,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_aSAqb",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"meetingUrl":"{{ n_Lqfth.outputs.joinWebUrl }}"
 			},
@@ -421,7 +460,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_nqB3n",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"automationId":"68b962c8e4492b2af300db51",
 				"runtimeConnections":{},
@@ -450,7 +489,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_JP691",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"link_names":true,
 				"messageType":"text",
@@ -481,7 +520,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_u0Ivp",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"participants":[
 					{
@@ -518,5 +557,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
