@@ -37,7 +37,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761414627618,
+	"modifiedTime":1761414655042,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -179,7 +179,8 @@
 					"source":"{{ n_KYrgH.outputs.payload.headers }}",
 					"ua:type":"mappedArray",
 					"items":{
-						"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}"
+						"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}",
+						"name":"{{ n_KYrgH.outputs.payload.headers[0].name }}"
 					}
 				},
 				"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}"
@@ -270,5 +271,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
