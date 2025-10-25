@@ -91,7 +91,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761414255711,
+	"modifiedTime":1761414418808,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -270,7 +270,7 @@
 					},
 					{
 						"key":"__UA_STREAM_HEADER__REASON",
-						"value":"{{ n_tXZXi.outputs.item.event.reason }}"
+						"value":"{{ n_tXZXi.outputs.item.event.dlqReason }}"
 					}
 				],
 				"streamId":"{{ n_f5nAn.outputs.parentStreamId }}",
@@ -444,5 +444,5 @@
 	"tags":[
 		
 	],
-	"version":30
+	"version":31
 }
