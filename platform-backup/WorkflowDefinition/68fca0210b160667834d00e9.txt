@@ -4,9 +4,24 @@
 	],
 	"createdTime":1761386529037,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761391375761,
+		"deployedBy":511,
+		"deployedDefinitionId":"68fcb30fb0372243a7abfc2c",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_FgZ6G",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IrXrY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_IrXrY",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Uc7B4",
@@ -16,7 +31,7 @@
 	"id":"68fca0210b160667834d00e9",
 	"lastModifiedBy":511,
 	"lcName":"executeworkflow-4",
-	"modifiedTime":1761391374452,
+	"modifiedTime":1761391469517,
 	"name":"executeWorkflow-4",
 	"nodes":[
 		{
@@ -70,6 +85,31 @@
 		{
 			"context":{
 				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iwFIS-1",
+			"id":"n_IrXrY",
+			"index":2,
+			"inputs":{
+				"automationId":"68fc01fa2fb0a348488fe3be",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
@@ -79,7 +119,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_iwFIS-1",
 			"id":"n_Uc7B4",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"result":{
 					"a":"{{ n_FgZ6G.outputs.a }}"
@@ -108,5 +148,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
