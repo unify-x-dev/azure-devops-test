@@ -1,51 +1,467 @@
 {
 	"appsUsed":[
-		
+		"gmail",
+		"microsoft_teams",
+		"slack",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761382133945,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_rNZnj",
+			"fromNodeId":"n_tQyYm",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_tjCcH",
+			"toNodeId":"n_SK8jE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_SK8jE",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nbR9I",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_nbR9I",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Lqfth",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Lqfth",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YiU2o",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_YiU2o",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Fulsh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Fulsh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Ekkp1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Ekkp1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_DMyeX",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_DMyeX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_lXlH6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_lXlH6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aSAqb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_aSAqb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_JP691",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_JP691",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_u0Ivp",
 			"type":"next"
 		}
 	],
 	"id":"68fc8ef5e0ea8817c49882b3",
 	"lastModifiedBy":33877,
 	"lcName":"test",
-	"modifiedTime":1761382133945,
+	"modifiedTime":1761382271421,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
-			"id":"_rNZnj",
-			"index":0,
+			"id":"n_tQyYm",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":2,
+				"connectionId":"68fbb4c4bc029c1b1b80faef",
+				"resourceName":"gmail_send_email",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
-			"id":"_tjCcH",
-			"index":0,
+			"id":"n_SK8jE",
+			"index":2,
+			"inputs":{
+				"email_type":"text",
+				"subject":"Incident Alert - ",
+				"fromName":"Indusind Incident Bot",
+				"to":[
+					"manoj.kumar@unifyapps.com"
+				],
+				"message":"Ticket Number - \nReported Date & Time - \nPotential Priority - \nImpacted Application Name - \nIncident Description & Error - \nBusiness Impact - \nContact Name/Number - "
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"Send email",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_nbR9I",
+			"index":3,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_Priority",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"Incident"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"incident_manager_names_ms_teams",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"microsoft_teams",
+				"resourceVersion":13,
+				"connectionId":"68bd999e6f898110d4014177",
+				"resourceName":"microsoft_teams_create_meeting",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_Lqfth",
+			"index":4,
+			"inputs":{
+				"subject":"Critical Issue relating to ",
+				"joinMeetingIdSettings":{
+					"isPasscodeRequired":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Microsoft Teams",
+			"title":"Create meeting",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"meeting_bot_by_unifyapps",
+				"resourceVersion":40,
+				"resourceName":"meeting_bot_by_unifyapps_join_meeting",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_YiU2o",
+			"index":5,
+			"inputs":{
+				"botName":"UnifyApps",
+				"meetingUrl":"{{ n_Lqfth.outputs.joinWebUrl }}"
+			},
+			"skip":false,
+			"subTitle":"Meeting bot by UnifyApps",
+			"title":"Join meeting",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":1826,
+				"connectionId":"68fc5e882252c93e1983af43",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_Fulsh",
+			"index":6,
+			"inputs":{
+				"link_names":true,
+				"messageType":"text",
+				"Attach":[
+					{}
+				],
+				"channel":"C08DALZ4XEX",
+				"reply_broadcast":true,
+				"unfurl_links":true,
+				"text":"A bridge call has been initiated regarding {{ n_Lqfth.outputs.subject }} pls join{{ n_Lqfth.outputs.joinWebUrl }}",
+				"mrkdwn":true,
+				"username":"Incident Management"
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Post message",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.targets.items.identity.user.displayName",
+					"root.targets.items.identity.user.id",
+					"root.targets.items.identity.user.tenantId",
+					"root.callOptions.@odata.type"
+				]
+			},
+			"context":{
+				"appName":"microsoft_teams",
+				"resourceVersion":2,
+				"connectionId":"68a85b8308b8b42a8fa36a80",
+				"resourceName":"microsoft_teams_create_call",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"_Ekkp1",
+			"index":7,
+			"inputs":{
+				"callOptions":{
+					"@odata.type":"#microsoft.graph.outgoingCallOptions",
+					"isContentSharingNotificationEnabled":true,
+					"isDeltaRosterEnabled":true
+				},
+				"requestedModalities":[
+					"audio",
+					"videoBasedScreenSharing",
+					"video",
+					"data"
+				],
+				"callbackUri":"https://webhooks-global.ext-alb.prod-aps1.unifyapps.com/api/connector-auth-callback/oauth",
+				"mediaConfig":{
+					"@odata.type":"#microsoft.graph.serviceHostedMediaConfig"
+				},
+				"tenantId":"001c9923-a86c-4ce3-8fe2-e7153b70be85",
+				"meetingInfo":{
+					"@odata.type":"#microsoft.graph.joinMeetingIdMeetingInfo",
+					"joinMeetingId":"{{ n_Lqfth.outputs.joinMeetingIdSettings.joinMeetingId }}",
+					"passcode":"{{ n_Lqfth.outputs.joinMeetingIdSettings.passcode }}"
+				},
+				"targets":[
+					{
+						"identity":{
+							"user":{
+								"displayName":"Manoj Kumar",
+								"id":"431485e6-b8c1-4845-86f9-f096e6ba846b",
+								"tenantId":"001c9923-a86c-4ce3-8fe2-e7153b70be85"
+							}
+						}
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Microsoft Teams",
+			"title":"Create L1/L2 Support Team Call",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"microsoft_teams",
+				"resourceVersion":4,
+				"connectionId":"68a85b8308b8b42a8fa36a80",
+				"resourceName":"microsoft_teams_get_call",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"_DMyeX",
+			"index":8,
+			"inputs":{
+				"callId":"{{ _Ekkp1.outputs.id }}"
+			},
+			"skip":true,
+			"subTitle":"Microsoft Teams",
+			"title":"Get call details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"_lXlH6",
+			"index":9,
+			"inputs":{
+				"code":"sleep(180000)\n//Wait time for 3 min",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Wait time of 10 min",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"meeting_bot_by_unifyapps",
+				"resourceVersion":40,
+				"resourceName":"meeting_bot_by_unifyapps_get_recording_till_now",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_aSAqb",
+			"index":10,
+			"inputs":{
+				"meetingUrl":"{{ n_Lqfth.outputs.joinWebUrl }}"
+			},
+			"skip":false,
+			"subTitle":"Meeting bot by UnifyApps",
+			"title":"Get recording till now",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":1826,
+				"connectionId":"68fc5e882252c93e1983af43",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"_JP691",
+			"index":11,
+			"inputs":{
+				"link_names":true,
+				"messageType":"text",
+				"Attach":[
+					{}
+				],
+				"channel":"D0819BQ81D1",
+				"unfurl_links":true,
+				"text":"MOM for L1  bridge call regarding {{ n_Lqfth.outputs.subject }} \n{{ n_FrIYz.outputs.text }}",
+				"mrkdwn":true,
+				"username":"Incident Management"
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Post message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"microsoft_teams",
+				"resourceVersion":2,
+				"connectionId":"68a85b8308b8b42a8fa36a80",
+				"resourceName":"microsoft_teams_invite_participants",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"_u0Ivp",
+			"index":12,
+			"inputs":{
+				"participants":[
+					{
+						"identity":{
+							"user":{
+								"id":"89fb907e-9411-4301-a12a-c33202a6dbdb",
+								"displayName":"Adnan Faisal"
+							}
+						}
+					}
+				],
+				"call_id":"{{ _Ekkp1.outputs.id }}"
+			},
+			"skip":true,
+			"subTitle":"Microsoft Teams",
+			"title":"Invite Application Head",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33877,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +475,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
