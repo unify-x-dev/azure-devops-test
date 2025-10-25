@@ -5,12 +5,12 @@
 	"createdTime":1761389956257,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761400470465,
-		"deployedBy":115477,
-		"deployedDefinitionId":"68fcd6967526577072ff5b97",
+		"deployedAt":1761402496215,
+		"deployedBy":894,
+		"deployedDefinitionId":"68fcde809e1ba9260c2aeeb4",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":7
+		"version":2,
+		"workflowVersion":8
 	},
 	"edges":[
 		{
@@ -43,9 +43,9 @@
 		}
 	],
 	"id":"68fcad84dede0b5c299e1cc8",
-	"lastModifiedBy":894,
+	"lastModifiedBy":23949,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761402494633,
+	"modifiedTime":1761417462289,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -84,6 +84,10 @@
 						"category":{
 							"type":"string",
 							"title":"category"
+						},
+						"entityVersion":{
+							"type":"integer",
+							"title":"Entity Version"
 						}
 					}
 				}
@@ -117,6 +121,20 @@
 							"filter":{
 								"operator":"EQUAL",
 								"value":"{{ n_mICBz.outputs.pageId }}"
+							}
+						},
+						{
+							"property":"properties_entityVersion",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_mICBz.outputs.entityVersion }}"
+							}
+						},
+						{
+							"property":"properties_entityType",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"e_component"
 							}
 						}
 					],
@@ -308,5 +326,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
