@@ -7,12 +7,12 @@
 	"createdTime":1761387682244,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761387944349,
+		"deployedAt":1761390371645,
 		"deployedBy":37018,
-		"deployedDefinitionId":"68fca5a882714d7b7f827598",
+		"deployedDefinitionId":"68fcaf23dede0b5c299e41bf",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
@@ -68,13 +68,6 @@
 			"fromNodeId":"n_jdXHr",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_aPspO",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_aPspO",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_notB0",
 			"type":"next"
 		},
@@ -87,9 +80,9 @@
 		}
 	],
 	"id":"68fca4a20b160667834d3ca7",
-	"lastModifiedBy":37018,
+	"lastModifiedBy":511,
 	"lcName":"callable check dependencies for deployed version (copy) (copy)",
-	"modifiedTime":1761388068330,
+	"modifiedTime":1761393380288,
 	"name":"callable check dependencies for deployed version (copy) (copy)",
 	"nodes":[
 		{
@@ -341,86 +334,6 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1116,
-				"resourceName":"callables_call_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_mnkFD-1",
-			"id":"n_aPspO",
-			"index":9,
-			"inputs":{
-				"automationId":"68fc9f360b160667834cf795",
-				"runtimeConnections":{},
-				"synchronous":true,
-				"version":"-1",
-				"parameters":{}
-			},
-			"options":{
-				"bulkheadConfig":{
-					"enabled":false,
-					"maxLeaseTimeUnit":"SECONDS",
-					"maxWaitDurationUnit":"SECONDS"
-				},
-				"businessHoursConfig":{
-					"businessHoursId":"e_68fc1417af74b97d204437f7",
-					"enabled":true,
-					"waitForNextWindow":false
-				},
-				"cacheConfig":{
-					"enabled":false,
-					"usagePolicy":"ALWAYS"
-				},
-				"circuitBreakerConfig":{
-					"enabled":false
-				},
-				"disableLogging":false,
-				"enabledForReExecution":false,
-				"hookConfig":{
-					"enabled":false,
-					"postHooks":[
-						
-					],
-					"preHooks":[
-						
-					]
-				},
-				"logConfig":{
-					"enabled":false,
-					"logPolicies":[
-						
-					]
-				},
-				"rateLimitConfig":{
-					"enabled":false,
-					"waitForNextWindow":false
-				},
-				"retryConfig":{
-					"backOffFactor":null,
-					"captureRetries":false,
-					"enabled":false
-				},
-				"stepError":"STOP",
-				"telemetryConfig":{
-					"enableTelemetry":false,
-					"metricConfigs":[
-						
-					]
-				},
-				"timeoutConfig":{
-					"enabled":false
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Call automation",
-			"type":"CALL_WORKFLOW"
-		},
-		{
-			"context":{
 				"appName":"slack",
 				"resourceVersion":4727,
 				"connectionId":"68fc0273177d70447beb0828",
@@ -428,11 +341,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_notB0",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"limit":100
 			},
@@ -453,7 +366,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_9Kh9I",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"result":{
 					"b":"bvc"
@@ -482,5 +395,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
