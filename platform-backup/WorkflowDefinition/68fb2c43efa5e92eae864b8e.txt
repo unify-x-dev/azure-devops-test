@@ -16,7 +16,7 @@
 	"id":"68fb2c43efa5e92eae864b8e",
 	"lastModifiedBy":33,
 	"lcName":"test auth",
-	"modifiedTime":1761391416216,
+	"modifiedTime":1761391500217,
 	"name":"test auth",
 	"nodes":[
 		{
@@ -61,11 +61,21 @@
 			"inputs":{
 				"issueIdOrKey":"KAN-1",
 				"bodyV3":{
+					"content":[
+						{
+							"content":[
+								{
+									"text":"hello  test",
+									"type":"text"
+								}
+							],
+							"type":"paragraph"
+						}
+					],
 					"type":"doc",
 					"version":1
 				},
-				"id":"12555",
-				"body":"hello"
+				"id":"12555"
 			},
 			"skip":false,
 			"subTitle":"Jira",
@@ -90,5 +100,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
