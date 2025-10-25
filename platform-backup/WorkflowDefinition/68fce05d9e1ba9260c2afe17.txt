@@ -9,6 +9,95 @@
 			"fromNodeId":"n_UcSUx",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_Pec1D",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Pec1D",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_wIwUs",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wIwUs",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_wIwUs@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_wIwUs@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_95ZhK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wIwUs",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_wIwUs@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_wIwUs@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8pgHO",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_95ZhK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DOuTf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8pgHO",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DOuTf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wIwUs",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DOuTf",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_DOuTf",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vqsSu",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_DOuTf",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HkX5C",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vqsSu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8l4q3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HkX5C",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_8l4q3",
 			"type":"next"
 		},
@@ -30,7 +119,7 @@
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761402973377,
+	"modifiedTime":1761403109284,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -99,6 +188,203 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1078,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kdzrB-1",
+			"id":"n_Pec1D",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"objectName":{
+							"type":"string",
+							"title":"Object Name"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"objectName":{
+							"type":"string",
+							"title":"Object Name"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kdzrB-1",
+			"id":"n_wIwUs",
+			"index":3,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_wIwUs@_kdzrB-1@1",
+			"id":"n_wIwUs@1",
+			"index":4,
+			"inputs":{
+				"name":"Branch 1"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_wIwUs@_kdzrB-1@1",
+			"id":"n_95ZhK",
+			"index":5,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_wIwUs@_kdzrB-1@2",
+			"id":"n_wIwUs@2",
+			"index":6,
+			"inputs":{
+				"name":"Branch 2"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_wIwUs@_kdzrB-1@2",
+			"id":"n_8pgHO",
+			"index":7,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kdzrB-1",
+			"id":"n_DOuTf",
+			"index":8,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_Pec1D.outputs.objectName }}",
+						"filter":{
+							"operator":"EQUAL"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_DOuTf@_kdzrB-1@y",
+			"id":"n_vqsSu",
+			"index":9,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_DOuTf@_kdzrB-1@n",
+			"id":"n_HkX5C",
+			"index":10,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.record.fileDetails.name",
@@ -119,7 +405,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdzrB-1",
 			"id":"n_8l4q3",
-			"index":2,
+			"index":11,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"e_tcc",
@@ -151,7 +437,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdzrB-1",
 			"id":"n_2zbro",
-			"index":3,
+			"index":12,
 			"inputs":{
 				"file":"{{ n_8l4q3.outputs.properties.fileDetails }}",
 				"expiryTime":1
@@ -180,7 +466,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdzrB-1",
 			"id":"n_HPBH8",
-			"index":4,
+			"index":13,
 			"inputs":{
 				"result":{
 					"result":"200"
@@ -209,5 +495,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
