@@ -41,12 +41,19 @@
 			"skip":false,
 			"toNodeId":"n_RvCMd",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RvCMd",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oC2OU",
+			"type":"next"
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761385052368,
+	"modifiedTime":1761385119480,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -296,6 +303,38 @@
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@2",
+			"id":"n_oC2OU",
+			"index":7,
+			"inputs":{
+				"object_type":"best_practices_checks_master",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":50000,
+					"offset":0
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":23949,
@@ -315,5 +354,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
