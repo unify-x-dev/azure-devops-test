@@ -8,12 +8,12 @@
 	"createdTime":1761382133945,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761391742128,
+		"deployedAt":1761392471118,
 		"deployedBy":33877,
-		"deployedDefinitionId":"68fcb47ddede0b5c299e5eff",
+		"deployedDefinitionId":"68fcb756dede0b5c299e759e",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":11
+		"version":8,
+		"workflowVersion":12
 	},
 	"edges":[
 		{
@@ -118,7 +118,7 @@
 	"id":"68fc8ef5e0ea8817c49882b3",
 	"lastModifiedBy":33877,
 	"lcName":"test",
-	"modifiedTime":1761392468650,
+	"modifiedTime":1761392596200,
 	"name":"test",
 	"nodes":[
 		{
@@ -277,7 +277,20 @@
 									"type":"actions",
 									"elements":[
 										{
-											"type":"button"
+											"type":"button",
+											"text":{
+												"type":"plain_text",
+												"text":"Joining"
+											},
+											"style":"primary"
+										},
+										{
+											"type":"button",
+											"text":{
+												"type":"plain_text",
+												"text":"Cannot Join"
+											},
+											"style":"danger"
 										}
 									]
 								}
@@ -606,5 +619,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
