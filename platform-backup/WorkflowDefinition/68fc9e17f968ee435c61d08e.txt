@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_wqGgG",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wqGgG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Z8LEA",
+			"type":"next"
 		}
 	],
 	"id":"68fc9e17f968ee435c61d08e",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for saved version",
-	"modifiedTime":1761386139915,
+	"modifiedTime":1761386163270,
 	"name":"check dependencies for saved version",
 	"nodes":[
 		{
@@ -66,6 +73,61 @@
 			"subTitle":"DND_ConnectorSdk_slack123",
 			"title":"List conversations",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1078,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_Z8LEA",
+			"index":3,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					},
+					"required":[
+						"a"
+					]
+				}
+			},
+			"inputs":{
+				"a":"{{ __ENV__.outputs.DND_custom_policy }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					},
+					"required":[
+						"a"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":37018,
@@ -85,5 +147,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
