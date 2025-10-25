@@ -97,7 +97,7 @@
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761403350407,
+	"modifiedTime":1761403382251,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -352,7 +352,7 @@
 				"record":{}
 			},
 			"skip":false,
-			"subTitle":"Storage by UnifyApps",
+			"subTitle":"webjob",
 			"title":"Create record",
 			"type":"ACTION"
 		},
@@ -414,18 +414,10 @@
 				"writeThroughSessionVariables":false,
 				"object_type":"virtusa_tcc",
 				"skipIfBlank":false,
-				"record":{
-					"fileDetails":{
-						"name":"{{ n_UcSUx.outputs.fileDetails[0].name }}",
-						"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
-						"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
-						"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}",
-						"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}"
-					}
-				}
+				"record":{}
 			},
 			"skip":false,
-			"subTitle":"Storage by UnifyApps",
+			"subTitle":"tcc",
 			"title":"Create record",
 			"type":"ACTION"
 		},
@@ -490,7 +482,7 @@
 				"record":{}
 			},
 			"skip":false,
-			"subTitle":"Storage by UnifyApps",
+			"subTitle":"javasdk",
 			"title":"Create record",
 			"type":"ACTION"
 		},
@@ -542,5 +534,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
