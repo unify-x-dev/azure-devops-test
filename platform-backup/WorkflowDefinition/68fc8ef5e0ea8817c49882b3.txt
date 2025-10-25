@@ -8,12 +8,12 @@
 	"createdTime":1761382133945,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761389109722,
+		"deployedAt":1761391742128,
 		"deployedBy":33877,
-		"deployedDefinitionId":"68fcaa35e55b1c34ee406fe5",
+		"deployedDefinitionId":"68fcb47ddede0b5c299e5eff",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":9
+		"version":7,
+		"workflowVersion":11
 	},
 	"edges":[
 		{
@@ -118,7 +118,7 @@
 	"id":"68fc8ef5e0ea8817c49882b3",
 	"lastModifiedBy":33877,
 	"lcName":"test",
-	"modifiedTime":1761391739053,
+	"modifiedTime":1761392468650,
 	"name":"test",
 	"nodes":[
 		{
@@ -251,16 +251,39 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_Fulsh",
 			"index":5,
 			"inputs":{
 				"link_names":true,
-				"messageType":"text",
+				"messageType":"blocks",
+				"unfurl_media":true,
 				"Attach":[
-					{}
+					{
+						"attachmentsType":"attachmentButtons",
+						"attachmentsButtons":{
+							"color":"#FF0000",
+							"blocks":[
+								{
+									"type":"section",
+									"text":{
+										"type":"plain_text",
+										"text":"Bridge call has been initiated , Pls join {{ n_Lqfth.outputs.joinWebUrl }}"
+									}
+								},
+								{
+									"type":"actions",
+									"elements":[
+										{
+											"type":"button"
+										}
+									]
+								}
+							]
+						}
+					}
 				],
 				"channel":"C08DALZ4XEX",
 				"reply_broadcast":true,
@@ -290,7 +313,7 @@
 			"inputs":{
 				"automationId":"68becc4bbc366e023a9134c9",
 				"runtimeConnections":{},
-				"synchronous":true,
+				"synchronous":false,
 				"version":"-1",
 				"parameters":{
 					"meetingURL":"{{ n_Lqfth.outputs.joinWebUrl }}",
@@ -310,7 +333,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_V6UrS",
@@ -583,5 +606,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
