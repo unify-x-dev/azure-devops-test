@@ -1,5 +1,5 @@
 {
-	"createdTime":1761351803613,
+	"createdTime":1761351854837,
 	"deleted":false,
 	"edges":[
 		{
@@ -13,7 +13,7 @@
 	"id":"68fc17a7d2a77a3080f79773",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2rwhlq20uoto5",
-	"modifiedTime":1761351803613,
+	"modifiedTime":1761351854837,
 	"name":"changeSetQA2RwhLQ20UoTo5",
 	"nodes":[
 		{
@@ -84,7 +84,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -110,5 +110,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":11
 }
