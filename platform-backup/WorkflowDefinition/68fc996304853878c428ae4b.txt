@@ -9,14 +9,44 @@
 			"fromNodeId":"n_1ceQS",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Y8ctr",
+			"toNodeId":"n_25xfN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_25xfN",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_25xfN@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_25xfN@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_7DRZd",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_25xfN",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_25xfN@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_25xfN@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_xSlBh",
 			"type":"next"
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761384878844,
+	"modifiedTime":1761384944253,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -71,12 +101,146 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
-			"id":"_Y8ctr",
+			"id":"n_25xfN",
 			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Interface Flow",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_1ceQS.outputs.entityType }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"e_interface"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Page Flow",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_1ceQS.outputs.entityType }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"e_component"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@1",
+			"id":"n_25xfN@1",
+			"index":3,
+			"inputs":{
+				"name":"Interface Flow",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_1ceQS.outputs.entityType }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"e_interface"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@1",
+			"id":"n_7DRZd",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@2",
+			"id":"n_25xfN@2",
+			"index":5,
+			"inputs":{
+				"name":"Page Flow",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_1ceQS.outputs.entityType }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"e_component"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@2",
+			"id":"n_xSlBh",
+			"index":6,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -99,5 +263,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
