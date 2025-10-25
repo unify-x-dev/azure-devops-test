@@ -6,47 +6,74 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_TpF1v",
+			"fromNodeId":"n_8rgTP",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_LfCS6",
+			"toNodeId":"n_5mGrN",
 			"type":"next"
 		}
 	],
 	"id":"68fcdaaf9e1ba9260c2ad20c",
 	"lastModifiedBy":39715,
 	"lcName":"syncemployeesshttptrigger",
-	"modifiedTime":1761401519640,
+	"modifiedTime":1761410898783,
 	"name":"SyncEmployeessHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1149,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TpF1v-1",
-			"id":"_TpF1v",
-			"index":0,
+			"id":"n_8rgTP",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":217,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TpF1v-1",
-			"id":"_LfCS6",
-			"index":0,
+			"id":"n_5mGrN",
+			"index":2,
+			"inputs":{
+				"code":"using Microsoft.AspNetCore.Http;\nusing Microsoft.AspNetCore.Mvc;\nusing Microsoft.Azure.WebJobs;\nusing Microsoft.Azure.WebJobs.Extensions.Http;\nusing Microsoft.Extensions.Logging;\nusing Newtonsoft.Json;\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing System.Threading.Tasks;\nusing RaveScheduler.ApplicationCore.Entities;\nusing RaveScheduler.ApplicationCore.Interfaces;\nusing System.Web.Http;\n\n\n\nvar employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(requestBody);\nif (employees == null || !employees.Any())\n{\n    return new BadRequestObjectResult(\"Please pass valid employees to sync\");\n}\n\nvar failedRecords = new List<string>();\nforeach (var employee in employees)\n{\n    try\n    {\n        if (string.IsNullOrEmpty(employee.EmployeeNumber))\n        {\n            log.LogError(\"Invalid Employee Number\");\n            failedRecords.Add(employee.EmployeeNumber);\n            continue;\n        }\n        if (string.IsNullOrEmpty(employee.Status))\n        {\n            log.LogError(\"Employee Status is empty\");\n            failedRecords.Add(employee.UserName);\n        }\n        else\n        {\n            if (employee.Status == \"Cancelled\")\n            {\n                await _employeeService.DeleteAsync(employee.EmployeeNumber).ConfigureAwait(false);\n            }\n            else\n            {\n                await _employeeService.AddOrUpdateAsync(new Employee\n                {\n                    UserName = employee.UserName,\n                    Email = employee.Email,\n                    FullName = employee.FullName,\n                    ManagerEmployeeNumber = employee.ManagerEmployeeNumber,\n                    EmployeeNumber = employee.EmployeeNumber,\n                    IsActive = employee.Status == \"Active\"\n                }).ConfigureAwait(false);\n            }\n        }\n    }\n    catch (InvalidOperationException invOpEx)\n    {\n        log.LogError(invOpEx, $\"Invalid operation occurred for Employee {employee.EmployeeNumber} - {invOpEx.Message}\");\n        failedRecords.Add(employee.EmployeeNumber);\n        // Perhaps handle this differently than a database error.\n    }\n    catch (ArgumentNullException e)\n    {\n        log.LogError(e, $\"Invalid user detail - {e.ParamName}\");\n        failedRecords.Add(employee.EmployeeNumber);\n    }\n    catch (Exception e) when (e is not OutOfMemoryException and not StackOverflowException)\n    {\n        log.LogError(e, $\"Specific error occurred for Employee {employee.EmployeeNumber} - {e.Message}\");\n        failedRecords.Add(employee.EmployeeNumber);\n    }\n}\nif (employees.Count() == failedRecords.Count)\n{\n    return new InternalServerErrorResult();\n}\nreturn new OkObjectResult(new\n{\n    message = $\"Successfully processed {employees.Count() - failedRecords.Count} employees\",\n    failed = failedRecords\n});\n\n",
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39715,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +87,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
