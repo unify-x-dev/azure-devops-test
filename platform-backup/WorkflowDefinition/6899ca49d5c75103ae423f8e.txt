@@ -91,7 +91,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761414117407,
+	"modifiedTime":1761414193811,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -290,12 +290,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tXZXi@n_xuZmU@_AHF66-1@y@l",
 			"id":"n_r5VdM",
 			"index":5,
 			"inputs":{
+				"streamId":"e_68fcafa7d0e2f978609e6a6b",
 				"consumerGroup":"dlq_republisher",
 				"timeout":3000
 			},
@@ -443,5 +444,5 @@
 	"tags":[
 		
 	],
-	"version":28
+	"version":29
 }
