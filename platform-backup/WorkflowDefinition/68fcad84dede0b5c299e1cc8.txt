@@ -1,51 +1,184 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761389956257,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_6NnBb",
+			"fromNodeId":"n_mICBz",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_psIRE",
+			"toNodeId":"n_AwEoF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_AwEoF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_u2GsM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_u2GsM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6OuEr",
 			"type":"next"
 		}
 	],
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | check score",
-	"modifiedTime":1761389956257,
+	"modifiedTime":1761391735650,
 	"name":"Best Practices | Check Score",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1060,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
-			"id":"_6NnBb",
-			"index":0,
+			"id":"n_mICBz",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"score":{
+							"type":"string",
+							"title":"score"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"pageId":{
+							"type":"string",
+							"title":"pageId"
+						},
+						"category":{
+							"type":"string",
+							"title":"category"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
-			"id":"_psIRE",
-			"index":0,
+			"id":"n_AwEoF",
+			"index":2,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_entityId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_mICBz.outputs.pageId }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"nocode_reports",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"n_u2GsM",
+			"index":3,
+			"inputs":{
+				"object_type":"best_practices_checks_master",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Fetch Checks",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"n_6OuEr",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":115477,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +192,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
