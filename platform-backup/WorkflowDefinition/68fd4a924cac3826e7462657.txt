@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761430279827,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761430280125,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68fd4b08bab8db141ba671ed",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"7pKsG",
@@ -16,7 +24,7 @@
 	"id":"68fd4a924cac3826e7462657",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2htgu8syektio",
-	"modifiedTime":1761430279827,
+	"modifiedTime":1761430429021,
 	"name":"changeSetQA2HTGU8SYEktIO",
 	"nodes":[
 		{
@@ -87,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -113,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
