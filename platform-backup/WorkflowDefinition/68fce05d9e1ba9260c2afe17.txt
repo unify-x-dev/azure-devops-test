@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761402973377,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761405571414,
+		"deployedBy":161165,
+		"deployedDefinitionId":"68fcea83126c45298487d519",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":8
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_UcSUx",
@@ -97,7 +105,7 @@
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761405568522,
+	"modifiedTime":1761405656432,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -202,7 +210,9 @@
 					"required":[]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"objectName":"{{ n_UcSUx.outputs.objectName }}"
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -542,5 +552,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
