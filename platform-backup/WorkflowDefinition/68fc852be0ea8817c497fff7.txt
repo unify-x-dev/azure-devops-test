@@ -1,51 +1,238 @@
 {
 	"appsUsed":[
-		
+		"coupa"
 	],
 	"createdTime":1761379627494,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_kkabk",
+			"fromNodeId":"n_e1eSI",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_flmj3",
+			"toNodeId":"n_WYxn1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_WYxn1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_bTRXx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_bTRXx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ISmYl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_ISmYl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aqMiz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_aqMiz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hUlek",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hUlek",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Et8LP",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Et8LP",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HZuO9",
 			"type":"next"
 		}
 	],
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761379627494,
+	"modifiedTime":1761380156031,
 	"name":"Test automation",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
-			"id":"_kkabk",
-			"index":0,
+			"id":"n_e1eSI",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":14,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_add_comment_to_invoice",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
-			"id":"_flmj3",
-			"index":0,
+			"id":"n_WYxn1",
+			"index":2,
+			"inputs":{},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Coupa",
+			"title":"Add comment to invoice",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":1246,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_add_requisition_comment",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"_bTRXx",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Add comment to requisition",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":1223,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_add_comment_to_purchase_order",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"_ISmYl",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Add comment to purchase order",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":12,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_comments_of_invoice",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_aqMiz",
+			"index":5,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List invoice comments",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":11,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_po_comments",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_hUlek",
+			"index":6,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List purchase order comments",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":11,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_po_comments",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_Et8LP",
+			"index":7,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List purchase order comments",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":293,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_comments_of_requisition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_HZuO9",
+			"index":8,
+			"inputs":{
+				"requisition_id":760
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List requisition comments",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":161875,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +246,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
