@@ -25,8 +25,30 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_2IDUU",
+			"toNodeId":"n_tXZXi",
 			"type":"if"
+		},
+		{
+			"fromNodeId":"n_tXZXi",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HAJNj",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_HAJNj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_r5VdM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_r5VdM",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tXZXi",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"n_xuZmU",
@@ -52,7 +74,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_2IDUU",
+			"fromNodeId":"n_tXZXi",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_yW4eC",
@@ -69,7 +91,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761399940222,
+	"modifiedTime":1761401030750,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -79,7 +101,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_AHF66-1",
 			"id":"n_f5nAn",
@@ -103,7 +125,9 @@
 					"additionalProperties":false,
 					"required":[
 						"streamId",
-						"events"
+						"events",
+						"parentStreamId",
+						"publishAll"
 					],
 					"properties":{
 						"streamId":{
@@ -138,6 +162,14 @@
 								]
 							},
 							"title":"Events"
+						},
+						"parentStreamId":{
+							"type":"string",
+							"title":"Parent Stream Id"
+						},
+						"publishAll":{
+							"type":"boolean",
+							"title":"Publish All"
 						}
 					}
 				}
@@ -163,21 +195,112 @@
 			"groupId":"_AHF66-1",
 			"id":"n_xuZmU",
 			"index":2,
-			"inputs":{},
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_f5nAn.outputs.publishAll }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"true"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
 			"subTitle":"Condition",
 			"title":"Condition",
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":976,
+				"resourceName":"streams_by_unifyapps_poll_events",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_xuZmU@_AHF66-1@y",
-			"id":"n_2IDUU",
+			"id":"n_tXZXi",
 			"index":3,
+			"inputs":{
+				"streamId":"{{ n_f5nAn.outputs.streamId }}",
+				"repeatMode":"SINGLE",
+				"captureIterations":true,
+				"batchSize":1,
+				"consumerGroup":"dlq_republisher",
+				"offsetReset":"earliest",
+				"commitOption":"MANUAL_COMMIT"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Streams by UnifyApps",
+			"title":"Polls for new events from stream",
+			"type":"LOOP"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.headers.items.key",
+					"root.headers.items.value"
+				]
+			},
+			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":1674,
+				"resourceName":"streams_by_unifyapps_publish_event",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_tXZXi@n_xuZmU@_AHF66-1@y@l",
+			"id":"n_HAJNj",
+			"index":4,
+			"inputs":{
+				"headers":[
+					{
+						"key":"__UA_STREAM_HEADER__DESCRIPTION",
+						"value":"{{ n_tXZXi.outputs.item.event }}"
+					},
+					{
+						"key":"__UA_STREAM_HEADER__GROUP",
+						"value":"{{ n_tXZXi.outputs.item.event }}"
+					},
+					{
+						"key":"__UA_STREAM_HEADER__REASON",
+						"value":"{{ n_tXZXi.outputs.item.event }}"
+					}
+				],
+				"streamId":"{{ n_f5nAn.outputs.parentStreamId }}",
+				"skipInputValidation":false
+			},
+			"skip":false,
+			"subTitle":"Streams by UnifyApps",
+			"title":"Publish event to stream",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":201,
+				"resourceName":"streams_by_unifyapps_commit_offsets",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_tXZXi@n_xuZmU@_AHF66-1@y@l",
+			"id":"n_r5VdM",
+			"index":5,
+			"inputs":{
+				"consumerGroup":"dlq_republisher",
+				"timeout":3000
+			},
+			"skip":false,
+			"subTitle":"Streams by UnifyApps",
+			"title":"Commits offsets",
 			"type":"ACTION"
 		},
 		{
@@ -192,7 +315,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_xuZmU@_AHF66-1@n",
 			"id":"_JwVqn",
-			"index":4,
+			"index":6,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_f5nAn.outputs.events }}",
@@ -215,10 +338,10 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JwVqn@n_xuZmU@_AHF66-1@n@l",
 			"id":"_gMVU5",
-			"index":5,
+			"index":7,
 			"inputs":{
 				"headers":"{{ _JwVqn.outputs.item.headers }}",
-				"streamId":"{{ n_f5nAn.outputs.streamId }}",
+				"streamId":"{{ n_f5nAn.outputs.parentStreamId }}",
 				"skipInputValidation":false,
 				"event":"{{ _JwVqn.outputs.item.event }}"
 			},
@@ -286,11 +409,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_AHF66-1",
 			"id":"n_yW4eC",
-			"index":6,
+			"index":8,
 			"inputs":{
 				"result":{
 					"pushed":"true"
@@ -319,5 +442,5 @@
 	"tags":[
 		
 	],
-	"version":25
+	"version":26
 }
