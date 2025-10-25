@@ -24,6 +24,29 @@
 			"fromNodeId":"n_AwEoF",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_ZpyhG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZpyhG",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XpVmT",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZpyhG",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_u2GsM",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_XpVmT",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_u2GsM",
 			"type":"next"
 		},
@@ -45,7 +68,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761417496815,
+	"modifiedTime":1761417541788,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -151,11 +174,52 @@
 				},
 				"numberOfRecordsToFetch":"MULTIPLE",
 				"readThroughSessionVariables":false,
-				"includeTotalCount":false
+				"includeTotalCount":true
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"n_ZpyhG",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_AwEoF.outputs.total }}",
+						"filter":{
+							"operator":"GT",
+							"value":"0"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZpyhG@_6NnBb-1@n",
+			"id":"n_XpVmT",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
 			"type":"ACTION"
 		},
 		{
@@ -170,7 +234,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_u2GsM",
-			"index":3,
+			"index":5,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -207,7 +271,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_X4F6n",
-			"index":4,
+			"index":6,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -298,7 +362,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
-			"index":5,
+			"index":7,
 			"inputs":{
 				"result":{
 					"score":"=VALUE({{ n_X4F6n.outputs.result.passPercentage }})"
@@ -327,5 +391,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
