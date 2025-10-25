@@ -8,12 +8,12 @@
 	"createdTime":1761382133945,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761386629501,
+		"deployedAt":1761389109722,
 		"deployedBy":33877,
-		"deployedDefinitionId":"68fca0840b160667834d05d1",
+		"deployedDefinitionId":"68fcaa35e55b1c34ee406fe5",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":8
+		"version":6,
+		"workflowVersion":9
 	},
 	"edges":[
 		{
@@ -48,11 +48,18 @@
 			"fromNodeId":"n_Fulsh",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_YiU2o",
+			"toNodeId":"n_ekjsa",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_YiU2o",
+			"fromNodeId":"n_ekjsa",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_V6UrS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_V6UrS",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_Ekkp1",
@@ -111,7 +118,7 @@
 	"id":"68fc8ef5e0ea8817c49882b3",
 	"lastModifiedBy":33877,
 	"lcName":"test",
-	"modifiedTime":1761389106322,
+	"modifiedTime":1761391727551,
 	"name":"test",
 	"nodes":[
 		{
@@ -269,25 +276,53 @@
 		},
 		{
 			"context":{
-				"appName":"meeting_bot_by_unifyapps",
-				"resourceVersion":40,
-				"resourceName":"meeting_bot_by_unifyapps_join_meeting",
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
-			"id":"n_YiU2o",
+			"id":"n_ekjsa",
 			"index":6,
 			"inputs":{
-				"botName":"UnifyApps",
-				"meetingUrl":"{{ n_Lqfth.outputs.joinWebUrl }}"
+				"automationId":"68becc4bbc366e023a9134c9",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"meetingURL":"{{ n_Lqfth.outputs.joinWebUrl }}",
+					"botName":"UnifyApps"
+				}
 			},
 			"skip":false,
-			"subTitle":"Meeting bot by UnifyApps",
-			"title":"Join meeting",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_V6UrS",
+			"index":7,
+			"inputs":{
+				"duration":10,
+				"unit":"SECONDS"
+			},
+			"skip":false,
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
 		},
 		{
 			"additional":{
@@ -310,7 +345,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_Ekkp1",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"callOptions":{
 					"@odata.type":"#microsoft.graph.outgoingCallOptions",
@@ -349,11 +384,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_fmBgW",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"call_id":"{{ _Ekkp1.outputs.id }}",
 				"participants":{
@@ -386,7 +421,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_DMyeX",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"callId":"{{ _Ekkp1.outputs.id }}"
 			},
@@ -407,7 +442,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_lXlH6",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"code":"sleep(180000)\n//Wait time for 3 min",
 				"compile_static":false,
@@ -430,7 +465,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_aSAqb",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"meetingUrl":"{{ n_Lqfth.outputs.joinWebUrl }}"
 			},
@@ -451,7 +486,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_nqB3n",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"automationId":"68b962c8e4492b2af300db51",
 				"runtimeConnections":{},
@@ -480,7 +515,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_JP691",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"link_names":true,
 				"messageType":"text",
@@ -511,7 +546,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_u0Ivp",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"participants":[
 					{
@@ -548,5 +583,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
