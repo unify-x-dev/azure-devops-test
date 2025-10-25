@@ -5,12 +5,12 @@
 	"createdTime":1759987267245,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761393301123,
+		"deployedAt":1761401432958,
 		"deployedBy":178108,
-		"deployedDefinitionId":"68fcba95dede0b5c299e8b06",
+		"deployedDefinitionId":"68fcda589e1ba9260c2acf53",
 		"status":"DEPLOYED",
-		"version":23,
-		"workflowVersion":98
+		"version":24,
+		"workflowVersion":99
 	},
 	"edges":[
 		{
@@ -840,7 +840,7 @@
 	"id":"68e7464399f9fc69e110e3db",
 	"lastModifiedBy":178108,
 	"lcName":"[dnt] multi tenancy | move all assets",
-	"modifiedTime":1761401430319,
+	"modifiedTime":1761402334405,
 	"name":"[DNT] Multi Tenancy | Move All assets",
 	"nodes":[
 		{
@@ -3879,7 +3879,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@n_6tLoP@_WUbts-1@2@l",
 			"id":"n_feENT",
@@ -3908,6 +3908,13 @@
 							"filter":{
 								"operator":"NOT_IN",
 								"value":"{{ n_ShZqU.outputs.result.dontMove }}"
+							}
+						},
+						{
+							"property":"standard",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"false"
 							}
 						}
 					],
@@ -6147,5 +6154,5 @@
 	"tags":[
 		
 	],
-	"version":99
+	"version":100
 }
