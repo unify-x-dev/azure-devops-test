@@ -4,9 +4,24 @@
 	],
 	"createdTime":1761384803458,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761389825184,
+		"deployedBy":115477,
+		"deployedDefinitionId":"68fcad01dede0b5c299e1833",
+		"status":"DEPLOYED",
+		"version":2,
+		"workflowVersion":19
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_1ceQS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_BJWbh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_BJWbh",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_25xfN",
@@ -29,13 +44,6 @@
 		},
 		{
 			"fromNodeId":"n_nJ4Q8",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_BJWbh",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_BJWbh",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_zpFkD",
@@ -78,13 +86,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_zpFkD",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_XUOp8",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_25xfN",
 			"name":"2",
 			"priority":0,
@@ -94,6 +95,13 @@
 		},
 		{
 			"fromNodeId":"n_25xfN@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oh9u9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oh9u9",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_RvCMd",
@@ -117,21 +125,21 @@
 			"fromNodeId":"n_aqVAB",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_iq5Wx",
+			"toNodeId":"_a2JhT",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_XUOp8",
+			"fromNodeId":"n_zpFkD",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_rmptD",
+			"toNodeId":"n_XUOp8",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_iq5Wx",
+			"fromNodeId":"_a2JhT",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_rmptD",
+			"toNodeId":"n_XUOp8",
 			"type":"next"
 		},
 		{
@@ -139,14 +147,14 @@
 			"name":"default",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_rmptD",
+			"toNodeId":"n_XUOp8",
 			"type":"branch"
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761389620263,
+	"modifiedTime":1761395281976,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -156,7 +164,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -259,151 +267,17 @@
 		},
 		{
 			"context":{
-				"appName":"branch",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_vMiRK-1",
-			"id":"n_25xfN",
-			"index":2,
-			"inputs":{
-				"branches":[
-					{
-						"id":"1",
-						"inputs":{
-							"name":"Interface Flow",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_1ceQS.outputs.entityType }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"e_interface"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"2",
-						"inputs":{
-							"name":"Page Flow",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_1ceQS.outputs.entityType }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"e_component"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"default"
-					}
-				]
-			},
-			"skip":false,
-			"subTitle":"Branch",
-			"title":"",
-			"type":"BRANCH"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_25xfN@_vMiRK-1@1",
-			"id":"n_25xfN@1",
-			"index":3,
-			"inputs":{
-				"name":"Interface Flow",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_1ceQS.outputs.entityType }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"e_interface"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4581,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_25xfN@_vMiRK-1@1",
-			"id":"n_nJ4Q8",
-			"index":4,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_interfaceId",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_1ceQS.outputs.entityId }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"e_component",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"MULTIPLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1066,
 				"resourceName":"variable_by_unifyapps_create_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_25xfN@_vMiRK-1@1",
+			"groupId":"_vMiRK-1",
 			"id":"n_BJWbh",
-			"index":5,
+			"index":2,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -606,53 +480,54 @@
 								"items":{
 									"type":"object",
 									"properties":{
-										"checkId":{
-											"type":"string",
-											"title":"checkId"
-										},
-										"status":{
-											"type":"string",
-											"title":"status"
-										},
-										"entityId":{
-											"type":"string",
-											"title":"entityId"
-										},
-										"checkTitle":{
-											"type":"string",
-											"title":"checkTitle"
-										},
-										"checkDescription":{
-											"type":"string",
-											"title":"checkDescription"
-										},
-										"checkImpact":{
-											"type":"string",
-											"title":"checkImpact"
-										},
-										"checkCategory":{
-											"type":"string",
-											"title":"checkCategory"
-										},
-										"blockIds":{
-											"type":"array",
-											"items":{
-												"type":"string"
-											},
-											"title":"blockIds"
-										},
-										"dataSources":{
+										"results":{
 											"type":"array",
 											"items":{
 												"type":"object",
-												"properties":{},
+												"properties":{
+													"checkId":{
+														"type":"string",
+														"title":"checkId"
+													},
+													"status":{
+														"type":"string",
+														"title":"status"
+													},
+													"entityId":{
+														"type":"string",
+														"title":"entityId"
+													},
+													"checkTitle":{
+														"type":"string",
+														"title":"checkTitle"
+													},
+													"checkDescription":{
+														"type":"string",
+														"title":"checkDescription"
+													},
+													"checkImpact":{
+														"type":"string",
+														"title":"checkImpact"
+													},
+													"checkCategory":{
+														"type":"string",
+														"title":"checkCategory"
+													},
+													"componentId":{
+														"type":"string",
+														"title":"componentId"
+													},
+													"componentName":{
+														"type":"string",
+														"title":"componentName"
+													}
+												},
 												"additionalProperties":false
 											},
-											"title":"dataSources"
+											"title":"results"
 										}
 									},
-									"additionalProperties":false,
-									"required":[]
+									"additionalProperties":false
 								}
 							}
 						}
@@ -678,52 +553,53 @@
 							"items":{
 								"type":"object",
 								"properties":{
-									"checkId":{
-										"type":"string",
-										"title":"checkId"
-									},
-									"status":{
-										"type":"string",
-										"title":"status"
-									},
-									"entityId":{
-										"type":"string",
-										"title":"entityId"
-									},
-									"checkTitle":{
-										"type":"string",
-										"title":"checkTitle"
-									},
-									"checkDescription":{
-										"type":"string",
-										"title":"checkDescription"
-									},
-									"checkImpact":{
-										"type":"string",
-										"title":"checkImpact"
-									},
-									"checkCategory":{
-										"type":"string",
-										"title":"checkCategory"
-									},
-									"blockIds":{
-										"type":"array",
-										"items":{
-											"type":"string"
-										},
-										"title":"blockIds"
-									},
-									"dataSources":{
+									"results":{
 										"type":"array",
 										"items":{
 											"type":"object",
-											"properties":{},
+											"properties":{
+												"checkId":{
+													"type":"string",
+													"title":"checkId"
+												},
+												"status":{
+													"type":"string",
+													"title":"status"
+												},
+												"entityId":{
+													"type":"string",
+													"title":"entityId"
+												},
+												"checkTitle":{
+													"type":"string",
+													"title":"checkTitle"
+												},
+												"checkDescription":{
+													"type":"string",
+													"title":"checkDescription"
+												},
+												"checkImpact":{
+													"type":"string",
+													"title":"checkImpact"
+												},
+												"checkCategory":{
+													"type":"string",
+													"title":"checkCategory"
+												},
+												"componentId":{
+													"type":"string",
+													"title":"componentId"
+												},
+												"componentName":{
+													"type":"string",
+													"title":"componentName"
+												}
+											},
 											"additionalProperties":false
 										},
-										"title":"dataSources"
+										"title":"results"
 									}
-								},
-								"required":[]
+								}
 							}
 						}
 					}
@@ -736,13 +612,147 @@
 		},
 		{
 			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_vMiRK-1",
+			"id":"n_25xfN",
+			"index":3,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Interface Flow",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_1ceQS.outputs.entityType }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"e_interface"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Page Flow",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_1ceQS.outputs.entityType }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"e_component"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@1",
+			"id":"n_25xfN@1",
+			"index":4,
+			"inputs":{
+				"name":"Interface Flow",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_1ceQS.outputs.entityType }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"e_interface"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@1",
+			"id":"n_nJ4Q8",
+			"index":5,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_interfaceId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_1ceQS.outputs.entityId }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"e_component",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":865,
 				"resourceName":"loop_for_each",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -765,7 +775,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
@@ -823,7 +833,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
@@ -861,7 +871,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_lbZV4",
@@ -985,8 +995,15 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.itemToAdd.blockIds.items",
-					"root.itemToAdd.dataSources.items"
+					"root.itemToAdd.results.items.checkId",
+					"root.itemToAdd.results.items.status",
+					"root.itemToAdd.results.items.entityId",
+					"root.itemToAdd.results.items.checkTitle",
+					"root.itemToAdd.results.items.checkDescription",
+					"root.itemToAdd.results.items.checkImpact",
+					"root.itemToAdd.results.items.checkCategory",
+					"root.itemToAdd.results.items.componentId",
+					"root.itemToAdd.results.items.componentName"
 				]
 			},
 			"context":{
@@ -996,7 +1013,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"n_x72cm",
@@ -1019,6 +1036,10 @@
 						"source":"{{ _lbZV4.outputs.result.results[0].dataSources }}",
 						"ua:type":"mappedArray",
 						"items":"{{ _lbZV4.outputs.result.results[0].dataSources[0] }}"
+					},
+					"results":{
+						"source":"{{ _lbZV4.outputs.result.results }}",
+						"ua:type":"mappedArray"
 					}
 				},
 				"insertLocation":"END",
@@ -1031,43 +1052,17 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1096,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_25xfN@_vMiRK-1@1",
-			"id":"n_XUOp8",
-			"index":11,
-			"inputs":{
-				"result":{
-					"results":{
-						"source":"{{ n_BJWbh.outputs.items }}",
-						"ua:type":"mappedArray"
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
-			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"name":"Page Flow",
 				"conditions":{
@@ -1095,7 +1090,50 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@2",
+			"id":"n_oh9u9",
+			"index":12,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_interfaceId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_1ceQS.outputs.entityId }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"e_component",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
@@ -1153,7 +1191,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
@@ -1179,9 +1217,13 @@
 		},
 		{
 			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				},
 				"visibleOptionalFields":[
 					"root.parameters.reportArr.items",
-					"root.parameters.masterArr.items"
+					"root.parameters.masterArr.items",
+					"root.parameters.page.items"
 				]
 			},
 			"context":{
@@ -1191,7 +1233,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1234,23 +1276,16 @@
 										"type":"string",
 										"title":"checkCategory"
 									},
-									"blockIds":{
-										"type":"array",
-										"items":{
-											"type":"string"
-										},
-										"title":"blockIds"
+									"componentId":{
+										"type":"string",
+										"title":"componentId"
 									},
-									"dataSources":{
-										"type":"array",
-										"items":{
-											"type":"string"
-										},
-										"title":"dataSources"
+									"componentName":{
+										"type":"string",
+										"title":"componentName"
 									}
 								},
-								"additionalProperties":false,
-								"required":[]
+								"additionalProperties":false
 							},
 							"title":"results"
 						}
@@ -1286,15 +1321,22 @@
 						"category":{
 							"type":"string",
 							"title":"category"
+						},
+						"page":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"page"
 						}
 					}
 				},
-				"code":"def joinAndFilter(reportArr, masterArr, String status = null, String category = null) {\n\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n\n            okStatus && okCategory\n        }\n        .collect { rep ->\n            def m = masterById[rep.properties.checkId]\n            [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                blockIds         : rep.properties?.entities?.blockIds ?: [],\n                dataSources      : rep.properties?.entities?.dataSources ?: []\n            ]\n        }\n\n    return [ results: results ]\n}\n",
+				"code":"/**\n * Joins report and master arrays, filters them, and flattens the results\n * to create one output object per component/block.\n *\n * @param reportArr  Array of report objects.\n * @param masterArr  Array of master definition objects.\n * @param page       The page definition object containing the 'blocks' map.\n * @param status     (Optional) The status to filter reports by.\n * @param category   (Optional) The category to filter reports by (from master).\n * @return A Map containing a 'results' key with an array of flattened objects.\n */\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    // 1. Create a lookup map for master items by their ID for fast access\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    // 2. Create a lookup map for page blocks by their ID\n    //    We add null-safety in case page or page.blocks is null\n    def pageBlocks = page?.blocks ?: [:]\n\n    // 3. Filter and Transform\n    def results = reportArr\n        // 3a. First, find all reports that match the status and category filters\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n            okStatus && okCategory\n        }\n        // 3b. Then, use collectMany (flatMap) to transform and flatten the list\n        .collectMany { rep ->\n            // Get the common master details for this report\n            def m = masterById[rep.properties.checkId]\n            \n            // Define the base information that is common to all blocks in this report\n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category\n            ]\n\n            // Get the list of blockIds from the report, default to empty list\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            // 3c. Create a new list of objects, one for each blockId\n            blockIds.collect { blockId ->\n                // Find the block's details from the page map\n                def blockDetails = pageBlocks[blockId]\n                \n                // Combine the baseInfo with the specific block info\n                // The '+' operator merges the two maps\n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName // Get displayName, null-safe\n                ]\n            }\n        }\n        \n    // 4. Return the final result in the expected wrapper map\n    return [ results: results ]\n}\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"status":"{{ n_1ceQS.outputs.status }}",
 					"category":"{{ n_1ceQS.outputs.category }}",
+					"page":"{{ n_oh9u9.outputs.properties }}",
 					"reportArr":{
 						"source":"{{ n_RvCMd.outputs.objects }}",
 						"ua:type":"mappedArray",
@@ -1313,49 +1355,62 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.results.items.checkId",
+					"root.itemToAdd.results.items.status",
+					"root.itemToAdd.results.items.entityId",
+					"root.itemToAdd.results.items.checkTitle",
+					"root.itemToAdd.results.items.checkDescription",
+					"root.itemToAdd.results.items.checkImpact",
+					"root.itemToAdd.results.items.checkCategory",
+					"root.itemToAdd.results.items.componentId",
+					"root.itemToAdd.results.items.componentName"
+				]
+			},
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1096,
-				"resourceName":"callables_return_to_automation",
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1033,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
-			"id":"n_iq5Wx",
+			"id":"_a2JhT",
 			"index":16,
 			"inputs":{
-				"result":{
+				"itemToAdd":{
+					"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
+					"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
+					"entityId":"{{ n_aqVAB.outputs.result.results[0].entityId }}",
+					"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
+					"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+					"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
+					"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+					"blockIds":{
+						"ua:type":"mappedArray",
+						"source":"{{ n_aqVAB.outputs.result.results[0].blockIds }}",
+						"items":"{{ n_aqVAB.outputs.result.results[0].blockIds[0] }}"
+					},
+					"dataSources":{
+						"ua:type":"mappedArray",
+						"source":"{{ n_aqVAB.outputs.result.results[0].dataSources }}",
+						"items":"{{ n_aqVAB.outputs.result.results[0].dataSources[0] }}"
+					},
 					"results":{
 						"source":"{{ n_aqVAB.outputs.result.results }}",
-						"ua:type":"mappedArray",
-						"items":{
-							"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
-							"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
-							"entityId":"{{ n_aqVAB.outputs.result.results[0].entityId }}",
-							"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
-							"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkDescription }}",
-							"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
-							"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
-							"blockIds":{
-								"source":"{{ n_aqVAB.outputs.result.results[0].blockIds }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_aqVAB.outputs.result.results[0].blockIds[0] }}"
-							},
-							"dataSources":{
-								"source":"{{ n_aqVAB.outputs.result.results[0].dataSources }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_aqVAB.outputs.result.results[0].dataSources[0] }}"
-							}
-						}
+						"ua:type":"mappedArray"
 					}
-				}
+				},
+				"insertLocation":"END",
+				"listName":"{{ n_BJWbh.outputs.items[0] }}"
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
+			"type":"ACTION"
 		},
 		{
 			"context":{
@@ -1368,12 +1423,12 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
-			"id":"n_rmptD",
+			"id":"n_XUOp8",
 			"index":17,
 			"inputs":{
 				"result":{
 					"results":{
-						"source":"1",
+						"source":"{{ n_BJWbh.outputs.items }}",
 						"ua:type":"mappedArray"
 					}
 				}
@@ -1401,5 +1456,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":20
 }
