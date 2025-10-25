@@ -1,51 +1,187 @@
 {
 	"appsUsed":[
-		
+		"coupa"
 	],
 	"createdTime":1761372663204,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_ONTRg",
+			"fromNodeId":"n_SFLKC",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_zxDGL",
+			"toNodeId":"n_5oCir",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5oCir",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UTiAn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UTiAn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mP7HM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mP7HM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TbjQw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_TbjQw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_NOW8u",
 			"type":"next"
 		}
 	],
 	"id":"68fc69f7f0707c78126674e2",
 	"lastModifiedBy":6701,
 	"lcName":"dene",
-	"modifiedTime":1761372663204,
+	"modifiedTime":1761373479450,
 	"name":"dene",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ONTRg-1",
-			"id":"_ONTRg",
-			"index":0,
+			"id":"n_SFLKC",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":5,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_add_comment_to_invoice",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ONTRg-1",
-			"id":"_zxDGL",
-			"index":0,
+			"id":"n_5oCir",
+			"index":2,
+			"inputs":{
+				"comments":"test",
+				"commentable_id":445
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Coupa",
+			"title":"Add comment to invoice",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":1214,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_add_comment_to_purchase_order",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ONTRg-1",
+			"id":"n_UTiAn",
+			"index":3,
+			"inputs":{
+				"comments":"tets",
+				"commentable_id":147
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Add comment to purchase order",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":3,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_comments_of_invoice",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ONTRg-1",
+			"id":"n_mP7HM",
+			"index":4,
+			"inputs":{
+				"invoice_id":445
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List invoice comments",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":2,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_po_comments",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ONTRg-1",
+			"id":"n_TbjQw",
+			"index":5,
+			"inputs":{
+				"purchase_order_id":147
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List purchase order comments",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ONTRg-1",
+			"id":"n_NOW8u",
+			"index":6,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":6701,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +195,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
