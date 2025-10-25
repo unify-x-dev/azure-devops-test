@@ -31,6 +31,28 @@
 			"fromNodeId":"n_nJ4Q8",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_vuG0y",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vuG0y",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_I49NG",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_I49NG",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vuG0y",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vuG0y",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_aadxY",
 			"type":"next"
 		},
@@ -74,7 +96,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761388614855,
+	"modifiedTime":1761388713659,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -84,7 +106,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -191,7 +213,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_25xfN",
@@ -252,7 +274,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_25xfN@1",
@@ -310,13 +332,45 @@
 					"paginateBy":"OFFSET",
 					"limit":20
 				},
-				"numberOfRecordsToFetch":"SINGLE",
+				"numberOfRecordsToFetch":"MULTIPLE",
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@1",
+			"id":"n_vuG0y",
+			"index":5,
+			"inputs":{
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_vuG0y@n_25xfN@_vMiRK-1@1@l",
+			"id":"n_I49NG",
+			"index":6,
+			"skip":false,
+			"title":"Select an app and action",
 			"type":"ACTION"
 		},
 		{
@@ -327,11 +381,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"_aadxY",
-			"index":5,
+			"index":7,
 			"inputs":{
 				"result":{
 					"results":{
@@ -372,11 +426,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
-			"index":6,
+			"index":8,
 			"inputs":{
 				"name":"Page Flow",
 				"conditions":{
@@ -404,11 +458,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
-			"index":7,
+			"index":9,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -462,11 +516,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
-			"index":8,
+			"index":10,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -500,11 +554,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
-			"index":9,
+			"index":11,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -629,11 +683,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_iq5Wx",
-			"index":10,
+			"index":12,
 			"inputs":{
 				"result":{
 					"results":{
@@ -684,5 +738,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
