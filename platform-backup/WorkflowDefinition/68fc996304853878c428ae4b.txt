@@ -78,6 +78,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_zpFkD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XUOp8",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_25xfN",
 			"name":"2",
 			"priority":0,
@@ -117,7 +124,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761389068958,
+	"modifiedTime":1761389401987,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1002,6 +1009,32 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@1",
+			"id":"n_XUOp8",
+			"index":11,
+			"inputs":{
+				"result":{
+					"results":{
+						"source":"{{ n_BJWbh.outputs.items }}",
+						"ua:type":"mappedArray"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -1012,7 +1045,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"name":"Page Flow",
 				"conditions":{
@@ -1044,7 +1077,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1102,7 +1135,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -1140,7 +1173,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1269,7 +1302,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_iq5Wx",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"result":{
 					"results":{
@@ -1320,5 +1353,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
