@@ -6,46 +6,95 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_CDrt4",
+			"fromNodeId":"n_L0pk8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ZeLvd",
+			"toNodeId":"n_FrRu3",
 			"type":"next"
 		}
 	],
 	"id":"68fc9f360b160667834cf795",
 	"lastModifiedBy":37018,
 	"lcName":"automation_with_business_hours",
-	"modifiedTime":1761386294350,
+	"modifiedTime":1761386345844,
 	"name":"automation_with_business_hours",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1060,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_CDrt4-1",
-			"id":"_CDrt4",
-			"index":0,
+			"id":"n_L0pk8",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"b"
+					],
+					"properties":{
+						"b":{
+							"type":"string",
+							"title":"B"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"a"
+					],
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_CDrt4-1",
-			"id":"_ZeLvd",
-			"index":0,
+			"id":"n_FrRu3",
+			"index":2,
+			"inputs":{
+				"result":{
+					"b":"{{ __ENV__.outputs.DND_custom_policy }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":37018,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +108,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
