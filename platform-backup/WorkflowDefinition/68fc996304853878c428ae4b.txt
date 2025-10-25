@@ -161,7 +161,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":894,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761398799840,
+	"modifiedTime":1761398868104,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1392,7 +1392,7 @@
 						}
 					}
 				},
-				"code":"\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def effectiveStatus = (status == \"null\") ? null : status\n    def effectiveCategory = (category == \"null\") ? null : category\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            // Use the cleaned 'effective' variables for the filter logic\n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            okStatus && okCategory\n        }\n       \n        .collectMany { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                \n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n        }\n        \n    return [ results: results ]\n}\n\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)",
+				"code":"\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def effectiveStatus = (status == \"null\") ? null : status\n    def effectiveCategory = (category == \"null\") ? null : category\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            // Use the cleaned 'effective' variables for the filter logic\n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            okStatus && okCategory\n        }\n       \n        .collectMany { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                \n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n        }\n        \n    return [ results: results ]\n}\n\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1540,5 +1540,5 @@
 	"tags":[
 		
 	],
-	"version":46
+	"version":47
 }
