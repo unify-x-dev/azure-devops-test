@@ -178,6 +178,13 @@
 			"fromNodeId":"n_Sv4Ke",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_MKLQb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_MKLQb",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_KaoOy",
 			"type":"next"
 		}
@@ -185,7 +192,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761371380913,
+	"modifiedTime":1761371581828,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1481,6 +1488,36 @@
 		},
 		{
 			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":1006,
+				"resourceName":"analytics_by_unifyapps_query_reports",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"n_MKLQb",
+			"index":20,
+			"inputs":{
+				"projections":[
+					{
+						"name":"ENTITY_automation_assignment_1=::=Department",
+						"aggregationFunction":"DISTINCT_COUNT",
+						"alias":"departments",
+						"includePercentageChange":false
+					}
+				],
+				"entityType":"ENTITY_automation_assignment_1",
+				"group":"ENTITY_REPORTING"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Analytics Query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
 				"resourceName":"callables_return_to_automation",
@@ -1491,7 +1528,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -1515,5 +1552,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":62
+	"version":63
 }
