@@ -23,11 +23,11 @@
 			"fromNodeId":"n_KYrgH",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_fXVzJ",
+			"toNodeId":"n_ugczR",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_fXVzJ",
+			"fromNodeId":"n_ugczR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -37,7 +37,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761413967119,
+	"modifiedTime":1761414105185,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -131,7 +131,7 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
-			"id":"n_fXVzJ",
+			"id":"n_ugczR",
 			"index":4,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
@@ -141,13 +141,9 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"subejct":{
+						"headers":{
 							"type":"string",
-							"title":"Subejct"
-						},
-						"sender":{
-							"type":"string",
-							"title":"Sender"
+							"title":"Headers"
 						},
 						"preview":{
 							"type":"string",
@@ -155,13 +151,13 @@
 						}
 					},
 					"required":[
-						"sender",
-						"preview"
+						"headers"
 					]
 				}
 			},
 			"inputs":{
-				"preview":"{{ n_KYrgH.outputs.snippet }}"
+				"preview":"{{ n_KYrgH.outputs.snippet }}",
+				"headers":"{{ n_KYrgH.outputs.payload.headers }}"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -169,13 +165,9 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"subejct":{
+						"headers":{
 							"type":"string",
-							"title":"Subejct"
-						},
-						"sender":{
-							"type":"string",
-							"title":"Sender"
+							"title":"Headers"
 						},
 						"preview":{
 							"type":"string",
@@ -183,8 +175,7 @@
 						}
 					},
 					"required":[
-						"sender",
-						"preview"
+						"headers"
 					]
 				}
 			},
@@ -235,5 +226,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
