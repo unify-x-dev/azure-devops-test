@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761398705406,
+		"deployedAt":1761398871707,
 		"deployedBy":894,
-		"deployedDefinitionId":"68fccfb1b0372243a7ac5924",
+		"deployedDefinitionId":"68fcd057dede0b5c299efb3e",
 		"status":"DEPLOYED",
-		"version":12,
-		"workflowVersion":45
+		"version":13,
+		"workflowVersion":47
 	},
 	"edges":[
 		{
@@ -161,7 +161,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":894,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761398868104,
+	"modifiedTime":1761398911365,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -176,7 +176,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -230,6 +230,10 @@
 									"header":{
 										"type":"string",
 										"title":"Header"
+									},
+									"checkHeader":{
+										"type":"string",
+										"title":"Check Header"
 									}
 								},
 								"additionalProperties":false,
@@ -283,7 +287,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_BJWbh",
@@ -530,9 +534,14 @@
 													"componentName":{
 														"type":"string",
 														"title":"componentName"
+													},
+													"checkHeader":{
+														"type":"string",
+														"title":"Check Header"
 													}
 												},
-												"additionalProperties":false
+												"additionalProperties":false,
+												"required":[]
 											},
 											"title":"results"
 										}
@@ -603,9 +612,14 @@
 												"componentName":{
 													"type":"string",
 													"title":"componentName"
+												},
+												"checkHeader":{
+													"type":"string",
+													"title":"Check Header"
 												}
 											},
-											"additionalProperties":false
+											"additionalProperties":false,
+											"required":[]
 										},
 										"title":"results"
 									}
@@ -626,7 +640,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_25xfN",
@@ -687,7 +701,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_25xfN@1",
@@ -719,7 +733,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_nJ4Q8",
@@ -762,7 +776,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -785,7 +799,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_M1PU3",
@@ -828,7 +842,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
@@ -886,7 +900,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
@@ -928,7 +942,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_YXNbz",
@@ -1070,7 +1084,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_hjLPx",
@@ -1115,7 +1129,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
@@ -1147,7 +1161,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
@@ -1190,7 +1204,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
@@ -1248,7 +1262,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
@@ -1428,17 +1442,7 @@
 					"root.itemToAdd.results.items.checkCategory",
 					"root.itemToAdd.results.items.componentId",
 					"root.itemToAdd.results.items.componentName",
-					"root.itemToAdd.results.source",
-					"root.itemToAdd.results.ua:type",
-					"root.itemToAdd.results.items.checkId",
-					"root.itemToAdd.results.items.status",
-					"root.itemToAdd.results.items.entityId",
-					"root.itemToAdd.results.items.checkTitle",
-					"root.itemToAdd.results.items.checkDescription",
-					"root.itemToAdd.results.items.checkImpact",
-					"root.itemToAdd.results.items.checkCategory",
-					"root.itemToAdd.results.items.componentId",
-					"root.itemToAdd.results.items.componentName"
+					"root.itemToAdd.results.items.checkHeader"
 				]
 			},
 			"context":{
@@ -1448,7 +1452,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"_a2JhT",
@@ -1484,7 +1488,8 @@
 							"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
 							"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
 							"componentId":"{{ n_aqVAB.outputs.result.results[0].componentId }}",
-							"componentName":"{{ n_aqVAB.outputs.result.results[0].componentName }}"
+							"componentName":"{{ n_aqVAB.outputs.result.results[0].componentName }}",
+							"checkHeader":"{{ n_aqVAB.outputs.result.results[0].checkHeader }}"
 						}
 					}
 				},
@@ -1504,7 +1509,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
@@ -1540,5 +1545,5 @@
 	"tags":[
 		
 	],
-	"version":47
+	"version":48
 }
