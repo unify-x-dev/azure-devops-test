@@ -185,7 +185,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761371323377,
+	"modifiedTime":1761371380913,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1460,9 +1460,21 @@
 			"index":19,
 			"inputs":{
 				"object_type":"automation_assignment_1",
-				"skipIfBlank":false
+				"skipIfBlank":false,
+				"records":{
+					"source":"{{ _5j6AR.outputs.items }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"id":"{{ _5j6AR.outputs.items[0].EmpId__0 }}",
+						"name":"{{ _5j6AR.outputs.items[0].Name__1 }}",
+						"Department":"{{ _5j6AR.outputs.items[0].Department__2 }}",
+						"bonusAmount":"{{ _5j6AR.outputs.items[0].Bonus_Amount__3 }}",
+						"Leaves":"{{ _5j6AR.outputs.items[0].Leaves__4 }}",
+						"quarter":"{{ _5j6AR.outputs.items[0].Quarter }}"
+					}
+				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Create or update records in bulk",
 			"type":"ACTION"
@@ -1503,5 +1515,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":61
+	"version":62
 }
