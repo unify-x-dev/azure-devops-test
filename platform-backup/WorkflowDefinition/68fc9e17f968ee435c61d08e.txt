@@ -40,12 +40,19 @@
 			"skip":false,
 			"toNodeId":"n_jdXHr",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jdXHr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aPspO",
+			"type":"next"
 		}
 	],
 	"id":"68fc9e17f968ee435c61d08e",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for saved version",
-	"modifiedTime":1761386260405,
+	"modifiedTime":1761386381138,
 	"name":"check dependencies for saved version",
 	"nodes":[
 		{
@@ -212,7 +219,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_jdXHr",
@@ -223,6 +230,86 @@
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_aPspO",
+			"index":7,
+			"inputs":{
+				"automationId":"68fc9f360b160667834cf795",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"businessHoursId":"e_68fc1417af74b97d204437f7",
+					"enabled":true,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -247,5 +334,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
