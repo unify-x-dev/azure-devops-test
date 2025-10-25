@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761337938407,
-		"deployedBy":27,
-		"deployedDefinitionId":"68fbe251e10f2d15d2e15958",
+		"deployedAt":1761374037953,
+		"deployedBy":23949,
+		"deployedDefinitionId":"68fc6f55f0707c781266a49e",
 		"status":"DEPLOYED",
-		"version":23,
-		"workflowVersion":109
+		"version":24,
+		"workflowVersion":110
 	},
 	"edges":[
 		{
@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761374036298,
+	"modifiedTime":1761374076924,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -2505,7 +2505,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_PUdwS@_z6eK1-1@y",
 			"id":"_FStQb",
@@ -2575,7 +2575,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const failedPageIds = [];\n\n  // Validate slug\n  const slug = page?.slug || \"\";\n  const pageId = page?.id || null;\n\n  // Matches \"page-\", \"page_<something>\", or numeric slugs\n  const invalidSlugPattern = /^page[-_]\\w+$/i;\n\n  if (invalidSlugPattern.test(slug)) {\n    failedPageIds.push(pageId);\n  }\n\n  if (failedPageIds.length > 0) {\n    outputList.push({\n      status: \"failed\"\n    });\n  } else {\n    outputList.push({\n      status: \"success\"\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const failedPageIds = [];\n\n  // Validate slug\n  const slug = page?.slug || \"\";\n  const pageId = page?.id || null;\n\n  // Matches \"page-\", \"page_<something>\", or numeric slugs\n  const invalidSlugPattern = /^page[-_]\\w+$/i;\n\n  if (invalidSlugPattern.test(slug)) {\n    failedPageIds.push(pageId);\n  }\n\n  if (failedPageIds.length > 0) {\n    outputList.push({\n      status: \"failed\"\n    });\n  } else {\n    outputList.push({\n      status: \"passed\"\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}"
@@ -3170,5 +3170,5 @@
 	"tags":[
 		
 	],
-	"version":110
+	"version":111
 }
