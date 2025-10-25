@@ -111,7 +111,7 @@
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761403191717,
+	"modifiedTime":1761403214448,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -361,17 +361,9 @@
 			"index":5,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"e_tcc",
+				"object_type":"virtusa_web_job_object",
 				"skipIfBlank":false,
-				"record":{
-					"fileDetails":{
-						"name":"{{ n_UcSUx.outputs.fileDetails[0].name }}",
-						"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
-						"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
-						"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}",
-						"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}"
-					}
-				}
+				"record":{}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
@@ -434,7 +426,7 @@
 			"index":7,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"e_tcc",
+				"object_type":"virtusa_tcc",
 				"skipIfBlank":false,
 				"record":{
 					"fileDetails":{
@@ -507,17 +499,9 @@
 			"index":9,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"e_tcc",
+				"object_type":"virtusa_java_sdk",
 				"skipIfBlank":false,
-				"record":{
-					"fileDetails":{
-						"name":"{{ n_UcSUx.outputs.fileDetails[0].name }}",
-						"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
-						"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
-						"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}",
-						"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}"
-					}
-				}
+				"record":{}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
@@ -635,5 +619,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
