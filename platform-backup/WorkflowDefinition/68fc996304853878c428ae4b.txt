@@ -154,7 +154,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761395823106,
+	"modifiedTime":1761395865756,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -773,7 +773,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_M1PU3",
@@ -1019,7 +1019,7 @@
 				"parameters":{
 					"status":"{{ n_1ceQS.outputs.status }}",
 					"category":"{{ n_1ceQS.outputs.category }}",
-					"page":"{{ n_oh9u9.outputs.properties }}",
+					"page":"{{ _M1PU3.outputs.properties }}",
 					"reportArr":{
 						"ua:type":"mappedArray",
 						"source":"{{ _pvdHU.outputs.objects }}",
@@ -1443,5 +1443,5 @@
 	"tags":[
 		
 	],
-	"version":26
+	"version":27
 }
