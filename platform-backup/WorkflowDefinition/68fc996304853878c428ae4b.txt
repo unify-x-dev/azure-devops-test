@@ -28,6 +28,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_nJ4Q8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_aadxY",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_25xfN",
 			"name":"2",
 			"priority":0,
@@ -67,7 +74,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761388213411,
+	"modifiedTime":1761388544086,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -314,6 +321,51 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@1",
+			"id":"_aadxY",
+			"index":5,
+			"inputs":{
+				"result":{
+					"results":{
+						"ua:type":"mappedArray",
+						"items":{
+							"blockIds":{
+								"ua:type":"mappedArray",
+								"source":"1",
+								"items":"1"
+							},
+							"dataSources":{
+								"ua:type":"mappedArray",
+								"source":"1",
+								"items":"1"
+							},
+							"checkId":"1",
+							"status":"1",
+							"entityId":"1",
+							"checkTitle":"1",
+							"checkDescription":"1",
+							"checkImpact":"1",
+							"checkCategory":"1"
+						},
+						"source":"1"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -324,7 +376,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"name":"Page Flow",
 				"conditions":{
@@ -356,7 +408,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -414,7 +466,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -452,7 +504,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -581,7 +633,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_iq5Wx",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"result":{
 					"results":{
@@ -632,5 +684,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
