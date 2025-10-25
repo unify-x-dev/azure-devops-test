@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761395894444,
+		"deployedAt":1761395995240,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fcc4b6dede0b5c299ec449",
-		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":28
+		"deployedDefinitionId":"68fcc51bdede0b5c299ec641",
+		"status":"PAUSED",
+		"version":4,
+		"workflowVersion":30
 	},
 	"edges":[
 		{
@@ -159,9 +159,9 @@
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
-	"lastModifiedBy":115477,
+	"lastModifiedBy":894,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761395993594,
+	"modifiedTime":1761396967000,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -780,7 +780,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_M1PU3",
@@ -923,7 +923,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_YXNbz",
@@ -1065,7 +1065,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_hjLPx",
@@ -1142,7 +1142,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
@@ -1285,7 +1285,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1382,7 +1382,7 @@
 						}
 					}
 				},
-				"code":"\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n\n    def results = reportArr\n\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n            okStatus && okCategory\n        }\n       \n        .collectMany { rep ->\n\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category\n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                \n\n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n        }\n        \n\n    return [ results: results ]\n}\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)\n",
+				"code":"def joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n\n    // Key master by properties.checkId so lookups work\n    def masterById = masterArr.collectEntries { m ->\n        [ (m?.properties?.checkId) : m ]\n    }\n\n    def pageBlocks = page?.blocks ?: [:]\n\n    def results = reportArr\n        .findAll { rep ->\n            def okStatus   = (status == null) || rep?.properties?.status == status\n            def m          = masterById[rep?.properties?.checkId]\n            def okCategory = (category == null) || m?.properties?.category == category\n            okStatus && okCategory\n        }\n        .collectMany { rep ->\n            def m = masterById[rep?.properties?.checkId]\n\n            def baseInfo = [\n                checkId          : rep?.properties?.checkId,\n                status           : rep?.properties?.status,\n                entityId         : rep?.properties?.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category\n            ]\n\n            def blockIds = rep?.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName\n                ]\n            }\n        }\n\n    [ results: results ]\n}\n\n// Use defaults for status & category (null), so no missing property error\ndef output = joinAndFilter(reportArr, masterArr, page)\n\n// If you do want to filter:\n// def output = joinAndFilter(reportArr, masterArr, page, 'failed', 'SomeCategory')",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1508,5 +1508,5 @@
 	"tags":[
 		
 	],
-	"version":30
+	"version":31
 }
