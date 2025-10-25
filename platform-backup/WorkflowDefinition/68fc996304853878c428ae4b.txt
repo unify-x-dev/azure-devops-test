@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761389825184,
+		"deployedAt":1761395894444,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fcad01dede0b5c299e1833",
+		"deployedDefinitionId":"68fcc4b6dede0b5c299ec449",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":19
+		"version":3,
+		"workflowVersion":28
 	},
 	"edges":[
 		{
@@ -161,7 +161,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761395892563,
+	"modifiedTime":1761395983634,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1142,7 +1142,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
@@ -1151,7 +1151,7 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_interfaceId",
+							"property":"id",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"{{ n_1ceQS.outputs.entityId }}"
@@ -1508,5 +1508,5 @@
 	"tags":[
 		
 	],
-	"version":28
+	"version":29
 }
