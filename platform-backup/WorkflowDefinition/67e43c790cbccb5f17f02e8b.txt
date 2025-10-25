@@ -6,12 +6,12 @@
 	"createdTime":1749213550974,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761413947986,
+		"deployedAt":1761414209304,
 		"deployedBy":34802,
-		"deployedDefinitionId":"68fd0b3b126c45298487ff63",
+		"deployedDefinitionId":"68fd0c419e1ba9260c2bdb49",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":44
+		"version":4,
+		"workflowVersion":46
 	},
 	"edges":[
 		{
@@ -74,6 +74,13 @@
 		},
 		{
 			"fromNodeId":"Q6XLr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"VNVNB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"VNVNB",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"0bXGz",
@@ -185,7 +192,7 @@
 	"id":"67e43c790cbccb5f17f02e8b",
 	"lastModifiedBy":34802,
 	"lcName":"print form (copy)",
-	"modifiedTime":1761414207738,
+	"modifiedTime":1761416096390,
 	"name":"Print Form (copy)",
 	"nodes":[
 		{
@@ -682,6 +689,28 @@
 		},
 		{
 			"context":{
+				"appName":"delay",
+				"resourceVersion":32,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_2YwRw-1",
+			"id":"VNVNB",
+			"index":9,
+			"inputs":{
+				"duration":30,
+				"unit":"SECONDS"
+			},
+			"skip":false,
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
+		},
+		{
+			"context":{
 				"appName":"storage_by_unifyapps",
 				"resourceVersion":40,
 				"resourceName":"storage_by_unifyapps_fetch_records",
@@ -692,7 +721,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"0bXGz",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -733,7 +762,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"T4brP",
-			"index":10,
+			"index":11,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -784,7 +813,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"E2KHS",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"filters":[
 					{
@@ -814,7 +843,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"E2KHS@_2YwRw-1@y",
 			"id":"i5sPC",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"variables":[
 					{
@@ -840,7 +869,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"E2KHS@_2YwRw-1@n",
 			"id":"j9L0a",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"variables":[
 					{
@@ -866,21 +895,20 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"_gdroo",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"pdfPages":[
 					{
-						"url":"https://forms-qa.matrix-qa.unifyapps.com/homepage-6ue2q?pageInputs=%7B%22submissionID%22%3A%22+e_67bef9d6e65ea90d3b73e98c%22%2C%22submissionId%22%3A%22{{ _weOem.outputs.submissionId }}%22%2C%22formName%22%3A%22{{ Q6XLr.outputs.formName }}%22%2C%22category%22%3A%22{{ _weOem.outputs.category }}%22%2C%22testDate%22%3A%22{{ T4brP.outputs.TESTDATE }}%22%7D",
-						"externalPage":false,
-						"fileName":""
+						"fileName":"",
+						"url":"https://forms.apps.isa.ae/homepage-6ue2q?pageInputs=%7B%22submissionID%22%3A%22+e_67bef9d6e65ea90d3b73e98c%22%2C%22submissionId%22%3A%22{{ _weOem.outputs.submissionId }}%22%2C%22formName%22%3A%22{{ Q6XLr.outputs.formName }}%22%2C%22category%22%3A%22{{ _weOem.outputs.category }}%22%2C%22testDate%22%3A%22{{ T4brP.outputs.TESTDATE }}%22%7D"
 					}
 				],
 				"exportType":"ZIP",
 				"page":{
-					"format":"a4",
-					"layout":"portrait",
 					"scale":0.5,
-					"timeout":10000
+					"timeout":10000,
+					"format":"a4",
+					"layout":"portrait"
 				}
 			},
 			"skip":false,
@@ -900,7 +928,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"ucRWY",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"fileDetails":"{{ _gdroo.outputs.file }}"
 			},
@@ -921,7 +949,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"_GoxlK",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"file":"{{ ucRWY.outputs.filesDetails[0] }}",
 				"expiryTime":1
@@ -943,7 +971,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"iLWMq",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"filters":[
 					{
@@ -965,7 +993,7 @@
 			"context":{
 				"appName":"microsoft_outlook",
 				"resourceVersion":171,
-				"connectionId":"68e528dca1a6c341636fb277",
+				"connectionId":"677789602f0f313f2282f360",
 				"resourceName":"microsoft_outlook_send_email",
 				"type":"APPLICATION"
 			},
@@ -974,7 +1002,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"iLWMq@_2YwRw-1@y",
 			"id":"tOfYm",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"toRecipients":"{{ _weOem.outputs.email1 }},{{ _weOem.outputs.email2 }},{{ _weOem.outputs.emailcategory2 }}",
 				"attachmentURL":"{{ _GoxlK.outputs.url }}",
@@ -993,7 +1021,7 @@
 			"context":{
 				"appName":"microsoft_outlook",
 				"resourceVersion":171,
-				"connectionId":"68e528dca1a6c341636fb277",
+				"connectionId":"677789602f0f313f2282f360",
 				"resourceName":"microsoft_outlook_send_email",
 				"type":"APPLICATION"
 			},
@@ -1002,7 +1030,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"iLWMq@_2YwRw-1@n",
 			"id":"Tfe8g",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"toRecipients":"{{ _weOem.outputs.email1 }},{{ _weOem.outputs.email2 }},{{ _weOem.outputs.emailcategory2 }}",
 				"attachmentURL":"{{ _GoxlK.outputs.url }}",
@@ -1029,7 +1057,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"N33AR",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"automationId":"67ceae3e01d966776b315caa",
 				"runtimeConnections":{},
@@ -1059,7 +1087,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"_hduRZ",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"result":{
 					"success":"200"
@@ -1085,5 +1113,5 @@
 		}
 	},
 	"standard":false,
-	"version":46
+	"version":47
 }
