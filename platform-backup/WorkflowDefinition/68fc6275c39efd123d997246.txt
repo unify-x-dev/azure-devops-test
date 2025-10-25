@@ -1,12 +1,27 @@
 {
 	"appsUsed":[
-		
+		"gcalendar"
 	],
 	"createdTime":1761370741174,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761370790046,
+		"deployedBy":177799,
+		"deployedDefinitionId":"68fc62a3c39efd123d997339",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_HPwD5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HvRx1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HvRx1",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_zbYJQ",
@@ -16,7 +31,7 @@
 	"id":"68fc6275c39efd123d997246",
 	"lastModifiedBy":177799,
 	"lcName":"rishabh practice lyearn",
-	"modifiedTime":1761370786284,
+	"modifiedTime":1761372155999,
 	"name":"rishabh practice lyearn",
 	"nodes":[
 		{
@@ -46,6 +61,29 @@
 		},
 		{
 			"context":{
+				"appName":"gcalendar",
+				"resourceVersion":2298,
+				"connectionId":"68fc67107250901fb1583e22",
+				"resourceName":"gcalendar_list_events",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Wfod6-1",
+			"id":"n_HvRx1",
+			"index":2,
+			"inputs":{
+				"singleEvents":false,
+				"calendarId":"primary"
+			},
+			"skip":false,
+			"subTitle":"Google Calendar",
+			"title":"List events",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -53,7 +91,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Wfod6-1",
 			"id":"n_zbYJQ",
-			"index":2,
+			"index":3,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -77,5 +115,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
