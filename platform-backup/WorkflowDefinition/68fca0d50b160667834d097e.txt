@@ -7,12 +7,12 @@
 	"createdTime":1761386709219,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761387042236,
+		"deployedAt":1761387073382,
 		"deployedBy":511,
-		"deployedDefinitionId":"68fca2220b160667834d1910",
+		"deployedDefinitionId":"68fca2410b160667834d1d89",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":7
+		"version":7,
+		"workflowVersion":8
 	},
 	"edges":[
 		{
@@ -68,6 +68,13 @@
 			"fromNodeId":"n_ACnXR",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_rBRML",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rBRML",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -75,7 +82,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761387070288,
+	"modifiedTime":1761387102499,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -284,6 +291,61 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1078,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_rBRML",
+			"index":9,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"erf":{
+							"type":"string",
+							"title":"Erf"
+						}
+					},
+					"required":[
+						"erf"
+					]
+				}
+			},
+			"inputs":{
+				"erf":"{{ __ENV__.outputs.alert_channel }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"erf":{
+							"type":"string",
+							"title":"Erf"
+						}
+					},
+					"required":[
+						"erf"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -294,7 +356,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -323,5 +385,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
