@@ -111,7 +111,7 @@
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761403169476,
+	"modifiedTime":1761403182705,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -262,7 +262,19 @@
 					{
 						"id":"2",
 						"inputs":{
-							"name":"Branch 2"
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_Pec1D.outputs.objectName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"tcc"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
@@ -368,7 +380,19 @@
 			"id":"n_wIwUs@2",
 			"index":6,
 			"inputs":{
-				"name":"Branch 2"
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_Pec1D.outputs.objectName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"tcc"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
@@ -587,5 +611,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
