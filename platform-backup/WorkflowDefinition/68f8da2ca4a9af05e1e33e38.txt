@@ -60,11 +60,11 @@
 			"fromNodeId":"n_38ky2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_CdyOW",
+			"toNodeId":"n_EtK0E",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_CdyOW",
+			"fromNodeId":"n_EtK0E",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_AjLCz",
@@ -88,7 +88,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761308480105,
+	"modifiedTime":1761378940593,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -98,7 +98,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_Qgt4O",
@@ -128,7 +128,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_vNDmq",
@@ -402,7 +402,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_UNyrr",
@@ -426,7 +426,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_38ky2",
@@ -450,7 +450,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_I8HGt",
@@ -475,7 +475,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_soA6G",
@@ -517,26 +517,26 @@
 		{
 			"context":{
 				"appName":"gcalendar",
-				"resourceVersion":2280,
+				"resourceVersion":2211,
 				"connectionId":"68f8dba117a0e608e14199c3",
-				"resourceName":"gcalendar_list_events",
+				"resourceName":"gcalendar_list_meetings",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
-			"id":"n_CdyOW",
+			"id":"n_EtK0E",
 			"index":8,
 			"inputs":{
 				"start_time":"=TEXT(NOW(),\"dd/mm/yy hh:mm\")",
-				"singleEvents":false,
 				"calendarId":"primary",
-				"end_time":"=TEXT(NOW() + 0.5, \"dd/mm/yy hh:mm\")"
+				"end_time":"",
+				"meetingType":"One-Time"
 			},
 			"skip":false,
 			"subTitle":"Google Calendar",
-			"title":"List events",
+			"title":"List meetings",
 			"type":"ACTION"
 		},
 		{
@@ -639,5 +639,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
