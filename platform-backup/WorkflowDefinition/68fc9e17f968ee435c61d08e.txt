@@ -18,12 +18,19 @@
 			"skip":false,
 			"toNodeId":"n_Z8LEA",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Z8LEA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XBS5h",
+			"type":"next"
 		}
 	],
 	"id":"68fc9e17f968ee435c61d08e",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for saved version",
-	"modifiedTime":1761386163270,
+	"modifiedTime":1761386183906,
 	"name":"check dependencies for saved version",
 	"nodes":[
 		{
@@ -128,6 +135,28 @@
 			"subTitle":"Variable by UnifyApps",
 			"title":"Create variables",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":1674,
+				"resourceName":"streams_by_unifyapps_publish_event",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_XBS5h",
+			"index":4,
+			"inputs":{
+				"streamId":"e_68fc01913187ab108d172d7b",
+				"skipInputValidation":false
+			},
+			"skip":false,
+			"subTitle":"Streams by UnifyApps",
+			"title":"Publish event to stream",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":37018,
@@ -147,5 +176,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
