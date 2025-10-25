@@ -154,7 +154,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761395354766,
+	"modifiedTime":1761395503962,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1231,7 +1231,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1328,7 +1328,7 @@
 						}
 					}
 				},
-				"code":"/**\n * Joins report and master arrays, filters them, and flattens the results\n * to create one output object per component/block.\n *\n * @param reportArr  Array of report objects.\n * @param masterArr  Array of master definition objects.\n * @param page       The page definition object containing the 'blocks' map.\n * @param status     (Optional) The status to filter reports by.\n * @param category   (Optional) The category to filter reports by (from master).\n * @return A Map containing a 'results' key with an array of flattened objects.\n */\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    // 1. Create a lookup map for master items by their ID for fast access\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    // 2. Create a lookup map for page blocks by their ID\n    //    We add null-safety in case page or page.blocks is null\n    def pageBlocks = page?.blocks ?: [:]\n\n    // 3. Filter and Transform\n    def results = reportArr\n        // 3a. First, find all reports that match the status and category filters\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n            okStatus && okCategory\n        }\n        // 3b. Then, use collectMany (flatMap) to transform and flatten the list\n        .collectMany { rep ->\n            // Get the common master details for this report\n            def m = masterById[rep.properties.checkId]\n            \n            // Define the base information that is common to all blocks in this report\n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category\n            ]\n\n            // Get the list of blockIds from the report, default to empty list\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            // 3c. Create a new list of objects, one for each blockId\n            blockIds.collect { blockId ->\n                // Find the block's details from the page map\n                def blockDetails = pageBlocks[blockId]\n                \n                // Combine the baseInfo with the specific block info\n                // The '+' operator merges the two maps\n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName // Get displayName, null-safe\n                ]\n            }\n        }\n        \n    // 4. Return the final result in the expected wrapper map\n    return [ results: results ]\n}\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)\n",
+				"code":"\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n\n    def results = reportArr\n\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n            okStatus && okCategory\n        }\n       \n        .collectMany { rep ->\n\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category\n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                \n\n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n        }\n        \n\n    return [ results: results ]\n}\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1454,5 +1454,5 @@
 	"tags":[
 		
 	],
-	"version":23
+	"version":24
 }
