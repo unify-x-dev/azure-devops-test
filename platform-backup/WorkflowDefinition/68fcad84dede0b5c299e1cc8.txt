@@ -5,12 +5,12 @@
 	"createdTime":1761389956257,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761402496215,
-		"deployedBy":894,
-		"deployedDefinitionId":"68fcde809e1ba9260c2aeeb4",
+		"deployedAt":1761417464582,
+		"deployedBy":23949,
+		"deployedDefinitionId":"68fd18f89e1ba9260c2c16d6",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":8
+		"version":3,
+		"workflowVersion":9
 	},
 	"edges":[
 		{
@@ -45,7 +45,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761417462289,
+	"modifiedTime":1761417496815,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -146,7 +146,8 @@
 				"translationsOption":"DEFAULT",
 				"page":{
 					"paginateBy":"OFFSET",
-					"limit":20
+					"limit":10000,
+					"offset":0
 				},
 				"numberOfRecordsToFetch":"MULTIPLE",
 				"readThroughSessionVariables":false,
@@ -326,5 +327,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
