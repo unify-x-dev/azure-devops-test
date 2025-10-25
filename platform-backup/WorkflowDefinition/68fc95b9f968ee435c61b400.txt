@@ -6,46 +6,90 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_coC3d",
+			"fromNodeId":"n_Q0WPv",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_lncBn",
+			"toNodeId":"n_MilKu",
 			"type":"next"
 		}
 	],
 	"id":"68fc95b9f968ee435c61b400",
 	"lastModifiedBy":32341,
 	"lcName":"sanity1",
-	"modifiedTime":1761383865428,
+	"modifiedTime":1761383921129,
 	"name":"sanity1",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_coC3d-1",
-			"id":"_coC3d",
-			"index":0,
+			"id":"n_Q0WPv",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items.date",
+					"root.records.items._ua_id",
+					"root.records.items.name",
+					"root.records.items.age",
+					"root.records.items.status"
+				]
+			},
+			"context":{
+				"appName":"mdm_by_unifyapps",
+				"resourceVersion":743,
+				"resourceName":"mdm_by_unifyapps_create_staging_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_coC3d-1",
-			"id":"_lncBn",
-			"index":0,
+			"id":"n_MilKu",
+			"index":2,
+			"inputs":{
+				"sourceId":"683243cc8319bd1a8db3f91f",
+				"modelId":"68fb4efa230d67189d454b1c",
+				"records":[
+					{
+						"date":"21/02/2003",
+						"_ua_id":12,
+						"name":"hemanth",
+						"age":33.4,
+						"status":true
+					}
+				],
+				"unifiedEntityId":"sanity_1"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"UDM by UnifyApps",
+			"title":"Create Staging Records",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":32341,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +103,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
