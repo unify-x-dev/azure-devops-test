@@ -7,12 +7,12 @@
 	"createdTime":1761386506102,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761386705919,
+		"deployedAt":1761386807862,
 		"deployedBy":37018,
-		"deployedDefinitionId":"68fca0d10b160667834d0954",
+		"deployedDefinitionId":"68fca1370b160667834d0e78",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":1
+		"version":3,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -38,6 +38,13 @@
 		},
 		{
 			"fromNodeId":"n_Z8LEA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_l1Ahy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_l1Ahy",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_XBS5h",
@@ -68,7 +75,7 @@
 	"id":"68fca00a0b160667834cffe8",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for deployed version (copy)",
-	"modifiedTime":1761386805382,
+	"modifiedTime":1761386870854,
 	"name":"check dependencies for deployed version (copy)",
 	"nodes":[
 		{
@@ -199,6 +206,28 @@
 		},
 		{
 			"context":{
+				"appName":"decision_table_by_unifyapps",
+				"resourceVersion":897,
+				"resourceName":"decision_table_by_unifyapps_execute_table",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_l1Ahy",
+			"index":5,
+			"inputs":{
+				"responseType":"FINAL_MATCH",
+				"entityId":"e_68fbfda1af74b97d20442de7"
+			},
+			"skip":false,
+			"subTitle":"Decision Table by UnifyApps",
+			"title":"Execute a Decision Table",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"streams_by_unifyapps",
 				"resourceVersion":1674,
 				"resourceName":"streams_by_unifyapps_publish_event",
@@ -209,7 +238,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_XBS5h",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"streamId":"e_68fc01913187ab108d172d7b",
 				"skipInputValidation":false
@@ -231,7 +260,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_swf1D",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"object_type":"ChangeSetEzHUGtGhqYcEccaoRNkm",
 				"includeRoleMappings":false,
@@ -262,7 +291,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_jdXHr",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"automationId":"68fc2540d2a77a3080f83bae",
 				"runtimeConnections":{},
@@ -287,7 +316,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_aPspO",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"automationId":"68fc9f360b160667834cf795",
 				"runtimeConnections":{},
@@ -373,5 +402,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
