@@ -58,7 +58,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761381458929,
+	"modifiedTime":1761381520006,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -101,8 +101,7 @@
 			"id":"n_WYxn1",
 			"index":2,
 			"inputs":{
-				"comments":"Hi, this in invoice test final test",
-				"commentable_id":60
+				"comments":"Hi, this in invoice test final test"
 			},
 			"skip":false,
 			"subTitle":"Coupa",
@@ -164,12 +163,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_aqMiz",
 			"index":5,
-			"inputs":{},
+			"inputs":{
+				"invoice_id":60
+			},
 			"skip":false,
 			"subTitle":"Coupa",
 			"title":"List invoice comments",
@@ -259,5 +260,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
