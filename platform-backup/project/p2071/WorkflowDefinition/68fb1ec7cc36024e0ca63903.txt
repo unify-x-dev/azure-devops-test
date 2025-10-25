@@ -157,11 +157,18 @@
 			"fromNodeId":"n_lSLD7",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_GGVGo",
+			"toNodeId":"_5j6AR",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_GGVGo",
+			"fromNodeId":"_5j6AR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_JesFE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_JesFE",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Sv4Ke",
@@ -178,7 +185,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761371178763,
+	"modifiedTime":1761371323377,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1084,100 +1091,348 @@
 		{
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":1077,
-				"resourceName":"variable_by_unifyapps_create_variables",
+				"resourceVersion":1061,
+				"resourceName":"variable_by_unifyapps_create_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
-			"id":"n_GGVGo",
+			"id":"_5j6AR",
 			"index":17,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
-				"layout":{},
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
 				"schema":{
-					"additionalProperties":false,
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
 					"type":"object",
 					"properties":{
-						"empid":{
-							"type":"number",
-							"title":"Empid"
+						"ua:title":{
+							"type":"string"
 						},
-						"name":{
+						"ua:list_type":{
 							"type":"string",
-							"title":"Name"
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
 						},
-						"department":{
-							"type":"string",
-							"title":"Department"
-						},
-						"bonnus":{
-							"type":"number",
-							"title":"Bonnus"
-						},
-						"leaves":{
-							"type":"number",
-							"title":"Leaves"
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"type":"object",
+									"properties":{
+										"EmpId__0":{
+											"type":"string",
+											"title":"EmpId__0"
+										},
+										"Name__1":{
+											"type":"string",
+											"title":"Name__1"
+										},
+										"Department__2":{
+											"type":"string",
+											"title":"Department__2"
+										},
+										"Bonus_Amount__3":{
+											"type":"number",
+											"title":"Bonus_Amount__3"
+										},
+										"Leaves__4":{
+											"type":"integer",
+											"title":"Leaves__4"
+										},
+										"Quarter":{
+											"type":"string",
+											"title":"Quarter"
+										}
+									},
+									"additionalProperties":false,
+									"required":[]
+								}
+							}
 						}
-					},
-					"required":[
-						"empid",
-						"name",
-						"department",
-						"bonnus",
-						"leaves"
-					]
+					}
 				}
 			},
 			"inputs":{
-				"empid":"{{ n_lSLD7.outputs.result.result[0].EmpId__0 }}",
-				"bonnus":"{{ n_lSLD7.outputs.result.result[0].Total_Bonus }}",
-				"leaves":"{{ n_lSLD7.outputs.result.result[0].Total_Leaves }}",
-				"name":"{{ n_lSLD7.outputs.result.result[0].Name__1 }}",
-				"department":"{{ n_lSLD7.outputs.result.result[0].Department__2 }}"
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"FinalData",
+				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
-					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"empid":{
-							"type":"number",
-							"title":"Empid"
-						},
-						"name":{
-							"type":"string",
-							"title":"Name"
-						},
-						"department":{
-							"type":"string",
-							"title":"Department"
-						},
-						"bonnus":{
-							"type":"number",
-							"title":"Bonnus"
-						},
-						"leaves":{
-							"type":"number",
-							"title":"Leaves"
+						"items":{
+							"type":"array",
+							"title":"FinalData",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{
+									"EmpId__0":{
+										"type":"string",
+										"title":"EmpId__0"
+									},
+									"Name__1":{
+										"type":"string",
+										"title":"Name__1"
+									},
+									"Department__2":{
+										"type":"string",
+										"title":"Department__2"
+									},
+									"Bonus_Amount__3":{
+										"type":"number",
+										"title":"Bonus_Amount__3"
+									},
+									"Leaves__4":{
+										"type":"integer",
+										"title":"Leaves__4"
+									},
+									"Quarter":{
+										"type":"string",
+										"title":"Quarter"
+									}
+								},
+								"required":[]
+							}
 						}
-					},
-					"required":[
-						"empid",
-						"name",
-						"department",
-						"bonnus",
-						"leaves"
-					]
+					}
 				}
 			},
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
-			"title":"Create variables",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.EmpId__0",
+					"root.itemsToAdd.items.Name__1",
+					"root.itemsToAdd.items.Department__2",
+					"root.itemsToAdd.items.Bonus_Amount__3",
+					"root.itemsToAdd.items.Leaves__4",
+					"root.itemsToAdd.items.Quarter"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":980,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"_JesFE",
+			"index":18,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_lSLD7.outputs.result.result }}",
+					"items":{
+						"EmpId__0":"{{ n_lSLD7.outputs.result.result[0].EmpId__0 }}",
+						"Name__1":"{{ n_lSLD7.outputs.result.result[0].Name__1 }}",
+						"Department__2":"{{ n_lSLD7.outputs.result.result[0].Department__2 }}",
+						"Bonus_Amount__3":"{{ n_lSLD7.outputs.result.result[0].Total_Bonus }}",
+						"Leaves__4":"{{ n_lSLD7.outputs.result.result[0].Total_Leaves }}",
+						"Quarter":"{{ n_lSLD7.outputs.result.result[0].Quarters }}"
+					}
+				},
+				"listName":"{{ _5j6AR.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
 			"type":"ACTION"
 		},
 		{
@@ -1202,7 +1457,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_Sv4Ke",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"object_type":"automation_assignment_1",
 				"skipIfBlank":false
@@ -1224,7 +1479,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"result":{
 					"userId":"{{ n_yM97Y.outputs.userId }}",
@@ -1248,5 +1503,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":60
+	"version":61
 }
