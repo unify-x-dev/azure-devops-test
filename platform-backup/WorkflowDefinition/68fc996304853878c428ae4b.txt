@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761397288039,
+		"deployedAt":1761398312034,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fcca27b0372243a7ac4ea4",
+		"deployedDefinitionId":"68fcce27dede0b5c299ef12d",
 		"status":"DEPLOYED",
-		"version":10,
-		"workflowVersion":38
+		"version":11,
+		"workflowVersion":44
 	},
 	"edges":[
 		{
@@ -159,9 +159,9 @@
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
-	"lastModifiedBy":115477,
+	"lastModifiedBy":894,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761398268778,
+	"modifiedTime":1761398700476,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -176,7 +176,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -226,9 +226,14 @@
 									"componentName":{
 										"type":"string",
 										"title":"componentName"
+									},
+									"header":{
+										"type":"string",
+										"title":"Header"
 									}
 								},
-								"additionalProperties":false
+								"additionalProperties":false,
+								"required":[]
 							},
 							"title":"results"
 						}
@@ -278,7 +283,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_BJWbh",
@@ -621,7 +626,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_25xfN",
@@ -682,7 +687,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_25xfN@1",
@@ -714,7 +719,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_nJ4Q8",
@@ -757,7 +762,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -780,7 +785,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_M1PU3",
@@ -823,7 +828,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
@@ -881,7 +886,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
@@ -923,7 +928,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_YXNbz",
@@ -1065,7 +1070,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_hjLPx",
@@ -1110,7 +1115,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
@@ -1142,7 +1147,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
@@ -1185,7 +1190,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
@@ -1243,7 +1248,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
@@ -1285,7 +1290,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1335,9 +1340,14 @@
 									"componentName":{
 										"type":"string",
 										"title":"componentName"
+									},
+									"checkHeader":{
+										"type":"string",
+										"title":"Check Header"
 									}
 								},
-								"additionalProperties":false
+								"additionalProperties":false,
+								"required":[]
 							},
 							"title":"results"
 						}
@@ -1417,6 +1427,17 @@
 					"root.itemToAdd.results.items.checkImpact",
 					"root.itemToAdd.results.items.checkCategory",
 					"root.itemToAdd.results.items.componentId",
+					"root.itemToAdd.results.items.componentName",
+					"root.itemToAdd.results.source",
+					"root.itemToAdd.results.ua:type",
+					"root.itemToAdd.results.items.checkId",
+					"root.itemToAdd.results.items.status",
+					"root.itemToAdd.results.items.entityId",
+					"root.itemToAdd.results.items.checkTitle",
+					"root.itemToAdd.results.items.checkDescription",
+					"root.itemToAdd.results.items.checkImpact",
+					"root.itemToAdd.results.items.checkCategory",
+					"root.itemToAdd.results.items.componentId",
 					"root.itemToAdd.results.items.componentName"
 				]
 			},
@@ -1427,7 +1448,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"_a2JhT",
@@ -1453,7 +1474,18 @@
 					},
 					"results":{
 						"source":"{{ n_aqVAB.outputs.result.results }}",
-						"ua:type":"mappedArray"
+						"ua:type":"mappedArray",
+						"items":{
+							"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
+							"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
+							"entityId":"{{ n_aqVAB.outputs.result.results[0].entityId }}",
+							"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
+							"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkDescription }}",
+							"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
+							"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+							"componentId":"{{ n_aqVAB.outputs.result.results[0].componentId }}",
+							"componentName":"{{ n_aqVAB.outputs.result.results[0].componentName }}"
+						}
 					}
 				},
 				"insertLocation":"END",
@@ -1472,7 +1504,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
@@ -1508,5 +1540,5 @@
 	"tags":[
 		
 	],
-	"version":44
+	"version":45
 }
