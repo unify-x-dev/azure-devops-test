@@ -75,6 +75,13 @@
 			"fromNodeId":"n_aSAqb",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_nqB3n",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_nqB3n",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_JP691",
 			"type":"next"
 		},
@@ -89,7 +96,7 @@
 	"id":"68fc8ef5e0ea8817c49882b3",
 	"lastModifiedBy":33877,
 	"lcName":"test",
-	"modifiedTime":1761382286325,
+	"modifiedTime":1761382357700,
 	"name":"test",
 	"nodes":[
 		{
@@ -396,6 +403,34 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_rNZnj-1",
+			"id":"n_nqB3n",
+			"index":11,
+			"inputs":{
+				"automationId":"68b962c8e4492b2af300db51",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"fileDetails":"{{ n_aSAqb.outputs.videoRecordingFile }}",
+					"prompt":"Analyze the following video and break it down into meaningful chunks or scenes. For each chunk, provide:\\nA short title\\nA brief description of what happens\\nThe start and end timestamps in the format \\\"HH:MM:SS\\\"\\nReturn the output in JSON format structured like this:\\n[ { \\\"title\\\": \\\"Scene 1 Title\\\", \\\"description\\\": \\\"Brief summary of the scene\\\", \\\"start_time\\\": \\\"00:00:00\\\", \\\"end_time\\\": \\\"00:01:23\\\" }, { \\\"title\\\": \\\"Scene 2 Title\\\", \\\"description\\\": \\\"Brief summary of the next scene\\\", \\\"start_time\\\": \\\"00:01:24\\\", \\\"end_time\\\": \\\"00:03:45\\\" } ]"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
 				"appName":"slack",
 				"resourceVersion":1826,
 				"connectionId":"681d8820063264000610c2c4",
@@ -407,7 +442,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_JP691",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"link_names":true,
 				"messageType":"text",
@@ -416,7 +451,7 @@
 				],
 				"channel":"D0819BQ81D1",
 				"unfurl_links":true,
-				"text":"MOM for L1  bridge call regarding {{ n_Lqfth.outputs.subject }} \n{{ n_FrIYz.outputs.text }}",
+				"text":"MOM for L1 bridge call regarding {{ n_Lqfth.outputs.subject }} \n{{ n_nqB3n.outputs.text }}\n",
 				"mrkdwn":true,
 				"username":"Incident Management"
 			},
@@ -438,7 +473,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"_u0Ivp",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"participants":[
 					{
@@ -475,5 +510,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
