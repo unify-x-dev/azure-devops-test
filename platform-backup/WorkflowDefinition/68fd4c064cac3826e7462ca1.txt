@@ -24,7 +24,7 @@
 	"id":"68fd4c064cac3826e7462ca1",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2astxrpkmvrf9",
-	"modifiedTime":1761430592811,
+	"modifiedTime":1761430659607,
 	"name":"changeSetQA2ASTXRpkmvrF9",
 	"nodes":[
 		{
@@ -95,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"= MIN({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -121,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
