@@ -37,7 +37,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761414105185,
+	"modifiedTime":1761414486859,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -157,7 +157,7 @@
 			},
 			"inputs":{
 				"preview":"{{ n_KYrgH.outputs.snippet }}",
-				"headers":"{{ n_KYrgH.outputs.payload.headers }}"
+				"headers":"{{ n_KYrgH.outputs.payload.headers[0].name }}"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -226,5 +226,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
