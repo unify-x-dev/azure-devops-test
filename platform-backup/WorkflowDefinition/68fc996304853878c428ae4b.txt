@@ -48,12 +48,19 @@
 			"skip":false,
 			"toNodeId":"n_oC2OU",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oC2OU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aqVAB",
+			"type":"next"
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
-	"lastModifiedBy":23949,
+	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761385608267,
+	"modifiedTime":1761387941252,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -352,6 +359,121 @@
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1025,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@2",
+			"id":"n_aqVAB",
+			"index":8,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"results":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"checkId":{
+										"type":"string",
+										"title":"checkId"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"entityId":{
+										"type":"string",
+										"title":"entityId"
+									},
+									"checkTitle":{
+										"type":"string",
+										"title":"checkTitle"
+									},
+									"checkDescription":{
+										"type":"string",
+										"title":"checkDescription"
+									},
+									"checkImpact":{
+										"type":"string",
+										"title":"checkImpact"
+									},
+									"checkCategory":{
+										"type":"string",
+										"title":"checkCategory"
+									},
+									"blockIds":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"blockIds"
+									},
+									"dataSources":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"dataSources"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"results"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"reportArr":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"reportArr"
+						},
+						"masterArr":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"masterArr"
+						},
+						"status":{
+							"type":"string",
+							"title":"status"
+						},
+						"category":{
+							"type":"string",
+							"title":"category"
+						}
+					}
+				},
+				"code":"def joinAndFilter(reportArr, masterArr, String status = null, String category = null) {\n\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n\n            okStatus && okCategory\n        }\n        .collect { rep ->\n            def m = masterById[rep.properties.checkId]\n            [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                createdTime      : rep.createdTime,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                blockIds         : rep.properties?.entities?.blockIds ?: [],\n                dataSources      : rep.properties?.entities?.dataSources ?: []\n            ]\n        }\n\n    return [ results: results ]\n}\n",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":23949,
@@ -371,5 +493,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
