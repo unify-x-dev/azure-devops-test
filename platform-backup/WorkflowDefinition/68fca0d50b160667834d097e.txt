@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761386709219,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_oXLGL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_bXf3r",
+			"type":"next"
+		}
+	],
+	"id":"68fca0d50b160667834d097e",
+	"lastModifiedBy":511,
+	"lcName":"dependancyworkflow_dnd",
+	"modifiedTime":1761386709219,
+	"name":"DependancyWorkflow_DND",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"_oXLGL",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"_bXf3r",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":511,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
