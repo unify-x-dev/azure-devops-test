@@ -37,7 +37,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761414486859,
+	"modifiedTime":1761414536341,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -141,23 +141,29 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"headers":{
-							"type":"string",
-							"title":"Headers"
-						},
 						"preview":{
 							"type":"string",
 							"title":"Preview"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"value":{
+							"type":"string",
+							"title":"Value"
 						}
 					},
 					"required":[
-						"headers"
+						"name",
+						"value"
 					]
 				}
 			},
 			"inputs":{
 				"preview":"{{ n_KYrgH.outputs.snippet }}",
-				"headers":"{{ n_KYrgH.outputs.payload.headers[0].name }}"
+				"name":"{{ n_KYrgH.outputs.payload.headers[0].name }}",
+				"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -165,17 +171,22 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"headers":{
-							"type":"string",
-							"title":"Headers"
-						},
 						"preview":{
 							"type":"string",
 							"title":"Preview"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"value":{
+							"type":"string",
+							"title":"Value"
 						}
 					},
 					"required":[
-						"headers"
+						"name",
+						"value"
 					]
 				}
 			},
@@ -226,5 +237,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
