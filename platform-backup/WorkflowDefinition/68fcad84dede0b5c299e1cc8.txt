@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761389956257,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761400470465,
+		"deployedBy":115477,
+		"deployedDefinitionId":"68fcd6967526577072ff5b97",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":7
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_mICBz",
@@ -35,9 +43,9 @@
 		}
 	],
 	"id":"68fcad84dede0b5c299e1cc8",
-	"lastModifiedBy":115477,
+	"lastModifiedBy":894,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761400468453,
+	"modifiedTime":1761402494633,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -47,7 +55,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_mICBz",
@@ -59,7 +67,7 @@
 					"required":[],
 					"properties":{
 						"score":{
-							"type":"string",
+							"type":"number",
 							"title":"score"
 						}
 					}
@@ -96,7 +104,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_AwEoF",
@@ -139,7 +147,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_u2GsM",
@@ -267,14 +275,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
 			"index":5,
 			"inputs":{
 				"result":{
-					"score":"{{ n_X4F6n.outputs.result.passPercentage }}"
+					"score":"=VALUE({{ n_X4F6n.outputs.result.passPercentage }})"
 				}
 			},
 			"skip":false,
@@ -300,5 +308,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
