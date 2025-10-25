@@ -8,12 +8,12 @@
 	"createdTime":1761382133945,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761392598990,
+		"deployedAt":1761392878788,
 		"deployedBy":33877,
-		"deployedDefinitionId":"68fcb7d6b0372243a7ac1413",
+		"deployedDefinitionId":"68fcb8eedede0b5c299e7fc9",
 		"status":"DEPLOYED",
-		"version":9,
-		"workflowVersion":13
+		"version":10,
+		"workflowVersion":14
 	},
 	"edges":[
 		{
@@ -118,7 +118,7 @@
 	"id":"68fc8ef5e0ea8817c49882b3",
 	"lastModifiedBy":33877,
 	"lcName":"test",
-	"modifiedTime":1761392876552,
+	"modifiedTime":1761393194374,
 	"name":"test",
 	"nodes":[
 		{
@@ -251,7 +251,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_rNZnj-1",
 			"id":"n_Fulsh",
@@ -318,8 +318,8 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
+			"dirty":true,
+			"fallbackMode":"CONTINUE",
 			"groupId":"_rNZnj-1",
 			"id":"n_ekjsa",
 			"index":6,
@@ -331,6 +331,60 @@
 				"parameters":{
 					"meetingURL":"{{ n_Lqfth.outputs.joinWebUrl }}",
 					"botName":"UnifyApps"
+				}
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
 				}
 			},
 			"skip":false,
@@ -619,5 +673,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
