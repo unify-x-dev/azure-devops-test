@@ -1,10 +1,18 @@
 {
 	"appsUsed":[
-		"slack",
+		"gmail",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761432605408,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761432606733,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68fd541ebab8db141ba69cd0",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"rUgba",
@@ -17,11 +25,11 @@
 			"fromNodeId":"iJ9ds",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"9QmIJ",
+			"toNodeId":"tZGfV",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"9QmIJ",
+			"fromNodeId":"tZGfV",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"g1ny7",
@@ -31,7 +39,7 @@
 	"id":"68fd541dbab8db141ba69cce",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2one1080508975",
-	"modifiedTime":1761432606327,
+	"modifiedTime":1761432606929,
 	"name":"changeSetQA2one1080508975",
 	"nodes":[
 		{
@@ -96,7 +104,7 @@
 			"id":"iJ9ds",
 			"index":0,
 			"inputs":{
-				"object_type":"changeSetQA2onejnKVZEHvaPBzRPhHlwqx",
+				"object_type":"changeSetQA2twoxIYbTMzvdJmyqehTFpfr",
 				"record":{
 					"n":"{{ rUgba.outputs.n }}"
 				}
@@ -108,28 +116,24 @@
 		},
 		{
 			"context":{
-				"appName":"slack",
-				"resourceVersion":24831,
-				"connectionId":"662f8ddb91d8ba4394d0cce6",
-				"resourceName":"slack_post_message_in_channel",
+				"appName":"gmail",
+				"resourceVersion":17836,
+				"connectionId":"67b015d1e6d91a18c9e3ed99",
+				"resourceName":"gmail_list_emails",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"7oNst-1",
-			"id":"9QmIJ",
+			"id":"tZGfV",
 			"index":0,
 			"inputs":{
-				"link_names":true,
-				"messageType":"text",
-				"channel":"C06J76727S9",
-				"text":"Hello",
-				"mrkdwn":true
+				"query":"jitendra1260@gmail.com"
 			},
 			"skip":false,
-			"subTitle":"Slack",
-			"title":"Post message",
+			"subTitle":"Gmail",
+			"title":"List Emails",
 			"type":"ACTION"
 		},
 		{
@@ -169,5 +173,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
