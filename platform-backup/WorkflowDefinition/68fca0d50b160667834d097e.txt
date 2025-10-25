@@ -1,17 +1,18 @@
 {
 	"appsUsed":[
+		"66796bb4071bfc39db918136",
 		"slack",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761386709219,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761386835071,
+		"deployedAt":1761386904967,
 		"deployedBy":511,
-		"deployedDefinitionId":"68fca1530b160667834d0faf",
+		"deployedDefinitionId":"68fca1980b160667834d12b5",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":3
+		"version":4,
+		"workflowVersion":4
 	},
 	"edges":[
 		{
@@ -46,6 +47,13 @@
 			"fromNodeId":"n_jqeIq",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_dZsnv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dZsnv",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -53,7 +61,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761386903555,
+	"modifiedTime":1761386922531,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -198,6 +206,24 @@
 		},
 		{
 			"context":{
+				"appName":"66796bb4071bfc39db918136",
+				"resourceVersion":4721,
+				"resourceName":"66796bb4071bfc39db918136:66796dcc071bfc39db91813a",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_dZsnv",
+			"index":6,
+			"skip":false,
+			"subTitle":"Test Connector",
+			"title":"test",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -208,7 +234,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -237,5 +263,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
