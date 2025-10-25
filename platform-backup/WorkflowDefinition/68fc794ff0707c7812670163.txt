@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761376591084,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_seQJF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_2PqSG",
+			"type":"next"
+		}
+	],
+	"id":"68fc794ff0707c7812670163",
+	"lastModifiedBy":186875,
+	"lcName":"jiracorp connection",
+	"modifiedTime":1761376591084,
+	"name":"Jiracorp Connection",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_seQJF-1",
+			"id":"_seQJF",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_seQJF-1",
+			"id":"_2PqSG",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":186875,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
