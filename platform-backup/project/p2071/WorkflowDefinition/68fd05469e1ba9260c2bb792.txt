@@ -30,7 +30,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761412966368,
+	"modifiedTime":1761412991717,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -45,7 +45,21 @@
 			"groupId":"_JiodF-1",
 			"id":"n_3qj6b",
 			"index":1,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"mail"
+					],
+					"properties":{
+						"mail":{
+							"type":"string",
+							"title":"Mail"
+						}
+					}
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Trigger via automation",
@@ -111,7 +125,11 @@
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
 			"index":4,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"mail":"{{ n_HV5q4.outputs.messages }}"
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -136,5 +154,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
