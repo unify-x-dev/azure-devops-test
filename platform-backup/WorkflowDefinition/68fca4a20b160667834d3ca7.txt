@@ -7,7 +7,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_xp4zQ",
+			"fromNodeId":"n_pFZZP",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_wqGgG",
@@ -47,36 +47,66 @@
 			"skip":false,
 			"toNodeId":"n_aPspO",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_aPspO",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9Kh9I",
+			"type":"next"
 		}
 	],
 	"id":"68fca4a20b160667834d3ca7",
 	"lastModifiedBy":37018,
 	"lcName":"callable check dependencies for deployed version (copy) (copy)",
-	"modifiedTime":1761387682244,
+	"modifiedTime":1761387805216,
 	"name":"callable check dependencies for deployed version (copy) (copy)",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1060,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
-			"id":"n_xp4zQ",
+			"id":"n_pFZZP",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json"
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"b"
+					],
+					"properties":{
+						"b":{
+							"type":"string",
+							"title":"B"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"a"
+					],
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -89,7 +119,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_wqGgG",
@@ -111,7 +141,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_Z8LEA",
@@ -138,7 +168,6 @@
 				"a":"{{ __ENV__.outputs.DND_custom_policy }}"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -167,7 +196,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_XBS5h",
@@ -189,7 +218,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_swf1D",
@@ -220,7 +249,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_jdXHr",
@@ -245,7 +274,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_aPspO",
@@ -316,6 +345,29 @@
 			"subTitle":"Callable",
 			"title":"Call automation",
 			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_9Kh9I",
+			"index":8,
+			"inputs":{
+				"result":{
+					"b":"bvc"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":37018,
@@ -335,5 +387,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
