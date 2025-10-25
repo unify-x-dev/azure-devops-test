@@ -1,51 +1,82 @@
 {
 	"appsUsed":[
-		
+		"jira"
 	],
 	"createdTime":1761291331147,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_XOEk9",
+			"fromNodeId":"n_2ujAj",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_GBymT",
+			"toNodeId":"n_M82Zu",
 			"type":"next"
 		}
 	],
 	"id":"68fb2c43efa5e92eae864b8e",
 	"lastModifiedBy":33,
 	"lcName":"test auth",
-	"modifiedTime":1761291331147,
+	"modifiedTime":1761391416216,
 	"name":"test auth",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XOEk9-1",
-			"id":"_XOEk9",
-			"index":0,
+			"id":"n_2ujAj",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"jira",
+				"resourceVersion":6437,
+				"connectionId":"6826d25f5c9dbb24ce1ef6ca",
+				"resourceName":"jira_update_comment",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XOEk9-1",
-			"id":"_GBymT",
-			"index":0,
+			"id":"n_M82Zu",
+			"index":2,
+			"inputs":{
+				"issueIdOrKey":"KAN-1",
+				"bodyV3":{
+					"type":"doc",
+					"version":1
+				},
+				"id":"12555",
+				"body":"hello"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Jira",
+			"title":"Update comment",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +90,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
