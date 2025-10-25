@@ -105,7 +105,7 @@
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761405656432,
+	"modifiedTime":1761405686474,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -367,7 +367,13 @@
 				"writeThroughSessionVariables":false,
 				"object_type":"virtusa_web_job_object",
 				"skipIfBlank":false,
-				"record":{}
+				"record":{
+					"name":"{{ n_UcSUx.outputs.fileName }}",
+					"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
+					"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}",
+					"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
+					"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"webjob",
@@ -552,5 +558,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
