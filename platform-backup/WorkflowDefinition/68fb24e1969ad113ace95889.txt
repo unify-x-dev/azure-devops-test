@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		"teamwork"
+		
 	],
 	"createdTime":1761289441270,
 	"deleted":false,
@@ -17,13 +17,6 @@
 			"fromNodeId":"n_yLcOy",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_SSch8",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_SSch8",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_jcooH",
 			"type":"next"
 		}
@@ -31,7 +24,7 @@
 	"id":"68fb24e1969ad113ace95889",
 	"lastModifiedBy":45011,
 	"lcName":"platform trigger testing",
-	"modifiedTime":1761376501970,
+	"modifiedTime":1761377144235,
 	"name":"Platform Trigger testing",
 	"nodes":[
 		{
@@ -41,7 +34,7 @@
 				"resourceName":"standard_entities_on_platform_event"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_idWZv-1",
 			"id":"n_yLcOy",
@@ -50,7 +43,9 @@
 				"changeType":"ANY",
 				"entityTypes":[
 					"CALLABLE_INTERFACE",
-					"PLATFORM_CONNECTION"
+					"PLATFORM_CONNECTION",
+					"PERMISSION_GROUP",
+					"IDENTITY_PROVIDER"
 				]
 			},
 			"skip":false,
@@ -63,35 +58,6 @@
 		},
 		{
 			"context":{
-				"appName":"teamwork",
-				"resourceVersion":2616,
-				"connectionId":"682dc94eddb04d7c722c2c69",
-				"resourceName":"teamwork_get_projects",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_idWZv-1",
-			"id":"n_SSch8",
-			"index":2,
-			"inputs":{
-				"includeProjectOwner":false,
-				"onlyStarredProjects":false,
-				"orderMode":"asc",
-				"getDeleted":false,
-				"includeTags":false,
-				"orderby":"name",
-				"status":"active",
-				"includePeople":false
-			},
-			"skip":false,
-			"subTitle":"Teamwork",
-			"title":"Get all projects",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -99,7 +65,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_idWZv-1",
 			"id":"n_jcooH",
-			"index":3,
+			"index":2,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -123,5 +89,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
