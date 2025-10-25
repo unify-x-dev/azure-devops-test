@@ -5,26 +5,109 @@
 	"createdTime":1761432503502,
 	"deleted":false,
 	"edges":[
-		
+		{
+			"fromNodeId":"7pKsG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"mGr1K",
+			"type":"next"
+		}
 	],
 	"id":"68fd53b7bab8db141ba69985",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2zhoabfohra8m",
-	"modifiedTime":1761432503502,
+	"modifiedTime":1761432503801,
 	"name":"changeSetQA2ZHoaBfoHra8m",
 	"nodes":[
-		
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":127,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"5stgo-1",
+			"id":"7pKsG",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"c":{
+							"type":"integer",
+							"title":"c"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"c"
+					]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"integer",
+							"title":"a"
+						},
+						"b":{
+							"type":"integer",
+							"title":"b"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"a",
+						"b"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":116,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"5stgo-1",
+			"id":"mGr1K",
+			"index":0,
+			"inputs":{
+				"result":{
+					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true,
-		"route":{
-			"default":false,
-			"tierName":"global"
-		}
+		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":0
+	"tags":[
+		
+	],
+	"version":1
 }
