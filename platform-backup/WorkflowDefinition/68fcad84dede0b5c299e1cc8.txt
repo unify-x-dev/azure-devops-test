@@ -37,7 +37,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761396427020,
+	"modifiedTime":1761399745600,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -139,7 +139,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_u2GsM",
@@ -170,12 +170,38 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_X4F6n",
 			"index":4,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"pageId":{
+							"type":"string",
+							"title":"pageId"
+						},
+						"category":{
+							"type":"string",
+							"title":"category"
+						},
+						"totalChecks":{
+							"type":"integer",
+							"title":"totalChecks"
+						},
+						"passedChecks":{
+							"type":"integer",
+							"title":"passedChecks"
+						},
+						"passPercentage":{
+							"type":"string",
+							"title":"passPercentage"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -205,7 +231,7 @@
 						}
 					}
 				},
-				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    def relevantChecks = category ? checks.findAll { it.properties.category == category } : checks\n    if (!relevantChecks) return [category: category ?: \"all\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.properties.checkId) }\n    if (!filteredReports) return [category: category ?: \"all\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    def passedCount = filteredReports.count { it.properties.status == 'passed' }\n    def passPercentage = (passedCount / filteredReports.size()) * 100\n\n    return [\n        category: category ?: \"all\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\n",
+				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    // Treat \"null\" string as no category\n    if (category == \"null\") {\n        category = null\n    }\n\n    // Assume all reports belong to the same page/component\n    def pageId = reports ? reports[0].properties.entityId : \"unknown\"\n\n    // Filter checks by category if provided\n    def relevantChecks = category ? checks.findAll { it.properties.category == category } : checks\n    if (!relevantChecks) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    // Relevant check IDs\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n\n    // Filter reports matching relevant checks\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.properties.checkId) }\n    if (!filteredReports) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    // Count passed\n    def passedCount = filteredReports.count { it.properties.status == 'passed' }\n\n    // Calculate percentage\n    def passPercentage = (passedCount / filteredReports.size()) * 100\n\n    return [\n        pageId: pageId,\n        category: category ?: \"All\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\n",
 				"compile_static":false,
 				"captureStdOutput":false
 			},
@@ -222,12 +248,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
 			"index":5,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"score":"{{ n_X4F6n.outputs.result.passPercentage }}"
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -251,5 +281,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
