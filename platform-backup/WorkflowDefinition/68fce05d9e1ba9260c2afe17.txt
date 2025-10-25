@@ -31,7 +31,7 @@
 			"fromNodeId":"n_wIwUs@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_95ZhK",
+			"toNodeId":"_im8Th",
 			"type":"next"
 		},
 		{
@@ -46,21 +46,43 @@
 			"fromNodeId":"n_wIwUs@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8pgHO",
+			"toNodeId":"_ASiPq",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_95ZhK",
+			"fromNodeId":"n_wIwUs",
+			"name":"3",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DOuTf",
+			"toNodeId":"n_wIwUs@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_wIwUs@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_mO25t",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_8pgHO",
+			"fromNodeId":"_im8Th",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DOuTf",
+			"toNodeId":"n_8l4q3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_ASiPq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8l4q3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_mO25t",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8l4q3",
 			"type":"next"
 		},
 		{
@@ -68,38 +90,8 @@
 			"name":"default",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DOuTf",
+			"toNodeId":"n_8l4q3",
 			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_DOuTf",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_vqsSu",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"n_DOuTf",
-			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_HkX5C",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_vqsSu",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_8l4q3",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_HkX5C",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_8l4q3",
-			"type":"next"
 		},
 		{
 			"fromNodeId":"n_8l4q3",
@@ -119,7 +111,7 @@
 	"id":"68fce05d9e1ba9260c2afe17",
 	"lastModifiedBy":161165,
 	"lcName":"virtusafileupload_webjobs",
-	"modifiedTime":1761403109284,
+	"modifiedTime":1761403169476,
 	"name":"VirtusafileUpload_WebJobs",
 	"nodes":[
 		{
@@ -252,13 +244,31 @@
 					{
 						"id":"1",
 						"inputs":{
-							"name":"Branch 1"
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_Pec1D.outputs.objectName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"webjobs"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
 						"id":"2",
 						"inputs":{
 							"name":"Branch 2"
+						}
+					},
+					{
+						"id":"3",
+						"inputs":{
+							"name":"Branch 3"
 						}
 					},
 					{
@@ -285,21 +295,63 @@
 			"id":"n_wIwUs@1",
 			"index":4,
 			"inputs":{
-				"name":"Branch 1"
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_Pec1D.outputs.objectName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"webjobs"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.fileDetails.name",
+					"root.record.fileDetails.source",
+					"root.record.fileDetails.sourceType",
+					"root.record.fileDetails.fileType",
+					"root.record.fileDetails.size"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4527,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_wIwUs@_kdzrB-1@1",
-			"id":"n_95ZhK",
+			"id":"_im8Th",
 			"index":5,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"e_tcc",
+				"skipIfBlank":false,
+				"record":{
+					"fileDetails":{
+						"name":"{{ n_UcSUx.outputs.fileDetails[0].name }}",
+						"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
+						"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
+						"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}",
+						"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}"
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -323,65 +375,105 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_wIwUs@_kdzrB-1@2",
-			"id":"n_8pgHO",
-			"index":7,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
-		},
-		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.fileDetails.name",
+					"root.record.fileDetails.source",
+					"root.record.fileDetails.sourceType",
+					"root.record.fileDetails.fileType",
+					"root.record.fileDetails.size"
+				]
+			},
 			"context":{
-				"appName":"if_else",
-				"resourceVersion":791,
-				"resourceName":"if_else_condition",
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4527,
+				"resourceName":"storage_by_unifyapps_create_record",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_kdzrB-1",
-			"id":"n_DOuTf",
-			"index":8,
+			"groupId":"n_wIwUs@_kdzrB-1@2",
+			"id":"_ASiPq",
+			"index":7,
 			"inputs":{
-				"filters":[
-					{
-						"property":"{{ n_Pec1D.outputs.objectName }}",
-						"filter":{
-							"operator":"EQUAL"
-						}
+				"writeThroughSessionVariables":false,
+				"object_type":"e_tcc",
+				"skipIfBlank":false,
+				"record":{
+					"fileDetails":{
+						"name":"{{ n_UcSUx.outputs.fileDetails[0].name }}",
+						"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
+						"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
+						"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}",
+						"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}"
 					}
-				],
-				"operator":"AND"
+				}
 			},
 			"skip":false,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
-		},
-		{
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_DOuTf@_kdzrB-1@y",
-			"id":"n_vqsSu",
-			"index":9,
-			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_DOuTf@_kdzrB-1@n",
-			"id":"n_HkX5C",
-			"index":10,
+			"groupId":"n_wIwUs@_kdzrB-1@3",
+			"id":"n_wIwUs@3",
+			"index":8,
+			"inputs":{
+				"name":"Branch 3"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.fileDetails.name",
+					"root.record.fileDetails.source",
+					"root.record.fileDetails.sourceType",
+					"root.record.fileDetails.fileType",
+					"root.record.fileDetails.size"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4527,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_wIwUs@_kdzrB-1@3",
+			"id":"_mO25t",
+			"index":9,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"e_tcc",
+				"skipIfBlank":false,
+				"record":{
+					"fileDetails":{
+						"name":"{{ n_UcSUx.outputs.fileDetails[0].name }}",
+						"source":"{{ n_UcSUx.outputs.fileDetails[0].source }}",
+						"sourceType":"{{ n_UcSUx.outputs.fileDetails[0].sourceType }}",
+						"fileType":"{{ n_UcSUx.outputs.fileDetails[0].fileType }}",
+						"size":"{{ n_UcSUx.outputs.fileDetails[0].size }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -405,7 +497,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdzrB-1",
 			"id":"n_8l4q3",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"e_tcc",
@@ -437,7 +529,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdzrB-1",
 			"id":"n_2zbro",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"file":"{{ n_8l4q3.outputs.properties.fileDetails }}",
 				"expiryTime":1
@@ -466,7 +558,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdzrB-1",
 			"id":"n_HPBH8",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"result":{
 					"result":"200"
@@ -495,5 +587,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
