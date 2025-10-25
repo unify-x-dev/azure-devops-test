@@ -46,11 +46,149 @@
 			"fromNodeId":"WhBQ9",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"V7q59",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"V7q59",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"snkMl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"snkMl",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_mRQ60",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"n_mRQ60",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"5051R",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"5051R",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"w3R4h",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"w3R4h",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"KvfAG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"KvfAG",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"A550S",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"A550S",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"VB2nm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"VB2nm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"JGl4j",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mRQ60",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"8lrau",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"JGl4j",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"8lrau",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"KvfAG",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"8lrau",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"8lrau",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aKxaU",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_aKxaU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CEPZD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CEPZD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_gKSST",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_gKSST",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"4QXUn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"4QXUn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_joKeZ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_joKeZ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zLE7t",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_zLE7t",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"84j0g",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"84j0g",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zFeM2",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"8lrau",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_zFeM2",
@@ -114,7 +252,7 @@
 	"id":"68d471c4280ebf280043df03",
 	"lastModifiedBy":45768,
 	"lcName":"customclaude",
-	"modifiedTime":1761377602019,
+	"modifiedTime":1761377718366,
 	"name":"CustomClaude",
 	"nodes":[
 		{
@@ -621,7 +759,7 @@
 					"promptCaching":"{{ CpGDp.outputs.promptCaching }}"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"SystemPromptWithCache",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -880,10 +1018,10 @@
 							}
 						}
 					},
-					"systemPrompt":"{{ _vhnyj.outputs.result.systemMessageWithCache }}",
 					"sessionId":"{{ CpGDp.outputs.sessionId }}",
 					"modelId":"{{ CpGDp.outputs.modelId }}",
-					"stream":"{{ CpGDp.outputs.stream }}"
+					"stream":"{{ CpGDp.outputs.stream }}",
+					"systemPrompt":"{{ CpGDp.outputs.systemPrompt }}"
 				}
 			},
 			"skip":false,
@@ -952,6 +1090,331 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":16,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"kQqTJ-1",
+			"id":"V7q59",
+			"index":6,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"retry":{
+							"type":"boolean",
+							"title":"Retry"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"retry":false
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"retry":{
+							"type":"boolean",
+							"title":"Retry"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":14,
+				"resourceName":"variable_by_unifyapps_create_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"kQqTJ-1",
+			"id":"snkMl",
+			"index":7,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"type":"object",
+									"properties":{
+										"key":{
+											"type":"string",
+											"title":"key"
+										},
+										"value":{
+											"type":"string",
+											"title":"value"
+										}
+									},
+									"additionalProperties":false
+								}
+							}
+						}
+					}
+				}
+			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray",
+					"source":"{{ WhBQ9.outputs.properties.customHttpEndpoint.headersList }}",
+					"items":{
+						"key":"{{ WhBQ9.outputs.properties.customHttpEndpoint.headersList[0].key }}",
+						"value":"{{ WhBQ9.outputs.properties.customHttpEndpoint.headersList[0].value }}"
+					}
+				},
+				"ua:title":"headers",
+				"ua:list_type":"OBJECT"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"headers",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{
+									"key":{
+										"type":"string",
+										"title":"key"
+									},
+									"value":{
+										"type":"string",
+										"title":"value"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"headers",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"custom_http_endpoint",
 				"resourceVersion":529,
 				"resourceName":"custom_http_endpoint_execute",
@@ -959,10 +1422,10 @@
 			},
 			"debug":false,
 			"dirty":false,
-			"fallbackMode":"STOP",
+			"fallbackMode":"MANUAL",
 			"groupId":"kQqTJ-1",
 			"id":"n_mRQ60",
-			"index":6,
+			"index":8,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -1137,7 +1600,7 @@
 					},
 					{
 						"key":"Authorization",
-						"value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NTgzNTU5MzUsImV4cCI6MTc1ODM1NjgzNSwiaXNzIjoiM2M0NWEzZTUzNjYwZWFlMmFjNGI0ZGI4NDNmYjY1ZDQ4MDA2MGRlMWFiNmFjYjQzOTA2NzUwNTY5OWZmNGY5MiIsImlhdCI6MTc1ODM1NTkzNX0.j4UktkB_182BIkFVzbN-oZJ2DCZJqBZQBu1JIVSwTlQ"
+						"value":"Bearer {{ WhBQ9.outputs.properties.customHttpEndpoint.token }}"
 					}
 				],
 				"authType":"CUSTOM",
@@ -1145,10 +1608,1190 @@
 				"ignoreTrailingSlashes":false,
 				"certificateType":"CERT_STRING"
 			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
 			"skip":false,
 			"subTitle":"Custom HTTP Endpoint",
 			"title":"Execute REST request",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":15,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_mRQ60@kQqTJ-1@error",
+			"id":"5051R",
+			"index":9,
+			"inputs":{
+				"automationId":"682341346c3f5f6b3efdf6ea",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"modelId":"{{ WhBQ9.outputs.id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":16,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_mRQ60@kQqTJ-1@error",
+			"id":"w3R4h",
+			"index":10,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ V7q59.outputs.retry }}",
+						"value":true
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":13,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_mRQ60@kQqTJ-1@error",
+			"id":"KvfAG",
+			"index":11,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ WhBQ9.outputs.properties.model }}",
+						"filter":{
+							"operator":"CONTAINS",
+							"value":"Claude"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.headers.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":15,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"KvfAG@n_mRQ60@kQqTJ-1@error@y",
+			"id":"A550S",
+			"index":12,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"headers":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"key":{
+										"type":"string",
+										"title":"Key"
+									},
+									"value":{
+										"type":"string",
+										"title":"Value"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Headers"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"headers":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Headers"
+						},
+						"token":{
+							"type":"string",
+							"title":"Token"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"\r\nfor(header in headers){\r\n  if(header.key==\"Authorization\"){\r\n    header.value= \"Bearer \" + token     \r\n}\r\n}\r\n\r\nreturn [\"headers\": headers]",
+				"parameters":{
+					"headers":{
+						"source":"{{ snkMl.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":"{{ snkMl.outputs.items[0] }}"
+					},
+					"token":"{{ 5051R.outputs.token }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":15,
+				"resourceName":"variable_by_unifyapps_clear_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"KvfAG@n_mRQ60@kQqTJ-1@error@y",
+			"id":"VB2nm",
+			"index":13,
+			"inputs":{
+				"listName":"{{ snkMl.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Remove all items from list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.key",
+					"root.itemsToAdd.items.value"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":13,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"KvfAG@n_mRQ60@kQqTJ-1@error@y",
+			"id":"JGl4j",
+			"index":14,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ A550S.outputs.result.headers }}",
+					"items":{
+						"key":"{{ A550S.outputs.result.headers[0].key }}",
+						"value":"{{ A550S.outputs.result.headers[0].value }}"
+					}
+				},
+				"listName":"{{ snkMl.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":14,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"kQqTJ-1",
+			"id":"8lrau",
+			"index":15,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ V7q59.outputs.retry }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"true"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":8,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"8lrau@kQqTJ-1@y",
+			"id":"n_aKxaU",
+			"index":16,
+			"inputs":{
+				"path":"{{ WhBQ9.outputs.properties.customHttpEndpoint.path }}",
+				"baseUrl":"{{ WhBQ9.outputs.properties.customHttpEndpoint.baseUrl }}",
+				"responseContentType":"application/json",
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"connectionType":"DIRECT",
+				"sslVerify":false
+			},
+			"skip":true,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":8,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"8lrau@kQqTJ-1@y",
+			"id":"n_CEPZD",
+			"index":17,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/v1/oauthprovider/oauth2/token",
+				"baseUrl":"https://apis-internal-dev.lowes.com",
+				"responseContentType":"application/json",
+				"headersList":[
+					{
+						"key":"Content-Type",
+						"value":"application/x-www-form-urlencoded"
+					},
+					{
+						"key":"client_id",
+						"value":"e6745ab4a3db7a5c2247584dd07475144507c8aa046185310a4fd9c95aa57218"
+					},
+					{
+						"key":"client_secret",
+						"value":"2e3bed3fd6f8c46f2ab689c5f37d7d5985e97256a5eae654851ea76a5887e76e"
+					},
+					{
+						"key":"grant_type",
+						"value":"client_credentials"
+					}
+				],
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false
+			},
+			"skip":true,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":267,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"8lrau@kQqTJ-1@y",
+			"id":"n_gKSST",
+			"index":18,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"body":{
+					"client_id":"e6745ab4a3db7a5c2247584dd07475144507c8aa046185310a4fd9c95aa57218",
+					"client_secret":"2e3bed3fd6f8c46f2ab689c5f37d7d5985e97256a5eae654851ea76a5887e76e",
+					"grant_type":"client_credentials"
+				},
+				"httpMethod":"POST",
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/v1/oauthprovider/oauth2/token",
+				"responseSchema":{
+					"type":"object",
+					"properties":{
+						"token_type":{
+							"type":"string",
+							"title":"token_type"
+						},
+						"access_token":{
+							"type":"string",
+							"title":"access_token"
+						},
+						"expires_in":{
+							"type":"integer",
+							"title":"expires_in"
+						}
+					},
+					"additionalProperties":false
+				},
+				"baseUrl":"https://apis-internal-dev.lowes.com",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"client_id":{
+							"type":"string",
+							"title":"client_id"
+						},
+						"client_secret":{
+							"type":"string",
+							"title":"client_secret"
+						},
+						"grant_type":{
+							"type":"string",
+							"title":"grant_type"
+						}
+					}
+				},
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"headersList":[
+					{
+						"key":"Content-Type",
+						"value":"application/x-www-form-urlencoded"
+					}
+				],
+				"authType":"CUSTOM",
+				"requestContentType":"application/x-www-form-urlencoded",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"skip":false,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root.responseSchema":{}
+				}
+			},
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":83,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"8lrau@kQqTJ-1@y",
+			"id":"4QXUn",
+			"index":19,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"top_p":"{{ _6odgE.outputs.top_p }}",
+					"frequency_penalty":"{{ _6odgE.outputs.frequency_penalty }}",
+					"max_tokens":"{{ _6odgE.outputs.max_tokens }}",
+					"presence_penalty":"{{ _6odgE.outputs.presence_penalty }}",
+					"temperature":"{{ _6odgE.outputs.temperature }}",
+					"messages":{
+						"ua:type":"mappedArray",
+						"items":{
+							"role":"{{ GNKcu.outputs.result.reformatted_message_list[0].role }}",
+							"content":"{{ GNKcu.outputs.result.reformatted_message_list[0].content }}",
+							"tool_calls":{
+								"source":"{{ GNKcu.outputs.result.reformatted_message_list[0].tool_calls }}",
+								"ua:type":"mappedArray",
+								"items":{
+									"id":"{{ GNKcu.outputs.result.reformatted_message_list[0].tool_calls[0].id }}",
+									"type":"{{ GNKcu.outputs.result.reformatted_message_list[0].tool_calls[0].type }}",
+									"function":{
+										"name":"{{ GNKcu.outputs.result.reformatted_message_list[0].tool_calls[0].function.name }}",
+										"arguments":"{{ GNKcu.outputs.result.reformatted_message_list[0].tool_calls[0].function.arguments }}"
+									}
+								}
+							},
+							"tool_call_id":"{{ GNKcu.outputs.result.reformatted_message_list[0].tool_call_id }}"
+						},
+						"source":"{{ GNKcu.outputs.result.reformatted_message_list }}"
+					},
+					"model":"{{ _6odgE.outputs.model }}",
+					"tools":{
+						"source":"{{ _6odgE.outputs.tools }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"type":"{{ _6odgE.outputs.tools[0].type }}",
+							"function":{
+								"name":"{{ _6odgE.outputs.tools[0].function.name }}",
+								"description":"{{ _6odgE.outputs.tools[0].function.description }}",
+								"parameters":"{{ _6odgE.outputs.tools[0].function.parameters }}"
+							}
+						}
+					}
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"responseSchema":{
+					"type":"object",
+					"properties":{
+						"id":{
+							"type":"string",
+							"title":"id"
+						},
+						"object":{
+							"type":"string",
+							"title":"object"
+						},
+						"created":{
+							"type":"integer",
+							"title":"created"
+						},
+						"model":{
+							"type":"string",
+							"title":"model"
+						},
+						"choices":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"index":{
+										"type":"integer",
+										"title":"index"
+									},
+									"message":{
+										"type":"object",
+										"properties":{
+											"role":{
+												"type":"string",
+												"title":"role"
+											},
+											"content":{
+												"type":"string",
+												"title":"content"
+											},
+											"tool_calls":{
+												"type":"array",
+												"items":{
+													"type":"object",
+													"properties":{
+														"id":{
+															"type":"string",
+															"title":"id"
+														},
+														"type":{
+															"type":"string",
+															"title":"type"
+														},
+														"function":{
+															"type":"object",
+															"properties":{
+																"name":{
+																	"type":"string",
+																	"title":"name"
+																},
+																"arguments":{
+																	"type":"string",
+																	"title":"arguments"
+																}
+															},
+															"title":"function",
+															"additionalProperties":false
+														}
+													},
+													"additionalProperties":false
+												},
+												"title":"tool_calls"
+											}
+										},
+										"title":"message",
+										"additionalProperties":false
+									},
+									"finish_reason":{
+										"type":"string",
+										"title":"finish_reason"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"choices"
+						},
+						"usage":{
+							"type":"object",
+							"properties":{
+								"prompt_tokens":{
+									"type":"integer",
+									"title":"prompt_tokens"
+								},
+								"completion_tokens":{
+									"type":"integer",
+									"title":"completion_tokens"
+								},
+								"total_tokens":{
+									"type":"integer",
+									"title":"total_tokens"
+								},
+								"prompt_tokens_details":{
+									"type":"object",
+									"properties":{
+										"cached_tokens":{
+											"type":"integer",
+											"title":"cached_tokens"
+										},
+										"audio_tokens":{
+											"type":"integer",
+											"title":"audio_tokens"
+										}
+									},
+									"title":"prompt_tokens_details",
+									"additionalProperties":false
+								},
+								"completion_tokens_details":{
+									"type":"object",
+									"properties":{
+										"reasoning_tokens":{
+											"type":"integer",
+											"title":"reasoning_tokens"
+										},
+										"audio_tokens":{
+											"type":"integer",
+											"title":"audio_tokens"
+										},
+										"accepted_prediction_tokens":{
+											"type":"integer",
+											"title":"accepted_prediction_tokens"
+										},
+										"rejected_prediction_tokens":{
+											"type":"integer",
+											"title":"rejected_prediction_tokens"
+										}
+									},
+									"title":"completion_tokens_details",
+									"additionalProperties":false
+								}
+							},
+							"title":"usage",
+							"additionalProperties":false
+						},
+						"service_tier":{
+							"type":"string",
+							"title":"service_tier"
+						},
+						"system_fingerprint":{
+							"type":"string",
+							"title":"system_fingerprint"
+						}
+					},
+					"additionalProperties":false
+				},
+				"path":"{{ WhBQ9.outputs.properties.customHttpEndpoint.path }}",
+				"baseUrl":"{{ WhBQ9.outputs.properties.customHttpEndpoint.baseUrl }}",
+				"bodySchema":{
+					"type":"object",
+					"properties":{
+						"top_p":{
+							"type":"integer",
+							"title":"top_p"
+						},
+						"frequency_penalty":{
+							"type":"integer",
+							"title":"frequency_penalty"
+						},
+						"max_tokens":{
+							"type":"integer",
+							"title":"max_tokens"
+						},
+						"presence_penalty":{
+							"type":"integer",
+							"title":"presence_penalty"
+						},
+						"temperature":{
+							"type":"integer",
+							"title":"temperature"
+						},
+						"messages":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"role":{
+										"type":"string",
+										"title":"role"
+									},
+									"content":{
+										"type":"string",
+										"title":"content",
+										"required":[]
+									},
+									"tool_calls":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{
+												"id":{
+													"type":"string",
+													"title":"id"
+												},
+												"type":{
+													"type":"string",
+													"title":"type"
+												},
+												"function":{
+													"type":"object",
+													"properties":{
+														"name":{
+															"type":"string",
+															"title":"name"
+														},
+														"arguments":{
+															"type":"string",
+															"title":"arguments"
+														}
+													},
+													"title":"function",
+													"additionalProperties":false
+												}
+											},
+											"additionalProperties":false
+										},
+										"title":"tool_calls"
+									},
+									"tool_call_id":{
+										"type":"string",
+										"title":"tool_call_id"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"messages"
+						},
+						"model":{
+							"type":"string",
+							"title":"model"
+						},
+						"tools":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"type":{
+										"type":"string",
+										"title":"type"
+									},
+									"function":{
+										"type":"object",
+										"properties":{
+											"name":{
+												"type":"string",
+												"title":"name"
+											},
+											"description":{
+												"type":"string",
+												"title":"description"
+											},
+											"parameters":{
+												"type":"object",
+												"properties":{},
+												"title":"parameters",
+												"additionalProperties":false,
+												"required":[]
+											},
+											"strict":{
+												"type":"boolean",
+												"title":"strict"
+											}
+										},
+										"title":"function",
+										"additionalProperties":false
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"tools"
+						}
+					},
+					"additionalProperties":false
+				},
+				"responseContentType":"application/json",
+				"headersList":{
+					"ua:type":"mappedArray",
+					"source":"{{ A550S.outputs.result.headers }}",
+					"items":{
+						"key":"{{ A550S.outputs.result.headers[0].key }}",
+						"value":"{{ A550S.outputs.result.headers[0].value }}"
+					}
+				},
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"count":3,
+					"enabled":true
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":true,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":529,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"8lrau@kQqTJ-1@y",
+			"id":"_joKeZ",
+			"index":20,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"anthropic_version":"vertex-2023-10-16",
+					"max_tokens":"{{ CpGDp.outputs.max_tokens }}",
+					"messages":{
+						"source":"{{ oefeP.outputs.payload.messages }}",
+						"ua:type":"mappedArray",
+						"items":"{{ oefeP.outputs.payload.messages[0] }}"
+					}
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"{{ WhBQ9.outputs.properties.customHttpEndpoint.path }}",
+				"responseSchema":{
+					"type":"object",
+					"properties":{
+						"content":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"text":{
+										"type":"string",
+										"title":"text"
+									},
+									"type":{
+										"type":"string",
+										"title":"type"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"content"
+						},
+						"id":{
+							"type":"string",
+							"title":"id"
+						},
+						"model":{
+							"type":"string",
+							"title":"model"
+						},
+						"role":{
+							"type":"string",
+							"title":"role"
+						},
+						"stop_reason":{
+							"type":"string",
+							"title":"stop_reason"
+						},
+						"type":{
+							"type":"string",
+							"title":"type"
+						},
+						"usage":{
+							"type":"object",
+							"properties":{
+								"cache_creation_input_tokens":{
+									"type":"integer",
+									"title":"cache_creation_input_tokens"
+								},
+								"cache_read_input_tokens":{
+									"type":"integer",
+									"title":"cache_read_input_tokens"
+								},
+								"input_tokens":{
+									"type":"integer",
+									"title":"input_tokens"
+								},
+								"output_tokens":{
+									"type":"integer",
+									"title":"output_tokens"
+								}
+							},
+							"title":"usage",
+							"additionalProperties":false
+						}
+					},
+					"additionalProperties":false
+				},
+				"baseUrl":"{{ WhBQ9.outputs.properties.customHttpEndpoint.baseUrl }}",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"anthropic_version":{
+							"type":"string",
+							"title":"anthropic_version"
+						},
+						"messages":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"messages"
+						},
+						"max_tokens":{
+							"type":"integer",
+							"title":"max_tokens"
+						}
+					}
+				},
+				"responseContentType":"application/json",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":8,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"8lrau@kQqTJ-1@y",
+			"id":"n_zLE7t",
+			"index":21,
+			"inputs":{
+				"responseSchema":{
+					"type":"object",
+					"properties":{
+						"content":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"text":{
+										"type":"string",
+										"title":"text"
+									},
+									"type":{
+										"type":"string",
+										"title":"type"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"content"
+						},
+						"id":{
+							"type":"string",
+							"title":"id"
+						},
+						"model":{
+							"type":"string",
+							"title":"model"
+						},
+						"role":{
+							"type":"string",
+							"title":"role"
+						},
+						"stop_reason":{
+							"type":"string",
+							"title":"stop_reason"
+						},
+						"type":{
+							"type":"string",
+							"title":"type"
+						},
+						"usage":{
+							"type":"object",
+							"properties":{
+								"cache_creation_input_tokens":{
+									"type":"integer",
+									"title":"cache_creation_input_tokens"
+								},
+								"cache_read_input_tokens":{
+									"type":"integer",
+									"title":"cache_read_input_tokens"
+								},
+								"input_tokens":{
+									"type":"integer",
+									"title":"input_tokens"
+								},
+								"output_tokens":{
+									"type":"integer",
+									"title":"output_tokens"
+								}
+							},
+							"title":"usage",
+							"additionalProperties":false
+						}
+					},
+					"additionalProperties":false
+				},
+				"responseContentType":"application/json",
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"connectionType":"DIRECT",
+				"sslVerify":false
+			},
+			"skip":true,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":16,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"8lrau@kQqTJ-1@y",
+			"id":"84j0g",
+			"index":22,
+			"inputs":{
+				"result":{
+					"tool_calls":{
+						"source":"{{ _joKeZ.outputs.result.choices[0].message.tool_calls }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"name":"{{ _joKeZ.outputs.result.choices[0].message.tool_calls[0].function.name }}",
+							"arguments":"{{ _joKeZ.outputs.result.choices[0].message.tool_calls[0].function.arguments }}"
+						}
+					},
+					"inputTokens":"{{ _joKeZ.outputs.result.usage.prompt_tokens }}",
+					"outputTokens":"{{ _joKeZ.outputs.result.usage.completion_tokens }}",
+					"finish_reason":"{{ _joKeZ.outputs.result.choices[0].finish_reason }}",
+					"output":"{{ _joKeZ.outputs.result.content[0].text }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		},
 		{
 			"additional":{
@@ -1168,7 +2811,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"kQqTJ-1",
 			"id":"n_zFeM2",
-			"index":7,
+			"index":23,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1254,7 +2897,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"kQqTJ-1",
 			"id":"n_rQCtH",
-			"index":8,
+			"index":24,
 			"inputs":{
 				"filters":[
 					{
@@ -1283,7 +2926,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_rQCtH@kQqTJ-1@y",
 			"id":"_f0PYm",
-			"index":9,
+			"index":25,
 			"inputs":{
 				"object":"{{ n_zFeM2.outputs.result.tool_use.input }}"
 			},
@@ -1304,7 +2947,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_rQCtH@kQqTJ-1@y",
 			"id":"_4qJxs",
-			"index":10,
+			"index":26,
 			"inputs":{
 				"result":{
 					"tool_calls":[
@@ -1334,7 +2977,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_rQCtH@kQqTJ-1@n",
 			"id":"_SuppW",
-			"index":11,
+			"index":27,
 			"inputs":{
 				"result":{
 					"tool_calls":[
@@ -1370,5 +3013,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
