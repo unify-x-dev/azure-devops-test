@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761401519640,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_TpF1v",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_LfCS6",
+			"type":"next"
+		}
+	],
+	"id":"68fcdaaf9e1ba9260c2ad20c",
+	"lastModifiedBy":39715,
+	"lcName":"syncemployeesshttptrigger",
+	"modifiedTime":1761401519640,
+	"name":"SyncEmployeessHttpTrigger",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_TpF1v-1",
+			"id":"_TpF1v",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_TpF1v-1",
+			"id":"_LfCS6",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":39715,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
