@@ -178,11 +178,63 @@
 			"fromNodeId":"n_Sv4Ke",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_MKLQb",
+			"toNodeId":"n_CHCIq",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_MKLQb",
+			"fromNodeId":"n_CHCIq",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CHCIq@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_CHCIq@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_LQwfG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CHCIq",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CHCIq@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_CHCIq@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_BnZ3m",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_LQwfG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ebcL1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_BnZ3m",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ebcL1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CHCIq",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ebcL1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"_ebcL1",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -192,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761371581828,
+	"modifiedTime":1761372448691,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -215,10 +267,6 @@
 						"flag"
 					],
 					"properties":{
-						"userId":{
-							"type":"number",
-							"title":"User Id"
-						},
 						"flag":{
 							"type":"string",
 							"title":"Flag"
@@ -1488,32 +1536,222 @@
 		},
 		{
 			"context":{
-				"appName":"analytics_by_unifyapps",
-				"resourceVersion":1006,
-				"resourceName":"analytics_by_unifyapps_query_reports",
+				"appName":"branch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
-			"id":"n_MKLQb",
+			"id":"n_CHCIq",
 			"index":20,
 			"inputs":{
-				"projections":[
+				"branches":[
 					{
-						"name":"ENTITY_automation_assignment_1=::=Department",
-						"aggregationFunction":"DISTINCT_COUNT",
-						"alias":"departments",
-						"includePercentageChange":false
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_yM97Y.outputs.flag }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"getTop5"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_yM97Y.outputs.flag }}",
+										"filter":{
+											"operator":"EXISTS"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
 					}
-				],
-				"entityType":"ENTITY_automation_assignment_1",
-				"group":"ENTITY_REPORTING"
+				]
 			},
 			"skip":false,
-			"subTitle":"Analytics by UnifyApps",
-			"title":"Analytics Query",
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CHCIq@_m0AlG-1@1",
+			"id":"n_CHCIq@1",
+			"index":21,
+			"inputs":{
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_yM97Y.outputs.flag }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"getTop5"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4580,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CHCIq@_m0AlG-1@1",
+			"id":"_LQwfG",
+			"index":22,
+			"inputs":{
+				"searchField":{
+					"fields":[]
+				},
+				"object_type":"automation_assignment_1",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"sortBy":[
+					{
+						"field":"properties_Leaves",
+						"order":"ASC"
+					},
+					{
+						"field":"properties_bonusAmount",
+						"order":"DESC"
+					}
+				],
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":5
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CHCIq@_m0AlG-1@2",
+			"id":"n_CHCIq@2",
+			"index":23,
+			"inputs":{
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_yM97Y.outputs.flag }}",
+							"filter":{
+								"operator":"EXISTS"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CHCIq@_m0AlG-1@2",
+			"id":"n_BnZ3m",
+			"index":24,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4580,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_m0AlG-1",
+			"id":"_ebcL1",
+			"index":25,
+			"inputs":{
+				"searchField":{
+					"fields":[]
+				},
+				"object_type":"automation_assignment_1",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"sortBy":[
+					{
+						"field":"properties_Leaves",
+						"order":"ASC"
+					},
+					{
+						"field":"properties_bonusAmount",
+						"order":"DESC"
+					}
+				],
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":5
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
 		},
 		{
@@ -1528,10 +1766,9 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":21,
+			"index":26,
 			"inputs":{
 				"result":{
-					"userId":"{{ n_yM97Y.outputs.userId }}",
 					"flag":"{{ n_yM97Y.outputs.flag }}"
 				}
 			},
@@ -1552,5 +1789,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":63
+	"version":65
 }
