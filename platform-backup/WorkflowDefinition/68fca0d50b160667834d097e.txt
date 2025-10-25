@@ -7,12 +7,12 @@
 	"createdTime":1761386709219,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761387158816,
+		"deployedAt":1761387204378,
 		"deployedBy":511,
-		"deployedDefinitionId":"68fca2960b160667834d2311",
+		"deployedDefinitionId":"68fca2c40b160667834d25c6",
 		"status":"DEPLOYED",
-		"version":10,
-		"workflowVersion":12
+		"version":11,
+		"workflowVersion":14
 	},
 	"edges":[
 		{
@@ -110,6 +110,20 @@
 			"fromNodeId":"n_RuR6P",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_XlVRp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XlVRp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_atJ5T",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_atJ5T",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -117,7 +131,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761387200811,
+	"modifiedTime":1761387225395,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -517,6 +531,56 @@
 		{
 			"context":{
 				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_XlVRp",
+			"index":15,
+			"inputs":{
+				"automationId":"68fca0450b160667834d02ac",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_atJ5T",
+			"index":16,
+			"inputs":{
+				"automationId":"68fca04e0b160667834d030a",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
@@ -526,7 +590,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":15,
+			"index":17,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -555,5 +619,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":16
 }
