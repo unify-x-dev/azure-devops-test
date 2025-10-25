@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761389956257,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_6NnBb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_psIRE",
+			"type":"next"
+		}
+	],
+	"id":"68fcad84dede0b5c299e1cc8",
+	"lastModifiedBy":115477,
+	"lcName":"best practices | check score",
+	"modifiedTime":1761389956257,
+	"name":"Best Practices | Check Score",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"_6NnBb",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"_psIRE",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":115477,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
