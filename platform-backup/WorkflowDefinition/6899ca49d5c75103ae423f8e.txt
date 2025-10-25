@@ -91,7 +91,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761413408533,
+	"modifiedTime":1761414117407,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -262,19 +262,20 @@
 				"headers":[
 					{
 						"key":"__UA_STREAM_HEADER__DESCRIPTION",
-						"value":"{{ n_tXZXi.outputs.item.event }}"
+						"value":"{{ n_tXZXi.outputs.item.event.description }}"
 					},
 					{
 						"key":"__UA_STREAM_HEADER__GROUP",
-						"value":"{{ n_tXZXi.outputs.item.event }}"
+						"value":"{{ n_tXZXi.outputs.item.event.group }}"
 					},
 					{
 						"key":"__UA_STREAM_HEADER__REASON",
-						"value":"{{ n_tXZXi.outputs.item.event }}"
+						"value":"{{ n_tXZXi.outputs.item.event.reason }}"
 					}
 				],
 				"streamId":"{{ n_f5nAn.outputs.parentStreamId }}",
-				"skipInputValidation":false
+				"skipInputValidation":false,
+				"event":"{{ n_tXZXi.outputs.item.event.event }}"
 			},
 			"skip":false,
 			"subTitle":"Streams by UnifyApps",
@@ -442,5 +443,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":28
 }
