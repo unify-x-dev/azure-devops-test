@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761405234028,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_0ww4s",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ZjLpH",
+			"type":"next"
+		}
+	],
+	"id":"68fce932126c45298487d348",
+	"lastModifiedBy":569,
+	"lcName":"test-zendesk",
+	"modifiedTime":1761405234028,
+	"name":"test-zendesk",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_0ww4s-1",
+			"id":"_0ww4s",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_0ww4s-1",
+			"id":"_ZjLpH",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":569,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
