@@ -1,51 +1,220 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761400787802,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_qJrKe",
+			"fromNodeId":"n_xJrdh",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_LeuXL",
+			"toNodeId":"n_3UQiJ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_3UQiJ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yxJac",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yxJac",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OxLEh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OxLEh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_pwVkU",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_pwVkU",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OxLEh",
 			"type":"next"
 		}
 	],
 	"id":"68fcd7d39e1ba9260c2abd16",
-	"lastModifiedBy":2621,
+	"lastModifiedBy":34802,
 	"lcName":"test",
-	"modifiedTime":1761400787802,
+	"modifiedTime":1761413772026,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qJrKe-1",
-			"id":"_qJrKe",
-			"index":0,
+			"id":"n_xJrdh",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4557,
+				"resourceName":"storage_by_unifyapps_update_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qJrKe-1",
-			"id":"_LeuXL",
-			"index":0,
+			"id":"n_3UQiJ",
+			"index":2,
+			"inputs":{
+				"numberOfRecordsToUpdate":"MULTIPLE",
+				"object_type":"form_result",
+				"skipIfBlank":false,
+				"page":{
+					"offset":0,
+					"limit":20
+				},
+				"unsetIfNull":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Update records by query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qJrKe-1",
+			"id":"n_yxJac",
+			"index":3,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_submissionId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"e_68fcee47567bd732303c316b"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"form_result",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":2000
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qJrKe-1",
+			"id":"n_OxLEh",
+			"index":4,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_yxJac.outputs.objects }}",
+				"captureIterations":true
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_OxLEh@_qJrKe-1@l",
+			"id":"n_pwVkU",
+			"index":5,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_formName",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"Cabin Crew Practical Assessment"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"form_template",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":200
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":2621,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +228,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
