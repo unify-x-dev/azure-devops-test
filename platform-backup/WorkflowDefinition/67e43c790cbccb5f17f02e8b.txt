@@ -6,12 +6,12 @@
 	"createdTime":1749213550974,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1752051302321,
-		"deployedBy":894,
-		"deployedDefinitionId":"686e2e66943a6b20673f64fe",
+		"deployedAt":1761413947986,
+		"deployedBy":34802,
+		"deployedDefinitionId":"68fd0b3b126c45298487ff63",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":41
+		"version":3,
+		"workflowVersion":44
 	},
 	"edges":[
 		{
@@ -74,13 +74,6 @@
 		},
 		{
 			"fromNodeId":"Q6XLr",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"VNVNB",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"VNVNB",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"0bXGz",
@@ -192,7 +185,7 @@
 	"id":"67e43c790cbccb5f17f02e8b",
 	"lastModifiedBy":34802,
 	"lcName":"print form (copy)",
-	"modifiedTime":1761413945705,
+	"modifiedTime":1761414203218,
 	"name":"Print Form (copy)",
 	"nodes":[
 		{
@@ -689,28 +682,6 @@
 		},
 		{
 			"context":{
-				"appName":"delay",
-				"resourceVersion":32,
-				"resourceName":"delay_for",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_2YwRw-1",
-			"id":"VNVNB",
-			"index":9,
-			"inputs":{
-				"duration":30,
-				"unit":"SECONDS"
-			},
-			"skip":false,
-			"subTitle":"Delay",
-			"title":"Set delay duration",
-			"type":"DELAY"
-		},
-		{
-			"context":{
 				"appName":"storage_by_unifyapps",
 				"resourceVersion":40,
 				"resourceName":"storage_by_unifyapps_fetch_records",
@@ -721,7 +692,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"0bXGz",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -762,7 +733,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"T4brP",
-			"index":11,
+			"index":10,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -813,7 +784,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"E2KHS",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"filters":[
 					{
@@ -843,7 +814,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"E2KHS@_2YwRw-1@y",
 			"id":"i5sPC",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"variables":[
 					{
@@ -869,7 +840,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"E2KHS@_2YwRw-1@n",
 			"id":"j9L0a",
-			"index":14,
+			"index":13,
 			"inputs":{
 				"variables":[
 					{
@@ -891,11 +862,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"_gdroo",
-			"index":15,
+			"index":14,
 			"inputs":{
 				"pdfPages":[
 					{
@@ -929,7 +900,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"ucRWY",
-			"index":16,
+			"index":15,
 			"inputs":{
 				"fileDetails":"{{ _gdroo.outputs.file }}"
 			},
@@ -950,7 +921,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"_GoxlK",
-			"index":17,
+			"index":16,
 			"inputs":{
 				"file":"{{ ucRWY.outputs.filesDetails[0] }}",
 				"expiryTime":1
@@ -972,7 +943,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"iLWMq",
-			"index":18,
+			"index":17,
 			"inputs":{
 				"filters":[
 					{
@@ -999,11 +970,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"iLWMq@_2YwRw-1@y",
 			"id":"tOfYm",
-			"index":19,
+			"index":18,
 			"inputs":{
 				"toRecipients":"{{ _weOem.outputs.email1 }},{{ _weOem.outputs.email2 }},{{ _weOem.outputs.emailcategory2 }}",
 				"attachmentURL":"{{ _GoxlK.outputs.url }}",
@@ -1027,11 +998,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"iLWMq@_2YwRw-1@n",
 			"id":"Tfe8g",
-			"index":20,
+			"index":19,
 			"inputs":{
 				"toRecipients":"{{ _weOem.outputs.email1 }},{{ _weOem.outputs.email2 }},{{ _weOem.outputs.emailcategory2 }}",
 				"attachmentURL":"{{ _GoxlK.outputs.url }}",
@@ -1058,7 +1029,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"N33AR",
-			"index":21,
+			"index":20,
 			"inputs":{
 				"automationId":"67ceae3e01d966776b315caa",
 				"runtimeConnections":{},
@@ -1088,7 +1059,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2YwRw-1",
 			"id":"_hduRZ",
-			"index":22,
+			"index":21,
 			"inputs":{
 				"result":{
 					"success":"200"
@@ -1114,5 +1085,5 @@
 		}
 	},
 	"standard":false,
-	"version":44
+	"version":45
 }
