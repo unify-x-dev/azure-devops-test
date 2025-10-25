@@ -6,30 +6,30 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"mQdqO",
+			"fromNodeId":"_ktFq2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"rs6qH",
+			"toNodeId":"_F2L5P",
 			"type":"next"
 		}
 	],
 	"id":"68fd4a16bab8db141ba66dee",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa21761430038017lbajxpjsbf",
-	"modifiedTime":1761430039202,
+	"modifiedTime":1761430215725,
 	"name":"changeSetQA21761430038017LbAJXpjsbF",
 	"nodes":[
 		{
 			"context":{
 				"appName":"schedule",
-				"resourceVersion":106,
+				"resourceVersion":33,
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"l8FeS-1",
-			"id":"mQdqO",
+			"groupId":"_NoxR9-1",
+			"id":"_ktFq2",
 			"index":0,
 			"inputs":{
 				"cron":"INTERVAL",
@@ -47,15 +47,15 @@
 		{
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":118,
+				"resourceVersion":33,
 				"resourceName":"variable_by_unifyapps_create_variables",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"l8FeS-1",
-			"id":"rs6qH",
+			"groupId":"_NoxR9-1",
+			"id":"_F2L5P",
 			"index":0,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
@@ -67,14 +67,19 @@
 					"properties":{
 						"a":{
 							"type":"integer",
-							"title":"a"
+							"title":"A"
+						},
+						"b":{
+							"type":"string",
+							"title":"B"
 						}
 					},
 					"required":[]
 				}
 			},
 			"inputs":{
-				"a":2
+				"a":2,
+				"b":"hi hello"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -84,7 +89,11 @@
 					"properties":{
 						"a":{
 							"type":"integer",
-							"title":"a"
+							"title":"A"
+						},
+						"b":{
+							"type":"string",
+							"title":"B"
 						}
 					},
 					"required":[]
@@ -109,5 +118,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
