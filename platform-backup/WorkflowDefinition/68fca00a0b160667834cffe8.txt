@@ -1,10 +1,19 @@
 {
 	"appsUsed":[
 		"67f650d8f8038f3612dbce75",
+		"68fc1510f0f3384b1821d378",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761386506102,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761386516775,
+		"deployedBy":37018,
+		"deployedDefinitionId":"68fca0140b160667834d0062",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":0
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_xp4zQ",
@@ -15,6 +24,13 @@
 		},
 		{
 			"fromNodeId":"n_wqGgG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1quHv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1quHv",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Z8LEA",
@@ -52,7 +68,7 @@
 	"id":"68fca00a0b160667834cffe8",
 	"lastModifiedBy":37018,
 	"lcName":"check dependencies for deployed version (copy)",
-	"modifiedTime":1761386506102,
+	"modifiedTime":1761386680923,
 	"name":"check dependencies for deployed version (copy)",
 	"nodes":[
 		{
@@ -105,6 +121,29 @@
 		},
 		{
 			"context":{
+				"appName":"68fc1510f0f3384b1821d378",
+				"resourceVersion":3,
+				"connectionId":"68fca09784036b56556815dd",
+				"resourceName":"68fc1510f0f3384b1821d378:68fc1516f0f3384b1821d3fc",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mnkFD-1",
+			"id":"n_1quHv",
+			"index":3,
+			"inputs":{
+				"types":"dcsc",
+				"limit":"ewdsa"
+			},
+			"skip":false,
+			"subTitle":"changeSetQA2slck3698514356",
+			"title":"List conversations",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1078,
 				"resourceName":"variable_by_unifyapps_create_variables",
@@ -115,7 +154,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_Z8LEA",
-			"index":3,
+			"index":4,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -138,7 +177,6 @@
 				"a":"{{ __ENV__.outputs.DND_custom_policy }}"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -171,7 +209,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_XBS5h",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"streamId":"e_68fc01913187ab108d172d7b",
 				"skipInputValidation":false
@@ -193,7 +231,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_swf1D",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"object_type":"ChangeSetEzHUGtGhqYcEccaoRNkm",
 				"includeRoleMappings":false,
@@ -224,7 +262,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_jdXHr",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"automationId":"68fc2540d2a77a3080f83bae",
 				"runtimeConnections":{},
@@ -249,7 +287,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mnkFD-1",
 			"id":"n_aPspO",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"automationId":"68fc9f360b160667834cf795",
 				"runtimeConnections":{},
@@ -335,5 +373,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
