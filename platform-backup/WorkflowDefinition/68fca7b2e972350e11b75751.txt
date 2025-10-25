@@ -1,0 +1,95 @@
+{
+	"appsUsed":[
+		"teamwork"
+	],
+	"createdTime":1761388466710,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_fjVTl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YHmaJ",
+			"type":"next"
+		}
+	],
+	"id":"68fca7b2e972350e11b75751",
+	"lastModifiedBy":37018,
+	"lcName":"automation with connection",
+	"modifiedTime":1761388509994,
+	"name":"AUTOMATION WITH CONNECTION",
+	"nodes":[
+		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_pTFbZ-1",
+			"id":"n_fjVTl",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
+			"skip":false,
+			"subTitle":"Webhook",
+			"title":"New event",
+			"trigger":{
+				"type":"WEBHOOK"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"teamwork",
+				"resourceVersion":2621,
+				"connectionId":"68fbf06f177d70447bea64ea",
+				"resourceName":"teamwork_get_projects",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_pTFbZ-1",
+			"id":"n_YHmaJ",
+			"index":2,
+			"inputs":{
+				"includeProjectOwner":false,
+				"onlyStarredProjects":false,
+				"orderMode":"asc",
+				"getDeleted":false,
+				"includeTags":false,
+				"orderby":"name",
+				"status":"active",
+				"includePeople":false
+			},
+			"skip":false,
+			"subTitle":"Teamwork",
+			"title":"Get all projects",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":37018,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":1
+}
