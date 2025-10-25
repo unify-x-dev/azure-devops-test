@@ -58,7 +58,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761380213912,
+	"modifiedTime":1761380260979,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -100,7 +100,10 @@
 			"groupId":"_kkabk-1",
 			"id":"n_WYxn1",
 			"index":2,
-			"inputs":{},
+			"inputs":{
+				"comments":"Hi, this in invoice test",
+				"commentable_id":60
+			},
 			"skip":false,
 			"subTitle":"Coupa",
 			"title":"Add comment to invoice",
@@ -197,9 +200,9 @@
 		{
 			"context":{
 				"appName":"coupa",
-				"resourceVersion":11,
+				"resourceVersion":12,
 				"connectionId":"68f8b49a17a0e608e13fb3a8",
-				"resourceName":"coupa_list_po_comments",
+				"resourceName":"coupa_list_comments_of_invoice",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -208,10 +211,12 @@
 			"groupId":"_kkabk-1",
 			"id":"n_Et8LP",
 			"index":7,
-			"inputs":{},
+			"inputs":{
+				"invoice_id":60
+			},
 			"skip":false,
 			"subTitle":"Coupa",
-			"title":"List purchase order comments",
+			"title":"List invoice comments",
 			"type":"ACTION"
 		},
 		{
@@ -254,5 +259,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
