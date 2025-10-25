@@ -79,6 +79,13 @@
 		},
 		{
 			"fromNodeId":"_YXNbz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_hjLPx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_hjLPx",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -154,7 +161,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761395865756,
+	"modifiedTime":1761395892563,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1038,6 +1045,64 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemToAdd.results.items.checkId",
+					"root.itemToAdd.results.items.status",
+					"root.itemToAdd.results.items.entityId",
+					"root.itemToAdd.results.items.checkTitle",
+					"root.itemToAdd.results.items.checkDescription",
+					"root.itemToAdd.results.items.checkImpact",
+					"root.itemToAdd.results.items.checkCategory",
+					"root.itemToAdd.results.items.componentId",
+					"root.itemToAdd.results.items.componentName"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1033,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
+			"id":"_hjLPx",
+			"index":11,
+			"inputs":{
+				"itemToAdd":{
+					"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
+					"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
+					"entityId":"{{ n_aqVAB.outputs.result.results[0].entityId }}",
+					"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
+					"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+					"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
+					"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+					"blockIds":{
+						"ua:type":"mappedArray",
+						"source":"{{ n_aqVAB.outputs.result.results[0].blockIds }}",
+						"items":"{{ n_aqVAB.outputs.result.results[0].blockIds[0] }}"
+					},
+					"dataSources":{
+						"ua:type":"mappedArray",
+						"source":"{{ n_aqVAB.outputs.result.results[0].dataSources }}",
+						"items":"{{ n_aqVAB.outputs.result.results[0].dataSources[0] }}"
+					},
+					"results":{
+						"source":"{{ _YXNbz.outputs.result.results }}",
+						"ua:type":"mappedArray"
+					}
+				},
+				"insertLocation":"END",
+				"listName":"{{ n_BJWbh.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
@@ -1049,7 +1114,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"name":"Page Flow",
 				"conditions":{
@@ -1081,7 +1146,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1124,7 +1189,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1182,7 +1247,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -1224,7 +1289,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1366,7 +1431,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"_a2JhT",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"itemToAdd":{
 					"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
@@ -1411,7 +1476,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"result":{
 					"results":{
@@ -1443,5 +1508,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":28
 }
