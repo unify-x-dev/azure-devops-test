@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_1CszR",
+			"fromNodeId":"n_JcxkN",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_jAKxP",
@@ -16,20 +16,32 @@
 	"id":"68fcaeb5dede0b5c299e3c64",
 	"lastModifiedBy":100894,
 	"lcName":"jvh",
-	"modifiedTime":1761412172255,
+	"modifiedTime":1761412186707,
 	"name":"jvh",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1CszR-1",
-			"id":"_1CszR",
+			"id":"n_JcxkN",
 			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
@@ -75,5 +87,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
