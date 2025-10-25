@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761386709219,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761386775591,
+		"deployedBy":511,
+		"deployedDefinitionId":"68fca1170b160667834d0cd5",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_rNSgs",
@@ -16,6 +24,13 @@
 			"fromNodeId":"n_2Whyk",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_S671S",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_S671S",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -23,7 +38,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761386773930,
+	"modifiedTime":1761386802990,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -93,6 +108,37 @@
 		},
 		{
 			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":1674,
+				"resourceName":"streams_by_unifyapps_publish_event",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_S671S",
+			"index":3,
+			"inputs":{
+				"streamId":"e_687f3487c30a93f7d8417e99",
+				"skipInputValidation":false,
+				"event":{
+					"dateValue":"ws",
+					"stringValue":"wqs",
+					"dateTimeValue":"wd",
+					"singleSelectDropdown":"wedqw",
+					"integerValue":11,
+					"booleanValue":true,
+					"numberValue":1.1
+				}
+			},
+			"skip":false,
+			"subTitle":"Streams by UnifyApps",
+			"title":"Publish event to stream",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -103,7 +149,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -132,5 +178,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
