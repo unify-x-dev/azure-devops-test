@@ -53,8 +53,15 @@
 			"fromNodeId":"n_zpFkD",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_pvdHU",
+			"toNodeId":"_M1PU3",
 			"type":"loop"
+		},
+		{
+			"fromNodeId":"_M1PU3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_pvdHU",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"_pvdHU",
@@ -67,18 +74,11 @@
 			"fromNodeId":"_iMBUc",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_lbZV4",
+			"toNodeId":"_YXNbz",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_lbZV4",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_x72cm",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_x72cm",
+			"fromNodeId":"_YXNbz",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -154,7 +154,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761395511271,
+	"modifiedTime":1761395823106,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -773,11 +773,54 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
+			"id":"_M1PU3",
+			"index":7,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_interfaceId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_1ceQS.outputs.entityId }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"e_component",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -835,7 +878,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -857,9 +900,13 @@
 		},
 		{
 			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				},
 				"visibleOptionalFields":[
 					"root.parameters.reportArr.items",
-					"root.parameters.masterArr.items"
+					"root.parameters.masterArr.items",
+					"root.parameters.page.items"
 				]
 			},
 			"context":{
@@ -869,11 +916,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
-			"id":"_lbZV4",
-			"index":9,
+			"id":"_YXNbz",
+			"index":10,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -912,23 +959,16 @@
 										"type":"string",
 										"title":"checkCategory"
 									},
-									"blockIds":{
-										"type":"array",
-										"items":{
-											"type":"string"
-										},
-										"title":"blockIds"
+									"componentId":{
+										"type":"string",
+										"title":"componentId"
 									},
-									"dataSources":{
-										"type":"array",
-										"items":{
-											"type":"string"
-										},
-										"title":"dataSources"
+									"componentName":{
+										"type":"string",
+										"title":"componentName"
 									}
 								},
-								"additionalProperties":false,
-								"required":[]
+								"additionalProperties":false
 							},
 							"title":"results"
 						}
@@ -964,88 +1004,37 @@
 						"category":{
 							"type":"string",
 							"title":"category"
+						},
+						"page":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"page"
 						}
 					}
 				},
-				"code":"def joinAndFilter(reportArr, masterArr, String status = null, String category = null) {\n\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n\n            okStatus && okCategory\n        }\n        .collect { rep ->\n            def m = masterById[rep.properties.checkId]\n            [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                blockIds         : rep.properties?.entities?.blockIds ?: [],\n                dataSources      : rep.properties?.entities?.dataSources ?: []\n            ]\n        }\n\n    return [ results: results ]\n}\n",
+				"code":"\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n\n    def results = reportArr\n\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            def okStatus   = (status == null) || rep.properties?.status == status\n            def okCategory = (category == null) || m?.properties?.category == category\n            okStatus && okCategory\n        }\n       \n        .collectMany { rep ->\n\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category\n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                \n\n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n        }\n        \n\n    return [ results: results ]\n}\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"status":"{{ n_1ceQS.outputs.status }}",
 					"category":"{{ n_1ceQS.outputs.category }}",
+					"page":"{{ n_oh9u9.outputs.properties }}",
 					"reportArr":{
-						"source":"{{ _pvdHU.outputs.objects }}",
 						"ua:type":"mappedArray",
+						"source":"{{ _pvdHU.outputs.objects }}",
 						"items":"{{ _pvdHU.outputs.objects[0] }}"
 					},
 					"masterArr":{
-						"source":"{{ _iMBUc.outputs.objects }}",
 						"ua:type":"mappedArray",
-						"items":"{{ _pvdHU.outputs.objects[0] }}"
+						"source":"{{ _iMBUc.outputs.objects }}",
+						"items":"{{ _iMBUc.outputs.objects[0] }}"
 					}
 				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemToAdd.results.items.checkId",
-					"root.itemToAdd.results.items.status",
-					"root.itemToAdd.results.items.entityId",
-					"root.itemToAdd.results.items.checkTitle",
-					"root.itemToAdd.results.items.checkDescription",
-					"root.itemToAdd.results.items.checkImpact",
-					"root.itemToAdd.results.items.checkCategory",
-					"root.itemToAdd.results.items.componentId",
-					"root.itemToAdd.results.items.componentName"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1033,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
-			"id":"n_x72cm",
-			"index":10,
-			"inputs":{
-				"itemToAdd":{
-					"checkId":"{{ _lbZV4.outputs.result.results[0].checkId }}",
-					"status":"{{ _lbZV4.outputs.result.results[0].status }}",
-					"entityId":"{{ _lbZV4.outputs.result.results[0].entityId }}",
-					"checkTitle":"{{ _lbZV4.outputs.result.results[0].checkTitle }}",
-					"checkDescription":"{{ _lbZV4.outputs.result.results[0].checkDescription }}",
-					"checkImpact":"{{ _lbZV4.outputs.result.results[0].checkImpact }}",
-					"checkCategory":"{{ _lbZV4.outputs.result.results[0].checkCategory }}",
-					"blockIds":{
-						"source":"{{ _lbZV4.outputs.result.results[0].blockIds }}",
-						"ua:type":"mappedArray",
-						"items":"{{ _lbZV4.outputs.result.results[0].blockIds[0] }}"
-					},
-					"dataSources":{
-						"source":"{{ _lbZV4.outputs.result.results[0].dataSources }}",
-						"ua:type":"mappedArray",
-						"items":"{{ _lbZV4.outputs.result.results[0].dataSources[0] }}"
-					},
-					"results":{
-						"source":"{{ _lbZV4.outputs.result.results }}",
-						"ua:type":"mappedArray"
-					}
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_BJWbh.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
 			"type":"ACTION"
 		},
 		{
@@ -1454,5 +1443,5 @@
 	"tags":[
 		
 	],
-	"version":25
+	"version":26
 }
