@@ -6,12 +6,12 @@
 	"createdTime":1761386709219,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761386804349,
+		"deployedAt":1761386835071,
 		"deployedBy":511,
-		"deployedDefinitionId":"68fca1340b160667834d0e3e",
+		"deployedDefinitionId":"68fca1530b160667834d0faf",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":2
+		"version":3,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
@@ -39,6 +39,13 @@
 			"fromNodeId":"n_C4CYB",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_jqeIq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jqeIq",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6Ee4k",
 			"type":"next"
 		}
@@ -46,7 +53,7 @@
 	"id":"68fca0d50b160667834d097e",
 	"lastModifiedBy":511,
 	"lcName":"dependancyworkflow_dnd",
-	"modifiedTime":1761386833668,
+	"modifiedTime":1761386903555,
 	"name":"DependancyWorkflow_DND",
 	"nodes":[
 		{
@@ -170,6 +177,27 @@
 		},
 		{
 			"context":{
+				"appName":"decision_table_by_unifyapps",
+				"resourceVersion":885,
+				"resourceName":"decision_table_by_unifyapps_add_row",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oXLGL-1",
+			"id":"n_jqeIq",
+			"index":5,
+			"inputs":{
+				"entityId":"e_689b71e217baaa435004d2ba"
+			},
+			"skip":false,
+			"subTitle":"Decision Table by UnifyApps",
+			"title":"Add Row",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -180,7 +208,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oXLGL-1",
 			"id":"n_6Ee4k",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"result":{
 					"var":"cool"
@@ -209,5 +237,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
