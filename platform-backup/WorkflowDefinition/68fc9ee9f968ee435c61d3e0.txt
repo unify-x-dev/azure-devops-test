@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761386217706,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_iwFIS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_881G7",
+			"type":"next"
+		}
+	],
+	"id":"68fc9ee9f968ee435c61d3e0",
+	"lastModifiedBy":511,
+	"lcName":"executeworkflow-1",
+	"modifiedTime":1761386217706,
+	"name":"executeWorkflow-1",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iwFIS-1",
+			"id":"_iwFIS",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iwFIS-1",
+			"id":"_881G7",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":511,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
