@@ -119,12 +119,34 @@
 			"skip":false,
 			"toNodeId":"n_iq5Wx",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XUOp8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_rmptD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_iq5Wx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_rmptD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_25xfN",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_rmptD",
+			"type":"branch"
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761389401987,
+	"modifiedTime":1761389620263,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -334,7 +356,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_nJ4Q8",
@@ -377,7 +399,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_BJWbh",
@@ -720,7 +742,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -743,7 +765,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
@@ -801,7 +823,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
@@ -839,7 +861,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_lbZV4",
@@ -974,7 +996,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"n_x72cm",
@@ -1015,7 +1037,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_XUOp8",
@@ -1334,6 +1356,32 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_vMiRK-1",
+			"id":"n_rmptD",
+			"index":17,
+			"inputs":{
+				"result":{
+					"results":{
+						"source":"1",
+						"ua:type":"mappedArray"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":23949,
@@ -1353,5 +1401,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":18
 }
