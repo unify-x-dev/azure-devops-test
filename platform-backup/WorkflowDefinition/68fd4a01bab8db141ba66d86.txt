@@ -4,27 +4,118 @@
 	],
 	"createdTime":1761430017807,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761430018912,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68fd4a02bab8db141ba66d89",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
-		
+		{
+			"fromNodeId":"7pKsG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"mGr1K",
+			"type":"next"
+		}
 	],
 	"id":"68fd4a01bab8db141ba66d86",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2hc6opyssueod",
-	"modifiedTime":1761430017807,
+	"modifiedTime":1761430196509,
 	"name":"changeSetQA2Hc6OpYsSUeOD",
 	"nodes":[
-		
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":127,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"5stgo-1",
+			"id":"7pKsG",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"c":{
+							"type":"integer",
+							"title":"c"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"c"
+					]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"integer",
+							"title":"a"
+						},
+						"b":{
+							"type":"integer",
+							"title":"b"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"a",
+						"b"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":116,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"5stgo-1",
+			"id":"mGr1K",
+			"index":0,
+			"inputs":{
+				"result":{
+					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true,
-		"route":{
-			"default":false,
-			"tierName":"global"
-		}
+		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":0
+	"tags":[
+		
+	],
+	"version":2
 }
