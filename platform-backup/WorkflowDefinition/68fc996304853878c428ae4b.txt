@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761468144016,
+		"deployedAt":1761470322166,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fddeefff97b736e67ea738",
+		"deployedDefinitionId":"68fde772ff97b736e67ee16a",
 		"status":"DEPLOYED",
-		"version":19,
-		"workflowVersion":55
+		"version":20,
+		"workflowVersion":56
 	},
 	"edges":[
 		{
@@ -191,7 +191,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761470319276,
+	"modifiedTime":1761481558101,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -946,7 +946,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_rgm4N",
@@ -1056,14 +1056,14 @@
 					"category":"{{ n_1ceQS.outputs.category }}",
 					"page":"{{ n_oh9u9.outputs.properties }}",
 					"reportArr":{
-						"source":"{{ n_RvCMd.outputs.objects }}",
 						"ua:type":"mappedArray",
-						"items":"{{ n_RvCMd.outputs.objects[0] }}"
+						"source":"{{ _pvdHU.outputs.objects }}",
+						"items":"{{ _pvdHU.outputs.objects[0] }}"
 					},
 					"masterArr":{
-						"source":"{{ n_oC2OU.outputs.objects }}",
 						"ua:type":"mappedArray",
-						"items":"{{ n_oC2OU.outputs.objects[0] }}"
+						"source":"{{ _iMBUc.outputs.objects }}",
+						"items":"{{ _iMBUc.outputs.objects[0] }}"
 					}
 				}
 			},
@@ -1080,7 +1080,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"n_TpWSK",
@@ -1117,7 +1117,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TpWSK@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
 			"id":"_hjLPx",
@@ -1637,5 +1637,5 @@
 	"tags":[
 		
 	],
-	"version":56
+	"version":57
 }
