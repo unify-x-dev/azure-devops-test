@@ -53,7 +53,7 @@
 	"id":"68fdd8c5ff97b736e67e85d5",
 	"lastModifiedBy":39717,
 	"lcName":"test ai",
-	"modifiedTime":1761467687521,
+	"modifiedTime":1761467698158,
 	"name":"test ai",
 	"nodes":[
 		{
@@ -102,7 +102,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"MANUAL",
 			"groupId":"_r6AhK-1",
 			"id":"n_V9AVu",
@@ -153,14 +153,7 @@
 				"isAsync":false,
 				"python_version":"3.12",
 				"entityId":"e_68fdd937ce98a64729908bd1",
-				"captureStdOutput":false,
-				"parameters":{
-					"text_list":{
-						"ua:type":"mappedArray",
-						"source":"{{ n_Esbx9.outputs.body.text_list }}",
-						"items":"{{ n_Esbx9.outputs.body.text_list[0] }}"
-					}
-				}
+				"captureStdOutput":false
 			},
 			"options":{
 				"bulkheadConfig":{
@@ -346,5 +339,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
