@@ -66,7 +66,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761473835867,
+	"modifiedTime":1761473942949,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -105,10 +105,10 @@
 			"id":"n_MlcvR",
 			"index":2,
 			"inputs":{
-				"start_time":"2025-10-01T10:07:00.000Z",
+				"start_time":"01/10/2025, 03:37 PMa",
 				"singleEvents":false,
 				"calendarId":"primary",
-				"end_time":"2025-10-15T10:07:00.000Z",
+				"end_time":"",
 				"eventTypes":"birthday"
 			},
 			"skip":false,
@@ -236,7 +236,7 @@
 				"triggerWorkflowWithRuntimeType":"DEFAULT",
 				"version":"-1",
 				"parameters":{
-					"content":"{{ n_wLKEV.outputs.text }} summarize this email",
+					"content":"{{ n_wLKEV.outputs.text }} Today's complete schedule ,Simple formatting, easy to read\n",
 					"type":"text",
 					"response_format":"text",
 					"maxTokens":409,
@@ -320,5 +320,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
