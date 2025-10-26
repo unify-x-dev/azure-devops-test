@@ -1,51 +1,132 @@
 {
 	"appsUsed":[
-		
+		"gcalendar"
 	],
 	"createdTime":1761473065978,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_S8WBh",
+			"fromNodeId":"n_rjyTM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_glI8L",
+			"toNodeId":"n_MlcvR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_MlcvR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GmL4O",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GmL4O",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_7o6Mj",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_7o6Mj",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GmL4O",
 			"type":"next"
 		}
 	],
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761473065978,
+	"modifiedTime":1761473425147,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1062,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
-			"id":"_S8WBh",
-			"index":0,
+			"id":"n_rjyTM",
+			"index":1,
+			"inputs":{},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gcalendar",
+				"resourceVersion":2301,
+				"connectionId":"68fc67107250901fb1583e22",
+				"resourceName":"gcalendar_list_events",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
-			"id":"_glI8L",
-			"index":0,
+			"id":"n_MlcvR",
+			"index":2,
+			"inputs":{
+				"start_time":"2025-10-01T10:07:00.000Z",
+				"singleEvents":false,
+				"calendarId":"primary",
+				"end_time":"2025-10-15T10:07:00.000Z",
+				"eventTypes":"birthday"
+			},
+			"skip":false,
+			"subTitle":"Google Calendar",
+			"title":"List events",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_S8WBh-1",
+			"id":"n_GmL4O",
+			"index":3,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_MlcvR.outputs.items }}",
+				"captureIterations":true
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_GmL4O@_S8WBh-1@l",
+			"id":"n_7o6Mj",
+			"index":4,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":177799,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +140,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
