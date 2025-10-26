@@ -5,12 +5,12 @@
 	"createdTime":1761218163690,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761371766076,
+		"deployedAt":1761420834546,
 		"deployedBy":23949,
-		"deployedDefinitionId":"68fc6675c39efd123d999457",
+		"deployedDefinitionId":"68fd2622126c452984882da8",
 		"status":"DEPLOYED",
-		"version":15,
-		"workflowVersion":31
+		"version":19,
+		"workflowVersion":36
 	},
 	"edges":[
 		{
@@ -79,9 +79,9 @@
 		}
 	],
 	"id":"68fa0e73edd7705e9c0e3906",
-	"lastModifiedBy":23949,
+	"lastModifiedBy":115477,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761393108507,
+	"modifiedTime":1761491474691,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -710,7 +710,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_sIvtc",
@@ -749,7 +749,7 @@
 						"entityId":"{{ n_wo5ba.outputs.items[0].entityId }}",
 						"checkId":"{{ n_wo5ba.outputs.items[0].checkId }}",
 						"entityVersion":"{{ n_wo5ba.outputs.items[0].entityVersion }}",
-						"id":"{{ n_wo5ba.outputs.items[0].entityType }}_{{ n_wo5ba.outputs.items[0].entityId }}_{{ n_wo5ba.outputs.items[0].entityVersion }}"
+						"id":"{{ n_wo5ba.outputs.items[0].entityType }}_{{ n_wo5ba.outputs.items[0].entityId }}_{{ n_wo5ba.outputs.items[0].checkId }}"
 					}
 				}
 			},
@@ -789,7 +789,7 @@
 	},
 	"standard":false,
 	"tags":[
-		
+		"BPC"
 	],
-	"version":33
+	"version":37
 }
