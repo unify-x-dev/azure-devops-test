@@ -90,7 +90,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761461587558,
+	"modifiedTime":1761461784601,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -380,6 +380,17 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.kind",
+					"root.etag",
+					"root.updated",
+					"root.summary",
+					"root.description",
+					"root.start.timeZone",
+					"root.end.timeZone"
+				]
+			},
 			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1078,
@@ -645,7 +656,30 @@
 					}
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"summary":"{{ n_wADXG.outputs.summary }}",
+				"kind":"{{ n_wADXG.outputs.kind }}",
+				"htmlLink":"{{ n_wADXG.outputs.items[0].htmlLink }}",
+				"attendees":{
+					"source":"{{ n_wADXG.outputs.items[0].attendees }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"email":"{{ n_wADXG.outputs.items[0].attendees[0].email }}"
+					}
+				},
+				"start":{
+					"dateTime":"{{ n_wADXG.outputs.items[0].start.dateTime }}",
+					"timeZone":"{{ n_wADXG.outputs.timeZone }}"
+				},
+				"description":"{{ n_wADXG.outputs.description }}",
+				"etag":"{{ n_wADXG.outputs.etag }}",
+				"end":{
+					"dateTime":"{{ n_wADXG.outputs.items[0].end.dateTime }}",
+					"timeZone":"{{ n_wADXG.outputs.timeZone }}"
+				},
+				"updated":"{{ n_wADXG.outputs.updated }}",
+				"status":"{{ n_wADXG.outputs.items[0].status }}"
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -944,5 +978,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":17
 }
