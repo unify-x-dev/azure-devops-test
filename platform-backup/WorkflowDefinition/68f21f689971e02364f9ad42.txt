@@ -5,12 +5,12 @@
 	"createdTime":1761468834693,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761468834789,
+		"deployedAt":1761468855423,
 		"deployedBy":39717,
-		"deployedDefinitionId":"68fde1a222a8224e27f3cebf",
+		"deployedDefinitionId":"68fde1b722a8224e27f3ced7",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":90
+		"version":2,
+		"workflowVersion":91
 	},
 	"edges":[
 		{
@@ -152,7 +152,7 @@
 	"id":"68f21f689971e02364f9ad42",
 	"lastModifiedBy":39717,
 	"lcName":"mask v2",
-	"modifiedTime":1761468855323,
+	"modifiedTime":1761469226771,
 	"name":"Mask V2",
 	"nodes":[
 		{
@@ -405,7 +405,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"MANUAL",
 			"groupId":"_5bsax-1",
 			"id":"n_V9AVu",
@@ -455,7 +455,7 @@
 				"code":"from langdetect import detect, DetectorFactory, LangDetectException\nfrom concurrent.futures import ThreadPoolExecutor, as_completed\nDetectorFactory.seed = 0\n\ndef detect_language(text):\n    if not text or not text.strip():\n        return {\"text\": text, \"language\": \"en\"}\n    try:\n        lang = detect(text)\n        return {\"text\": text, \"language\": lang}\n    except LangDetectException:\n        return {\"text\": text, \"language\": \"en\"}\n\n# Parallel processing\nwith ThreadPoolExecutor(max_workers=4) as executor:\n    final_text_list = list(executor.map(detect_language, text_list))\n\nresult = {\"text_list\": final_text_list}",
 				"isAsync":false,
 				"python_version":"3.12",
-				"entityId":"e_68fd2016b6221f3c405d7c1e",
+				"entityId":"e_68fdd937ce98a64729908bd1",
 				"captureStdOutput":false,
 				"parameters":{
 					"text_list":{
@@ -783,7 +783,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"MANUAL",
 			"groupId":"_5bsax-1",
 			"id":"_dOm8a",
@@ -941,7 +941,7 @@
 				"code":"import logging\nimport json\nfrom typing import List, Dict, Any, Optional\nfrom collections import defaultdict, deque\n\nfrom presidio_analyzer import AnalyzerEngine, RecognizerRegistry, Pattern, PatternRecognizer\nfrom presidio_analyzer.nlp_engine import NlpEngineProvider\nfrom presidio_anonymizer import AnonymizerEngine\nfrom presidio_anonymizer.entities import OperatorConfig\n\n\n\n# Initialize engines\nanalyzer = AnalyzerEngine()\nanonymizer = AnonymizerEngine()\nPRESIDIO_NLP_ENGINE = \"spacy\"\nPRESIDIO_SUPPORTED_MODELS = [\n  {\"lang_code\": \"de\", \"model_name\": \"de_core_news_lg\"},\n  {\"lang_code\": \"el\", \"model_name\": \"el_core_news_lg\"},\n  {\"lang_code\": \"en\", \"model_name\": \"en_core_web_lg\"}, \n  {\"lang_code\": \"es\", \"model_name\": \"es_core_news_lg\"} \n]\nPRESIDIO_LANGUAGE_IDENTIFIER = [\n  \"de\",\"el\",\"en\",\"es\"\n]\n\n# Define masking operators\noperators = {\n    \"PERSON\": OperatorConfig(operator_name=\"mask\", params={\"masking_char\": \"*\", \"chars_to_mask\": 8, \"from_end\": False}),\n    \"EMAIL_ADDRESS\": OperatorConfig(operator_name=\"mask\", params={\"masking_char\": \"*\", \"chars_to_mask\": 12, \"from_end\": False}),\n    \"EMAIL\": OperatorConfig(operator_name=\"mask\", params={\"masking_char\": \"*\", \"chars_to_mask\": 12, \"from_end\": False}),\n    \"PHONE_NUMBER\": OperatorConfig(operator_name=\"mask\", params={\"masking_char\": \"*\", \"chars_to_mask\": 10, \"from_end\": False}),\n    \"PHONE_NUMBER_REGEX\": OperatorConfig(operator_name=\"mask\", params={\"masking_char\": \"*\", \"chars_to_mask\": 10, \"from_end\": False}),\n    \"PHONE_NUMBER_RECOGNIZER\": OperatorConfig(operator_name=\"mask\", params={\"masking_char\": \"*\", \"chars_to_mask\": 10, \"from_end\": False}),\n    \"PHONE\": OperatorConfig(operator_name=\"mask\", params={\"masking_char\": \"*\", \"chars_to_mask\": 10, \"from_end\": False}),\n}\nclass AnonymizationManager:\n    _instance = None\n\n    def __init__(self):\n        if AnonymizationManager._instance is not None:\n            raise RuntimeError(\"Use the 'instance()' method to get an instance.\")\n\n        # Initialize engines\n        self._anonymizer_instance = AnonymizerEngine()\n        self._nlp_engine = self._create_nlp_engine()\n        self._registry = self._create_registry()\n        self._analyzer_instance = self._create_analyzer_engine()\n        self._entities = self._get_supported_entities()\n\n    @classmethod\n    def instance(cls):\n        if cls._instance is None:\n            cls._instance = cls()\n        return cls._instance\n\n    def _create_nlp_engine(self):\n        analyzer_config = {\n            \"nlp_engine_name\": PRESIDIO_NLP_ENGINE,\n            \"models\": PRESIDIO_SUPPORTED_MODELS,\n        }\n        return NlpEngineProvider(nlp_configuration=analyzer_config).create_engine()\n\n    def _create_registry(self):\n        registry = RecognizerRegistry(supported_languages=PRESIDIO_LANGUAGE_IDENTIFIER)\n\n        registry.load_predefined_recognizers(\n            nlp_engine=self._nlp_engine,\n            languages=PRESIDIO_LANGUAGE_IDENTIFIER\n        )\n\n        self._load_custom_patterns(registry)\n\n        return registry\n\n    def _load_custom_patterns(self, registry):\n        patterns = [\n            (\"PHONE_NUMBER_REGEX\", r\"(([+]{1}[1-9]{1}[0-9]{0,2}[ ]{1}([1-9]{1}[0-9]{1,4}){1}[ ]{1}([1-9]{1}[0-9]{2,6}){1}([ -][0-9]{1,5})?)|([0]{1}[1-9]{1}[0-9]{1,4}[ ]{1}[0-9]{1,8}([ -][0-9]{1,8})?)?)\"),\n            (\"PHONE_NUMBER_RECOGNIZER\", r\"(?:\\+\\d{1,2}\\s*)?(?:\\(\\d{3}\\)|\\d{3})[-.\\s]?\\d{3}[-.\\s]?\\d{4}\"),\n            (\"EMAIL\", r\"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\"),\n            (\"PHONE_NUMBER\", r\"(\\+[0-9]{1,3}\\s*)?[0-9]{6,16}\"),\n        ]\n\n        for idx, (name, regex) in enumerate(patterns):\n            pattern_name = f\"{name}_{idx}\" if idx > 0 else name\n            for lan in PRESIDIO_LANGUAGE_IDENTIFIER:\n                pattern = PatternRecognizer(\n                    supported_entity=name,\n                    supported_language=lan,\n                    patterns=[Pattern(name=pattern_name, regex=regex, score=0.6)],\n                )\n                registry.add_recognizer(pattern)\n\n    def _create_analyzer_engine(self):\n        return AnalyzerEngine(\n            nlp_engine=self._nlp_engine,\n            registry=self._registry,\n            supported_languages=PRESIDIO_LANGUAGE_IDENTIFIER,\n        )\n\n    def _get_supported_entities(self):\n        entities=[]\n        for lan in PRESIDIO_LANGUAGE_IDENTIFIER:\n            all_entities = self._analyzer_instance.get_supported_entities(language=lan)\n            # Return entities that we have operators for\n            entities.append(entity for entity in all_entities if entity in operators)\n        \n        return entities\n\n    def get_instances(self):\n        return self._analyzer_instance, self._anonymizer_instance, self._entities\n\n    @staticmethod\n    def _explain(result) -> Optional[Dict[str, Any]]:\n        if not getattr(result, \"analysis_explanation\", None):\n            return None\n        try:\n            ex = result.analysis_explanation.to_dict()\n            return {\n                \"recognizer\": ex.get(\"recognizer\"),\n                \"pattern_name\": ex.get(\"pattern_name\"),\n                \"pattern\": ex.get(\"pattern\"),\n                \"original_score\": ex.get(\"original_score\"),\n                \"validation_result\": ex.get(\"validation_result\"),\n                \"textual_explanation\": ex.get(\"textual_explanation\"),\n            }\n        except Exception:\n            # Fallback: best-effort textual explanation\n            try:\n                return {\"textual_explanation\": getattr(result.analysis_explanation, \"textual_explanation\", None)}\n            except Exception:\n                return None\n\n    def anonymize_text_with_details(self,text: str,language:str) -> Dict[str, Any]:\n        analyzer, anonymizer, entities = self.get_instances()\n        # lang_detector = LanguageDetectorEngine()\n        # detected = lang_detector.predict_language(text)\n        # # predicted_lang is something like 'de' or 'en' — check the detector API you use\n        # predicted_lang = detected[0].language\n        # 1) Detect PII with decision process enabled (so we can explain 'why')\n        # lang = \"de\"\n        # if \"Describe\" in text:\n        #     lang = \"en\"\n        # lang_detector = LanguageDetectorEngine()\n        # detected = lang_detector.predict_language(text)\n        # predicted_lang is something like 'de' or 'en' — check the detector API you use\n        # predicted_lang = detected[0].language    \n\n        if language not in PRESIDIO_LANGUAGE_IDENTIFIER:\n            language=\"en\"\n        analyzer_results = analyzer.analyze(\n            text=text,\n            entities=list(operators.keys()),\n            language= language,\n            return_decision_process=True\n        )\n    \n        # 2) Anonymize using our operators\n        anonymized = anonymizer.anonymize(\n            text=text,\n            analyzer_results=analyzer_results,\n            operators=operators\n        )\n    \n        # 3) Normalize anonymizer items to dicts with start/end/operator/masked text\n        #    Using to_json() keeps behavior stable across versions.\n        anon_payload = json.loads(anonymized.to_json())\n        anon_items: List[Dict[str, Any]] = sorted(anon_payload.get(\"items\", []), key=lambda x: (x.get(\"start\", 0), x.get(\"end\", 0)))\n    \n        # 4) Build a per-entity report. We align by entity_type and order.\n        #    Note: in rare overlap/conflict cases, anonymizer may drop/merge some detections.\n        #    This greedy pairing by entity type reflects the final applied operations.\n        from collections import defaultdict, deque\n        items_by_type: Dict[str, deque] = defaultdict(deque)\n        for it in anon_items:\n            items_by_type[it.get(\"entity_type\")].append(it)\n    \n        detailed = []\n        for r in sorted(analyzer_results, key=lambda x: (x.start, x.end)):\n            original_substr = text[r.start:r.end]\n            masked_item = items_by_type[r.entity_type].popleft() if items_by_type.get(r.entity_type) else None\n    \n            entry = {\n                \"entity\": r.entity_type,\n                \"original\": {\n                    \"text\": original_substr,\n                    \"start\": r.start,\n                    \"end\": r.end\n                },\n                \"detection\": {\n                    \"score\": round(float(getattr(r, \"score\", 0.0)), 4),\n                    \"why\": self._explain(r)\n                },\n                \"mask\": None\n            }\n    \n            if masked_item:\n                entry[\"mask\"] = {\n                    \"operator\": masked_item.get(\"operator\"),\n                    \"text\": masked_item.get(\"text\"),               # masked value after operator\n                    \"start\": masked_item.get(\"start\"),             # indexes in anonymized text\n                    \"end\": masked_item.get(\"end\")\n                }\n    \n            detailed.append(entry)\n    \n        return {\n            \"original\": text,\n            \"maskedText\": anonymized.text,\n            \"details\": detailed\n        }\n\n    def anonymize_texts_with_details(self,texts: List[Dict[str,str]]) -> List[Dict[str, Any]]:\n        \"\"\"Batch analyze + anonymize with per-text details.\"\"\"\n        return [self.anonymize_text_with_details(t.get(\"text\"),t.get(\"language\")) for t in texts]\n\nmanager = AnonymizationManager.instance()\nbatch = manager.anonymize_texts_with_details(text_list)\n\nresult = {\n    \"result_batch\": batch\n}",
 				"isAsync":false,
 				"python_version":"3.12",
-				"entityId":"e_68fd2016b6221f3c405d7c1e",
+				"entityId":"e_68fdd937ce98a64729908bd1",
 				"captureStdOutput":false,
 				"parameters":{
 					"text_list":{
@@ -2172,5 +2172,5 @@
 	"tags":[
 		
 	],
-	"version":91
+	"version":92
 }
