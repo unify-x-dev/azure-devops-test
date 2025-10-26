@@ -60,6 +60,13 @@
 			"fromNodeId":"_M1PU3",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_98bIF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_98bIF",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_pvdHU",
 			"type":"next"
 		},
@@ -74,33 +81,33 @@
 			"fromNodeId":"_iMBUc",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_rgm4N",
+			"toNodeId":"_vquu7",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_rgm4N",
+			"fromNodeId":"_vquu7",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_TpWSK",
+			"toNodeId":"_wPsWL",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_TpWSK",
+			"fromNodeId":"_wPsWL",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_hjLPx",
+			"toNodeId":"_WeDSA",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_hjLPx",
+			"fromNodeId":"_WeDSA",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_TpWSK",
+			"toNodeId":"_wPsWL",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_TpWSK",
+			"fromNodeId":"_wPsWL",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -198,7 +205,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761484410482,
+	"modifiedTime":1761484532781,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -213,7 +220,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -325,7 +332,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_BJWbh",
@@ -666,7 +673,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_25xfN",
@@ -727,7 +734,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_25xfN@1",
@@ -759,7 +766,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_nJ4Q8",
@@ -802,7 +809,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -825,7 +832,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_M1PU3",
@@ -863,7 +870,7 @@
 		{
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":4581,
+				"resourceVersion":4583,
 				"resourceName":"storage_by_unifyapps_fetch_records",
 				"type":"APPLICATION"
 			},
@@ -871,8 +878,51 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
-			"id":"_pvdHU",
+			"id":"_98bIF",
 			"index":8,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_interfacePageId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ _M1PU3.outputs.id }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"e_data_source",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Fetch Page DataSources",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
+			"id":"_pvdHU",
+			"index":9,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -926,11 +976,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -958,7 +1008,7 @@
 				"visibleOptionalFields":[
 					"root.parameters.reportArr.items",
 					"root.parameters.masterArr.items",
-					"root.parameters.page.items"
+					"root.parameters.dataSources.items"
 				]
 			},
 			"context":{
@@ -971,12 +1021,13 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
-			"id":"_rgm4N",
-			"index":10,
+			"id":"_vquu7",
+			"index":11,
 			"inputs":{
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"results":{
 							"type":"array",
@@ -1011,17 +1062,21 @@
 										"type":"string",
 										"title":"checkCategory"
 									},
-									"componentId":{
-										"type":"string",
-										"title":"componentId"
-									},
-									"componentName":{
-										"type":"string",
-										"title":"componentName"
-									},
 									"checkHeader":{
 										"type":"string",
 										"title":"Check Header"
+									},
+									"impactedEntityId":{
+										"type":"string",
+										"title":"impactedEntityId"
+									},
+									"impactedEntityName":{
+										"type":"string",
+										"title":"impactedEntityName"
+									},
+									"impactedEntityCategory":{
+										"type":"string",
+										"title":"impactedEntityCategory"
 									}
 								},
 								"additionalProperties":false,
@@ -1067,16 +1122,25 @@
 							"properties":{},
 							"additionalProperties":false,
 							"title":"page"
+						},
+						"dataSources":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"dataSources"
 						}
 					}
 				},
-				"code":"\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def effectiveStatus = (status == \"null\" || status == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\" ) ? null : category\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            // Use the cleaned 'effective' variables for the filter logic\n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            okStatus && okCategory\n        }\n       \n        .collectMany { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                \n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n        }\n        \n    return [ results: results ]\n}\n\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)",
+				"code":"def joinAndFilter(reportArr, masterArr, page, dataSources, String status = null, String category = null) {\n    \n    // --- 1. Setup Filters ---\n    def effectiveStatus = (status == \"null\" || status == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\" ) ? null : category\n    \n    // --- 2. Create Lookup Maps for fast access ---\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    def dataSourcesById = dataSources.collectEntries { [ (it.id): it ] }\n    \n    // Get lookups from the page object (these are already maps)\n    def pageBlocks = page?.blocks ?: [:]\n    def pageVariables = page?.pageVariables ?: [:]\n    def pageFunctions = page?.pageFunctions ?: [:]\n\n    // --- 3. Filter and Transform Reports ---\n    def results = reportArr\n        .findAll { rep ->\n            // Find the corresponding master check\n            def m = masterById[rep.properties.checkId]\n            \n            // Check if the report matches the status and category filters\n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            return okStatus && okCategory\n        }\n        .collectMany { rep -> // Use collectMany to flatten lists of results\n            def m = masterById[rep.properties.checkId]\n            \n            // Create the base information common to all entities in this report\n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId, // The entity the report ran on\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            // Safely get the lists of all entity IDs\n            def entities = rep.properties?.entities\n            def blockIds = entities?.blockIds ?: []\n            def dataSourceIds = entities?.dataSources ?: []\n            def variableIds = entities?.variables ?: []\n            def functionIds = entities?.functions ?: []\n\n            // Process all blockIds\n            def blockResults = blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                return baseInfo + [\n                    impactedEntityId   : blockId,\n                    impactedEntityName : blockDetails?.displayName\n                    impactedEntityCategory : 'block' \n                ]\n            }\n            \n            // Process all dataSources\n            def dataSourceResults = dataSourceIds.collect { dsId ->\n                def dsDetails = dataSourcesById[dsId]\n                return baseInfo + [\n                    impactedEntityId   : dsId,\n                    impactedEntityName : dsDetails?.properties?.name // Get name from properties\n                    impactedEntityCategory : 'dataSource'\n                ]\n            }\n            \n            // Process all variables\n            def variableResults = variableIds.collect { varId ->\n                def varDetails = pageVariables[varId] // Get variable details from map\n                return baseInfo + [\n                    impactedEntityId   : varId,\n                    impactedEntityName : varDetails?.name // Get its name\n                    impactedEntityCategory : 'variable'\n                ]\n            }\n            \n            // Process all functions\n            def functionResults = functionIds.collect { funcId ->\n                def funcDetails = pageFunctions[funcId] // Get function details from map\n                return baseInfo + [\n                    impactedEntityId   : funcId,\n                    impactedEntityName : funcDetails?.name // Get its name\n                    impactedEntityCategory : 'function'\n                ]\n            }\n\n            // Combine all results lists\n            def allResultsForReport = blockResults + dataSourceResults + variableResults + functionResults\n            \n            // If the report had no specific entities, create one fallback entry\n            if (allResultsForReport.isEmpty()) {\n                return [ baseInfo + [impactedEntityId: null, impactedEntityName: null, impactedEntityCategory: null] ]\n            } else {\n                return allResultsForReport\n            }\n        }\n        \n    return [ results: results ]\n}\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"status":"{{ n_1ceQS.outputs.status }}",
 					"category":"{{ n_1ceQS.outputs.category }}",
-					"page":"{{ n_oh9u9.outputs.properties }}",
+					"page":"{{ _M1PU3.outputs.properties }}",
 					"reportArr":{
 						"ua:type":"mappedArray",
 						"source":"{{ _pvdHU.outputs.objects }}",
@@ -1086,6 +1150,11 @@
 						"ua:type":"mappedArray",
 						"source":"{{ _iMBUc.outputs.objects }}",
 						"items":"{{ _iMBUc.outputs.objects[0] }}"
+					},
+					"dataSources":{
+						"ua:type":"mappedArray",
+						"source":"{{ _98bIF.outputs.objects }}",
+						"items":"{{ _98bIF.outputs.objects[0] }}"
 					}
 				}
 			},
@@ -1105,11 +1174,11 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
-			"id":"n_TpWSK",
-			"index":11,
+			"id":"_wPsWL",
+			"index":12,
 			"inputs":{
 				"repeatMode":"SINGLE",
-				"listSource":"{{ _rgm4N.outputs.result.results }}",
+				"listSource":"{{ _vquu7.outputs.result.results }}",
 				"captureIterations":false
 			},
 			"skip":false,
@@ -1141,45 +1210,48 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_TpWSK@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
-			"id":"_hjLPx",
-			"index":12,
+			"groupId":"_wPsWL@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
+			"id":"_WeDSA",
+			"index":13,
 			"inputs":{
 				"itemToAdd":{
-					"checkCategory":"{{ n_TpWSK.outputs.item.checkCategory }}",
-					"checkDescription":"{{ n_TpWSK.outputs.item.checkDescription }}",
-					"checkHeader":"{{ n_TpWSK.outputs.item.checkHeader }}",
-					"checkId":"{{ n_TpWSK.outputs.item.checkId }}",
-					"checkImpact":"{{ n_TpWSK.outputs.item.checkImpact }}",
-					"checkTitle":"{{ n_TpWSK.outputs.item.checkTitle }}",
-					"componentId":"{{ n_TpWSK.outputs.item.componentId }}",
-					"componentName":"{{ n_TpWSK.outputs.item.componentName }}",
-					"entityId":"{{ n_TpWSK.outputs.item.entityId }}",
-					"status":"{{ n_TpWSK.outputs.item.status }}",
+					"checkCategory":"{{ _vquu7.outputs.result.results[0].checkCategory }}",
+					"checkDescription":"{{ _vquu7.outputs.result.results[0].checkDescription }}",
+					"checkHeader":"{{ _vquu7.outputs.result.results[0].checkHeader }}",
+					"checkId":"{{ _vquu7.outputs.result.results[0].checkId }}",
+					"checkImpact":"{{ _vquu7.outputs.result.results[0].checkImpact }}",
+					"checkTitle":"{{ _vquu7.outputs.result.results[0].checkTitle }}",
+					"entityId":"{{ _vquu7.outputs.result.results[0].entityId }}",
+					"status":"{{ _vquu7.outputs.result.results[0].status }}",
+					"impactedEntityId":"{{ _vquu7.outputs.result.results[0].impactedEntityId }}",
+					"impactedEntityName":"{{ _vquu7.outputs.result.results[0].impactedEntityName }}",
+					"impactedEntityCategory":"{{ _vquu7.outputs.result.results[0].impactedEntityCategory }}",
+					"componentId":"{{ _vquu7.outputs.result.results[0].entityId }}",
+					"componentName":"{{ _vquu7.outputs.result.results[0].entityId }}",
 					"blockIds":{
 						"ua:type":"mappedArray",
-						"source":"{{ n_aqVAB.outputs.result.results[0].blockIds }}",
-						"items":"{{ n_aqVAB.outputs.result.results[0].blockIds[0] }}"
+						"source":"{{ _vquu7.outputs.result.results[0].blockIds }}",
+						"items":"{{ _vquu7.outputs.result.results[0].blockIds[0] }}"
 					},
 					"dataSources":{
 						"ua:type":"mappedArray",
-						"source":"{{ n_aqVAB.outputs.result.results[0].dataSources }}",
-						"items":"{{ n_aqVAB.outputs.result.results[0].dataSources[0] }}"
+						"source":"{{ _vquu7.outputs.result.results[0].dataSources }}",
+						"items":"{{ _vquu7.outputs.result.results[0].dataSources[0] }}"
 					},
 					"results":{
-						"source":"{{ _rgm4N.outputs.result.results }}",
+						"source":"{{ _vquu7.outputs.result.results }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"checkId":"{{ _rgm4N.outputs.result.results[0].checkId }}",
-							"status":"{{ _rgm4N.outputs.result.results[0].status }}",
-							"entityId":"{{ _rgm4N.outputs.result.results[0].entityId }}",
-							"checkTitle":"{{ _rgm4N.outputs.result.results[0].checkTitle }}",
-							"checkDescription":"{{ _rgm4N.outputs.result.results[0].checkDescription }}",
-							"checkImpact":"{{ _rgm4N.outputs.result.results[0].checkImpact }}",
-							"checkCategory":"{{ _rgm4N.outputs.result.results[0].checkCategory }}",
-							"componentId":"{{ _rgm4N.outputs.result.results[0].componentId }}",
-							"componentName":"{{ _rgm4N.outputs.result.results[0].componentName }}",
-							"checkHeader":"{{ _rgm4N.outputs.result.results[0].checkHeader }}"
+							"checkId":"{{ _vquu7.outputs.result.results[0].checkId }}",
+							"status":"{{ _vquu7.outputs.result.results[0].status }}",
+							"entityId":"{{ _vquu7.outputs.result.results[0].entityId }}",
+							"checkTitle":"{{ _vquu7.outputs.result.results[0].checkTitle }}",
+							"checkDescription":"{{ _vquu7.outputs.result.results[0].checkDescription }}",
+							"checkImpact":"{{ _vquu7.outputs.result.results[0].checkImpact }}",
+							"checkCategory":"{{ _vquu7.outputs.result.results[0].checkCategory }}",
+							"componentId":"{{ _vquu7.outputs.result.results[0].entityId }}",
+							"componentName":"{{ _vquu7.outputs.result.results[0].entityId }}",
+							"checkHeader":"{{ _vquu7.outputs.result.results[0].checkHeader }}"
 						}
 					}
 				},
@@ -1199,11 +1271,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"name":"Page Flow",
 				"conditions":{
@@ -1231,11 +1303,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1274,11 +1346,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_HKPw8",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1317,11 +1389,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1375,11 +1447,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -1417,11 +1489,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1570,11 +1642,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_ksdUj",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_aqVAB.outputs.result.results }}",
@@ -1607,11 +1679,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ksdUj@n_25xfN@_vMiRK-1@2@l",
 			"id":"_a2JhT",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"itemToAdd":{
 					"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
@@ -1676,11 +1748,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"result":{
 					"results":{
@@ -1725,5 +1797,5 @@
 	"tags":[
 		
 	],
-	"version":62
+	"version":63
 }
