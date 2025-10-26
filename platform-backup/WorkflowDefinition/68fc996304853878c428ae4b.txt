@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761467880193,
+		"deployedAt":1761467963171,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68fddde8ff97b736e67ea2e0",
+		"deployedDefinitionId":"68fdde3bff97b736e67ea44c",
 		"status":"DEPLOYED",
-		"version":17,
-		"workflowVersion":53
+		"version":18,
+		"workflowVersion":54
 	},
 	"edges":[
 		{
@@ -176,7 +176,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761467961210,
+	"modifiedTime":1761468142174,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1445,7 +1445,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_ksdUj",
@@ -1482,7 +1482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_ksdUj@n_25xfN@_vMiRK-1@2@l",
 			"id":"_a2JhT",
@@ -1490,7 +1490,7 @@
 			"inputs":{
 				"itemToAdd":{
 					"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
-					"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+					"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkDescription }}",
 					"checkHeader":"{{ n_aqVAB.outputs.result.results[0].checkHeader }}",
 					"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
 					"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
@@ -1596,5 +1596,5 @@
 	"tags":[
 		
 	],
-	"version":54
+	"version":55
 }
