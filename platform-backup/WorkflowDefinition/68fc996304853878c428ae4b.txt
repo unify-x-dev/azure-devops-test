@@ -198,7 +198,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761483790654,
+	"modifiedTime":1761483843752,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -213,7 +213,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -320,7 +320,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_BJWbh",
@@ -651,7 +651,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_25xfN",
@@ -712,7 +712,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_25xfN@1",
@@ -744,7 +744,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_nJ4Q8",
@@ -787,7 +787,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -810,7 +810,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_M1PU3",
@@ -853,7 +853,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
@@ -911,7 +911,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
@@ -953,7 +953,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_rgm4N",
@@ -1087,7 +1087,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"n_TpWSK",
@@ -1124,7 +1124,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TpWSK@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
 			"id":"_hjLPx",
@@ -1184,7 +1184,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
@@ -1216,7 +1216,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
@@ -1259,7 +1259,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_HKPw8",
@@ -1302,7 +1302,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
@@ -1360,7 +1360,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
@@ -1513,7 +1513,7 @@
 						}
 					}
 				},
-				"code":"def joinAndFilter(reportArr, masterArr, page, objects, String status = null, String category = null) {\n    \n    // --- 1. Setup Filters ---\n    def effectiveStatus = (status == \"null\" || status == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\" ) ? null : category\n    \n    // --- 2. Create Lookup Maps for fast access ---\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    def dataSourcesById = objects.collectEntries { [ (it.id): it ] }\n    \n    // Get lookups from the page object (these are already maps)\n    def pageBlocks = page?.blocks ?: [:]\n    def pageVariables = page?.pageVariables ?: [:]\n    def pageFunctions = page?.pageFunctions ?: [:]\n\n    // --- 3. Filter and Transform Reports ---\n    def results = reportArr\n        .findAll { rep ->\n            // Find the corresponding master check\n            def m = masterById[rep.properties.checkId]\n            \n            // Check if the report matches the status and category filters\n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            return okStatus && okCategory\n        }\n        .collectMany { rep -> // Use collectMany to flatten lists of results\n            def m = masterById[rep.properties.checkId]\n            \n            // Create the base information common to all entities in this report\n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId, // The entity the report ran on\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            // Safely get the lists of all entity IDs\n            def entities = rep.properties?.entities\n            def blockIds = entities?.blockIds ?: []\n            def dataSourceIds = entities?.dataSources ?: []\n            def variableIds = entities?.variables ?: []\n            def functionIds = entities?.functions ?: []\n\n            // Process all blockIds\n            def blockResults = blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n            \n            // Process all dataSources\n            def dataSourceResults = dataSourceIds.collect { dsId ->\n                def dsDetails = dataSourcesById[dsId]\n                return baseInfo + [\n                    componentId   : dsId,\n                    componentName : dsDetails?.properties?.name // Get name from properties\n                ]\n            }\n            \n            // Process all variables\n            def variableResults = variableIds.collect { varId ->\n                def varDetails = pageVariables[varId] // Get variable details from map\n                return baseInfo + [\n                    componentId   : varId,\n                    componentName : varDetails?.name // Get its name\n                ]\n            }\n            \n            // Process all functions\n            def functionResults = functionIds.collect { funcId ->\n                def funcDetails = pageFunctions[funcId] // Get function details from map\n                return baseInfo + [\n                    componentId   : funcId,\n                    componentName : funcDetails?.name // Get its name\n                ]\n            }\n\n            // Combine all results lists\n            def allResultsForReport = blockResults + dataSourceResults + variableResults + functionResults\n            \n            // If the report had no specific entities, create one fallback entry\n            if (allResultsForReport.isEmpty()) {\n                return [ baseInfo + [componentId: null, componentName: null] ]\n            } else {\n                return allResultsForReport\n            }\n        }\n        \n    return [ results: results ]\n}\n",
+				"code":"def joinAndFilter(reportArr, masterArr, page, dataSources, String status = null, String category = null) {\n    \n    // --- 1. Setup Filters ---\n    def effectiveStatus = (status == \"null\" || status == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\" ) ? null : category\n    \n    // --- 2. Create Lookup Maps for fast access ---\n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    def dataSourcesById = dataSources.collectEntries { [ (it.id): it ] }\n    \n    // Get lookups from the page object (these are already maps)\n    def pageBlocks = page?.blocks ?: [:]\n    def pageVariables = page?.pageVariables ?: [:]\n    def pageFunctions = page?.pageFunctions ?: [:]\n\n    // --- 3. Filter and Transform Reports ---\n    def results = reportArr\n        .findAll { rep ->\n            // Find the corresponding master check\n            def m = masterById[rep.properties.checkId]\n            \n            // Check if the report matches the status and category filters\n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            return okStatus && okCategory\n        }\n        .collectMany { rep -> // Use collectMany to flatten lists of results\n            def m = masterById[rep.properties.checkId]\n            \n            // Create the base information common to all entities in this report\n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId, // The entity the report ran on\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            // Safely get the lists of all entity IDs\n            def entities = rep.properties?.entities\n            def blockIds = entities?.blockIds ?: []\n            def dataSourceIds = entities?.dataSources ?: []\n            def variableIds = entities?.variables ?: []\n            def functionIds = entities?.functions ?: []\n\n            // Process all blockIds\n            def blockResults = blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n            \n            // Process all dataSources\n            def dataSourceResults = dataSourceIds.collect { dsId ->\n                def dsDetails = dataSourcesById[dsId]\n                return baseInfo + [\n                    componentId   : dsId,\n                    componentName : dsDetails?.properties?.name // Get name from properties\n                ]\n            }\n            \n            // Process all variables\n            def variableResults = variableIds.collect { varId ->\n                def varDetails = pageVariables[varId] // Get variable details from map\n                return baseInfo + [\n                    componentId   : varId,\n                    componentName : varDetails?.name // Get its name\n                ]\n            }\n            \n            // Process all functions\n            def functionResults = functionIds.collect { funcId ->\n                def funcDetails = pageFunctions[funcId] // Get function details from map\n                return baseInfo + [\n                    componentId   : funcId,\n                    componentName : funcDetails?.name // Get its name\n                ]\n            }\n\n            // Combine all results lists\n            def allResultsForReport = blockResults + dataSourceResults + variableResults + functionResults\n            \n            // If the report had no specific entities, create one fallback entry\n            if (allResultsForReport.isEmpty()) {\n                return [ baseInfo + [componentId: null, componentName: null] ]\n            } else {\n                return allResultsForReport\n            }\n        }\n        \n    return [ results: results ]\n}\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1550,7 +1550,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_ksdUj",
@@ -1587,7 +1587,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ksdUj@n_25xfN@_vMiRK-1@2@l",
 			"id":"_a2JhT",
@@ -1653,7 +1653,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
@@ -1701,5 +1701,5 @@
 	"tags":[
 		
 	],
-	"version":59
+	"version":60
 }
