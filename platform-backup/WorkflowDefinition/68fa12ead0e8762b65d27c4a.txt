@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761374037953,
+		"deployedAt":1761374078327,
 		"deployedBy":23949,
-		"deployedDefinitionId":"68fc6f55f0707c781266a49e",
+		"deployedDefinitionId":"68fc6f7ef0707c781266a60a",
 		"status":"DEPLOYED",
-		"version":24,
-		"workflowVersion":110
+		"version":25,
+		"workflowVersion":111
 	},
 	"edges":[
 		{
@@ -359,9 +359,9 @@
 		}
 	],
 	"id":"68fa12ead0e8762b65d27c4a",
-	"lastModifiedBy":23949,
+	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761374076924,
+	"modifiedTime":1761475518677,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1123,7 +1123,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_EN7Pq@_z6eK1-1@y",
 			"id":"_8ssPF",
@@ -1191,7 +1191,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const getAlwaysHiddenBlocks = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      // If visibility is explicitly false (not dynamic)\n      if (block?.visibility?.value === false) {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const hiddenBlockIds = getAlwaysHiddenBlocks(blocks);\n\n  if (hiddenBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: hiddenBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const getAlwaysHiddenBlocks = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      // If visibility is explicitly false (not dynamic)\n      if (block?.visibility?.value === false && blockId !== 'header_id' && blockId !== 'footer_id') {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const hiddenBlockIds = getAlwaysHiddenBlocks(blocks);\n\n  if (hiddenBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: hiddenBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}"
@@ -2316,7 +2316,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_M3LGh@_z6eK1-1@y",
 			"id":"_Wnxfi",
@@ -2505,7 +2505,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_PUdwS@_z6eK1-1@y",
 			"id":"_FStQb",
@@ -3170,5 +3170,5 @@
 	"tags":[
 		
 	],
-	"version":111
+	"version":112
 }
