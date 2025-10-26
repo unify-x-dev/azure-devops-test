@@ -5,12 +5,12 @@
 	"createdTime":1761519381151,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761519395746,
+		"deployedAt":1761519397407,
 		"deployedBy":175325,
-		"deployedDefinitionId":"68fea7238efc8566d66ba56a",
+		"deployedDefinitionId":"68fea7258efc8566d66ba571",
 		"status":"DEPLOYED",
-		"version":37,
-		"workflowVersion":37
+		"version":42,
+		"workflowVersion":42
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"68fea7158efc8566d66ba52b",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2rquw6nwdwjyc",
-	"modifiedTime":1761519395921,
+	"modifiedTime":1761519397522,
 	"name":"changeSetQA2RQUw6nwdwjYc",
 	"nodes":[
 		{
@@ -34,7 +34,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"5stgo-1",
 			"id":"7pKsG",
@@ -95,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"= MIN({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -117,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":38
+	"version":43
 }
