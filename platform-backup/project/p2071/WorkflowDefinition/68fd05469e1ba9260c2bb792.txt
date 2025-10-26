@@ -90,7 +90,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761461784601,
+	"modifiedTime":1761462022465,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -100,7 +100,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_3qj6b",
@@ -381,6 +381,7 @@
 		},
 		{
 			"additional":{
+				"xsdSchemaConfig":{},
 				"visibleOptionalFields":[
 					"root.kind",
 					"root.etag",
@@ -411,18 +412,6 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"kind":{
-							"type":"string",
-							"title":"kind"
-						},
-						"etag":{
-							"type":"string",
-							"title":"etag"
-						},
-						"id":{
-							"type":"string",
-							"title":"id"
-						},
 						"status":{
 							"type":"string",
 							"title":"status"
@@ -499,14 +488,6 @@
 							"title":"end",
 							"additionalProperties":false
 						},
-						"iCalUID":{
-							"type":"string",
-							"title":"iCalUID"
-						},
-						"sequence":{
-							"type":"integer",
-							"title":"sequence"
-						},
 						"attendees":{
 							"type":"array",
 							"items":{
@@ -528,156 +509,16 @@
 								"additionalProperties":false
 							},
 							"title":"attendees"
-						},
-						"hangoutLink":{
-							"type":"string",
-							"title":"hangoutLink"
-						},
-						"conferenceData":{
-							"type":"object",
-							"properties":{
-								"entryPoints":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{
-											"entryPointType":{
-												"type":"string",
-												"title":"entryPointType"
-											},
-											"uri":{
-												"type":"string",
-												"title":"uri"
-											},
-											"label":{
-												"type":"string",
-												"title":"label"
-											},
-											"pin":{
-												"type":"string",
-												"title":"pin"
-											},
-											"regionCode":{
-												"type":"string",
-												"title":"regionCode"
-											}
-										},
-										"additionalProperties":false
-									},
-									"title":"entryPoints"
-								},
-								"conferenceSolution":{
-									"type":"object",
-									"properties":{
-										"key":{
-											"type":"object",
-											"properties":{
-												"type":{
-													"type":"string",
-													"title":"type"
-												}
-											},
-											"title":"key",
-											"additionalProperties":false
-										},
-										"name":{
-											"type":"string",
-											"title":"name"
-										},
-										"iconUri":{
-											"type":"string",
-											"title":"iconUri"
-										}
-									},
-									"title":"conferenceSolution",
-									"additionalProperties":false
-								},
-								"conferenceId":{
-									"type":"string",
-									"title":"conferenceId"
-								}
-							},
-							"title":"conferenceData",
-							"additionalProperties":false
-						},
-						"guestsCanInviteOthers":{
-							"type":"boolean",
-							"title":"guestsCanInviteOthers"
-						},
-						"guestsCanSeeOtherGuests":{
-							"type":"boolean",
-							"title":"guestsCanSeeOtherGuests"
-						},
-						"reminders":{
-							"type":"object",
-							"properties":{
-								"useDefault":{
-									"type":"boolean",
-									"title":"useDefault"
-								}
-							},
-							"title":"reminders",
-							"additionalProperties":false
-						},
-						"attachments":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"fileUrl":{
-										"type":"string",
-										"title":"fileUrl"
-									},
-									"title":{
-										"type":"string",
-										"title":"title"
-									},
-									"mimeType":{
-										"type":"string",
-										"title":"mimeType"
-									},
-									"iconLink":{
-										"type":"string",
-										"title":"iconLink"
-									},
-									"fileId":{
-										"type":"string",
-										"title":"fileId"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"attachments"
-						},
-						"eventType":{
-							"type":"string",
-							"title":"eventType"
 						}
-					}
+					},
+					"required":[]
 				}
 			},
 			"inputs":{
-				"summary":"{{ n_wADXG.outputs.summary }}",
-				"kind":"{{ n_wADXG.outputs.kind }}",
+				"summary":"{{ n_wADXG.outputs.items[0].summary }}",
 				"htmlLink":"{{ n_wADXG.outputs.items[0].htmlLink }}",
-				"attendees":{
-					"source":"{{ n_wADXG.outputs.items[0].attendees }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"email":"{{ n_wADXG.outputs.items[0].attendees[0].email }}"
-					}
-				},
-				"start":{
-					"dateTime":"{{ n_wADXG.outputs.items[0].start.dateTime }}",
-					"timeZone":"{{ n_wADXG.outputs.timeZone }}"
-				},
-				"description":"{{ n_wADXG.outputs.description }}",
-				"etag":"{{ n_wADXG.outputs.etag }}",
-				"end":{
-					"dateTime":"{{ n_wADXG.outputs.items[0].end.dateTime }}",
-					"timeZone":"{{ n_wADXG.outputs.timeZone }}"
-				},
-				"updated":"{{ n_wADXG.outputs.updated }}",
+				"created":"{{ n_wADXG.outputs.items[0].created }}",
+				"updated":"{{ n_wADXG.outputs.items[0].updated }}",
 				"status":"{{ n_wADXG.outputs.items[0].status }}"
 			},
 			"outputSchema":{
@@ -686,18 +527,6 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"kind":{
-							"type":"string",
-							"title":"kind"
-						},
-						"etag":{
-							"type":"string",
-							"title":"etag"
-						},
-						"id":{
-							"type":"string",
-							"title":"id"
-						},
 						"status":{
 							"type":"string",
 							"title":"status"
@@ -774,14 +603,6 @@
 							"title":"end",
 							"additionalProperties":false
 						},
-						"iCalUID":{
-							"type":"string",
-							"title":"iCalUID"
-						},
-						"sequence":{
-							"type":"integer",
-							"title":"sequence"
-						},
 						"attendees":{
 							"type":"array",
 							"items":{
@@ -803,132 +624,9 @@
 								"additionalProperties":false
 							},
 							"title":"attendees"
-						},
-						"hangoutLink":{
-							"type":"string",
-							"title":"hangoutLink"
-						},
-						"conferenceData":{
-							"type":"object",
-							"properties":{
-								"entryPoints":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{
-											"entryPointType":{
-												"type":"string",
-												"title":"entryPointType"
-											},
-											"uri":{
-												"type":"string",
-												"title":"uri"
-											},
-											"label":{
-												"type":"string",
-												"title":"label"
-											},
-											"pin":{
-												"type":"string",
-												"title":"pin"
-											},
-											"regionCode":{
-												"type":"string",
-												"title":"regionCode"
-											}
-										},
-										"additionalProperties":false
-									},
-									"title":"entryPoints"
-								},
-								"conferenceSolution":{
-									"type":"object",
-									"properties":{
-										"key":{
-											"type":"object",
-											"properties":{
-												"type":{
-													"type":"string",
-													"title":"type"
-												}
-											},
-											"title":"key",
-											"additionalProperties":false
-										},
-										"name":{
-											"type":"string",
-											"title":"name"
-										},
-										"iconUri":{
-											"type":"string",
-											"title":"iconUri"
-										}
-									},
-									"title":"conferenceSolution",
-									"additionalProperties":false
-								},
-								"conferenceId":{
-									"type":"string",
-									"title":"conferenceId"
-								}
-							},
-							"title":"conferenceData",
-							"additionalProperties":false
-						},
-						"guestsCanInviteOthers":{
-							"type":"boolean",
-							"title":"guestsCanInviteOthers"
-						},
-						"guestsCanSeeOtherGuests":{
-							"type":"boolean",
-							"title":"guestsCanSeeOtherGuests"
-						},
-						"reminders":{
-							"type":"object",
-							"properties":{
-								"useDefault":{
-									"type":"boolean",
-									"title":"useDefault"
-								}
-							},
-							"title":"reminders",
-							"additionalProperties":false
-						},
-						"attachments":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"fileUrl":{
-										"type":"string",
-										"title":"fileUrl"
-									},
-									"title":{
-										"type":"string",
-										"title":"title"
-									},
-									"mimeType":{
-										"type":"string",
-										"title":"mimeType"
-									},
-									"iconLink":{
-										"type":"string",
-										"title":"iconLink"
-									},
-									"fileId":{
-										"type":"string",
-										"title":"fileId"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"attachments"
-						},
-						"eventType":{
-							"type":"string",
-							"title":"eventType"
 						}
-					}
+					},
+					"required":[]
 				}
 			},
 			"skip":false,
@@ -944,7 +642,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
@@ -978,5 +676,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":18
 }
