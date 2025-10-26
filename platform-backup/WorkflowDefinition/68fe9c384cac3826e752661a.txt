@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761516695718,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761516696008,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68fe9c978efc8566d66b82a7",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"7pKsG",
@@ -16,7 +24,7 @@
 	"id":"68fe9c384cac3826e752661a",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2rilvbdrdmlsk",
-	"modifiedTime":1761516695718,
+	"modifiedTime":1761516818009,
 	"name":"changeSetQA2RILvbDrDMlsk",
 	"nodes":[
 		{
@@ -87,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -113,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
