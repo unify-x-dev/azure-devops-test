@@ -23,11 +23,25 @@
 			"fromNodeId":"n_GmL4O",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_7o6Mj",
+			"toNodeId":"n_wLKEV",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_7o6Mj",
+			"fromNodeId":"n_wLKEV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_44b6q",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_44b6q",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ox4Y5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ox4Y5",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -38,7 +52,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761473425147,
+	"modifiedTime":1761473682725,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -112,14 +126,114 @@
 			"type":"LOOP"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1078,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_GmL4O@_S8WBh-1@l",
-			"id":"n_7o6Mj",
+			"id":"n_wLKEV",
 			"index":4,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"text":{
+							"type":"string",
+							"title":"Text"
+						}
+					},
+					"required":[
+						"text"
+					]
+				}
+			},
+			"inputs":{
+				"text":"event details: kind: {{ n_GmL4O.outputs.item.kind }} summary: {{ n_GmL4O.outputs.item.summary }} description: {{ n_GmL4O.outputs.item.description }} organizer: {{ n_GmL4O.outputs.item.organizer.displayName }} start: {{ n_GmL4O.outputs.item.start.dateTime }}{{ n_GmL4O.outputs.item.start.timeZone }} endtime: {{ n_GmL4O.outputs.item.end.dateTime }}{{ n_GmL4O.outputs.item.end.timeZone }} attendees link: "
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"text":{
+							"type":"string",
+							"title":"Text"
+						}
+					},
+					"required":[
+						"text"
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_GmL4O@_S8WBh-1@l",
+			"id":"n_44b6q",
+			"index":5,
+			"inputs":{
+				"automationId":"66dfd76eb70dad256986b784",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"DEFAULT",
+				"version":"-1",
+				"parameters":{
+					"content":"{{ n_wLKEV.outputs.text }} summarize this email",
+					"type":"text",
+					"response_format":"text",
+					"maxTokens":409,
+					"temperature":"0.1"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":927,
+				"resourceName":"files_by_unifyapps_append_line_to_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_GmL4O@_S8WBh-1@l",
+			"id":"n_ox4Y5",
+			"index":6,
+			"inputs":{
+				"file":"{{ n_fCrYO.outputs.fileDetails }}",
+				"type":"SINGLE",
+				"contentType":"plainText",
+				"content":"mail: {{ n_44b6q.outputs.llmResponse }}"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Append line(s) to file",
 			"type":"ACTION"
 		}
 	],
@@ -140,5 +254,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
