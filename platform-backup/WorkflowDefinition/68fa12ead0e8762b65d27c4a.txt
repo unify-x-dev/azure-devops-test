@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761506409021,
+	"modifiedTime":1761506473074,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -3024,7 +3024,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  const outputList = [];\n\n  const inspectDataSources = (dataSources) => {\n    const result = [];\n\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n\n      const rawInputs = props.inputs || {};\n      const inputsStr = JSON.stringify(rawInputs || {});\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      // Add diagnostic info to see what we’re working with\n      result.push({\n        id: ds.id,\n        name: props.name,\n        hasInputsKey: !!props.inputs,\n        keysInInputs: Object.keys(rawInputs || {}),\n        inputsType: typeof rawInputs,\n        inputsStrPreview: inputsStr.slice(0, 200),\n        transformerStrPreview: transformerStr.slice(0, 200),\n        originalInputsStr: inputsStr,\n        transformerStr,\n      });\n    }\n\n    return result;\n  };\n\n  const inspectionResults = inspectDataSources(dataSources);\n\n  // Put inspection data inside outputList for visibility\n  outputList.push({\n    status: \"debug\",\n    message: \"Inspecting dataSources for inputs and transformer presence\",\n    debugDetails: inspectionResults,\n  });\n\n  return { result: { outputList } };\n})();",
+				"code":"(() => {\n  const outputList = [];\n\n  const inspectDataSources = (dataSources) => {\n    const result = [];\n\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n      const rawInputs = props.inputs;\n\n      let inputsStr = \"{}\";\n      let extractionMethod = \"none\";\n\n      try {\n        // Try to handle FastJSON-style objects\n        if (rawInputs && typeof rawInputs.toJSONString === \"function\") {\n          inputsStr = rawInputs.toJSONString();  // ✅ real serialized content\n          extractionMethod = \"toJSONString()\";\n        } else if (rawInputs && typeof rawInputs.toString === \"function\") {\n          inputsStr = rawInputs.toString();\n          extractionMethod = \"toString()\";\n        } else {\n          inputsStr = JSON.stringify(rawInputs || {});\n          extractionMethod = \"JSON.stringify()\";\n        }\n      } catch (err) {\n        inputsStr = `ERROR: ${err.message}`;\n        extractionMethod = \"error\";\n      }\n\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      result.push({\n        id: ds.id,\n        name: props.name,\n        extractionMethod,\n        inputsType: typeof rawInputs,\n        inputsStrPreview: inputsStr.slice(0, 500),\n        usesUserContext: inputsStr.includes(\"userContext\"),\n        transformerStrPreview: transformerStr.slice(0, 200)\n      });\n    }\n\n    return result;\n  };\n\n  const inspectionResults = inspectDataSources(dataSources);\n\n  outputList.push({\n    status: \"debug\",\n    message: \"Extracted input data using FastJSON-safe serialization\",\n    debugDetails: inspectionResults\n  });\n\n  return { result: { outputList } };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"dataSources":{
@@ -3170,5 +3170,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":126
+	"version":127
 }
