@@ -87,7 +87,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh",
-	"modifiedTime":1761466304647,
+	"modifiedTime":1761466608282,
 	"name":"Automation_Assignment_2_rishabh",
 	"nodes":[
 		{
@@ -255,7 +255,7 @@
 				}
 			},
 			"inputs":{
-				"text":"Email text - {{ n_55XQp.outputs.index }} subject: {{ n_jrhl9.outputs.Subject }} from {{ n_jrhl9.outputs.From }} body:  {{ n_ZG7UR.outputs.snippet }}"
+				"text":"Email text - {{ n_55XQp.outputs.size }} subject: {{ n_jrhl9.outputs.Subject }} from {{ n_jrhl9.outputs.From }} body: {{ n_ZG7UR.outputs.snippet }}"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -301,7 +301,7 @@
 					"content":"{{ n_wLKEV.outputs.text }} summarize this email",
 					"type":"text",
 					"response_format":"text",
-					"maxTokens":"4096",
+					"maxTokens":409,
 					"temperature":"0.1"
 				}
 			},
@@ -327,7 +327,7 @@
 				"file":"{{ n_fCrYO.outputs.fileDetails }}",
 				"type":"SINGLE",
 				"contentType":"plainText",
-				"content":"{{ n_44b6q.outputs.llmResponse }}"
+				"content":"mail: {{ n_44b6q.outputs.llmResponse }}"
 			},
 			"skip":false,
 			"subTitle":"Files by UnifyApps",
@@ -388,5 +388,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
