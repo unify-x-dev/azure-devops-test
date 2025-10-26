@@ -6,46 +6,80 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Qdnpj",
+			"fromNodeId":"n_wasI7",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_W0DnN",
+			"toNodeId":"n_PJqIJ",
 			"type":"next"
 		}
 	],
 	"id":"68fdbdc7ff97b736e67e2146",
-	"lastModifiedBy":124029,
+	"lastModifiedBy":21,
 	"lcName":"test",
-	"modifiedTime":1761459655268,
+	"modifiedTime":1761460651527,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Qdnpj-1",
-			"id":"_Qdnpj",
-			"index":0,
+			"id":"n_wasI7",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":1285,
+				"resourceName":"standard_entities_fetch_entities",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Qdnpj-1",
-			"id":"_W0DnN",
-			"index":0,
+			"id":"n_PJqIJ",
+			"index":2,
+			"inputs":{
+				"projections":[
+					{
+						"name":"lcName",
+						"aggregationFunction":"GROUP"
+					},
+					{
+						"name":"appName",
+						"aggregationFunction":"GROUP"
+					}
+				],
+				"entityType":"Connection"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"Fetch entities",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":124029,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +93,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
