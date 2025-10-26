@@ -16,6 +16,13 @@
 			"fromNodeId":"n_PWVVy",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_fCrYO",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fCrYO",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_55XQp",
 			"type":"next"
 		},
@@ -42,6 +49,13 @@
 		},
 		{
 			"fromNodeId":"n_wLKEV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ox4Y5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ox4Y5",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -66,7 +80,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh",
-	"modifiedTime":1761465104025,
+	"modifiedTime":1761465234118,
 	"name":"Automation_Assignment_2_rishabh",
 	"nodes":[
 		{
@@ -114,6 +128,27 @@
 		},
 		{
 			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":906,
+				"resourceName":"files_by_unifyapps_create_pdf_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_O8kTq-1",
+			"id":"n_fCrYO",
+			"index":3,
+			"inputs":{
+				"fileName":"Emails: Pull latest 5 emails from Gmail"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Create a PDF file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":865,
 				"resourceName":"loop_for_each",
@@ -124,7 +159,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_55XQp",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_PWVVy.outputs.messages }}",
@@ -148,7 +183,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_55XQp@_O8kTq-1@l",
 			"id":"n_ZG7UR",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"format":"full",
 				"id":"{{ n_55XQp.outputs.item.id }}"
@@ -171,7 +206,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_55XQp@_O8kTq-1@l",
 			"id":"n_jrhl9",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"id":"19a169b94fb2d2eb"
 			},
@@ -192,7 +227,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_55XQp@_O8kTq-1@l",
 			"id":"n_wLKEV",
-			"index":6,
+			"index":7,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -237,6 +272,28 @@
 		},
 		{
 			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":927,
+				"resourceName":"files_by_unifyapps_append_line_to_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_55XQp@_O8kTq-1@l",
+			"id":"n_ox4Y5",
+			"index":8,
+			"inputs":{
+				"type":"SINGLE",
+				"contentType":"plainText"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Append line(s) to file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -247,7 +304,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_XMwgM",
-			"index":7,
+			"index":9,
 			"inputs":{
 				"result":"1"
 			},
@@ -265,7 +322,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_DFd6V",
-			"index":8,
+			"index":10,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -289,5 +346,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
