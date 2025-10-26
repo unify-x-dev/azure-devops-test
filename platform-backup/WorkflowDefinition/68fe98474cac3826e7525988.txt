@@ -16,7 +16,7 @@
 	"id":"68fe98474cac3826e7525988",
 	"lastModifiedBy":0,
 	"lcName":"changesetqa21761515591739nnogxwisnu",
-	"modifiedTime":1761515706022,
+	"modifiedTime":1761515780801,
 	"name":"changeSetQA21761515591739nNogXWisnu",
 	"nodes":[
 		{
@@ -87,7 +87,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"= MIN({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -113,5 +113,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
