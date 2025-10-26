@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761494218104,
+		"deployedAt":1761510166310,
 		"deployedBy":27,
-		"deployedDefinitionId":"68fe44ca3fb06214ee4cb4b1",
+		"deployedDefinitionId":"68fe831477db7a5bde97c59c",
 		"status":"DEPLOYED",
-		"version":30,
-		"workflowVersion":117
+		"version":31,
+		"workflowVersion":134
 	},
 	"edges":[
 		{
@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761510160919,
+	"modifiedTime":1761510445726,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -3024,7 +3024,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  const outputList = [];\n\n  const getDataSourcesUsingUserContext = (dataSources) => {\n    const result = [];\n    if (!Array.isArray(dataSources)) return result;\n\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n      const rawInputs = props.inputs;\n      let inputsStr = \"{}\";\n\n      try {\n        if (rawInputs && typeof rawInputs.toJSONString === \"function\") {\n          inputsStr = rawInputs.toJSONString();\n        } else if (rawInputs && typeof rawInputs.toString === \"function\") {\n          inputsStr = rawInputs.toString();\n        } else {\n          inputsStr = JSON.stringify(rawInputs || {});\n        }\n      } catch {\n        inputsStr = \"{}\";\n      }\n\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      if (inputsStr.includes(\"userContext\") || transformerStr.includes(\"userContext\")) {\n        result.push({ id: ds.id, name: props.name });\n      }\n    }\n\n    return result;\n  };\n\n  const failedDataSourceIds = getDataSourcesUsingUserContext(dataSources);\n\n  outputList.push(\n    failedDataSourceIds.length\n      ? { status: \"failed\", dataSourceIds: failedDataSourceIds }\n      : { status: \"passed\" }\n  );\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  const outputList = [];\n\n  const getDataSourcesUsingUserContext = (dataSources) => {\n    const result = [];\n    if (!Array.isArray(dataSources)) return result;\n\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n      const rawInputs = props.inputs;\n      let inputsStr = \"{}\";\n\n      try {\n        if (rawInputs && typeof rawInputs.toJSONString === \"function\") {\n          inputsStr = rawInputs.toJSONString();\n        } else if (rawInputs && typeof rawInputs.toString === \"function\") {\n          inputsStr = rawInputs.toString();\n        } else {\n          inputsStr = JSON.stringify(rawInputs || {});\n        }\n      } catch {\n        inputsStr = \"{}\";\n      }\n\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      if (inputsStr.includes(\"userContext\") || transformerStr.includes(\"userContext\")) {\n        result.push(ds.id);\n      }\n    }\n\n    return result;\n  };\n\n  const failedDataSourceIds = getDataSourcesUsingUserContext(dataSources);\n\n  outputList.push(\n    failedDataSourceIds.length\n      ? { status: \"failed\", dataSourceIds: failedDataSourceIds }\n      : { status: \"passed\" }\n  );\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"dataSources":{
@@ -3170,5 +3170,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":134
+	"version":135
 }
