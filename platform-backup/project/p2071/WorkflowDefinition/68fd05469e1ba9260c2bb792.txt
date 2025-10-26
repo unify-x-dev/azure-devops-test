@@ -43,6 +43,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"_vzFmv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hHSS7",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_TJ6jE",
 			"name":"2",
 			"priority":0,
@@ -65,7 +72,15 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_vzFmv",
+			"fromNodeId":"n_TJ6jE",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YNbHh",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_hHSS7",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -79,18 +94,17 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_TJ6jE",
-			"name":"default",
+			"fromNodeId":"n_YNbHh",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
-			"type":"branch"
+			"type":"next"
 		}
 	],
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761462502009,
+	"modifiedTime":1761462675305,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -339,6 +353,41 @@
 		},
 		{
 			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":1009,
+				"resourceName":"analytics_by_unifyapps_query_reports",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"n_hHSS7",
+			"index":7,
+			"inputs":{
+				"projections":[],
+				"filter":{
+					"filters":[
+						{
+							"property":"{{ _vzFmv.outputs.header[0].value }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"hr@unifyapps.com"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"entityType":"{{ _vzFmv.outputs }}",
+				"group":"PLATFORM"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Analytics Query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -349,7 +398,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"name":"Calender"
 			},
@@ -370,7 +419,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"calendarId":"primary"
 			},
@@ -403,7 +452,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
-			"index":9,
+			"index":10,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -658,6 +707,22 @@
 		},
 		{
 			"context":{
+				"appName":"gmail",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@default",
+			"id":"n_YNbHh",
+			"index":11,
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Select an action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -668,7 +733,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":10,
+			"index":12,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -698,5 +763,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":23
 }
