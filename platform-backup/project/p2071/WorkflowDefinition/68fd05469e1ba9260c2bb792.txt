@@ -1,5 +1,6 @@
 {
 	"appsUsed":[
+		"gcalendar",
 		"gmail"
 	],
 	"createdTime":1761412422003,
@@ -9,35 +10,80 @@
 			"fromNodeId":"n_3qj6b",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_HV5q4",
+			"toNodeId":"n_TJ6jE",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_HV5q4",
+			"fromNodeId":"n_TJ6jE",
+			"name":"1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_KYrgH",
-			"type":"next"
+			"toNodeId":"n_TJ6jE@1",
+			"type":"branch"
 		},
 		{
-			"fromNodeId":"n_KYrgH",
+			"fromNodeId":"n_TJ6jE@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_ugczR",
+			"toNodeId":"_COby9",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_ugczR",
+			"fromNodeId":"_COby9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_yreqf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_yreqf",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_vzFmv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_TJ6jE",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TJ6jE@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_TJ6jE@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ozTqv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_vzFmv",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ozTqv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IaM8S",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_TJ6jE",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IaM8S",
+			"type":"branch"
 		}
 	],
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761414655042,
+	"modifiedTime":1761460636885,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -47,7 +93,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_3qj6b",
@@ -77,6 +123,61 @@
 		},
 		{
 			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_JiodF-1",
+			"id":"n_TJ6jE",
+			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Mail"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Calender"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"n_TJ6jE@1",
+			"index":3,
+			"inputs":{
+				"name":"Mail"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
 				"appName":"gmail",
 				"resourceVersion":4413,
 				"connectionId":"68fd065c6a75bb47174efa30",
@@ -86,9 +187,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_JiodF-1",
-			"id":"n_HV5q4",
-			"index":2,
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"_COby9",
+			"index":4,
 			"inputs":{
 				"count":5
 			},
@@ -108,12 +209,12 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_JiodF-1",
-			"id":"n_KYrgH",
-			"index":3,
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"_yreqf",
+			"index":5,
 			"inputs":{
 				"format":"metadata",
-				"id":"{{ n_HV5q4.outputs.messages[0].id }}"
+				"id":"{{ _COby9.outputs.messages[0].id }}"
 			},
 			"skip":false,
 			"subTitle":"Gmail",
@@ -130,9 +231,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_JiodF-1",
-			"id":"n_ugczR",
-			"index":4,
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"_vzFmv",
+			"index":6,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -176,14 +277,14 @@
 			},
 			"inputs":{
 				"header":{
-					"source":"{{ n_KYrgH.outputs.payload.headers }}",
+					"source":"{{ _yreqf.outputs.payload.headers }}",
 					"ua:type":"mappedArray",
 					"items":{
-						"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}",
-						"name":"{{ n_KYrgH.outputs.payload.headers[0].name }}"
+						"value":"{{ _yreqf.outputs.payload.headers[0].value }}",
+						"name":"{{ _yreqf.outputs.payload.headers[0].name }}"
 					}
 				},
-				"value":"{{ n_KYrgH.outputs.payload.headers[0].value }}"
+				"value":"{{ _yreqf.outputs.payload.headers[0].value }}"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -231,17 +332,53 @@
 		},
 		{
 			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@2",
+			"id":"n_TJ6jE@2",
+			"index":7,
+			"inputs":{
+				"name":"Calender"
+			},
+			"skip":true,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"gcalendar",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@2",
+			"id":"n_ozTqv",
+			"index":8,
+			"skip":false,
+			"subTitle":"Google Calendar",
+			"title":"Select an action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":5,
+			"index":9,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -271,5 +408,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
