@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761500820907,
+	"modifiedTime":1761506292303,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -3024,7 +3024,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `dataSources` is assumed to be provided\n  const outputList = [];\n\n  const getDataSourcesUsingUserContext = (dataSources) => {\n    const result = [];\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n\n      const inputsStr = JSON.stringify(props || {});\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      result.push({inputsStr, transformerStr});\n      // Detect userContext references anywhere in inputs or transform code\n      if (inputsStr.includes(\"userContext\") || transformerStr.includes(\"userContext\")) {\n      }\n    }\n    return result;\n  };\n\n  const failedDataSourceIds = getDataSourcesUsingUserContext(dataSources);\n\n  if (failedDataSourceIds.length > 0) {\n    outputList.push({\n      status: \"failed\",\n      dataSourceIds: failedDataSourceIds\n    });\n  } else {\n    outputList.push({\n      status: \"passed\"\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  const outputList = [];\n\n  const getDataSourcesUsingUserContext = (dataSources) => {\n    const result = [];\n\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n      const inputsStr = JSON.stringify(props.inputs || {});\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      // if (inputsStr.includes(\"userContext\") || transformerStr.includes(\"userContext\")) {\n        result.push({ inputsStr, transformerStr });\n      // }\n    }\n\n    return result;\n  };\n\n  const failedDataSourceIds = getDataSourcesUsingUserContext(dataSources);\n\n  if (failedDataSourceIds.length > 0) {\n    outputList.push({\n      status: \"failed\",\n      dataSourceIds: failedDataSourceIds\n    });\n  } else {\n    outputList.push({ status: \"passed\" });\n  }\n\n  return { result: { outputList } };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"dataSources":{
@@ -3170,5 +3170,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":120
+	"version":125
 }
