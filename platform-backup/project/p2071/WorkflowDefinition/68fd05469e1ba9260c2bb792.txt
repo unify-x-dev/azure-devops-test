@@ -43,13 +43,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_vzFmv",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_hHSS7",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_TJ6jE",
 			"name":"2",
 			"priority":0,
@@ -72,7 +65,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_hHSS7",
+			"fromNodeId":"_vzFmv",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -97,7 +90,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761462693491,
+	"modifiedTime":1761464734623,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -346,41 +339,6 @@
 		},
 		{
 			"context":{
-				"appName":"analytics_by_unifyapps",
-				"resourceVersion":1009,
-				"resourceName":"analytics_by_unifyapps_query_reports",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"n_hHSS7",
-			"index":7,
-			"inputs":{
-				"projections":[],
-				"filter":{
-					"filters":[
-						{
-							"property":"{{ _vzFmv.outputs.header[0].value }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"hr@unifyapps.com"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"entityType":"{{ _vzFmv.outputs }}",
-				"group":"PLATFORM"
-			},
-			"skip":false,
-			"subTitle":"Analytics by UnifyApps",
-			"title":"Analytics Query",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -391,7 +349,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"name":"Calender"
 			},
@@ -412,7 +370,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"calendarId":"primary"
 			},
@@ -445,7 +403,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
-			"index":10,
+			"index":9,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -710,7 +668,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -740,5 +698,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
