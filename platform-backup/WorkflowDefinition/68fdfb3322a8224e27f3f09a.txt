@@ -37,7 +37,7 @@
 	"id":"68fdfb3322a8224e27f3f09a",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_send_email",
-	"modifiedTime":1761476643409,
+	"modifiedTime":1761476657965,
 	"name":"Automation_Assignment_2_rishabh_send_email",
 	"nodes":[
 		{
@@ -47,7 +47,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_mB3Oz",
@@ -88,7 +88,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_FcT6z",
@@ -134,7 +134,7 @@
 				"email_type":"text",
 				"subject":"Your Morning Brief - [Date]",
 				"to":[
-					null
+					"{{ n_mB3Oz.outputs.email }}"
 				],
 				"message":"Here is your briefing for today attached as a PDF"
 			},
@@ -151,7 +151,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_UmBpK",
@@ -201,5 +201,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
