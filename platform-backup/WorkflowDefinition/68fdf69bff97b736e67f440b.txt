@@ -6,46 +6,336 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_iZ4vw",
+			"fromNodeId":"n_zXDVN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_K6RQe",
+			"toNodeId":"n_uQmmY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uQmmY",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_uQmmY@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_uQmmY@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CGxUR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uQmmY",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_uQmmY@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_uQmmY@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_uAN78",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CGxUR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_D4Pn3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uAN78",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_D4Pn3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uQmmY",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_D4Pn3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_D4Pn3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_JodQn",
 			"type":"next"
 		}
 	],
 	"id":"68fdf69bff97b736e67f440b",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_main",
-	"modifiedTime":1761474203118,
+	"modifiedTime":1761475102609,
 	"name":"Automation_Assignment_2_main",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iZ4vw-1",
-			"id":"_iZ4vw",
-			"index":0,
+			"id":"n_zXDVN",
+			"index":1,
+			"inputs":{
+				"cron":"EXPRESSION",
+				"expression":"0 9 * * *",
+				"sequential":false,
+				"timezone":"Asia/Calcutta",
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iZ4vw-1",
-			"id":"_K6RQe",
-			"index":0,
+			"id":"n_uQmmY",
+			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"gmail",
+							"conditions":{
+								"filters":[
+									{
+										"property":"1",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"1"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"calendar",
+							"conditions":{
+								"filters":[
+									{
+										"property":"1",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"1"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_uQmmY@_iZ4vw-1@1",
+			"id":"n_uQmmY@1",
+			"index":3,
+			"inputs":{
+				"name":"gmail",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1118,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_uQmmY@_iZ4vw-1@1",
+			"id":"n_CGxUR",
+			"index":4,
+			"inputs":{
+				"automationId":"68fdcf1b22a8224e27f3b732",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_uQmmY@_iZ4vw-1@2",
+			"id":"n_uQmmY@2",
+			"index":5,
+			"inputs":{
+				"name":"calendar",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1118,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_uQmmY@_iZ4vw-1@2",
+			"id":"n_uAN78",
+			"index":6,
+			"inputs":{
+				"automationId":"68fdcf1b22a8224e27f3b732",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1118,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iZ4vw-1",
+			"id":"n_D4Pn3",
+			"index":7,
+			"inputs":{
+				"automationId":"66dfd76eb70dad256986b784",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"content":"Make a clean email\nHeader with the date\nSection 1: Latest 5 emails summary\nSection 2: Today's complete schedule\nSimple formatting, easy to read email summary: {{ n_CGxUR.outputs.text }} calendar schedule:{{ n_uAN78.outputs.text }}",
+					"type":"text",
+					"response_format":"text",
+					"maxTokens":"4096",
+					"temperature":"0.1"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":908,
+				"resourceName":"files_by_unifyapps_create_pdf_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iZ4vw-1",
+			"id":"n_JodQn",
+			"index":8,
+			"inputs":{
+				"fileName":"MORNING BRIEF"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Create a PDF file",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":177799,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +349,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
