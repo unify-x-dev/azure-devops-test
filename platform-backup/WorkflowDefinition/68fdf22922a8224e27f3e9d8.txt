@@ -59,17 +59,22 @@
 			"fromNodeId":"n_GmL4O",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_XMwgM",
+			"toNodeId":"_6A7vs",
 			"type":"next"
 		}
 	],
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761473942949,
+	"modifiedTime":1761474095003,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1062,
@@ -81,7 +86,46 @@
 			"groupId":"_S8WBh-1",
 			"id":"n_rjyTM",
 			"index":1,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"fileDetails":{
+							"type":"object",
+							"properties":{
+								"fileType":{
+									"type":"string",
+									"title":"fileType"
+								},
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"size":{
+									"type":"integer",
+									"title":"size"
+								},
+								"source":{
+									"type":"string",
+									"title":"source"
+								},
+								"sourceType":{
+									"type":"string",
+									"title":"sourceType"
+								},
+								"link":{
+									"type":"string",
+									"title":"link"
+								}
+							},
+							"title":"fileDetails",
+							"additionalProperties":false,
+							"required":[]
+						}
+					}
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Trigger via automation",
@@ -283,7 +327,7 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
-			"id":"n_XMwgM",
+			"id":"_6A7vs",
 			"index":8,
 			"inputs":{
 				"result":{
@@ -320,5 +364,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
