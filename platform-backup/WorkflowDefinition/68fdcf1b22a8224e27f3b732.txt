@@ -38,6 +38,13 @@
 			"fromNodeId":"n_55XQp",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_XMwgM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XMwgM",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_DFd6V",
 			"type":"next"
 		}
@@ -45,7 +52,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh",
-	"modifiedTime":1761464305002,
+	"modifiedTime":1761464322700,
 	"name":"Automation_Assignment_2_rishabh",
 	"nodes":[
 		{
@@ -139,6 +146,25 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_O8kTq-1",
+			"id":"n_XMwgM",
+			"index":5,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -146,7 +172,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_DFd6V",
-			"index":5,
+			"index":6,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -170,5 +196,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
