@@ -191,7 +191,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761481558101,
+	"modifiedTime":1761482158156,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1352,7 +1352,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1454,7 +1454,7 @@
 						}
 					}
 				},
-				"code":"\ndef joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def effectiveStatus = (status == \"null\" || status == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\" ) ? null : category\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            // Use the cleaned 'effective' variables for the filter logic\n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            okStatus && okCategory\n        }\n       \n        .collectMany { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            blockIds.collect { blockId ->\n                def blockDetails = pageBlocks[blockId]\n                \n                return baseInfo + [\n                    componentId   : blockId,\n                    componentName : blockDetails?.displayName \n                ]\n            }\n        }\n        \n    return [ results: results ]\n}\n\ndef output = joinAndFilter(reportArr, masterArr, page, status, category)",
+				"code":"def joinAndFilter(reportArr, masterArr, page, String status = null, String category = null) {\n    \n    def effectiveStatus = (status == \"null\" || status == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\" ) ? null : category\n    \n    def masterById = masterArr.collectEntries { [ (it.id): it ] }\n    \n    def pageBlocks = page?.blocks ?: [:]\n\n    def results = reportArr\n        .findAll { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            def okStatus   = (effectiveStatus == null) || rep.properties?.status == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category == effectiveCategory\n            \n            okStatus && okCategory\n        }\n        .collectMany { rep ->\n            def m = masterById[rep.properties.checkId]\n            \n            def baseInfo = [\n                checkId          : rep.properties.checkId,\n                status           : rep.properties.status,\n                entityId         : rep.properties.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header       \n            ]\n\n            def blockIds = rep.properties?.entities?.blockIds ?: []\n\n            if (blockIds) {\n                // Normal case: report has blockIds\n                blockIds.collect { blockId ->\n                    def blockDetails = pageBlocks[blockId]\n                    return baseInfo + [\n                        componentId   : blockId,\n                        componentName : blockDetails?.displayName \n                    ]\n                }\n            } else {\n                // Fallback: report has no blockIds\n                [baseInfo + [\n                    componentId   : null,\n                    componentName : null\n                ]]\n            }\n        }\n        \n    return [ results: results ]\n}\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1637,5 +1637,5 @@
 	"tags":[
 		
 	],
-	"version":57
+	"version":58
 }
