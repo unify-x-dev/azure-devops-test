@@ -74,9 +74,9 @@
 	],
 	"id":"68fdf69bff97b736e67f440b",
 	"lastModifiedBy":177799,
-	"lcName":"automation_assignment_2_rishabh_main",
-	"modifiedTime":1761475814778,
-	"name":"Automation_Assignment_2_rishabh_main",
+	"lcName":"automation_assignment_2_main",
+	"modifiedTime":1761475868588,
+	"name":"Automation_Assignment_2_main",
 	"nodes":[
 		{
 			"context":{
@@ -318,16 +318,18 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iZ4vw-1",
 			"id":"n_83bjq",
 			"index":8,
 			"inputs":{
-				"runtimeConnections":{},
+				"automationId":"68fdfb3322a8224e27f3f09a",
 				"synchronous":true,
 				"version":"-1",
-				"parameters":{}
+				"parameters":{
+					"text":"{{ n_D4Pn3.outputs.llmResponse }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -352,5 +354,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
