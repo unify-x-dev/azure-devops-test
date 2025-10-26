@@ -5,12 +5,12 @@
 	"createdTime":1761389956257,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761464042039,
-		"deployedBy":115477,
-		"deployedDefinitionId":"68fdcee922a8224e27f3b719",
+		"deployedAt":1761481161167,
+		"deployedBy":23949,
+		"deployedDefinitionId":"68fe11c8ff97b736e67fae3d",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":16
+		"version":8,
+		"workflowVersion":17
 	},
 	"edges":[
 		{
@@ -96,7 +96,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761481151180,
+	"modifiedTime":1761481173899,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -638,7 +638,7 @@
 				"result":{
 					"score":"=CEILING.MATH(VALUE({{ n_X4F6n.outputs.result.passPercentage }}))",
 					"pageId":"{{ n_X4F6n.outputs.result.pageId }}",
-					"pageName":"{{ n_5CcMh.outputs.properties.pageTitle }}"
+					"pageName":"{{ n_5CcMh.outputs.properties.name }}"
 				}
 			},
 			"skip":false,
@@ -664,5 +664,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":18
 }
