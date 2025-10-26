@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761399393506,
-		"deployedBy":894,
-		"deployedDefinitionId":"68fcd261b0372243a7ac6007",
+		"deployedAt":1761467880193,
+		"deployedBy":115477,
+		"deployedDefinitionId":"68fddde8ff97b736e67ea2e0",
 		"status":"DEPLOYED",
-		"version":16,
-		"workflowVersion":52
+		"version":17,
+		"workflowVersion":53
 	},
 	"edges":[
 		{
@@ -176,7 +176,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761467878298,
+	"modifiedTime":1761467961210,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -298,7 +298,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_BJWbh",
@@ -1452,7 +1452,7 @@
 			"index":17,
 			"inputs":{
 				"repeatMode":"SINGLE",
-				"listSource":"{{ n_aqVAB.outputs.result }}",
+				"listSource":"{{ n_aqVAB.outputs.result.results }}",
 				"captureIterations":false
 			},
 			"skip":false,
@@ -1482,7 +1482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ksdUj@n_25xfN@_vMiRK-1@2@l",
 			"id":"_a2JhT",
@@ -1548,7 +1548,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
@@ -1596,5 +1596,5 @@
 	"tags":[
 		
 	],
-	"version":53
+	"version":54
 }
