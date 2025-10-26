@@ -23,6 +23,13 @@
 			"fromNodeId":"n_caPqA",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_UmBpK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UmBpK",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_fCAn7",
 			"type":"next"
 		}
@@ -30,7 +37,7 @@
 	"id":"68fdfb3322a8224e27f3f09a",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_send_email",
-	"modifiedTime":1761476618702,
+	"modifiedTime":1761476643409,
 	"name":"Automation_Assignment_2_rishabh_send_email",
 	"nodes":[
 		{
@@ -138,6 +145,27 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1098,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Aok5T-1",
+			"id":"n_UmBpK",
+			"index":4,
+			"inputs":{
+				"result":"200"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -145,7 +173,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_fCAn7",
-			"index":4,
+			"index":5,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -173,5 +201,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
