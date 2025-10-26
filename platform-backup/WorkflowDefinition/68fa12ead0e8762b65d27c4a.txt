@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761507308109,
+	"modifiedTime":1761509986501,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -2127,7 +2127,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_yXiFc@_z6eK1-1@y",
 			"id":"_KeYPg",
@@ -2316,7 +2316,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_M3LGh@_z6eK1-1@y",
 			"id":"_Wnxfi",
@@ -2386,7 +2386,7 @@
 						}
 					}
 				},
-				"code":"// (() => {\n//   // `page` is assumed to be provided\n//   const outputList = [];\n\n//   const failedBlockIds = [];\n//   const failedFunctionIds = [];\n\n//   // ---------- Check inside blocks ----------\n//   const blocks = page?.blocks || {};\n//   for (const blockId in blocks) {\n//     const block = blocks[blockId];\n//     if (!block) continue;\n\n//     const events = block.events || [];\n//     for (let i = 0; i < events.length; i++) {\n//       const evt = events[i];\n//       const action = evt?.action;\n//       const codeStr = JSON.stringify(action || \"\");\n\n//       if (codeStr.includes(\"console.\") || codeStr.includes(\"debugger\")) {\n//         failedBlockIds.push(blockId);\n//         break; // one hit per block is enough\n//       }\n//     }\n//   }\n\n//   // ---------- Check inside page functions ----------\n//   const functions = page?.pageFunctions || {};\n//   for (const funcId in functions) {\n//     const func = functions[funcId];\n//     if (!func) continue;\n\n//     const code = func.functionBody || \"\";\n//     if (code.includes(\"console.\") || code.includes(\"debugger\")) {\n//       failedFunctionIds.push(funcId);\n//     }\n//   }\n\n//   // ---------- Build output ----------\n//   if (failedBlockIds.length > 0 || failedFunctionIds.length > 0) {\n//     outputList.push({\n//       status: \"failed\",\n//       blockIds: failedBlockIds,\n//       functionIds: failedFunctionIds\n//     });\n//   } else {\n//     outputList.push({\n//       status: \"passed\"\n//     });\n//   }\n\n//   return { outputList };\n// })();\n\n\n(() => {\n  const outputList = [];\n\n  try {\n    const testObj = { a: 1, b: { c: 2 } };\n    const str = JSON.stringify(testObj);\n\n    const parsed = JSON.parse(str);\n    outputList.push({\n      status: \"passed\",\n      message: \"JSON.stringify works normally\",\n      sample: parsed\n    });\n  } catch (err) {\n    outputList.push({\n      status: \"failed\",\n      message: \"JSON.stringify failed\",\n      error: String(err)\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  const outputList = [];\n  const failedBlockIds = [];\n  const failedFunctionIds = [];\n\n  const safeStringify = (value) => {\n    try {\n      if (value && typeof value.toJSONString === \"function\") {\n        return value.toJSONString();\n      }\n      return JSON.stringify(value || \"\");\n    } catch {\n      return \"\";\n    }\n  };\n\n  // ---------- Check inside blocks ----------\n  const blocks = page?.blocks || {};\n  if (blocks && typeof blocks === \"object\") {\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      if (!block || typeof block !== \"object\") continue;\n\n      const events = Array.isArray(block?.events) ? block.events : [];\n      for (const evt of events) {\n        const action = evt?.action;\n        const codeStr = safeStringify(action);\n\n        if (codeStr.includes(\"console.\") || codeStr.includes(\"debugger\")) {\n          failedBlockIds.push(blockId);\n          break; // stop at first offending event per block\n        }\n      }\n    }\n  }\n\n  // ---------- Check inside page functions ----------\n  const functions = page?.pageFunctions || {};\n  if (functions && typeof functions === \"object\") {\n    for (const funcId in functions) {\n      const func = functions[funcId];\n      if (!func || typeof func !== \"object\") continue;\n\n      let code = \"\";\n      try {\n        if (func.functionBody && typeof func.functionBody.toJSONString === \"function\") {\n          code = func.functionBody.toJSONString();\n        } else {\n          code = String(func.functionBody || \"\");\n        }\n      } catch {\n        code = \"\";\n      }\n\n      if (code.includes(\"console.\") || code.includes(\"debugger\")) {\n        failedFunctionIds.push(funcId);\n      }\n    }\n  }\n\n  // ---------- Build output ----------\n  outputList.push(\n    failedBlockIds.length > 0 || failedFunctionIds.length > 0\n      ? { status: \"failed\", blockIds: failedBlockIds, functionIds: failedFunctionIds }\n      : { status: \"passed\" }\n  );\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}"
@@ -2930,7 +2930,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_r5N0L@_z6eK1-1@y",
 			"id":"_g0vJS",
@@ -3170,5 +3170,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":131
+	"version":133
 }
