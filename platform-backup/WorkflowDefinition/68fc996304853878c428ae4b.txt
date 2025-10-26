@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761399166907,
-		"deployedBy":115477,
-		"deployedDefinitionId":"68fcd17edede0b5c299f0249",
+		"deployedAt":1761399393506,
+		"deployedBy":894,
+		"deployedDefinitionId":"68fcd261b0372243a7ac6007",
 		"status":"DEPLOYED",
-		"version":15,
-		"workflowVersion":51
+		"version":16,
+		"workflowVersion":52
 	},
 	"edges":[
 		{
@@ -132,7 +132,22 @@
 			"fromNodeId":"n_aqVAB",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_ksdUj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ksdUj",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_a2JhT",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"_a2JhT",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ksdUj",
 			"type":"next"
 		},
 		{
@@ -143,7 +158,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_a2JhT",
+			"fromNodeId":"n_ksdUj",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_XUOp8",
@@ -159,9 +174,9 @@
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
-	"lastModifiedBy":894,
+	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761399389412,
+	"modifiedTime":1761467878298,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -176,7 +191,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -490,56 +505,45 @@
 								"items":{
 									"type":"object",
 									"properties":{
-										"results":{
-											"type":"array",
-											"items":{
-												"type":"object",
-												"properties":{
-													"checkId":{
-														"type":"string",
-														"title":"checkId"
-													},
-													"status":{
-														"type":"string",
-														"title":"status"
-													},
-													"entityId":{
-														"type":"string",
-														"title":"entityId"
-													},
-													"checkTitle":{
-														"type":"string",
-														"title":"checkTitle"
-													},
-													"checkDescription":{
-														"type":"string",
-														"title":"checkDescription"
-													},
-													"checkImpact":{
-														"type":"string",
-														"title":"checkImpact"
-													},
-													"checkCategory":{
-														"type":"string",
-														"title":"checkCategory"
-													},
-													"componentId":{
-														"type":"string",
-														"title":"componentId"
-													},
-													"componentName":{
-														"type":"string",
-														"title":"componentName"
-													},
-													"checkHeader":{
-														"type":"string",
-														"title":"Check Header"
-													}
-												},
-												"additionalProperties":false,
-												"required":[]
-											},
-											"title":"results"
+										"checkCategory":{
+											"type":"string",
+											"title":"checkCategory"
+										},
+										"checkDescription":{
+											"type":"string",
+											"title":"checkDescription"
+										},
+										"checkHeader":{
+											"type":"string",
+											"title":"checkHeader"
+										},
+										"checkId":{
+											"type":"string",
+											"title":"checkId"
+										},
+										"checkImpact":{
+											"type":"string",
+											"title":"checkImpact"
+										},
+										"checkTitle":{
+											"type":"string",
+											"title":"checkTitle"
+										},
+										"componentId":{
+											"type":"string",
+											"title":"componentId"
+										},
+										"componentName":{
+											"type":"string",
+											"title":"componentName"
+										},
+										"entityId":{
+											"type":"string",
+											"title":"entityId"
+										},
+										"status":{
+											"type":"string",
+											"title":"status"
 										}
 									},
 									"additionalProperties":false
@@ -568,56 +572,45 @@
 							"items":{
 								"type":"object",
 								"properties":{
-									"results":{
-										"type":"array",
-										"items":{
-											"type":"object",
-											"properties":{
-												"checkId":{
-													"type":"string",
-													"title":"checkId"
-												},
-												"status":{
-													"type":"string",
-													"title":"status"
-												},
-												"entityId":{
-													"type":"string",
-													"title":"entityId"
-												},
-												"checkTitle":{
-													"type":"string",
-													"title":"checkTitle"
-												},
-												"checkDescription":{
-													"type":"string",
-													"title":"checkDescription"
-												},
-												"checkImpact":{
-													"type":"string",
-													"title":"checkImpact"
-												},
-												"checkCategory":{
-													"type":"string",
-													"title":"checkCategory"
-												},
-												"componentId":{
-													"type":"string",
-													"title":"componentId"
-												},
-												"componentName":{
-													"type":"string",
-													"title":"componentName"
-												},
-												"checkHeader":{
-													"type":"string",
-													"title":"Check Header"
-												}
-											},
-											"additionalProperties":false,
-											"required":[]
-										},
-										"title":"results"
+									"checkCategory":{
+										"type":"string",
+										"title":"checkCategory"
+									},
+									"checkDescription":{
+										"type":"string",
+										"title":"checkDescription"
+									},
+									"checkHeader":{
+										"type":"string",
+										"title":"checkHeader"
+									},
+									"checkId":{
+										"type":"string",
+										"title":"checkId"
+									},
+									"checkImpact":{
+										"type":"string",
+										"title":"checkImpact"
+									},
+									"checkTitle":{
+										"type":"string",
+										"title":"checkTitle"
+									},
+									"componentId":{
+										"type":"string",
+										"title":"componentId"
+									},
+									"componentName":{
+										"type":"string",
+										"title":"componentName"
+									},
+									"entityId":{
+										"type":"string",
+										"title":"entityId"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
 									}
 								}
 							}
@@ -636,7 +629,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_25xfN",
@@ -697,7 +690,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_25xfN@1",
@@ -729,7 +722,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_nJ4Q8",
@@ -772,7 +765,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -795,7 +788,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_M1PU3",
@@ -838,7 +831,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
@@ -896,7 +889,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
@@ -938,7 +931,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_rgm4N",
@@ -1086,7 +1079,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_hjLPx",
@@ -1143,7 +1136,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
@@ -1175,7 +1168,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
@@ -1218,7 +1211,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
@@ -1276,7 +1269,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
@@ -1318,7 +1311,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1445,6 +1438,29 @@
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_25xfN@_vMiRK-1@2",
+			"id":"n_ksdUj",
+			"index":17,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_aqVAB.outputs.result }}",
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.itemToAdd.results.items.checkId",
@@ -1468,18 +1484,21 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_25xfN@_vMiRK-1@2",
+			"groupId":"n_ksdUj@n_25xfN@_vMiRK-1@2@l",
 			"id":"_a2JhT",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"itemToAdd":{
-					"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
-					"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
-					"entityId":"{{ n_aqVAB.outputs.result.results[0].entityId }}",
-					"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
-					"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
-					"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
 					"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+					"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
+					"checkHeader":"{{ n_aqVAB.outputs.result.results[0].checkHeader }}",
+					"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
+					"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
+					"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
+					"componentId":"{{ n_aqVAB.outputs.result.results[0].componentId }}",
+					"componentName":"{{ n_aqVAB.outputs.result.results[0].componentName }}",
+					"entityId":"{{ n_aqVAB.outputs.result.results[0].entityId }}",
+					"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
 					"blockIds":{
 						"ua:type":"mappedArray",
 						"source":"{{ n_aqVAB.outputs.result.results[0].blockIds }}",
@@ -1533,23 +1552,23 @@
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"result":{
 					"results":{
-						"source":"{{ n_BJWbh.outputs.items }}",
 						"ua:type":"mappedArray",
+						"source":"{{ n_BJWbh.outputs.items }}",
 						"items":{
-							"checkId":"{{ n_BJWbh.outputs.items[0].results[0].checkId }}",
-							"status":"{{ n_BJWbh.outputs.items[0].results[0].status }}",
-							"entityId":"{{ n_BJWbh.outputs.items[0].results[0].entityId }}",
-							"checkTitle":"{{ n_BJWbh.outputs.items[0].results[0].checkTitle }}",
-							"checkDescription":"{{ n_BJWbh.outputs.items[0].results[0].checkDescription }}",
-							"checkImpact":"{{ n_BJWbh.outputs.items[0].results[0].checkImpact }}",
-							"checkCategory":"{{ n_BJWbh.outputs.items[0].results[0].checkCategory }}",
-							"componentId":"{{ n_BJWbh.outputs.items[0].results[0].componentId }}",
-							"componentName":"{{ n_BJWbh.outputs.items[0].results[0].componentName }}",
-							"checkHeader":"{{ n_BJWbh.outputs.items[0].results[0].checkHeader }}"
+							"checkId":"{{ n_BJWbh.outputs.items[0].checkId }}",
+							"status":"{{ n_BJWbh.outputs.items[0].status }}",
+							"entityId":"{{ n_BJWbh.outputs.items[0].entityId }}",
+							"checkTitle":"{{ n_BJWbh.outputs.items[0].checkTitle }}",
+							"checkDescription":"{{ n_BJWbh.outputs.items[0].checkDescription }}",
+							"checkImpact":"{{ n_BJWbh.outputs.items[0].checkImpact }}",
+							"checkCategory":"{{ n_BJWbh.outputs.items[0].checkCategory }}",
+							"componentId":"{{ n_BJWbh.outputs.items[0].componentId }}",
+							"componentName":"{{ n_BJWbh.outputs.items[0].componentName }}",
+							"checkHeader":"{{ n_BJWbh.outputs.items[0].checkHeader }}"
 						}
 					}
 				}
@@ -1577,5 +1596,5 @@
 	"tags":[
 		
 	],
-	"version":52
+	"version":53
 }
