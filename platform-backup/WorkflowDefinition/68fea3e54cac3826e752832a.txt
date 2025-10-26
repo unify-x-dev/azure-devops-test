@@ -5,12 +5,12 @@
 	"createdTime":1761518618410,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761518637200,
+		"deployedAt":1761518637610,
 		"deployedBy":175325,
-		"deployedDefinitionId":"68fea42d8efc8566d66b9c23",
+		"deployedDefinitionId":"68fea42d8efc8566d66b9c24",
 		"status":"DEPLOYED",
-		"version":49,
-		"workflowVersion":49
+		"version":50,
+		"workflowVersion":50
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"68fea3e54cac3826e752832a",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2by4okhtjdsdj",
-	"modifiedTime":1761518637401,
+	"modifiedTime":1761518657616,
 	"name":"changeSetQA2By4OKHTjdsdJ",
 	"nodes":[
 		{
@@ -38,7 +38,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"5stgo-1",
 			"id":"7pKsG",
-			"index":0,
+			"index":1,
 			"inputs":{
 				"result":{
 					"type":"object",
@@ -88,14 +88,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"5stgo-1",
 			"id":"mGr1K",
-			"index":0,
+			"index":2,
 			"inputs":{
 				"result":{
-					"c":"= MIN({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -121,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":50
+	"version":52
 }
