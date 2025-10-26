@@ -6,46 +6,334 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_r6AhK",
+			"fromNodeId":"n_Esbx9",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_mfGg5",
+			"toNodeId":"n_V9AVu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_V9AVu",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_5b16V",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"_5b16V",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_IBUz5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_V9AVu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_BaA5d",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_IBUz5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_BaA5d",
 			"type":"next"
 		}
 	],
 	"id":"68fdd8c5ff97b736e67e85d5",
 	"lastModifiedBy":39717,
 	"lcName":"test ai",
-	"modifiedTime":1761466565540,
+	"modifiedTime":1761466587553,
 	"name":"test ai",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_r6AhK-1",
-			"id":"_r6AhK",
-			"index":0,
+			"id":"n_Esbx9",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.text_list.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":160,
+				"resourceName":"code_by_unifyapps_python",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
+			"fallbackMode":"MANUAL",
+			"groupId":"_r6AhK-1",
+			"id":"n_V9AVu",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"text_list":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"text":{
+										"type":"string",
+										"title":"Text"
+									},
+									"language":{
+										"type":"string",
+										"title":"Language"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Text List"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"text_list":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Text List"
+						}
+					}
+				},
+				"configurationMode":"TEMPLATE",
+				"code":"from langdetect import detect, DetectorFactory, LangDetectException\nfrom concurrent.futures import ThreadPoolExecutor, as_completed\nDetectorFactory.seed = 0\n\ndef detect_language(text):\n    if not text or not text.strip():\n        return {\"text\": text, \"language\": \"en\"}\n    try:\n        lang = detect(text)\n        return {\"text\": text, \"language\": lang}\n    except LangDetectException:\n        return {\"text\": text, \"language\": \"en\"}\n\n# Parallel processing\nwith ThreadPoolExecutor(max_workers=4) as executor:\n    final_text_list = list(executor.map(detect_language, text_list))\n\nresult = {\"text_list\": final_text_list}",
+				"isAsync":false,
+				"python_version":"3.12",
+				"entityId":"e_68fd2016b6221f3c405d7c1e",
+				"captureStdOutput":false,
+				"parameters":{
+					"text_list":{
+						"source":"{{ n_zdNF1.outputs.text_list }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_zdNF1.outputs.text_list[0] }}"
+					}
+				}
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"count":10,
+					"enabled":true,
+					"initialDelay":200
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Python script",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.result_batch.items.details.items.entity",
+					"root.signal_payload.result_batch.items.details.items.mask.end",
+					"root.signal_payload.result_batch.items.details.items.mask.operator",
+					"root.signal_payload.result_batch.items.details.items.mask.start",
+					"root.signal_payload.result_batch.items.details.items.mask.text",
+					"root.signal_payload.result_batch.items.details.items.original.end",
+					"root.signal_payload.result_batch.items.details.items.original.start",
+					"root.signal_payload.result_batch.items.details.items.original.text",
+					"root.signal_payload.result_batch.items.maskedText",
+					"root.signal_payload.result_batch.items.original",
+					"root.signal_payload.result_batch.items.proceed"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":109,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_V9AVu@_r6AhK-1@error",
+			"id":"_5b16V",
+			"index":3,
+			"inputs":{
+				"automation_id":"68f0ba4a32e3cc2f6745096f",
+				"with_signal_id":true,
+				"waitingInstanceRuntimeType":"{{ n_zdNF1.outputs.runTimetype }}",
+				"waitingInstanceId":"{{ n_zdNF1.outputs.instanceId }}",
+				"signal_id":"{{ n_zdNF1.outputs.signal_id }}",
+				"nodeId":"n_ewODT"
+			},
+			"skip":true,
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.result.result_batch.source",
+					"root.result.result_batch.ua:type",
+					"root.result.result_batch.items.details.source",
+					"root.result.result_batch.items.details.ua:type",
+					"root.result.result_batch.items.details.items.entity",
+					"root.result.result_batch.items.details.items.mask.end",
+					"root.result.result_batch.items.details.items.mask.operator",
+					"root.result.result_batch.items.details.items.mask.start",
+					"root.result.result_batch.items.details.items.mask.text",
+					"root.result.result_batch.items.details.items.original.end",
+					"root.result.result_batch.items.details.items.original.start",
+					"root.result.result_batch.items.details.items.original.text",
+					"root.result.result_batch.items.maskedText",
+					"root.result.result_batch.items.original"
+				]
+			},
+			"context":{
+				"appName":"callables",
+				"resourceVersion":49,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_V9AVu@_r6AhK-1@error",
+			"id":"_IBUz5",
+			"index":4,
+			"inputs":{
+				"result":{
+					"result_batch":{
+						"source":"None",
+						"ua:type":"mappedArray",
+						"items":{
+							"details":{
+								"source":"None",
+								"ua:type":"mappedArray",
+								"items":{
+									"entity":"None",
+									"mask":{
+										"end":"None",
+										"operator":"None",
+										"start":"None",
+										"text":"None"
+									},
+									"original":{
+										"end":"None",
+										"start":"None",
+										"text":"None"
+									}
+								}
+							},
+							"original":"None",
+							"maskedText":"None"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_r6AhK-1",
-			"id":"_mfGg5",
-			"index":0,
+			"id":"n_BaA5d",
+			"index":5,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39717,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +347,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
