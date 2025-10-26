@@ -4,32 +4,40 @@
 	],
 	"createdTime":1761516694317,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761516695413,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68fe9c9677db7a5bde97e900",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
-			"fromNodeId":"mQdqO",
+			"fromNodeId":"_ktFq2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"rs6qH",
+			"toNodeId":"_F2L5P",
 			"type":"next"
 		}
 	],
 	"id":"68fe9c394cac3826e752662f",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa22upwggvwllim",
-	"modifiedTime":1761516694317,
+	"modifiedTime":1761516817228,
 	"name":"changeSetQA22upwGgvwlLim",
 	"nodes":[
 		{
 			"context":{
 				"appName":"schedule",
-				"resourceVersion":106,
+				"resourceVersion":33,
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"l8FeS-1",
-			"id":"mQdqO",
+			"groupId":"_NoxR9-1",
+			"id":"_ktFq2",
 			"index":0,
 			"inputs":{
 				"cron":"INTERVAL",
@@ -47,15 +55,15 @@
 		{
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":118,
+				"resourceVersion":33,
 				"resourceName":"variable_by_unifyapps_create_variables",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"l8FeS-1",
-			"id":"rs6qH",
+			"groupId":"_NoxR9-1",
+			"id":"_F2L5P",
 			"index":0,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
@@ -67,14 +75,19 @@
 					"properties":{
 						"a":{
 							"type":"integer",
-							"title":"a"
+							"title":"A"
+						},
+						"b":{
+							"type":"string",
+							"title":"B"
 						}
 					},
 					"required":[]
 				}
 			},
 			"inputs":{
-				"a":2
+				"a":2,
+				"b":"hi hello"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -84,7 +97,11 @@
 					"properties":{
 						"a":{
 							"type":"integer",
-							"title":"a"
+							"title":"A"
+						},
+						"b":{
+							"type":"string",
+							"title":"B"
 						}
 					},
 					"required":[]
@@ -113,5 +130,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
