@@ -16,13 +16,6 @@
 			"fromNodeId":"n_PJEzZ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_GhhKr",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_GhhKr",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_92dGx",
 			"type":"next"
 		},
@@ -111,7 +104,7 @@
 	"id":"68fdf69bff97b736e67f440b",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_main",
-	"modifiedTime":1761476412882,
+	"modifiedTime":1761476438021,
 	"name":"Automation_Assignment_2_main",
 	"nodes":[
 		{
@@ -121,7 +114,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iZ4vw-1",
 			"id":"n_zXDVN",
@@ -175,28 +168,6 @@
 		},
 		{
 			"context":{
-				"appName":"standard_entities",
-				"resourceVersion":1223,
-				"resourceName":"standard_entities_get_connections",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_iZ4vw-1",
-			"id":"n_GhhKr",
-			"index":3,
-			"inputs":{
-				"offset":0,
-				"size":20
-			},
-			"skip":false,
-			"subTitle":"Standard entities by UnifyApps",
-			"title":"Get connections",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"loop",
 				"resourceVersion":865,
 				"resourceName":"loop_for_each",
@@ -207,10 +178,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"_iZ4vw-1",
 			"id":"n_92dGx",
-			"index":4,
+			"index":3,
 			"inputs":{
+				"repeatMode":"SINGLE",
 				"listSource":"{{ n_PJEzZ.outputs.objects }}",
-				"captureIterations":false
+				"captureIterations":true
 			},
 			"skip":false,
 			"subTitle":"Loop",
@@ -227,7 +199,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_92dGx@_iZ4vw-1@l",
 			"id":"_RPk7z",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"branches":[
 					{
@@ -288,7 +260,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@1",
 			"id":"_RPk7z@1",
-			"index":6,
+			"index":5,
 			"inputs":{
 				"name":"gmail",
 				"conditions":{
@@ -320,7 +292,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@1",
 			"id":"_iHAAa",
-			"index":7,
+			"index":6,
 			"inputs":{
 				"automationId":"68fdcf1b22a8224e27f3b732",
 				"runtimeConnections":{
@@ -347,7 +319,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@2",
 			"id":"_RPk7z@2",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"name":"calendar",
 				"conditions":{
@@ -379,7 +351,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@2",
 			"id":"_07i1S",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"automationId":"68fdf22922a8224e27f3e9d8",
 				"runtimeConnections":{
@@ -406,7 +378,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_92dGx@_iZ4vw-1@l",
 			"id":"_ZO0tO",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"automationId":"66dfd76eb70dad256986b784",
 				"runtimeConnections":{},
@@ -437,7 +409,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_92dGx@_iZ4vw-1@l",
 			"id":"_SakWt",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"automationId":"68fdfb3322a8224e27f3f09a",
 				"runtimeConnections":{
@@ -463,7 +435,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_iZ4vw-1",
 			"id":"n_WGbR7",
-			"index":12,
+			"index":11,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -487,5 +459,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
