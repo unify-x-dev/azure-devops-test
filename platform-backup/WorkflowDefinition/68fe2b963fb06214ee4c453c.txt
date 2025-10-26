@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"coupa"
 	],
 	"createdTime":1761487766236,
 	"deleted":false,
@@ -9,14 +9,14 @@
 			"fromNodeId":"_hsBRl",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_AyqGD",
+			"toNodeId":"n_uvRso",
 			"type":"next"
 		}
 	],
 	"id":"68fe2b963fb06214ee4c453c",
 	"lastModifiedBy":2621,
 	"lcName":"test",
-	"modifiedTime":1761487766236,
+	"modifiedTime":1761487863851,
 	"name":"test",
 	"nodes":[
 		{
@@ -25,7 +25,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_hsBRl-1",
 			"id":"_hsBRl",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +34,32 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":757,
+				"connectionId":"68c9069c2e17d80327e5a0f3",
+				"resourceName":"coupa_list_invoices",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hsBRl-1",
-			"id":"_AyqGD",
-			"index":0,
+			"id":"n_uvRso",
+			"index":2,
+			"inputs":{
+				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Coupa",
+			"title":"List invoices",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":2621,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +73,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
