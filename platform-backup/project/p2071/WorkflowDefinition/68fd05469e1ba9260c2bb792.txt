@@ -1,6 +1,5 @@
 {
 	"appsUsed":[
-		"gcalendar",
 		"gmail"
 	],
 	"createdTime":1761412422003,
@@ -51,13 +50,6 @@
 			"type":"branch"
 		},
 		{
-			"fromNodeId":"n_TJ6jE@2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_ozTqv",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"_vzFmv",
 			"priority":0,
 			"skip":false,
@@ -65,7 +57,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_ozTqv",
+			"fromNodeId":"n_TJ6jE@2",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -83,7 +75,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761460636885,
+	"modifiedTime":1761460643407,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -352,22 +344,6 @@
 		},
 		{
 			"context":{
-				"appName":"gcalendar",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_TJ6jE@_JiodF-1@2",
-			"id":"n_ozTqv",
-			"index":8,
-			"skip":false,
-			"subTitle":"Google Calendar",
-			"title":"Select an action",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -378,7 +354,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -408,5 +384,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
