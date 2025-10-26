@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761475379549,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_Aok5T",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_1x0W6",
+			"type":"next"
+		}
+	],
+	"id":"68fdfb3322a8224e27f3f09a",
+	"lastModifiedBy":177799,
+	"lcName":"automation_assignment_2_send_email",
+	"modifiedTime":1761475379549,
+	"name":"Automation_Assignment_2_send_email",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Aok5T-1",
+			"id":"_Aok5T",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Aok5T-1",
+			"id":"_1x0W6",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":177799,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
