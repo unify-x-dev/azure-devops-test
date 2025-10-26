@@ -72,14 +72,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_TJ6jE",
-			"name":"default",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_YNbHh",
-			"type":"branch"
-		},
-		{
 			"fromNodeId":"n_hHSS7",
 			"priority":0,
 			"skip":false,
@@ -94,17 +86,18 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_YNbHh",
+			"fromNodeId":"n_TJ6jE",
+			"name":"default",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
-			"type":"next"
+			"type":"branch"
 		}
 	],
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761462675305,
+	"modifiedTime":1761462693491,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -707,22 +700,6 @@
 		},
 		{
 			"context":{
-				"appName":"gmail",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_TJ6jE@_JiodF-1@default",
-			"id":"n_YNbHh",
-			"index":11,
-			"skip":false,
-			"subTitle":"Gmail",
-			"title":"Select an action",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -733,7 +710,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -763,5 +740,5 @@
 	"tags":[
 		
 	],
-	"version":23
+	"version":24
 }
