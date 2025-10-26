@@ -94,9 +94,9 @@
 		}
 	],
 	"id":"68fcad84dede0b5c299e1cc8",
-	"lastModifiedBy":115477,
+	"lastModifiedBy":23949,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761491447992,
+	"modifiedTime":1761494109611,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -507,14 +507,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_SMKPo",
 			"index":9,
 			"inputs":{
 				"result":{
-					"score":"=VALUE({{ _UmXGt.outputs.result.passPercentage }})",
+					"score":"=CEILING.MATH(VALUE({{ _UmXGt.outputs.result.passPercentage }}))",
 					"pageId":"{{ _UmXGt.outputs.result.pageId }}",
 					"pageName":"{{ n_5CcMh.outputs.properties.pageTitle }}"
 				}
@@ -664,5 +664,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":19
+	"version":20
 }
