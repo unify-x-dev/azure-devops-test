@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761506292303,
+	"modifiedTime":1761506409021,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -3024,7 +3024,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  const outputList = [];\n\n  const getDataSourcesUsingUserContext = (dataSources) => {\n    const result = [];\n\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n      const inputsStr = JSON.stringify(props.inputs || {});\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      // if (inputsStr.includes(\"userContext\") || transformerStr.includes(\"userContext\")) {\n        result.push({ inputsStr, transformerStr });\n      // }\n    }\n\n    return result;\n  };\n\n  const failedDataSourceIds = getDataSourcesUsingUserContext(dataSources);\n\n  if (failedDataSourceIds.length > 0) {\n    outputList.push({\n      status: \"failed\",\n      dataSourceIds: failedDataSourceIds\n    });\n  } else {\n    outputList.push({ status: \"passed\" });\n  }\n\n  return { result: { outputList } };\n})();",
+				"code":"(() => {\n  const outputList = [];\n\n  const inspectDataSources = (dataSources) => {\n    const result = [];\n\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n\n      const rawInputs = props.inputs || {};\n      const inputsStr = JSON.stringify(rawInputs || {});\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      // Add diagnostic info to see what we’re working with\n      result.push({\n        id: ds.id,\n        name: props.name,\n        hasInputsKey: !!props.inputs,\n        keysInInputs: Object.keys(rawInputs || {}),\n        inputsType: typeof rawInputs,\n        inputsStrPreview: inputsStr.slice(0, 200),\n        transformerStrPreview: transformerStr.slice(0, 200),\n        originalInputsStr: inputsStr,\n        transformerStr,\n      });\n    }\n\n    return result;\n  };\n\n  const inspectionResults = inspectDataSources(dataSources);\n\n  // Put inspection data inside outputList for visibility\n  outputList.push({\n    status: \"debug\",\n    message: \"Inspecting dataSources for inputs and transformer presence\",\n    debugDetails: inspectionResults,\n  });\n\n  return { result: { outputList } };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"dataSources":{
@@ -3170,5 +3170,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":125
+	"version":126
 }
