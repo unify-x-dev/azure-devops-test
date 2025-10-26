@@ -1,51 +1,194 @@
 {
 	"appsUsed":[
-		
+		"gmail",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761475379549,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Aok5T",
+			"fromNodeId":"n_mB3Oz",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_1x0W6",
+			"toNodeId":"n_FcT6z",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_FcT6z",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6Y2D4",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_6Y2D4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_caPqA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_caPqA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fCAn7",
 			"type":"next"
 		}
 	],
 	"id":"68fdfb3322a8224e27f3f09a",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_send_email",
-	"modifiedTime":1761475379549,
+	"modifiedTime":1761475754504,
 	"name":"Automation_Assignment_2_send_email",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1062,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
-			"id":"_Aok5T",
-			"index":0,
+			"id":"n_mB3Oz",
+			"index":1,
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"text"
+					],
+					"properties":{
+						"text":{
+							"type":"string",
+							"title":"Text"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":908,
+				"resourceName":"files_by_unifyapps_create_pdf_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
-			"id":"_1x0W6",
-			"index":0,
+			"id":"n_FcT6z",
+			"index":2,
+			"inputs":{
+				"fileName":"MORNING BRIEF AUTOMATION",
+				"content":"{{ n_mB3Oz.outputs.text }}"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Files by UnifyApps",
+			"title":"Create a PDF file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4583,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Aok5T-1",
+			"id":"n_6Y2D4",
+			"index":3,
+			"inputs":{
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.attachments.items.file_name",
+					"root.attachments.items.attachment_option"
+				]
+			},
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5625,
+				"connectionId":"68fb30e484d7f642748abd73",
+				"resourceName":"gmail_send_email",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Aok5T-1",
+			"id":"n_caPqA",
+			"index":4,
+			"inputs":{
+				"attachments":{
+					"items":{
+						"attachment_option":"use_file_url",
+						"file_name":"{{ n_FcT6z.outputs.fileDetails.name }}",
+						"url":"{{ n_FcT6z.outputs.fileDetails.size }}"
+					},
+					"ua:type":"mappedArray"
+				},
+				"email_type":"text",
+				"subject":"Your Morning Brief - [Date]",
+				"to":[
+					null
+				],
+				"message":"Here is your briefing for today attached as a PDF"
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Send email",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Aok5T-1",
+			"id":"n_fCAn7",
+			"index":5,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":177799,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +202,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
