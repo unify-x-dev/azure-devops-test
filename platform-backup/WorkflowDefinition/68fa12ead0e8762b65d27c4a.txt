@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761492558779,
+		"deployedAt":1761494002003,
 		"deployedBy":27,
-		"deployedDefinitionId":"68fe3e4ee629f96d49a3cbf6",
+		"deployedDefinitionId":"68fe43f1e629f96d49a3d3ab",
 		"status":"DEPLOYED",
-		"version":28,
-		"workflowVersion":115
+		"version":29,
+		"workflowVersion":116
 	},
 	"edges":[
 		{
@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761493999381,
+	"modifiedTime":1761494211223,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -2930,7 +2930,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_r5N0L@_z6eK1-1@y",
 			"id":"_g0vJS",
@@ -3024,7 +3024,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `dataSources` is assumed to be provided\n  const outputList = [];\n\n  const getDataSourcesUsingUserContext = (dataSources) => {\n    const result = [];\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n\n      const inputsStr = JSON.stringify(props.inputs || {});\n      const transformerStr = JSON.stringify(props.options?.transformerConfig?.inputs?.code || \"\");\n\n      // Detect userContext references anywhere in inputs or transform code\n      if (inputsStr.includes(\"userContext\") || transformerStr.includes(\"userContext\")) {\n        result.push(ds.id);\n      }\n    }\n    return result;\n  };\n\n  const failedDataSourceIds = getDataSourcesUsingUserContext(dataSources);\n\n  if (failedDataSourceIds.length > 0) {\n    outputList.push({\n      status: \"failed\",\n      dataSourceIds: failedDataSourceIds\n    });\n  } else {\n    outputList.push({\n      status: \"passed\"\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `dataSources` is assumed to be provided\n  const outputList = [];\n\n  const getDataSourcesUsingUserContext = (dataSources) => {\n    const result = [];\n    for (const ds of dataSources) {\n      const props = ds?.schema || {};\n\n      const inputsStr = JSON.stringify(props.inputs || {});\n      const transformerStr = props.options?.transformerConfig?.inputs?.code || \"\";\n\n      // Detect userContext references anywhere in inputs or transform code\n      if (inputsStr.includes(\"userContext\") || transformerStr.includes(\"userContext\")) {\n        result.push(ds.id);\n      }\n    }\n    return result;\n  };\n\n  const failedDataSourceIds = getDataSourcesUsingUserContext(dataSources);\n\n  if (failedDataSourceIds.length > 0) {\n    outputList.push({\n      status: \"failed\",\n      dataSourceIds: failedDataSourceIds\n    });\n  } else {\n    outputList.push({\n      status: \"passed\"\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"dataSources":{
@@ -3170,5 +3170,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":116
+	"version":117
 }
