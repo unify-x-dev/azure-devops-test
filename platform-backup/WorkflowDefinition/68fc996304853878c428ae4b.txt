@@ -205,7 +205,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761490446838,
+	"modifiedTime":1761490494051,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1208,7 +1208,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wPsWL@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
 			"id":"_WeDSA",
@@ -1225,7 +1225,7 @@
 					"status":"{{ _vquu7.outputs.result.results[0].status }}",
 					"impactedEntityId":"{{ _vquu7.outputs.result.results[0].impactedEntityId }}",
 					"impactedEntityName":"{{ _vquu7.outputs.result.results[0].impactedEntityName }}",
-					"impactedEntityType":"{{ _wPsWL.outputs.item.impactedEntityType }}",
+					"impactedEntityType":"{{ _wPsWL.outputs.item.impactedEntityName }}",
 					"impactedEntityCategory":"{{ _vquu7.outputs.result.results[0].impactedEntityId }}",
 					"componentId":"{{ _vquu7.outputs.result.results[0].entityId }}",
 					"componentName":"{{ _vquu7.outputs.result.results[0].entityId }}",
@@ -1680,7 +1680,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ksdUj@n_25xfN@_vMiRK-1@2@l",
 			"id":"_a2JhT",
@@ -1799,5 +1799,5 @@
 	"tags":[
 		
 	],
-	"version":90
+	"version":91
 }
