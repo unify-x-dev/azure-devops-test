@@ -90,7 +90,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761462022465,
+	"modifiedTime":1761462074094,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -516,8 +516,29 @@
 			},
 			"inputs":{
 				"summary":"{{ n_wADXG.outputs.items[0].summary }}",
+				"creator":{
+					"email":"{{ n_wADXG.outputs.items[0].creator.email }}"
+				},
 				"htmlLink":"{{ n_wADXG.outputs.items[0].htmlLink }}",
 				"created":"{{ n_wADXG.outputs.items[0].created }}",
+				"organizer":{
+					"email":"{{ n_wADXG.outputs.items[0].organizer.email }}"
+				},
+				"attendees":{
+					"source":"{{ n_wADXG.outputs.items[0].attendees }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"email":"{{ n_wADXG.outputs.items[0].attendees[0].email }}"
+					}
+				},
+				"start":{
+					"dateTime":"{{ n_wADXG.outputs.items[0].start.dateTime }}",
+					"timeZone":"{{ n_wADXG.outputs.items[0].start.timeZone }}"
+				},
+				"end":{
+					"dateTime":"{{ n_wADXG.outputs.items[0].end.dateTime }}",
+					"timeZone":"{{ n_wADXG.outputs.items[0].end.timeZone }}"
+				},
 				"updated":"{{ n_wADXG.outputs.items[0].updated }}",
 				"status":"{{ n_wADXG.outputs.items[0].status }}"
 			},
@@ -676,5 +697,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
