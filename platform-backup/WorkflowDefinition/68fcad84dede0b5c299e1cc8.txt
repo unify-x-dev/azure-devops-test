@@ -5,16 +5,23 @@
 	"createdTime":1761389956257,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761417464582,
+		"deployedAt":1761421197823,
 		"deployedBy":23949,
-		"deployedDefinitionId":"68fd18f89e1ba9260c2c16d6",
+		"deployedDefinitionId":"68fd278d9e1ba9260c2c7be7",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":9
+		"version":6,
+		"workflowVersion":14
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_mICBz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5CcMh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5CcMh",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_AwEoF",
@@ -87,9 +94,9 @@
 		}
 	],
 	"id":"68fcad84dede0b5c299e1cc8",
-	"lastModifiedBy":23949,
+	"lastModifiedBy":115477,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761418157399,
+	"modifiedTime":1761464031288,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -113,6 +120,14 @@
 						"score":{
 							"type":"number",
 							"title":"score"
+						},
+						"pageId":{
+							"type":"string",
+							"title":"pageId"
+						},
+						"pageName":{
+							"type":"string",
+							"title":"pageName"
 						}
 					}
 				},
@@ -128,10 +143,6 @@
 						"category":{
 							"type":"string",
 							"title":"category"
-						},
-						"entityVersion":{
-							"type":"integer",
-							"title":"Entity Version"
 						}
 					}
 				}
@@ -155,8 +166,51 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
-			"id":"n_AwEoF",
+			"id":"n_5CcMh",
 			"index":2,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_mICBz.outputs.pageId }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"e_component",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4581,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"n_AwEoF",
+			"index":3,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -171,7 +225,7 @@
 							"property":"properties_entityVersion",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_mICBz.outputs.entityVersion }}"
+								"value":"{{ n_5CcMh.outputs.version }}"
 							}
 						},
 						{
@@ -214,7 +268,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_u2GsM",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -245,7 +299,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_ZpyhG",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"filters":[
 					{
@@ -275,7 +329,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"n_yGQY6",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"automationId":"68fd199b9e1ba9260c2c19b9",
 				"runtimeConnections":{},
@@ -302,7 +356,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_S5WW9",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -317,7 +371,7 @@
 							"property":"properties_entityVersion",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_mICBz.outputs.entityVersion }}"
+								"value":"{{ n_5CcMh.outputs.version }}"
 							}
 						},
 						{
@@ -366,7 +420,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_UmXGt",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -457,10 +511,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_SMKPo",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"result":{
-					"score":"=VALUE({{ _UmXGt.outputs.result.passPercentage }})"
+					"score":"=VALUE({{ _UmXGt.outputs.result.passPercentage }})",
+					"pageId":"{{ _UmXGt.outputs.result.pageId }}",
+					"pageName":"{{ n_5CcMh.outputs.properties.pageTitle }}"
 				}
 			},
 			"skip":false,
@@ -486,7 +542,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_X4F6n",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -577,10 +633,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"result":{
-					"score":"=VALUE({{ n_X4F6n.outputs.result.passPercentage }})"
+					"score":"=VALUE({{ n_X4F6n.outputs.result.passPercentage }})",
+					"pageId":"{{ n_X4F6n.outputs.result.pageId }}",
+					"pageName":"{{ n_5CcMh.outputs.properties.pageTitle }}"
 				}
 			},
 			"skip":false,
@@ -606,5 +664,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":15
 }
