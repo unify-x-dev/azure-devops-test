@@ -4,9 +4,17 @@
 	],
 	"createdTime":1761466565540,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761466841724,
+		"deployedBy":39717,
+		"deployedDefinitionId":"68fdd9d7ff97b736e67e8d78",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":3
+	},
 	"edges":[
 		{
-			"fromNodeId":"n_Esbx9",
+			"fromNodeId":"n_gzAr7",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_V9AVu",
@@ -31,61 +39,53 @@
 			"fromNodeId":"n_V9AVu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_BaA5d",
+			"toNodeId":"n_g37Rv",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_IBUz5",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_BaA5d",
+			"toNodeId":"n_g37Rv",
 			"type":"next"
 		}
 	],
 	"id":"68fdd8c5ff97b736e67e85d5",
 	"lastModifiedBy":39717,
 	"lcName":"test ai",
-	"modifiedTime":1761466837530,
+	"modifiedTime":1761467687521,
 	"name":"test ai",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1060,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_r6AhK-1",
-			"id":"n_Esbx9",
+			"id":"n_gzAr7",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json",
-					"body":{
-						"type":"object",
-						"properties":{
-							"text_list":{
-								"type":"array",
-								"items":{
-									"type":"string"
-								},
-								"title":"Text List"
-							}
-						},
-						"additionalProperties":false,
-						"required":[
-							"text_list"
-						]
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"status":{
+							"type":"string",
+							"title":"Status"
+						}
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -102,7 +102,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"MANUAL",
 			"groupId":"_r6AhK-1",
 			"id":"n_V9AVu",
@@ -246,7 +246,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_V9AVu@_r6AhK-1@error",
 			"id":"_5b16V",
@@ -297,32 +297,7 @@
 			"index":4,
 			"inputs":{
 				"result":{
-					"result_batch":{
-						"source":"None",
-						"ua:type":"mappedArray",
-						"items":{
-							"details":{
-								"source":"None",
-								"ua:type":"mappedArray",
-								"items":{
-									"entity":"None",
-									"mask":{
-										"end":"None",
-										"operator":"None",
-										"start":"None",
-										"text":"None"
-									},
-									"original":{
-										"end":"None",
-										"start":"None",
-										"text":"None"
-									}
-								}
-							},
-							"original":"None",
-							"maskedText":"None"
-						}
-					}
+					"status":"fail"
 				}
 			},
 			"skip":false,
@@ -332,17 +307,25 @@
 		},
 		{
 			"context":{
-				"appName":"stop"
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_r6AhK-1",
-			"id":"n_BaA5d",
+			"id":"n_g37Rv",
 			"index":5,
+			"inputs":{
+				"result":{
+					"status":"ok"
+				}
+			},
 			"skip":false,
-			"subTitle":"Stop",
-			"title":"Stop",
+			"subTitle":"Callable",
+			"title":"Respond to automation",
 			"type":"STOP"
 		}
 	],
@@ -363,5 +346,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
