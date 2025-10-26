@@ -104,7 +104,7 @@
 	"id":"68fdf69bff97b736e67f440b",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_main",
-	"modifiedTime":1761476524370,
+	"modifiedTime":1761476680695,
 	"name":"Automation_Assignment_2_main",
 	"nodes":[
 		{
@@ -418,7 +418,8 @@
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{
-					"text":"{{ _ZO0tO.outputs.llmResponse }}"
+					"text":"{{ _ZO0tO.outputs.llmResponse }}",
+					"email":"{{ n_92dGx.outputs.item.properties.email }}"
 				}
 			},
 			"skip":false,
@@ -459,5 +460,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
