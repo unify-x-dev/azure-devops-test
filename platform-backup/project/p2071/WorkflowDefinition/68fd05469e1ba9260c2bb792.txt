@@ -90,7 +90,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761462074094,
+	"modifiedTime":1761462161315,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -535,6 +535,7 @@
 					"dateTime":"{{ n_wADXG.outputs.items[0].start.dateTime }}",
 					"timeZone":"{{ n_wADXG.outputs.items[0].start.timeZone }}"
 				},
+				"description":"{{ n_wADXG.outputs.items[0].description }}",
 				"end":{
 					"dateTime":"{{ n_wADXG.outputs.items[0].end.dateTime }}",
 					"timeZone":"{{ n_wADXG.outputs.items[0].end.timeZone }}"
@@ -697,5 +698,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
