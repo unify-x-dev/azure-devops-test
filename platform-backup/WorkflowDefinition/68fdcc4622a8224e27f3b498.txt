@@ -54,12 +54,19 @@
 			"skip":false,
 			"toNodeId":"n_0xngq",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0xngq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tQ3Tp",
+			"type":"next"
 		}
 	],
 	"id":"68fdcc4622a8224e27f3b498",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | app score",
-	"modifiedTime":1761466576203,
+	"modifiedTime":1761466776472,
 	"name":"Best Practices | App Score",
 	"nodes":[
 		{
@@ -75,6 +82,43 @@
 			"id":"n_LlXSM",
 			"index":1,
 			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"AvgScore":{
+							"type":"number",
+							"title":"AvgScore"
+						},
+						"interfaceID":{
+							"type":"string",
+							"title":"interfaceID"
+						},
+						"pages":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"score":{
+										"type":"integer",
+										"title":"score"
+									},
+									"pageId":{
+										"type":"string",
+										"title":"pageId"
+									},
+									"pageName":{
+										"type":"string",
+										"title":"pageName"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"pages"
+						}
+					}
+				},
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
@@ -83,10 +127,6 @@
 						"appId":{
 							"type":"string",
 							"title":"appId"
-						},
-						"category":{
-							"type":"string",
-							"title":"category"
 						}
 					}
 				}
@@ -473,7 +513,7 @@
 					"source":"{{ n_A3jM9.outputs.item }}",
 					"ua:type":"mappedArray",
 					"items":{
-						"category":"{{ n_LlXSM.outputs.category }}",
+						"category":"",
 						"pageId":"{{ n_A3jM9.outputs.item[0].id }}"
 					}
 				},
@@ -532,6 +572,11 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.items.items"
+				]
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1025,
@@ -545,14 +590,112 @@
 			"id":"n_0xngq",
 			"index":7,
 			"inputs":{
-				"code":"def computePageScores(items, String interfaceId) {\n\n    // Ensure items is not null\n    items = items ?: []\n\n    // Compute average score (two decimals)\n    BigDecimal sum = items.collect { (it.score ?: 0) as BigDecimal }\n                          .inject(0G) { acc, v -> acc + v }\n\n    BigDecimal avgScore = items.size() > 0 ?\n            sum.divide(items.size() as BigDecimal, 2, BigDecimal.ROUND_HALF_UP) :\n            0G.setScale(2)\n\n    // Normalize each page object (ensure score has 2 decimal places)\n    def pagesList = items.collect { page ->\n        [\n            score   : (page.score ?: 0) as BigDecimal,\n            pageId  : page.pageId,\n            pageName: page.pageName\n        ]\n    }\n\n    // Return as a single map\n    return [\n        AvgScore   : avgScore,\n        interfaceID: interfaceId,\n        pages      : pagesList\n    ]\n}\n\ndef output = computePageScores(inputItems, interfaceId)\n\nreturn output\n",
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"AvgScore":{
+							"type":"number",
+							"title":"AvgScore"
+						},
+						"interfaceID":{
+							"type":"string",
+							"title":"interfaceID"
+						},
+						"pages":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"score":{
+										"type":"integer",
+										"title":"score"
+									},
+									"pageId":{
+										"type":"string",
+										"title":"pageId"
+									},
+									"pageName":{
+										"type":"string",
+										"title":"pageName"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"pages"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"items":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Items"
+						},
+						"interfaceId":{
+							"type":"string",
+							"title":"interfaceId"
+						}
+					}
+				},
+				"code":"def computePageScores(items, String interfaceId) {\n\n    // Ensure items is not null\n    items = items ?: []\n\n    // Compute average score (two decimals)\n    BigDecimal sum = items.collect { (it.score ?: 0) as BigDecimal }\n                          .inject(0G) { acc, v -> acc + v }\n\n    BigDecimal avgScore = items.size() > 0 ?\n            sum.divide(items.size() as BigDecimal, 2, BigDecimal.ROUND_HALF_UP) :\n            0G.setScale(2)\n\n    // Normalize each page object (ensure score has 2 decimal places)\n    def pagesList = items.collect { page ->\n        [\n            score   : (page.score ?: 0) as BigDecimal,\n            pageId  : page.pageId,\n            pageName: page.pageName\n        ]\n    }\n\n    // Return as a single map\n    return [\n        AvgScore   : avgScore,\n        interfaceID: interfaceId,\n        pages      : pagesList\n    ]\n}\n\ndef output = computePageScores(items, interfaceId)\n\nreturn output\n",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"interfaceId":"{{ n_LlXSM.outputs.appId }}",
+					"items":{
+						"source":"{{ n_rIjBB.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_rIjBB.outputs.items[0] }}"
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1096,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_5VXzP-1",
+			"id":"n_tQ3Tp",
+			"index":8,
+			"inputs":{
+				"result":{
+					"AvgScore":"{{ n_0xngq.outputs.result.AvgScore }}",
+					"interfaceID":"{{ n_0xngq.outputs.result.interfaceID }}",
+					"pages":{
+						"source":"{{ n_0xngq.outputs.result.pages }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"score":"{{ n_0xngq.outputs.result.pages[0].score }}",
+							"pageId":"{{ n_0xngq.outputs.result.pages[0].pageId }}",
+							"pageName":"{{ n_0xngq.outputs.result.pages[0].pageName }}"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":115477,
@@ -572,5 +715,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
