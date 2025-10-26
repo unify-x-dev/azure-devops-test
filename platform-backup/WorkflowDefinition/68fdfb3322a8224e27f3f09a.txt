@@ -1,7 +1,6 @@
 {
 	"appsUsed":[
-		"gmail",
-		"storage_by_unifyapps"
+		"gmail"
 	],
 	"createdTime":1761475379549,
 	"deleted":false,
@@ -15,13 +14,6 @@
 		},
 		{
 			"fromNodeId":"n_FcT6z",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_6Y2D4",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_6Y2D4",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_caPqA",
@@ -38,7 +30,7 @@
 	"id":"68fdfb3322a8224e27f3f09a",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_send_email",
-	"modifiedTime":1761475852008,
+	"modifiedTime":1761476618702,
 	"name":"Automation_Assignment_2_rishabh_send_email",
 	"nodes":[
 		{
@@ -48,7 +40,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_mB3Oz",
@@ -58,12 +50,17 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"text"
+						"text",
+						"email"
 					],
 					"properties":{
 						"text":{
 							"type":"string",
 							"title":"Text"
+						},
+						"email":{
+							"type":"string",
+							"title":"Email"
 						}
 					}
 				}
@@ -84,7 +81,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_FcT6z",
@@ -96,36 +93,6 @@
 			"skip":false,
 			"subTitle":"Files by UnifyApps",
 			"title":"Create a PDF file",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4583,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_Aok5T-1",
-			"id":"n_6Y2D4",
-			"index":3,
-			"inputs":{
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
 			"type":"ACTION"
 		},
 		{
@@ -143,11 +110,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_caPqA",
-			"index":4,
+			"index":3,
 			"inputs":{
 				"attachments":{
 					"items":{
@@ -178,7 +145,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Aok5T-1",
 			"id":"n_fCAn7",
-			"index":5,
+			"index":4,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -206,5 +173,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
