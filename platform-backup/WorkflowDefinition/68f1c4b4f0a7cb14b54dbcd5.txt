@@ -17,6 +17,13 @@
 			"fromNodeId":"n_fcpED",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_EklHr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_EklHr",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_H4ajM",
 			"type":"next"
 		},
@@ -31,7 +38,7 @@
 	"id":"68f1c4b4f0a7cb14b54dbcd5",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761470033828,
+	"modifiedTime":1761470063191,
 	"name":"Test Automation",
 	"nodes":[
 		{
@@ -62,6 +69,28 @@
 		{
 			"context":{
 				"appName":"netsuite",
+				"resourceVersion":1350,
+				"connectionId":"68b571d44b7eb16a12bdd9eb",
+				"resourceName":"netsuite_execute_query",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_0b6PP-1",
+			"id":"n_EklHr",
+			"index":2,
+			"inputs":{
+				"query":"select * from location"
+			},
+			"skip":false,
+			"subTitle":"Netsuite",
+			"title":"Execute query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"netsuite",
 				"resourceVersion":1610,
 				"connectionId":"68b571d44b7eb16a12bdd9eb",
 				"resourceName":"netsuite_create_invoice",
@@ -72,7 +101,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_0b6PP-1",
 			"id":"n_H4ajM",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"location":{
 					"id":"251"
@@ -111,7 +140,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_0b6PP-1",
 			"id":"n_p3AYB",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"query":"{{ n_H4ajM.outputs }}"
 			},
@@ -138,5 +167,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
