@@ -28,6 +28,20 @@
 		},
 		{
 			"fromNodeId":"n_ZG7UR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jrhl9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jrhl9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_wLKEV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wLKEV",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -52,7 +66,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh",
-	"modifiedTime":1761464326550,
+	"modifiedTime":1761465104025,
 	"name":"Automation_Assignment_2_rishabh",
 	"nodes":[
 		{
@@ -146,6 +160,83 @@
 		},
 		{
 			"context":{
+				"appName":"gmail",
+				"resourceVersion":4042,
+				"connectionId":"68fd065c6a75bb47174efa30",
+				"resourceName":"gmail_get_message_specifics",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_55XQp@_O8kTq-1@l",
+			"id":"n_jrhl9",
+			"index":5,
+			"inputs":{
+				"id":"19a169b94fb2d2eb"
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Get message specifics",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1078,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_55XQp@_O8kTq-1@l",
+			"id":"n_wLKEV",
+			"index":6,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"text":{
+							"type":"string",
+							"title":"Text"
+						}
+					},
+					"required":[
+						"text"
+					]
+				}
+			},
+			"inputs":{
+				"text":"Email text - {{ n_55XQp.outputs.index }} subject: {{ n_jrhl9.outputs.Subject }} from {{ n_jrhl9.outputs.From }} body:  {{ n_ZG7UR.outputs.snippet }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"text":{
+							"type":"string",
+							"title":"Text"
+						}
+					},
+					"required":[
+						"text"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1096,
 				"resourceName":"callables_return_to_automation",
@@ -156,7 +247,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_XMwgM",
-			"index":5,
+			"index":7,
 			"inputs":{
 				"result":"1"
 			},
@@ -174,7 +265,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_DFd6V",
-			"index":6,
+			"index":8,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -198,5 +289,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
