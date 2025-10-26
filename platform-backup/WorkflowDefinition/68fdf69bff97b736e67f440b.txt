@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761474203118,
 	"deleted":false,
@@ -9,73 +9,109 @@
 			"fromNodeId":"n_zXDVN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_uQmmY",
+			"toNodeId":"n_PJEzZ",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_uQmmY",
+			"fromNodeId":"n_PJEzZ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GhhKr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GhhKr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_92dGx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_92dGx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_RPk7z",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"_RPk7z",
 			"name":"1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_uQmmY@1",
+			"toNodeId":"_RPk7z@1",
 			"type":"branch"
 		},
 		{
-			"fromNodeId":"n_uQmmY@1",
+			"fromNodeId":"_RPk7z@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_CGxUR",
+			"toNodeId":"_iHAAa",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_uQmmY",
+			"fromNodeId":"_RPk7z",
 			"name":"2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_uQmmY@2",
+			"toNodeId":"_RPk7z@2",
 			"type":"branch"
 		},
 		{
-			"fromNodeId":"n_uQmmY@2",
+			"fromNodeId":"_RPk7z@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_uAN78",
+			"toNodeId":"_07i1S",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_CGxUR",
+			"fromNodeId":"_iHAAa",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_D4Pn3",
+			"toNodeId":"_ZO0tO",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_uAN78",
+			"fromNodeId":"_07i1S",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_D4Pn3",
+			"toNodeId":"_ZO0tO",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_uQmmY",
+			"fromNodeId":"_RPk7z",
 			"name":"default",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_D4Pn3",
+			"toNodeId":"_ZO0tO",
 			"type":"branch"
 		},
 		{
-			"fromNodeId":"n_D4Pn3",
+			"fromNodeId":"_ZO0tO",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_83bjq",
+			"toNodeId":"_SakWt",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_SakWt",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_92dGx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_92dGx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WGbR7",
 			"type":"next"
 		}
 	],
 	"id":"68fdf69bff97b736e67f440b",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_main",
-	"modifiedTime":1761475868588,
+	"modifiedTime":1761476412882,
 	"name":"Automation_Assignment_2_main",
 	"nodes":[
 		{
@@ -108,15 +144,90 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4583,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iZ4vw-1",
+			"id":"n_PJEzZ",
+			"index":2,
+			"inputs":{
+				"object_type":"assignment_2_automation_rishabh_connection_detail",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":1223,
+				"resourceName":"standard_entities_get_connections",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iZ4vw-1",
+			"id":"n_GhhKr",
+			"index":3,
+			"inputs":{
+				"offset":0,
+				"size":20
+			},
+			"skip":false,
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"Get connections",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iZ4vw-1",
+			"id":"n_92dGx",
+			"index":4,
+			"inputs":{
+				"listSource":"{{ n_PJEzZ.outputs.objects }}",
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
 				"appName":"branch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_iZ4vw-1",
-			"id":"n_uQmmY",
-			"index":2,
+			"groupId":"n_92dGx@_iZ4vw-1@l",
+			"id":"_RPk7z",
+			"index":5,
 			"inputs":{
 				"branches":[
 					{
@@ -173,11 +284,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_uQmmY@_iZ4vw-1@1",
-			"id":"n_uQmmY@1",
-			"index":3,
+			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@1",
+			"id":"_RPk7z@1",
+			"index":6,
 			"inputs":{
 				"name":"gmail",
 				"conditions":{
@@ -205,14 +316,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_uQmmY@_iZ4vw-1@1",
-			"id":"n_CGxUR",
-			"index":4,
+			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@1",
+			"id":"_iHAAa",
+			"index":7,
 			"inputs":{
 				"automationId":"68fdcf1b22a8224e27f3b732",
-				"runtimeConnections":{},
+				"runtimeConnections":{
+					"gmail":"{{ n_92dGx.outputs.item.properties.gmail_connection_id }}"
+				},
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{}
@@ -230,11 +343,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_uQmmY@_iZ4vw-1@2",
-			"id":"n_uQmmY@2",
-			"index":5,
+			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@2",
+			"id":"_RPk7z@2",
+			"index":8,
 			"inputs":{
 				"name":"calendar",
 				"conditions":{
@@ -262,14 +375,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_uQmmY@_iZ4vw-1@2",
-			"id":"n_uAN78",
-			"index":6,
+			"groupId":"_RPk7z@n_92dGx@_iZ4vw-1@l@2",
+			"id":"_07i1S",
+			"index":9,
 			"inputs":{
-				"automationId":"68fdcf1b22a8224e27f3b732",
-				"runtimeConnections":{},
+				"automationId":"68fdf22922a8224e27f3e9d8",
+				"runtimeConnections":{
+					"gcalendar":"{{ n_92dGx.outputs.item.properties.calendar_connection_id }}"
+				},
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{}
@@ -287,18 +402,18 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_iZ4vw-1",
-			"id":"n_D4Pn3",
-			"index":7,
+			"groupId":"n_92dGx@_iZ4vw-1@l",
+			"id":"_ZO0tO",
+			"index":10,
 			"inputs":{
 				"automationId":"66dfd76eb70dad256986b784",
 				"runtimeConnections":{},
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{
-					"content":"Make a clean information to be inserted in a PDF as a daily brief mail\nHeader with the date\nSection 1: Latest 5 emails summary\nSection 2: Today's complete schedule\nSimple formatting, easy to read email summary: {{ n_CGxUR.outputs.text }} calendar schedule:{{ n_uAN78.outputs.text }}",
+					"content":"Make a clean information to be inserted in a PDF as a daily brief mail\nHeader with the date\nSection 1: Latest 5 emails summary\nSection 2: Today's complete schedule\nSimple formatting, easy to read email summary: {{ _iHAAa.outputs.text }} calendar schedule:{{ _07i1S.outputs.text }}",
 					"type":"text",
 					"response_format":"text",
 					"maxTokens":"4096",
@@ -320,21 +435,39 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_iZ4vw-1",
-			"id":"n_83bjq",
-			"index":8,
+			"groupId":"n_92dGx@_iZ4vw-1@l",
+			"id":"_SakWt",
+			"index":11,
 			"inputs":{
 				"automationId":"68fdfb3322a8224e27f3f09a",
+				"runtimeConnections":{
+					"gmail":"{{ n_92dGx.outputs.item.properties.gmail_connection_id }}"
+				},
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{
-					"text":"{{ n_D4Pn3.outputs.llmResponse }}"
+					"text":"{{ _ZO0tO.outputs.llmResponse }}"
 				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Call automation",
 			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iZ4vw-1",
+			"id":"n_WGbR7",
+			"index":12,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":177799,
@@ -354,5 +487,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
