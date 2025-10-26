@@ -1,10 +1,17 @@
 {
 	"appsUsed":[
-		"gmail",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761468834816,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761468855804,
+		"deployedBy":39717,
+		"deployedDefinitionId":"68fde1b7ff97b736e67eb7b8",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":125
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_AK82u",
@@ -188,13 +195,6 @@
 			"fromNodeId":"n_60nht",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_cRZvV",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_cRZvV",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_sI1oq",
 			"type":"next"
 		},
@@ -287,7 +287,7 @@
 	"id":"68f0ba4a32e3cc2f6745096f",
 	"lastModifiedBy":39717,
 	"lcName":"pii clone",
-	"modifiedTime":1761468855618,
+	"modifiedTime":1761468865516,
 	"name":"pii clone",
 	"nodes":[
 		{
@@ -2158,88 +2158,6 @@
 		},
 		{
 			"context":{
-				"appName":"gmail",
-				"resourceVersion":532,
-				"connectionId":"68fb9488abc97d14f19c6972",
-				"resourceName":"gmail_send_email",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"CONTINUE",
-			"groupId":"_a5XEl-1",
-			"id":"n_cRZvV",
-			"index":24,
-			"inputs":{
-				"email_type":"text",
-				"subject":"Masking Output",
-				"to":[
-					"akshat.sharma@unifyapps.com",
-					"{{ n_AK82u.outputs.email }}"
-				],
-				"message":"Your masking has been completed\n\nPlease use the link below for accessing the final output:\n{{ n_60nht.outputs.url }}"
-			},
-			"options":{
-				"bulkheadConfig":{
-					"enabled":false,
-					"maxLeaseTimeUnit":"SECONDS",
-					"maxWaitDurationUnit":"SECONDS"
-				},
-				"businessHoursConfig":{
-					"enabled":false,
-					"waitForNextWindow":false
-				},
-				"cacheConfig":{
-					"enabled":false,
-					"usagePolicy":"ALWAYS"
-				},
-				"circuitBreakerConfig":{
-					"enabled":false
-				},
-				"disableLogging":false,
-				"enabledForReExecution":false,
-				"hookConfig":{
-					"enabled":false,
-					"postHooks":[
-						
-					],
-					"preHooks":[
-						
-					]
-				},
-				"logConfig":{
-					"enabled":false,
-					"logPolicies":[
-						
-					]
-				},
-				"rateLimitConfig":{
-					"enabled":false,
-					"waitForNextWindow":false
-				},
-				"retryConfig":{
-					"backOffFactor":null,
-					"captureRetries":false,
-					"enabled":false
-				},
-				"stepError":"CONTINUE",
-				"telemetryConfig":{
-					"enableTelemetry":false,
-					"metricConfigs":[
-						
-					]
-				},
-				"timeoutConfig":{
-					"enabled":false
-				}
-			},
-			"skip":false,
-			"subTitle":"Gmail",
-			"title":"Send email",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":133,
 				"resourceName":"callables_return_to_automation",
@@ -2250,7 +2168,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_sI1oq",
-			"index":25,
+			"index":24,
 			"inputs":{
 				"result":{
 					"Response":"{{ n_60nht.outputs.url }}"
@@ -2270,7 +2188,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_0v7Ay",
-			"index":26,
+			"index":25,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -2293,7 +2211,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_2dDmP",
-			"index":27,
+			"index":26,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2362,7 +2280,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"_q5g3W",
-			"index":28,
+			"index":27,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -2689,7 +2607,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_DoCj8",
-			"index":29,
+			"index":28,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_2dDmP.outputs.result.testCaseBatches }}",
@@ -2712,7 +2630,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DoCj8@_a5XEl-1@l",
 			"id":"_ZvKZS",
-			"index":30,
+			"index":29,
 			"inputs":{
 				"automationId":"68ed07550373335b048e161b",
 				"runtimeConnections":{},
@@ -2743,7 +2661,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DoCj8@_a5XEl-1@l",
 			"id":"n_QBSlg",
-			"index":31,
+			"index":30,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -2807,7 +2725,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DoCj8@_a5XEl-1@l",
 			"id":"n_LXwZP",
-			"index":32,
+			"index":31,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -2853,7 +2771,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_dZXws",
-			"index":33,
+			"index":32,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2959,7 +2877,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_La4XH",
-			"index":34,
+			"index":33,
 			"inputs":{
 				"fileName":"Presidio output",
 				"staticHeaders":[
@@ -2998,7 +2916,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_Nm6gH",
-			"index":35,
+			"index":34,
 			"inputs":{
 				"file":"{{ n_La4XH.outputs.fileDetails }}",
 				"expiryTime":1
@@ -3020,7 +2938,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_a5XEl-1",
 			"id":"n_MYCDj",
-			"index":36,
+			"index":35,
 			"inputs":{
 				"result":{
 					"response":"{{ n_Nm6gH.outputs.url }}"
@@ -3039,15 +2957,8 @@
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true,
-		"route":{
-			"default":false,
-			"tierName":"global"
-		}
+		"enableVariableLogging":true
 	},
 	"standard":false,
-	"tags":[
-		
-	],
-	"version":125
+	"version":126
 }
