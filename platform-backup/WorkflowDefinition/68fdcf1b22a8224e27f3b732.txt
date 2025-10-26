@@ -51,6 +51,13 @@
 			"fromNodeId":"n_wLKEV",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_44b6q",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_44b6q",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_ox4Y5",
 			"type":"next"
 		},
@@ -80,7 +87,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh",
-	"modifiedTime":1761465234118,
+	"modifiedTime":1761466304647,
 	"name":"Automation_Assignment_2_rishabh",
 	"nodes":[
 		{
@@ -140,7 +147,8 @@
 			"id":"n_fCrYO",
 			"index":3,
 			"inputs":{
-				"fileName":"Emails: Pull latest 5 emails from Gmail"
+				"fileName":"Emails: Pull latest 5 emails from Gmail",
+				"content":"Today's Morning brief Date - {{ n_PBHSL.outputs }}"
 			},
 			"skip":false,
 			"subTitle":"Files by UnifyApps",
@@ -272,6 +280,38 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_55XQp@_O8kTq-1@l",
+			"id":"n_44b6q",
+			"index":8,
+			"inputs":{
+				"automationId":"66dfd76eb70dad256986b784",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"DEFAULT",
+				"version":"-1",
+				"parameters":{
+					"content":"{{ n_wLKEV.outputs.text }} summarize this email",
+					"type":"text",
+					"response_format":"text",
+					"maxTokens":"4096",
+					"temperature":"0.1"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
 				"appName":"files_by_unifyapps",
 				"resourceVersion":927,
 				"resourceName":"files_by_unifyapps_append_line_to_file",
@@ -282,10 +322,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_55XQp@_O8kTq-1@l",
 			"id":"n_ox4Y5",
-			"index":8,
+			"index":9,
 			"inputs":{
+				"file":"{{ n_fCrYO.outputs.fileDetails }}",
 				"type":"SINGLE",
-				"contentType":"plainText"
+				"contentType":"plainText",
+				"content":"{{ n_44b6q.outputs.llmResponse }}"
 			},
 			"skip":false,
 			"subTitle":"Files by UnifyApps",
@@ -304,7 +346,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_XMwgM",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"result":"1"
 			},
@@ -322,7 +364,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_DFd6V",
-			"index":10,
+			"index":11,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -346,5 +388,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
