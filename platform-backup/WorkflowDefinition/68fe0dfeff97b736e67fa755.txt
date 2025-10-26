@@ -1,0 +1,81 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761480190176,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_RPOh2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_3JaVf",
+			"type":"next"
+		}
+	],
+	"id":"68fe0dfeff97b736e67fa755",
+	"lastModifiedBy":43523,
+	"lcName":"test standard",
+	"modifiedTime":1761480199246,
+	"name":"test standard",
+	"nodes":[
+		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_VIa8Y-1",
+			"id":"n_RPOh2",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
+			"skip":false,
+			"subTitle":"Webhook",
+			"title":"New event",
+			"trigger":{
+				"type":"WEBHOOK"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_VIa8Y-1",
+			"id":"n_3JaVf",
+			"index":2,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":43523,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":1
+}
