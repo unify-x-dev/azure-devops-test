@@ -45,7 +45,7 @@
 	"id":"68fdd8c5ff97b736e67e85d5",
 	"lastModifiedBy":39717,
 	"lcName":"test ai",
-	"modifiedTime":1761466587553,
+	"modifiedTime":1761466610400,
 	"name":"test ai",
 	"nodes":[
 		{
@@ -62,7 +62,23 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"text_list":{
+								"type":"array",
+								"items":{
+									"type":"string"
+								},
+								"title":"Text List"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"text_list"
+						]
+					}
 				}
 			},
 			"skip":false,
@@ -140,9 +156,9 @@
 				"captureStdOutput":false,
 				"parameters":{
 					"text_list":{
-						"source":"{{ n_zdNF1.outputs.text_list }}",
 						"ua:type":"mappedArray",
-						"items":"{{ n_zdNF1.outputs.text_list[0] }}"
+						"source":"{{ n_Esbx9.outputs.body.text_list }}",
+						"items":"{{ n_Esbx9.outputs.body.text_list[0] }}"
 					}
 				}
 			},
@@ -347,5 +363,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
