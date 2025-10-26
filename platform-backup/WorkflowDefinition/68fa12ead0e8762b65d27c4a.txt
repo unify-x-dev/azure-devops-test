@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761374078327,
-		"deployedBy":23949,
-		"deployedDefinitionId":"68fc6f7ef0707c781266a60a",
+		"deployedAt":1761475522403,
+		"deployedBy":27,
+		"deployedDefinitionId":"68fdfbc2ff97b736e67f577b",
 		"status":"DEPLOYED",
-		"version":25,
-		"workflowVersion":111
+		"version":26,
+		"workflowVersion":112
 	},
 	"edges":[
 		{
@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761475518677,
+	"modifiedTime":1761490585596,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1123,7 +1123,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_EN7Pq@_z6eK1-1@y",
 			"id":"_8ssPF",
@@ -1518,7 +1518,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_B3jVo@_z6eK1-1@y",
 			"id":"_9v1XF",
@@ -1620,7 +1620,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` and `dataSources` are assumed to be provided\n  const outputList = [];\n\n  const getNestedTableWithNonManualDataSource = (blocks, dataSources) => {\n    const result = [];\n    \n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      \n      if (block.component.componentType === 'NestedTable') {\n        const columns = block.component.content.columns || [];\n        \n        // Check each column for nested table type\n        columns.forEach((column, columnIndex) => {\n          if (column.type === 'NESTED_TABLE' && column.data) {\n            // Iterate through data source IDs to find which one is used in the data string\n            for (const dataSource of dataSources) {\n              if (column.data.includes(dataSource.id)) {\n                const schema = dataSource.schema; // equivalent to ds.properties\n                \n                if (schema && schema?.advancedOptions?.runBehaviour !== 'manual') {\n                  result.push({\n                    blockId,\n                    columnIndex,\n                    dataSourceId,\n                    runBehaviour: schema?.advancedOptions?.runBehaviour\n                  });\n                }\n                break; // Found the matching data source, no need to continue\n              }\n            }\n          }\n        });\n      }\n    }\n    \n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedNestedTables = getNestedTableWithNonManualDataSource(blocks, dataSources);\n\n  if (failedNestedTables.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: [...new Set(failedNestedTables.map(item => item.blockId))]\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `page` and `dataSources` are assumed to be provided\n  const outputList = [];\n\n  const getNestedTableWithNonManualDataSource = (blocks, dataSources) => {\n    const result = [];\n    \n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      \n      if (block.component.componentType === 'NestedTable') {\n        const columns = block.component.content.columns || [];\n        \n        // Check each column for nested table type\n        columns.forEach((column, columnIndex) => {\n          if (column.type === 'NESTED_TABLE' && column.data) {\n            // Iterate through data source IDs to find which one is used in the data string\n            for (const dataSource of dataSources) {\n              if (column.data.includes(dataSource.id)) {\n                const schema = dataSource.schema; // equivalent to ds.properties\n                \n                if (schema && schema?.advancedOptions?.runBehaviour !== 'manual') {\n                  result.push({\n                    blockId\n                  });\n                }\n                break; // Found the matching data source, no need to continue\n              }\n            }\n          }\n        });\n      }\n    }\n    \n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const failedNestedTables = getNestedTableWithNonManualDataSource(blocks, dataSources);\n\n  if (failedNestedTables.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: [...new Set(failedNestedTables.map(item => item.blockId))]\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}",
@@ -3170,5 +3170,5 @@
 	"tags":[
 		
 	],
-	"version":112
+	"version":113
 }
