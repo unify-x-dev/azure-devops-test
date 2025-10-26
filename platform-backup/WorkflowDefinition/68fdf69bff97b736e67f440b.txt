@@ -68,14 +68,14 @@
 			"fromNodeId":"n_D4Pn3",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_JodQn",
+			"toNodeId":"n_83bjq",
 			"type":"next"
 		}
 	],
 	"id":"68fdf69bff97b736e67f440b",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_main",
-	"modifiedTime":1761475102609,
+	"modifiedTime":1761475362543,
 	"name":"Automation_Assignment_2_main",
 	"nodes":[
 		{
@@ -298,7 +298,7 @@
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{
-					"content":"Make a clean email\nHeader with the date\nSection 1: Latest 5 emails summary\nSection 2: Today's complete schedule\nSimple formatting, easy to read email summary: {{ n_CGxUR.outputs.text }} calendar schedule:{{ n_uAN78.outputs.text }}",
+					"content":"Make a clean information to be inserted in a PDF as a daily brief mail\nHeader with the date\nSection 1: Latest 5 emails summary\nSection 2: Today's complete schedule\nSimple formatting, easy to read email summary: {{ n_CGxUR.outputs.text }} calendar schedule:{{ n_uAN78.outputs.text }}",
 					"type":"text",
 					"response_format":"text",
 					"maxTokens":"4096",
@@ -312,24 +312,27 @@
 		},
 		{
 			"context":{
-				"appName":"files_by_unifyapps",
-				"resourceVersion":908,
-				"resourceName":"files_by_unifyapps_create_pdf_file",
+				"appName":"callables",
+				"resourceVersion":1118,
+				"resourceName":"callables_call_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iZ4vw-1",
-			"id":"n_JodQn",
+			"id":"n_83bjq",
 			"index":8,
 			"inputs":{
-				"fileName":"MORNING BRIEF"
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
 			},
 			"skip":false,
-			"subTitle":"Files by UnifyApps",
-			"title":"Create a PDF file",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":177799,
@@ -349,5 +352,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
