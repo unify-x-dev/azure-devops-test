@@ -10,11 +10,11 @@
 			"fromNodeId":"n_rjyTM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_MlcvR",
+			"toNodeId":"n_jgEca",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_MlcvR",
+			"fromNodeId":"n_jgEca",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_XHkjo",
@@ -67,7 +67,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761570704508,
+	"modifiedTime":1761571064012,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -113,27 +113,26 @@
 		{
 			"context":{
 				"appName":"gcalendar",
-				"resourceVersion":2301,
+				"resourceVersion":3576,
 				"connectionId":"68fc67107250901fb1583e22",
-				"resourceName":"gcalendar_list_events",
+				"resourceName":"gcalendar_search_events",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
-			"id":"n_MlcvR",
+			"id":"n_jgEca",
 			"index":2,
 			"inputs":{
-				"start_time":"01/10/2025, 03:37 PMa",
 				"singleEvents":false,
 				"calendarId":"primary",
-				"end_time":"",
-				"eventTypes":"birthday"
+				"timeMax":"2025-10-31T18:15:00.000Z",
+				"timeMin":"2025-09-30T18:30:00.000Z"
 			},
 			"skip":false,
 			"subTitle":"Google Calendar",
-			"title":"List events",
+			"title":"Search events",
 			"type":"ACTION"
 		},
 		{
@@ -364,5 +363,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
