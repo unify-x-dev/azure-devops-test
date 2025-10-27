@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761556245485,
+	"modifiedTime":1761556345877,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1940,7 +1940,7 @@
 						}
 					}
 				},
-				"code":"// Assuming the entire JSON is accessible in a variable named 'inputData'\n\ndef resultData = result.result\ndef targetEmpId = result.empid\n\n// Find the employee object in the 'result' list whose 'EmpId__0' matches the 'targetEmpId'\ndef employeeDetails = resultData.result.find { it.EmpId__0 == String.valueOf(targetEmpId) }\n\n// The 'employeeDetails' variable now holds the specific employee's object,\n// or 'null' if no match was found.\n\n// Example output/return (depending on the platform's requirements):\nreturn employeeDetails",
+				"code":"// Assuming the entire JSON is accessible in a variable named 'inputData'\n\n// CORRECTION 1: Use 'inputData' instead of the undefined 'result'\ndef resultData = inputData.result\n\n// CORRECTION 2: Extract the target ID from 'inputData.result'\ndef targetEmpId = resultData.empid\n\n// Find the employee object in the 'result' list whose 'EmpId__0' matches the 'targetEmpId'\n// We ensure 'targetEmpId' is converted to a String for comparison with 'EmpId__0'\ndef employeeDetails = resultData.result.find { it.EmpId__0 == String.valueOf(targetEmpId) }\n\n// The 'employeeDetails' variable now holds the specific employee's object,\n// or 'null' if no match was found.\n\nreturn employeeDetails",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -2004,5 +2004,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":101
+	"version":102
 }
