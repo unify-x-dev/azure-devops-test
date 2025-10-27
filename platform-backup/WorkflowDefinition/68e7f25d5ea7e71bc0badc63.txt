@@ -18,12 +18,34 @@
 			"skip":false,
 			"toNodeId":"n_spQZe",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_spQZe",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oaiAH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oaiAH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2LrlQ",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_2LrlQ",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oaiAH",
+			"type":"next"
 		}
 	],
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":44567,
 	"lcName":"test",
-	"modifiedTime":1761581993904,
+	"modifiedTime":1761582604460,
 	"name":"test",
 	"nodes":[
 		{
@@ -101,12 +123,124 @@
 				"encoding":"UTF-8",
 				"dataSource":"{{ n_lrZGi.outputs.objects }}",
 				"keepExactFileName":false,
-				"fileType":"jsonl"
+				"fileType":"json"
 			},
 			"skip":false,
 			"subTitle":"JSON by UnifyApps",
 			"title":"Write data to JSON file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"json_by_unifyapps",
+				"resourceVersion":160,
+				"resourceName":"json_by_unifyapps_for_each_record_or_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2qSYX-1",
+			"id":"n_oaiAH",
+			"index":4,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"createdTime":{
+							"type":"integer",
+							"title":"createdTime"
+						},
+						"deleted":{
+							"type":"boolean",
+							"title":"deleted"
+						},
+						"entityType":{
+							"type":"string",
+							"title":"entityType"
+						},
+						"id":{
+							"type":"string",
+							"title":"id"
+						},
+						"lastModifiedBy":{
+							"type":"integer",
+							"title":"lastModifiedBy"
+						},
+						"modifiedTime":{
+							"type":"integer",
+							"title":"modifiedTime"
+						},
+						"ownerUserId":{
+							"type":"integer",
+							"title":"ownerUserId"
+						},
+						"properties":{
+							"type":"object",
+							"properties":{
+								"connectionID":{
+									"type":"string",
+									"title":"connectionID"
+								},
+								"description":{
+									"type":"string",
+									"title":"description"
+								},
+								"connectionName":{
+									"type":"string",
+									"title":"connectionName"
+								},
+								"iconURL":{
+									"type":"string",
+									"title":"iconURL"
+								}
+							},
+							"title":"properties",
+							"additionalProperties":false
+						},
+						"standard":{
+							"type":"boolean",
+							"title":"standard"
+						},
+						"version":{
+							"type":"integer",
+							"title":"version"
+						}
+					}
+				},
+				"fileDetails":"{{ n_spQZe.outputs.fileDetails }}",
+				"startFromRecord":1,
+				"batch":false,
+				"encoding":"UTF-8",
+				"batchSize":10,
+				"fileType":"json"
+			},
+			"skip":false,
+			"subTitle":"JSON by UnifyApps",
+			"title":"Consume data from JSON file",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"continue",
+				"resourceVersion":791,
+				"resourceName":"continue",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_oaiAH@_2qSYX-1@l",
+			"id":"n_2LrlQ",
+			"index":5,
+			"inputs":{
+				"loop":"n_oaiAH"
+			},
+			"skip":false,
+			"subTitle":"Continue",
+			"title":"Continue",
+			"type":"CONTINUE"
 		}
 	],
 	"ownerUserId":124519,
@@ -126,5 +260,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
