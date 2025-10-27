@@ -5,47 +5,44 @@
 	"createdTime":1761583013352,
 	"deleted":false,
 	"edges":[
-		{
-			"fromNodeId":"_dIYYU",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_QbnXd",
-			"type":"next"
-		}
+		
 	],
 	"id":"68ff9fa5a309a82f9f6fae2b",
 	"lastModifiedBy":511,
 	"lcName":"looptest",
-	"modifiedTime":1761583013352,
+	"modifiedTime":1761583018825,
 	"name":"loopTest",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dIYYU-1",
-			"id":"_dIYYU",
-			"index":0,
+			"id":"n_fAtkw",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_dIYYU-1",
-			"id":"_QbnXd",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":511,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +56,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
