@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761542707270,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_eX5XY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ckKRw",
+			"type":"next"
+		}
+	],
+	"id":"68ff023377db7a5bde98229c",
+	"lastModifiedBy":21,
+	"lcName":"fetch filters",
+	"modifiedTime":1761542707270,
+	"name":"Fetch Filters",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_eX5XY-1",
+			"id":"_eX5XY",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_eX5XY-1",
+			"id":"_ckKRw",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":21,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
