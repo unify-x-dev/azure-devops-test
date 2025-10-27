@@ -5,12 +5,12 @@
 	"createdTime":1761583013352,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761583167563,
+		"deployedAt":1761583197466,
 		"deployedBy":511,
-		"deployedDefinitionId":"68ffa03fa309a82f9f6fb2c5",
+		"deployedDefinitionId":"68ffa05da309a82f9f6fb3bf",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":7
+		"version":4,
+		"workflowVersion":8
 	},
 	"edges":[
 		
@@ -32,7 +32,7 @@
 	"id":"68ff9fa5a309a82f9f6fae2b",
 	"lastModifiedBy":511,
 	"lcName":"looptest",
-	"modifiedTime":1761583195753,
+	"modifiedTime":1761583223688,
 	"name":"loopTest",
 	"nodes":[
 		{
@@ -42,14 +42,27 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dIYYU-1",
 			"id":"n_fAtkw",
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"b":{
+								"type":"string",
+								"title":"B"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"b"
+						]
+					}
 				}
 			},
 			"skip":false,
@@ -78,5 +91,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
