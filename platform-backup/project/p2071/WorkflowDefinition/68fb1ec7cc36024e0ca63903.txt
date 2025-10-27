@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761554947774,
+	"modifiedTime":1761554984556,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1750,7 +1750,7 @@
 						}
 					}
 				},
-				"code":"// Safely extract input array\ndef inputData = (result?.result?.result ?: []).findAll { it != null }\n\n// If empty, return an empty list to avoid runtime error\nif (!inputData) {\n    return [ Top_Employees: [] ]\n}\n\n// Sort employees by Total_Bonus (desc) and then Total_Leaves (asc)\ndef sortedEmployees = inputData.sort { a, b ->\n    // Default 0 if any value is null\n    def bonusA = a?.Total_Bonus ?: 0\n    def bonusB = b?.Total_Bonus ?: 0\n    def leavesA = a?.Total_Leaves ?: 0\n    def leavesB = b?.Total_Leaves ?: 0\n\n    // Compare by bonus (descending)\n    int bonusCompare = bonusB <=> bonusA\n    if (bonusCompare != 0) {\n        return bonusCompare\n    } else {\n        // If bonuses are equal, compare by leaves (ascending)\n        return leavesA <=> leavesB\n    }\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Return final output\nreturn [ Top_Employees: top5Employees ]\n",
+				"code":"// Safely extract input array\ndef inputData = (result?.result ?: []).findAll { it != null }\n\n// If empty, return an empty list to avoid runtime error\nif (!inputData) {\n    return [ Top_Employees: [] ]\n}\n\n// Sort employees by Total_Bonus (desc) and then Total_Leaves (asc)\ndef sortedEmployees = inputData.sort { a, b ->\n    // Default 0 if any value is null\n    def bonusA = a?.Total_Bonus ?: 0\n    def bonusB = b?.Total_Bonus ?: 0\n    def leavesA = a?.Total_Leaves ?: 0\n    def leavesB = b?.Total_Leaves ?: 0\n\n    // Compare by bonus (descending)\n    int bonusCompare = bonusB <=> bonusA\n    if (bonusCompare != 0) {\n        return bonusCompare\n    } else {\n        // If bonuses are equal, compare by leaves (ascending)\n        return leavesA <=> leavesB\n    }\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Return final output\nreturn [ Top_Employees: top5Employees ]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1913,5 +1913,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":92
+	"version":93
 }
