@@ -112,7 +112,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761570314308,
+	"modifiedTime":1761584268752,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -698,7 +698,7 @@
 						}
 					}
 				},
-				"code":"// 1. Get the preview from the 'snippet' field\ndef preview = mail.snippet\n\n// 2. Get the list of headers\ndef headers = mail.payload.headers\n\n// 3. Find the 'From' header and get its value\n// (The '?' prevents errors if the header is missing)\ndef senderValue = headers.find { it.name == \"From\" }?.value\n\n// 4. Find the 'Subject' header and get its value\ndef subjectValue = headers.find { it.name == \"Subject\" }?.value\n\n// 5. Build the final map in the \"Mail Data\" structure\ndef mailData = [\n    \"Mail Data\": [\n        \"Preview\": preview,\n        \"Subject\": subjectValue,\n        \"Sender\": senderValue\n    ]\n]\n\n// 6. Return the object inside a list to match the \"All_mails\" [ ] schema\nreturn [ mailData ]",
+				"code":"def fromHeaderValue = mail.payload.headers.find { it.name == 'From' }?.value\n\n// Print the result\nprintln fromHeaderValue\nreturn [ fromHeaderValue ]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -983,5 +983,5 @@
 		}
 	},
 	"standard":false,
-	"version":78
+	"version":79
 }
