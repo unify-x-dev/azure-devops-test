@@ -91,7 +91,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761539335304,
+	"modifiedTime":1761539352882,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -220,7 +220,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_xuZmU@_AHF66-1@y",
 			"id":"n_tXZXi",
@@ -231,7 +231,7 @@
 				"captureIterations":true,
 				"batchSize":1,
 				"consumerGroup":"dlq_republisher",
-				"offsetReset":"earliest",
+				"offsetReset":"latest",
 				"commitOption":"MANUAL_COMMIT"
 			},
 			"skip":false,
@@ -444,5 +444,5 @@
 	"tags":[
 		
 	],
-	"version":39
+	"version":40
 }
