@@ -91,7 +91,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761539725436,
+	"modifiedTime":1761539763513,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -231,7 +231,7 @@
 				"captureIterations":true,
 				"batchSize":1,
 				"consumerGroup":"dlq_republisher",
-				"commitOption":"MANUAL_COMMIT"
+				"commitOption":"COMMIT_AFTER_READ"
 			},
 			"skip":false,
 			"subTitle":"Streams by UnifyApps",
@@ -289,7 +289,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tXZXi@n_xuZmU@_AHF66-1@y@l",
 			"id":"n_r5VdM",
@@ -299,7 +299,7 @@
 				"consumerGroup":"dlq_republisher",
 				"timeout":3000
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Streams by UnifyApps",
 			"title":"Commits offsets",
 			"type":"ACTION"
@@ -443,5 +443,5 @@
 	"tags":[
 		
 	],
-	"version":42
+	"version":43
 }
