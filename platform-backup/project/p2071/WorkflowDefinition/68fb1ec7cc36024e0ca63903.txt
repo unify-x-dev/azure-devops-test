@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761555772713,
+	"modifiedTime":1761555815467,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1940,7 +1940,7 @@
 						}
 					}
 				},
-				"code":"// Input variables:\n// data: JSON input containing the employee data\n// empIdToFind: employee ID you want to search for\n\n// Safely extract the employee list\ndef employees = (result?.result ?: []).findAll { it != null }\n\n// Convert to string for consistent comparison\ndef empIdStr = Empid.toString()\n\n// Find employee by matching the EmpId__0 field\ndef matchedEmployee = employees.find { \n    it[\"EmpId__0\"]?.toString() == empIdStr\n}\n\n// Return found record or default message\nif (matchedEmployee) {\n    return matchedEmployee\n} else {\n    return [message: \"Employee with ID ${empIdStr} not found\"]\n}\n",
+				"code":"// Input variables:\n// data: JSON input containing the employee data\n// empIdToFind: employee ID you want to search for\n\n// Safely extract the employee list\ndef employees = (result?.result ?: []).findAll { it != null }\n\n// Convert to string for consistent comparison\ndef empIdStr = Empid.toString()\n\n// Find employee by matching the EmpId__0 field\ndef matchedEmployee = employees.find { \n    it[\"Empid\"]?.toString() == empIdStr\n}\n\n// Return found record or default message\nif (matchedEmployee) {\n    return matchedEmployee\n} else {\n    return [message: \"Employee with ID ${empIdStr} not found\"]\n}\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -2004,5 +2004,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":99
+	"version":100
 }
