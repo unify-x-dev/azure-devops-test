@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761540959851,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_C52UY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_HIPUg",
+			"type":"next"
+		}
+	],
+	"id":"68fefb5f77db7a5bde981b4e",
+	"lastModifiedBy":44567,
+	"lcName":"syncexpiredemployeebadgebulkhttptrigger",
+	"modifiedTime":1761540959851,
+	"name":"SyncExpiredEmployeeBadgeBulkHttpTrigger",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_C52UY-1",
+			"id":"_C52UY",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_C52UY-1",
+			"id":"_HIPUg",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":44567,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
