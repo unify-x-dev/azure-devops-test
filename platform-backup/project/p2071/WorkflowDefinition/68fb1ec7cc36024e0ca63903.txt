@@ -244,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761551357618,
+	"modifiedTime":1761551556597,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1773,7 +1773,7 @@
 						}
 					}
 				},
-				"code":"def inputArray = items\n\n// Step 2: Sort by highest bonus and then by lowest leaves\ndef sortedList = inputArray.sort { a, b ->\n    // First sort descending by bonus\n    def bonusCompare = b.Total_Bonus <=> a.Total_Bonus\n    // If bonus is same, sort ascending by leaves\n    return bonusCompare != 0 ? bonusCompare : a.Total_Leaves <=> b.Total_Leaves\n}\n\n// Step 3: Pick top 5\ndef top5 = sortedList.take(5)\n\n// Step 4: Return result (wrapped for UnifyApps)\nreturn [result: top5]\n",
+				"code":"// Extract the list of employee results from the nested input\ndef employees = inputs?.result?.result ?: []\n\n// Sort employees by Total_Bonus (descending) and Total_Leaves (ascending)\ndef sortedEmployees = employees.sort { a, b ->\n    // Sort primarily by bonus descending, then by leaves ascending\n    b.Total_Bonus <=> a.Total_Bonus ?: a.Total_Leaves <=> b.Total_Leaves\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Wrap and return\nreturn [ top5Employees: top5Employees ]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1909,5 +1909,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":77
+	"version":78
 }
