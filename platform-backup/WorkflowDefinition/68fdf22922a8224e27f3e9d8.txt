@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"gcalendar"
+		"gcalendar",
+		"openai"
 	],
 	"createdTime":1761473065978,
 	"deleted":false,
@@ -37,6 +38,13 @@
 			"fromNodeId":"n_wLKEV",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_1NDHR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1NDHR",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_44b6q",
 			"type":"next"
 		},
@@ -66,7 +74,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761474624906,
+	"modifiedTime":1761570665005,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -81,7 +89,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
 			"id":"n_rjyTM",
@@ -143,7 +151,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
 			"id":"n_XHkjo",
@@ -270,17 +278,41 @@
 		},
 		{
 			"context":{
+				"appName":"openai",
+				"resourceVersion":5482,
+				"connectionId":"68ea9540a5e5253b2d030eea",
+				"resourceName":"openai_analyze_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_GmL4O@_S8WBh-1@l",
+			"id":"n_1NDHR",
+			"index":6,
+			"inputs":{
+				"source_text":"{{ n_wLKEV.outputs.text }}",
+				"instruction":"Today's complete schedule ,Simple formatting, easy to read\n",
+				"model":"gpt-4o"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Analyze text",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1116,
 				"resourceName":"callables_call_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_GmL4O@_S8WBh-1@l",
 			"id":"n_44b6q",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"automationId":"66dfd76eb70dad256986b784",
 				"runtimeConnections":{},
@@ -308,11 +340,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_GmL4O@_S8WBh-1@l",
 			"id":"n_w1jX8",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"variables":[
 					{
@@ -334,11 +366,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
 			"id":"_6A7vs",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"result":{
 					"text":"{{ n_XHkjo.outputs.text }}"
@@ -371,5 +403,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
