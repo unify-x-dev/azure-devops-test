@@ -74,6 +74,13 @@
 		},
 		{
 			"fromNodeId":"_gMVU5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_J7UPe",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_J7UPe",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -98,7 +105,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761542340434,
+	"modifiedTime":1761542386230,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -469,6 +476,32 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":999,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_JwVqn@n_xuZmU@_AHF66-1@n@l",
+			"id":"n_J7UPe",
+			"index":9,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_NoiQB.outputs.eventCount }}",
+						"value":"=SUM({{ n_NoiQB.outputs.eventCount }},1)"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":807,
 				"resourceName":"callables_return_to_automation",
@@ -479,7 +512,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_AHF66-1",
 			"id":"n_yW4eC",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"result":{
 					"pushed":"true"
@@ -508,5 +541,5 @@
 	"tags":[
 		
 	],
-	"version":45
+	"version":46
 }
