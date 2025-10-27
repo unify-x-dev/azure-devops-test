@@ -52,7 +52,7 @@
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":44567,
 	"lcName":"test",
-	"modifiedTime":1761582612251,
+	"modifiedTime":1761582737250,
 	"name":"test",
 	"nodes":[
 		{
@@ -128,7 +128,7 @@
 				"appendData":false,
 				"fileName":"dwedew",
 				"encoding":"UTF-8",
-				"dataSource":"{{ n_lrZGi.outputs.objects }}",
+				"dataSource":"{{ n_lrZGi.outputs.objects[0].entityType }}",
 				"keepExactFileName":false,
 				"fileType":"json"
 			},
@@ -282,5 +282,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
