@@ -222,7 +222,7 @@
 			"fromNodeId":"_9hKdo",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_x4c15",
+			"toNodeId":"_BJffw",
 			"type":"next"
 		},
 		{
@@ -233,7 +233,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_x4c15",
+			"fromNodeId":"_BJffw",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761555143310,
+	"modifiedTime":1761555432313,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1694,7 +1694,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_CHCIq@_m0AlG-1@1",
 			"id":"n_V0qwC",
@@ -1857,37 +1857,110 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.result.result.items.EmpId__0",
+					"root.parameters.result.result.items.Name__1",
+					"root.parameters.result.result.items.Department__2",
+					"root.parameters.result.result.items.Total_Bonus",
+					"root.parameters.result.result.items.Total_Leaves",
+					"root.parameters.result.result.items.Quarters.items"
+				]
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
-				"resourceVersion":1031,
+				"resourceVersion":1030,
 				"resourceName":"code_by_unifyapps_groovy",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_CHCIq@_m0AlG-1@2",
-			"id":"n_x4c15",
+			"id":"_BJffw",
 			"index":26,
 			"inputs":{
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[
-						"emp_id"
-					],
 					"properties":{
-						"emp_id":{
-							"type":"number",
-							"title":"Emp Id"
+						"result":{
+							"type":"object",
+							"properties":{
+								"result":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{
+											"EmpId__0":{
+												"type":"string",
+												"title":"EmpId__0"
+											},
+											"Name__1":{
+												"type":"string",
+												"title":"Name__1"
+											},
+											"Department__2":{
+												"type":"string",
+												"title":"Department__2"
+											},
+											"Total_Bonus":{
+												"type":"integer",
+												"title":"Total_Bonus"
+											},
+											"Total_Leaves":{
+												"type":"integer",
+												"title":"Total_Leaves"
+											},
+											"Quarters":{
+												"type":"array",
+												"items":{
+													"type":"string"
+												},
+												"title":"Quarters"
+											}
+										},
+										"additionalProperties":false
+									},
+									"title":"result"
+								},
+								"empId":{
+									"type":"number",
+									"title":"Emp Id"
+								}
+							},
+							"title":"result",
+							"additionalProperties":false,
+							"required":[
+								"empId"
+							]
 						}
 					}
 				},
-				"code":"// Extract employee list safely\ndef employees = (empId).findAll { it != null }\n\n// Extract employee ID from input (ensure it's a string for comparison)\ndef empId = (input?.EmpId ?: \"\").toString().trim()\n\n// If no ID provided, return helpful message\nif (!empId) {\n    return [ message: \"Employee ID not provided\", Employee_Details: null ]\n}\n\n// Find matching employee (EmpId__0 field in your data)\ndef matchedEmployee = employees.find { it.EmpId__0?.toString()?.trim() == empId }\n\n// Return result\nif (matchedEmployee) {\n    return [ message: \"Employee found\", Employee_Details: matchedEmployee ]\n} else {\n    return [ message: \"No employee found for ID: ${empId}\", Employee_Details: null ]\n}\n",
+				"code":"// Input: data (JSON object as shown) and empIdToFind (string or number)\n\n// Example variable names used in UnifyApps:\n// data = input JSON\n// empIdToFind = the employee ID to search for\n\ndef employees = result?.result ?: []\ndef empIdStr = EmpId.toString()\n\n// Find the matching employee\ndef matchedEmployee = employees.find { it.EmpId__0.toString() == empIdStr }\n\n// If found, return the employee details\nif (matchedEmployee) {\n    return matchedEmployee\n} else {\n    // If not found, return a default message or empty map\n    return [message: \"Employee with ID ${empIdStr} not found\"]\n}\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"emp_id":"{{ n_yM97Y.outputs.empid }}"
+					"result":{
+						"result":{
+							"source":"{{ n_lSLD7.outputs.result.result }}",
+							"ua:type":"mappedArray",
+							"items":{
+								"EmpId__0":"{{ n_lSLD7.outputs.result.result[0].EmpId__0 }}",
+								"Name__1":"{{ n_lSLD7.outputs.result.result[0].Name__1 }}",
+								"Department__2":"{{ n_lSLD7.outputs.result.result[0].Department__2 }}",
+								"Total_Bonus":"{{ n_lSLD7.outputs.result.result[0].Total_Bonus }}",
+								"Total_Leaves":"{{ n_lSLD7.outputs.result.result[0].Total_Leaves }}",
+								"Quarters":{
+									"source":"{{ n_lSLD7.outputs.result.result[0].Quarters }}",
+									"ua:type":"mappedArray"
+								}
+							}
+						}
+					}
 				}
 			},
 			"skip":false,
@@ -1930,5 +2003,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":94
+	"version":97
 }
