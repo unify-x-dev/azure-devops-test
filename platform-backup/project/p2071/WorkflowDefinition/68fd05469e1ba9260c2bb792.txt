@@ -58,6 +58,13 @@
 		},
 		{
 			"fromNodeId":"n_uHgvE",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Q5FUw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Q5FUw",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -112,7 +119,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761584657913,
+	"modifiedTime":1761584753505,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -577,14 +584,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_cI12S",
 			"index":7,
 			"inputs":{
 				"format":"metadata",
-				"id":"19a22acab0200a21"
+				"id":"{{ n_Jv9R1.outputs.item.id }}"
 			},
 			"skip":false,
 			"subTitle":"Gmail",
@@ -622,6 +629,31 @@
 			"id":"n_uHgvE",
 			"index":8,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"Mail Data":{
+							"type":"object",
+							"properties":{
+								"Subject":{
+									"type":"string",
+									"title":"Subject"
+								},
+								"Sender":{
+									"type":"string",
+									"title":"Sender"
+								},
+								"snippet":{
+									"type":"string",
+									"title":"snippet"
+								}
+							},
+							"title":"Mail Data",
+							"additionalProperties":false
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -727,6 +759,38 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":988,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
+			"id":"n_Q5FUw",
+			"index":9,
+			"inputs":{
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_uHgvE.outputs.result }}",
+					"items":{
+						"mailData":{
+							"preview":"{{ n_uHgvE.outputs.result.Mail Data.snippet }}",
+							"subject":"{{ n_uHgvE.outputs.result.Mail Data.Subject }}",
+							"sender":"{{ n_uHgvE.outputs.result.Mail Data.Subject }}"
+						}
+					}
+				},
+				"listName":"{{ n_ERo7X.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -737,7 +801,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"name":"Calender"
 			},
@@ -758,7 +822,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"calendarId":"primary"
 			},
@@ -791,7 +855,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
-			"index":11,
+			"index":12,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -952,7 +1016,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -983,5 +1047,5 @@
 		}
 	},
 	"standard":false,
-	"version":85
+	"version":86
 }
