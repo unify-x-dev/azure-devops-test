@@ -197,6 +197,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"_LQwfG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_V0qwC",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_CHCIq",
 			"name":"2",
 			"priority":0,
@@ -212,7 +219,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_LQwfG",
+			"fromNodeId":"n_V0qwC",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -237,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761542439222,
+	"modifiedTime":1761550742733,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1499,7 +1506,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_Sv4Ke",
@@ -1520,7 +1527,7 @@
 					}
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Create or update records in bulk",
 			"type":"ACTION"
@@ -1623,7 +1630,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_CHCIq@_m0AlG-1@1",
 			"id":"_LQwfG",
@@ -1654,9 +1661,97 @@
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1030,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CHCIq@_m0AlG-1@1",
+			"id":"n_V0qwC",
+			"index":23,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"EmpId__0":{
+							"type":"string",
+							"title":"EmpId__0"
+						},
+						"Name__1":{
+							"type":"string",
+							"title":"Name__1"
+						},
+						"Department__2":{
+							"type":"string",
+							"title":"Department__2"
+						},
+						"Total_Bonus":{
+							"type":"integer",
+							"title":"Total_Bonus"
+						},
+						"Total_Leaves":{
+							"type":"integer",
+							"title":"Total_Leaves"
+						},
+						"Quarters":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Quarters"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"EmpId__0":{
+							"type":"string",
+							"title":"EmpId__0"
+						},
+						"Name__1":{
+							"type":"string",
+							"title":"Name__1"
+						},
+						"Department__2":{
+							"type":"string",
+							"title":"Department__2"
+						},
+						"Total_Bonus":{
+							"type":"integer",
+							"title":"Total_Bonus"
+						},
+						"Total_Leaves":{
+							"type":"integer",
+							"title":"Total_Leaves"
+						},
+						"Quarters":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Quarters"
+						}
+					}
+				},
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
 		{
@@ -1667,11 +1762,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_CHCIq@_m0AlG-1@2",
 			"id":"n_CHCIq@2",
-			"index":23,
+			"index":24,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -1702,7 +1797,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_CHCIq@_m0AlG-1@2",
 			"id":"_9hKdo",
-			"index":24,
+			"index":25,
 			"inputs":{
 				"searchField":{
 					"fields":[
@@ -1749,7 +1844,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":25,
+			"index":26,
 			"inputs":{
 				"result":{
 					"flag":"{{ n_yM97Y.outputs.flag }}"
@@ -1772,5 +1867,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":71
+	"version":72
 }
