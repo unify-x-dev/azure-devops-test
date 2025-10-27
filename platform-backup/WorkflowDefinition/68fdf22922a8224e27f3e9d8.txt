@@ -67,7 +67,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761571141140,
+	"modifiedTime":1761571171235,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -198,14 +198,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
 			"id":"n_GmL4O",
 			"index":4,
 			"inputs":{
 				"repeatMode":"SINGLE",
-				"listSource":"{{ n_MlcvR.outputs.items }}",
+				"listSource":"{{ n_jgEca.outputs.items }}",
 				"captureIterations":true
 			},
 			"skip":false,
@@ -363,5 +363,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
