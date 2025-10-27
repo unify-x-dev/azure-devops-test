@@ -23,7 +23,7 @@
 	"id":"68fefb5f77db7a5bde981b4e",
 	"lastModifiedBy":44567,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeeactivitiesbulkhttptrigger",
-	"modifiedTime":1761554566228,
+	"modifiedTime":1761564443901,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeActivitiesBulkHttpTrigger",
 	"nodes":[
 		{
@@ -33,16 +33,39 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
 			"id":"n_xY82L",
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"requestBody":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false,
+								"title":"Request Body"
+							}
+						},
+						"additionalProperties":false,
+						"required":[]
+					}
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"name":"200 ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -83,13 +106,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
 			"id":"n_GVBx1",
 			"index":3,
 			"inputs":{
-				"streamingCompleted":true
+				"streamingCompleted":true,
+				"responseName":"200_200 ok",
+				"set_cookies":[],
+				"status":200
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -115,5 +141,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":12
 }
