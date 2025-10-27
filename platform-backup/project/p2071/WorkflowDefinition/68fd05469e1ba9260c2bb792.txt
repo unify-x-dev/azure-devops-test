@@ -76,7 +76,7 @@
 			"fromNodeId":"n_Jv9R1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_9Uicn",
+			"toNodeId":"n_Zl8io",
 			"type":"next"
 		},
 		{
@@ -102,7 +102,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_9Uicn",
+			"fromNodeId":"n_Zl8io",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -127,7 +127,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761584970126,
+	"modifiedTime":1761585204035,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -801,7 +801,7 @@
 			"context":{
 				"appName":"openai",
 				"resourceVersion":5509,
-				"connectionId":"67fe3b1ee195ac20a4c710ff",
+				"connectionId":"687f681cf0fed6021b5c6b04",
 				"resourceName":"openai_summarize_text",
 				"type":"APPLICATION"
 			},
@@ -809,10 +809,10 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"n_9Uicn",
+			"id":"n_Zl8io",
 			"index":10,
 			"inputs":{
-				"max_words":200,
+				"max_words":150,
 				"source_text":"{{ n_ERo7X.outputs.items }}",
 				"model":"gpt-4o-mini"
 			},
@@ -1079,5 +1079,5 @@
 		}
 	},
 	"standard":false,
-	"version":88
+	"version":89
 }
