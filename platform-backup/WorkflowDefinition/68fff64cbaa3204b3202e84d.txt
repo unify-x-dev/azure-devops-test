@@ -5,17 +5,83 @@
 	"createdTime":1761605196901,
 	"deleted":false,
 	"edges":[
-		
+		{
+			"fromNodeId":"n_ynQsj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Ts3b8",
+			"type":"next"
+		}
 	],
 	"id":"68fff64cbaa3204b3202e84d",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2rqxtyk1ajm63",
-	"modifiedTime":1761605196901,
+	"modifiedTime":1761605197208,
 	"name":"changeSetQA2rqXtYk1aJM63",
 	"nodes":[
-		
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":70,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_a76FH-1",
+			"id":"n_ynQsj",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"res":{
+							"type":"string",
+							"title":"res"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"res"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":73,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_a76FH-1",
+			"id":"n_Ts3b8",
+			"index":2,
+			"inputs":{
+				"result":{
+					"res":"hi"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -26,5 +92,8 @@
 		}
 	},
 	"standard":false,
-	"version":0
+	"tags":[
+		
+	],
+	"version":1
 }
