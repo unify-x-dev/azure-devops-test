@@ -222,7 +222,7 @@
 			"fromNodeId":"_9hKdo",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DzowR",
+			"toNodeId":"n_W5YlN",
 			"type":"next"
 		},
 		{
@@ -233,7 +233,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_DzowR",
+			"fromNodeId":"n_W5YlN",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761552604093,
+	"modifiedTime":1761552918127,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1694,7 +1694,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_CHCIq@_m0AlG-1@1",
 			"id":"n_V0qwC",
@@ -1750,7 +1750,7 @@
 						}
 					}
 				},
-				"code":"// Safely extract employee list\ndef employees = result?.result?.result?.findAll { it != null } ?: []\n\n// Sort by highest bonus, then lowest leaves\ndef sortedEmployees = employees.sort { \n    [- (it.Total_Bonus ?: 0), (it.Total_Leaves ?: 0)] \n}\n\n// Take top 5\ndef top5 = sortedEmployees.take(5)\n\n// Assign rank safely\ntop5.eachWithIndex { emp, index ->\n    if (emp) emp.Rank = index + 1\n}\n\n// Return result\nreturn [top5: top5]\n",
+				"code":"// Input from UnifyApps\ndef inputData = result.result.result\n\n// Sort employees by Total_Bonus (desc) and then Total_Leaves (asc)\ndef sortedEmployees = inputData.sort { a, b ->\n    // First compare by bonus (descending)\n    int bonusCompare = b.Total_Bonus <=> a.Total_Bonus\n    if (bonusCompare != 0) {\n        return bonusCompare\n    } else {\n        // If bonuses are equal, compare by leaves (ascending)\n        return a.Total_Leaves <=> b.Total_Leaves\n    }\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Prepare final result\ndef output = [\n    Top_Employees: top5Employees\n]\n\n// Return or store in variable as needed in UnifyApps\nreturn output\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1867,23 +1867,11 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_CHCIq@_m0AlG-1@2",
-			"id":"n_DzowR",
+			"id":"n_W5YlN",
 			"index":26,
 			"inputs":{
-				"filter":{
-					"filters":[
-						{
-							"property":"{{ n_lSLD7.outputs.result.result[0].EmpId__0 }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_yM97Y.outputs.empid }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
 				"entityType":"{{ n_lSLD7.outputs.result }}",
-				"group":"\n{{ n_lSLD7.outputs.result }}"
+				"group":"ENTITY_REPORTING{{ n_lSLD7.outputs.result }}"
 			},
 			"skip":false,
 			"subTitle":"Analytics by UnifyApps",
@@ -1925,5 +1913,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":87
+	"version":88
 }
