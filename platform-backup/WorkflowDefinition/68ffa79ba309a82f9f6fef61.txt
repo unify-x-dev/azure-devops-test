@@ -16,6 +16,28 @@
 			"fromNodeId":"n_UiXfr",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_NEROV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_NEROV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dlCX5",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_dlCX5",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_NEROV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_NEROV",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_yjdMc",
 			"type":"next"
 		}
@@ -23,7 +45,7 @@
 	"id":"68ffa79ba309a82f9f6fef61",
 	"lastModifiedBy":45012,
 	"lcName":"test",
-	"modifiedTime":1761589020996,
+	"modifiedTime":1761589258343,
 	"name":"test",
 	"nodes":[
 		{
@@ -307,6 +329,40 @@
 		},
 		{
 			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6puYK-1",
+			"id":"n_NEROV",
+			"index":3,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_UiXfr.outputs.items[0].items }}",
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_NEROV@_6puYK-1@l",
+			"id":"n_dlCX5",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"netsuite",
 				"resourceVersion":1362,
 				"connectionId":"68b571d44b7eb16a12bdd9eb",
@@ -318,7 +374,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6puYK-1",
 			"id":"n_yjdMc",
-			"index":3,
+			"index":5,
 			"inputs":{
 				"query":"\"SELECT {{ n_UiXfr.outputs.items[0].items[0] }} from transaction FETCH FIRST 1 ROW ONLY\""
 			},
@@ -345,5 +401,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
