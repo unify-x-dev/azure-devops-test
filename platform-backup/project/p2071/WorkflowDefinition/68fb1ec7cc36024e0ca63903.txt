@@ -219,13 +219,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_9hKdo",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_W5YlN",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_V0qwC",
 			"priority":0,
 			"skip":false,
@@ -233,7 +226,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_W5YlN",
+			"fromNodeId":"_9hKdo",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -251,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761553226921,
+	"modifiedTime":1761553346369,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1858,28 +1851,6 @@
 		},
 		{
 			"context":{
-				"appName":"analytics_by_unifyapps",
-				"resourceVersion":1012,
-				"resourceName":"analytics_by_unifyapps_query_reports",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_CHCIq@_m0AlG-1@2",
-			"id":"n_W5YlN",
-			"index":26,
-			"inputs":{
-				"entityType":"{{ n_lSLD7.outputs.result }}",
-				"group":"ENTITY_REPORTING{{ n_lSLD7.outputs.result }}"
-			},
-			"skip":true,
-			"subTitle":"Analytics by UnifyApps",
-			"title":"Analytics Query",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":1091,
 				"resourceName":"callables_return_to_automation",
@@ -1890,7 +1861,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":27,
+			"index":26,
 			"inputs":{
 				"result":{
 					"flag":"{{ n_yM97Y.outputs.flag }}"
@@ -1913,5 +1884,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":90
+	"version":91
 }
