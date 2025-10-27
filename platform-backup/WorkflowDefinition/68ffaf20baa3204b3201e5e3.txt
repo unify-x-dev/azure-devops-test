@@ -1,51 +1,165 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761586976991,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_lPkKM",
+			"fromNodeId":"n_CSUUK",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_5DObD",
+			"toNodeId":"n_8BMZr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8BMZr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zJeYp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_zJeYp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fEnOp",
 			"type":"next"
 		}
 	],
 	"id":"68ffaf20baa3204b3201e5e3",
 	"lastModifiedBy":190398,
 	"lcName":"emailautomations",
-	"modifiedTime":1761586976991,
+	"modifiedTime":1761593089492,
 	"name":"emailAutomations",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":2966,
+				"connectionId":"68ff375d0cc6fc60b7728488",
+				"resourceName":"gmail_on_new_attachment"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_lPkKM-1",
-			"id":"_lPkKM",
-			"index":0,
+			"id":"n_CSUUK",
+			"index":1,
+			"inputs":{
+				"pageSize":500,
+				"interval":2,
+				"batchSize":5
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Gmail",
+			"title":"New Email Attachment",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":3500,
+				"connectionId":"68ff375d0cc6fc60b7728488",
+				"resourceName":"gmail_remove_labels",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_lPkKM-1",
-			"id":"_5DObD",
-			"index":0,
+			"id":"n_8BMZr",
+			"index":2,
+			"inputs":{
+				"labelIds":{
+					"source":"{{ n_CSUUK.outputs.batch[0].raw.labelIds[0] }}",
+					"ua:type":"mappedArray"
+				},
+				"id":"{{ __USER__.outputs.id }}"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"Remove labels",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":990,
+				"resourceName":"files_by_unifyapps_create_temp_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_lPkKM-1",
+			"id":"n_zJeYp",
+			"index":3,
+			"inputs":{
+				"isTmp":true,
+				"initialContentType":"base64",
+				"type":"SINGLE",
+				"fileType":"txt"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Create a file",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.attachments.items.file_name",
+					"root.attachments.items.attachment_option"
+				]
+			},
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5632,
+				"connectionId":"68ff375d0cc6fc60b7728488",
+				"resourceName":"gmail_send_email",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_lPkKM-1",
+			"id":"n_fEnOp",
+			"index":4,
+			"inputs":{
+				"labelIds":{
+					"source":"{{ n_8BMZr.outputs.labelIds }}",
+					"ua:type":"mappedArray",
+					"items":"UNREAD"
+				},
+				"attachments":{
+					"source":"{{ n_zJeYp.outputs.fileDetails }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"file_name":"{{ n_zJeYp.outputs.fileDetails.name }}",
+						"attachment_option":"use_file_binary_content",
+						"file_binary_content":"{{ n_zJeYp.outputs.fileDetails.source }}"
+					}
+				},
+				"email_type":"text",
+				"to":{
+					"source":"{{ n_CSUUK.outputs.batch[0].id }}",
+					"ua:type":"mappedArray"
+				}
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Send email",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190398,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +173,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":2
 }
