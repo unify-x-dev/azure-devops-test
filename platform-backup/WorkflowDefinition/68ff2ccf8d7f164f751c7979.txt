@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761553615078,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_fSb6B",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_2okeu",
+			"type":"next"
+		}
+	],
+	"id":"68ff2ccf8d7f164f751c7979",
+	"lastModifiedBy":124029,
+	"lcName":"rate limit",
+	"modifiedTime":1761553615078,
+	"name":"rate limit",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_fSb6B-1",
+			"id":"_fSb6B",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_fSb6B-1",
+			"id":"_2okeu",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":124029,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
