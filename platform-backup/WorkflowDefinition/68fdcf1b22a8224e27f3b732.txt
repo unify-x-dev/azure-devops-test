@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"gmail"
+		"gmail",
+		"openai"
 	],
 	"createdTime":1761464091910,
 	"deleted":false,
@@ -58,6 +59,13 @@
 			"fromNodeId":"n_wLKEV",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_IGlcC",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_IGlcC",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_44b6q",
 			"type":"next"
 		},
@@ -94,7 +102,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_gmail",
-	"modifiedTime":1761474759367,
+	"modifiedTime":1761570362617,
 	"name":"Automation_Assignment_2_rishabh_gmail",
 	"nodes":[
 		{
@@ -104,7 +112,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_PBHSL",
@@ -184,7 +192,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_RnarG",
@@ -356,17 +364,40 @@
 		},
 		{
 			"context":{
+				"appName":"openai",
+				"resourceVersion":5482,
+				"connectionId":"68ea9540a5e5253b2d030eea",
+				"resourceName":"openai_analyze_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_55XQp@_O8kTq-1@l",
+			"id":"n_IGlcC",
+			"index":9,
+			"inputs":{
+				"instruction":"{{ n_wLKEV.outputs.text }} summarize this email",
+				"model":"gpt-4o"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Analyze text",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1116,
 				"resourceName":"callables_call_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_55XQp@_O8kTq-1@l",
 			"id":"n_44b6q",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"automationId":"66dfd76eb70dad256986b784",
 				"runtimeConnections":{},
@@ -394,11 +425,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_55XQp@_O8kTq-1@l",
 			"id":"n_cxMrp",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"variables":[
 					{
@@ -420,11 +451,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_XMwgM",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"result":{
 					"text":"{{ n_RnarG.outputs.text }}"
@@ -444,7 +475,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_DFd6V",
-			"index":12,
+			"index":13,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -472,5 +503,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
