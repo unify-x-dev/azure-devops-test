@@ -4,13 +4,27 @@
 	],
 	"createdTime":1761569025927,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761569065625,
+		"deployedBy":411,
+		"deployedDefinitionId":"68ff691a7eb24b6f551bb20e",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
-		
+		{
+			"fromNodeId":"n_mH9z7",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5hE6E",
+			"type":"next"
+		}
 	],
 	"id":"68ff69014a56c873c8d708c1",
-	"lastModifiedBy":411,
+	"lastModifiedBy":20249,
 	"lcName":"xnik",
-	"modifiedTime":1761569048120,
+	"modifiedTime":1761572420627,
 	"name":"xnik",
 	"nodes":[
 		{
@@ -21,7 +35,7 @@
 				"resourceName":"bill_on_new_payment"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_MPHa5-1",
 			"id":"n_mH9z7",
@@ -36,6 +50,84 @@
 				"type":"EVENT"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":926,
+				"resourceName":"callables_call_automation_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_MPHa5-1",
+			"id":"n_5hE6E",
+			"index":2,
+			"inputs":{
+				"runtimeConnections":{},
+				"synchronous":true,
+				"distributeWorkflowLoad":false,
+				"version":"-1"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":true,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":411,
@@ -55,5 +147,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
