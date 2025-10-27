@@ -244,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761551743620,
+	"modifiedTime":1761551950886,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1783,7 +1783,7 @@
 						}
 					}
 				},
-				"code":"// Extract the list of employee results from the nested input\ndef employees = result?.result?.result ?: []\n\n// Sort employees by Total_Bonus (descending) and Total_Leaves (ascending)\ndef sortedEmployees = employees.sort { a, b ->\n    // Sort primarily by bonus descending, then by leaves ascending\n    b.Total_Bonus <=> a.Total_Bonus ?: a.Total_Leaves <=> b.Total_Leaves\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Wrap and return\nreturn [ top5Employees: top5Employees ]\n",
+				"code":"// Safely access nested array inside input\ndef employees = result?.result?.result ?: []\n\nif (!employees || employees.isEmpty()) {\n    return [ top5: [] ]\n}\n\n// Sort employees: first by bonus (desc), then by leaves (asc)\ndef sorted = employees.sort { a, b ->\n    def bonusA = (a?.Total_Bonus ?: 0) as BigDecimal\n    def bonusB = (b?.Total_Bonus ?: 0) as BigDecimal\n    def leavesA = (a?.Total_Leaves ?: 0) as Integer\n    def leavesB = (b?.Total_Leaves ?: 0) as Integer\n\n    // Compare bonus first (descending)\n    def bonusCompare = bonusB <=> bonusA\n    if (bonusCompare != 0) {\n        return bonusCompare\n    }\n    // If bonuses are same, prefer fewer leaves\n    return leavesA <=> leavesB\n}\n\n// Get top 5 employees\ndef top5 = sorted.take(5)\n\n// Optionally, add ranking (1–5)\ntop5.eachWithIndex { emp, idx ->\n    emp.Rank = idx + 1\n}\n\n// Return in UnifyApps-friendly structure\nreturn [ top5: top5 ]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1924,5 +1924,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":81
+	"version":82
 }
