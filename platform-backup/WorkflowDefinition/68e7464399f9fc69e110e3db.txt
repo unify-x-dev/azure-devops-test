@@ -5,12 +5,12 @@
 	"createdTime":1759987267245,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761401432958,
+		"deployedAt":1761402337703,
 		"deployedBy":178108,
-		"deployedDefinitionId":"68fcda589e1ba9260c2acf53",
+		"deployedDefinitionId":"68fcdde19e1ba9260c2aeab8",
 		"status":"DEPLOYED",
-		"version":24,
-		"workflowVersion":99
+		"version":25,
+		"workflowVersion":100
 	},
 	"edges":[
 		{
@@ -840,7 +840,7 @@
 	"id":"68e7464399f9fc69e110e3db",
 	"lastModifiedBy":178108,
 	"lcName":"[dnt] multi tenancy | move all assets",
-	"modifiedTime":1761402334405,
+	"modifiedTime":1761547875424,
 	"name":"[DNT] Multi Tenancy | Move All assets",
 	"nodes":[
 		{
@@ -2085,7 +2085,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@1",
 			"id":"_XNmSH",
@@ -3561,7 +3561,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@2",
 			"id":"n_uIfRr",
@@ -3897,12 +3897,6 @@
 				],
 				"filter":{
 					"filters":[
-						{
-							"property":"deployed",
-							"filter":{
-								"operator":"EXISTS"
-							}
-						},
 						{
 							"property":"id",
 							"filter":{
@@ -5309,7 +5303,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@11",
 			"id":"n_6tLoP@11",
@@ -5317,7 +5311,7 @@
 			"inputs":{
 				"name":"Segment Definition"
 			},
-			"skip":false,
+			"skip":true,
 			"title":"",
 			"type":"BRANCH_CONDITION"
 		},
@@ -5329,7 +5323,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@11",
 			"id":"n_SheCv",
@@ -6154,5 +6148,5 @@
 	"tags":[
 		
 	],
-	"version":100
+	"version":101
 }
