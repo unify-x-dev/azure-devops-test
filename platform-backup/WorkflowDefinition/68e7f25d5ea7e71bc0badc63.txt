@@ -52,7 +52,7 @@
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":44567,
 	"lcName":"test",
-	"modifiedTime":1761582737250,
+	"modifiedTime":1761582779949,
 	"name":"test",
 	"nodes":[
 		{
@@ -128,7 +128,7 @@
 				"appendData":false,
 				"fileName":"dwedew",
 				"encoding":"UTF-8",
-				"dataSource":"{{ n_lrZGi.outputs.objects[0].entityType }}",
+				"dataSource":"{{ n_lrZGi.outputs.objects }}",
 				"keepExactFileName":false,
 				"fileType":"json"
 			},
@@ -221,7 +221,7 @@
 				"batch":false,
 				"encoding":"UTF-8",
 				"batchSize":10,
-				"fileType":"json"
+				"fileType":"jsonl"
 			},
 			"skip":false,
 			"subTitle":"JSON by UnifyApps",
@@ -282,5 +282,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
