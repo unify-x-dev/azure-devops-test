@@ -66,13 +66,6 @@
 			"fromNodeId":"n_IGlcC",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_44b6q",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_44b6q",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_cxMrp",
 			"type":"next"
 		},
@@ -102,7 +95,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_gmail",
-	"modifiedTime":1761570403913,
+	"modifiedTime":1761570462112,
 	"name":"Automation_Assignment_2_rishabh_gmail",
 	"nodes":[
 		{
@@ -388,54 +381,22 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1116,
-				"resourceName":"callables_call_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_55XQp@_O8kTq-1@l",
-			"id":"n_44b6q",
-			"index":10,
-			"inputs":{
-				"automationId":"66dfd76eb70dad256986b784",
-				"runtimeConnections":{},
-				"synchronous":true,
-				"triggerWorkflowWithRuntimeType":"DEFAULT",
-				"version":"-1",
-				"parameters":{
-					"content":"{{ n_wLKEV.outputs.text }} summarize this email",
-					"type":"text",
-					"response_format":"text",
-					"maxTokens":409,
-					"temperature":"0.1"
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Call automation",
-			"type":"CALL_WORKFLOW"
-		},
-		{
-			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":999,
 				"resourceName":"variable_by_unifyapps_update_variables",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_55XQp@_O8kTq-1@l",
 			"id":"n_cxMrp",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"variables":[
 					{
 						"source":"{{ n_wLKEV.outputs.text }}",
-						"value":"mail {{ n_55XQp.outputs.index }}: {{ n_44b6q.outputs.llmResponse }}"
+						"value":"mail {{ n_55XQp.outputs.index }}: {{ n_IGlcC.outputs.choices[0].message.content }}"
 					}
 				]
 			},
@@ -456,7 +417,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_XMwgM",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"result":{
 					"text":"{{ n_RnarG.outputs.text }}"
@@ -476,7 +437,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_O8kTq-1",
 			"id":"n_DFd6V",
-			"index":13,
+			"index":12,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -504,5 +465,5 @@
 	"tags":[
 		
 	],
-	"version":20
+	"version":21
 }
