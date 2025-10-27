@@ -4,13 +4,41 @@
 	],
 	"createdTime":1761583013352,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761583024205,
+		"deployedBy":511,
+		"deployedDefinitionId":"68ff9fafa309a82f9f6fae64",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
-		
+		{
+			"fromNodeId":"n_fAtkw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_t7pOq",
+			"type":"next"
+		}
 	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"VIEW_RUNS",
+					"V"
+				],
+				"principalIds":[
+					"87628"
+				],
+				"principalType":"USER"
+			}
+		]
+	},
 	"id":"68ff9fa5a309a82f9f6fae2b",
 	"lastModifiedBy":511,
 	"lcName":"looptest",
-	"modifiedTime":1761583018825,
+	"modifiedTime":1761583097155,
 	"name":"loopTest",
 	"nodes":[
 		{
@@ -20,7 +48,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_dIYYU-1",
 			"id":"n_fAtkw",
@@ -37,6 +65,21 @@
 				"type":"WEBHOOK"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_dIYYU-1",
+			"id":"n_t7pOq",
+			"index":2,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":511,
@@ -56,5 +99,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":3
 }
