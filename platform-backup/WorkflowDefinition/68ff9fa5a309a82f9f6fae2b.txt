@@ -5,21 +5,15 @@
 	"createdTime":1761583013352,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761583148304,
+		"deployedAt":1761583167563,
 		"deployedBy":511,
-		"deployedDefinitionId":"68ffa02ba309a82f9f6fb23e",
+		"deployedDefinitionId":"68ffa03fa309a82f9f6fb2c5",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":5
+		"version":3,
+		"workflowVersion":7
 	},
 	"edges":[
-		{
-			"fromNodeId":"n_fAtkw",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_HRelm",
-			"type":"next"
-		}
+		
 	],
 	"grants":{
 		"configs":[
@@ -38,7 +32,7 @@
 	"id":"68ff9fa5a309a82f9f6fae2b",
 	"lastModifiedBy":511,
 	"lcName":"looptest",
-	"modifiedTime":1761583165929,
+	"modifiedTime":1761583195753,
 	"name":"loopTest",
 	"nodes":[
 		{
@@ -65,59 +59,6 @@
 				"type":"WEBHOOK"
 			},
 			"type":"START"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1082,
-				"resourceName":"variable_by_unifyapps_create_variables",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_dIYYU-1",
-			"id":"n_HRelm",
-			"index":2,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{},
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"var":{
-							"type":"string",
-							"title":"Var"
-						}
-					},
-					"required":[
-						"var"
-					]
-				}
-			},
-			"inputs":{},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"var":{
-							"type":"string",
-							"title":"Var"
-						}
-					},
-					"required":[
-						"var"
-					]
-				}
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create variables",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":511,
@@ -137,5 +78,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
