@@ -80,7 +80,7 @@
 	"id":"68fe7b8e8efc8566d66af8d3",
 	"lastModifiedBy":185019,
 	"lcName":"practice_automation_employeebonusdata",
-	"modifiedTime":1761555096776,
+	"modifiedTime":1761555149108,
 	"name":"practice_automation_employeebonusdata",
 	"nodes":[
 		{
@@ -842,7 +842,6 @@
 				"parameters":{
 					"checkValue":"",
 					"AggregatedList":{
-						"source":"{{ n_0SdyR.outputs.items }}",
 						"ua:type":"mappedArray",
 						"items":{
 							"EmployeeID__0":"{{ n_0SdyR.outputs.items[0].EmployeeID__0 }}",
@@ -851,7 +850,8 @@
 							"Bonus_Amount__3":"{{ n_0SdyR.outputs.items[0].Bonus_Amount__3 }}",
 							"Leaves_Taken__4":"{{ n_0SdyR.outputs.items[0].Leaves_Taken__4 }}",
 							"rowNumber":"{{ n_0SdyR.outputs.items[0].rowNumber }}"
-						}
+						},
+						"source":"{{ n_0SdyR.outputs.items }}"
 					}
 				}
 			},
@@ -916,5 +916,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":17
 }
