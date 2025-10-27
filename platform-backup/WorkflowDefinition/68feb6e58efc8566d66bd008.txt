@@ -1,9 +1,17 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761523429351,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761523429510,
+		"deployedBy":175325,
+		"deployedDefinitionId":"68feb6e58efc8566d66bd009",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"Ew0OA",
@@ -11,12 +19,19 @@
 			"skip":false,
 			"toNodeId":"S1FDY",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"S1FDY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tzXhX",
+			"type":"next"
 		}
 	],
 	"id":"68feb6e58efc8566d66bd008",
-	"lastModifiedBy":175325,
+	"lastModifiedBy":426,
 	"lcName":"changesetqa2wt832iljyeda",
-	"modifiedTime":1761523429430,
+	"modifiedTime":1761539206745,
 	"name":"changeSetQA2wt832IlJyeda",
 	"nodes":[
 		{
@@ -26,11 +41,11 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"oVNXT-1",
 			"id":"Ew0OA",
-			"index":0,
+			"index":1,
 			"inputs":{
 				"request":{
 					"contentType":"application/json",
@@ -81,11 +96,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"oVNXT-1",
 			"id":"S1FDY",
-			"index":0,
+			"index":2,
 			"inputs":{
 				"responseName":"200_Response",
 				"set_cookies":[
@@ -97,6 +112,33 @@
 			"subTitle":"Callable",
 			"title":"Respond to API request",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4598,
+				"resourceName":"storage_by_unifyapps_export_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"oVNXT-1",
+			"id":"n_tzXhX",
+			"index":3,
+			"inputs":{
+				"maxRowsPerFile":1048576,
+				"object_type":"entity_1234",
+				"format":"MM/dd/yyyy",
+				"recordsBatchSize":100,
+				"writeToMultipleFilesIfOverflow":false,
+				"keepExactFileName":false,
+				"fileType":"CSV"
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Export records",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
@@ -112,5 +154,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
