@@ -59,7 +59,7 @@
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":44567,
 	"lcName":"test",
-	"modifiedTime":1761583244047,
+	"modifiedTime":1761583290116,
 	"name":"test",
 	"nodes":[
 		{
@@ -189,14 +189,6 @@
 								"sourceType":{
 									"type":"string",
 									"title":"sourceType"
-								},
-								"ua:type":{
-									"type":"string",
-									"title":"ua:type"
-								},
-								"link":{
-									"type":"string",
-									"title":"link"
 								}
 							},
 							"title":"fileDetails",
@@ -204,7 +196,7 @@
 						}
 					}
 				},
-				"jsonString":"{   \"fileDetails\": {     \"fileType\": \"application/json\",     \"name\": \"dwedew_1761582617509.json\",     \"size\": 6039,     \"source\": \"workflow_uploads/export/1/dwedew_1761582617509.json\",     \"sourceType\": \"CLOUD_STORAGE\",     \"ua:type\": \"FILE\",     \"link\": \"https://qa.unifyapps.com//api/file/download/__UNIFY_ENCR_UNIFYAPPS__V3__e1CQU4sFq3IvXH33OcJWDc7N7UtJrdAb5pcfEJLQa1XPBrjrrT2cobYlSNh6nU9XfDiogX3eRv4Q4gnni6sq2JNG4w%3D%3D\"   } }"
+				"jsonString":"{\n  \"fileDetails\": {\n\"fileType\": \"application/json\",\n\"name\": \"dwedew_1761582617509.json\",\n\"size\": 6039,\n\"source\": \"workflow_uploads/export/1/dwedew_1761582617509.json\",\n\"sourceType\": \"CLOUD_STORAGE\"\n  }\n}"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -290,7 +282,7 @@
 						}
 					}
 				},
-				"fileDetails":"{{ n_1t8GK.outputs.result.fileDetails }}",
+				"fileDetails":"",
 				"startFromRecord":1,
 				"batch":false,
 				"encoding":"UTF-8",
@@ -328,7 +320,7 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_1PLO6",
@@ -356,5 +348,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
