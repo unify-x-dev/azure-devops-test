@@ -1,32 +1,37 @@
 {
 	"appsUsed":[
-		
+		"gdrive",
+		"gmail"
 	],
 	"createdTime":1761553490420,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Fjg7X",
+			"fromNodeId":"n_ZTd8C",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_KhaKE",
+			"toNodeId":"n_97T5a",
 			"type":"next"
 		}
 	],
 	"id":"68ff2c528d7f164f751c7658",
 	"lastModifiedBy":2721,
 	"lcName":"er",
-	"modifiedTime":1761553490420,
+	"modifiedTime":1761556286376,
 	"name":"er",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gmail"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Fjg7X-1",
-			"id":"_Fjg7X",
-			"index":0,
+			"id":"n_ZTd8C",
+			"index":1,
 			"skip":false,
+			"subTitle":"Gmail",
 			"title":"Select a trigger event",
 			"trigger":{
 				"type":"EVENT"
@@ -34,18 +39,34 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gdrive",
+				"resourceVersion":6399,
+				"connectionId":"68ff18653e52511e6bf6f962",
+				"resourceName":"gdrive_upload_files",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Fjg7X-1",
-			"id":"_KhaKE",
-			"index":0,
+			"id":"n_97T5a",
+			"index":2,
+			"inputs":{
+				"attachment":{
+					"attachment_option":"use_file_url"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Google Drive",
+			"title":"Upload a file",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":2721,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +80,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
