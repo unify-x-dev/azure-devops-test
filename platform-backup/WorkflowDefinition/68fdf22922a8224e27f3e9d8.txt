@@ -67,7 +67,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761571064012,
+	"modifiedTime":1761571141140,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -113,9 +113,9 @@
 		{
 			"context":{
 				"appName":"gcalendar",
-				"resourceVersion":3576,
+				"resourceVersion":2308,
 				"connectionId":"68fc67107250901fb1583e22",
-				"resourceName":"gcalendar_search_events",
+				"resourceName":"gcalendar_list_events",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -125,14 +125,14 @@
 			"id":"n_jgEca",
 			"index":2,
 			"inputs":{
+				"start_time":"2025-09-30T18:30:00.000Z",
 				"singleEvents":false,
 				"calendarId":"primary",
-				"timeMax":"2025-10-31T18:15:00.000Z",
-				"timeMin":"2025-09-30T18:30:00.000Z"
+				"end_time":"2025-10-31T18:15:00.000Z"
 			},
 			"skip":false,
 			"subTitle":"Google Calendar",
-			"title":"Search events",
+			"title":"List events",
 			"type":"ACTION"
 		},
 		{
@@ -363,5 +363,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
