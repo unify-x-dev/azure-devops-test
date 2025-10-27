@@ -197,7 +197,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761560954370,
+	"modifiedTime":1761561023767,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1777,11 +1777,10 @@
 				},
 				"input":{
 					"type":"object",
+					"required":[],
 					"properties":{
 						"items":{
 							"type":"array",
-							"title":"results",
-							"disableActions":true,
 							"items":{
 								"type":"object",
 								"properties":{
@@ -1830,12 +1829,14 @@
 										"title":"impactedEntityType"
 									}
 								},
+								"additionalProperties":false,
 								"required":[]
-							}
+							},
+							"title":"items"
 						}
 					}
 				},
-				"code":"def sortResults(safeResults) {\n    if (!safeResults) return [ sortedResults: [] ]\n\n    // Define the sorting order for impact levels\n    def impactOrder = [critical: 1, medium: 2, low: 3]\n\n    // Sort by impact priority (default lowest if unknown)\n    def sortedResults = safeResults.sort { a, b ->\n        def aRank = impactOrder[a.checkImpact?.toLowerCase()] ?: 4\n        def bRank = impactOrder[b.checkImpact?.toLowerCase()] ?: 4\n        aRank <=> bRank\n    }\n\n    [ sortedResults: sortedResults ]\n}\n\ndef safeResults = binding.hasVariable('results') ? results : []\ndef output = sortResults(safeResults)",
+				"code":"def sortResults(safeResults) {\n    if (!safeResults) return [ sortedResults: [] ]\n\n    // Define the sorting order for impact levels\n    def impactOrder = [critical: 1, medium: 2, low: 3]\n\n    // Sort by impact priority (default lowest if unknown)\n    def sortedResults = safeResults.sort { a, b ->\n        def aRank = impactOrder[a.checkImpact?.toLowerCase()] ?: 4\n        def bRank = impactOrder[b.checkImpact?.toLowerCase()] ?: 4\n        aRank <=> bRank\n    }\n\n    [ sortedResults: sortedResults ]\n}\n\ndef safeItems = binding.hasVariable('items') ? items : []\ndef output = sortResults(safeItems)",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1926,5 +1927,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":96
+	"version":97
 }
