@@ -112,7 +112,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761568990521,
+	"modifiedTime":1761569202715,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -595,7 +595,19 @@
 			"additional":{
 				"xsdSchemaConfig":{
 					"root":{}
-				}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.mail.items.id",
+					"root.parameters.mail.items.threadId",
+					"root.parameters.mail.items.labelIds.items",
+					"root.parameters.mail.items.snippet",
+					"root.parameters.mail.items.payload.mimeType",
+					"root.parameters.mail.items.payload.headers.items.name",
+					"root.parameters.mail.items.payload.headers.items.value",
+					"root.parameters.mail.items.sizeEstimate",
+					"root.parameters.mail.items.historyId",
+					"root.parameters.mail.items.internalDate"
+				]
 			},
 			"context":{
 				"appName":"code_by_unifyapps",
@@ -614,7 +626,7 @@
 					"type":"object",
 					"additionalProperties":false,
 					"properties":{
-						"mails":{
+						"mail":{
 							"type":"array",
 							"items":{
 								"type":"object",
@@ -682,13 +694,31 @@
 								},
 								"additionalProperties":false
 							},
-							"title":"mails"
+							"title":"mail"
 						}
 					}
 				},
-				"code":"// 1. Get the preview from the 'snippet' field\ndef preview = mails.snippet\n\n// 2. Get the list of headers\ndef headers = mails.payload.headers\n\n// 3. Find the 'From' header and get its value\n// (The '?' prevents errors if the header is missing)\ndef senderValue = headers.find { it.name == \"From\" }?.value\n\n// 4. Find the 'Subject' header and get its value\ndef subjectValue = headers.find { it.name == \"Subject\" }?.value\n\n// 5. Build the final map in the \"Mail Data\" structure\ndef mailData = [\n    \"Mail Data\": [\n        \"Preview\": preview,\n        \"Subject\": subjectValue,\n        \"Sender\": senderValue\n    ]\n]\n\n// 6. Return the object inside a list to match the \"All_mails\" [ ] schema\nreturn [ mailData ]",
+				"code":"// 1. Get the preview from the 'snippet' field\ndef preview = mail.snippet\n\n// 2. Get the list of headers\ndef headers = mail.payload.headers\n\n// 3. Find the 'From' header and get its value\n// (The '?' prevents errors if the header is missing)\ndef senderValue = headers.find { it.name == \"From\" }?.value\n\n// 4. Find the 'Subject' header and get its value\ndef subjectValue = headers.find { it.name == \"Subject\" }?.value\n\n// 5. Build the final map in the \"Mail Data\" structure\ndef mailData = [\n    \"Mail Data\": [\n        \"Preview\": preview,\n        \"Subject\": subjectValue,\n        \"Sender\": senderValue\n    ]\n]\n\n// 6. Return the object inside a list to match the \"All_mails\" [ ] schema\nreturn [ mailData ]",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"mail":{
+						"items":{
+							"snippet":"{{ n_cI12S.outputs.snippet }}",
+							"payload":{
+								"headers":{
+									"source":"{{ n_cI12S.outputs.payload.headers }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"name":"{{ n_cI12S.outputs.payload.headers[0].name }}",
+										"value":"{{ n_cI12S.outputs.payload.headers[0].value }}"
+									}
+								}
+							}
+						},
+						"ua:type":"mappedArray"
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -953,5 +983,5 @@
 		}
 	},
 	"standard":false,
-	"version":70
+	"version":71
 }
