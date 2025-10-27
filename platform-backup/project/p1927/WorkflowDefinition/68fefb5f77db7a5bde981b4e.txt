@@ -6,47 +6,102 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_C52UY",
+			"fromNodeId":"n_xY82L",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_HIPUg",
+			"toNodeId":"n_2G9Iq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2G9Iq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GVBx1",
 			"type":"next"
 		}
 	],
 	"id":"68fefb5f77db7a5bde981b4e",
 	"lastModifiedBy":44567,
 	"lcName":"syncexpiredemployeebadgebulkhttptrigger",
-	"modifiedTime":1761540959851,
+	"modifiedTime":1761541259801,
 	"name":"SyncExpiredEmployeeBadgeBulkHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1151,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
-			"id":"_C52UY",
-			"index":0,
+			"id":"n_xY82L",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":219,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
-			"id":"_HIPUg",
-			"index":0,
+			"id":"n_2G9Iq",
+			"index":2,
+			"inputs":{
+				"code":" MetricRequest<IEnumerable<IndividualMetric>> metrics = JsonSerializer.Deserialize<MetricRequest<IEnumerable<IndividualMetric>>>(requestBody);\n                    var activityId = metrics.ActivityId;\n                    if (metrics.ActivityId <= 0)\n                    {\n                        return new BadRequestObjectResult(\"Invalid activity\");\n                    }\n\n                    if (!metrics.Data.Any())\n                    {\n                        return new BadRequestObjectResult(\"Invalid inputs\");\n                    }\n\n                    var applicationId = principal.Claims.FirstOrDefault(e => e.Type == \"appid\")?.Value;\n                    var isAuthorize = await _clientService.IsAuthorize(applicationId, metrics.ActivityId);\n\n                    if (!isAuthorize)\n                    {\n                        var result = new ObjectResult($\"You are not authorized to send activities to activity id: {metrics.ActivityId}\")\n                        {\n                            StatusCode = StatusCodes.Status403Forbidden\n                        };\n\n                        return result;\n                    }\n\n                    var failedRecords = new List<IndividualMetric>();\n\n                    foreach (var metric in metrics.Data)\n                    {\n                        try\n                        {\n                            if (string.IsNullOrEmpty(metric.UserName))\n                            {\n                                log.LogError(\"Empty UserName\");\n                                failedRecords.Add(metric);\n                                continue;\n                            }\n                            if(activityId == 0)\n                            {\n                                log.LogError(\"Empty Activity ID\");\n                                failedRecords.Add(metric);\n                                continue;\n                            }\n                            if (metric.Score == 0)\n                            {\n                                log.LogError(\"Empty Score\");\n                                failedRecords.Add(metric);\n                                continue;\n                            }\n                            if (metric.EffectiveDate == DateTime.MinValue)\n                            {\n                                log.LogError(\"Empty EffectiveDate\");\n                                failedRecords.Add(metric);\n                                continue;\n                            }\n\n                            metric.ActivityId = activityId;\n                            await _employeeActivityService.GenerateAsync(activityId, metric).ConfigureAwait(false);\n                        }\n                        catch (ActivityNotFoundException e)\n                        {\n                            log.LogError($\"Error: {e}\");\n                            return new BadRequestObjectResult($\"Invalid activity. { e.Message}\");\n                        }\n                        catch (EmployeeNotFoundException e)\n                        {\n                            metric.Activity = null;\n                            log.LogError($\"Error: {e}\");\n                            failedRecords.Add(metric);\n                        }\n                        catch (Exception e)\n                        {\n                            log.LogError($\"Error: {e}\");\n                            metric.Activity = null;\n                            failedRecords.Add(metric);\n                            if (e is OutOfMemoryException)  \n                            {\n                                throw; \n                            }\n                        }\n                    }\n\n                    if (metrics.Data.Count() == failedRecords.Count)\n                    {\n                        return new InternalServerErrorResult();\n                    }\n\n                    string responseMessage = $\"Successfully completed\";\n                    int statusCode = 0;\n\n                    if (failedRecords.Any())\n                    {\n                        statusCode = -1;\n                    }\n\n                    return new OkObjectBulkResult(responseMessage, statusCode, failedRecords);",
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1120,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_C52UY-1",
+			"id":"n_GVBx1",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":44567,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +115,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
