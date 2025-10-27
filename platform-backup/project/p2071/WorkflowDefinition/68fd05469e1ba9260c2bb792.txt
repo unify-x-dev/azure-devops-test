@@ -25,6 +25,13 @@
 			"fromNodeId":"n_TJ6jE@1",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_ERo7X",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ERo7X",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_COby9",
 			"type":"next"
 		},
@@ -32,36 +39,36 @@
 			"fromNodeId":"_COby9",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_bxJt1",
+			"toNodeId":"n_Jv9R1",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_bxJt1",
+			"fromNodeId":"n_Jv9R1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Yc1Dm",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Yc1Dm",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_ggFeA",
+			"toNodeId":"n_cI12S",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_ggFeA",
+			"fromNodeId":"n_cI12S",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_e9HJn",
+			"toNodeId":"n_75c3g",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_e9HJn",
+			"fromNodeId":"n_75c3g",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Yc1Dm",
+			"toNodeId":"n_Jv9R1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Jv9R1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_4mEfz",
 			"type":"next"
 		},
 		{
@@ -87,7 +94,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_Yc1Dm",
+			"fromNodeId":"n_4mEfz",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -112,7 +119,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761564278806,
+	"modifiedTime":1761567425726,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -212,28 +219,6 @@
 		},
 		{
 			"context":{
-				"appName":"gmail",
-				"resourceVersion":4413,
-				"connectionId":"68fd065c6a75bb47174efa30",
-				"resourceName":"gmail_list_emails",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"_COby9",
-			"index":4,
-			"inputs":{
-				"count":5
-			},
-			"skip":false,
-			"subTitle":"Gmail",
-			"title":"List Emails",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1070,
 				"resourceName":"variable_by_unifyapps_create_list",
@@ -243,8 +228,8 @@
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"n_bxJt1",
-			"index":5,
+			"id":"n_ERo7X",
+			"index":4,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -454,41 +439,49 @@
 										"integer"
 									],
 									"properties":{
-										"emails":{
+										"Mails":{
 											"type":"array",
 											"items":{
 												"type":"object",
 												"properties":{
-													"To":{
+													"preview":{
 														"type":"string",
-														"title":"To"
+														"title":"Preview"
 													},
-													"from":{
-														"type":"string",
-														"title":"From"
-													},
-													"subject":{
-														"type":"string",
-														"title":"Subject"
-													},
-													"Date":{
-														"type":"string",
-														"title":"Date"
+													"headers":{
+														"type":"array",
+														"items":{
+															"type":"object",
+															"properties":{
+																"item":{
+																	"type":"string",
+																	"title":"Item"
+																},
+																"value":{
+																	"type":"string",
+																	"title":"Value"
+																}
+															},
+															"additionalProperties":false,
+															"required":[
+																"item",
+																"value"
+															]
+														},
+														"title":"Headers"
 													}
 												},
 												"additionalProperties":false,
 												"required":[
-													"To",
-													"from",
-													"subject",
-													"Date"
+													"preview",
+													"headers"
 												]
 											},
-											"title":"Emails"
+											"title":"Mails"
 										}
 									},
 									"required":[
-										"emails"
+										"Mails"
 									]
 								}
 							}
@@ -500,7 +493,7 @@
 				"createList":{
 					"ua:type":"mappedArray"
 				},
-				"ua:title":"Mail",
+				"ua:title":"All_mails",
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
@@ -510,46 +503,54 @@
 					"properties":{
 						"items":{
 							"type":"array",
-							"title":"Mail",
+							"title":"All_mails",
 							"disableActions":true,
 							"items":{
 								"type":"object",
 								"properties":{
-									"emails":{
+									"Mails":{
 										"type":"array",
 										"items":{
 											"type":"object",
 											"properties":{
-												"To":{
+												"preview":{
 													"type":"string",
-													"title":"To"
+													"title":"Preview"
 												},
-												"from":{
-													"type":"string",
-													"title":"From"
-												},
-												"subject":{
-													"type":"string",
-													"title":"Subject"
-												},
-												"Date":{
-													"type":"string",
-													"title":"Date"
+												"headers":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"item":{
+																"type":"string",
+																"title":"Item"
+															},
+															"value":{
+																"type":"string",
+																"title":"Value"
+															}
+														},
+														"additionalProperties":false,
+														"required":[
+															"item",
+															"value"
+														]
+													},
+													"title":"Headers"
 												}
 											},
 											"additionalProperties":false,
 											"required":[
-												"To",
-												"from",
-												"subject",
-												"Date"
+												"preview",
+												"headers"
 											]
 										},
-										"title":"Emails"
+										"title":"Mails"
 									}
 								},
 								"required":[
-									"emails"
+									"Mails"
 								]
 							}
 						}
@@ -563,16 +564,38 @@
 		},
 		{
 			"context":{
-				"appName":"loop",
-				"resourceVersion":865,
-				"resourceName":"loop_for_each",
+				"appName":"gmail",
+				"resourceVersion":4413,
+				"connectionId":"68fd065c6a75bb47174efa30",
+				"resourceName":"gmail_list_emails",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"n_Yc1Dm",
+			"id":"_COby9",
+			"index":5,
+			"inputs":{
+				"count":5
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"List Emails",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"n_Jv9R1",
 			"index":6,
 			"inputs":{
 				"repeatMode":"SINGLE",
@@ -587,23 +610,24 @@
 		{
 			"context":{
 				"appName":"gmail",
-				"resourceVersion":4050,
+				"resourceVersion":5650,
 				"connectionId":"68fd065c6a75bb47174efa30",
-				"resourceName":"gmail_get_message_specifics",
+				"resourceName":"gmail_get_message",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_Yc1Dm@n_TJ6jE@_JiodF-1@1@l",
-			"id":"n_ggFeA",
+			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
+			"id":"n_cI12S",
 			"index":7,
 			"inputs":{
-				"id":"{{ n_Yc1Dm.outputs.item.id }}"
+				"format":"metadata",
+				"id":"{{ n_Jv9R1.outputs.item.id }}"
 			},
 			"skip":false,
 			"subTitle":"Gmail",
-			"title":"Get message specifics",
+			"title":"Get message",
 			"type":"ACTION"
 		},
 		{
@@ -614,31 +638,137 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_Yc1Dm@n_TJ6jE@_JiodF-1@1@l",
-			"id":"n_e9HJn",
+			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
+			"id":"n_75c3g",
 			"index":8,
 			"inputs":{
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
 					"items":{
-						"emails":{
+						"Mails":{
 							"items":{
-								"To":"{{ n_ggFeA.outputs.To }}",
-								"from":"{{ n_ggFeA.outputs.From }}",
-								"subject":"{{ n_ggFeA.outputs.Subject }}",
-								"Date":"{{ n_ggFeA.outputs.Date }}"
+								"preview":"{{ n_cI12S.outputs.snippet }}",
+								"headers":{
+									"source":"{{ n_cI12S.outputs.payload.headers }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"item":"{{ n_cI12S.outputs.payload.headers[0].name }}",
+										"value":"{{ n_cI12S.outputs.payload.headers[0].value }}"
+									}
+								}
 							},
 							"ua:type":"mappedArray"
 						}
 					}
 				},
-				"listName":"{{ n_bxJt1.outputs.items[0] }}"
+				"listName":"{{ n_ERo7X.outputs.items[0] }}"
 			},
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.items.items.Mails.items.preview",
+					"root.parameters.items.items.Mails.items.headers.items.item",
+					"root.parameters.items.items.Mails.items.headers.items.value"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1031,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"n_4mEfz",
+			"index":9,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"items":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"Mails":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{
+												"preview":{
+													"type":"string",
+													"title":"preview"
+												},
+												"headers":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"item":{
+																"type":"string",
+																"title":"item"
+															},
+															"value":{
+																"type":"string",
+																"title":"value"
+															}
+														},
+														"additionalProperties":false
+													},
+													"title":"headers"
+												}
+											},
+											"additionalProperties":false
+										},
+										"title":"Mails"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"items"
+						}
+					}
+				},
+				"code":"def inputData = items\n\n// 1. Parse the JSON string into a Groovy object (Map/List)\ndef dataObject = new groovy.json.JsonSlurper().parseText(inputData)\n\n// 2. Iterate and extract the required fields\ndef refinedData = dataObject.items.collectMany { item ->\n    // Use collectMany to flatten the list of lists resulting from the inner Mails list\n    item.Mails.collect { mail ->\n        // Initialize a map for the new, refined email object\n        def refinedMail = [\n            preview: mail.preview\n        ]\n\n        // Find the 'From' header and map its value to 'sender'\n        def fromHeader = mail.headers.find { it.item == \"From\" }\n        refinedMail.sender = fromHeader ? fromHeader.value : \"N/A\"\n\n        // Find the 'Subject' header and map its value to 'subject'\n        def subjectHeader = mail.headers.find { it.item == \"Subject\" }\n        refinedMail.subject = subjectHeader ? subjectHeader.value : \"N/A\"\n\n        return refinedMail\n    }\n}\n\n// 3. Print the resulting refined data (optional, for verification)\nprintln groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(refinedData))",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"items":{
+						"items":{
+							"Mails":{
+								"source":"{{ n_ERo7X.outputs.items[0].Mails }}",
+								"ua:type":"mappedArray",
+								"items":{
+									"preview":"{{ n_ERo7X.outputs.items[0].Mails[0].preview }}",
+									"headers":{
+										"source":"{{ n_ERo7X.outputs.items[0].Mails[0].headers }}",
+										"ua:type":"mappedArray",
+										"items":{
+											"item":"{{ n_ERo7X.outputs.items[0].Mails[0].headers[0].item }}",
+											"value":"{{ n_ERo7X.outputs.items[0].Mails[0].headers[0].value }}"
+										}
+									}
+								}
+							}
+						},
+						"ua:type":"mappedArray",
+						"source":"{{ n_ERo7X.outputs.items }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
 		{
@@ -653,7 +783,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"name":"Calender"
 			},
@@ -674,7 +804,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"calendarId":"primary"
 			},
@@ -707,7 +837,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
-			"index":11,
+			"index":12,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -868,7 +998,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -899,5 +1029,5 @@
 		}
 	},
 	"standard":false,
-	"version":57
+	"version":67
 }
