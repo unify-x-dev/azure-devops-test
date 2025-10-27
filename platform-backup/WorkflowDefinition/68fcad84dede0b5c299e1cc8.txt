@@ -96,7 +96,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761587047133,
+	"modifiedTime":1761587146228,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -599,7 +599,7 @@
 						}
 					}
 				},
-				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    // Treat \"null\" string as no category\n    if (category == \"null\") {\n        category = null\n    }\n\n    // Assume all reports belong to the same page/component\n    def pageId = reports ? reports[0].properties.entityId : \"unknown\"\n\n    // Filter checks by category if provided. Treat \"All\" or null as no filter.\n    def relevantChecks = (category && category != \"All\") ?\n            checks.findAll { it.properties.category == category } :\n            checks\n\n    // Check for empty relevantChecks (e.g., if a non-existent category was passed)\n    if (!relevantChecks) return [pageId: pageId, category: category ?: \"All\",\n                                 totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    // Relevant check IDs\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n\n    // Filter reports matching relevant checks\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.properties.checkId) }\n\n    // Handle case where no reports match the relevant checks\n    if (!filteredReports) return [pageId: pageId, category: category ?: \"All\",\n                                  totalChecks: 0, passedChecks: 0, passPercentage: 0]\n\n    // Count passed\n    def passedCount = filteredReports.count { it.properties.status == 'passed' }\n\n    // Calculate percentage\n    def passPercentage = (filteredReports.size() > 0) ?\n            (passedCount / filteredReports.size()) * 100 : 0\n\n    return [\n        pageId       : pageId,\n        category     : category ?: \"All\",\n        totalChecks  : filteredReports.size(),\n        passedChecks : passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\n\n\n// ----------- CATEGORY-WISE WRAPPER -----------\n\ndef computeCategoryWiseScores(reports, checks) {\n    // extract distinct categories\n    def categories = checks.collect { it.properties.category }\n                           .findAll { it }   // remove nulls\n                           .unique()\n                           .sort()\n\n    // add \"All\" as synthetic first category\n    def allCats = [\"All\"] + categories\n\n    // collect result per category\n    return allCats.collect { cat ->\n        calculatePassPercentage(reports, checks, cat)\n    }\n}\n\n\n// ----------- CALL -------------\n\ndef output = computeCategoryWiseScores(reports, checks)\n",
+				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    // Treat \"null\" string as no category\n    if (category == \"null\") {\n        category = null\n    }\n    // Assume all reports belong to the same page/component\n    def pageId = reports ? reports[0].properties.entityId : \"unknown\"\n    // Filter checks by category if provided. Treat \"All\" or null as no filter.\n    def relevantChecks = (category && category != \"All\") ? checks.findAll { it.properties.category == category } : checks\n    // Check for empty relevantChecks (e.g., if a non-existent category was passed)\n    if (!relevantChecks) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Relevant check IDs\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n    // Filter reports matching relevant checks\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.properties.checkId) }\n    // Handle case where no reports match the relevant checks\n    if (!filteredReports) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Count passed\n    def passedCount = filteredReports.count { it.properties.status == 'passed' }\n    // Calculate percentage\n    // Add a check to prevent division by zero if filteredReports.size() is 0\n    def passPercentage = (filteredReports.size() > 0) ? (passedCount / filteredReports.size()) * 100 : 0\n    return [\n        pageId: pageId,\n        category: category ?: \"All\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\ndef output = calculatePassPercentage(reports, checks, category)",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -664,5 +664,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":28
+	"version":29
 }
