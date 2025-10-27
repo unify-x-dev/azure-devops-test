@@ -5,12 +5,12 @@
 	"createdTime":1761583415296,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761583459101,
+		"deployedAt":1761583472322,
 		"deployedBy":511,
-		"deployedDefinitionId":"68ffa161a309a82f9f6fbb07",
+		"deployedDefinitionId":"68ffa16fa309a82f9f6fbb6f",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -53,7 +53,7 @@
 	"id":"68ffa137a309a82f9f6fb9d0",
 	"lastModifiedBy":511,
 	"lcName":"wedwd",
-	"modifiedTime":1761583470338,
+	"modifiedTime":1761583554480,
 	"name":"wedwd",
 	"nodes":[
 		{
@@ -63,7 +63,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Jkig8-1",
 			"id":"n_4gMx4",
@@ -89,7 +89,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Jkig8-1",
 			"id":"n_EiZ1i",
@@ -193,8 +193,8 @@
 		{
 			"context":{
 				"appName":"loop",
-				"resourceVersion":36,
-				"resourceName":"loop_for",
+				"resourceVersion":877,
+				"resourceName":"loop_while",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -204,14 +204,23 @@
 			"id":"n_MLhqN",
 			"index":3,
 			"inputs":{
-				"start":0,
-				"limit":2353764783647888000,
-				"step":1,
+				"condition":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				},
 				"captureIterations":false
 			},
 			"skip":false,
 			"subTitle":"Loop",
-			"title":"For loop",
+			"title":"While loop",
 			"type":"LOOP"
 		},
 		{
@@ -222,7 +231,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_MLhqN@_Jkig8-1@l",
 			"id":"n_5YSi7",
@@ -272,7 +281,7 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Jkig8-1",
 			"id":"n_Od5n4",
@@ -300,5 +309,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
