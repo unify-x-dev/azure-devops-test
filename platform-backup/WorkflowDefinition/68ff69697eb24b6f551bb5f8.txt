@@ -6,46 +6,111 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_QuOkc",
+			"fromNodeId":"n_PsQzt",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_g8y6L",
+			"toNodeId":"n_FBF2c",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_FBF2c",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_21EjE",
 			"type":"next"
 		}
 	],
 	"id":"68ff69697eb24b6f551bb5f8",
 	"lastModifiedBy":20249,
 	"lcName":"timeout callable",
-	"modifiedTime":1761569129909,
+	"modifiedTime":1761569160219,
 	"name":"timeout callable",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1064,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuOkc-1",
-			"id":"_QuOkc",
-			"index":0,
+			"id":"n_PsQzt",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Success"
+					],
+					"properties":{
+						"Success":{
+							"type":"string",
+							"title":"Success"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuOkc-1",
-			"id":"_g8y6L",
-			"index":0,
+			"id":"n_FBF2c",
+			"index":2,
+			"inputs":{
+				"duration":1,
+				"unit":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1100,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_QuOkc-1",
+			"id":"n_21EjE",
+			"index":3,
+			"inputs":{
+				"result":{
+					"Success":"wf"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":20249,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +124,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
