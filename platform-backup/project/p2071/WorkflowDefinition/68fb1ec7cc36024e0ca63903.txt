@@ -244,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761551961927,
+	"modifiedTime":1761552013638,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1783,7 +1783,7 @@
 						}
 					}
 				},
-				"code":"// Safely access nested array inside input\ndef employees = result?.result?.result ?: []\n\nif (!employees || employees.isEmpty()) {\n    return [ top5: [] ]\n}\n\n// Sort employees: first by bonus (desc), then by leaves (asc)\ndef sorted = employees.sort { a, b ->\n    def bonusA = (a?.Total_Bonus ?: 0) as BigDecimal\n    def bonusB = (b?.Total_Bonus ?: 0) as BigDecimal\n    def leavesA = (a?.Total_Leaves ?: 0) as Integer\n    def leavesB = (b?.Total_Leaves ?: 0) as Integer\n\n    // Compare bonus first (descending)\n    def bonusCompare = bonusB <=> bonusA\n    if (bonusCompare != 0) {\n        return bonusCompare\n    }\n    // If bonuses are same, prefer fewer leaves\n    return leavesA <=> leavesB\n}\n\n// Get top 5 employees\ndef top5 = sorted.take(5)\n\n// Optionally, add ranking (1–5)\ntop5.eachWithIndex { emp, idx ->\n    emp.Rank = idx + 1\n}\n\n// Return in UnifyApps-friendly structure\nreturn [ top5: top5 ]\n",
+				"code":"// Safely extract employee list\ndef employees = result?.result?.result?.findAll { it != null } ?: []\n\n// Sort by highest bonus, then lowest leaves\ndef sortedEmployees = employees.sort { \n    [- (it.Total_Bonus ?: 0), (it.Total_Leaves ?: 0)] \n}\n\n// Take top 5\ndef top5 = sortedEmployees.take(5)\n\n// Assign rank safely\ntop5.eachWithIndex { emp, index ->\n    if (emp) emp.Rank = index + 1\n}\n\n// Return result\nreturn [top5: top5]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1924,5 +1924,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":83
+	"version":84
 }
