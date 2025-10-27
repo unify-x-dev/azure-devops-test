@@ -112,7 +112,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761568682322,
+	"modifiedTime":1761568990521,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -218,7 +218,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_ERo7X",
@@ -686,7 +686,7 @@
 						}
 					}
 				},
-				"code":"// 1. Use flatMap to get a single list of all \"Mails\"\ndef allMails = input.items.flatMap { item ->\n    item.Mails\n}\n\n// 2. Use collect to transform each mail into the new format\ndef refinedList = allMails.collect { mail ->\n    \n    // Find the 'From' header\n    def senderValue = mail.headers.find { it.item == \"From\" }?.value\n    \n    // Find the 'Subject' header\n    def subjectValue = mail.headers.find { it.item == \"Subject\" }?.value\n\n    // 3. Return a new map matching your output schema image\n    [\n        \"Mail Data\": [\n            \"Preview\": mail.preview,\n            \"Subject\": subjectValue,\n            \"Sender\": senderValue\n        ]\n    ]\n}\n\n// 4. Return the final list\nreturn refinedList",
+				"code":"// 1. Get the preview from the 'snippet' field\ndef preview = mails.snippet\n\n// 2. Get the list of headers\ndef headers = mails.payload.headers\n\n// 3. Find the 'From' header and get its value\n// (The '?' prevents errors if the header is missing)\ndef senderValue = headers.find { it.name == \"From\" }?.value\n\n// 4. Find the 'Subject' header and get its value\ndef subjectValue = headers.find { it.name == \"Subject\" }?.value\n\n// 5. Build the final map in the \"Mail Data\" structure\ndef mailData = [\n    \"Mail Data\": [\n        \"Preview\": preview,\n        \"Subject\": subjectValue,\n        \"Sender\": senderValue\n    ]\n]\n\n// 6. Return the object inside a list to match the \"All_mails\" [ ] schema\nreturn [ mailData ]",
 				"compile_static":false,
 				"captureStdOutput":false
 			},
@@ -953,5 +953,5 @@
 		}
 	},
 	"standard":false,
-	"version":69
+	"version":70
 }
