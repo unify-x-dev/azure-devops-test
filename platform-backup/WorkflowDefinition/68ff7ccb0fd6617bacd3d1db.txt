@@ -1,51 +1,47 @@
 {
 	"appsUsed":[
-		
+		"bill"
 	],
 	"createdTime":1761574091508,
 	"deleted":false,
 	"edges":[
-		{
-			"fromNodeId":"_5sMYr",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_3ygif",
-			"type":"next"
-		}
+		
 	],
 	"id":"68ff7ccb0fd6617bacd3d1db",
 	"lastModifiedBy":411,
 	"lcName":"billccc",
-	"modifiedTime":1761574091508,
+	"modifiedTime":1761574122634,
 	"name":"billccc",
 	"nodes":[
 		{
+			"context":{
+				"appName":"bill",
+				"resourceVersion":17,
+				"connectionId":"68b565c1a0ef2435c1d88768",
+				"resourceName":"bill_on_new_payment"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5sMYr-1",
-			"id":"_5sMYr",
-			"index":0,
+			"id":"n_WKRGc",
+			"index":1,
+			"inputs":{
+				"name":"QA-Test-Sub-4"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Bill",
+			"title":"On new payment",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_5sMYr-1",
-			"id":"_3ygif",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":411,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +55,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
