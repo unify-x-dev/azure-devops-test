@@ -18,12 +18,15 @@
 	"id":"68ff3a50be0cb425dcb52a22",
 	"lastModifiedBy":33430,
 	"lcName":"bill trigger",
-	"modifiedTime":1761560472511,
+	"modifiedTime":1761560480033,
 	"name":"bill trigger",
 	"nodes":[
 		{
 			"context":{
-				"appName":"aitable_ai"
+				"appName":"aitable_ai",
+				"resourceVersion":2356,
+				"connectionId":"68642cd948b1f86830f5f9ba",
+				"resourceName":"aitable_ai_on_new_record_polling"
 			},
 			"debug":false,
 			"dirty":true,
@@ -31,9 +34,13 @@
 			"groupId":"_PX9Td-1",
 			"id":"n_4nVkq",
 			"index":1,
+			"inputs":{
+				"interval":30,
+				"batchSize":100
+			},
 			"skip":false,
 			"subTitle":"AITable.ai",
-			"title":"Select a trigger event",
+			"title":"New record",
 			"trigger":{
 				"type":"EVENT"
 			},
@@ -57,5 +64,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
