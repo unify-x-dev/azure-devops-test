@@ -31,6 +31,13 @@
 			"fromNodeId":"_Hxb0R",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_OUt2x",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OUt2x",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_DMSp1",
 			"type":"next"
 		}
@@ -38,7 +45,7 @@
 	"id":"68fb5bda80fb3c02df75bc19",
 	"lastModifiedBy":308,
 	"lcName":"checkexcel",
-	"modifiedTime":1761304753809,
+	"modifiedTime":1761556093113,
 	"name":"checkExcel",
 	"nodes":[
 		{
@@ -48,7 +55,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5nsSo-1",
 			"id":"n_SmhH7",
@@ -85,6 +92,10 @@
 						"A":{
 							"type":"integer",
 							"title":"A"
+						},
+						"str":{
+							"type":"string",
+							"title":"Str"
 						}
 					}
 				}
@@ -105,7 +116,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5nsSo-1",
 			"id":"_Hxb0R",
@@ -129,7 +140,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Hxb0R@_5nsSo-1@l",
 			"id":"_Dp8ir",
@@ -178,17 +189,72 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1082,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_5nsSo-1",
+			"id":"n_OUt2x",
+			"index":4,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"len":{
+							"type":"integer",
+							"title":"Len"
+						}
+					},
+					"required":[
+						"len"
+					]
+				}
+			},
+			"inputs":{
+				"len":"=LEN({{ n_SmhH7.outputs.str }})"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"len":{
+							"type":"integer",
+							"title":"Len"
+						}
+					},
+					"required":[
+						"len"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":3170,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5nsSo-1",
 			"id":"n_DMSp1",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"result":{
 					"output":"{{ _Dp8ir.outputs.res }}{{ _Dp8ir.outputs.res }}{{ _Dp8ir.outputs.res }}"
@@ -217,5 +283,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
