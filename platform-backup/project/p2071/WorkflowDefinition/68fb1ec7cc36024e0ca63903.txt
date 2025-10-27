@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761552918127,
+	"modifiedTime":1761553037705,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1750,7 +1750,7 @@
 						}
 					}
 				},
-				"code":"// Input from UnifyApps\ndef inputData = result.result.result\n\n// Sort employees by Total_Bonus (desc) and then Total_Leaves (asc)\ndef sortedEmployees = inputData.sort { a, b ->\n    // First compare by bonus (descending)\n    int bonusCompare = b.Total_Bonus <=> a.Total_Bonus\n    if (bonusCompare != 0) {\n        return bonusCompare\n    } else {\n        // If bonuses are equal, compare by leaves (ascending)\n        return a.Total_Leaves <=> b.Total_Leaves\n    }\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Prepare final result\ndef output = [\n    Top_Employees: top5Employees\n]\n\n// Return or store in variable as needed in UnifyApps\nreturn output\n",
+				"code":"// Safely extract input array\ndef inputData = (result?.result?.result ?: []).findAll { it != null }\n\n// If empty, return an empty list to avoid runtime error\nif (!inputData) {\n    return [ Top_Employees: [] ]\n}\n\n// Sort employees by Total_Bonus (desc) and then Total_Leaves (asc)\ndef sortedEmployees = inputData.sort { a, b ->\n    // Default 0 if any value is null\n    def bonusA = a?.Total_Bonus ?: 0\n    def bonusB = b?.Total_Bonus ?: 0\n    def leavesA = a?.Total_Leaves ?: 0\n    def leavesB = b?.Total_Leaves ?: 0\n\n    // Compare by bonus (descending)\n    int bonusCompare = bonusB <=> bonusA\n    if (bonusCompare != 0) {\n        return bonusCompare\n    } else {\n        // If bonuses are equal, compare by leaves (ascending)\n        return leavesA <=> leavesB\n    }\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Return final output\nreturn [ Top_Employees: top5Employees ]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1913,5 +1913,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":88
+	"version":89
 }
