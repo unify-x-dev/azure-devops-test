@@ -53,22 +53,15 @@
 			"fromNodeId":"n_cI12S",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_75c3g",
+			"toNodeId":"n_uHgvE",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_75c3g",
+			"fromNodeId":"n_uHgvE",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Jv9R1",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Jv9R1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_4mEfz",
 			"type":"next"
 		},
 		{
@@ -94,7 +87,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_4mEfz",
+			"fromNodeId":"n_Jv9R1",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -119,7 +112,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761567887306,
+	"modifiedTime":1761568682322,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -225,7 +218,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_ERo7X",
@@ -439,49 +432,33 @@
 										"integer"
 									],
 									"properties":{
-										"Mails":{
-											"type":"array",
-											"items":{
-												"type":"object",
-												"properties":{
-													"preview":{
-														"type":"string",
-														"title":"Preview"
-													},
-													"headers":{
-														"type":"array",
-														"items":{
-															"type":"object",
-															"properties":{
-																"item":{
-																	"type":"string",
-																	"title":"Item"
-																},
-																"value":{
-																	"type":"string",
-																	"title":"Value"
-																}
-															},
-															"additionalProperties":false,
-															"required":[
-																"item",
-																"value"
-															]
-														},
-														"title":"Headers"
-													}
+										"mailData":{
+											"type":"object",
+											"properties":{
+												"preview":{
+													"type":"string",
+													"title":"Preview"
 												},
-												"additionalProperties":false,
-												"required":[
-													"preview",
-													"headers"
-												]
+												"subject":{
+													"type":"string",
+													"title":"Subject"
+												},
+												"sender":{
+													"type":"string",
+													"title":"Sender"
+												}
 											},
-											"title":"Mails"
+											"additionalProperties":false,
+											"title":"Mail Data",
+											"required":[
+												"preview",
+												"subject",
+												"sender"
+											]
 										}
 									},
 									"required":[
-										"Mails"
+										"mailData"
 									]
 								}
 							}
@@ -508,49 +485,33 @@
 							"items":{
 								"type":"object",
 								"properties":{
-									"Mails":{
-										"type":"array",
-										"items":{
-											"type":"object",
-											"properties":{
-												"preview":{
-													"type":"string",
-													"title":"Preview"
-												},
-												"headers":{
-													"type":"array",
-													"items":{
-														"type":"object",
-														"properties":{
-															"item":{
-																"type":"string",
-																"title":"Item"
-															},
-															"value":{
-																"type":"string",
-																"title":"Value"
-															}
-														},
-														"additionalProperties":false,
-														"required":[
-															"item",
-															"value"
-														]
-													},
-													"title":"Headers"
-												}
+									"mailData":{
+										"type":"object",
+										"properties":{
+											"preview":{
+												"type":"string",
+												"title":"Preview"
 											},
-											"additionalProperties":false,
-											"required":[
-												"preview",
-												"headers"
-											]
+											"subject":{
+												"type":"string",
+												"title":"Subject"
+											},
+											"sender":{
+												"type":"string",
+												"title":"Sender"
+											}
 										},
-										"title":"Mails"
+										"additionalProperties":false,
+										"title":"Mail Data",
+										"required":[
+											"preview",
+											"subject",
+											"sender"
+										]
 									}
 								},
 								"required":[
-									"Mails"
+									"mailData"
 								]
 							}
 						}
@@ -592,7 +553,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_Jv9R1",
@@ -616,7 +577,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_cI12S",
@@ -631,52 +592,10 @@
 			"type":"ACTION"
 		},
 		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":988,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
-			"id":"n_75c3g",
-			"index":8,
-			"inputs":{
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"items":{
-						"Mails":{
-							"items":{
-								"preview":"{{ n_cI12S.outputs.snippet }}",
-								"headers":{
-									"source":"{{ n_cI12S.outputs.payload.headers }}",
-									"ua:type":"mappedArray",
-									"items":{
-										"item":"{{ n_cI12S.outputs.payload.headers[0].name }}",
-										"value":"{{ n_cI12S.outputs.payload.headers[0].value }}"
-									}
-								}
-							},
-							"ua:type":"mappedArray"
-						}
-					}
-				},
-				"listName":"{{ n_ERo7X.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add items to list",
-			"type":"ACTION"
-		},
-		{
 			"additional":{
-				"visibleOptionalFields":[
-					"root.parameters.items.items.Mails.items.preview",
-					"root.parameters.items.items.Mails.items.headers.items.item",
-					"root.parameters.items.items.Mails.items.headers.items.value"
-				]
+				"xsdSchemaConfig":{
+					"root":{}
+				}
 			},
 			"context":{
 				"appName":"code_by_unifyapps",
@@ -687,84 +606,89 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"n_4mEfz",
-			"index":9,
+			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
+			"id":"n_uHgvE",
+			"index":8,
 			"inputs":{
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
 					"properties":{
-						"items":{
+						"mails":{
 							"type":"array",
 							"items":{
 								"type":"object",
 								"properties":{
-									"Mails":{
+									"id":{
+										"type":"string",
+										"title":"id"
+									},
+									"threadId":{
+										"type":"string",
+										"title":"threadId"
+									},
+									"labelIds":{
 										"type":"array",
 										"items":{
-											"type":"object",
-											"properties":{
-												"preview":{
-													"type":"string",
-													"title":"preview"
-												},
-												"headers":{
-													"type":"array",
-													"items":{
-														"type":"object",
-														"properties":{
-															"item":{
-																"type":"string",
-																"title":"item"
-															},
-															"value":{
-																"type":"string",
-																"title":"value"
-															}
-														},
-														"additionalProperties":false
-													},
-													"title":"headers"
-												}
-											},
-											"additionalProperties":false
+											"type":"string"
 										},
-										"title":"Mails"
+										"title":"labelIds"
+									},
+									"snippet":{
+										"type":"string",
+										"title":"snippet"
+									},
+									"payload":{
+										"type":"object",
+										"properties":{
+											"mimeType":{
+												"type":"string",
+												"title":"mimeType"
+											},
+											"headers":{
+												"type":"array",
+												"items":{
+													"type":"object",
+													"properties":{
+														"name":{
+															"type":"string",
+															"title":"name"
+														},
+														"value":{
+															"type":"string",
+															"title":"value"
+														}
+													},
+													"additionalProperties":false
+												},
+												"title":"headers"
+											}
+										},
+										"title":"payload",
+										"additionalProperties":false
+									},
+									"sizeEstimate":{
+										"type":"integer",
+										"title":"sizeEstimate"
+									},
+									"historyId":{
+										"type":"string",
+										"title":"historyId"
+									},
+									"internalDate":{
+										"type":"string",
+										"title":"internalDate"
 									}
 								},
 								"additionalProperties":false
 							},
-							"title":"items"
+							"title":"mails"
 						}
 					}
 				},
-				"code":"// Use flatMap to get a single list of all \"Mails\" objects from all \"items\"\ndef allMails = items.items.flatMap { item ->\n    item.Mails\n}\n\n// Use collect to transform (map) each mail object to the desired format\ndef refinedData = allMails.collect { mail ->\n    \n    // 1. Find the header where item is \"From\" and get its value\n    // The '?' (safe navigation operator) prevents errors if the header is missing\n    def senderValue = mail.headers.find { it.item == \"From\" }?.value\n\n    // 2. Find the header where item is \"Subject\" and get its value\n    def subjectValue = mail.headers.find { it.item == \"Subject\" }?.value\n\n    // 3. Return a new map with the extracted data\n    [\n        preview: mail.preview,\n        sender: senderValue,\n        subject: subjectValue\n    ]\n}\n\n// Return the final list of refined mail objects\nreturn refinedData",
+				"code":"// 1. Use flatMap to get a single list of all \"Mails\"\ndef allMails = input.items.flatMap { item ->\n    item.Mails\n}\n\n// 2. Use collect to transform each mail into the new format\ndef refinedList = allMails.collect { mail ->\n    \n    // Find the 'From' header\n    def senderValue = mail.headers.find { it.item == \"From\" }?.value\n    \n    // Find the 'Subject' header\n    def subjectValue = mail.headers.find { it.item == \"Subject\" }?.value\n\n    // 3. Return a new map matching your output schema image\n    [\n        \"Mail Data\": [\n            \"Preview\": mail.preview,\n            \"Subject\": subjectValue,\n            \"Sender\": senderValue\n        ]\n    ]\n}\n\n// 4. Return the final list\nreturn refinedList",
 				"compile_static":false,
-				"captureStdOutput":false,
-				"parameters":{
-					"items":{
-						"items":{
-							"Mails":{
-								"source":"{{ n_ERo7X.outputs.items[0].Mails }}",
-								"ua:type":"mappedArray",
-								"items":{
-									"preview":"{{ n_ERo7X.outputs.items[0].Mails[0].preview }}",
-									"headers":{
-										"source":"{{ n_ERo7X.outputs.items[0].Mails[0].headers }}",
-										"ua:type":"mappedArray",
-										"items":{
-											"item":"{{ n_ERo7X.outputs.items[0].Mails[0].headers[0].item }}",
-											"value":"{{ n_ERo7X.outputs.items[0].Mails[0].headers[0].value }}"
-										}
-									}
-								}
-							}
-						},
-						"ua:type":"mappedArray",
-						"source":"{{ n_ERo7X.outputs.items }}"
-					}
-				}
+				"captureStdOutput":false
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -783,7 +707,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"name":"Calender"
 			},
@@ -804,7 +728,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"calendarId":"primary"
 			},
@@ -837,7 +761,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
-			"index":12,
+			"index":11,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -998,7 +922,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -1029,5 +953,5 @@
 		}
 	},
 	"standard":false,
-	"version":68
+	"version":69
 }
