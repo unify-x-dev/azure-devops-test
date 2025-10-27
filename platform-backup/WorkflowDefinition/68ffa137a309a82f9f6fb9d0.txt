@@ -4,9 +4,24 @@
 	],
 	"createdTime":1761583415296,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761583459101,
+		"deployedBy":511,
+		"deployedDefinitionId":"68ffa161a309a82f9f6fbb07",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_4gMx4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_EiZ1i",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_EiZ1i",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_MLhqN",
@@ -38,7 +53,7 @@
 	"id":"68ffa137a309a82f9f6fb9d0",
 	"lastModifiedBy":511,
 	"lcName":"wedwd",
-	"modifiedTime":1761583455265,
+	"modifiedTime":1761583470338,
 	"name":"wedwd",
 	"nodes":[
 		{
@@ -68,6 +83,115 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1082,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Jkig8-1",
+			"id":"n_EiZ1i",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"var":{
+							"type":"string",
+							"title":"Var",
+							"format":"skip"
+						}
+					},
+					"required":[
+						"var"
+					]
+				}
+			},
+			"inputs":{},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":true,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"var":{
+							"type":"string",
+							"title":"Var",
+							"format":"skip"
+						}
+					},
+					"required":[
+						"var"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":36,
 				"resourceName":"loop_for",
@@ -78,7 +202,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Jkig8-1",
 			"id":"n_MLhqN",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"start":0,
 				"limit":2353764783647888000,
@@ -102,7 +226,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_MLhqN@_Jkig8-1@l",
 			"id":"n_5YSi7",
-			"index":3,
+			"index":4,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -152,7 +276,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Jkig8-1",
 			"id":"n_Od5n4",
-			"index":4,
+			"index":5,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -176,5 +300,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
