@@ -112,17 +112,22 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761560833023,
+	"modifiedTime":1761564278806,
 	"name":"Assignment_2",
 	"nodes":[
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1060,
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_3qj6b",
@@ -156,7 +161,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_TJ6jE",
@@ -193,7 +198,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_TJ6jE@1",
@@ -214,7 +219,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"_COby9",
@@ -235,7 +240,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_bxJt1",
@@ -564,7 +569,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_Yc1Dm",
@@ -588,7 +593,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Yc1Dm@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_ggFeA",
@@ -609,7 +614,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Yc1Dm@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_e9HJn",
@@ -644,7 +649,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
@@ -665,14 +670,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
 			"index":10,
 			"inputs":{
-				"calendarId":"primary",
-				"end_time":""
+				"calendarId":"primary"
 			},
 			"skip":false,
 			"subTitle":"Google Calendar",
@@ -699,7 +703,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
@@ -860,7 +864,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
@@ -878,6 +882,10 @@
 	],
 	"ownerUserId":189756,
 	"projectId":2071,
+	"runtimeConnectionAppNames":[
+		"gmail",
+		"gcalendar"
+	],
 	"schemaReferences":[
 		
 	],
@@ -887,12 +895,9 @@
 		"enableVariableLogging":true,
 		"route":{
 			"default":false,
-			"tierName":"global"
+			"headerValueTierMap":{}
 		}
 	},
 	"standard":false,
-	"tags":[
-		
-	],
-	"version":46
+	"version":57
 }
