@@ -1,6 +1,5 @@
 {
 	"appsUsed":[
-		"gdrive",
 		"gmail"
 	],
 	"createdTime":1761553490420,
@@ -10,19 +9,22 @@
 			"fromNodeId":"n_ZTd8C",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_97T5a",
+			"toNodeId":"n_tomtP",
 			"type":"next"
 		}
 	],
 	"id":"68ff2c528d7f164f751c7658",
 	"lastModifiedBy":2721,
 	"lcName":"er",
-	"modifiedTime":1761556286376,
+	"modifiedTime":1761556365193,
 	"name":"er",
 	"nodes":[
 		{
 			"context":{
-				"appName":"gmail"
+				"appName":"gmail",
+				"resourceVersion":2966,
+				"connectionId":"68ff375d0cc6fc60b7728488",
+				"resourceName":"gmail_on_new_attachment"
 			},
 			"debug":false,
 			"dirty":true,
@@ -30,9 +32,15 @@
 			"groupId":"_Fjg7X-1",
 			"id":"n_ZTd8C",
 			"index":1,
+			"inputs":{
+				"pageSize":500,
+				"interval":5,
+				"from":"2025-10-26T09:12:00Z",
+				"batchSize":5
+			},
 			"skip":false,
 			"subTitle":"Gmail",
-			"title":"Select a trigger event",
+			"title":"New Email Attachment",
 			"trigger":{
 				"type":"EVENT"
 			},
@@ -40,27 +48,18 @@
 		},
 		{
 			"context":{
-				"appName":"gdrive",
-				"resourceVersion":6399,
-				"connectionId":"68ff18653e52511e6bf6f962",
-				"resourceName":"gdrive_upload_files",
-				"type":"APPLICATION"
+				"appName":"stop"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Fjg7X-1",
-			"id":"n_97T5a",
+			"id":"n_tomtP",
 			"index":2,
-			"inputs":{
-				"attachment":{
-					"attachment_option":"use_file_url"
-				}
-			},
 			"skip":false,
-			"subTitle":"Google Drive",
-			"title":"Upload a file",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":2721,
@@ -80,5 +79,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
