@@ -244,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761551642827,
+	"modifiedTime":1761551704538,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1672,12 +1672,12 @@
 					"root":{}
 				},
 				"visibleOptionalFields":[
-					"root.parameters.items.items.EmpId__0",
-					"root.parameters.items.items.Name__1",
-					"root.parameters.items.items.Department__2",
-					"root.parameters.items.items.Bonus_Amount__3",
-					"root.parameters.items.items.Leaves__4",
-					"root.parameters.items.items.Quarter"
+					"root.parameters.result.result.items.EmpId__0",
+					"root.parameters.result.result.items.Name__1",
+					"root.parameters.result.result.items.Department__2",
+					"root.parameters.result.result.items.Total_Bonus",
+					"root.parameters.result.result.items.Total_Leaves",
+					"root.parameters.result.result.items.Quarters.items"
 				]
 			},
 			"context":{
@@ -1786,7 +1786,25 @@
 				"code":"// Extract the list of employee results from the nested input\ndef employees = inputs?.result?.result ?: []\n\n// Sort employees by Total_Bonus (descending) and Total_Leaves (ascending)\ndef sortedEmployees = employees.sort { a, b ->\n    // Sort primarily by bonus descending, then by leaves ascending\n    b.Total_Bonus <=> a.Total_Bonus ?: a.Total_Leaves <=> b.Total_Leaves\n}\n\n// Take top 5 employees\ndef top5Employees = sortedEmployees.take(5)\n\n// Wrap and return\nreturn [ top5Employees: top5Employees ]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
-				"parameters":{}
+				"parameters":{
+					"result":{
+						"result":{
+							"source":"{{ n_lSLD7.outputs.result.result }}",
+							"ua:type":"mappedArray",
+							"items":{
+								"EmpId__0":"{{ n_lSLD7.outputs.result.result[0].EmpId__0 }}",
+								"Name__1":"{{ n_lSLD7.outputs.result.result[0].Name__1 }}",
+								"Department__2":"{{ n_lSLD7.outputs.result.result[0].Department__2 }}",
+								"Total_Bonus":"{{ n_lSLD7.outputs.result.result[0].Total_Bonus }}",
+								"Total_Leaves":"{{ n_lSLD7.outputs.result.result[0].Total_Leaves }}",
+								"Quarters":{
+									"source":"{{ n_lSLD7.outputs.result.result[0].Quarters }}",
+									"ua:type":"mappedArray"
+								}
+							}
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -1906,5 +1924,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":79
+	"version":80
 }
