@@ -1,0 +1,67 @@
+{
+	"appsUsed":[
+		"bill"
+	],
+	"createdTime":1761557072244,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761557205462,
+		"deployedBy":411,
+		"deployedDefinitionId":"68ff3ad1be0cb425dcb54181",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
+	"edges":[
+		
+	],
+	"id":"68ff3a50be0cb425dcb52a22",
+	"lastModifiedBy":33430,
+	"lcName":"bill trigger",
+	"modifiedTime":1761560458867,
+	"name":"bill trigger",
+	"nodes":[
+		{
+			"context":{
+				"appName":"bill",
+				"resourceVersion":2,
+				"connectionId":"68b565c1a0ef2435c1d88768",
+				"resourceName":"bill_on_new_payment"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_PX9Td-1",
+			"id":"n_v2a5e",
+			"index":1,
+			"inputs":{
+				"name":"QA-Test-Subscription"
+			},
+			"skip":false,
+			"subTitle":"Bill",
+			"title":"On new payment",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		}
+	],
+	"ownerUserId":411,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":2
+}
