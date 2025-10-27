@@ -2,6 +2,7 @@
 	"appsUsed":[
 		"microsoft_approvals",
 		"microsoft_excel",
+		"microsoft_graph_api",
 		"microsoft_outlook"
 	],
 	"createdTime":1750223387040,
@@ -16,6 +17,13 @@
 		},
 		{
 			"fromNodeId":"n_g3A3m",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tqx0L",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tqx0L",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_6aHmJ",
@@ -67,7 +75,7 @@
 	"id":"68524a1b1fd9af0198a9c90a",
 	"lastModifiedBy":2627,
 	"lcName":"123qa",
-	"modifiedTime":1761392678051,
+	"modifiedTime":1761542037978,
 	"name":"123QA",
 	"nodes":[
 		{
@@ -104,7 +112,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_g3A3m",
@@ -122,6 +130,26 @@
 		},
 		{
 			"context":{
+				"appName":"microsoft_graph_api",
+				"resourceVersion":5169,
+				"connectionId":"68fb7b23fd73d85f6c048cab",
+				"resourceName":"microsoft_graph_api_list_mail",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_NXNMV-1",
+			"id":"n_tqx0L",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Microsoft Graph API",
+			"title":"List mail",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"microsoft_excel",
 				"resourceVersion":4098,
 				"connectionId":"68dcc7adbf51c14b15b911e5",
@@ -133,7 +161,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_6aHmJ",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"driveId":"b!Uv4yvYmSKEyQ8oobkWuw14F6jOrNmUBGto9FW0OVNoFO1fG6aFMfT6dV3UpLKfZv",
 				"itemPath":"Sarthak test.xlsx",
@@ -159,7 +187,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_m6ZFt",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"driveId":"b!Uv4yvYmSKEyQ8oobkWuw14F6jOrNmUBGto9FW0OVNoFO1fG6aFMfT6dV3UpLKfZv",
 				"itemPath":"excelTest/Sarthak test.xlsx",
@@ -185,7 +213,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_oAR88",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"connectionIds":"68dcc7adbf51c14b15b911e5",
 				"includeCredentials":true
@@ -208,7 +236,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_62NPq",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"driveId":"b!Uv4yvYmSKEyQ8oobkWuw14F6jOrNmUBGto9FW0OVNoFO1fG6aFMfT6dV3UpLKfZv",
 				"itemPath":"excelTest/Sarthak test.xlsx",
@@ -236,7 +264,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_97eUj",
-			"index":7,
+			"index":8,
 			"inputs":{},
 			"skip":false,
 			"subTitle":"Microsoft Excel",
@@ -256,7 +284,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_JacJJ",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"approvalItemId":"955bfd14-aea7-45c2-88b0-b04da8aba827"
 			},
@@ -277,7 +305,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NXNMV-1",
 			"id":"n_tBG5F",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"variableSchema":{
 					"type":"object",
@@ -310,5 +338,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
