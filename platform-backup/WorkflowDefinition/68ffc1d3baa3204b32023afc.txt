@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761591763457,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761592644672,
+		"deployedBy":170149,
+		"deployedDefinitionId":"68ffc542a309a82f9f70d052",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":3
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_qssO6",
@@ -23,7 +31,7 @@
 	"id":"68ffc1d3baa3204b32023afc",
 	"lastModifiedBy":170149,
 	"lcName":"test",
-	"modifiedTime":1761592641307,
+	"modifiedTime":1761592999784,
 	"name":"test",
 	"nodes":[
 		{
@@ -77,18 +85,6 @@
 						"includePercentageChange":false
 					}
 				],
-				"filter":{
-					"filters":[
-						{
-							"property":"STANDARD",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"false"
-							}
-						}
-					],
-					"operator":"AND"
-				},
 				"entityType":"WORKFLOW_EXECUTION",
 				"group":"PLATFORM"
 			},
@@ -136,5 +132,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
