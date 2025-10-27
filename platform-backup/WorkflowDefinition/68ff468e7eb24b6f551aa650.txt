@@ -1,51 +1,131 @@
 {
 	"appsUsed":[
-		
+		"oracledb",
+		"sqlserver"
 	],
 	"createdTime":1761560206331,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_X8PXu",
+			"fromNodeId":"n_JBvau",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_egDUa",
+			"toNodeId":"n_PQ0wB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_PQ0wB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KLENU",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_KLENU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9fS8t",
 			"type":"next"
 		}
 	],
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761560206331,
+	"modifiedTime":1761563795052,
 	"name":"BDI HANA",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_X8PXu-1",
-			"id":"_X8PXu",
-			"index":0,
+			"id":"n_JBvau",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1082,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_X8PXu-1",
-			"id":"_egDUa",
-			"index":0,
+			"id":"n_PQ0wB",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"sqlserver",
+				"resourceVersion":3811,
+				"connectionId":"68b12c1b23fe751f9e0d04b3",
+				"resourceName":"sqlserver_execute_stored_procedure",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"n_KLENU",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Microsoft SQL Server",
+			"title":"Execute stored procedure",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"oracledb",
+				"resourceVersion":5603,
+				"connectionId":"68f120e8001bfd69a7fb4054",
+				"resourceName":"oracledb_execute_sql",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"n_9fS8t",
+			"index":4,
+			"inputs":{
+				"performAsync":false,
+				"objectSourceResourceName":"oracledb_execute_sql_metadata",
+				"sql":"SELECT z.cod_peri\r\nFROM SSICC_PE_ES.BAS_CTRL_FACT z\r\nWHERE z.ind_camp_act = 1\r\nAND z.sta_camp = 0"
+			},
+			"skip":false,
+			"subTitle":"Oracle DB",
+			"title":"Execute a SQL statement",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15080,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +139,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":0
+	"version":1
 }
