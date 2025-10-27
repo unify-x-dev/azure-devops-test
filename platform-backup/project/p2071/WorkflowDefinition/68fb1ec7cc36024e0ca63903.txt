@@ -244,7 +244,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761551161789,
+	"modifiedTime":1761551344870,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1773,7 +1773,7 @@
 						}
 					}
 				},
-				"code":"def inputArray = items\n\n// Step 1: Aggregate employee data\ndef aggregated = inputArray.groupBy { it.EmpId__0 }.collect { empId, entries ->\n    def first = entries[0]\n    [\n        EmpId__0: empId,\n        Name__1: first.Name__1,\n        Department__2: first.Department__2,\n        Total_Bonus: entries.sum { it.Bonus_Amount__3?.toInteger() ?: 0 },\n        Total_Leaves: entries.sum { it.Leaves__4?.toInteger() ?: 0 },\n        Quarters: entries.collect { it.Quarter }.unique()\n    ]\n}\n\n// Step 2: Sort by highest bonus and then by lowest leaves\ndef sortedList = aggregated.sort { a, b ->\n    // First sort descending by bonus\n    def bonusCompare = b.Total_Bonus <=> a.Total_Bonus\n    // If bonus is same, sort ascending by leaves\n    return bonusCompare != 0 ? bonusCompare : a.Total_Leaves <=> b.Total_Leaves\n}\n\n// Step 3: Pick top 5\ndef top5 = sortedList.take(5)\n\n// Step 4: Return result (wrapped for UnifyApps)\nreturn [result: top5]\n",
+				"code":"def inputArray = items\n\n// Step 2: Sort by highest bonus and then by lowest leaves\ndef sortedList = inputArray.sort { a, b ->\n    // First sort descending by bonus\n    def bonusCompare = b.Total_Bonus <=> a.Total_Bonus\n    // If bonus is same, sort ascending by leaves\n    return bonusCompare != 0 ? bonusCompare : a.Total_Leaves <=> b.Total_Leaves\n}\n\n// Step 3: Pick top 5\ndef top5 = sortedList.take(5)\n\n// Step 4: Return result (wrapped for UnifyApps)\nreturn [result: top5]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1909,5 +1909,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":75
+	"version":76
 }
