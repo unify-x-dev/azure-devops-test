@@ -1,51 +1,169 @@
 {
 	"appsUsed":[
-		
+		"6891bf0e6a75a1a04357eacc",
+		"netsuite"
 	],
 	"createdTime":1761553615078,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_fSb6B",
+			"fromNodeId":"n_davcA",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_2okeu",
+			"toNodeId":"n_pPENx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_pPENx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_kjJjl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_kjJjl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TjC5y",
 			"type":"next"
 		}
 	],
 	"id":"68ff2ccf8d7f164f751c7979",
 	"lastModifiedBy":124029,
 	"lcName":"rate limit",
-	"modifiedTime":1761553615078,
+	"modifiedTime":1761554772655,
 	"name":"rate limit",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fSb6B-1",
-			"id":"_fSb6B",
-			"index":0,
+			"id":"n_davcA",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.line.items.linesubsidiary.id",
+					"root.line.items.duetofromsubsidiary.id",
+					"root.line.items.account.id",
+					"root.line.items.debit",
+					"root.line.items.credit",
+					"root.line.items.memo",
+					"root.line.items.entity.id",
+					"root.line.items.currency.id"
+				]
+			},
+			"context":{
+				"appName":"netsuite",
+				"resourceVersion":12,
+				"connectionId":"68b571d44b7eb16a12bdd9eb",
+				"resourceName":"netsuite_create_adv_intercompany_journal_entry",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fSb6B-1",
-			"id":"_2okeu",
-			"index":0,
+			"id":"n_pPENx",
+			"index":2,
+			"inputs":{
+				"line":{
+					"items":{
+						"linesubsidiary":{
+							"id":"45"
+						},
+						"duetofromsubsidiary":{
+							"id":"42"
+						},
+						"account":{
+							"id":"1852"
+						}
+					},
+					"ua:type":"mappedArray"
+				},
+				"memo":"1184",
+				"currency":{
+					"id":"1"
+				},
+				"subsidiary":{
+					"id":"45"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Netsuite",
+			"title":"Create advanced intercompany journal entry",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.expense.items.items.department.id",
+					"root.expense.items.items.class.id",
+					"root.expense.items.items.memo"
+				]
+			},
+			"context":{
+				"appName":"netsuite",
+				"resourceVersion":1463,
+				"connectionId":"68b571d44b7eb16a12bdd9eb",
+				"resourceName":"netsuite_create_vendor_bill",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_fSb6B-1",
+			"id":"n_kjJjl",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Netsuite",
+			"title":"Create vendor bill",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"6891bf0e6a75a1a04357eacc",
+				"resourceVersion":667,
+				"resourceName":"6891bf0e6a75a1a04357eacc:68b6bb6984bed207be121653",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_fSb6B-1",
+			"id":"n_TjC5y",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Netsuite 2",
+			"title":"Create Vendor Bill of a PO",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":124029,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +177,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
