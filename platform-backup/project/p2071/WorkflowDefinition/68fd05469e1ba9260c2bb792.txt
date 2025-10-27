@@ -112,7 +112,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761584268752,
+	"modifiedTime":1761584342828,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -577,7 +577,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_cI12S",
@@ -698,7 +698,7 @@
 						}
 					}
 				},
-				"code":"def fromHeaderValue = mail.payload.headers.find { it.name == 'From' }?.value\n\n// Print the result\nprintln fromHeaderValue\nreturn [ fromHeaderValue ]",
+				"code":"// Access the first item in the 'mail' list (which is the email object)\n// Then proceed with payload, headers, find, and value.\ndef fromHeaderValue = mail[0]?.payload?.headers?.find { it.name == 'From' }?.value\n\n// The result will be: ChatGPT <noreply@email.openai.com>\nprintln fromHeaderValue\nreturn [ fromHeaderValue ]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -983,5 +983,5 @@
 		}
 	},
 	"standard":false,
-	"version":79
+	"version":80
 }
