@@ -45,13 +45,6 @@
 			"fromNodeId":"n_1NDHR",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_44b6q",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_44b6q",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_w1jX8",
 			"type":"next"
 		},
@@ -74,7 +67,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761570665005,
+	"modifiedTime":1761570704508,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -302,54 +295,22 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1116,
-				"resourceName":"callables_call_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_GmL4O@_S8WBh-1@l",
-			"id":"n_44b6q",
-			"index":7,
-			"inputs":{
-				"automationId":"66dfd76eb70dad256986b784",
-				"runtimeConnections":{},
-				"synchronous":true,
-				"triggerWorkflowWithRuntimeType":"DEFAULT",
-				"version":"-1",
-				"parameters":{
-					"content":"{{ n_wLKEV.outputs.text }} Today's complete schedule ,Simple formatting, easy to read\n",
-					"type":"text",
-					"response_format":"text",
-					"maxTokens":409,
-					"temperature":"0.1"
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Call automation",
-			"type":"CALL_WORKFLOW"
-		},
-		{
-			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":999,
 				"resourceName":"variable_by_unifyapps_update_variables",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_GmL4O@_S8WBh-1@l",
 			"id":"n_w1jX8",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"variables":[
 					{
-						"source":"{{ n_wLKEV.outputs.text }}",
-						"value":"event detail {{ n_GmL4O.outputs.index }}: {{ n_44b6q.outputs.llmResponse }}   "
+						"source":"{{ n_XHkjo.outputs.text }}",
+						"value":"{{ n_1NDHR.outputs.choices[0].message.content }}"
 					}
 				]
 			},
@@ -370,7 +331,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_S8WBh-1",
 			"id":"_6A7vs",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"result":{
 					"text":"{{ n_XHkjo.outputs.text }}"
@@ -403,5 +364,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
