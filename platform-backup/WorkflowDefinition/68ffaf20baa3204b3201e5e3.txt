@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761586976991,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_lPkKM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_5DObD",
+			"type":"next"
+		}
+	],
+	"id":"68ffaf20baa3204b3201e5e3",
+	"lastModifiedBy":190398,
+	"lcName":"emailautomations",
+	"modifiedTime":1761586976991,
+	"name":"emailAutomations",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_lPkKM-1",
+			"id":"_lPkKM",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_lPkKM-1",
+			"id":"_5DObD",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":190398,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
