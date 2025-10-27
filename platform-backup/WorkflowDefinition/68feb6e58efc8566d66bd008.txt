@@ -26,12 +26,19 @@
 			"skip":false,
 			"toNodeId":"n_tzXhX",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tzXhX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ktUsW",
+			"type":"next"
 		}
 	],
 	"id":"68feb6e58efc8566d66bd008",
 	"lastModifiedBy":426,
 	"lcName":"changesetqa2wt832iljyeda",
-	"modifiedTime":1761539206745,
+	"modifiedTime":1761541902855,
 	"name":"changeSetQA2wt832IlJyeda",
 	"nodes":[
 		{
@@ -121,7 +128,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"oVNXT-1",
 			"id":"n_tzXhX",
@@ -139,6 +146,37 @@
 			"subTitle":"Storage by UnifyApps",
 			"title":"Export records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":1058,
+				"resourceName":"standard_entities_add_field_to_entity_type",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"oVNXT-1",
+			"id":"n_ktUsW",
+			"index":4,
+			"inputs":{
+				"filterable":false,
+				"isHashed":false,
+				"optionsType":"STATIC",
+				"nameField":false,
+				"isSecure":false,
+				"entityTypeId":"66d188017c203d4d9907a74c",
+				"sortable":false,
+				"isOptional":false,
+				"fieldType":"STRING",
+				"searchable":false,
+				"primaryKey":false
+			},
+			"skip":false,
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"Add field",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
@@ -154,5 +192,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
