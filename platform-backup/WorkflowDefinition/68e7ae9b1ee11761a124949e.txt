@@ -5,12 +5,12 @@
 	"createdTime":1760257334801,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1760257335120,
+		"deployedAt":1761312383315,
 		"deployedBy":44103,
-		"deployedDefinitionId":"68eb6536ec609d6e74549c98",
+		"deployedDefinitionId":"68fb7e7e00ea623ea74f33fd",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":41
+		"version":2,
+		"workflowVersion":42
 	},
 	"edges":[
 		{
@@ -38,13 +38,6 @@
 			"fromNodeId":"n_KsKzL",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_fQBOA",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_fQBOA",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_r6Qet",
 			"type":"next"
 		},
@@ -53,8 +46,15 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Fyx2v",
+			"toNodeId":"_JDXND",
 			"type":"if"
+		},
+		{
+			"fromNodeId":"_JDXND",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Fyx2v",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"_Fyx2v",
@@ -73,6 +73,65 @@
 		},
 		{
 			"fromNodeId":"n_y54E0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_loNKp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_loNKp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_88v24",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_88v24",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_V5MAG",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_V5MAG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_QgVXn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_QgVXn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bkybR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_bkybR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vlblh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_DWIYe",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vlblh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Gtikd",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vlblh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_88v24",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_vlblh",
@@ -117,25 +176,18 @@
 			"fromNodeId":"n_WUd6m",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_TJKRZ",
+			"toNodeId":"n_hCMd8",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_TJKRZ",
+			"fromNodeId":"n_hCMd8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_L33Wm",
+			"toNodeId":"n_mSW0Y",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_L33Wm",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_TBimd",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_TBimd",
+			"fromNodeId":"n_mSW0Y",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -165,22 +217,6 @@
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_DWIYe",
-			"name":"loopback",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_vlblh",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Gtikd",
-			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_vlblh",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_vlblh",
 			"priority":0,
 			"skip":false,
@@ -200,6 +236,13 @@
 			"name":"no",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_iNpCz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_iNpCz",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_F25Ly",
 			"type":"next"
 		}
@@ -207,7 +250,7 @@
 	"id":"68e7ae9b1ee11761a124949e",
 	"lastModifiedBy":44103,
 	"lcName":"[dt] paginated list of all chat history",
-	"modifiedTime":1761312382204,
+	"modifiedTime":1761584384797,
 	"name":"[DT] Paginated list of all chat history",
 	"nodes":[
 		{
@@ -255,6 +298,10 @@
 								"type":"string",
 								"title":"Sort In",
 								"format":"skip"
+							},
+							"searchQuery":{
+								"type":"string",
+								"title":"Search Query"
 							}
 						}
 					},
@@ -788,6 +835,10 @@
 						"offset":{
 							"type":"integer",
 							"title":"Offset"
+						},
+						"queryPresent":{
+							"type":"boolean",
+							"title":"Query Present"
 						}
 					}
 				},
@@ -803,15 +854,20 @@
 						"offset":{
 							"type":"integer",
 							"title":"Offset"
+						},
+						"searchQuery":{
+							"type":"string",
+							"title":"Search Query"
 						}
 					}
 				},
-				"code":"return [\n    \"userLimit\": (binding.hasVariable('limit') && limit != null && limit.toString().trim()) ? limit : 1000,\n    \"offset\": (binding.hasVariable('offset') && offset != null && offset.toString().trim()) ? offset : 0\n]\n\n",
+				"code":"return [\n    \"userLimit\": (binding.hasVariable('limit') && limit != null && limit.toString().trim()) ? limit : 1000,\n    \"offset\": (binding.hasVariable('offset') && offset != null && offset.toString().trim()) ? offset : 0,\n    \"queryPresent\": (binding.hasVariable('searchQuery') && searchQuery?.toString()?.trim()) ? true : false\n]\n\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"limit":"{{ n_LQTKC.outputs.queryParams.limit }}",
-					"offset":"{{ n_LQTKC.outputs.queryParams.offset }}"
+					"offset":"{{ n_LQTKC.outputs.queryParams.offset }}",
+					"searchQuery":"{{ n_LQTKC.outputs.queryParams.searchQuery }}"
 				}
 			},
 			"skip":false,
@@ -821,17 +877,47 @@
 		},
 		{
 			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":824,
-				"resourceName":"storage_by_unifyapps_fetch_records",
+				"appName":"if_else",
+				"resourceVersion":447,
+				"resourceName":"if_else_condition",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_MPdFP-1",
-			"id":"_fQBOA",
+			"id":"n_r6Qet",
 			"index":5,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_KsKzL.outputs.result.userLimit }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"0"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":891,
+				"resourceName":"storage_by_unifyapps_count_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_r6Qet@_MPdFP-1@y",
+			"id":"_JDXND",
+			"index":6,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -845,18 +931,7 @@
 					],
 					"operator":"AND"
 				},
-				"object_type":"service_hub_case",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"sortBy":[],
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"MULTIPLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":true
+				"object_type":"service_hub_case"
 			},
 			"options":{
 				"bulkheadConfig":{
@@ -917,38 +992,8 @@
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
+			"title":"Count records",
 			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"if_else",
-				"resourceVersion":447,
-				"resourceName":"if_else_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_MPdFP-1",
-			"id":"n_r6Qet",
-			"index":6,
-			"inputs":{
-				"filters":[
-					{
-						"property":"{{ n_KsKzL.outputs.result.userLimit }}",
-						"filter":{
-							"operator":"EQUAL",
-							"value":"0"
-						}
-					}
-				],
-				"operator":"AND"
-			},
-			"skip":false,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
 		},
 		{
 			"context":{
@@ -970,7 +1015,7 @@
 				"body":{
 					"chatResults":[],
 					"hasMore":false,
-					"total":"{{ _fQBOA.outputs.total }}"
+					"total":"{{ _JDXND.outputs.count }}"
 				},
 				"status":200
 			},
@@ -1050,6 +1095,386 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":542,
+				"resourceName":"variable_by_unifyapps_create_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_MPdFP-1",
+			"id":"n_loNKp",
+			"index":9,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"additionalProperties":false,
+									"type":[
+										"object",
+										"string",
+										"number",
+										"boolean",
+										"integer"
+									],
+									"properties":{}
+								}
+							}
+						}
+					}
+				}
+			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"caseIds",
+				"ua:list_type":"STRING"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"caseIds",
+							"disableActions":true,
+							"items":{
+								"type":"string"
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":447,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_MPdFP-1",
+			"id":"n_88v24",
+			"index":10,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_KsKzL.outputs.result.queryPresent }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"true"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":609,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_88v24@_MPdFP-1@y",
+			"id":"n_V5MAG",
+			"index":11,
+			"inputs":{
+				"automationId":"6784b9216fb83f0972c5625d",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"userQuery":"{{ n_LQTKC.outputs.queryParams.searchQuery }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":798,
+				"resourceName":"storage_by_unifyapps_semantic_query_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_88v24@_MPdFP-1@y",
+			"id":"n_QgVXn",
+			"index":12,
+			"inputs":{
+				"hybridSearch":false,
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties.fromCustomerUserId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_LQTKC.outputs.queryParams.fromCustomerUserId }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"searchField":{
+					"field":"properties.embeddings",
+					"op":"KNN",
+					"values":"{{ n_V5MAG.outputs.embeddings }}"
+				},
+				"object_type":"first_query_responce_vector_stores",
+				"numberOfRecordsToFetch":20
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Semantic search records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":536,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_88v24@_MPdFP-1@y",
+			"id":"n_bkybR",
+			"index":13,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_QgVXn.outputs.objects }}",
+					"items":"{{ n_QgVXn.outputs.objects[0].document.properties.caseId }}"
+				},
+				"listName":"{{ n_loNKp.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":0,
 				"resourceName":"loop_while",
@@ -1060,7 +1485,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_MPdFP-1",
 			"id":"n_vlblh",
-			"index":9,
+			"index":14,
 			"inputs":{
 				"condition":{
 					"filters":[
@@ -1093,7 +1518,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_vlblh@_MPdFP-1@l",
 			"id":"n_6Zvk5",
-			"index":10,
+			"index":15,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1135,6 +1560,11 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.caseIds.items"
+				]
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":550,
@@ -1146,7 +1576,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_vlblh@_MPdFP-1@l",
 			"id":"n_lWiZ8",
-			"index":11,
+			"index":16,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1156,6 +1586,12 @@
 						"sortIn":{
 							"type":"string",
 							"title":"Sort In"
+						},
+						"filter":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Filter"
 						}
 					}
 				},
@@ -1167,14 +1603,36 @@
 						"sortIn":{
 							"type":"string",
 							"title":"Sort In"
+						},
+						"fromCustomerUserId":{
+							"type":"string",
+							"title":"From Customer User Id"
+						},
+						"caseIds":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Case Ids"
+						},
+						"searchQuery":{
+							"type":"string",
+							"title":"Search Query"
 						}
 					}
 				},
-				"code":"def finalSortIn = \"DESC\"\n\nif(binding.hasVariable('sortIn') && sortIn && sortIn == \"ASC\"){\n  finalSortIn = \"ASC\" \n}\n\nreturn ['sortIn' : finalSortIn]",
+				"code":"def finalSortIn = \"DESC\"\n\ndef filter = [\n    op: 'AND',\n    values: []\n]\n\nif (binding.hasVariable('searchQuery') && searchQuery) {\n    def safeCaseIds = (binding.hasVariable('caseIds') && caseIds) ? caseIds : []\n    \n    def caseIdsFilter = [\n        field: 'id',\n        op: 'IN',\n        values: safeCaseIds\n    ]\n    \n    filter['values'].add(caseIdsFilter)\n}\n\n// Case 2: Default filter using fromCustomerUserId\nelse {\n    def defaultFilter = [\n        field: 'properties.fromCustomerUserId',\n        op: 'EQUAL',\n        values:[(binding.hasVariable('fromCustomerUserId') && fromCustomerUserId) ? fromCustomerUserId : \"\"]\n    ]\n    filter['values'].add(defaultFilter)\n}\n\n// Sorting direction\nif (binding.hasVariable('sortIn') && sortIn && sortIn == \"ASC\") {\n    finalSortIn = \"ASC\"\n}\n\n// Final return\nreturn [\n    'sortIn': finalSortIn,\n    'filter': filter\n]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"sortIn":"{{ n_LQTKC.outputs.queryParams.sortIn }}"
+					"sortIn":"{{ n_LQTKC.outputs.queryParams.sortIn }}",
+					"fromCustomerUserId":"{{ n_LQTKC.outputs.queryParams.fromCustomerUserId }}",
+					"searchQuery":"{{ n_LQTKC.outputs.queryParams.searchQuery }}",
+					"caseIds":{
+						"source":"{{ n_loNKp.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_loNKp.outputs.items[0] }}"
+					}
 				}
 			},
 			"skip":false,
@@ -1194,15 +1652,13 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_vlblh@_MPdFP-1@l",
 			"id":"_7CsjG",
-			"index":12,
+			"index":17,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_fromCustomerUserId",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_LQTKC.outputs.queryParams.fromCustomerUserId }}"
+							"resolvedFilter":{
+								"filter":"{{ n_lWiZ8.outputs.result.filter }}"
 							}
 						}
 					],
@@ -1301,7 +1757,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_vlblh@_MPdFP-1@l",
 			"id":"n_Er3yH",
-			"index":13,
+			"index":18,
 			"inputs":{
 				"variables":[
 					{
@@ -1331,11 +1787,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_vlblh@_MPdFP-1@l",
 			"id":"n_WUd6m",
-			"index":14,
+			"index":19,
 			"inputs":{
-				"repeatMode":"SINGLE",
+				"repeatMode":"BATCH",
 				"listSource":"{{ _7CsjG.outputs.objects }}",
-				"captureIterations":false
+				"captureIterations":false,
+				"batchSize":20
 			},
 			"skip":false,
 			"subTitle":"Loop",
@@ -1344,168 +1801,84 @@
 		},
 		{
 			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":840,
-				"resourceName":"storage_by_unifyapps_fetch_records",
+				"appName":"callables",
+				"resourceVersion":227,
+				"resourceName":"callables_call_automation_batch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_WUd6m@n_vlblh@_MPdFP-1@l@l",
-			"id":"n_TJKRZ",
-			"index":15,
+			"id":"n_hCMd8",
+			"index":20,
 			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_caseId",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_WUd6m.outputs.item.id }}"
-							}
-						},
-						{
-							"property":"properties_type",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"fan"
-							}
-						},
-						{
-							"property":"properties_additional_internalMessageType",
-							"filter":{
-								"operator":"MISSING"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"service_hub_message",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"sortBy":[
-					{
-						"field":"cTm",
-						"order":"ASC"
+				"automationId":"68ff75664c1a732dd5610e42",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"distributeWorkflowLoad":false,
+				"parametersList":{
+					"source":"{{ n_WUd6m.outputs.item }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"case":"{{ n_WUd6m.outputs.item[0] }}"
 					}
-				],
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":1,
-					"offset":0
 				},
-				"numberOfRecordsToFetch":"MULTIPLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":true
+				"version":"-1"
 			},
 			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":840,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_WUd6m@n_vlblh@_MPdFP-1@l@l",
-			"id":"_L33Wm",
-			"index":16,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_caseId",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_WUd6m.outputs.item.id }}"
-							}
-						},
-						{
-							"property":"properties_type",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"bot"
-							}
-						},
-						{
-							"property":"properties_additional_internalMessageType",
-							"filter":{
-								"operator":"MISSING"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"service_hub_message",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"sortBy":[
-					{
-						"field":"cTm",
-						"order":"ASC"
-					}
-				],
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":1,
-					"offset":0
-				},
-				"numberOfRecordsToFetch":"MULTIPLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":true
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		},
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.itemToAdd.additional.firstQuery",
-					"root.itemToAdd.additional.firstResponse"
+					"root.itemsToAdd.items.id",
+					"root.itemsToAdd.items.createTime",
+					"root.itemsToAdd.items.updateTime",
+					"root.itemsToAdd.items.title",
+					"root.itemsToAdd.items.discription",
+					"root.itemsToAdd.items.messageCount",
+					"root.itemsToAdd.items.additional.firstQuery",
+					"root.itemsToAdd.items.additional.firstResponse"
 				]
 			},
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":557,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"resourceVersion":162,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_WUd6m@n_vlblh@_MPdFP-1@l@l",
-			"id":"n_TBimd",
-			"index":17,
+			"id":"n_mSW0Y",
+			"index":21,
 			"inputs":{
-				"itemToAdd":{
-					"id":"{{ n_WUd6m.outputs.item.id }}",
-					"createTime":"{{ n_WUd6m.outputs.item.createdTime }}",
-					"updateTime":"{{ n_WUd6m.outputs.item.modifiedTime }}",
-					"title":"{{ n_WUd6m.outputs.item.properties.subject }}",
-					"discription":"{{ n_WUd6m.outputs.item.properties.description }}",
-					"messageCount":"=SUM({{ n_TJKRZ.outputs.total }},{{ _L33Wm.outputs.total }})",
-					"additional":{
-						"firstQuery":"{{ n_TJKRZ.outputs.objects[0].properties.content.text }}",
-						"firstResponse":"{{ _L33Wm.outputs.objects[0].properties.content.text }}"
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_hCMd8.outputs.result }}",
+					"items":{
+						"id":"{{ n_hCMd8.outputs.result[0].id }}",
+						"createTime":"{{ n_hCMd8.outputs.result[0].createTime }}",
+						"updateTime":"{{ n_hCMd8.outputs.result[0].updateTime }}",
+						"title":"{{ n_hCMd8.outputs.result[0].title }}",
+						"discription":"{{ n_hCMd8.outputs.result[0].description }}",
+						"messageCount":"{{ n_hCMd8.outputs.result[0].messageCount }}",
+						"additional":{
+							"firstQuery":"{{ n_hCMd8.outputs.result[0].additional.firstQuery }}",
+							"firstResponse":"{{ n_hCMd8.outputs.result[0].additional.firstResponse }}"
+						}
 					}
 				},
-				"insertLocation":"END",
 				"listName":"{{ n_xGYm8.outputs.items[0] }}"
 			},
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
+			"title":"Add items to list",
 			"type":"ACTION"
 		},
 		{
@@ -1520,7 +1893,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_vlblh@_MPdFP-1@l",
 			"id":"n_ILXu8",
-			"index":18,
+			"index":22,
 			"inputs":{
 				"variables":[
 					{
@@ -1550,7 +1923,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_vlblh@_MPdFP-1@l",
 			"id":"n_Gtikd",
-			"index":19,
+			"index":23,
 			"inputs":{
 				"filters":[
 					{
@@ -1587,7 +1960,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Gtikd@n_vlblh@_MPdFP-1@l@y",
 			"id":"n_DWIYe",
-			"index":20,
+			"index":24,
 			"inputs":{
 				"loop":"n_vlblh"
 			},
@@ -1608,7 +1981,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_MPdFP-1",
 			"id":"n_dUIoV",
-			"index":21,
+			"index":25,
 			"inputs":{
 				"filters":[
 					{
@@ -1637,7 +2010,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_dUIoV@_MPdFP-1@y",
 			"id":"n_rYuMU",
-			"index":22,
+			"index":26,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1671,6 +2044,96 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":891,
+				"resourceName":"storage_by_unifyapps_count_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_dUIoV@_MPdFP-1@n",
+			"id":"_iNpCz",
+			"index":27,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_fromCustomerUserId",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_LQTKC.outputs.queryParams.fromCustomerUserId }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"service_hub_case"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"count":3,
+					"enabled":true,
+					"initialDelay":500,
+					"maxDelay":1000
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Count records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":0,
 				"resourceName":"callables_return_response_to_api",
@@ -1681,7 +2144,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_dUIoV@_MPdFP-1@n",
 			"id":"_F25Ly",
-			"index":23,
+			"index":28,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1689,7 +2152,7 @@
 				"body":{
 					"chatResults":[],
 					"hasMore":false,
-					"total":"{{ _fQBOA.outputs.total }}"
+					"total":"{{ _iNpCz.outputs.count }}"
 				},
 				"status":200
 			},
@@ -1716,5 +2179,5 @@
 	"tags":[
 		
 	],
-	"version":42
+	"version":43
 }
