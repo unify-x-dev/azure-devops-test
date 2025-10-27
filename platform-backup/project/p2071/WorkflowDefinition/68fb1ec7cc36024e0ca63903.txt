@@ -219,6 +219,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"_9hKdo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DzowR",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_V0qwC",
 			"priority":0,
 			"skip":false,
@@ -226,7 +233,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_9hKdo",
+			"fromNodeId":"n_DzowR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_KaoOy",
@@ -244,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761552051406,
+	"modifiedTime":1761552530660,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1844,9 +1851,31 @@
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":1012,
+				"resourceName":"analytics_by_unifyapps_query_reports",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CHCIq@_m0AlG-1@2",
+			"id":"n_DzowR",
+			"index":26,
+			"inputs":{
+				"entityType":"{{ n_lSLD7.outputs.result }}",
+				"group":"ENTITY_REPORTING{{ n_lSLD7.outputs.result }}"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Analytics Query",
 			"type":"ACTION"
 		},
 		{
@@ -1861,7 +1890,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_m0AlG-1",
 			"id":"n_KaoOy",
-			"index":26,
+			"index":27,
 			"inputs":{
 				"result":{
 					"flag":"{{ n_yM97Y.outputs.flag }}"
@@ -1884,5 +1913,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":85
+	"version":86
 }
