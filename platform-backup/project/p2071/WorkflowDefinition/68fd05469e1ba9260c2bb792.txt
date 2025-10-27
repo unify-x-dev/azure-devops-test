@@ -112,7 +112,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761584640081,
+	"modifiedTime":1761584657913,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -698,7 +698,7 @@
 						}
 					}
 				},
-				"code":"// Access the first item in the 'mail' list (which is the email object)\n// Then proceed with payload, headers, find, and value.\ndef from_ = mail[0]?.payload?.headers?.find { it.name == 'From' }?.value\ndef sub = mail[0]?.payload?.headers?.find { it.name == 'Subject' }?.value\ndef preview = mail[0].snippet\n\ndef mailData = [\n    \"Mail Data\": [\n        \"Subject\": sub,\n        \"Sender\": from_,\n        \"snippet\": preview\n    ]\n]\n// The result will be: ChatGPT <noreply@email.openai.com>\nprintln mailData\nreturn [ mailData ]",
+				"code":"// Access the first item in the 'mail' list (which is the email object)\n// Then proceed with payload, headers, find, and value.\ndef from_ = mail[0]?.payload?.headers?.find { it.name == 'From' }?.value\ndef sub = mail[0]?.payload?.headers?.find { it.name == 'Subject' }?.value\ndef preview = mail.snippet\n\ndef mailData = [\n    \"Mail Data\": [\n        \"Subject\": sub,\n        \"Sender\": from_,\n        \"snippet\": preview\n    ]\n]\n// The result will be: ChatGPT <noreply@email.openai.com>\nprintln mailData\nreturn [ mailData ]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -983,5 +983,5 @@
 		}
 	},
 	"standard":false,
-	"version":84
+	"version":85
 }
