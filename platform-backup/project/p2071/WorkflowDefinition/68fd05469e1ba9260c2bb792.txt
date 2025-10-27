@@ -119,7 +119,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761567425726,
+	"modifiedTime":1761567887306,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -739,7 +739,7 @@
 						}
 					}
 				},
-				"code":"def inputData = items\n\n// 1. Parse the JSON string into a Groovy object (Map/List)\ndef dataObject = new groovy.json.JsonSlurper().parseText(inputData)\n\n// 2. Iterate and extract the required fields\ndef refinedData = dataObject.items.collectMany { item ->\n    // Use collectMany to flatten the list of lists resulting from the inner Mails list\n    item.Mails.collect { mail ->\n        // Initialize a map for the new, refined email object\n        def refinedMail = [\n            preview: mail.preview\n        ]\n\n        // Find the 'From' header and map its value to 'sender'\n        def fromHeader = mail.headers.find { it.item == \"From\" }\n        refinedMail.sender = fromHeader ? fromHeader.value : \"N/A\"\n\n        // Find the 'Subject' header and map its value to 'subject'\n        def subjectHeader = mail.headers.find { it.item == \"Subject\" }\n        refinedMail.subject = subjectHeader ? subjectHeader.value : \"N/A\"\n\n        return refinedMail\n    }\n}\n\n// 3. Print the resulting refined data (optional, for verification)\nprintln groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(refinedData))",
+				"code":"// Use flatMap to get a single list of all \"Mails\" objects from all \"items\"\ndef allMails = items.items.flatMap { item ->\n    item.Mails\n}\n\n// Use collect to transform (map) each mail object to the desired format\ndef refinedData = allMails.collect { mail ->\n    \n    // 1. Find the header where item is \"From\" and get its value\n    // The '?' (safe navigation operator) prevents errors if the header is missing\n    def senderValue = mail.headers.find { it.item == \"From\" }?.value\n\n    // 2. Find the header where item is \"Subject\" and get its value\n    def subjectValue = mail.headers.find { it.item == \"Subject\" }?.value\n\n    // 3. Return a new map with the extracted data\n    [\n        preview: mail.preview,\n        sender: senderValue,\n        subject: subjectValue\n    ]\n}\n\n// Return the final list of refined mail objects\nreturn refinedData",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1029,5 +1029,5 @@
 		}
 	},
 	"standard":false,
-	"version":67
+	"version":68
 }
