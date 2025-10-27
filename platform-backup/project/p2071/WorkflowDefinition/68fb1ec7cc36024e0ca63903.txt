@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761556345877,
+	"modifiedTime":1761556679904,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1886,6 +1886,9 @@
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[
+						"empid"
+					],
 					"properties":{
 						"result":{
 							"type":"object",
@@ -1926,26 +1929,24 @@
 										"additionalProperties":false
 									},
 									"title":"result"
-								},
-								"empid":{
-									"type":"number",
-									"title":"Empid"
 								}
 							},
 							"title":"result",
 							"additionalProperties":false,
-							"required":[
-								"empid"
-							]
+							"required":[]
+						},
+						"empid":{
+							"type":"number",
+							"title":"Empid"
 						}
 					}
 				},
-				"code":"// Assuming the entire JSON is accessible in a variable named 'inputData'\n\n// CORRECTION 1: Use 'inputData' instead of the undefined 'result'\ndef resultData = inputData.result\n\n// CORRECTION 2: Extract the target ID from 'inputData.result'\ndef targetEmpId = resultData.empid\n\n// Find the employee object in the 'result' list whose 'EmpId__0' matches the 'targetEmpId'\n// We ensure 'targetEmpId' is converted to a String for comparison with 'EmpId__0'\ndef employeeDetails = resultData.result.find { it.EmpId__0 == String.valueOf(targetEmpId) }\n\n// The 'employeeDetails' variable now holds the specific employee's object,\n// or 'null' if no match was found.\n\nreturn employeeDetails",
+				"code":"def employees = (result?.result ?: []).findAll { it != null }\n\n// If empty, return an empty list to avoid runtime error\nif (!employees) {\n    return [ Top_Employees: [] ]\n}\n\ndef empIdStr = empIdToFind.toString()\n\n// Find employee by matching the EmpId__0 field\ndef matchedEmployee = employees.find { \n    it[\"EmpId__0\"]?.toString() == empIdStr\n}\n\n// Return found record or default message\nif (matchedEmployee) {\n    return matchedEmployee\n} else {\n    return [message: \"Employee with ID ${empIdStr} not found\"]\n}",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
+					"empid":"{{ n_yM97Y.outputs.empid }}",
 					"result":{
-						"empid":"{{ n_yM97Y.outputs.empid }}",
 						"result":{
 							"source":"{{ n_lSLD7.outputs.result.result }}",
 							"ua:type":"mappedArray",
@@ -2004,5 +2005,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":102
+	"version":106
 }
