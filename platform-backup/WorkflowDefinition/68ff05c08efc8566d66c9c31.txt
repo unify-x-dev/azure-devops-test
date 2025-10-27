@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761543616919,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761543646724,
+		"deployedBy":45771,
+		"deployedDefinitionId":"68ff05de77db7a5bde9825db",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_2dQWa",
@@ -16,7 +24,7 @@
 	"id":"68ff05c08efc8566d66c9c31",
 	"lastModifiedBy":45771,
 	"lcName":"schedule",
-	"modifiedTime":1761543645117,
+	"modifiedTime":1761543662208,
 	"name":"schedule",
 	"nodes":[
 		{
@@ -34,8 +42,8 @@
 			"inputs":{
 				"cron":"INTERVAL",
 				"sequential":false,
-				"interval":15,
-				"frequency":"MINUTES"
+				"interval":30,
+				"frequency":"SECONDS"
 			},
 			"skip":false,
 			"subTitle":"Schedule",
@@ -78,5 +86,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
