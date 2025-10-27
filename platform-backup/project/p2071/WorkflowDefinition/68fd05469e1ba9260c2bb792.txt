@@ -32,14 +32,36 @@
 			"fromNodeId":"_COby9",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_yreqf",
+			"toNodeId":"n_bxJt1",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_yreqf",
+			"fromNodeId":"n_bxJt1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_vzFmv",
+			"toNodeId":"n_Yc1Dm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Yc1Dm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ggFeA",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_ggFeA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_e9HJn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_e9HJn",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Yc1Dm",
 			"type":"next"
 		},
 		{
@@ -65,7 +87,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_vzFmv",
+			"fromNodeId":"n_Yc1Dm",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -90,7 +112,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761464734623,
+	"modifiedTime":1761560583999,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -100,7 +122,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_3qj6b",
@@ -116,6 +138,21 @@
 						"mail":{
 							"type":"string",
 							"title":"Mail"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Date"
+					],
+					"properties":{
+						"Date":{
+							"type":"string",
+							"format":"date",
+							"title":"Date",
+							"disablePast":false
 						}
 					}
 				}
@@ -134,7 +171,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_TJ6jE",
@@ -171,7 +208,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_TJ6jE@1",
@@ -192,7 +229,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"_COby9",
@@ -207,134 +244,411 @@
 		},
 		{
 			"context":{
-				"appName":"gmail",
-				"resourceVersion":5642,
-				"connectionId":"68fd065c6a75bb47174efa30",
-				"resourceName":"gmail_get_message",
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1070,
+				"resourceName":"variable_by_unifyapps_create_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"_yreqf",
+			"id":"n_bxJt1",
 			"index":5,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"additionalProperties":false,
+									"type":[
+										"object",
+										"string",
+										"number",
+										"boolean",
+										"integer"
+									],
+									"properties":{
+										"emails":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"To":{
+														"type":"string",
+														"title":"To"
+													},
+													"from":{
+														"type":"string",
+														"title":"From"
+													},
+													"subject":{
+														"type":"string",
+														"title":"Subject"
+													},
+													"Date":{
+														"type":"string",
+														"title":"Date"
+													}
+												},
+												"additionalProperties":false,
+												"required":[
+													"To",
+													"from",
+													"subject",
+													"Date"
+												]
+											},
+											"title":"Emails"
+										}
+									},
+									"required":[
+										"emails"
+									]
+								}
+							}
+						}
+					}
+				}
+			},
 			"inputs":{
-				"format":"metadata",
-				"id":"{{ _COby9.outputs.messages[0].id }}"
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"Mail",
+				"ua:list_type":"OBJECT"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"Mail",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{
+									"emails":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{
+												"To":{
+													"type":"string",
+													"title":"To"
+												},
+												"from":{
+													"type":"string",
+													"title":"From"
+												},
+												"subject":{
+													"type":"string",
+													"title":"Subject"
+												},
+												"Date":{
+													"type":"string",
+													"title":"Date"
+												}
+											},
+											"additionalProperties":false,
+											"required":[
+												"To",
+												"from",
+												"subject",
+												"Date"
+											]
+										},
+										"title":"Emails"
+									}
+								},
+								"required":[
+									"emails"
+								]
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"n_Yc1Dm",
+			"index":6,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ _COby9.outputs.messages }}",
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":4050,
+				"connectionId":"68fd065c6a75bb47174efa30",
+				"resourceName":"gmail_get_message_specifics",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Yc1Dm@n_TJ6jE@_JiodF-1@1@l",
+			"id":"n_ggFeA",
+			"index":7,
+			"inputs":{
+				"id":"{{ n_Yc1Dm.outputs.item.id }}"
 			},
 			"skip":false,
 			"subTitle":"Gmail",
-			"title":"Get message",
+			"title":"Get message specifics",
 			"type":"ACTION"
 		},
 		{
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":1078,
-				"resourceName":"variable_by_unifyapps_create_variables",
+				"resourceVersion":988,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_TJ6jE@_JiodF-1@1",
-			"id":"_vzFmv",
-			"index":6,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{},
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"value":{
-							"type":"string",
-							"title":"Value"
-						},
-						"header":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"name":{
-										"type":"string",
-										"title":"Name"
-									},
-									"value":{
-										"type":"string",
-										"title":"Value"
-									}
-								},
-								"additionalProperties":false,
-								"required":[
-									"name",
-									"value"
-								]
-							},
-							"title":"Header"
-						}
-					},
-					"required":[
-						"value",
-						"header"
-					]
-				}
-			},
+			"groupId":"n_Yc1Dm@n_TJ6jE@_JiodF-1@1@l",
+			"id":"n_e9HJn",
+			"index":8,
 			"inputs":{
-				"header":{
-					"source":"{{ _yreqf.outputs.payload.headers }}",
+				"itemsToAdd":{
 					"ua:type":"mappedArray",
 					"items":{
-						"value":"{{ _yreqf.outputs.payload.headers[0].value }}",
-						"name":"{{ _yreqf.outputs.payload.headers[0].name }}"
+						"emails":{
+							"items":{
+								"To":"{{ n_ggFeA.outputs.To }}",
+								"from":"{{ n_ggFeA.outputs.From }}",
+								"subject":"{{ n_ggFeA.outputs.Subject }}",
+								"Date":"{{ n_ggFeA.outputs.Date }}"
+							},
+							"ua:type":"mappedArray"
+						}
 					}
 				},
-				"value":"{{ _yreqf.outputs.payload.headers[0].value }}"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"value":{
-							"type":"string",
-							"title":"Value"
-						},
-						"header":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"name":{
-										"type":"string",
-										"title":"Name"
-									},
-									"value":{
-										"type":"string",
-										"title":"Value"
-									}
-								},
-								"additionalProperties":false,
-								"required":[
-									"name",
-									"value"
-								]
-							},
-							"title":"Header"
-						}
-					},
-					"required":[
-						"value",
-						"header"
-					]
-				}
+				"listName":"{{ n_bxJt1.outputs.items[0] }}"
 			},
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
-			"title":"Create variables",
+			"title":"Add items to list",
 			"type":"ACTION"
 		},
 		{
@@ -345,11 +659,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
-			"index":7,
+			"index":9,
 			"inputs":{
 				"name":"Calender"
 			},
@@ -370,9 +684,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
-			"index":8,
+			"index":10,
 			"inputs":{
-				"calendarId":"primary"
+				"start_time":"{{ n_3qj6b.outputs.Date }}",
+				"calendarId":"primary",
+				"end_time":""
 			},
 			"skip":false,
 			"subTitle":"Google Calendar",
@@ -399,11 +715,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
-			"index":9,
+			"index":11,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -412,22 +728,6 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"status":{
-							"type":"string",
-							"title":"status"
-						},
-						"htmlLink":{
-							"type":"string",
-							"title":"htmlLink"
-						},
-						"created":{
-							"type":"string",
-							"title":"created"
-						},
-						"updated":{
-							"type":"string",
-							"title":"updated"
-						},
 						"summary":{
 							"type":"string",
 							"title":"summary"
@@ -456,36 +756,6 @@
 								}
 							},
 							"title":"organizer",
-							"additionalProperties":false
-						},
-						"start":{
-							"type":"object",
-							"properties":{
-								"dateTime":{
-									"type":"string",
-									"title":"dateTime"
-								},
-								"timeZone":{
-									"type":"string",
-									"title":"timeZone"
-								}
-							},
-							"title":"start",
-							"additionalProperties":false
-						},
-						"end":{
-							"type":"object",
-							"properties":{
-								"dateTime":{
-									"type":"string",
-									"title":"dateTime"
-								},
-								"timeZone":{
-									"type":"string",
-									"title":"timeZone"
-								}
-							},
-							"title":"end",
 							"additionalProperties":false
 						},
 						"attendees":{
@@ -519,8 +789,6 @@
 				"creator":{
 					"email":"{{ n_wADXG.outputs.items[0].creator.email }}"
 				},
-				"htmlLink":"{{ n_wADXG.outputs.items[0].htmlLink }}",
-				"created":"{{ n_wADXG.outputs.items[0].created }}",
 				"organizer":{
 					"email":"{{ n_wADXG.outputs.items[0].organizer.email }}"
 				},
@@ -531,17 +799,7 @@
 						"email":"{{ n_wADXG.outputs.items[0].attendees[0].email }}"
 					}
 				},
-				"start":{
-					"dateTime":"{{ n_wADXG.outputs.items[0].start.dateTime }}",
-					"timeZone":"{{ n_wADXG.outputs.items[0].start.timeZone }}"
-				},
-				"description":"{{ n_wADXG.outputs.items[0].description }}",
-				"end":{
-					"dateTime":"{{ n_wADXG.outputs.items[0].end.dateTime }}",
-					"timeZone":"{{ n_wADXG.outputs.items[0].end.timeZone }}"
-				},
-				"updated":"{{ n_wADXG.outputs.items[0].updated }}",
-				"status":"{{ n_wADXG.outputs.items[0].status }}"
+				"description":"{{ n_wADXG.outputs.items[0].description }}"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -549,22 +807,6 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"status":{
-							"type":"string",
-							"title":"status"
-						},
-						"htmlLink":{
-							"type":"string",
-							"title":"htmlLink"
-						},
-						"created":{
-							"type":"string",
-							"title":"created"
-						},
-						"updated":{
-							"type":"string",
-							"title":"updated"
-						},
 						"summary":{
 							"type":"string",
 							"title":"summary"
@@ -593,36 +835,6 @@
 								}
 							},
 							"title":"organizer",
-							"additionalProperties":false
-						},
-						"start":{
-							"type":"object",
-							"properties":{
-								"dateTime":{
-									"type":"string",
-									"title":"dateTime"
-								},
-								"timeZone":{
-									"type":"string",
-									"title":"timeZone"
-								}
-							},
-							"title":"start",
-							"additionalProperties":false
-						},
-						"end":{
-							"type":"object",
-							"properties":{
-								"dateTime":{
-									"type":"string",
-									"title":"dateTime"
-								},
-								"timeZone":{
-									"type":"string",
-									"title":"timeZone"
-								}
-							},
-							"title":"end",
 							"additionalProperties":false
 						},
 						"attendees":{
@@ -664,11 +876,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":10,
+			"index":12,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -698,5 +910,5 @@
 	"tags":[
 		
 	],
-	"version":25
+	"version":41
 }
