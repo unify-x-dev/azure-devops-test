@@ -251,7 +251,7 @@
 	"id":"68fb1ec7cc36024e0ca63903",
 	"lastModifiedBy":189756,
 	"lcName":"automation assignment 1",
-	"modifiedTime":1761555598393,
+	"modifiedTime":1761555772713,
 	"name":"Automation Assignment 1",
 	"nodes":[
 		{
@@ -1927,25 +1927,25 @@
 									},
 									"title":"result"
 								},
-								"empId":{
+								"empid":{
 									"type":"number",
-									"title":"Emp Id"
+									"title":"Empid"
 								}
 							},
 							"title":"result",
 							"additionalProperties":false,
 							"required":[
-								"empId"
+								"empid"
 							]
 						}
 					}
 				},
-				"code":"// Input: data (JSON object as shown) and empIdToFind (string or number)\n\n// Example variable names used in UnifyApps:\n// data = input JSON\n// empIdToFind = the employee ID to search for\n\ndef employees = result?.result ?: []\ndef empIdStr = EmpId.toString()\n\n// Find the matching employee\ndef matchedEmployee = employees.find { it.EmpId__0.toString() == empIdStr }\n\n// If found, return the employee details\nif (matchedEmployee) {\n    return matchedEmployee\n} else {\n    // If not found, return a default message or empty map\n    return [message: \"Employee with ID ${empIdStr} not found\"]\n}\n",
+				"code":"// Input variables:\n// data: JSON input containing the employee data\n// empIdToFind: employee ID you want to search for\n\n// Safely extract the employee list\ndef employees = (result?.result ?: []).findAll { it != null }\n\n// Convert to string for consistent comparison\ndef empIdStr = Empid.toString()\n\n// Find employee by matching the EmpId__0 field\ndef matchedEmployee = employees.find { \n    it[\"EmpId__0\"]?.toString() == empIdStr\n}\n\n// Return found record or default message\nif (matchedEmployee) {\n    return matchedEmployee\n} else {\n    return [message: \"Employee with ID ${empIdStr} not found\"]\n}\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"result":{
-						"empId":"{{ n_yM97Y.outputs.empid }}",
+						"empid":"{{ n_yM97Y.outputs.empid }}",
 						"result":{
 							"source":"{{ n_lSLD7.outputs.result.result }}",
 							"ua:type":"mappedArray",
@@ -2004,5 +2004,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":98
+	"version":99
 }
