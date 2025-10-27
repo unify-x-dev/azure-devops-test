@@ -67,7 +67,7 @@
 	"id":"68fdf22922a8224e27f3e9d8",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_calendar",
-	"modifiedTime":1761571171235,
+	"modifiedTime":1761571260920,
 	"name":"Automation_Assignment_2_rishabh_calendar",
 	"nodes":[
 		{
@@ -284,7 +284,7 @@
 			"index":6,
 			"inputs":{
 				"source_text":"{{ n_wLKEV.outputs.text }}",
-				"instruction":"Today's complete schedule ,Simple formatting, easy to read\n",
+				"instruction":"give Today's complete schedule ,Simple formatting, easy to read \n{{ n_wLKEV.outputs.text }}",
 				"model":"gpt-4o"
 			},
 			"skip":false,
@@ -363,5 +363,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
