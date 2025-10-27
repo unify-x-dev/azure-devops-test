@@ -1,51 +1,151 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761553780230,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_N92q9",
+			"fromNodeId":"n_CJBMo",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Nto2c",
+			"toNodeId":"n_e2MYs",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_e2MYs",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_e2aUy",
 			"type":"next"
 		}
 	],
 	"id":"68ff2d74b285f20058eeac54",
-	"lastModifiedBy":15,
+	"lastModifiedBy":670,
 	"lcName":"test",
-	"modifiedTime":1761553780230,
+	"modifiedTime":1761575643927,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_N92q9-1",
-			"id":"_N92q9",
-			"index":0,
+			"id":"n_CJBMo",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4616,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_N92q9-1",
-			"id":"_Nto2c",
-			"index":0,
+			"id":"n_e2MYs",
+			"index":2,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_modelGroup",
+							"filter":{
+								"operator":"CONTAINS",
+								"value":"TEXT_GENERATION"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"e_supported_model_ai_agent",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4592,
+				"resourceName":"storage_by_unifyapps_update_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_N92q9-1",
+			"id":"n_e2aUy",
+			"index":3,
+			"inputs":{
+				"numberOfRecordsToUpdate":"SINGLE",
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"e_68ff80fe101afd0c127c321d"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"model",
+				"skipIfBlank":false,
+				"updateFields":[
+					{
+						"fieldName":"properties.settingsSchema",
+						"actionType":"SET",
+						"setValue":"{{ n_e2MYs.outputs.properties.settingsSchema }}"
+					}
+				],
+				"page":{
+					"offset":0,
+					"limit":20
+				},
+				"unsetIfNull":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Update records by query",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +159,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":2
 }
