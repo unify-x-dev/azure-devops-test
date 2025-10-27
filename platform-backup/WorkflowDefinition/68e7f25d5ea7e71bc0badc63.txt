@@ -40,12 +40,19 @@
 			"skip":false,
 			"toNodeId":"n_oaiAH",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oaiAH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1PLO6",
+			"type":"next"
 		}
 	],
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":44567,
 	"lcName":"test",
-	"modifiedTime":1761582604460,
+	"modifiedTime":1761582612251,
 	"name":"test",
 	"nodes":[
 		{
@@ -241,6 +248,21 @@
 			"subTitle":"Continue",
 			"title":"Continue",
 			"type":"CONTINUE"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2qSYX-1",
+			"id":"n_1PLO6",
+			"index":6,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":124519,
@@ -260,5 +282,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
