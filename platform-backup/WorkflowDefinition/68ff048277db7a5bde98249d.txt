@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"microsoft_outlook"
 	],
 	"createdTime":1761543298008,
 	"deleted":false,
@@ -9,14 +9,14 @@
 			"fromNodeId":"_UTMy8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_iHQqr",
+			"toNodeId":"n_q2iwR",
 			"type":"next"
 		}
 	],
 	"id":"68ff048277db7a5bde98249d",
-	"lastModifiedBy":45518,
+	"lastModifiedBy":189445,
 	"lcName":"test",
-	"modifiedTime":1761543298008,
+	"modifiedTime":1761554243376,
 	"name":"test",
 	"nodes":[
 		{
@@ -25,7 +25,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_UTMy8-1",
 			"id":"_UTMy8",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +34,35 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"microsoft_outlook",
+				"resourceVersion":3617,
+				"connectionId":"68ff2f0f08b6cd5262007d85",
+				"resourceName":"microsoft_outlook_send_email",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_UTMy8-1",
-			"id":"_iHQqr",
-			"index":0,
+			"id":"n_q2iwR",
+			"index":2,
+			"inputs":{
+				"toRecipients":" AkshatD@UnifyApps858.onmicrosoft.com",
+				"emailType":"text",
+				"subject":"Testing",
+				"message":"Hello World"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Microsoft Outlook",
+			"title":"Send email",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":45518,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +76,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
