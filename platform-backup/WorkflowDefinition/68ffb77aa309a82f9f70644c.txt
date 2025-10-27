@@ -6,7 +6,14 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Av1g3",
+			"fromNodeId":"n_veOnU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Vek1Y",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Vek1Y",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_Nx9nD",
@@ -16,22 +23,211 @@
 	"id":"68ffb77aa309a82f9f70644c",
 	"lastModifiedBy":35286,
 	"lcName":"asdf",
-	"modifiedTime":1761589114308,
+	"modifiedTime":1761589240926,
 	"name":"asdf",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Av1g3-1",
-			"id":"_Av1g3",
-			"index":0,
+			"id":"n_veOnU",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":869,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Av1g3-1",
+			"id":"_Vek1Y",
+			"index":2,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"GET",
+				"body":{
+					"sql":"SHOW PROCESSLIST"
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":true,
+				"path":"/kafka/get-topic-metadata/qa-kafka-1/ROUTINE_LOAD_WORKFLOW_EXECUTION_1",
+				"responseSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"hasMore"
+						},
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"JobProperties":{
+										"type":"string",
+										"title":"JobProperties"
+									},
+									"Progress":{
+										"type":"string",
+										"title":"Progress"
+									},
+									"ReasonOfStateChanged":{
+										"type":"string",
+										"title":"ReasonOfStateChanged"
+									},
+									"TimestampProgress":{
+										"type":"string",
+										"title":"TimestampProgress"
+									},
+									"CreateTime":{
+										"type":"string",
+										"title":"CreateTime"
+									},
+									"CurrentTaskNum":{
+										"type":"string",
+										"title":"CurrentTaskNum"
+									},
+									"LatestSourcePosition":{
+										"type":"string",
+										"title":"LatestSourcePosition"
+									},
+									"DataSourceProperties":{
+										"type":"string",
+										"title":"DataSourceProperties"
+									},
+									"Name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"TrackingSQL":{
+										"type":"string",
+										"title":"TrackingSQL"
+									},
+									"TableName":{
+										"type":"string",
+										"title":"TableName"
+									},
+									"Statistic":{
+										"type":"string",
+										"title":"Statistic"
+									},
+									"State":{
+										"type":"string",
+										"title":"State"
+									},
+									"ErrorLogUrls":{
+										"type":"string",
+										"title":"ErrorLogUrls"
+									},
+									"DataSourceType":{
+										"type":"string",
+										"title":"DataSourceType"
+									},
+									"DbName":{
+										"type":"string",
+										"title":"DbName"
+									},
+									"OtherMsg":{
+										"type":"string",
+										"title":"OtherMsg"
+									},
+									"Id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"CustomProperties":{
+										"type":"string",
+										"title":"CustomProperties"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"objects"
+						},
+						"rowMetadata":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"columnName":{
+										"type":"string",
+										"title":"columnName"
+									},
+									"dataType":{
+										"type":"string",
+										"title":"dataType"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"rowMetadata"
+						},
+						"type":{
+							"type":"string",
+							"title":"type"
+						}
+					}
+				},
+				"baseUrl":"http://internal-global-svc:80/internal",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"sql":{
+							"type":"string",
+							"title":"Sql"
+						}
+					}
+				},
+				"queryParamsList":[
+					{
+						"key":"sqlResourceType",
+						"value":"PLATFORM"
+					}
+				],
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"skip":false,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
 		},
 		{
 			"debug":false,
@@ -39,13 +235,16 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Av1g3-1",
 			"id":"_Nx9nD",
-			"index":0,
+			"index":3,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":35286,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +258,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
