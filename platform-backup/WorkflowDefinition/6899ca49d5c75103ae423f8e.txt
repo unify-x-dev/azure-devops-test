@@ -5,16 +5,23 @@
 	"createdTime":1754909257908,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761539417804,
+		"deployedAt":1761539799607,
 		"deployedBy":517,
-		"deployedDefinitionId":"68fef5598efc8566d66c6fae",
+		"deployedDefinitionId":"68fef6d777db7a5bde9816ae",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":41
+		"version":8,
+		"workflowVersion":44
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_f5nAn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_NoiQB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_NoiQB",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_xuZmU",
@@ -39,11 +46,11 @@
 			"fromNodeId":"n_HAJNj",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_r5VdM",
+			"toNodeId":"n_sPOUV",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_r5VdM",
+			"fromNodeId":"n_sPOUV",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -91,7 +98,7 @@
 	"id":"6899ca49d5c75103ae423f8e",
 	"lastModifiedBy":517,
 	"lcName":"[dnt] dlq message publisher",
-	"modifiedTime":1761539791571,
+	"modifiedTime":1761542340434,
 	"name":"[DNT] DLQ Message Publisher",
 	"nodes":[
 		{
@@ -184,6 +191,61 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1080,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_AHF66-1",
+			"id":"n_NoiQB",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"eventCount":{
+							"type":"integer",
+							"title":"Event Count"
+						}
+					},
+					"required":[
+						"eventCount"
+					]
+				}
+			},
+			"inputs":{
+				"eventCount":0
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"eventCount":{
+							"type":"integer",
+							"title":"Event Count"
+						}
+					},
+					"required":[
+						"eventCount"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"if_else",
 				"resourceVersion":791,
 				"resourceName":"if_else_condition",
@@ -194,7 +256,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_AHF66-1",
 			"id":"n_xuZmU",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"filters":[
 					{
@@ -224,7 +286,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_xuZmU@_AHF66-1@y",
 			"id":"n_tXZXi",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"streamId":"{{ n_f5nAn.outputs.streamId }}",
 				"repeatMode":"SINGLE",
@@ -256,7 +318,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_tXZXi@n_xuZmU@_AHF66-1@y@l",
 			"id":"n_HAJNj",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"headers":[
 					{
@@ -283,25 +345,28 @@
 		},
 		{
 			"context":{
-				"appName":"streams_by_unifyapps",
-				"resourceVersion":201,
-				"resourceName":"streams_by_unifyapps_commit_offsets",
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":999,
+				"resourceName":"variable_by_unifyapps_update_variables",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tXZXi@n_xuZmU@_AHF66-1@y@l",
-			"id":"n_r5VdM",
-			"index":5,
+			"id":"n_sPOUV",
+			"index":6,
 			"inputs":{
-				"streamId":"{{ n_f5nAn.outputs.streamId }}",
-				"consumerGroup":"dlq_republisher",
-				"timeout":3000
+				"variables":[
+					{
+						"source":"{{ n_NoiQB.outputs.eventCount }}",
+						"value":"=SUM({{ n_NoiQB.outputs.eventCount }},1)"
+					}
+				]
 			},
-			"skip":true,
-			"subTitle":"Streams by UnifyApps",
-			"title":"Commits offsets",
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
 			"type":"ACTION"
 		},
 		{
@@ -316,7 +381,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_xuZmU@_AHF66-1@n",
 			"id":"_JwVqn",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_f5nAn.outputs.events }}",
@@ -339,7 +404,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JwVqn@n_xuZmU@_AHF66-1@n@l",
 			"id":"_gMVU5",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"headers":"{{ _JwVqn.outputs.item.headers }}",
 				"streamId":"{{ n_f5nAn.outputs.parentStreamId }}",
@@ -414,7 +479,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_AHF66-1",
 			"id":"n_yW4eC",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"result":{
 					"pushed":"true"
@@ -443,5 +508,5 @@
 	"tags":[
 		
 	],
-	"version":44
+	"version":45
 }
