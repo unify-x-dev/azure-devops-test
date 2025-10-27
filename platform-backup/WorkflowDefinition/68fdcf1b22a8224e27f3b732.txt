@@ -102,7 +102,7 @@
 	"id":"68fdcf1b22a8224e27f3b732",
 	"lastModifiedBy":177799,
 	"lcName":"automation_assignment_2_rishabh_gmail",
-	"modifiedTime":1761570362617,
+	"modifiedTime":1761570403913,
 	"name":"Automation_Assignment_2_rishabh_gmail",
 	"nodes":[
 		{
@@ -377,7 +377,8 @@
 			"id":"n_IGlcC",
 			"index":9,
 			"inputs":{
-				"instruction":"{{ n_wLKEV.outputs.text }} summarize this email",
+				"source_text":"{{ n_wLKEV.outputs.text }} ",
+				"instruction":"summarize this email",
 				"model":"gpt-4o"
 			},
 			"skip":false,
@@ -503,5 +504,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
