@@ -1,20 +1,12 @@
 {
 	"appsUsed":[
-		"azure_blob",
-		"custom_db"
+		"azure_blob"
 	],
 	"createdTime":1761559702303,
 	"deleted":false,
 	"edges":[
 		{
 			"fromNodeId":"n_ZUsks",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_MJZIt",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_MJZIt",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_c3E3R",
@@ -24,7 +16,7 @@
 	"id":"68ff44964359192d584f7de8",
 	"lastModifiedBy":33167,
 	"lcName":"test",
-	"modifiedTime":1761564795033,
+	"modifiedTime":1761564815975,
 	"name":"test",
 	"nodes":[
 		{
@@ -54,24 +46,6 @@
 		},
 		{
 			"context":{
-				"appName":"custom_db",
-				"resourceVersion":2946,
-				"resourceName":"custom_db_execute_sql",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_u0m0X-1",
-			"id":"n_MJZIt",
-			"index":2,
-			"skip":false,
-			"subTitle":"Custom database",
-			"title":"Execute SQL statement",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"azure_blob",
 				"resourceVersion":5103,
 				"connectionId":"68fb52bd999eb3677bd3fc50",
@@ -83,7 +57,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_u0m0X-1",
 			"id":"n_c3E3R",
-			"index":3,
+			"index":2,
 			"inputs":{
 				"attachment":{
 					"attachment_option":"use_file_binary_content",
@@ -106,15 +80,8 @@
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true,
-		"route":{
-			"default":false,
-			"tierName":"global"
-		}
+		"enableVariableLogging":true
 	},
 	"standard":false,
-	"tags":[
-		
-	],
-	"version":1
+	"version":2
 }
