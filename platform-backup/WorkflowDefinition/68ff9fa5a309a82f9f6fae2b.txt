@@ -13,13 +13,7 @@
 		"workflowVersion":1
 	},
 	"edges":[
-		{
-			"fromNodeId":"n_fAtkw",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_t7pOq",
-			"type":"next"
-		}
+		
 	],
 	"grants":{
 		"configs":[
@@ -38,7 +32,7 @@
 	"id":"68ff9fa5a309a82f9f6fae2b",
 	"lastModifiedBy":511,
 	"lcName":"looptest",
-	"modifiedTime":1761583115107,
+	"modifiedTime":1761583146381,
 	"name":"loopTest",
 	"nodes":[
 		{
@@ -65,21 +59,6 @@
 				"type":"WEBHOOK"
 			},
 			"type":"START"
-		},
-		{
-			"context":{
-				"appName":"stop"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_dIYYU-1",
-			"id":"n_t7pOq",
-			"index":2,
-			"skip":false,
-			"subTitle":"Stop",
-			"title":"Stop",
-			"type":"STOP"
 		}
 	],
 	"ownerUserId":511,
@@ -99,5 +78,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
