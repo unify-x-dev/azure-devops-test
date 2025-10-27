@@ -1,7 +1,8 @@
 {
 	"appsUsed":[
 		"gcalendar",
-		"gmail"
+		"gmail",
+		"openai"
 	],
 	"createdTime":1761412422003,
 	"deleted":false,
@@ -72,6 +73,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_Jv9R1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9Uicn",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_TJ6jE",
 			"name":"2",
 			"priority":0,
@@ -94,7 +102,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_Jv9R1",
+			"fromNodeId":"n_9Uicn",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_IaM8S",
@@ -119,7 +127,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761584868936,
+	"modifiedTime":1761584970126,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -791,6 +799,30 @@
 		},
 		{
 			"context":{
+				"appName":"openai",
+				"resourceVersion":5509,
+				"connectionId":"67fe3b1ee195ac20a4c710ff",
+				"resourceName":"openai_summarize_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_TJ6jE@_JiodF-1@1",
+			"id":"n_9Uicn",
+			"index":10,
+			"inputs":{
+				"max_words":200,
+				"source_text":"{{ n_ERo7X.outputs.items }}",
+				"model":"gpt-4o-mini"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Summarize text",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -801,7 +833,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_TJ6jE@2",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"name":"Calender"
 			},
@@ -822,7 +854,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"calendarId":"primary"
 			},
@@ -855,7 +887,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_oV0kD",
-			"index":12,
+			"index":13,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -1016,7 +1048,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JiodF-1",
 			"id":"n_IaM8S",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"result":{
 					"mail":"{{ n_HV5q4.outputs.messages }}"
@@ -1047,5 +1079,5 @@
 		}
 	},
 	"standard":false,
-	"version":87
+	"version":88
 }
