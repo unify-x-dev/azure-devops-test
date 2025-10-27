@@ -23,7 +23,7 @@
 	"id":"68ff784e4c1a732dd561483d",
 	"lastModifiedBy":46217,
 	"lcName":"playground-form-_zem4z",
-	"modifiedTime":1761572942921,
+	"modifiedTime":1761574939415,
 	"name":"playground-form-_ZEm4z",
 	"nodes":[
 		{
@@ -77,6 +77,13 @@
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.aggregations.items.type",
+					"root.aggregations.items.field",
+					"root.aggregations.items.name"
+				]
+			},
 			"context":{
 				"appName":"",
 				"connectionId":"",
@@ -84,23 +91,18 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wb1xn-1",
 			"id":"_p4GNL",
 			"index":0,
 			"inputs":{
 				"timerange":{
-					"type":"keyword",
+					"type":"relative",
 					"range":300,
 					"keyword":"Last 5 minutes"
 				},
-				"size":50,
-				"streams":[],
-				"fields":[
-					null
-				],
-				"authType":"TOKEN"
+				"size":50
 			},
 			"skip":false,
 			"subTitle":"",
@@ -134,6 +136,9 @@
 		}
 	],
 	"ownerUserId":46217,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -147,5 +152,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
