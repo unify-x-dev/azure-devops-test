@@ -6,7 +6,66 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_kq1Ce",
+			"fromNodeId":"n_OZE6T",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_COE5z",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_COE5z",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LtjmG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LtjmG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_afzl4",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_afzl4",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZehTn",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_afzl4",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Bitis",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZehTn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jP8Ul",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Bitis",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jP8Ul",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jP8Ul",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LtjmG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LtjmG",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_UsD3x",
@@ -16,22 +75,138 @@
 	"id":"68fefeb177db7a5bde981f1f",
 	"lastModifiedBy":21,
 	"lcName":"evaluate-filter",
-	"modifiedTime":1761541809548,
+	"modifiedTime":1761542689807,
 	"name":"evaluate-filter",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1062,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kq1Ce-1",
-			"id":"_kq1Ce",
-			"index":0,
+			"id":"n_OZE6T",
+			"index":1,
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"filterId"
+					],
+					"properties":{
+						"filterId":{
+							"type":"string",
+							"title":"Filter Id"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1118,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kq1Ce-1",
+			"id":"n_COE5z",
+			"index":2,
+			"inputs":{
+				"synchronous":true,
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kq1Ce-1",
+			"id":"n_LtjmG",
+			"index":3,
+			"inputs":{
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LtjmG@_kq1Ce-1@l",
+			"id":"n_afzl4",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_afzl4@n_LtjmG@_kq1Ce-1@l@y",
+			"id":"n_ZehTn",
+			"index":5,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_afzl4@n_LtjmG@_kq1Ce-1@l@n",
+			"id":"n_Bitis",
+			"index":6,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LtjmG@_kq1Ce-1@l",
+			"id":"n_jP8Ul",
+			"index":7,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
 		},
 		{
 			"debug":false,
@@ -39,13 +214,16 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kq1Ce-1",
 			"id":"_UsD3x",
-			"index":0,
+			"index":8,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":21,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +237,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
