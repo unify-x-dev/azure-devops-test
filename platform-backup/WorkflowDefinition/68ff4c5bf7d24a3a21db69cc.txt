@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_lTSLp",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lTSLp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WicNo",
+			"type":"next"
 		}
 	],
 	"id":"68ff4c5bf7d24a3a21db69cc",
 	"lastModifiedBy":39713,
 	"lcName":"test",
-	"modifiedTime":1761581760939,
+	"modifiedTime":1761585574730,
 	"name":"test",
 	"nodes":[
 		{
@@ -54,6 +61,28 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":222,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_L1Uot-1",
+			"id":"n_WicNo",
+			"index":3,
+			"inputs":{
+				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing System.Text.Json; \nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Linq.Expressions;\npublic class Employee {\n    public long EmployeeId { get; set; }\n    public string UserName \n    { get; set; }\n    public string FullName \n    { get; set; }\n    \n    public string EmployeeNumber \n    {\n        get;\n        set; \n    }\n}\nvar resultObject = \"hello world\";\n\n\nresultObject",
+				"isAsync":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39713,
@@ -73,5 +102,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
