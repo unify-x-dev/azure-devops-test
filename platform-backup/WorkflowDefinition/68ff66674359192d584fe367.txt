@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		
+		"678374b8969450655cf3695e",
+		"gmail"
 	],
 	"createdTime":1761568359510,
 	"deleted":false,
@@ -9,14 +10,21 @@
 			"fromNodeId":"_zwBoH",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_TqaoB",
+			"toNodeId":"n_08sWc",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_08sWc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8LQE7",
 			"type":"next"
 		}
 	],
 	"id":"68ff66674359192d584fe367",
-	"lastModifiedBy":155543,
+	"lastModifiedBy":517,
 	"lcName":"estsetse",
-	"modifiedTime":1761568359510,
+	"modifiedTime":1761570741807,
 	"name":"estsetse",
 	"nodes":[
 		{
@@ -25,7 +33,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_zwBoH-1",
 			"id":"_zwBoH",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +42,47 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5631,
+				"resourceName":"gmail_send_email",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_zwBoH-1",
-			"id":"_TqaoB",
-			"index":0,
+			"id":"n_08sWc",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"Send email",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"678374b8969450655cf3695e",
+				"resourceVersion":2392,
+				"resourceName":"678374b8969450655cf3695e:678374c6969450655cf36966",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_zwBoH-1",
+			"id":"n_8LQE7",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Automation custom slack 117366676240080",
+			"title":"Post message",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":155543,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +96,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
