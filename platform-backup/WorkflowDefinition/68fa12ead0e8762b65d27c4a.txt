@@ -5,12 +5,12 @@
 	"createdTime":1761219306778,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761510166310,
+		"deployedAt":1761510527824,
 		"deployedBy":27,
-		"deployedDefinitionId":"68fe831477db7a5bde97c59c",
+		"deployedDefinitionId":"68fe847d8efc8566d66b2cdf",
 		"status":"DEPLOYED",
-		"version":31,
-		"workflowVersion":134
+		"version":32,
+		"workflowVersion":136
 	},
 	"edges":[
 		{
@@ -361,7 +361,7 @@
 	"id":"68fa12ead0e8762b65d27c4a",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check issue",
-	"modifiedTime":1761510523007,
+	"modifiedTime":1761540704621,
 	"name":"Best Practices | Check Issue",
 	"nodes":[
 		{
@@ -1123,7 +1123,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_EN7Pq@_z6eK1-1@y",
 			"id":"_8ssPF",
@@ -1191,7 +1191,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const getAlwaysHiddenBlocks = (blocks) => {\n    const result = [];\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      // If visibility is explicitly false (not dynamic)\n      if (block?.visibility?.value === false && blockId !== 'header_id' && blockId !== 'footer_id') {\n        result.push(blockId);\n      }\n    }\n    return result;\n  };\n\n  const blocks = page?.blocks || {};\n  const hiddenBlockIds = getAlwaysHiddenBlocks(blocks);\n\n  if (hiddenBlockIds.length > 0) {\n    outputList.push({\n      status: 'failed',\n      blockIds: hiddenBlockIds\n    });\n  } else {\n    outputList.push({\n      status: 'passed'\n    });\n  }\n\n  return { outputList };\n})();",
+				"code":"(() => {\n  // `page` is assumed to be provided\n  const outputList = [];\n\n  const getAlwaysHiddenBlocks = (page) => {\n    const result = [];\n    const baseBlocks = page?.blocks || {};\n    const devices = page?.devices || {};\n\n    for (const blockId in baseBlocks) {\n      if (blockId === \"header_id\" || blockId === \"footer_id\") continue;\n\n      const block = baseBlocks[blockId];\n      if (!block) continue;\n\n      const baseVisibility = block?.visibility?.value;\n      if (baseVisibility !== false) continue; // only check blocks hidden in base\n\n      let visibleOrConditional = false;\n\n      // Check device-specific block overrides\n      for (const deviceName in devices) {\n        const deviceBlocks = devices[deviceName]?.blocks || {};\n        const deviceBlock = deviceBlocks[blockId];\n        if (!deviceBlock) continue;\n\n        const visibility = deviceBlock?.visibility?.value;\n\n        if (visibility === true || visibility === \"conditions\") {\n          visibleOrConditional = true;\n          break;\n        }\n      }\n\n      // Only mark blocks hidden everywhere\n      if (!visibleOrConditional) {\n        result.push(blockId);\n      }\n    }\n\n    return result;\n  };\n\n  const hiddenBlockIds = getAlwaysHiddenBlocks(page);\n  const status = hiddenBlockIds.length > 0 ? \"failed\" : \"passed\";\n\n  return {\n    outputList: [\n      {\n        status: status,\n        blockIds: hiddenBlockIds\n      }\n    ]\n  };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"page":"{{ n_PQRFu.outputs.page }}"
@@ -2930,7 +2930,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_r5N0L@_z6eK1-1@y",
 			"id":"_g0vJS",
@@ -3170,5 +3170,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":136
+	"version":137
 }
