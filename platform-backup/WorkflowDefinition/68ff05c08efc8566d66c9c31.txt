@@ -6,46 +6,65 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_ZZ9no",
+			"fromNodeId":"n_2dQWa",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_0TznK",
+			"toNodeId":"n_IlLRj",
 			"type":"next"
 		}
 	],
 	"id":"68ff05c08efc8566d66c9c31",
 	"lastModifiedBy":45771,
 	"lcName":"schedule",
-	"modifiedTime":1761543616919,
+	"modifiedTime":1761543645117,
 	"name":"schedule",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZZ9no-1",
-			"id":"_ZZ9no",
-			"index":0,
+			"id":"n_2dQWa",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"stop"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZZ9no-1",
-			"id":"_0TznK",
-			"index":0,
+			"id":"n_IlLRj",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":45771,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +78,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
