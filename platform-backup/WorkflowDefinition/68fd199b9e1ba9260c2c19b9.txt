@@ -86,13 +86,6 @@
 		},
 		{
 			"fromNodeId":"n_hsOgf",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_LfeIB",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_LfeIB",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -124,7 +117,7 @@
 	"id":"68fd199b9e1ba9260c2c19b9",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | run page checks",
-	"modifiedTime":1761661321457,
+	"modifiedTime":1761661325143,
 	"name":"Best Practices | Run Page Checks",
 	"nodes":[
 		{
@@ -1142,74 +1135,6 @@
 			"type":"ACTION"
 		},
 		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemsToAdd.items.entityVersion",
-					"root.itemsToAdd.items.entities.blockIds.items",
-					"root.itemsToAdd.items.entities.variableIds.items",
-					"root.itemsToAdd.items.entities.functionIds.items",
-					"root.itemsToAdd.items.entities.dataSourceIds.items",
-					"root.itemsToAdd.items.entityType",
-					"root.itemsToAdd.items.entityId",
-					"root.itemsToAdd.items.checkId",
-					"root.itemsToAdd.items.status"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":983,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_jr8kl@_ZMmc1-1@l",
-			"id":"n_LfeIB",
-			"index":11,
-			"inputs":{
-				"insertLocation":"END",
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"source":"{{ n_n61PO.outputs.result }}",
-					"items":{
-						"entityVersion":"{{ n_n61PO.outputs.result[0].entityVersion }}",
-						"entityType":"{{ n_n61PO.outputs.result[0].entityType }}",
-						"entityId":"{{ n_n61PO.outputs.result[0].entityId }}",
-						"checkId":"{{ n_n61PO.outputs.result[0].checkId }}",
-						"status":"{{ n_n61PO.outputs.result[0].status }}",
-						"entities":{
-							"blockIds":{
-								"source":"{{ n_n61PO.outputs.result[0].entities.blockIds }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_n61PO.outputs.result[0].entities.blockIds[0] }}"
-							},
-							"variableIds":{
-								"source":"{{ n_n61PO.outputs.result[0].entities.variables }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_n61PO.outputs.result[0].entities.variables[0] }}"
-							},
-							"functionIds":{
-								"source":"{{ n_n61PO.outputs.result[0].entities.functions }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_n61PO.outputs.result[0].entities.functions[0] }}"
-							},
-							"dataSourceIds":{
-								"source":"{{ n_n61PO.outputs.result[0].entities.dataSourceIds }}",
-								"ua:type":"mappedArray",
-								"items":"{{ n_n61PO.outputs.result[0].entities.dataSourceIds[0] }}"
-							}
-						}
-					}
-				},
-				"listName":"{{ n_wo5ba.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add items to list",
-			"type":"ACTION"
-		},
-		{
 			"context":{
 				"appName":"utility_by_unifyapps",
 				"resourceVersion":1055,
@@ -1221,7 +1146,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_7eRDF",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"filter":{
 					"filters":[
@@ -1253,7 +1178,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_0ITyo",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"nocode_reports",
@@ -1300,7 +1225,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_WpRsG",
-			"index":14,
+			"index":13,
 			"inputs":{
 				"result":{
 					"success":"ok"
@@ -1329,5 +1254,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":13
+	"version":14
 }
