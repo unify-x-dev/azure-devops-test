@@ -81,6 +81,13 @@
 			"fromNodeId":"n_7eRDF",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_0ITyo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0ITyo",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_sIvtc",
 			"type":"next"
 		},
@@ -95,7 +102,7 @@
 	"id":"68fd199b9e1ba9260c2c19b9",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | run page checks",
-	"modifiedTime":1761491439419,
+	"modifiedTime":1761646488960,
 	"name":"Best Practices | Run Page Checks",
 	"nodes":[
 		{
@@ -275,7 +282,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_wo5ba",
@@ -662,7 +669,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_jr8kl@_ZMmc1-1@l",
 			"id":"n_n61PO",
@@ -776,7 +783,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_7eRDF",
@@ -801,6 +808,53 @@
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2236,
+				"resourceName":"storage_by_unifyapps_upsert_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ZMmc1-1",
+			"id":"n_0ITyo",
+			"index":10,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"nocode_reports",
+				"skipIfBlank":false,
+				"updateFields":[
+					{
+						"fieldName":"properties.entityVersion",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items[0].entityVersion }}"
+					},
+					{
+						"fieldName":"properties.entityId",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items[0].entityId }}"
+					},
+					{
+						"fieldName":"properties.entityType",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items[0].entityType }}"
+					},
+					{
+						"fieldName":"properties.checks",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items }}"
+					}
+				],
+				"id":"{{ n_wo5ba.outputs.items[0].entityType }}_{{ n_wo5ba.outputs.items[0].entityId }}",
+				"unsetIfNull":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Upsert Record",
+			"type":"ACTION"
+		},
+		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.records.items.status",
@@ -822,11 +876,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_sIvtc",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"object_type":"nocode_reports",
 				"skipIfBlank":false,
@@ -865,7 +919,7 @@
 					}
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Create or update records in bulk",
 			"type":"ACTION"
@@ -882,7 +936,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_WpRsG",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"result":{
 					"success":"ok"
@@ -911,5 +965,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":5
+	"version":6
 }
