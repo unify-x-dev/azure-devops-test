@@ -24,7 +24,7 @@
 			"fromNodeId":"n_AtUPv@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_1CFkf",
+			"toNodeId":"n_6XhsF",
 			"type":"next"
 		},
 		{
@@ -39,7 +39,7 @@
 			"fromNodeId":"n_AtUPv@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_f9J92",
+			"toNodeId":"n_8TAQ3",
 			"type":"next"
 		},
 		{
@@ -54,7 +54,7 @@
 			"fromNodeId":"n_AtUPv@3",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_5AlBZ",
+			"toNodeId":"n_GBDGh",
 			"type":"next"
 		},
 		{
@@ -69,7 +69,7 @@
 			"fromNodeId":"n_AtUPv@4",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_WWYbg",
+			"toNodeId":"n_lYvBi",
 			"type":"next"
 		},
 		{
@@ -84,7 +84,7 @@
 			"fromNodeId":"n_AtUPv@5",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_QkIYY",
+			"toNodeId":"n_VBVOV",
 			"type":"next"
 		},
 		{
@@ -99,14 +99,64 @@
 			"fromNodeId":"n_AtUPv@6",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Erwl3",
+			"toNodeId":"n_ODo2P",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_6XhsF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8TAQ3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GBDGh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lYvBi",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VBVOV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ODo2P",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_AtUPv",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"branch"
 		}
 	],
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39713,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761648921517,
+	"modifiedTime":1761648992178,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -143,6 +193,16 @@
 					}
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"name":"200",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -317,15 +377,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
-			"id":"n_1CFkf",
+			"id":"n_6XhsF",
 			"index":4,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -360,15 +432,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
-			"id":"n_f9J92",
+			"id":"n_8TAQ3",
 			"index":6,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -403,15 +487,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
-			"id":"n_5AlBZ",
+			"id":"n_GBDGh",
 			"index":8,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -446,15 +542,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
-			"id":"n_WWYbg",
+			"id":"n_lYvBi",
 			"index":10,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -489,15 +597,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
-			"id":"n_QkIYY",
+			"id":"n_VBVOV",
 			"index":12,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -532,15 +652,50 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
-			"id":"n_Erwl3",
+			"id":"n_ODo2P",
 			"index":14,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_JfTSF-1",
+			"id":"n_Km2Dj",
+			"index":15,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39713,
@@ -561,5 +716,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
