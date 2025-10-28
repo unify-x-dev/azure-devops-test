@@ -1,0 +1,70 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761650515857,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_Ff9PD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_fxZag",
+			"type":"next"
+		}
+	],
+	"id":"6900a7535520d463972c4660",
+	"lastModifiedBy":27,
+	"lcName":"best practices | check group | repeatable",
+	"modifiedTime":1761650515857,
+	"name":"Best Practices | Check Group | Repeatable",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uv02c-1",
+			"id":"n_Ff9PD",
+			"index":1,
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uv02c-1",
+			"id":"_fxZag",
+			"index":2,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":27,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		"BPC"
+	],
+	"version":0
+}
