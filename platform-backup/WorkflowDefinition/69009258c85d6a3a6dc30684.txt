@@ -259,7 +259,7 @@
 	"id":"69009258c85d6a3a6dc30684",
 	"lastModifiedBy":178103,
 	"lcName":"test_chirag ",
-	"modifiedTime":1761645597487,
+	"modifiedTime":1761645711035,
 	"name":"test_chirag ",
 	"nodes":[
 		{
@@ -534,7 +534,7 @@
 									],
 									"properties":{
 										"leaves_taken":{
-											"type":"string",
+											"type":"number",
 											"title":"Leaves Taken"
 										},
 										"employee_id":{
@@ -587,7 +587,7 @@
 								"type":"object",
 								"properties":{
 									"leaves_taken":{
-										"type":"string",
+										"type":"number",
 										"title":"Leaves Taken"
 									},
 									"employee_id":{
@@ -808,14 +808,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_y0jEU@n_5A1t8@_mzkHe-1@1@l",
 			"id":"_xMzEq",
 			"index":7,
 			"inputs":{
 				"itemToAdd":{
-					"leaves_taken":"{{ _y0jEU.outputs.item.Leaves_Taken__4 }}",
+					"leaves_taken":"=VALUE({{ _y0jEU.outputs.item.Leaves_Taken__4 }})",
 					"employee_id":"{{ _y0jEU.outputs.item.Employee_ID__0 }}",
 					"Department":"{{ _y0jEU.outputs.item.Department__2 }}",
 					"Name":"{{ _y0jEU.outputs.item.Name__1 }}",
@@ -925,7 +925,7 @@
 			"index":11,
 			"inputs":{
 				"itemToAdd":{
-					"leaves_taken":"{{ _DAn3d.outputs.item.Leaves_Taken__4 }}",
+					"leaves_taken":"=VALUE({{ _DAn3d.outputs.item.Leaves_Taken__4 }})",
 					"employee_id":"{{ _DAn3d.outputs.item.Employee_ID__0 }}",
 					"Department":"{{ _DAn3d.outputs.item.Department__2 }}",
 					"Name":"{{ _DAn3d.outputs.item.Name__1 }}",
@@ -1028,14 +1028,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Bp1z0@n_5A1t8@_mzkHe-1@3@l",
 			"id":"_zcP8o",
 			"index":15,
 			"inputs":{
 				"itemToAdd":{
-					"leaves_taken":"{{ _Bp1z0.outputs.item.Leaves_Taken__4 }}",
+					"leaves_taken":"=VALUE({{ _Bp1z0.outputs.item.Leaves_Taken__4 }})",
 					"employee_id":"{{ _Bp1z0.outputs.item.Employee_ID__0 }}",
 					"Department":"{{ _Bp1z0.outputs.item.Department__2 }}",
 					"Name":"{{ _Bp1z0.outputs.item.Name__1 }}",
@@ -1145,7 +1145,7 @@
 			"index":19,
 			"inputs":{
 				"itemToAdd":{
-					"leaves_taken":"{{ _LQR8E.outputs.item.Leaves_Taken__4 }}",
+					"leaves_taken":"=VALUE({{ _LQR8E.outputs.item.Leaves_Taken__4 }})",
 					"employee_id":"{{ _LQR8E.outputs.item.Employee_ID__0 }}",
 					"Department":"{{ _LQR8E.outputs.item.Department__2 }}",
 					"Name":"{{ _LQR8E.outputs.item.Name__1 }}",
@@ -1378,5 +1378,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
