@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		"storage_by_unifyapps"
+		
 	],
 	"createdTime":1761636422378,
 	"deleted":false,
@@ -18,19 +18,12 @@
 			"skip":false,
 			"toNodeId":"n_XfJ5C",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_XfJ5C",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_jnd1B",
-			"type":"next"
 		}
 	],
 	"id":"69007046a309a82f9f735aea",
 	"lastModifiedBy":45010,
 	"lcName":"syncemployeetierhttptrigger",
-	"modifiedTime":1761638905758,
+	"modifiedTime":1761638912080,
 	"name":"SyncEmployeeTierHttpTrigger",
 	"nodes":[
 		{
@@ -146,22 +139,6 @@
 			"subTitle":"Callable",
 			"title":"Respond to API request",
 			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_uACUs-1",
-			"id":"n_jnd1B",
-			"index":4,
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Select an action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":45010,
@@ -182,5 +159,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
