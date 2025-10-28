@@ -1,51 +1,110 @@
 {
 	"appsUsed":[
-		
+		"jira"
 	],
 	"createdTime":1761620562460,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_baP4c",
+			"fromNodeId":"n_GzZfm",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_mlTvb",
+			"toNodeId":"n_544xu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_544xu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Tgl6b",
 			"type":"next"
 		}
 	],
 	"id":"69003252ad1c2c4565e55d81",
 	"lastModifiedBy":155341,
 	"lcName":"test",
-	"modifiedTime":1761620562460,
+	"modifiedTime":1761622680914,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"jira",
+				"resourceVersion":6434,
+				"connectionId":"69003a7f7ed34409f4867b9b",
+				"resourceName":"jira_on_new_or_updated_issue"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_baP4c-1",
-			"id":"_baP4c",
-			"index":0,
+			"id":"n_GzZfm",
+			"index":1,
+			"inputs":{
+				"jql":"Project = DP",
+				"objectSourceResourceName":"jira_fetch_issue_schema"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Jira",
+			"title":"New or updated issue",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":1389,
+				"resourceName":"standard_entities_get_connection_details",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_baP4c-1",
-			"id":"_mlTvb",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
+			"id":"n_544xu",
+			"index":2,
+			"inputs":{
+				"connectionIds":[
+					"690032397ed34409f485d6aa"
+				],
+				"includeCredentials":true
+			},
+			"skip":true,
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"Get connection details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"jira",
+				"resourceVersion":3764,
+				"connectionId":"690032397ed34409f485d6aa",
+				"resourceName":"jira_search_issues_using_jql",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_baP4c-1",
+			"id":"n_Tgl6b",
+			"index":3,
+			"inputs":{
+				"jql":"Project = DP",
+				"maxResults":100,
+				"objectSourceResourceName":"jira_fetch_issue_schema",
+				"fields":"*all"
+			},
+			"skip":true,
+			"subTitle":"Jira",
+			"title":"Search issues by JQL",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":155341,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +118,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
