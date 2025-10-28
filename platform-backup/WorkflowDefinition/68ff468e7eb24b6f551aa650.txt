@@ -123,12 +123,62 @@
 			"skip":false,
 			"toNodeId":"_us4t7",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lMf3k",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W4dWf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_fYB7L",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W4dWf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_XkvSd",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W4dWf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_n0Q3P",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W4dWf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_0spad",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W4dWf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_us4t7",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W4dWf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mQYbq",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W4dWf",
+			"type":"branch"
 		}
 	],
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761632781621,
+	"modifiedTime":1761633686351,
 	"name":"BDI HANA",
 	"nodes":[
 		{
@@ -516,6 +566,30 @@
 			"subTitle":"Oracle DB",
 			"title":"Execute stored procedure",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"oracledb",
+				"resourceVersion":5605,
+				"connectionId":"68f120e8001bfd69a7fb4054",
+				"resourceName":"oracledb_execute_sql",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"n_W4dWf",
+			"index":18,
+			"inputs":{
+				"performAsync":false,
+				"objectSourceResourceName":"oracledb_execute_sql_metadata",
+				"sql":"select NUM_CONC,'PE' AS COD_PAIS,VAL_DESC_CONC,VAL_DESC_DIRL_A,VAL_DESC_TIPO_CONC,\r\n       VAL_STAT_CONC,NUM_NIVE_CONC,CAMP_INIC,CAMP_FINA,CAMP_INIC_DESP,CAMP_FINA_DESP\r\nfrom SSICC_PE_ES.INT_TMP_INCEN_CONCU"
+			},
+			"skip":false,
+			"subTitle":"Oracle DB",
+			"title":"Execute a SQL statement",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15080,
@@ -535,5 +609,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":7
+	"version":8
 }
