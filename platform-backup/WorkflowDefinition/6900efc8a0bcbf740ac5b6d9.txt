@@ -6,46 +6,95 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_3jx1X",
+			"fromNodeId":"n_ZWHfW",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_GeWM5",
+			"toNodeId":"n_9nCpe",
 			"type":"next"
 		}
 	],
 	"id":"6900efc8a0bcbf740ac5b6d9",
 	"lastModifiedBy":557,
 	"lcName":"test",
-	"modifiedTime":1761669064159,
+	"modifiedTime":1761669084478,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1066,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_3jx1X-1",
-			"id":"_3jx1X",
-			"index":0,
+			"id":"n_ZWHfW",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"test"
+					],
+					"properties":{
+						"test":{
+							"type":"string",
+							"title":"Test"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"test"
+					],
+					"properties":{
+						"test":{
+							"type":"string",
+							"title":"Test"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1102,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_3jx1X-1",
-			"id":"_GeWM5",
-			"index":0,
+			"id":"n_9nCpe",
+			"index":2,
+			"inputs":{
+				"result":{
+					"test":"abc"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":557,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +108,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
