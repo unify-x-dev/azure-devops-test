@@ -6,47 +6,134 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_H88yu",
+			"fromNodeId":"n_sDmWM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_4IMQ3",
+			"toNodeId":"n_gTJHF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_gTJHF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_eXAV3",
 			"type":"next"
 		}
 	],
 	"id":"69008d5f151fb15bb249ca45",
 	"lastModifiedBy":45010,
 	"lcName":"synclocationhttptrigger",
-	"modifiedTime":1761643871643,
+	"modifiedTime":1761643943487,
 	"name":"SyncLocationHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1155,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_H88yu-1",
-			"id":"_H88yu",
-			"index":0,
+			"id":"n_sDmWM",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"requestBody":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false,
+								"title":"Request Body"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"requestBody"
+						]
+					}
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":224,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_H88yu-1",
-			"id":"_4IMQ3",
-			"index":0,
+			"id":"n_gTJHF",
+			"index":2,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"requestBody"
+					],
+					"properties":{
+						"requestBody":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Request Body"
+						}
+					}
+				},
+				"isAsync":false,
+				"parameters":{
+					"requestBody":"{{ n_sDmWM.outputs.body.requestBody }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_H88yu-1",
+			"id":"n_eXAV3",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":45010,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +147,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
