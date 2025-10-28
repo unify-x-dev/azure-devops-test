@@ -46,7 +46,7 @@
 	"id":"69005afaad1c2c4565e58a35",
 	"lastModifiedBy":39715,
 	"lcName":"removenonprocessmessages",
-	"modifiedTime":1761643446487,
+	"modifiedTime":1761643453974,
 	"name":"RemoveNonProcessMessages",
 	"nodes":[
 		{
@@ -151,13 +151,6 @@
 						"property":"{{ _NWeKH.outputs.result }}",
 						"filter":{
 							"operator":"CONTAINS",
-							"value":"responseState"
-						}
-					},
-					{
-						"property":"responseState",
-						"filter":{
-							"operator":"EQUAL",
 							"value":"true"
 						}
 					}
@@ -234,5 +227,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
