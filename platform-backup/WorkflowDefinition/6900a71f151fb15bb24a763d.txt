@@ -37,7 +37,7 @@
 	"id":"6900a71f151fb15bb24a763d",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | page",
-	"modifiedTime":1761654539817,
+	"modifiedTime":1761654959656,
 	"name":"Best Practices | Check Group | Page",
 	"nodes":[
 		{
@@ -580,7 +580,15 @@
 			"additional":{
 				"xsdSchemaConfig":{
 					"root":{}
-				}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.dataSources.items.id",
+					"root.parameters.dataSources.items.properties",
+					"root.parameters.interfacePage.id",
+					"root.parameters.interfacePage.version",
+					"root.parameters.interfacePage.properties",
+					"root.parameters.dataSources.items.version"
+				]
 			},
 			"context":{
 				"appName":"code_by_unifyapps",
@@ -791,7 +799,25 @@
 						}
 					}
 				},
-				"isAsync":false
+				"code":"// check 8\n// check 3\n// check 11\n// check 10\n\n// check_id , interfacePage, dataSources is availble in context\n\n\n// we need to return checks array\n{checks: [{\"check_id\": \"check_1\",\n    \"status\": \"passed\",\n    \"targets\": [{\n        \"entityId\": \"<id>\",\n        \"entityType\": \"e_component\",\n    }]}]}\n",
+				"isAsync":false,
+				"parameters":{
+					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
+					"interfacePage":{
+						"id":"{{ n_Ff9PD.outputs.interfacePage.id }}",
+						"properties":"{{ n_Ff9PD.outputs.interfacePage.properties }}",
+						"version":"{{ n_Ff9PD.outputs.interfacePage.version }}"
+					},
+					"dataSources":{
+						"source":"{{ n_Ff9PD.outputs.dataSources }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"id":"{{ n_Ff9PD.outputs.dataSources[0].id }}",
+							"properties":"{{ n_Ff9PD.outputs.dataSources[0].properties }}",
+							"version":"{{ n_Ff9PD.outputs.dataSources[0].version }}"
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -890,5 +916,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":9
+	"version":10
 }
