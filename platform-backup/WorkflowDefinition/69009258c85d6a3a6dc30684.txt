@@ -245,7 +245,7 @@
 	"id":"69009258c85d6a3a6dc30684",
 	"lastModifiedBy":178103,
 	"lcName":"test_chirag ",
-	"modifiedTime":1761646327248,
+	"modifiedTime":1761647533616,
 	"name":"test_chirag ",
 	"nodes":[
 		{
@@ -1231,7 +1231,37 @@
 			"id":"n_QnSJn",
 			"index":22,
 			"inputs":{
-				"group":"PLATFORM"
+				"projections":[
+					{
+						"name":"ENTITY_test_chirag_object=::=Name",
+						"aggregationFunction":"GROUP",
+						"includePercentageChange":false
+					},
+					{
+						"name":"ENTITY_test_chirag_object=::=BonusAmount",
+						"aggregationFunction":"SUM",
+						"includePercentageChange":false
+					},
+					{
+						"name":"ENTITY_test_chirag_object=::=LeavesTaken",
+						"aggregationFunction":"SUM",
+						"includePercentageChange":false
+					}
+				],
+				"includeAllRecordsFromBaseReport":true,
+				"searchField":{
+					"fields":[
+						"ENTITY_test_chirag_object=::=Name"
+					],
+					"expression":"{{ n_0Jwyj.outputs.body.input }}"
+				},
+				"entityType":"ENTITY_test_chirag_object",
+				"includeTotalHits":true,
+				"page":{
+					"offset":0,
+					"limit":5
+				},
+				"group":"ENTITY_REPORTING"
 			},
 			"skip":false,
 			"subTitle":"Analytics by UnifyApps",
@@ -1244,12 +1274,12 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_D7NfW@_mzkHe-1@n",
 			"id":"n_68NqR",
 			"index":23,
-			"skip":false,
+			"skip":true,
 			"subTitle":"Analytics by UnifyApps",
 			"title":"Select an action",
 			"type":"ACTION"
@@ -1295,5 +1325,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":10
 }
