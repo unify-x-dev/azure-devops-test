@@ -25,12 +25,19 @@
 			"skip":false,
 			"toNodeId":"n_fEnOp",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fEnOp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_b2S3y",
+			"type":"next"
 		}
 	],
 	"id":"68ffaf20baa3204b3201e5e3",
 	"lastModifiedBy":190398,
 	"lcName":"emailautomations",
-	"modifiedTime":1761593089492,
+	"modifiedTime":1761626725213,
 	"name":"emailAutomations",
 	"nodes":[
 		{
@@ -41,7 +48,7 @@
 				"resourceName":"gmail_on_new_attachment"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_lPkKM-1",
 			"id":"n_CSUUK",
@@ -76,7 +83,8 @@
 			"inputs":{
 				"labelIds":{
 					"source":"{{ n_CSUUK.outputs.batch[0].raw.labelIds[0] }}",
-					"ua:type":"mappedArray"
+					"ua:type":"mappedArray",
+					"items":"UNREAD"
 				},
 				"id":"{{ __USER__.outputs.id }}"
 			},
@@ -93,7 +101,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_lPkKM-1",
 			"id":"n_zJeYp",
@@ -124,7 +132,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_lPkKM-1",
 			"id":"n_fEnOp",
@@ -154,6 +162,21 @@
 			"subTitle":"Gmail",
 			"title":"Send email",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_lPkKM-1",
+			"id":"n_b2S3y",
+			"index":5,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":190398,
@@ -173,5 +196,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
