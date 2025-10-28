@@ -1,51 +1,48 @@
 {
 	"appsUsed":[
-		
+		"jira"
 	],
 	"createdTime":1761641052138,
 	"deleted":false,
 	"edges":[
-		{
-			"fromNodeId":"_QoFVT",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_lKvuV",
-			"type":"next"
-		}
+		
 	],
 	"id":"6900825cc85d6a3a6dc26da0",
 	"lastModifiedBy":155341,
 	"lcName":"rtsgsr",
-	"modifiedTime":1761641052138,
+	"modifiedTime":1761641076042,
 	"name":"rtsgsr",
 	"nodes":[
 		{
+			"context":{
+				"appName":"jira",
+				"resourceVersion":6435,
+				"connectionId":"69003a7f7ed34409f4867b9b",
+				"resourceName":"jira_on_new_or_updated_issue"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QoFVT-1",
-			"id":"_QoFVT",
-			"index":0,
+			"id":"n_DvspU",
+			"index":1,
+			"inputs":{
+				"jql":"Project = DP",
+				"objectSourceResourceName":"jira_fetch_issue_schema"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Jira",
+			"title":"New or updated issue",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_QoFVT-1",
-			"id":"_lKvuV",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":155341,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +56,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
