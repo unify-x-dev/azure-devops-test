@@ -5,12 +5,12 @@
 	"createdTime":1761417627746,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761661075477,
+		"deployedAt":1761661341840,
 		"deployedBy":23949,
-		"deployedDefinitionId":"6900d093c273210924d08b56",
-		"status":"PAUSED",
-		"version":6,
-		"workflowVersion":12
+		"deployedDefinitionId":"6900d19dc273210924d095d9",
+		"status":"DEPLOYED",
+		"version":7,
+		"workflowVersion":15
 	},
 	"edges":[
 		{
@@ -117,7 +117,7 @@
 	"id":"68fd199b9e1ba9260c2c19b9",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | run page checks",
-	"modifiedTime":1761661330049,
+	"modifiedTime":1761661364029,
 	"name":"Best Practices | Run Page Checks",
 	"nodes":[
 		{
@@ -1011,8 +1011,7 @@
 			"id":"n_Klpog",
 			"index":8,
 			"inputs":{
-				"automationId":"6900c7cec273210924d05969",
-				"runtimeConnections":{},
+				"automationId":"{{ n_jr8kl.outputs.item[0].properties.automationId }}",
 				"synchronous":true,
 				"distributeWorkflowLoad":false,
 				"parametersList":{
@@ -1254,5 +1253,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":15
+	"version":16
 }
