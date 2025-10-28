@@ -236,12 +236,26 @@
 			"skip":false,
 			"toNodeId":"_94J83",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"_94J83",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_xoxx3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_xoxx3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_bJaoc",
+			"type":"next"
 		}
 	],
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761646922527,
+	"modifiedTime":1761647914415,
 	"name":"BDI HANA",
 	"nodes":[
 		{
@@ -1151,6 +1165,116 @@
 			"subTitle":"CSV by UnifyApps",
 			"title":"Write data to CSV file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"oracledb",
+				"resourceVersion":5605,
+				"connectionId":"68f120e8001bfd69a7fb4054",
+				"resourceName":"oracledb_execute_sql",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"_xoxx3",
+			"index":28,
+			"inputs":{
+				"performAsync":false,
+				"objectSourceResourceName":"oracledb_execute_sql_metadata",
+				"sql":"SELECT \r\n    COD_CLIE,\r\n    'PE' AS COD_PAIS,\r\n    NUM_CONC,\r\n    FLA_MERE_INCE,\r\n    FLA_CUMP_COND,\r\n    FLA_CUMP_PUNT,\r\n    FLA_CUMP_CONS,\r\n    NIV_MAXI_ALCA,\r\n    CASE WHEN NIV_MAXI_ALCA IS NULL THEN 0.00 ELSE NIV_MAXI_ALCA END AS dcNIV_MAXI_ALCA,\r\n    PUN_FALT_NIVS,\r\n    CAST(PUN_FALT_NIVS AS NUMBER(19,0)) AS dcPUN_FALT_NIVS,\r\n    NUM_CONS_RECO,\r\n    CAST(NUM_CONS_RECO AS NUMBER(4,0)) AS dcNUM_CONS_RECO,\r\n    FLA_RECO\r\nFROM SSICC_PE_ES.INT_TMP_INCEN_PARTI"
+			},
+			"skip":false,
+			"subTitle":"DET_PARTICIPANTE_CONCURSO",
+			"title":"Execute a SQL statement",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"csv_by_unifyapps",
+				"resourceVersion":912,
+				"resourceName":"csv_by_unifyapps_list_to_csv_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"_bJaoc",
+			"index":29,
+			"inputs":{
+				"fileName":"INCPUNTAJE.TXT",
+				"delimiter":",",
+				"staticHeaders":[
+					{
+						"key":"COD_CLIE",
+						"value":""
+					},
+					{
+						"key":"COD_PAIS",
+						"value":""
+					},
+					{
+						"key":"NUM_CONC",
+						"value":""
+					},
+					{
+						"key":"FLA_MERE_INCE",
+						"value":""
+					},
+					{
+						"key":"FLA_CUMP_COND",
+						"value":""
+					},
+					{
+						"key":"FLA_CUMP_PUNT",
+						"value":""
+					},
+					{
+						"key":"FLA_CUMP_CONS",
+						"value":""
+					},
+					{
+						"key":"NIV_MAXI_ALCA",
+						"value":""
+					},
+					{
+						"key":"PUN_FALT_NIVS",
+						"value":""
+					},
+					{
+						"key":"NUM_CONS_RECO",
+						"value":""
+					},
+					{
+						"key":"FLA_RECO",
+						"value":""
+					},
+					{
+						"key":"dcPUN_FALT_NIVS",
+						"value":""
+					},
+					{
+						"key":"dcNUM_CONS_RECO",
+						"value":""
+					},
+					{
+						"key":"dcNIV_MAXI_ALCA",
+						"value":""
+					}
+				],
+				"skipHeaderRow":false,
+				"headerType":"STATIC",
+				"encoding":"UTF-8",
+				"keepExactFileName":true,
+				"dataSource":"{{ _xoxx3.outputs.rows }}",
+				"fileType":"txt"
+			},
+			"skip":false,
+			"subTitle":"CSV by UnifyApps",
+			"title":"Write data to CSV file",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15080,
@@ -1170,5 +1294,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":22
+	"version":24
 }
