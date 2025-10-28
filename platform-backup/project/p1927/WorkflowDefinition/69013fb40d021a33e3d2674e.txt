@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_WGkj7",
+			"fromNodeId":"n_qNiwn",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_bYbzq",
@@ -16,20 +16,34 @@
 	"id":"69013fb40d021a33e3d2674e",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerrepsschedulerfn] calculaterepssummarytimetrigger",
-	"modifiedTime":1761689524013,
+	"modifiedTime":1761689736602,
 	"name":"[virtu-emPowerRepsSchedulerFN] CalculateRepsSummaryTimeTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_WGkj7-1",
-			"id":"_WGkj7",
-			"index":0,
+			"id":"n_qNiwn",
+			"index":1,
+			"inputs":{
+				"cron":"EXPRESSION",
+				"expression":"0 0 * * *",
+				"sequential":false,
+				"timezone":"Asia/Calcutta",
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
@@ -39,7 +53,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WGkj7-1",
 			"id":"_bYbzq",
-			"index":0,
+			"index":2,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -47,6 +61,9 @@
 	],
 	"ownerUserId":308,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +77,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
