@@ -1,51 +1,163 @@
 {
 	"appsUsed":[
-		
+		"okta"
 	],
 	"createdTime":1761543735045,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Yhqdm",
+			"fromNodeId":"n_gTqqW",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_RpW7N",
+			"toNodeId":"n_LmkeN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LmkeN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Jp4ST",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Jp4ST",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CuoIf",
 			"type":"next"
 		}
 	],
 	"id":"68ff063777db7a5bde982687",
 	"lastModifiedBy":6701,
 	"lcName":"shs",
-	"modifiedTime":1761543735045,
+	"modifiedTime":1761632251752,
 	"name":"shs",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Yhqdm-1",
-			"id":"_Yhqdm",
-			"index":0,
+			"id":"n_gTqqW",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1032,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Yhqdm-1",
-			"id":"_RpW7N",
-			"index":0,
+			"id":"n_LmkeN",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"firstTag"
+					],
+					"properties":{
+						"firstTag":{
+							"type":"string",
+							"title":"First Tag"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"tags"
+					],
+					"properties":{
+						"tags":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"tags"
+						}
+					}
+				},
+				"code":"def firstTag = \"\"\nif (binding.hasVariable('tags') && tags) {\n    if (tags instanceof List && tags.size() > 0) {\n        firstTag = tags[0]\n    } else if (tags instanceof String) {\n        firstTag = tags\n    }\n}\n\nreturn [\"firstTag\": firstTag]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"tags":[
+						"test"
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"okta",
+				"resourceVersion":6512,
+				"connectionId":"68b9d8c295eb3f05dd7bc572",
+				"resourceName":"okta_get_user_groups",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Yhqdm-1",
+			"id":"n_Jp4ST",
+			"index":3,
+			"inputs":{
+				"pageSize":1000,
+				"userId":"{{ n_LmkeN.outputs.result.firstTag }}"
+			},
+			"skip":false,
+			"subTitle":"Okta",
+			"title":"Get user groups",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Yhqdm-1",
+			"id":"n_CuoIf",
+			"index":4,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":6701,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +171,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
