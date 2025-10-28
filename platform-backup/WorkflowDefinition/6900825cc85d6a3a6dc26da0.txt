@@ -4,13 +4,21 @@
 	],
 	"createdTime":1761641052138,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761641078297,
+		"deployedBy":155341,
+		"deployedDefinitionId":"69008275c85d6a3a6dc26ee3",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		
 	],
 	"id":"6900825cc85d6a3a6dc26da0",
 	"lastModifiedBy":155341,
 	"lcName":"rtsgsr",
-	"modifiedTime":1761641076042,
+	"modifiedTime":1761641097447,
 	"name":"rtsgsr",
 	"nodes":[
 		{
@@ -27,7 +35,7 @@
 			"id":"n_DvspU",
 			"index":1,
 			"inputs":{
-				"jql":"Project = DP",
+				"jql":"Project = SCRUM",
 				"objectSourceResourceName":"jira_fetch_issue_schema"
 			},
 			"skip":false,
@@ -56,5 +64,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
