@@ -224,7 +224,7 @@
 	"id":"6901258e9688a922b646b1c6",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | overall and category wise score",
-	"modifiedTime":1761683300619,
+	"modifiedTime":1761683607623,
 	"name":"Best Practices | Overall and Category wise Score",
 	"nodes":[
 		{
@@ -234,7 +234,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QqEFM-1",
 			"id":"n_wPct5",
@@ -303,7 +303,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QqEFM-1",
 			"id":"n_oVMCM",
@@ -331,7 +331,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_oVMCM@_QqEFM-1@y",
 			"id":"n_FNTZM",
@@ -380,7 +380,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@1",
 			"id":"n_FNTZM@1",
@@ -400,7 +400,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@1",
 			"id":"n_s66bs",
@@ -428,7 +428,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@2",
 			"id":"n_FNTZM@2",
@@ -448,7 +448,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@2",
 			"id":"_uIAvq",
@@ -476,7 +476,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@3",
 			"id":"n_FNTZM@3",
@@ -496,7 +496,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@3",
 			"id":"_vZMLJ",
@@ -524,7 +524,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@4",
 			"id":"n_FNTZM@4",
@@ -544,7 +544,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FNTZM@n_oVMCM@_QqEFM-1@y@4",
 			"id":"_A8r7i",
@@ -579,7 +579,7 @@
 			"index":12,
 			"inputs":{
 				"result":{
-					"overallScore":"{{ n_s66bs.outputs.AvgScore }}",
+					"overallScore":"=CEILING.MATH({{ n_s66bs.outputs.AvgScore }})",
 					"security":"{{ _vZMLJ.outputs.AvgScore }}",
 					"performance":"{{ _uIAvq.outputs.AvgScore }}",
 					"usability":"{{ _A8r7i.outputs.AvgScore }}"
@@ -596,7 +596,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_oVMCM@_QqEFM-1@n",
 			"id":"n_bUVgY",
@@ -645,7 +645,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@1",
 			"id":"n_bUVgY@1",
@@ -665,7 +665,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@1",
 			"id":"n_9Pz52",
@@ -693,7 +693,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@2",
 			"id":"n_bUVgY@2",
@@ -713,7 +713,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@2",
 			"id":"_8H0qe",
@@ -741,7 +741,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@3",
 			"id":"n_bUVgY@3",
@@ -761,7 +761,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@3",
 			"id":"_VCD3H",
@@ -789,7 +789,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@4",
 			"id":"n_bUVgY@4",
@@ -809,7 +809,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bUVgY@n_oVMCM@_QqEFM-1@n@4",
 			"id":"_hxPzm",
@@ -837,7 +837,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_oVMCM@_QqEFM-1@n",
 			"id":"n_VIY5L",
@@ -875,5 +875,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
