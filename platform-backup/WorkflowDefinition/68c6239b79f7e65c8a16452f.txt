@@ -456,7 +456,7 @@
 	"id":"68c6239b79f7e65c8a16452f",
 	"lastModifiedBy":59995,
 	"lcName":"infra | starrocks | alert |  table health",
-	"modifiedTime":1761618168168,
+	"modifiedTime":1761618258127,
 	"name":"INFRA | STARROCKS | ALERT |  Table health",
 	"nodes":[
 		{
@@ -738,7 +738,7 @@
 				"executionTime":"=(NOW() - DATE(1970,1,1)) * 86400000",
 				"customerId":"{{ __RUN__.outputs.customerId }}",
 				"rootAutomationId":"{{ __RUN__.outputs.workflowId }}",
-				"rootExecutionId":"{{ __RUN__.outputs.rootExecutionId }}",
+				"rootExecutionId":"{{ __RUN__.outputs.executionId }}",
 				"currentPartitionThresholdGB":"{{ _auxBn.outputs.result.minimumStorageSizeGB }}"
 			},
 			"outputSchema":{
@@ -4568,7 +4568,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_jMFmS-1",
 			"id":"n_3FUqO",
@@ -5379,5 +5379,5 @@
 	"tags":[
 		
 	],
-	"version":107
+	"version":108
 }
