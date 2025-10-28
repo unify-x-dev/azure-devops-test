@@ -31,7 +31,7 @@
 	"id":"690074b3a309a82f9f736ef2",
 	"lastModifiedBy":39714,
 	"lcName":"[virtu-empowerattendancefn]->getreporteeshttptrigger",
-	"modifiedTime":1761676885346,
+	"modifiedTime":1761676914173,
 	"name":"[virtu-emPowerAttendanceFN]->GetReporteesHttpTrigger",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_otcPG-1",
 			"id":"n_WmBtH",
@@ -114,36 +114,13 @@
 			"id":"n_Sqk3w",
 			"index":2,
 			"inputs":{
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"employeeNumber":{
-							"type":"string",
-							"title":"employeeNumber"
-						},
-						"startDate":{
-							"type":"string",
-							"title":"startDate"
-						},
-						"endDate":{
-							"type":"string",
-							"title":"endDate"
-						},
-						"Authorization":{
-							"type":"string",
-							"title":"Authorization"
-						}
-					}
-				},
 				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing Microsoft.AspNetCore.Mvc;\nusing Microsoft.Azure.WebJobs;\nusing Microsoft.Azure.WebJobs.Extensions.Http;\nusing Microsoft.AspNetCore.Http;\nusing Microsoft.Extensions.Logging;\nusing Newtonsoft.Json;\nusing System.Net.Http;\nusing System.Web.Http;\nusing System.Collections.Generic;\nusing System.Linq;\nusing Microsoft.Extensions.Configuration;\nusing System.IdentityModel.Tokens.Jwt;\nusing System.Text;\nusing attendanceAPI.ApplicationCore.Models;\n\n\n\n        #region Auth Methods\n\n        private bool IsUserEqualsToTokenUser(string userName)\n        {\n            var empUserName = GetUserFromToken();\n\n            if (empUserName?.Split('@')[0].ToLower() == userName.ToLower())\n            {\n                return true;\n            }\n            else\n            {\n                return false;\n            }\n        }\n\n        private string GetUserFromToken()\n        {\n            string authorizationHeader = Authorization;\n\n            if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith(\"Bearer \"))\n            {\n                return null;\n            }\n\n            string token = authorizationHeader.Substring(\"Bearer \".Length);\n\n            try\n            {\n                var handler = new JwtSecurityTokenHandler();\n                var jwtToken = handler.ReadJwtToken(token);\n\n                var uniqueNameClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == \"unique_name\");\n\n                if (uniqueNameClaim != null)\n                {\n                    return uniqueNameClaim.Value;\n                }\n                else\n                {\n                    return null;\n                }\n            }\n            catch (Exception ex)\n            {\n                return ex.Message;\n            }\n        }\n\n        private async Task<string> GetEmployeeNumber()\n        {\n            HttpClient httpClient = new HttpClient();\n\n            var userEmail = GetUserFromToken();\n\n            string workerOcpKey = \"9ff9b4951ab2422cb55334058f39dcbd\";\n            string apiBaseUrl = \"https://virtueagintegrationsapim.azure-api.net\";\n\n            string apiUrl = $\"{apiBaseUrl}/v5-workers-api/v1/workers?onlyData=true&limit=400&q=(UPPER(emails.EmailAddress)='{userEmail.ToUpper()}' and emails.EmailType='W1')\";\n\n            string apiToken = Authorization;\n\n            httpClient.DefaultRequestHeaders.Remove(\"Authorization\");\n            httpClient.DefaultRequestHeaders.Add(\"Authorization\", apiToken);\n            httpClient.DefaultRequestHeaders.Add(\"Ocp-Apim-Subscription-Key\", workerOcpKey);\n            httpClient.DefaultRequestHeaders.Add(\"Accept\", \"application/json\");\n            httpClient.DefaultRequestHeaders.Add(\"REST-Framework-Version\", \"4\");\n\n            HttpResponseMessage response = await httpClient.GetAsync(apiUrl);\n\n            var responseContent = await response.Content.ReadAsStringAsync();\n\n            if (response.IsSuccessStatusCode)\n            {\n                dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(responseContent);\n                return data?.items[0]?.PersonNumber;\n            }\n            else\n            {\n                return null;\n            }\n        }\n\n        #endregion\n\n        #region Reportees Methods\n\n        private async Task<IActionResult> GetReportees(ExecutionContext context)\n        {\n            HttpClient httpClient = new HttpClient();\n\n            // var config = new ConfigurationBuilder()\n            //     .SetBasePath(context.FunctionAppDirectory)\n            //     .AddJsonFile(\"local.settings.json\", optional: true, reloadOnChange: true)\n            //     .AddEnvironmentVariables()\n            //     .Build();\n\n            var empNumber = await GetEmployeeNumber();\n\n            string workerOcpKey = \"9ff9b4951ab2422cb55334058f39dcbd\";\n            string apiBaseUrl = \"https://virtueagintegrationsapim.azure-api.net\";\n\n            string apiUrl = $\"{apiBaseUrl}/emplyoees-api/v1/employees/{empNumber}/reportees\";\n\n            string apiToken = Authorization;\n\n            httpClient.DefaultRequestHeaders.Remove(\"Authorization\");\n            httpClient.DefaultRequestHeaders.Add(\"Authorization\", apiToken);\n            httpClient.DefaultRequestHeaders.Add(\"Ocp-Apim-Subscription-Key\", workerOcpKey);\n\n            HttpResponseMessage response = await httpClient.GetAsync(apiUrl);\n\n            if (response.IsSuccessStatusCode)\n            {\n                var responseContent = await response.Content.ReadAsStringAsync();\n                \n                List<Reportee> reportees = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Reportee>>(responseContent);\n\n                var mappedData = reportees?\n                    .Where(obj => obj.managerType == \"LINE_MANAGER\" && obj.emailAddresses?.Any(itm => itm.emailType == \"W1\") == true)\n                    .ToArray();\n\n                return new OkObjectResult(mappedData);\n            }\n            else\n            {\n                log.LogError($\"API call failed with status code: {response.StatusCode}\");\n                return new BadRequestObjectResult($\"API call failed with status code: {response.StatusCode}\");\n            }\n        }\n\n        #endregion\n\n\n        if (string.IsNullOrEmpty(userName))\n                {\n                    return new BadRequestObjectResult(\"Invalid UserName\");\n                }\n\n                string apiToken = Authorization;\n\n                if (string.IsNullOrEmpty(apiToken) && apiToken.StartsWith(\"Bearer \", StringComparison.OrdinalIgnoreCase))\n                {\n                    return new UnauthorizedObjectResult($\"Unauthorized. Access token is missing or invalid.\");\n                }\n\n                if (!(IsUserEqualsToTokenUser(userName)))\n                {\n                    return new UnauthorizedObjectResult($\"Unauthorized. Access Denied for Requested User.!\");\n                }\n\n\n                var resultObject = await GetReportees(context);\n                // var resultObject = requestBody;\n\n                resultObject",
 				"isAsync":false,
 				"parameters":{
-					"employeeNumber":"{{ n_WmBtH.outputs.queryParams.employeeNumber }}",
-					"startDate":"{{ n_WmBtH.outputs.queryParams.startDate }}",
+					"Authorization":"{{ n_WmBtH.outputs.headers.Authorization }}",
 					"endDate":"{{ n_WmBtH.outputs.queryParams.endDate }}",
-					"Authorization":"{{ n_WmBtH.outputs.headers.Authorization }}"
+					"startDate":"{{ n_WmBtH.outputs.queryParams.startDate }}",
+					"employeeNumber":"{{ n_WmBtH.outputs.queryParams.employeeNumber }}"
 				}
 			},
 			"skip":false,
@@ -159,7 +136,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_otcPG-1",
 			"id":"n_nXgwV",
@@ -193,5 +170,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
