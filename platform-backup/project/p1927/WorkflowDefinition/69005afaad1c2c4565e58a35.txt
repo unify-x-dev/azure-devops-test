@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761630970243,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_fXaki",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_mzpkd",
+			"type":"next"
+		}
+	],
+	"id":"69005afaad1c2c4565e58a35",
+	"lastModifiedBy":39715,
+	"lcName":"removenonprocessmessages",
+	"modifiedTime":1761630970243,
+	"name":"RemoveNonProcessMessages",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_fXaki-1",
+			"id":"_fXaki",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_fXaki-1",
+			"id":"_mzpkd",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":39715,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
