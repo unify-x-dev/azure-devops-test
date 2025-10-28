@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761640187809,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761640245147,
+		"deployedBy":45011,
+		"deployedDefinitionId":"69007f35c85d6a3a6dc243de",
+		"status":"PAUSED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_4OiKy",
@@ -67,7 +75,7 @@
 	"id":"69007efbc85d6a3a6dc23fda",
 	"lastModifiedBy":45011,
 	"lcName":"[dnt] entity unified data model child tenant publisher | on create",
-	"modifiedTime":1761640241064,
+	"modifiedTime":1761640268802,
 	"name":"[DNT] Entity Unified Data Model Child Tenant Publisher | On Create",
 	"nodes":[
 		{
@@ -77,7 +85,7 @@
 				"resourceName":"mdm_by_unifyapps_on_new_unified_data_model"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_dVldl-1",
 			"id":"n_4OiKy",
@@ -130,7 +138,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_dVldl-1",
 			"id":"_lGsbl",
@@ -451,7 +459,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FsZg1@_dVldl-1@y",
 			"id":"_RqzJf",
@@ -520,7 +528,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_FsZg1@_dVldl-1@y",
 			"id":"_sVHxz",
@@ -578,8 +586,7 @@
 	},
 	"standard":false,
 	"tags":[
-		"Multi Tenant CS",
-		"On change"
+		"Multi Tenant CS"
 	],
-	"version":1
+	"version":2
 }
