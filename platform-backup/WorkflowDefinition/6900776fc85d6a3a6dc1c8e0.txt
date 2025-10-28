@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761638255747,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_9opgw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_RLVnw",
+			"type":"next"
+		}
+	],
+	"id":"6900776fc85d6a3a6dc1c8e0",
+	"lastModifiedBy":33436,
+	"lcName":"test-ds-caching",
+	"modifiedTime":1761638255747,
+	"name":"test-ds-caching",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9opgw-1",
+			"id":"_9opgw",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_9opgw-1",
+			"id":"_RLVnw",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":33436,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
