@@ -185,7 +185,7 @@
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761636337448,
+	"modifiedTime":1761636418096,
 	"name":"BDI HANA",
 	"nodes":[
 		{
@@ -594,7 +594,7 @@
 				"sql":"SELECT \r\n    NUM_CONC,\r\n    'PE' AS COD_PAIS,\r\n    VAL_DESC_CONC,\r\n    TRIM(VAL_DESC_CONC) AS dcVAL_DESC_CONC,\r\n    VAL_DESC_DIRI_A,\r\n    VAL_DESC_TIPO_CONC,\r\n    VAL_STAT_CONC,\r\n    NUM_NIVE_CONC,\r\n    CAMP_INIC,\r\n    CAMP_FINA,\r\n    CAMP_INIC_DESP,\r\n    CAMP_FINA_DESP\r\nFROM SSICC_PE_ES.INT_TMP_INCEN_CONCU"
 			},
 			"skip":false,
-			"subTitle":"Oracle DB",
+			"subTitle":"MAE_CONCURSO",
 			"title":"Execute a SQL statement",
 			"type":"ACTION"
 		},
@@ -694,5 +694,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":12
+	"version":13
 }
