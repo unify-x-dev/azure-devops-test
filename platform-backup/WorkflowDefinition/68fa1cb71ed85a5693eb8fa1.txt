@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_nTZle",
+			"fromNodeId":"n_4OiKy",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_eYvhw",
@@ -67,27 +67,25 @@
 	"id":"68fa1cb71ed85a5693eb8fa1",
 	"lastModifiedBy":45011,
 	"lcName":"[dnt] entity unified data model child tenant publisher | on change",
-	"modifiedTime":1761221815501,
+	"modifiedTime":1761640163811,
 	"name":"[DNT] Entity Unified Data Model Child Tenant Publisher | On Change",
 	"nodes":[
 		{
 			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4527,
-				"resourceName":"storage_by_unifyapps_on_any_change"
+				"appName":"mdm_by_unifyapps",
+				"resourceVersion":45,
+				"resourceName":"mdm_by_unifyapps_on_update_unified_data_model"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dVldl-1",
-			"id":"n_nTZle",
+			"id":"n_4OiKy",
 			"index":1,
-			"inputs":{
-				"object_type":"e_streams"
-			},
+			"inputs":{},
 			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Changed record",
+			"subTitle":"UDM by UnifyApps",
+			"title":"Unified data model is updated",
 			"trigger":{
 				"type":"EVENT"
 			},
@@ -377,7 +375,6 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -454,7 +451,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_FsZg1@_dVldl-1@y",
 			"id":"_RqzJf",
@@ -465,9 +462,8 @@
 				"synchronous":true,
 				"version":"-1",
 				"parameters":{
-					"assetClass":"{{ n_nTZle.outputs.object.entityType }}",
-					"assetVersion":"{{ n_nTZle.outputs.object.version }}",
-					"assetId":"{{ n_nTZle.outputs.object.id }}"
+					"assetClass":"MDM_MODEL",
+					"assetId":"{{ n_4OiKy.outputs.id }}"
 				}
 			},
 			"skip":false,
@@ -524,7 +520,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_FsZg1@_dVldl-1@y",
 			"id":"_sVHxz",
@@ -544,7 +540,7 @@
 					"source":"{{ _eYvhw.outputs.objects }}",
 					"items":"{{ _eYvhw.outputs.objects[0].properties.connectedEnvId }}"
 				},
-				"name":"Stream Deployment - ({{ n_nTZle.outputs.object.id }}:{{ n_nTZle.outputs.change_type }})"
+				"name":"UDM Change Deployment - ({{ n_4OiKy.outputs.id }}: UPDATED)"
 			},
 			"skip":false,
 			"subTitle":"Standard entities by UnifyApps",
@@ -585,5 +581,5 @@
 		"Multi Tenant CS",
 		"On change"
 	],
-	"version":0
+	"version":1
 }
