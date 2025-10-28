@@ -180,12 +180,26 @@
 			"skip":false,
 			"toNodeId":"n_d4c7V",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_d4c7V",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_R7qzU",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_R7qzU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_7z605",
+			"type":"next"
 		}
 	],
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761642914641,
+	"modifiedTime":1761644197091,
 	"name":"BDI HANA",
 	"nodes":[
 		{
@@ -675,6 +689,108 @@
 			"subTitle":"CSV by UnifyApps",
 			"title":"Write data to CSV file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"oracledb",
+				"resourceVersion":5605,
+				"connectionId":"68f120e8001bfd69a7fb4054",
+				"resourceName":"oracledb_execute_sql",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"_R7qzU",
+			"index":20,
+			"inputs":{
+				"performAsync":false,
+				"objectSourceResourceName":"oracledb_execute_sql_metadata",
+				"sql":"SELECT \r\n    'PE' AS COD_PAIS,\r\n    NUM_CONC,\r\n    NUM_NIVE,\r\n    CAST(NUM_NIVE AS NUMBER(10,0)) AS dcNUM_NIVE,\r\n    IND_NIVE_ELEC,\r\n    PUN_MINI,\r\n    PUN_MAXI,\r\n    PUN_EXIG\r\nFROM SSICC_PE_ES.INT_TMP_INCEN_NIVEL"
+			},
+			"skip":false,
+			"subTitle":"MAE_NIVEL_CONCURSO",
+			"title":"Execute a SQL statement",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"csv_by_unifyapps",
+				"resourceVersion":912,
+				"resourceName":"csv_by_unifyapps_list_to_csv_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"_7z605",
+			"index":21,
+			"inputs":{
+				"fileName":"INCCONCURSOS.TXT",
+				"delimiter":",",
+				"staticHeaders":[
+					{
+						"key":"NUM_CONC",
+						"value":""
+					},
+					{
+						"key":"COD_PAIS",
+						"value":""
+					},
+					{
+						"key":"VAL_DESC_CONC",
+						"value":""
+					},
+					{
+						"key":"VAL_DESC_DIRI_A",
+						"value":""
+					},
+					{
+						"key":"VAL_DESC_TIPO_CONC",
+						"value":""
+					},
+					{
+						"key":"VAL_STAT_CONC",
+						"value":""
+					},
+					{
+						"key":"NUM_NIVE_CONC",
+						"value":""
+					},
+					{
+						"key":"CAMP_INIC",
+						"value":""
+					},
+					{
+						"key":"CAMP_FINA",
+						"value":""
+					},
+					{
+						"key":"CAMP_INIC_DESP",
+						"value":""
+					},
+					{
+						"key":"CAMP_FINA_DESP",
+						"value":""
+					},
+					{
+						"key":"dcVAL_DESC_CONC",
+						"value":""
+					}
+				],
+				"skipHeaderRow":false,
+				"headerType":"STATIC",
+				"encoding":"UTF-8",
+				"keepExactFileName":true,
+				"dataSource":"{{ _R7qzU.outputs.rows }}",
+				"fileType":"txt"
+			},
+			"skip":false,
+			"subTitle":"CSV by UnifyApps",
+			"title":"Write data to CSV file",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15080,
@@ -694,5 +810,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":14
+	"version":15
 }
