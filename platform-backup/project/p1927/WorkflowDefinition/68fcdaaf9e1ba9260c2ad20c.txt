@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_5mGrN",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5mGrN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zYEag",
+			"type":"next"
 		}
 	],
 	"id":"68fcdaaf9e1ba9260c2ad20c",
 	"lastModifiedBy":39715,
 	"lcName":"syncemployeesshttptrigger",
-	"modifiedTime":1761411716995,
+	"modifiedTime":1761630956812,
 	"name":"SyncEmployeessHttpTrigger",
 	"nodes":[
 		{
@@ -36,6 +43,16 @@
 					"contentType":"application/json"
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"name":"ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -54,7 +71,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_TpF1v-1",
 			"id":"n_5mGrN",
@@ -67,6 +84,29 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1121,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_TpF1v-1",
+			"id":"n_zYEag",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39715,
@@ -87,5 +127,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":5
 }
