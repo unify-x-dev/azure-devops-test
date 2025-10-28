@@ -1,0 +1,203 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761664450428,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_ZhVUQ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_JV4bQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_JV4bQ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_t5LYu",
+			"type":"next"
+		}
+	],
+	"id":"6900ddc2665f7769ad63d0d5",
+	"lastModifiedBy":23949,
+	"lcName":"best practices | issue orchestrator",
+	"modifiedTime":1761664953963,
+	"name":"Best Practices | Issue Orchestrator",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1066,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_lUNKu-1",
+			"id":"n_ZhVUQ",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"checks":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"check_id":{
+										"type":"string",
+										"title":"check_id"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"targets":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{
+												"targetId":{
+													"type":"string",
+													"title":"targetId"
+												},
+												"targetType":{
+													"type":"string",
+													"title":"targetType"
+												},
+												"path":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"Path"
+												}
+											},
+											"additionalProperties":false,
+											"required":[]
+										},
+										"title":"targets"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"checks"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"object":{
+							"type":"string",
+							"title":"Object"
+						},
+						"automationId":{
+							"type":"string",
+							"title":"Automation Id"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1122,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_lUNKu-1",
+			"id":"n_JV4bQ",
+			"index":2,
+			"inputs":{
+				"automationId":"{{ n_ZhVUQ.outputs.automationId }}",
+				"synchronous":true,
+				"version":"-1",
+				"parameters":"{{ n_ZhVUQ.outputs.object }}"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1102,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_lUNKu-1",
+			"id":"n_t5LYu",
+			"index":3,
+			"inputs":{
+				"result":{
+					"checks":{
+						"source":"{{ n_JV4bQ.outputs.checks }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"check_id":"{{ n_JV4bQ.outputs.checks[0].check_id }}",
+							"status":"{{ n_JV4bQ.outputs.checks[0].status }}",
+							"targets":{
+								"source":"{{ n_JV4bQ.outputs.checks[0].targets }}",
+								"ua:type":"mappedArray",
+								"items":{
+									"targetId":"{{ n_JV4bQ.outputs.checks[0].targets[0].targetId }}",
+									"targetType":"{{ n_JV4bQ.outputs.checks[0].targets[0].targetType }}",
+									"path":{
+										"source":"{{ n_JV4bQ.outputs.checks[0].targets[0].path }}",
+										"ua:type":"mappedArray",
+										"items":"{{ n_JV4bQ.outputs.checks[0].targets[0].path[0] }}"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":23949,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":1
+}
