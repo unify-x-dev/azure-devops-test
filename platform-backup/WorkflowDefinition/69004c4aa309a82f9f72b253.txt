@@ -32,12 +32,19 @@
 			"skip":false,
 			"toNodeId":"n_vIzga",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vIzga",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bKWps",
+			"type":"next"
 		}
 	],
 	"id":"69004c4aa309a82f9f72b253",
 	"lastModifiedBy":190398,
 	"lcName":"trying1 ",
-	"modifiedTime":1761629639775,
+	"modifiedTime":1761629658748,
 	"name":"trying1 ",
 	"nodes":[
 		{
@@ -186,6 +193,21 @@
 			"subTitle":"Gmail",
 			"title":"Send email",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_1rWbt-1",
+			"id":"n_bKWps",
+			"index":6,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":190398,
@@ -205,5 +227,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
