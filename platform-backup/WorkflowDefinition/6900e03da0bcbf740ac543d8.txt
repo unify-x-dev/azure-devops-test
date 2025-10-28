@@ -6,46 +6,72 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_TZUhq",
+			"fromNodeId":"n_NY22p",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_M2dcH",
+			"toNodeId":"n_u3kSn",
 			"type":"next"
 		}
 	],
 	"id":"6900e03da0bcbf740ac543d8",
-	"lastModifiedBy":33417,
+	"lastModifiedBy":20249,
 	"lcName":"test",
-	"modifiedTime":1761665085877,
+	"modifiedTime":1761667218831,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TZUhq-1",
-			"id":"_TZUhq",
-			"index":0,
+			"id":"n_NY22p",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1033,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TZUhq-1",
-			"id":"_M2dcH",
-			"index":0,
+			"id":"n_u3kSn",
+			"index":2,
+			"inputs":{
+				"code":"import groovy.json.JsonBuilder\nimport groovy.json.JsonSlurper\nimport java.text.SimpleDateFormat\n\n// Start timing\ndef startTime = System.currentTimeMillis()\n\nprintln \"=== Starting Groovy Performance Test ===\"\nprintln \"Start Time: ${new Date()}\"\nprintln \"\"\n\n// Test 1: String Operations\nprintln \"Test 1: String Operations\"\ndef testString = \"\"\n1000.times { i ->\n    testString += \"Iteration ${i}, \"\n}\nprintln \"Generated string length: ${testString.length()}\"\nprintln \"\"\n\n// Test 2: List Operations\nprintln \"Test 2: List Operations\"\ndef numbers = (1..1000).collect { it }\ndef squares = numbers.collect { it * it }\ndef evenSquares = squares.findAll { it % 2 == 0 }\nprintln \"Total numbers: ${numbers.size()}\"\nprintln \"Even squares count: ${evenSquares.size()}\"\nprintln \"Sum of first 10 even squares: ${evenSquares.take(10).sum()}\"\nprintln \"\"\n\n// Test 3: Map Operations\nprintln \"Test 3: Map Operations\"\ndef employees = [:]\n100.times { i ->\n    employees[\"EMP${i.toString().padLeft(3, '0')}\"] = [\n        name: \"Employee ${i}\",\n        salary: 50000 + (i * 1000),\n        department: [\"Engineering\", \"Sales\", \"HR\", \"Marketing\"][i % 4],\n        joinDate: new Date() - (i * 30)\n    ]\n}\ndef highEarners = employees.findAll { k, v -> v.salary > 75000 }\nprintln \"Total employees: ${employees.size()}\"\nprintln \"High earners (>75k): ${highEarners.size()}\"\nprintln \"\"\n\n// Test 4: JSON Processing\nprintln \"Test 4: JSON Processing\"\ndef jsonBuilder = new JsonBuilder()\njsonBuilder {\n    company \"TestCorp\"\n    employees employees.take(10).collect { k, v ->\n        [\n            id: k,\n            name: v.name,\n            salary: v.salary,\n            department: v.department\n        ]\n    }\n    metadata {\n        generatedAt new Date().toString()\n        totalRecords employees.size()\n    }\n}\ndef jsonString = jsonBuilder.toPrettyString()\ndef slurper = new JsonSlurper()\ndef parsedJson = slurper.parseText(jsonString)\nprintln \"JSON size: ${jsonString.length()} characters\"\nprintln \"Parsed company: ${parsedJson.company}\"\nprintln \"\"\n\n// Test 5: Closures and Functional Programming\nprintln \"Test 5: Closures and Functional Programming\"\ndef fibonacci = { n ->\n    n <= 1 ? n : call(n-1) + call(n-2)\n}\ndef fibResults = (0..15).collect { fibonacci(it) }\nprintln \"Fibonacci sequence (0-15): ${fibResults}\"\nprintln \"\"\n\n// Test 6: Date Calculations\nprintln \"Test 6: Date Calculations\"\ndef dateFormat = new SimpleDateFormat(\"yyyy-MM-dd\")\ndef today = new Date()\ndef dateRanges = (1..30).collect { days ->\n    [\n        daysAgo: days,\n        date: dateFormat.format(today - days),\n        weekday: (today - days).format(\"EEEE\")\n    ]\n}\nprintln \"Generated ${dateRanges.size()} date ranges\"\nprintln \"10 days ago: ${dateRanges[9].date} (${dateRanges[9].weekday})\"\nprintln \"\"\n\n// Test 7: Nested Data Structures\nprintln \"Test 7: Nested Data Structures\"\ndef salesData = [:]\n[\"Q1\", \"Q2\", \"Q3\", \"Q4\"].each { quarter ->\n    salesData[quarter] = [:]\n    [\"North\", \"South\", \"East\", \"West\"].each { region ->\n        salesData[quarter][region] = [\n            revenue: (Math.random() * 1000000).toInteger(),\n            costs: (Math.random() * 500000).toInteger(),\n            customers: (Math.random() * 1000).toInteger()\n        ]\n    }\n}\ndef totalRevenue = salesData.collect { q, regions ->\n    regions.collect { r, data -> data.revenue }.sum()\n}.sum()\nprintln \"Total annual revenue: \\$${totalRevenue}\"\nprintln \"\"\n\n// Test 8: String Pattern Matching\nprintln \"Test 8: String Pattern Matching\"\ndef sampleText = \"\"\"\n    This is a sample text with email@example.com and another.email@test.org\n    It also contains phone numbers like 123-456-7890 and 987.654.3210\n    And some URLs like https://example.com and http://test.org\n\"\"\"\ndef emailPattern = /\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b/\ndef emails = (sampleText =~ emailPattern).collect { it }\ndef phonePattern = /\\b\\d{3}[-.]?\\d{3}[-.]?\\d{4}\\b/\ndef phones = (sampleText =~ phonePattern).collect { it }\nprintln \"Found ${emails.size()} emails: ${emails}\"\nprintln \"Found ${phones.size()} phone numbers: ${phones}\"\nprintln \"\"\n\n// Test 9: Algorithm - Bubble Sort\nprintln \"Test 9: Bubble Sort Algorithm\"\ndef unsortedArray = (1..50).collect { (Math.random() * 100).toInteger() }\ndef sortedArray = unsortedArray.clone()\ndef n = sortedArray.size()\n(0..<n).each { i ->\n    (0..<(n-i-1)).each { j ->\n        if (sortedArray[j] > sortedArray[j+1]) {\n            def temp = sortedArray[j]\n            sortedArray[j] = sortedArray[j+1]\n            sortedArray[j+1] = temp\n        }\n    }\n}\nprintln \"First 10 sorted numbers: ${sortedArray.take(10)}\"\nprintln \"Last 10 sorted numbers: ${sortedArray.takeRight(10)}\"\nprintln \"\"\n\n// Test 10: Mathematical Calculations\nprintln \"Test 10: Mathematical Calculations\"\ndef calculatePrime = { num ->\n    if (num < 2) return false\n    if (num == 2) return true\n    if (num % 2 == 0) return false\n    for (int i = 3; i <= Math.sqrt(num); i += 2) {\n        if (num % i == 0) return false\n    }\n    return true\n}\ndef primes = (1..100).findAll { calculatePrime(it) }\nprintln \"Prime numbers up to 100: ${primes.size()} found\"\nprintln \"First 10 primes: ${primes.take(10)}\"\nprintln \"\"\n\n// End timing\ndef endTime = System.currentTimeMillis()\ndef executionTime = endTime - startTime\n\nprintln \"=== Performance Test Complete ===\"\nprintln \"End Time: ${new Date()}\"\nprintln \"Total Execution Time: ${executionTime} ms (${executionTime/1000.0} seconds)\"\nprintln \"Average per test: ${executionTime/10.0} ms\"\n\nreturn [\n    executionTimeMs: executionTime,\n    executionTimeSec: executionTime/1000.0,\n    testsCompleted: 10,\n    status: \"SUCCESS\"\n]",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33417,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +85,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
