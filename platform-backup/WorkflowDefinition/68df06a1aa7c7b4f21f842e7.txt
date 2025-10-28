@@ -1,0 +1,767 @@
+{
+	"appsUsed":[
+		"storage_by_unifyapps"
+	],
+	"createdTime":1759446689323,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1759661925192,
+		"deployedBy":59995,
+		"deployedDefinitionId":"68e24f65a94b8359f76dd33f",
+		"status":"DEPLOYED",
+		"version":2,
+		"workflowVersion":4
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_FWguU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_96ZBq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_96ZBq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_BuzLR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_BuzLR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_oSfM0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_oSfM0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_sbw6Y",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_sbw6Y",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_W50DB",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_W50DB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_axNoi",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_sbw6Y",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_XAGCp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_XAGCp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Ul4xT",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_axNoi",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GQdZd",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Ul4xT",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GQdZd",
+			"type":"next"
+		}
+	],
+	"id":"68df06a1aa7c7b4f21f842e7",
+	"lastModifiedBy":59995,
+	"lcName":"compaction score",
+	"modifiedTime":1761615714492,
+	"name":"compaction score",
+	"nodes":[
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"callables",
+				"resourceVersion":976,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_BRyXl-1",
+			"id":"n_FWguU",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"criticalCompactionsGroupCount"
+					],
+					"properties":{
+						"criticalCompactionsGroupCount":{
+							"type":"number",
+							"title":"Critical Compactions Group Count"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"customerId",
+						"compactionMin",
+						"rootAutomationId",
+						"rootExecutionId",
+						"executedAt"
+					],
+					"properties":{
+						"customerId":{
+							"type":"string",
+							"title":"Customer Id"
+						},
+						"compactionMin":{
+							"type":"number",
+							"title":"Compaction Min"
+						},
+						"rootAutomationId":{
+							"type":"string",
+							"title":"Root Automation Id"
+						},
+						"rootExecutionId":{
+							"type":"string",
+							"title":"Root Execution Id"
+						},
+						"executedAt":{
+							"type":"number",
+							"title":"Executed At"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":3,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_BRyXl-1",
+			"id":"n_96ZBq",
+			"index":2,
+			"inputs":{
+				"automationId":"68b932d26607f33c4d7f0988",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":true,
+					"timeToLive":"3600",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":10,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_BRyXl-1",
+			"id":"_BuzLR",
+			"index":3,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"sql":"SELECT DB_NAME, TABLE_NAME, PARTITION_NAME, PARTITION_ID, P50_CS FROM information_schema.partitions_meta WHERE P50_CS > {{ n_FWguU.outputs.compactionMin }} ORDER BY DB_NAME, TABLE_NAME;"
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/internal/sql-report/runSQL/query/{{ n_FWguU.outputs.customerId }}",
+				"responseSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"hasMore"
+						},
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"P50_CS":{
+										"type":"integer",
+										"title":"P50_CS"
+									},
+									"TABLE_NAME":{
+										"type":"string",
+										"title":"TABLE_NAME"
+									},
+									"PARTITION_NAME":{
+										"type":"string",
+										"title":"PARTITION_NAME"
+									},
+									"DB_NAME":{
+										"type":"string",
+										"title":"DB_NAME"
+									},
+									"PARTITION_ID":{
+										"type":"integer",
+										"title":"PARTITION_ID"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"objects"
+						}
+					}
+				},
+				"baseUrl":"{{ n_96ZBq.outputs.baseInternalUrl }}",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"sql":{
+							"type":"string",
+							"title":"sql"
+						}
+					}
+				},
+				"queryParamsList":[
+					{
+						"key":"sqlResourceType",
+						"value":"PLATFORM"
+					}
+				],
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"headersList":[],
+				"errorResponseSchemas":[],
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Get partitions compaction score",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_BRyXl-1",
+			"id":"_oSfM0",
+			"index":4,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"message",
+						"inputs",
+						"outputs"
+					],
+					"properties":{
+						"message":{
+							"type":"string",
+							"title":"Message"
+						},
+						"inputs":{
+							"type":"object",
+							"properties":{
+								"minCompactionScore":{
+									"type":"integer",
+									"title":"Min Compaction Score"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Inputs",
+							"required":[
+								"minCompactionScore"
+							]
+						},
+						"outputs":{
+							"type":"object",
+							"properties":{
+								"smallCompactionPartitions":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false
+									},
+									"title":"Small Compaction Partitions"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Outputs",
+							"required":[
+								"smallCompactionPartitions"
+							]
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"smallCompactionPartitions",
+						"minCompactionScore"
+					],
+					"properties":{
+						"smallCompactionPartitions":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"dbName":{
+										"type":"string",
+										"title":"Db Name"
+									},
+									"tableName":{
+										"type":"string",
+										"title":"Table Name"
+									},
+									"partitionName":{
+										"type":"string",
+										"title":"Partition Name"
+									},
+									"partitionId":{
+										"type":"string",
+										"title":"Partition Id"
+									},
+									"compactionScore":{
+										"type":"number",
+										"title":"Compaction Score"
+									}
+								},
+								"additionalProperties":false,
+								"required":[
+									"dbName",
+									"tableName",
+									"partitionName",
+									"partitionId",
+									"compactionScore"
+								]
+							},
+							"title":"Small Compaction Partitions"
+						},
+						"minCompactionScore":{
+							"type":"integer",
+							"title":"Min Compaction Score"
+						}
+					}
+				},
+				"code":"if (!(binding.hasVariable(\"smallCompactionPartitions\") && smallCompactionPartitions)) {\n  return [message: \"\", inputs: [minCompactionScore: minCompactionScore], outputs: [smallCompactionPartitions: []]]\n}\ndef messages = []\ndef dbTables = [] as Set\ndef smallCompactionCleaned = []\nif (smallCompactionPartitions.size() > 0) {\n  for (item in smallCompactionPartitions) {\n    def key = item.dbName + '-' + item.tableName\n    if (dbTables.contains(key)) {\n      smallCompactionCleaned.last()['partitions'].add([partitionName: item.partitionName, partitionId: item.partitionId, compactionScore: item.compactionScore])\n    } else {\n      smallCompactionCleaned.add([dbName: item.dbName, tableName: item.tableName, partitions: [[partitionName: item.partitionName, partitionId: item.partitionId, compactionScore: item.compactionScore]]])\n      dbTables.add(key)\n    }\n  }\n  for (item in smallCompactionCleaned) {\n    def storageMessage = [\"[ \"]\n      for (partitions in item.partitions) {\n        storageMessage << \" [ PartitionName = \" + partitions.partitionName + \", PartitionId = \" + partitions.partitionId + \", CompactionScore = \" + partitions.compactionScore + \" ] , \"\n      }\n    storageMessage << \" ]\"\n    storageMessage = storageMessage.join()\n    messages << \"\\n• Database = \" + item.dbName + \", tableName =  \" + item.tableName + \", partitions = \" + storageMessage + \"\\n\"\n  }\n}\nreturn [outputs: [smallCompactionPartitions: smallCompactionCleaned], inputs: [\"minCompactionScore\": minCompactionScore], message: messages.join()]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"minCompactionScore":"{{ n_FWguU.outputs.compactionMin }}",
+					"smallCompactionPartitions":{
+						"ua:type":"mappedArray",
+						"items":{
+							"dbName":"{{ _BuzLR.outputs.result.objects[0].DB_NAME }}",
+							"tableName":"{{ _BuzLR.outputs.result.objects[0].TABLE_NAME }}",
+							"partitionName":"{{ _BuzLR.outputs.result.objects[0].PARTITION_NAME }}",
+							"partitionId":"{{ _BuzLR.outputs.result.objects[0].PARTITION_ID }}",
+							"compactionScore":"{{ _BuzLR.outputs.result.objects[0].P50_CS }}"
+						},
+						"source":"{{ _BuzLR.outputs.result.objects }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Small compaction score output",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":767,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_BRyXl-1",
+			"id":"_sbw6Y",
+			"index":5,
+			"inputs":{
+				"filters":[
+					{
+						"property":"=LEN({{ _oSfM0.outputs.result.outputs.smallCompactionPartitions }})",
+						"filter":{
+							"operator":"GT",
+							"value":"0"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.steps.inputs",
+					"root.record.steps.outputs"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":3226,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_sbw6Y@_BRyXl-1@y",
+			"id":"_W50DB",
+			"index":6,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"infra_alert_steps",
+				"skipIfBlank":false,
+				"record":{
+					"alertType":"starrocks_table_health",
+					"rootAutomationId":"{{ n_FWguU.outputs.rootAutomationId }}",
+					"rootExecutionId":"{{ n_FWguU.outputs.rootExecutionId }}",
+					"executedAt":"{{ n_FWguU.outputs.executedAt }}",
+					"alertCategory":"starrocks",
+					"alertSubType":"routine_load_large_compaction_score",
+					"stepsOrder":9,
+					"summary":"Check whether a routine load partition has a large compaction score",
+					"steps":{
+						"inputs":"{{ _oSfM0.outputs.result.inputs }}",
+						"outputs":"{{ _oSfM0.outputs.result.outputs }}"
+					},
+					"status":"CRITICAL",
+					"stepDescription":"Check whether a routine load's partition has compaction score > {{ n_FWguU.outputs.compactionMin }}",
+					"resolved":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Create Alert Step",
+			"title":"Create record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":3,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_sbw6Y@_BRyXl-1@y",
+			"id":"_axNoi",
+			"index":7,
+			"inputs":{
+				"automationId":"68721bd4feea003f6a9cb688",
+				"runtimeConnections":{},
+				"synchronous":false,
+				"version":"-1",
+				"parameters":{
+					"env":"{{ n_96ZBq.outputs.env }}",
+					"alertCategory":"starrocks",
+					"alertType":"starrocks_table_health",
+					"alertTitle":"🚨 Large Compactions in Routine Load Partitions (> {{ n_FWguU.outputs.compactionMin }})",
+					"alertDescription":"Following partitions have a large compaction score (> {{ n_FWguU.outputs.compactionMin }}):\n{{ _oSfM0.outputs.result.message }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.steps.inputs",
+					"root.record.steps.outputs"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":3226,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_sbw6Y@_BRyXl-1@n",
+			"id":"_XAGCp",
+			"index":8,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"infra_alert_steps",
+				"skipIfBlank":false,
+				"record":{
+					"alertType":"starrocks_table_health",
+					"rootAutomationId":"{{ n_FWguU.outputs.rootAutomationId }}",
+					"rootExecutionId":"{{ n_FWguU.outputs.rootExecutionId }}",
+					"executedAt":"{{ n_FWguU.outputs.executedAt }}",
+					"alertCategory":"starrocks",
+					"alertSubType":"routine_load_large_compaction_score",
+					"stepsOrder":9,
+					"summary":"Check whether a routine load partition has a large compaction score",
+					"steps":{
+						"inputs":"{{ _oSfM0.outputs.result.inputs }}",
+						"outputs":"{{ _oSfM0.outputs.result.outputs }}"
+					},
+					"status":"OK",
+					"stepDescription":"Check whether a routine load's partition has compaction score > {{ n_FWguU.outputs.compactionMin }}",
+					"resolved":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Create Alert Step",
+			"title":"Create record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":3,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_sbw6Y@_BRyXl-1@n",
+			"id":"_Ul4xT",
+			"index":9,
+			"inputs":{
+				"automationId":"68721bd4feea003f6a9cb688",
+				"runtimeConnections":{},
+				"synchronous":false,
+				"version":"-1",
+				"parameters":{
+					"env":"{{ n_96ZBq.outputs.env }}",
+					"alertCategory":"starrocks",
+					"alertType":"starrocks_table_health",
+					"alertTitle":"🚨 Large Compactions in Routine Load Partitions (> {{ n_FWguU.outputs.compactionMin }})",
+					"alertDescription":"Following partitions have a large compaction score (> {{ n_FWguU.outputs.compactionMin }}):\n{{ _oSfM0.outputs.result.message }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1001,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_BRyXl-1",
+			"id":"n_GQdZd",
+			"index":10,
+			"inputs":{
+				"result":{
+					"criticalCompactionsGroupCount":"=LEN({{ _oSfM0.outputs.result.outputs.smallCompactionPartitions }})"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":59995,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":5
+}
