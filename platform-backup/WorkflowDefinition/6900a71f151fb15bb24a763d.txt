@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761650463170,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_uv02c",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_fxZag",
+			"type":"next"
+		}
+	],
+	"id":"6900a71f151fb15bb24a763d",
+	"lastModifiedBy":27,
+	"lcName":"best practices | check group | page",
+	"modifiedTime":1761650463170,
+	"name":"Best Practices | Check Group | Page",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uv02c-1",
+			"id":"_uv02c",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uv02c-1",
+			"id":"_fxZag",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":27,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		"BPC"
+	],
+	"version":0
+}
