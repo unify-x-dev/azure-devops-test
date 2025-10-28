@@ -5,16 +5,46 @@
 	"createdTime":1761389956257,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761568640829,
+		"deployedAt":1761588594893,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68ff677f4a56c873c8d700a7",
+		"deployedDefinitionId":"68ffb572baa3204b3201f942",
 		"status":"DEPLOYED",
-		"version":13,
-		"workflowVersion":27
+		"version":18,
+		"workflowVersion":35
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_mICBz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_hctEh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_hctEh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_eQp2R",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_eQp2R",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_JcFC5",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_JcFC5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5CcMh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_eQp2R",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_5CcMh",
@@ -22,6 +52,29 @@
 		},
 		{
 			"fromNodeId":"n_5CcMh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_w184U",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_w184U",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jBM5o",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_jBM5o",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AwEoF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_w184U",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_AwEoF",
@@ -96,7 +149,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761587146228,
+	"modifiedTime":1761644700341,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -128,6 +181,14 @@
 						"pageName":{
 							"type":"string",
 							"title":"pageName"
+						},
+						"totalChecks":{
+							"type":"integer",
+							"title":"totalChecks"
+						},
+						"passedChecks":{
+							"type":"integer",
+							"title":"passedChecks"
 						}
 					}
 				},
@@ -157,6 +218,112 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1082,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"_hctEh",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"category":{
+							"type":"string",
+							"title":"category"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"category":"{{ n_mICBz.outputs.category }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"category":{
+							"type":"string",
+							"title":"category"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"n_eQp2R",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_mICBz.outputs.category }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1001,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_eQp2R@_6NnBb-1@y",
+			"id":"_JcFC5",
+			"index":4,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ _hctEh.outputs.category }}",
+						"value":"null"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"storage_by_unifyapps",
 				"resourceVersion":4581,
 				"resourceName":"storage_by_unifyapps_fetch_records",
@@ -167,7 +334,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_5CcMh",
-			"index":2,
+			"index":5,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -193,10 +360,117 @@
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6NnBb-1",
+			"id":"n_w184U",
+			"index":6,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_5CcMh.outputs.id }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1100,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_w184U@_6NnBb-1@y",
+			"id":"n_jBM5o",
+			"index":7,
+			"inputs":{
+				"result":{
+					"score":0,
+					"pageId":"{{ n_mICBz.outputs.pageId }}",
+					"pageName":"Not Found",
+					"totalChecks":0,
+					"passedChecks":0
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -210,7 +484,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_AwEoF",
-			"index":3,
+			"index":8,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -268,7 +542,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_u2GsM",
-			"index":4,
+			"index":9,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -299,7 +573,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_ZpyhG",
-			"index":5,
+			"index":10,
 			"inputs":{
 				"filters":[
 					{
@@ -325,11 +599,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"n_yGQY6",
-			"index":6,
+			"index":11,
 			"inputs":{
 				"automationId":"68fd199b9e1ba9260c2c19b9",
 				"runtimeConnections":{},
@@ -356,7 +630,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_S5WW9",
-			"index":7,
+			"index":12,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -416,11 +690,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_UmXGt",
-			"index":8,
+			"index":13,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -481,11 +755,11 @@
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"category":"{{ n_mICBz.outputs.category }}",
+					"category":"{{ _hctEh.outputs.category }}",
 					"reports":{
-						"source":"{{ _S5WW9.outputs.objects }}",
 						"ua:type":"mappedArray",
-						"items":"{{ _S5WW9.outputs.objects[0] }}"
+						"source":"{{ _S5WW9.outputs.objects[0].properties.checks }}",
+						"items":"{{ _S5WW9.outputs.objects[0].properties.checks[0] }}"
 					},
 					"checks":{
 						"source":"{{ n_u2GsM.outputs.objects }}",
@@ -511,12 +785,14 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_SMKPo",
-			"index":9,
+			"index":14,
 			"inputs":{
 				"result":{
 					"score":"=CEILING.MATH(VALUE({{ _UmXGt.outputs.result.passPercentage }}))",
 					"pageId":"{{ _UmXGt.outputs.result.pageId }}",
-					"pageName":"{{ n_5CcMh.outputs.properties.pageTitle }}"
+					"pageName":"{{ n_5CcMh.outputs.properties.pageTitle }}",
+					"totalChecks":"{{ _UmXGt.outputs.result.totalChecks }}",
+					"passedChecks":"{{ _UmXGt.outputs.result.passedChecks }}"
 				}
 			},
 			"skip":false,
@@ -538,11 +814,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_X4F6n",
-			"index":10,
+			"index":15,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -599,11 +875,11 @@
 						}
 					}
 				},
-				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    // Treat \"null\" string as no category\n    if (category == \"null\") {\n        category = null\n    }\n    // Assume all reports belong to the same page/component\n    def pageId = reports ? reports[0].properties.entityId : \"unknown\"\n    // Filter checks by category if provided. Treat \"All\" or null as no filter.\n    def relevantChecks = (category && category != \"All\") ? checks.findAll { it.properties.category == category } : checks\n    // Check for empty relevantChecks (e.g., if a non-existent category was passed)\n    if (!relevantChecks) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Relevant check IDs\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n    // Filter reports matching relevant checks\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.properties.checkId) }\n    // Handle case where no reports match the relevant checks\n    if (!filteredReports) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Count passed\n    def passedCount = filteredReports.count { it.properties.status == 'passed' }\n    // Calculate percentage\n    // Add a check to prevent division by zero if filteredReports.size() is 0\n    def passPercentage = (filteredReports.size() > 0) ? (passedCount / filteredReports.size()) * 100 : 0\n    return [\n        pageId: pageId,\n        category: category ?: \"All\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\ndef output = calculatePassPercentage(reports, checks, category)",
+				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    // Treat \"null\" string as no category\n    if (category == \"null\") {\n        category = null\n    }\n    // Assume all reports belong to the same page/component\n    def pageId = reports ? reports[0].properties.entityId : \"unknown\"\n    // Filter checks by category if provided. Treat \"All\" or null as no filter.\n    def relevantChecks = (category && category != \"All\") ? checks.findAll { it.properties.category == category } : checks\n    // Check for empty relevantChecks (e.g., if a non-existent category was passed)\n    if (!relevantChecks) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Relevant check IDs\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n    // Filter reports matching relevant checks\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.properties.checkId) }\n    // Handle case where no reports match the relevant checks\n    if (!filteredReports) return [pageId: pageId, category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Count passed\n    def passedCount = filteredReports.count { it.properties.status == 'passed' }\n    // Calculate percentage\n    // Add a check to prevent division by zero if filteredReports.size() is 0\n    def passPercentage = (filteredReports.size() > 0) ? (passedCount / filteredReports.size()) * 100 : 0\n    return [\n        pageId: pageId,\n        category: category ?: \"All\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\n\ndef output = calculatePassPercentage(reports, checks, category)",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"category":"{{ n_mICBz.outputs.category }}",
+					"category":"{{ _hctEh.outputs.category }}",
 					"reports":{
 						"source":"{{ n_AwEoF.outputs.objects }}",
 						"ua:type":"mappedArray",
@@ -633,12 +909,14 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
-			"index":11,
+			"index":16,
 			"inputs":{
 				"result":{
 					"score":"=CEILING.MATH(VALUE({{ n_X4F6n.outputs.result.passPercentage }}))",
 					"pageId":"{{ n_X4F6n.outputs.result.pageId }}",
-					"pageName":"{{ n_5CcMh.outputs.properties.name }}"
+					"pageName":"{{ n_5CcMh.outputs.properties.name }}",
+					"totalChecks":"{{ n_X4F6n.outputs.result.totalChecks }}",
+					"passedChecks":"{{ n_X4F6n.outputs.result.passedChecks }}"
 				}
 			},
 			"skip":false,
@@ -664,5 +942,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":29
+	"version":36
 }
