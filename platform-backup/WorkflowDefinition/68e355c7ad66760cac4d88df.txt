@@ -5,7 +5,9 @@
 		"hadoop",
 		"mongo",
 		"mysql",
-		"sftp"
+		"prometheus",
+		"sftp",
+		"twilio"
 	],
 	"createdTime":1759729095961,
 	"deleted":false,
@@ -26,6 +28,13 @@
 		},
 		{
 			"fromNodeId":"_WCoZX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_xjHrO",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_xjHrO",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_9qaQu",
@@ -163,12 +172,33 @@
 			"skip":false,
 			"toNodeId":"n_gir1A",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_gir1A",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HhEBr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HhEBr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_VUDAv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VUDAv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_JVLJg",
+			"type":"next"
 		}
 	],
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761649355878,
+	"modifiedTime":1761664742525,
 	"name":"test",
 	"nodes":[
 		{
@@ -178,7 +208,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_cFwuH",
@@ -201,7 +231,7 @@
 			"context":{
 				"appName":"azure_blob",
 				"resourceVersion":5050,
-				"connectionId":"68e359168d4a993cdc15f231",
+				"connectionId":"68ee30f2af190e20d1cbcaa1",
 				"resourceName":"azure_blob_get_container_properties",
 				"type":"APPLICATION"
 			},
@@ -229,7 +259,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"_WCoZX",
@@ -245,6 +275,32 @@
 		},
 		{
 			"context":{
+				"appName":"azure_blob",
+				"resourceVersion":5105,
+				"connectionId":"68ee30f2af190e20d1cbcaa1",
+				"resourceName":"azure_blob_upload_blob",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SDPQ9-1",
+			"id":"n_xjHrO",
+			"index":4,
+			"inputs":{
+				"attachment":{
+					"attachment_option":"use_file_url",
+					"blobName":"csvnormal/test1.txt"
+				},
+				"containerName":"automation"
+			},
+			"skip":false,
+			"subTitle":"Azure Blob",
+			"title":"Upload blob",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"hadoop",
 				"resourceVersion":4679,
 				"connectionId":"673d93f4bce60730f9a488bf",
@@ -252,11 +308,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_9qaQu",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"path":"/test_etl/example.csv"
 			},
@@ -274,11 +330,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_wiCYR",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"path":"/"
 			},
@@ -296,11 +352,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_4K5Iz",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"path":"dir_test/dir_1"
 			},
@@ -318,11 +374,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_w5oM1",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"blocksize":1024,
 				"replication":1,
@@ -346,11 +402,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_oBeQ2",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"path":"/test_etl/example.csv"
 			},
@@ -368,11 +424,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_fRZSx",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"sourceUrl":"https://docs.google.com/spreadsheets/d/1EMHq0GTqofSSvawbbUo7GEjZfgcZepGNXjZpe4Cuvxc/export?format=tsv&sheet=Sheet1",
 				"path":"/test_etl/FileTSV.tsv",
@@ -392,11 +448,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_1QMIm",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"path":"/test_etl/example.csv"
 			},
@@ -414,11 +470,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_VALyF",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"path":"/test_etl/jay_testing_file.parquet"
 			},
@@ -436,11 +492,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_5KOVj",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"document_schema":{
 					"type":"object",
@@ -499,11 +555,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_NyUQd",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"collectionName":"feqwrfcweqrf_CTL"
 			},
@@ -521,11 +577,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_OZEfu",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"capped":false,
 				"collectionName":"big_table_check_2"
@@ -544,11 +600,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_HunmC",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"document_schema":{
 					"type":"object",
@@ -590,11 +646,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_LTl0h",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"filter":{
 					"filters":[
@@ -625,11 +681,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_2QKYn",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"query":"show ROUTINE LOAD where TableName = \"ENTITY_jay_test__shamyak_etl_2025_10_23_06\";",
 				"group":"ENTITY_REPORTING"
@@ -648,11 +704,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_GJM9g",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"objectSourceResourceName":"mysql_execute_sql_metadata",
 				"sql":"select * from jay_test_big_table_check_2"
@@ -671,11 +727,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_X8nvd",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"path":"/CTL/"
 			},
@@ -693,11 +749,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_uCZ3C",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"path":"/CTL/file.csv",
 				"input_type":"url",
@@ -717,11 +773,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_rl8DR",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"path":"/CTL/Stock_Trades_Quality_Test - Sheet1.csv"
 			},
@@ -739,11 +795,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_lOmxs",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"path":"/CTL/Stock_Trades_Quality_Test - Sheet1.csv",
 				"performAsync":true
@@ -762,11 +818,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_gir1A",
-			"index":23,
+			"index":24,
 			"inputs":{
 				"queries":[
 					{
@@ -790,6 +846,74 @@
 			"subTitle":"Graylog",
 			"title":"Fetch simple query",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"prometheus",
+				"resourceVersion":3216,
+				"connectionId":"6900de2d147ba04c4f3a1ecf",
+				"resourceName":"prometheus_get_instant_metrics",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SDPQ9-1",
+			"id":"n_HhEBr",
+			"index":25,
+			"inputs":{
+				"query":"up"
+			},
+			"skip":false,
+			"subTitle":"Prometheus",
+			"title":"Query instant metrics",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"twilio",
+				"resourceVersion":974,
+				"connectionId":"685fd5f13438806884232aca",
+				"resourceName":"twilio_list_calls",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SDPQ9-1",
+			"id":"n_VUDAv",
+			"index":26,
+			"inputs":{
+				"pageSize":50
+			},
+			"skip":false,
+			"subTitle":"Twilio",
+			"title":"List calls",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"twilio",
+				"resourceVersion":5356,
+				"connectionId":"685fd5f13438806884232aca",
+				"resourceName":"twilio_make_phone_call",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SDPQ9-1",
+			"id":"n_JVLJg",
+			"index":27,
+			"inputs":{
+				"from":"7990656054",
+				"to":"7990656054",
+				"body":"nothing"
+			},
+			"skip":false,
+			"subTitle":"Twilio",
+			"title":"Make phone call",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":46217,
@@ -809,5 +933,5 @@
 	"tags":[
 		
 	],
-	"version":91
+	"version":97
 }
