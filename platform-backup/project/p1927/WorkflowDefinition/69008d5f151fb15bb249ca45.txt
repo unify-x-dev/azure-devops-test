@@ -23,7 +23,7 @@
 	"id":"69008d5f151fb15bb249ca45",
 	"lastModifiedBy":45010,
 	"lcName":"synclocationhttptrigger",
-	"modifiedTime":1761644211363,
+	"modifiedTime":1761644227604,
 	"name":"SyncLocationHttpTrigger",
 	"nodes":[
 		{
@@ -58,6 +58,15 @@
 					}
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -148,5 +157,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":4
 }
