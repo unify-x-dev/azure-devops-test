@@ -74,14 +74,21 @@
 			"fromNodeId":"n_sIvtc",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_0ITyo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0ITyo",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_NgxMn",
 			"type":"next"
 		}
 	],
 	"id":"68fa0e73edd7705e9c0e3906",
-	"lastModifiedBy":115477,
+	"lastModifiedBy":23949,
 	"lcName":"best practices | on update page",
-	"modifiedTime":1761491474691,
+	"modifiedTime":1761641461099,
 	"name":"Best Practices | On Update Page",
 	"nodes":[
 		{
@@ -710,7 +717,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_sIvtc",
@@ -753,9 +760,56 @@
 					}
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Create or update records in bulk",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2236,
+				"resourceName":"storage_by_unifyapps_upsert_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ZMmc1-1",
+			"id":"n_0ITyo",
+			"index":9,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"nocode_reports",
+				"skipIfBlank":false,
+				"updateFields":[
+					{
+						"fieldName":"properties.entityVersion",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items[0].entityVersion }}"
+					},
+					{
+						"fieldName":"properties.entityId",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items[0].entityId }}"
+					},
+					{
+						"fieldName":"properties.entityType",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items[0].entityType }}"
+					},
+					{
+						"fieldName":"properties.checks",
+						"actionType":"SET",
+						"setValue":"{{ n_wo5ba.outputs.items }}"
+					}
+				],
+				"id":"{{ n_wo5ba.outputs.items[0].entityType }}_{{ n_wo5ba.outputs.items[0].entityId }}",
+				"unsetIfNull":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Upsert Record",
 			"type":"ACTION"
 		},
 		{
@@ -767,7 +821,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_NgxMn",
-			"index":9,
+			"index":10,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -791,5 +845,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":37
+	"version":38
 }
