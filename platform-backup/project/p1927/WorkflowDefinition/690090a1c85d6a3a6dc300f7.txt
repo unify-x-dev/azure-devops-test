@@ -6,47 +6,219 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_XonOy",
+			"fromNodeId":"n_eJ0LW",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_DQTHa",
+			"toNodeId":"n_nMUz0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_nMUz0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zPwE7",
 			"type":"next"
 		}
 	],
 	"id":"690090a1c85d6a3a6dc300f7",
 	"lastModifiedBy":186875,
 	"lcName":"virtu-empowerreactionssfn - syncemployeesshttptrigger",
-	"modifiedTime":1761644705457,
+	"modifiedTime":1761645563586,
 	"name":"virtu-emPowerReactionsSFN - SyncEmployeessHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1155,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XonOy-1",
-			"id":"_XonOy",
-			"index":0,
+			"id":"n_eJ0LW",
+			"index":1,
+			"inputs":{
+				"request":{
+					"queryParams":{
+						"type":"object",
+						"additionalProperties":false,
+						"required":[],
+						"properties":{
+							"code":{
+								"type":"string",
+								"title":"Code"
+							}
+						}
+					},
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"Email":{
+								"type":"string",
+								"title":"Email"
+							},
+							"EmployeeNumber":{
+								"type":"string",
+								"title":"EmployeeNumber"
+							},
+							"FullName":{
+								"type":"string",
+								"title":"FullName"
+							},
+							"ManagerEmployeeNumber":{
+								"type":"string",
+								"title":"ManagerEmployeeNumber"
+							},
+							"Status":{
+								"type":"string",
+								"title":"Status"
+							},
+							"UserName":{
+								"type":"string",
+								"title":"UserName"
+							}
+						},
+						"additionalProperties":false
+					}
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"message":{
+									"type":"string",
+									"title":"message"
+								}
+							},
+							"additionalProperties":false
+						},
+						"namespaces":[]
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":35,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XonOy-1",
-			"id":"_DQTHa",
-			"index":0,
+			"id":"n_nMUz0",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Result"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"Email":{
+							"type":"string",
+							"title":"Email"
+						},
+						"EmployeeNumber":{
+							"type":"string",
+							"title":"EmployeeNumber"
+						},
+						"FullName":{
+							"type":"string",
+							"title":"FullName"
+						},
+						"ManagerEmployeeNumber":{
+							"type":"string",
+							"title":"ManagerEmployeeNumber"
+						},
+						"Status":{
+							"type":"string",
+							"title":"Status"
+						},
+						"UserName":{
+							"type":"string",
+							"title":"UserName"
+						}
+					}
+				},
+				"code":"namespace ReactionScheduler\n{\n    using Microsoft.AspNetCore.Http;\n    using Microsoft.AspNetCore.Mvc;\n    using Microsoft.Azure.WebJobs;\n    using Microsoft.Azure.WebJobs.Extensions.Http;\n    using Microsoft.Extensions.Logging;\n    using Newtonsoft.Json;\n    using ReactionScheduler.ApplicationCore.Entities;\n    using ReactionScheduler.ApplicationCore.Interfaces;\n    using System;\n    using System.Collections.Generic;\n    using System.IO;\n    using System.Linq;\n    using System.Threading.Tasks;\n    using System.Web.Http;\n\n    /// <summary>\n    /// SyncEmployeesHttpTrigger\n    /// </summary>\n    public class SyncEmployeesHttpTrigger\n    {\n        private readonly IEmployeeService _employeeService;\n\n        public SyncEmployeesHttpTrigger(IEmployeeService employeeService)\n        {\n            _employeeService = employeeService;\n        }\n\n        [FunctionName(\"SyncEmployeesHttpTrigger\")]\n        public async Task<IActionResult> Run(\n            [HttpTrigger(AuthorizationLevel.Function, \"post\", Route = null)] HttpRequest req,\n            ILogger log)\n        {\n            log.LogInformation(\"C# HTTP trigger function processed a request.\");\n\n            string requestBody;\n            using (var reader = new StreamReader(req.Body))\n            {\n                requestBody = await reader.ReadToEndAsync().ConfigureAwait(false);\n            }\n\n            IEnumerable<Employee>? employees = null; // Make it nullable\n            try\n            {\n                employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(requestBody);\n            }\n            catch (JsonException e)\n            {\n                log.LogError(e, \"Error occurred while deserializing the request body.\");\n                return new BadRequestObjectResult(\"Invalid JSON format in request body.\");\n            }\n\n            // Check if deserialization was successful\n            if (employees == null)\n            {\n                return new BadRequestObjectResult(\"Invalid JSON or could not deserialize employees.\");\n            }\n\n            if (!employees.Any())\n            {\n                return new BadRequestObjectResult(\"Please pass valid employees to sync\");\n            }\n\n            var failedRecords = new List<string>();\n\n            foreach (var employee in employees)\n            {\n                try\n                {\n                    if (string.IsNullOrEmpty(employee.EmployeeNumber))\n                    {\n                        log.LogError(\"Invalid Employee Number\");\n                        failedRecords.Add(employee.EmployeeNumber);\n                        continue;\n                    }\n\n                    if (string.IsNullOrEmpty(employee.Status))\n                    {\n                        log.LogError(\"Employee Status is empty\");\n                        failedRecords.Add(employee.EmployeeNumber);\n                    }\n                    else\n                    {\n                        if (employee.Status == \"Cancelled\")\n                        {\n                            await _employeeService.DeleteAsync(employee.EmployeeNumber);\n                        }\n                        else\n                        {\n                            await _employeeService.AddOrUpdateAsync(new Employee\n                            {\n                                UserName = employee.UserName,\n                                Email = employee.Email,\n                                FullName = employee.FullName,\n                                ManagerEmployeeNumber = employee.ManagerEmployeeNumber,\n                                EmployeeNumber = employee.EmployeeNumber,\n                                IsActive = employee.Status == \"Active\"\n                            });\n                        }\n                    }\n                }\n                catch (ArgumentNullException e)\n                {\n                    log.LogError(e, $\"ArgumentNullException: Invalid user detail - {e.ParamName}\");\n                    failedRecords.Add(employee.EmployeeNumber);\n                }\n                catch (ArgumentException e)\n                {\n                    log.LogError(e, $\"ArgumentException: Invalid argument - {e.Message}\");\n                    failedRecords.Add(employee.EmployeeNumber);\n                }\n                catch (InvalidOperationException e)\n                {\n                    log.LogError(e, $\"InvalidOperationException: Invalid operation - {e.Message}\");\n                    failedRecords.Add(employee.EmployeeNumber);\n                }\n                /// Removed due to code scanning alert\n                // catch (Exception e)\n                // {\n                //     log.LogError(e, $\"Unexpected error occurred - {e.Message}\");\n                //     failedRecords.Add(employee.EmployeeNumber);\n                // }\n            }\n\n            var successCount = employees.Count() - failedRecords.Count;\n            if (successCount == 0)\n            {\n                return new InternalServerErrorResult();\n            }\n\n            return new OkObjectResult(new\n            {\n                message = $\"Successfully processed for {successCount} employees\",\n                failed = failedRecords\n            });\n        }\n    }\n}\n",
+				"isAsync":false,
+				"parameters":{
+					"Email":"{{ n_eJ0LW.outputs.body.Email }}",
+					"EmployeeNumber":"{{ n_eJ0LW.outputs.body.EmployeeNumber }}",
+					"FullName":"{{ n_eJ0LW.outputs.body.FullName }}",
+					"ManagerEmployeeNumber":"{{ n_eJ0LW.outputs.body.ManagerEmployeeNumber }}",
+					"Status":"{{ n_eJ0LW.outputs.body.Status }}",
+					"UserName":"{{ n_eJ0LW.outputs.body.UserName }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":916,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_XonOy-1",
+			"id":"n_zPwE7",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"body":{
+					"message":"Successfully processed for {{ n_eJ0LW.outputs.body.EmployeeNumber }} employee"
+				},
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":186875,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +232,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
