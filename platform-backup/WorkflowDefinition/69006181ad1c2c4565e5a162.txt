@@ -1,51 +1,79 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761632641400,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_2adsn",
+			"fromNodeId":"n_msinZ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_CmWfi",
+			"toNodeId":"n_8PdDE",
 			"type":"next"
 		}
 	],
 	"id":"69006181ad1c2c4565e5a162",
 	"lastModifiedBy":190409,
 	"lcName":"test",
-	"modifiedTime":1761632641400,
+	"modifiedTime":1761638519853,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_2adsn-1",
-			"id":"_2adsn",
-			"index":0,
+			"id":"n_msinZ",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":3462,
+				"connectionId":"6900630d3fac98019bac842d",
+				"resourceName":"gmail_find_email",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_2adsn-1",
-			"id":"_CmWfi",
-			"index":0,
+			"id":"n_8PdDE",
+			"index":2,
+			"inputs":{
+				"toCreate":true,
+				"searchQuery":"{{ n_msinZ.outputs.scheduleWeek }}",
+				"count":1
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"Find Email",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190409,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +87,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
