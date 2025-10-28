@@ -89,7 +89,7 @@
 	"id":"68de9e4e0e9d387c5aab02d2",
 	"lastModifiedBy":59995,
 	"lcName":"partition size",
-	"modifiedTime":1761616849580,
+	"modifiedTime":1761617070960,
 	"name":"partition size",
 	"nodes":[
 		{
@@ -486,7 +486,7 @@
 			"inputs":{
 				"filters":[
 					{
-						"property":"=LEN({{ _DKDTU.outputs.result.outputs.criticalSizeRoutineLoads }})",
+						"property":"=LEN({{ n_d5lsD.outputs.result.outputs.alertPartitions }})",
 						"filter":{
 							"operator":"GT",
 							"value":"0"
@@ -694,5 +694,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
