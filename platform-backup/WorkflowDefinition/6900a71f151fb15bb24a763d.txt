@@ -23,6 +23,13 @@
 			"fromNodeId":"n_4gk0w",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_LUkEA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LUkEA",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_VdssN",
 			"type":"next"
 		}
@@ -30,7 +37,7 @@
 	"id":"6900a71f151fb15bb24a763d",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | page",
-	"modifiedTime":1761654425744,
+	"modifiedTime":1761654493970,
 	"name":"Best Practices | Check Group | Page",
 	"nodes":[
 		{
@@ -793,6 +800,24 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":990,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uv02c-1",
+			"id":"n_LUkEA",
+			"index":4,
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1102,
 				"resourceName":"callables_return_to_automation",
@@ -803,7 +828,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_VdssN",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"result":{
 					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
@@ -833,5 +858,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":7
+	"version":8
 }
