@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"coupa"
 	],
 	"createdTime":1761642501686,
 	"deleted":false,
@@ -9,14 +9,35 @@
 			"fromNodeId":"_9Vzzw",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_hUYMP",
+			"toNodeId":"n_T1905",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_T1905",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bIiEj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_bIiEj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bGOvm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_bGOvm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_v0tbg",
 			"type":"next"
 		}
 	],
 	"id":"69008805c85d6a3a6dc2b912",
 	"lastModifiedBy":6701,
 	"lcName":"wjhw",
-	"modifiedTime":1761642501686,
+	"modifiedTime":1761643568453,
 	"name":"wjhw",
 	"nodes":[
 		{
@@ -25,7 +46,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_9Vzzw-1",
 			"id":"_9Vzzw",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +55,125 @@
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.payload.supplier.id",
+					"root.payload.remit-to-address.id",
+					"root.payload.invoice-lines.items.line-num",
+					"root.payload.invoice-lines.items.description",
+					"root.payload.invoice-lines.items.quantity",
+					"root.payload.invoice-lines.items.price",
+					"root.payload.invoice-lines.items.po-number",
+					"root.payload.invoice-lines.items.order-line-id",
+					"root.payload.invoice-lines.items.uom.id",
+					"root.payload.invoice-lines.items.type",
+					"root.payload.invoice-lines.items.commodity.id",
+					"root.payload.invoice-lines.items.commodity.name",
+					"root.payload.invoice-lines.items.account.id"
+				]
+			},
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":315,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_update_invoice",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9Vzzw-1",
-			"id":"_hUYMP",
-			"index":0,
+			"id":"n_T1905",
+			"index":2,
+			"inputs":{
+				"payload":{
+					"invoice-lines":{
+						"items":{
+							"po-number":"6000001",
+							"order-line-id":1,
+							"id":654
+						},
+						"ua:type":"mappedArray"
+					}
+				},
+				"id":445
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Coupa",
+			"title":"Update invoice",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":829,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_get_invoice",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_9Vzzw-1",
+			"id":"n_bIiEj",
+			"index":3,
+			"inputs":{
+				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Get invoice",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":769,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_invoices",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_9Vzzw-1",
+			"id":"n_bGOvm",
+			"index":4,
+			"inputs":{
+				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List all invoices",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":771,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_list_invoices",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_9Vzzw-1",
+			"id":"n_v0tbg",
+			"index":5,
+			"inputs":{
+				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"List all invoices",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":6701,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +187,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
