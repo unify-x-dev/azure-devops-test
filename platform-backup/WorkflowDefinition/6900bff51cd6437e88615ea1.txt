@@ -59,7 +59,7 @@
 	"id":"6900bff51cd6437e88615ea1",
 	"lastModifiedBy":190503,
 	"lcName":"saicharun",
-	"modifiedTime":1761657699492,
+	"modifiedTime":1761657862060,
 	"name":"saicharun",
 	"nodes":[
 		{
@@ -167,7 +167,7 @@
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
 			"type":"ACTION"
@@ -226,7 +226,7 @@
 				},
 				"jsonString":"{\n\"fileDetails\": {\n\"fileType\": \"application/json\",\n\"name\": \"dwedew_1761582617509.json\",\n\"size\": 6039,\n\"source\": \"workflow_uploads/export/1/dwedew_1761582617509.json\",\n\"sourceType\": \"CLOUD_STORAGE\"\n}\n}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise string to JSON object",
 			"type":"ACTION"
@@ -250,7 +250,7 @@
 			"id":"n_QWjaE",
 			"index":5,
 			"inputs":{
-				"fileDetails":"{{ n_78DFJ.outputs.result.fileDetails }}",
+				"fileDetails":"{{ n_t5WqA.outputs.objects[0].properties }}",
 				"startFromRecord":1,
 				"batch":false,
 				"encoding":"UTF-8",
@@ -321,5 +321,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":16
 }
