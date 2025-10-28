@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761636422378,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_uACUs",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_98BYx",
+			"type":"next"
+		}
+	],
+	"id":"69007046a309a82f9f735aea",
+	"lastModifiedBy":45010,
+	"lcName":"syncemployeetierhttptrigger",
+	"modifiedTime":1761636422378,
+	"name":"SyncEmployeeTierHttpTrigger",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uACUs-1",
+			"id":"_uACUs",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uACUs-1",
+			"id":"_98BYx",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":45010,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
