@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761654796026,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761654969846,
+		"deployedBy":170149,
+		"deployedDefinitionId":"6900b8b91cd6437e88612334",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":2
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_LMsca",
@@ -16,14 +24,14 @@
 	"id":"6900b80c1cd6437e88611cba",
 	"lastModifiedBy":170149,
 	"lcName":"test",
-	"modifiedTime":1761654967907,
+	"modifiedTime":1761655342380,
 	"name":"test",
 	"nodes":[
 		{
 			"context":{
 				"appName":"slack",
 				"resourceVersion":6353,
-				"connectionId":"67723f32953a975f6823a324",
+				"connectionId":"6900ba24ee7300699c7c541c",
 				"resourceName":"slack_on_new_message"
 			},
 			"debug":false,
@@ -49,7 +57,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QIKA0-1",
 			"id":"n_hxGc9",
@@ -110,5 +118,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
