@@ -16,6 +16,13 @@
 			"fromNodeId":"n_LmkeN",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_YnUvN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_YnUvN",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_CuoIf",
 			"type":"next"
 		}
@@ -23,7 +30,7 @@
 	"id":"68ff063777db7a5bde982687",
 	"lastModifiedBy":6701,
 	"lcName":"shs",
-	"modifiedTime":1761632269769,
+	"modifiedTime":1761632412340,
 	"name":"shs",
 	"nodes":[
 		{
@@ -110,6 +117,58 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1032,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Yhqdm-1",
+			"id":"n_YnUvN",
+			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"formattedStatus"
+					],
+					"properties":{
+						"formattedStatus":{
+							"type":"string",
+							"title":"Formatted Status"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"status"
+					],
+					"properties":{
+						"status":{
+							"type":"string",
+							"title":"Status"
+						}
+					}
+				},
+				"code":"def formattedStatus = \"\"\nif (binding.hasVariable('status') && status) {\n    formattedStatus = status.toLowerCase().capitalize()\n}\n\nreturn [\"formattedStatus\": formattedStatus]\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"status":"NEW"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -117,7 +176,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Yhqdm-1",
 			"id":"n_CuoIf",
-			"index":3,
+			"index":4,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -141,5 +200,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
