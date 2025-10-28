@@ -31,7 +31,7 @@
 	"id":"6900636aa309a82f9f7315bc",
 	"lastModifiedBy":511,
 	"lcName":"dependancytrigger-dnd",
-	"modifiedTime":1761633847014,
+	"modifiedTime":1761633853015,
 	"name":"DependancyTrigger-Dnd",
 	"nodes":[
 		{
@@ -73,6 +73,7 @@
 			"context":{
 				"appName":"slack",
 				"resourceVersion":6351,
+				"connectionId":"682adda0b3d1743888ec45db",
 				"resourceName":"slack_post_message_in_channel",
 				"type":"APPLICATION"
 			},
@@ -82,6 +83,10 @@
 			"groupId":"_hUzcb-1",
 			"id":"n_yNygL",
 			"index":2,
+			"inputs":{
+				"link_names":true,
+				"mrkdwn":true
+			},
 			"skip":false,
 			"subTitle":"Slack",
 			"title":"Post message",
@@ -151,5 +156,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
