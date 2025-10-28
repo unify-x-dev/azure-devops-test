@@ -1,51 +1,237 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761661308559,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_nHTBI",
+			"fromNodeId":"n_wSX7M",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_rgMlp",
+			"toNodeId":"n_sdL5L",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_sdL5L",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_B5BH0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_B5BH0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1N0yR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1N0yR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PSyfg",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_PSyfg",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1N0yR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1N0yR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cnBlx",
 			"type":"next"
 		}
 	],
 	"id":"6900d17cc273210924d0948c",
 	"lastModifiedBy":190503,
 	"lcName":"mnbvcxz",
-	"modifiedTime":1761661308559,
+	"modifiedTime":1761661417137,
 	"name":"mnbvcxz",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_nHTBI-1",
-			"id":"_nHTBI",
-			"index":0,
+			"id":"n_wSX7M",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4618,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_nHTBI-1",
-			"id":"_rgMlp",
-			"index":0,
+			"id":"n_sdL5L",
+			"index":2,
+			"inputs":{
+				"object_type":"agentic_ai_connections",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1101,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_nHTBI-1",
+			"id":"n_B5BH0",
+			"index":3,
+			"inputs":{
+				"jsonSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"fileDetails":{
+							"type":"object",
+							"properties":{
+								"fileType":{
+									"type":"string",
+									"title":"fileType"
+								},
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"size":{
+									"type":"integer",
+									"title":"size"
+								},
+								"source":{
+									"type":"string",
+									"title":"source"
+								},
+								"sourceType":{
+									"type":"string",
+									"title":"sourceType"
+								}
+							},
+							"title":"fileDetails",
+							"additionalProperties":false
+						}
+					}
+				},
+				"jsonString":"{\n\"fileDetails\": {\n\"fileType\": \"application/json\",\n\"name\": \"dwedew_1761582617509.json\",\n\"size\": 6039,\n\"source\": \"workflow_uploads/export/1/dwedew_1761582617509.json\",\n\"sourceType\": \"CLOUD_STORAGE\"\n}\n}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"json_by_unifyapps",
+				"resourceVersion":162,
+				"resourceName":"json_by_unifyapps_for_each_record_or_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_nHTBI-1",
+			"id":"n_1N0yR",
+			"index":4,
+			"inputs":{
+				"fileDetails":"{{ n_B5BH0.outputs.result.fileDetails }}",
+				"startFromRecord":1,
+				"batch":false,
+				"encoding":"UTF-8",
+				"batchSize":100,
+				"fileType":"json"
+			},
+			"skip":false,
+			"subTitle":"JSON by UnifyApps",
+			"title":"Consume data from JSON file",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"continue",
+				"resourceVersion":791,
+				"resourceName":"continue",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_1N0yR@_nHTBI-1@l",
+			"id":"n_PSyfg",
+			"index":5,
+			"inputs":{
+				"loop":"n_1N0yR"
+			},
+			"skip":false,
+			"subTitle":"Continue",
+			"title":"Continue",
+			"type":"CONTINUE"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_nHTBI-1",
+			"id":"n_cnBlx",
+			"index":6,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":190503,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +245,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
