@@ -4,6 +4,14 @@
 	],
 	"createdTime":1759400713102,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761639202899,
+		"deployedBy":44567,
+		"deployedDefinitionId":"69007b20c85d6a3a6dc207e6",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":38
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_JX8Qg",
@@ -58,7 +66,7 @@
 	"id":"68de53092cc9f04fd0a34cc8",
 	"lastModifiedBy":44567,
 	"lcName":"tst",
-	"modifiedTime":1761639198557,
+	"modifiedTime":1761639224326,
 	"name":"tst",
 	"nodes":[
 		{
@@ -146,7 +154,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dYuxR-1",
 			"id":"n_uMej7",
@@ -188,7 +196,7 @@
 				},
 				"jsonString":"{\n  \"fileDetails\": {\n\"name\": \"TCC.zip\",\n\"source\": \"user-uploads/1/1759860229976/TCC.zip\",\n\"size\": 109502274,\n\"sourceType\": \"CLOUD_STORAGE\",\n\"fileType\": \"zip\"\n  }\n}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise TCC",
 			"type":"ACTION"
@@ -206,7 +214,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dYuxR-1",
 			"id":"_B4pG8",
@@ -248,7 +256,7 @@
 				},
 				"jsonString":"{\n  \"fileDetails\": {\n\"name\": \"virtu-TaleoToTydyRequisitionWJ-dev3.zip\",\n\"source\": \"user-uploads/1/1759860295851/virtu-TaleoToTydyRequisitionWJ-dev3.zip\",\n\"size\": 4188178,\n\"sourceType\": \"CLOUD_STORAGE\",\n\"fileType\": \"zip\"\n  }\n}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise Web Job",
 			"type":"ACTION"
@@ -266,7 +274,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dYuxR-1",
 			"id":"_k9SU8",
@@ -308,7 +316,7 @@
 				},
 				"jsonString":"{\n  \"fileDetails\": {\n\"name\": \"amazon-corretto-8.jdk.zip\",\n\"source\": \"user-uploads/1/1760644138430/amazon-corretto-8.jdk.zip\",\n\"size\": 102924386,\n\"sourceType\": \"CLOUD_STORAGE\",\n\"fileType\": \"zip\"\n  }\n}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise JDK",
 			"type":"ACTION"
@@ -388,7 +396,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_dYuxR-1",
 			"id":"n_Iyzj1",
@@ -472,5 +480,5 @@
 	"tags":[
 		
 	],
-	"version":38
+	"version":39
 }
