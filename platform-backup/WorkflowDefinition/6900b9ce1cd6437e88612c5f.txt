@@ -9,14 +9,51 @@
 			"fromNodeId":"_B6PHF",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ZtZdL",
+			"toNodeId":"n_1mYFj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1mYFj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_VaS9d",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VaS9d",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_VaS9d@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_VaS9d@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_t6ZM9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VaS9d",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_VaS9d@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_VaS9d@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TN9xc",
 			"type":"next"
 		}
 	],
 	"id":"6900b9ce1cd6437e88612c5f",
-	"lastModifiedBy":33167,
+	"lastModifiedBy":504,
 	"lcName":"mnbv",
-	"modifiedTime":1761655246055,
+	"modifiedTime":1761661963004,
 	"name":"mnbv",
 	"nodes":[
 		{
@@ -25,7 +62,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_B6PHF-1",
 			"id":"_B6PHF",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +71,127 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"chat_by_unifyapps",
+				"resourceVersion":960,
+				"resourceName":"chat_by_unifyapps_send_message",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_B6PHF-1",
-			"id":"_ZtZdL",
-			"index":0,
+			"id":"n_1mYFj",
+			"index":2,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Chat by UnifyApps",
+			"title":"Send message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_B6PHF-1",
+			"id":"n_VaS9d",
+			"index":3,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_VaS9d@_B6PHF-1@1",
+			"id":"n_VaS9d@1",
+			"index":4,
+			"inputs":{
+				"name":"Branch 1"
+			},
+			"skip":false,
+			"subTitle":"hello wold",
+			"title":"branch",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_VaS9d@_B6PHF-1@1",
+			"id":"n_t6ZM9",
+			"index":5,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_VaS9d@_B6PHF-1@2",
+			"id":"n_VaS9d@2",
+			"index":6,
+			"inputs":{
+				"name":"Branch 2"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_VaS9d@_B6PHF-1@2",
+			"id":"n_TN9xc",
+			"index":7,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33167,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +205,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
