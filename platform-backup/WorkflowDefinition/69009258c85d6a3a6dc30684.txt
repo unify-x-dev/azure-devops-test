@@ -208,6 +208,36 @@
 			"fromNodeId":"n_15o2p",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_D7NfW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_D7NfW",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_QvTnt",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_D7NfW",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_chFjD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_QvTnt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_sAIka",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_chFjD",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_sAIka",
 			"type":"next"
 		},
@@ -267,7 +297,7 @@
 	"id":"69009258c85d6a3a6dc30684",
 	"lastModifiedBy":178103,
 	"lcName":"test_chirag ",
-	"modifiedTime":1761646007140,
+	"modifiedTime":1761646161547,
 	"name":"test_chirag ",
 	"nodes":[
 		{
@@ -327,7 +357,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_BLMSm",
@@ -816,7 +846,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_y0jEU@n_5A1t8@_mzkHe-1@1@l",
 			"id":"_xMzEq",
@@ -926,7 +956,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_DAn3d@n_5A1t8@_mzkHe-1@2@l",
 			"id":"_sm1pN",
@@ -1036,7 +1066,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Bp1z0@n_5A1t8@_mzkHe-1@3@l",
 			"id":"_zcP8o",
@@ -1146,7 +1176,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_LQR8E@n_5A1t8@_mzkHe-1@4@l",
 			"id":"_ZLvTP",
@@ -1184,7 +1214,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_15o2p",
@@ -1211,15 +1241,67 @@
 		},
 		{
 			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mzkHe-1",
+			"id":"n_D7NfW",
+			"index":21,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_0Jwyj.outputs.body.input }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"getTop5"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_D7NfW@_mzkHe-1@y",
+			"id":"n_QvTnt",
+			"index":22,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_D7NfW@_mzkHe-1@n",
+			"id":"n_chFjD",
+			"index":23,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"branch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_sAIka",
-			"index":21,
+			"index":24,
 			"inputs":{
 				"branches":[
 					{
@@ -1251,7 +1333,7 @@
 					}
 				]
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Branch",
 			"title":"",
 			"type":"BRANCH"
@@ -1264,11 +1346,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_sAIka@_mzkHe-1@1",
 			"id":"n_sAIka@1",
-			"index":22,
+			"index":25,
 			"inputs":{
 				"name":"Branch 1",
 				"conditions":{
@@ -1284,7 +1366,7 @@
 					"operator":"AND"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"title":"",
 			"type":"BRANCH_CONDITION"
 		},
@@ -1300,7 +1382,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_sAIka@_mzkHe-1@1",
 			"id":"n_q981K",
-			"index":23,
+			"index":26,
 			"inputs":{
 				"query":"select * from List1",
 				"params":{
@@ -1360,7 +1442,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_sAIka@_mzkHe-1@2",
 			"id":"n_sAIka@2",
-			"index":24,
+			"index":27,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -1380,7 +1462,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_sAIka@_mzkHe-1@2",
 			"id":"_pIkV6",
-			"index":25,
+			"index":28,
 			"inputs":{},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -1399,7 +1481,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_rMERn",
-			"index":26,
+			"index":29,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1428,5 +1510,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
