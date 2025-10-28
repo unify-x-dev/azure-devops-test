@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761648505234,
-		"deployedBy":115477,
-		"deployedDefinitionId":"69009f79c85d6a3a6dc32db6",
+		"deployedAt":1761666355951,
+		"deployedBy":23949,
+		"deployedDefinitionId":"6900e533a0bcbf740ac56399",
 		"status":"DEPLOYED",
-		"version":32,
-		"workflowVersion":105
+		"version":33,
+		"workflowVersion":109
 	},
 	"edges":[
 		{
@@ -53,15 +53,8 @@
 			"fromNodeId":"n_zpFkD",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_M1PU3",
-			"type":"loop"
-		},
-		{
-			"fromNodeId":"_M1PU3",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"_98bIF",
-			"type":"next"
+			"type":"loop"
 		},
 		{
 			"fromNodeId":"_98bIF",
@@ -195,9 +188,9 @@
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
-	"lastModifiedBy":23949,
+	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761666354320,
+	"modifiedTime":1761667628504,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -819,59 +812,16 @@
 		{
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":4581,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
-			"id":"_M1PU3",
-			"index":7,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"id",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_1ceQS.outputs.entityId }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"e_component",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
 				"resourceVersion":4583,
 				"resourceName":"storage_by_unifyapps_fetch_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_98bIF",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -879,7 +829,7 @@
 							"property":"properties_interfacePageId",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ _M1PU3.outputs.id }}"
+								"value":"{{ n_zpFkD.outputs.item.id }}"
 							}
 						}
 					],
@@ -914,7 +864,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -972,7 +922,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_iMBUc",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -1014,7 +964,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_vquu7",
-			"index":11,
+			"index":10,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1167,7 +1117,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_wPsWL",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ _vquu7.outputs.result.results }}",
@@ -1204,7 +1154,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_wPsWL@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
 			"id":"_WeDSA",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"itemToAdd":{
 					"checkCategory":"{{ _wPsWL.outputs.item.checkCategory }}",
@@ -1268,7 +1218,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
-			"index":14,
+			"index":13,
 			"inputs":{
 				"name":"Page Flow",
 				"conditions":{
@@ -1300,7 +1250,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
-			"index":15,
+			"index":14,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1343,7 +1293,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_HKPw8",
-			"index":16,
+			"index":15,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1382,11 +1332,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
-			"index":17,
+			"index":16,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1394,21 +1344,21 @@
 							"property":"properties_entityId",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_1ceQS.outputs.entityId }}"
+								"value":"{{ n_oh9u9.outputs.id }}"
 							}
 						},
 						{
 							"property":"properties_entityType",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_1ceQS.outputs.entityType }}"
+								"value":"{{ n_oh9u9.outputs.entityType }}"
 							}
 						},
 						{
 							"property":"properties_entityVersion",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_1ceQS.outputs.version }}"
+								"value":"{{ n_oh9u9.outputs.version }}"
 							}
 						}
 					],
@@ -1444,7 +1394,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
-			"index":18,
+			"index":17,
 			"inputs":{
 				"object_type":"best_practices_checks_master",
 				"includeRoleMappings":false,
@@ -1486,7 +1436,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
-			"index":19,
+			"index":18,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1650,11 +1600,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_WeSaM",
-			"index":20,
+			"index":19,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -1667,7 +1617,7 @@
 						"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
 						"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
 						"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
-						"entityId":"{{ n_1ceQS.outputs.entityId }}",
+						"entityId":"{{ n_oh9u9.outputs.id }}",
 						"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
 						"impactedEntityId":"{{ n_aqVAB.outputs.result.results[0].impactedEntityId }}",
 						"impactedEntityName":"{{ n_aqVAB.outputs.result.results[0].impactedEntityName }}",
@@ -1711,7 +1661,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"_e0xcO",
-			"index":21,
+			"index":20,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1882,7 +1832,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
-			"index":22,
+			"index":21,
 			"inputs":{
 				"result":{
 					"results":{
@@ -1927,5 +1877,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":109
+	"version":110
 }
