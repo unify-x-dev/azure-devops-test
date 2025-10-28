@@ -37,7 +37,7 @@
 	"id":"6900a71f151fb15bb24a763d",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | page",
-	"modifiedTime":1761654493970,
+	"modifiedTime":1761654539817,
 	"name":"Best Practices | Check Group | Page",
 	"nodes":[
 		{
@@ -799,6 +799,13 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.targets.items.entityId",
+					"root.itemsToAdd.items.targets.items.entityType",
+					"root.itemsToAdd.items.targets.items.selectors.items"
+				]
+			},
 			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":990,
@@ -811,6 +818,31 @@
 			"groupId":"_uv02c-1",
 			"id":"n_LUkEA",
 			"index":4,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_4gk0w.outputs.result.items }}",
+					"items":{
+						"check_id":"{{ n_4gk0w.outputs.result.items[0].check_id }}",
+						"status":"{{ n_4gk0w.outputs.result.items[0].status }}",
+						"targets":{
+							"source":"{{ n_4gk0w.outputs.result.items[0].targets }}",
+							"ua:type":"mappedArray",
+							"items":{
+								"entityId":"{{ n_4gk0w.outputs.result.items[0].targets[0].entityId }}",
+								"entityType":"{{ n_4gk0w.outputs.result.items[0].targets[0].entityType }}",
+								"selectors":{
+									"source":"{{ n_4gk0w.outputs.result.items[0].targets[0].selectors }}",
+									"ua:type":"mappedArray",
+									"items":"{{ n_4gk0w.outputs.result.items[0].targets[0].selectors[0] }}"
+								}
+							}
+						}
+					}
+				},
+				"listName":"{{ n_4hXDW.outputs.items[0] }}"
+			},
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Add items to list",
@@ -858,5 +890,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":8
+	"version":9
 }
