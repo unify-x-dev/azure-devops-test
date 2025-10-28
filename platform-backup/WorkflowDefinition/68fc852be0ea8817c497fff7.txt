@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761379627494,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761668640498,
+		"deployedBy":161875,
+		"deployedDefinitionId":"6900ee1ea0bcbf740ac5ac46",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":48
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_e1eSI",
@@ -65,20 +73,6 @@
 			"fromNodeId":"n_dozOM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_GScIA",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_GScIA",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Xj2z8",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Xj2z8",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_UiGsB",
 			"type":"next"
 		},
@@ -93,7 +87,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761668636319,
+	"modifiedTime":1761668657485,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -303,52 +297,6 @@
 		{
 			"context":{
 				"appName":"coupa",
-				"resourceVersion":1257,
-				"connectionId":"68f8b49a17a0e608e13fb3a8",
-				"resourceName":"coupa_create_purchase_order",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_kkabk-1",
-			"id":"n_GScIA",
-			"index":10,
-			"inputs":{
-				"requisition_id":"760",
-				"currency":"{{ n_dozOM.outputs.currency }}",
-				"supplier_id":"1"
-			},
-			"skip":false,
-			"subTitle":"Coupa",
-			"title":"Create purchase order",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"coupa",
-				"resourceVersion":1260,
-				"connectionId":"68f8b49a17a0e608e13fb3a8",
-				"resourceName":"coupa_get_purchase_order_by_id",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_kkabk-1",
-			"id":"n_Xj2z8",
-			"index":11,
-			"inputs":{
-				"id":"{{ n_GScIA.outputs.purchase_order_id }}"
-			},
-			"skip":false,
-			"subTitle":"Coupa",
-			"title":"Get purchase order by ID",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"coupa",
 				"resourceVersion":835,
 				"connectionId":"68f8b49a17a0e608e13fb3a8",
 				"resourceName":"coupa_get_invoice",
@@ -359,7 +307,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_UiGsB",
-			"index":12,
+			"index":10,
 			"inputs":{
 				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
 				"id":"520"
@@ -399,7 +347,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_PlvN4",
-			"index":13,
+			"index":11,
 			"inputs":{
 				"payload":{
 					"invoice-number":"{{ n_UiGsB.outputs.invoice-number }}",
@@ -442,5 +390,5 @@
 	"tags":[
 		
 	],
-	"version":48
+	"version":49
 }
