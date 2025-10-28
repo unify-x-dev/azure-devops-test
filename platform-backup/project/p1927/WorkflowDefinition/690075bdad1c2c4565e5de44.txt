@@ -31,7 +31,7 @@
 	"id":"690075bdad1c2c4565e5de44",
 	"lastModifiedBy":39714,
 	"lcName":"[virtu-empowerattendancefn]->getconfirmlophttptrigger",
-	"modifiedTime":1761676978569,
+	"modifiedTime":1761677001603,
 	"name":"[virtu-emPowerAttendanceFN]->GetCOnfirmLOPHttpTrigger",
 	"nodes":[
 		{
@@ -56,25 +56,6 @@
 							"Authorization":{
 								"type":"string",
 								"title":"Authorization"
-							}
-						}
-					},
-					"queryParams":{
-						"type":"object",
-						"additionalProperties":false,
-						"required":[],
-						"properties":{
-							"employeeNumber":{
-								"type":"string",
-								"title":"Employee Number"
-							},
-							"startDate":{
-								"type":"string",
-								"title":"Start Date"
-							},
-							"endDate":{
-								"type":"string",
-								"title":"End Date"
 							}
 						}
 					},
@@ -119,8 +100,8 @@
 				"parameters":{
 					"Authorization":"{{ n_WmBtH.outputs.headers.Authorization }}",
 					"endDate":"{{ n_WmBtH.outputs.queryParams.endDate }}",
-					"startDate":"{{ n_WmBtH.outputs.queryParams.startDate }}",
-					"employeeNumber":"{{ n_WmBtH.outputs.queryParams.employeeNumber }}"
+					"startDate":"",
+					"employeeNumber":""
 				}
 			},
 			"skip":false,
@@ -170,5 +151,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
