@@ -67,17 +67,17 @@
 	"id":"69007efbc85d6a3a6dc23fda",
 	"lastModifiedBy":45011,
 	"lcName":"[dnt] entity unified data model child tenant publisher | on create",
-	"modifiedTime":1761640187809,
+	"modifiedTime":1761640241064,
 	"name":"[DNT] Entity Unified Data Model Child Tenant Publisher | On Create",
 	"nodes":[
 		{
 			"context":{
 				"appName":"mdm_by_unifyapps",
-				"resourceVersion":45,
-				"resourceName":"mdm_by_unifyapps_on_update_unified_data_model"
+				"resourceVersion":41,
+				"resourceName":"mdm_by_unifyapps_on_new_unified_data_model"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dVldl-1",
 			"id":"n_4OiKy",
@@ -85,7 +85,7 @@
 			"inputs":{},
 			"skip":false,
 			"subTitle":"UDM by UnifyApps",
-			"title":"Unified data model is updated",
+			"title":"New unified data model is created",
 			"trigger":{
 				"type":"EVENT"
 			},
@@ -130,7 +130,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_dVldl-1",
 			"id":"_lGsbl",
@@ -375,7 +375,6 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -452,7 +451,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_FsZg1@_dVldl-1@y",
 			"id":"_RqzJf",
@@ -521,7 +520,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_FsZg1@_dVldl-1@y",
 			"id":"_sVHxz",
@@ -541,7 +540,7 @@
 					"source":"{{ _eYvhw.outputs.objects }}",
 					"items":"{{ _eYvhw.outputs.objects[0].properties.connectedEnvId }}"
 				},
-				"name":"UDM Change Deployment - ({{ n_4OiKy.outputs.id }}: UPDATED)"
+				"name":"UDM Deployment - ({{ n_4OiKy.outputs.id }}: CREATED)"
 			},
 			"skip":false,
 			"subTitle":"Standard entities by UnifyApps",
@@ -582,5 +581,5 @@
 		"Multi Tenant CS",
 		"On change"
 	],
-	"version":0
+	"version":1
 }
