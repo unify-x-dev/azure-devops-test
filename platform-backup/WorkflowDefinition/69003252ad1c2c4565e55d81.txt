@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761620562460,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761622687207,
+		"deployedBy":155341,
+		"deployedDefinitionId":"69003a9dad1c2c4565e56603",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_GzZfm",
@@ -23,7 +31,7 @@
 	"id":"69003252ad1c2c4565e55d81",
 	"lastModifiedBy":155341,
 	"lcName":"test",
-	"modifiedTime":1761622680914,
+	"modifiedTime":1761622748114,
 	"name":"test",
 	"nodes":[
 		{
@@ -40,7 +48,7 @@
 			"id":"n_GzZfm",
 			"index":1,
 			"inputs":{
-				"jql":"Project = DP",
+				"jql":"Project = SCRUM",
 				"objectSourceResourceName":"jira_fetch_issue_schema"
 			},
 			"skip":false,
@@ -118,5 +126,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
