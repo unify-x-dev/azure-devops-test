@@ -24,26 +24,19 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_synM8",
+			"toNodeId":"n_qxJV3",
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_2Wbzq",
-			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_wO08C",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_synM8",
+			"fromNodeId":"n_qxJV3",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_TtIeq",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_wO08C",
+			"fromNodeId":"n_2Wbzq",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_TtIeq",
@@ -53,7 +46,7 @@
 	"id":"69005afaad1c2c4565e58a35",
 	"lastModifiedBy":39715,
 	"lcName":"removenonprocessmessages",
-	"modifiedTime":1761640687840,
+	"modifiedTime":1761640778878,
 	"name":"RemoveNonProcessMessages",
 	"nodes":[
 		{
@@ -159,26 +152,27 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_2Wbzq@_fXaki-1@y",
-			"id":"n_synM8",
+			"id":"n_qxJV3",
 			"index":4,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
-		},
-		{
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_2Wbzq@_fXaki-1@n",
-			"id":"n_wO08C",
-			"index":5,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -192,11 +186,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fXaki-1",
 			"id":"n_TtIeq",
-			"index":6,
+			"index":5,
 			"inputs":{
 				"streamingCompleted":true,
-				"responseName":"200_ok",
-				"status":200
+				"responseName":"500_undefined",
+				"status":500
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -222,5 +216,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
