@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761634994341,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_HmpSs",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_BhTKf",
+			"type":"next"
+		}
+	],
+	"id":"69006ab2ad1c2c4565e5bc46",
+	"lastModifiedBy":39714,
+	"lcName":"virtusa-azure-function-test",
+	"modifiedTime":1761634994341,
+	"name":"virtusa-azure-function-test",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_HmpSs-1",
+			"id":"_HmpSs",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_HmpSs-1",
+			"id":"_BhTKf",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":39714,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
