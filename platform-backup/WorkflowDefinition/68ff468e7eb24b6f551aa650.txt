@@ -1,5 +1,6 @@
 {
 	"appsUsed":[
+		"amazon_s3",
 		"oracledb",
 		"sqlserver"
 	],
@@ -250,12 +251,26 @@
 			"skip":false,
 			"toNodeId":"_bJaoc",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"_bJaoc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_4dmNx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4dmNx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WT8nZ",
+			"type":"next"
 		}
 	],
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761647924091,
+	"modifiedTime":1761648164026,
 	"name":"BDI HANA",
 	"nodes":[
 		{
@@ -1275,6 +1290,48 @@
 			"subTitle":"CSV by UnifyApps",
 			"title":"Write data to CSV file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1035,
+				"resourceName":"utility_by_unifyapps_zip_list_of_files",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"n_4dmNx",
+			"index":30,
+			"inputs":{
+				"skipEmpty":false,
+				"format":"zip",
+				"includeDirectoryPath":false,
+				"skipMissing":false
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Zip list of files",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"amazon_s3",
+				"resourceVersion":6729,
+				"resourceName":"amazon_s3_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_X8PXu-1",
+			"id":"n_WT8nZ",
+			"index":31,
+			"skip":false,
+			"subTitle":"Amazon S3",
+			"title":"Upload file",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15080,
@@ -1294,5 +1351,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":25
+	"version":26
 }
