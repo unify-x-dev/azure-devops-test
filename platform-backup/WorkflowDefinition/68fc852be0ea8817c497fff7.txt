@@ -77,9 +77,9 @@
 		}
 	],
 	"id":"68fc852be0ea8817c497fff7",
-	"lastModifiedBy":161875,
+	"lastModifiedBy":6701,
 	"lcName":"test automation",
-	"modifiedTime":1761651655622,
+	"modifiedTime":1761664874556,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -273,7 +273,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_dozOM",
@@ -302,7 +302,7 @@
 			"index":10,
 			"inputs":{
 				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
-				"id":"1"
+				"id":"69"
 			},
 			"skip":false,
 			"subTitle":"Coupa",
@@ -312,14 +312,19 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.payload.invoice-lines.items.po-number",
+					"root.payload.supplier.id",
 					"root.payload.remit-to-address.id",
 					"root.payload.invoice-lines.items.line-num",
 					"root.payload.invoice-lines.items.description",
 					"root.payload.invoice-lines.items.quantity",
 					"root.payload.invoice-lines.items.price",
+					"root.payload.invoice-lines.items.po-number",
 					"root.payload.invoice-lines.items.order-line-id",
-					"root.payload.invoice-lines.items.type"
+					"root.payload.invoice-lines.items.uom.id",
+					"root.payload.invoice-lines.items.type",
+					"root.payload.invoice-lines.items.commodity.id",
+					"root.payload.invoice-lines.items.commodity.name",
+					"root.payload.invoice-lines.items.account.id"
 				]
 			},
 			"context":{
@@ -339,18 +344,20 @@
 				"payload":{
 					"invoice-number":"{{ n_UiGsB.outputs.invoice-number }}",
 					"document-type":"{{ n_UiGsB.outputs.pay-invoice.document-type }}",
-					"invoice-control-total":"{{ n_UiGsB.outputs.net-total-less-discount }}",
+					"supplier":{
+						"id":"{{ n_UiGsB.outputs.supplier.id }}"
+					},
 					"invoice-lines":{
 						"ua:type":"mappedArray",
 						"items":{
-							"po-number":"PO000143",
-							"id":"{{ n_UiGsB.outputs.invoice-lines[0].id }}",
-							"line-num":"{{ n_UiGsB.outputs.invoice-lines[0].line-num }}",
-							"description":"{{ n_UiGsB.outputs.invoice-lines[0].description }}",
 							"type":"{{ n_UiGsB.outputs.invoice-lines[0].type }}",
 							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}",
 							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}",
-							"quantity":"{{ n_dozOM.outputs.order_lines[0].quantity }}"
+							"quantity":"{{ n_dozOM.outputs.order_lines[0].quantity }}",
+							"id":"{{ n_UiGsB.outputs.invoice-lines[0].id }}",
+							"line-num":"{{ n_UiGsB.outputs.invoice-lines[0].line-num }}",
+							"description":"{{ n_UiGsB.outputs.invoice-lines[0].description }}",
+							"po-number":"{{ n_UiGsB.outputs.invoice-lines[0].po-number }}"
 						},
 						"source":"{{ n_UiGsB.outputs.invoice-lines }}"
 					}
@@ -380,5 +387,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":26
 }
