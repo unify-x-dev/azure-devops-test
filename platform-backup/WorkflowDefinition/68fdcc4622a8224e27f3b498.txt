@@ -88,7 +88,7 @@
 	"id":"68fdcc4622a8224e27f3b498",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | app score",
-	"modifiedTime":1761667164009,
+	"modifiedTime":1761667234421,
 	"name":"Best Practices | App Score",
 	"nodes":[
 		{
@@ -998,7 +998,7 @@
 						}
 					}
 				},
-				"code":"def computePageScores(items, String interfaceId) {\n\n    // Ensure items is not null\n    items = items ?: []\n\n    // Compute average score (two decimals)\n    BigDecimal sum = items.collect { (it.score ?: 0) as BigDecimal }\n                          .inject(0G) { acc, v -> acc + v }\n\n    BigDecimal avgScore = items.size() > 0 ?\n            sum.divide(items.size() as BigDecimal, 2, BigDecimal.ROUND_HALF_UP) :\n            0G.setScale(2)\n\n    // Normalize each page object (ensure score has 2 decimal places)\n    def pagesList = items.collect { page ->\n        [\n            score   : (page.score ?: 0) as BigDecimal,\n            pageId  : page.pageId,\n            pageName: page.pageName\n        ]\n    }\n\n    // Return as a single map\n    return [\n        AvgScore   : avgScore,\n        interfaceID: interfaceId,\n        pages      : pagesList\n    ]\n}\n\ndef output = computePageScores(items, interfaceId)\n\nreturn output\n",
+				"code":"def computePageScores(items, pageDetails, String interfaceId) {\n\n    // Ensure items and pageDetails are not null\n    items = items ?: []\n    pageDetails = pageDetails ?: []\n\n    // Create a lookup map for page creation times\n    def pageCreatedTimeMap = pageDetails.collectEntries { \n        [(it.id): it.createdTime] \n    }\n\n    // Compute average score (two decimals)\n    BigDecimal sum = items.collect { (it.score ?: 0) as BigDecimal }\n                          .inject(0G) { acc, v -> acc + v }\n\n    BigDecimal avgScore = items.size() > 0 ?\n            sum.divide(items.size() as BigDecimal, 2, BigDecimal.ROUND_HALF_UP) :\n            0G.setScale(2)\n\n    // Normalize each page object and add creation time\n    def pagesList = items.collect { page ->\n        [\n            score       : (page.score ?: 0) as BigDecimal,\n            pageId      : page.pageId,\n            pageName    : page.pageName,\n            createdTime : pageCreatedTimeMap[page.pageId] ?: 0\n        ]\n    }\n\n    // Sort by createdTime (ascending - oldest first)\n    // Use .sort(false) to avoid modifying original list\n    pagesList = pagesList.sort(false) { it.createdTime }\n\n    // Return as a single map\n    return [\n        AvgScore   : avgScore,\n        interfaceID: interfaceId,\n        pages      : pagesList\n    ]\n}\n\ndef output = computePageScores(items, pageDetails, interfaceId)\n\nreturn output",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1071,5 +1071,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":7
+	"version":8
 }
