@@ -46,7 +46,7 @@
 			"fromNodeId":"n_mQYbq@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_tK3eJ",
+			"toNodeId":"_H1ZrU",
 			"type":"next"
 		},
 		{
@@ -61,14 +61,74 @@
 			"fromNodeId":"n_mQYbq@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_glw1B",
+			"toNodeId":"_CIZ7S",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mQYbq",
+			"name":"3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mQYbq@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_mQYbq@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_YZRXb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mQYbq",
+			"name":"4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mQYbq@4",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_mQYbq@4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_wKTcv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mQYbq",
+			"name":"5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mQYbq@5",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_mQYbq@5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_8fgn3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mQYbq",
+			"name":"6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mQYbq@6",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_mQYbq@6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Rrw9d",
 			"type":"next"
 		}
 	],
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761574055539,
+	"modifiedTime":1761632161327,
 	"name":"BDI HANA",
 	"nodes":[
 		{
@@ -180,7 +240,31 @@
 					{
 						"id":"2",
 						"inputs":{
-							"name":"Branch 2"
+							"name":"NIVEL"
+						}
+					},
+					{
+						"id":"3",
+						"inputs":{
+							"name":"PARTI"
+						}
+					},
+					{
+						"id":"4",
+						"inputs":{
+							"name":"PREMI"
+						}
+					},
+					{
+						"id":"5",
+						"inputs":{
+							"name":"CONSU"
+						}
+					},
+					{
+						"id":"6",
+						"inputs":{
+							"name":"NIVEL"
 						}
 					},
 					{
@@ -215,18 +299,22 @@
 		},
 		{
 			"context":{
-				"appName":"oracledb",
+				"appName":"sqlserver",
+				"resourceVersion":3811,
+				"connectionId":"68b12c1b23fe751f9e0d04b3",
+				"resourceName":"sqlserver_execute_stored_procedure",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_mQYbq@_X8PXu-1@1",
-			"id":"n_tK3eJ",
+			"id":"_H1ZrU",
 			"index":7,
+			"inputs":{},
 			"skip":false,
-			"subTitle":"Oracle DB",
-			"title":"Select an action",
+			"subTitle":"Microsoft SQL Server",
+			"title":"Execute stored procedure",
 			"type":"ACTION"
 		},
 		{
@@ -243,21 +331,190 @@
 			"id":"n_mQYbq@2",
 			"index":8,
 			"inputs":{
-				"name":"Branch 2"
+				"name":"NIVEL"
 			},
 			"skip":false,
 			"title":"",
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"sqlserver",
+				"resourceVersion":3811,
+				"connectionId":"68b12c1b23fe751f9e0d04b3",
+				"resourceName":"sqlserver_execute_stored_procedure",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_mQYbq@_X8PXu-1@2",
-			"id":"n_glw1B",
+			"id":"_CIZ7S",
 			"index":9,
+			"inputs":{},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Microsoft SQL Server",
+			"title":"Execute stored procedure",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@3",
+			"id":"n_mQYbq@3",
+			"index":10,
+			"inputs":{
+				"name":"PARTI"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"sqlserver",
+				"resourceVersion":3811,
+				"connectionId":"68b12c1b23fe751f9e0d04b3",
+				"resourceName":"sqlserver_execute_stored_procedure",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@3",
+			"id":"_YZRXb",
+			"index":11,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Microsoft SQL Server",
+			"title":"Execute stored procedure",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@4",
+			"id":"n_mQYbq@4",
+			"index":12,
+			"inputs":{
+				"name":"PREMI"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"sqlserver",
+				"resourceVersion":3811,
+				"connectionId":"68b12c1b23fe751f9e0d04b3",
+				"resourceName":"sqlserver_execute_stored_procedure",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@4",
+			"id":"_wKTcv",
+			"index":13,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Microsoft SQL Server",
+			"title":"Execute stored procedure",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@5",
+			"id":"n_mQYbq@5",
+			"index":14,
+			"inputs":{
+				"name":"CONSU"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"sqlserver",
+				"resourceVersion":3811,
+				"connectionId":"68b12c1b23fe751f9e0d04b3",
+				"resourceName":"sqlserver_execute_stored_procedure",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@5",
+			"id":"_8fgn3",
+			"index":15,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Microsoft SQL Server",
+			"title":"Execute stored procedure",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@6",
+			"id":"n_mQYbq@6",
+			"index":16,
+			"inputs":{
+				"name":"NIVEL"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"sqlserver",
+				"resourceVersion":3811,
+				"connectionId":"68b12c1b23fe751f9e0d04b3",
+				"resourceName":"sqlserver_execute_stored_procedure",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mQYbq@_X8PXu-1@6",
+			"id":"_Rrw9d",
+			"index":17,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Microsoft SQL Server",
+			"title":"Execute stored procedure",
 			"type":"ACTION"
 		}
 	],
@@ -278,5 +535,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":4
+	"version":5
 }
