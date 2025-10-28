@@ -79,7 +79,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":6701,
 	"lcName":"test automation",
-	"modifiedTime":1761666882956,
+	"modifiedTime":1761667081598,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -295,7 +295,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_UiGsB",
@@ -352,7 +352,11 @@
 						"items":{
 							"quantity":"{{ n_dozOM.outputs.order_lines[0].quantity }}",
 							"id":"{{ n_UiGsB.outputs.invoice-lines[0].id }}",
-							"description":"{{ n_UiGsB.outputs.invoice-lines[0].description }}"
+							"description":"{{ n_UiGsB.outputs.invoice-lines[0].description }}",
+							"line-num":"{{ n_UiGsB.outputs.invoice-lines[0].line-num }}",
+							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}",
+							"po-number":"{{ n_UiGsB.outputs.invoice-lines[0].po-number }}",
+							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}"
 						},
 						"source":"{{ n_UiGsB.outputs.invoice-lines }}"
 					}
@@ -382,5 +386,5 @@
 	"tags":[
 		
 	],
-	"version":36
+	"version":37
 }
