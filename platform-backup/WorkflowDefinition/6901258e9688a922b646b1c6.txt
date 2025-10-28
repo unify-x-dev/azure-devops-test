@@ -224,7 +224,7 @@
 	"id":"6901258e9688a922b646b1c6",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | overall and category wise score",
-	"modifiedTime":1761683246520,
+	"modifiedTime":1761683300619,
 	"name":"Best Practices | Overall and Category wise Score",
 	"nodes":[
 		{
@@ -243,6 +243,7 @@
 				"result":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"overallScore":{
 							"type":"integer",
@@ -259,6 +260,14 @@
 						"usability":{
 							"type":"integer",
 							"title":"usability"
+						},
+						"totalChecks":{
+							"type":"integer",
+							"title":"Total Checks"
+						},
+						"checksPassed":{
+							"type":"integer",
+							"title":"Checks Passed"
 						}
 					}
 				},
@@ -838,7 +847,9 @@
 					"overallScore":"{{ n_9Pz52.outputs.score }}",
 					"security":"{{ _hxPzm.outputs.score }}",
 					"performance":"{{ _8H0qe.outputs.score }}",
-					"usability":"{{ _VCD3H.outputs.score }}"
+					"usability":"{{ _VCD3H.outputs.score }}",
+					"totalChecks":"{{ n_9Pz52.outputs.totalChecks }}",
+					"checksPassed":"{{ n_9Pz52.outputs.passedChecks }}"
 				}
 			},
 			"skip":false,
@@ -864,5 +875,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
