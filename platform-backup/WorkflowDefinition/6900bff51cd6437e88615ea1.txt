@@ -37,11 +37,11 @@
 			"fromNodeId":"n_QWjaE",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_HovGR",
+			"toNodeId":"n_nCTT1",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_HovGR",
+			"fromNodeId":"n_nCTT1",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -59,7 +59,7 @@
 	"id":"6900bff51cd6437e88615ea1",
 	"lastModifiedBy":190503,
 	"lcName":"saicharun",
-	"modifiedTime":1761657661940,
+	"modifiedTime":1761657699492,
 	"name":"saicharun",
 	"nodes":[
 		{
@@ -264,24 +264,29 @@
 		},
 		{
 			"context":{
-				"appName":"continue",
-				"resourceVersion":791,
-				"resourceName":"continue",
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1003,
+				"resourceName":"variable_by_unifyapps_update_variables",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_QWjaE@_mpY62-1@l",
-			"id":"n_HovGR",
+			"id":"n_nCTT1",
 			"index":6,
 			"inputs":{
-				"loop":"n_QWjaE"
+				"variables":[
+					{
+						"source":"{{ n_997QE.outputs.passergerId }}",
+						"value":"{{ n_QWjaE.outputs.item }}"
+					}
+				]
 			},
 			"skip":false,
-			"subTitle":"Continue",
-			"title":"Continue",
-			"type":"CONTINUE"
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
 		},
 		{
 			"context":{
@@ -316,5 +321,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
