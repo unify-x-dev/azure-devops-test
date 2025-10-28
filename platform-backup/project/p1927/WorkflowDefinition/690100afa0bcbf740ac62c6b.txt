@@ -6,47 +6,125 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_DCdiC",
+			"fromNodeId":"n_AiorO",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_yrbIu",
+			"toNodeId":"n_TfOCG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_TfOCG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oqJ7A",
 			"type":"next"
 		}
 	],
 	"id":"690100afa0bcbf740ac62c6b",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeehttptrigger",
-	"modifiedTime":1761673391126,
+	"modifiedTime":1761673536425,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1155,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DCdiC-1",
-			"id":"_DCdiC",
-			"index":0,
+			"id":"n_AiorO",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"requestBody":{
+								"type":"string",
+								"title":"Request Body"
+							}
+						},
+						"additionalProperties":false,
+						"required":[]
+					}
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"name":"200 ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":224,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DCdiC-1",
-			"id":"_yrbIu",
-			"index":0,
+			"id":"n_TfOCG",
+			"index":2,
+			"inputs":{
+				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing System.Collections.Generic;\nusing System.Text.Json;\nusing System.Net.Http;\nusing System.Text;\n\n// Entities\npublic class BaseEntity\n{\n    public int Id { get; set; }\n}\n\npublic class Employee : BaseEntity\n{\n    public string UserName { get; set; }\n    public string Email { get; set; }\n    public string FullName { get; set; }\n    public string ManagerUserName { get; set; }\n    public string EmployeeNumber { get; set; }\n    public bool IsActive { get; set; }\n    public string Status { get; set; }\n}\n\n// Services\npublic static class ApiHelper\n{\n    private static readonly HttpClient httpClient = new HttpClient();\n\n    public static async Task<string> CallApiEndpointAsync(string endpointUrl, string operationType, object payload)\n    {\n        try\n        {\n            var requestBody = new\n            {\n                operationType = operationType,\n                payload = payload\n            };\n\n            string jsonBody = JsonSerializer.Serialize(requestBody);\n            var content = new StringContent(jsonBody, Encoding.UTF8, \"application/json\");\n\n            HttpResponseMessage response = await httpClient.PostAsync(endpointUrl, content);\n            string responseContent = await response.Content.ReadAsStringAsync();\n\n            if (!response.IsSuccessStatusCode)\n            {\n                return $\"Failed: {response.StatusCode}\";\n            }\n            return responseContent;\n        }\n        catch (Exception ex)\n        {\n            return $\"Error: {ex.Message}\";\n        }\n    }\n}\n\npublic static class EmployeeService\n{\n    public static async Task AddOrUpdateAsync(Employee employee)\n    {\n        string employeeEndpoint = \"https://api.qa.unifyapps.com/api-endpoint/VirtusaCollections/EmployeeEndpoint\";\n        \n        var payload = new\n        {\n            userName = employee.UserName,\n            email = employee.Email,\n            fullName = employee.FullName,\n            managerUserName = employee.ManagerUserName,\n            employeeNumber = employee.EmployeeNumber,\n            isActive = employee.IsActive\n        };\n\n        string apiResult = await ApiHelper.CallApiEndpointAsync(employeeEndpoint, \"AddOrUpdateAsync\", payload);\n    }\n\n    public static async Task DeleteAsync(string userName)\n    {\n        string employeeEndpoint = \"https://api.qa.unifyapps.com/api-endpoint/VirtusaCollections/EmployeeEndpoint\";\n        \n        var payload = new\n        {\n            userName = userName\n        };\n\n        string apiResult = await ApiHelper.CallApiEndpointAsync(employeeEndpoint, \"DeleteAsync\", payload);\n    }\n}\n\npublic static class SyncEmployeeHttpTrigger\n{\n    public static async Task<Dictionary<string, object>> Run(string requestBody)\n    {\n        try\n        {\n            var employee = JsonSerializer.Deserialize<Employee>(requestBody);\n\n            if (employee == null)\n            {\n                return new Dictionary<string, object>\n                {\n                    { \"statusCode\", 400 },\n                    { \"body\", \"Please pass valid employee to sync\" }\n                };\n            }\n\n            if (string.IsNullOrEmpty(employee.UserName))\n            {\n                return new Dictionary<string, object>\n                {\n                    { \"statusCode\", 400 },\n                    { \"body\", \"Invalid User Name\" }\n                };\n            }\n\n            if (string.IsNullOrEmpty(employee.Status))\n            {\n                return new Dictionary<string, object>\n                {\n                    { \"statusCode\", 400 },\n                    { \"body\", \"Employee Status is empty\" }\n                };\n            }\n            else\n            {\n                if (employee.Status == \"Cancelled\")\n                {\n                    await EmployeeService.DeleteAsync(employee.UserName);\n                }\n                else\n                {\n                    await EmployeeService.AddOrUpdateAsync(new Employee\n                    {\n                        UserName = employee.UserName,\n                        Email = employee.Email,\n                        FullName = employee.FullName,\n                        ManagerUserName = employee.ManagerUserName,\n                        EmployeeNumber = employee.EmployeeNumber,\n                        IsActive = employee.Status == \"Active\"\n                    });\n                }\n            }\n\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 200 },\n                { \"body\", new { message = $\"Successfully processed for {employee.UserName} employee\" } }\n            };\n        }\n        catch (ArgumentNullException e)\n        {\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 400 },\n                { \"body\", $\"Invalid user detail - {e.ParamName}\" }\n            };\n        }\n        catch (Exception e)\n        {\n            if (e is OutOfMemoryException || e is StackOverflowException)\n            {\n                throw;\n            }\n            else\n            {\n                return new Dictionary<string, object>\n                {\n                    { \"statusCode\", 500 },\n                    { \"body\", \"Internal Server Error\" }\n                };\n            }\n        }\n    }\n}\n\nvar result = await SyncEmployeeHttpTrigger.Run(requestBody);\nresult",
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DCdiC-1",
+			"id":"n_oqJ7A",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200 ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":308,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +138,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
