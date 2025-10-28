@@ -5,12 +5,12 @@
 	"createdTime":1761389956257,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761645988116,
-		"deployedBy":115477,
-		"deployedDefinitionId":"690095a35520d463972c0d2f",
+		"deployedAt":1761681969634,
+		"deployedBy":23949,
+		"deployedDefinitionId":"690122312a483b60c43bf17a",
 		"status":"DEPLOYED",
-		"version":19,
-		"workflowVersion":40
+		"version":22,
+		"workflowVersion":45
 	},
 	"edges":[
 		{
@@ -149,7 +149,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761666613705,
+	"modifiedTime":1761684200611,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -569,7 +569,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_ZpyhG",
@@ -577,9 +577,17 @@
 			"inputs":{
 				"filters":[
 					{
-						"property":"{{ n_AwEoF.outputs.properties.checks }}",
+						"property":"=LEN({{ n_AwEoF.outputs.properties.checks }})",
 						"filter":{
-							"operator":"EXISTS"
+							"operator":"GT",
+							"value":"0"
+						}
+					},
+					{
+						"property":"{{ __ENV__.outputs.GLOBAL_CHECK_REPORT_VERSION }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"{{ n_AwEoF.outputs.properties.globalReportVersion }}"
 						}
 					}
 				],
@@ -689,7 +697,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_UmXGt",
@@ -780,7 +788,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_SMKPo",
@@ -789,7 +797,7 @@
 				"result":{
 					"score":"=CEILING.MATH(VALUE({{ _UmXGt.outputs.result.passPercentage }}))",
 					"pageId":"{{ n_mICBz.outputs.pageId }}",
-					"pageName":"{{ n_5CcMh.outputs.properties.pageTitle }}",
+					"pageName":"{{ n_5CcMh.outputs.properties.name }}",
 					"totalChecks":"{{ _UmXGt.outputs.result.totalChecks }}",
 					"passedChecks":"{{ _UmXGt.outputs.result.passedChecks }}"
 				}
@@ -874,7 +882,7 @@
 						}
 					}
 				},
-				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    // Treat \"null\" string as no category\n    if (category == \"null\") {\n        category = null\n    }\n\n    // Filter checks by category if provided. Treat \"All\" or null as no filter.\n    def relevantChecks = (category && category != \"All\") ? checks.findAll { it.properties.category == category } : checks\n    // Check for empty relevantChecks (e.g., if a non-existent category was passed)\n    if (!relevantChecks) return [category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Relevant check IDs\n    def relevantCheckIds = relevantChecks.collect { it.properties.check_id }\n    // Filter reports matching relevant checks\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.checkId) }\n    // Handle case where no reports match the relevant checks\n    if (!filteredReports) return [ category: category ?: \"All\", totalChecks: 0, passedChecks: 0, passPercentage: 0]\n    // Count passed\n    def passedCount = filteredReports.count { it.status == 'passed' }\n    // Calculate percentage\n    // Add a check to prevent division by zero if filteredReports.size() is 0\n    def passPercentage = (filteredReports.size() > 0) ? (passedCount / filteredReports.size()) * 100 : 0\n    return [\n        category: category ?: \"All\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\n\ndef output = calculatePassPercentage(reports, checks, category)",
+				"code":"def calculatePassPercentage(reports, checks, category = null) {\n    // Treat \"null\" string as no category\n    if (category == \"null\") {\n        category = null\n    }\n\n    // Filter checks by category if provided. Treat \"All\" or null as no filter.\n    def relevantChecks = (category && category != \"All\") \n        ? checks.findAll { it.properties?.category == category } \n        : checks\n    \n    // Check for empty relevantChecks (e.g., if a non-existent category was passed)\n    if (!relevantChecks) {\n        return [\n            category: category ?: \"All\", \n            totalChecks: 0, \n            passedChecks: 0, \n            passPercentage: \"0.00\"\n        ]\n    }\n    \n    // Relevant check IDs - using 'id' field from checks\n    def relevantCheckIds = relevantChecks.collect { it.id }\n    \n    // Filter reports matching relevant checks - using 'check_id' from reports\n    def filteredReports = reports.findAll { relevantCheckIds.contains(it.check_id) }\n    \n    // Handle case where no reports match the relevant checks\n    if (!filteredReports) {\n        return [\n            category: category ?: \"All\", \n            totalChecks: 0, \n            passedChecks: 0, \n            passPercentage: \"0.00\"\n        ]\n    }\n    \n    // Count passed\n    def passedCount = filteredReports.count { it.status == 'passed' }\n    \n    // Calculate percentage\n    def passPercentage = (filteredReports.size() > 0) \n        ? (passedCount / filteredReports.size()) * 100 \n        : 0\n    \n    return [\n        category: category ?: \"All\",\n        totalChecks: filteredReports.size(),\n        passedChecks: passedCount,\n        passPercentage: String.format(\"%.2f\", passPercentage)\n    ]\n}\n\ndef output = calculatePassPercentage(reports, checks, category)",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -941,5 +949,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":43
+	"version":46
 }
