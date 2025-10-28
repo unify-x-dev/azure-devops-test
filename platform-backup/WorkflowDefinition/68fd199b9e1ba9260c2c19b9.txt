@@ -5,12 +5,12 @@
 	"createdTime":1761417627746,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761665489356,
+		"deployedAt":1761665573497,
 		"deployedBy":23949,
-		"deployedDefinitionId":"6900e1d1a0bcbf740ac54c72",
+		"deployedDefinitionId":"6900e225a0bcbf740ac54e7a",
 		"status":"DEPLOYED",
-		"version":9,
-		"workflowVersion":19
+		"version":10,
+		"workflowVersion":20
 	},
 	"edges":[
 		{
@@ -117,7 +117,7 @@
 	"id":"68fd199b9e1ba9260c2c19b9",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | run page checks",
-	"modifiedTime":1761665571466,
+	"modifiedTime":1761665791991,
 	"name":"Best Practices | Run Page Checks",
 	"nodes":[
 		{
@@ -620,7 +620,15 @@
 					"root.interfacePage.ownerUserId",
 					"root.interfacePage.createdTime",
 					"root.interfacePage.id",
-					"root.interfacePage.version"
+					"root.interfacePage.version",
+					"root.object.interfacePage.modifiedTime",
+					"root.object.interfacePage.deleted",
+					"root.object.interfacePage.entityType",
+					"root.object.interfacePage.lastModifiedBy",
+					"root.object.interfacePage.ownerUserId",
+					"root.object.interfacePage.createdTime",
+					"root.object.interfacePage.id",
+					"root.object.interfacePage.version"
 				]
 			},
 			"context":{
@@ -630,7 +638,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_wo5ba",
@@ -752,7 +760,36 @@
 					"required":[]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"object":{
+					"interfacePage":{
+						"modifiedTime":"{{ n_w4pTI.outputs.modifiedTime }}",
+						"deleted":"{{ n_w4pTI.outputs.deleted }}",
+						"entityType":"{{ n_w4pTI.outputs.entityType }}",
+						"lastModifiedBy":"{{ n_w4pTI.outputs.lastModifiedBy }}",
+						"ownerUserId":"{{ n_w4pTI.outputs.ownerUserId }}",
+						"createdTime":"{{ n_w4pTI.outputs.createdTime }}",
+						"id":"{{ n_w4pTI.outputs.id }}",
+						"version":"{{ n_w4pTI.outputs.version }}",
+						"properties":"{{ n_w4pTI.outputs.properties }}"
+					},
+					"dataSources":{
+						"source":"{{ n_BCs9K.outputs.objects }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"createdTime":"{{ n_BCs9K.outputs.objects[0].createdTime }}",
+							"deleted":"{{ n_BCs9K.outputs.objects[0].deleted }}",
+							"entityType":"{{ n_BCs9K.outputs.objects[0].entityType }}",
+							"id":"{{ n_BCs9K.outputs.objects[0].id }}",
+							"lastModifiedBy":"{{ n_BCs9K.outputs.objects[0].lastModifiedBy }}",
+							"modifiedTime":"{{ n_BCs9K.outputs.objects[0].modifiedTime }}",
+							"ownerUserId":"{{ n_BCs9K.outputs.objects[0].ownerUserId }}",
+							"properties":"{{ n_BCs9K.outputs.objects[0].properties }}",
+							"version":"{{ n_BCs9K.outputs.objects[0].version }}"
+						}
+					}
+				}
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -905,7 +942,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_jr8kl@_ZMmc1-1@l",
 			"id":"n_Klpog",
@@ -1125,5 +1162,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":20
+	"version":21
 }
