@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761490879132,
-		"deployedBy":23949,
-		"deployedDefinitionId":"68fe37be3fb06214ee4c70e8",
+		"deployedAt":1761561137616,
+		"deployedBy":27,
+		"deployedDefinitionId":"68ff4a314359192d584f8e98",
 		"status":"DEPLOYED",
-		"version":27,
-		"workflowVersion":92
+		"version":28,
+		"workflowVersion":99
 	},
 	"edges":[
 		{
@@ -195,9 +195,9 @@
 		}
 	],
 	"id":"68fc996304853878c428ae4b",
-	"lastModifiedBy":27,
+	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761561121629,
+	"modifiedTime":1761642093503,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1382,7 +1382,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
@@ -1423,7 +1423,7 @@
 					"limit":100,
 					"offset":0
 				},
-				"numberOfRecordsToFetch":"MULTIPLE",
+				"numberOfRecordsToFetch":"SINGLE",
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
@@ -1482,7 +1482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1606,9 +1606,9 @@
 					"category":"{{ n_1ceQS.outputs.category }}",
 					"page":"{{ n_oh9u9.outputs.properties }}",
 					"reportArr":{
-						"source":"{{ n_RvCMd.outputs.objects }}",
+						"source":"{{ n_RvCMd.outputs.properties.checks }}",
 						"ua:type":"mappedArray",
-						"items":"{{ n_RvCMd.outputs.objects[0] }}"
+						"items":"{{ n_RvCMd.outputs.properties.checks[0] }}"
 					},
 					"masterArr":{
 						"source":"{{ n_oC2OU.outputs.objects }}",
@@ -1878,7 +1878,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
@@ -1927,5 +1927,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":99
+	"version":100
 }
