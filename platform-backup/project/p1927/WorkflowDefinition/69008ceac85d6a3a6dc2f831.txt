@@ -6,40 +6,320 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_oOYrk",
+			"fromNodeId":"n_t1O37",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_TTnM3",
+			"toNodeId":"n_XKWi8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XKWi8",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XKWi8@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_XKWi8@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YaYLR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XKWi8",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XKWi8@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_XKWi8@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_qpROF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XKWi8",
+			"name":"3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XKWi8@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_XKWi8@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Zoy4Q",
 			"type":"next"
 		}
 	],
 	"id":"69008ceac85d6a3a6dc2f831",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-func] removenonprocessmessages - db functions",
-	"modifiedTime":1761643754610,
+	"modifiedTime":1761648311304,
 	"name":"[Virtu-func] RemoveNonProcessMessages - DB Functions",
 	"nodes":[
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{
+						"request":{}
+					}
+				}
+			},
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1155,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oOYrk-1",
-			"id":"_oOYrk",
-			"index":0,
+			"id":"n_t1O37",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"operationType":{
+								"type":"string",
+								"title":"Operation Type"
+							},
+							"payload":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false,
+								"title":"Payload"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"operationType",
+							"payload"
+						]
+					}
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oOYrk-1",
-			"id":"_TTnM3",
-			"index":0,
+			"id":"n_XKWi8",
+			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_t1O37.outputs.body.operationType }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"UpdateReProcessStatus"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_t1O37.outputs.body.operationType }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"InsertMessageDetailsToGraveYardArchiveTable"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"3",
+						"inputs":{
+							"name":"Branch 3",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_t1O37.outputs.body.operationType }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"removeRecordFromGraveYard"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XKWi8@_oOYrk-1@1",
+			"id":"n_XKWi8@1",
+			"index":3,
+			"inputs":{
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_t1O37.outputs.body.operationType }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"UpdateReProcessStatus"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XKWi8@_oOYrk-1@1",
+			"id":"n_YaYLR",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XKWi8@_oOYrk-1@2",
+			"id":"n_XKWi8@2",
+			"index":5,
+			"inputs":{
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_t1O37.outputs.body.operationType }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"InsertMessageDetailsToGraveYardArchiveTable"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XKWi8@_oOYrk-1@2",
+			"id":"n_qpROF",
+			"index":6,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XKWi8@_oOYrk-1@3",
+			"id":"n_XKWi8@3",
+			"index":7,
+			"inputs":{
+				"name":"Branch 3",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_t1O37.outputs.body.operationType }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"removeRecordFromGraveYard"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XKWi8@_oOYrk-1@3",
+			"id":"n_Zoy4Q",
+			"index":8,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -47,6 +327,9 @@
 	],
 	"ownerUserId":39715,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +343,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
