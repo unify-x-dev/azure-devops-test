@@ -72,6 +72,13 @@
 			"fromNodeId":"n_GScIA",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_Xj2z8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Xj2z8",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_UiGsB",
 			"type":"next"
 		},
@@ -86,7 +93,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761668550274,
+	"modifiedTime":1761668583903,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -320,6 +327,28 @@
 		{
 			"context":{
 				"appName":"coupa",
+				"resourceVersion":1260,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_get_purchase_order_by_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_Xj2z8",
+			"index":11,
+			"inputs":{
+				"id":"{{ n_GScIA.outputs.purchase_order_id }}"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Get purchase order by ID",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
 				"resourceVersion":835,
 				"connectionId":"68f8b49a17a0e608e13fb3a8",
 				"resourceName":"coupa_get_invoice",
@@ -330,7 +359,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_UiGsB",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
 				"id":"520"
@@ -366,11 +395,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_PlvN4",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"payload":{
 					"invoice-number":"{{ n_UiGsB.outputs.invoice-number }}",
@@ -384,7 +413,7 @@
 							"line-num":"{{ n_UiGsB.outputs.invoice-lines[0].line-num }}",
 							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}",
 							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}",
-							"po-number":"PO000149-1"
+							"po-number":"{{ n_Xj2z8.outputs.order_number }}"
 						},
 						"source":"{{ n_UiGsB.outputs.invoice-lines }}"
 					}
@@ -414,5 +443,5 @@
 	"tags":[
 		
 	],
-	"version":46
+	"version":47
 }
