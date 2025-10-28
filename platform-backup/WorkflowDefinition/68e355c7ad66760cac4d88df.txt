@@ -161,7 +161,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761636985324,
+	"modifiedTime":1761642839683,
 	"name":"test",
 	"nodes":[
 		{
@@ -508,9 +508,9 @@
 		{
 			"context":{
 				"appName":"mongo",
-				"resourceVersion":5526,
+				"resourceVersion":1264,
 				"connectionId":"67eed8989f7b3d7aa7b8a529",
-				"resourceName":"mongodb_delete_documents",
+				"resourceName":"mongodb_create_collection",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -520,11 +520,12 @@
 			"id":"n_OZEfu",
 			"index":14,
 			"inputs":{
-				"collection":"aduhcabig_table"
+				"capped":false,
+				"collectionName":"big_table_check_2"
 			},
 			"skip":false,
 			"subTitle":"MongoDB",
-			"title":"Delete documents",
+			"title":"Create collection",
 			"type":"ACTION"
 		},
 		{
@@ -755,5 +756,5 @@
 	"tags":[
 		
 	],
-	"version":87
+	"version":88
 }
