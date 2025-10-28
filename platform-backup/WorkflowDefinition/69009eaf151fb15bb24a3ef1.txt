@@ -1,51 +1,76 @@
 {
 	"appsUsed":[
-		
+		"airtable"
 	],
 	"createdTime":1761648303760,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_exC55",
+			"fromNodeId":"n_UsMZ0",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ivF9p",
+			"toNodeId":"n_0Iswn",
 			"type":"next"
 		}
 	],
 	"id":"69009eaf151fb15bb24a3ef1",
 	"lastModifiedBy":15,
 	"lcName":"test",
-	"modifiedTime":1761648303760,
+	"modifiedTime":1761648315238,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_exC55-1",
-			"id":"_exC55",
-			"index":0,
+			"id":"n_UsMZ0",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"airtable",
+				"resourceVersion":5558,
+				"connectionId":"68d238a70bd80472be44718f",
+				"resourceName":"airtable_create_record",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_exC55-1",
-			"id":"_ivF9p",
-			"index":0,
+			"id":"n_0Iswn",
+			"index":2,
+			"inputs":{
+				"typecast":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Airtable",
+			"title":"Create record",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":15,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +84,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
