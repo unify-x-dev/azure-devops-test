@@ -5,12 +5,12 @@
 	"createdTime":1759408882903,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1759661991278,
+		"deployedAt":1761616108644,
 		"deployedBy":59995,
-		"deployedDefinitionId":"68e24fa7a94b8359f76dd362",
+		"deployedDefinitionId":"690020eca309a82f9f72381f",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":13
+		"version":7,
+		"workflowVersion":14
 	},
 	"edges":[
 		{
@@ -96,7 +96,7 @@
 	"id":"68de72f25b11474238866535",
 	"lastModifiedBy":59995,
 	"lcName":"buckets number",
-	"modifiedTime":1761616105962,
+	"modifiedTime":1761616321817,
 	"name":"Buckets Number",
 	"nodes":[
 		{
@@ -694,7 +694,7 @@
 						}
 					}
 				},
-				"code":"if (!(binding.hasVariable(\"criticalBuckets\") && criticalBuckets)) {\n  return [message: \"\", inputs: [minimumBucketCount: minimumBucketCount], outputs: [criticalBuckets: []]]\n}\ndef messages = []\n\nif (criticalBuckets.size() > 0) {\n  for (item in criticalBuckets) {\n    def bucketMessage = [\"[ \"]\n    for (partitions in item.buckets) {\n      bucketMessage << \" [ PartitionName = \" + partitions.partitionName + \", PartitionId = \" + partitions.paritionId + \", buckets = \" + partitions.buckets + \" ] , \"\n    }\n    bucketMessage << \" ]\"\n    bucketMessage = bucketMessage.join()\n    messages << \"• Database = \" + item.dbName + \", tableName =  \" + item.tableName + \", partitions = \" + bucketMessage + \"\\n\"\n  }\n}\nif (messages.size() > 100) {\n  messages = [\"• Message length is too large to send. Please check details in rootAutomationID: \" + rootAutomationID + \" and rootExecutionId: \" + rootExecutionId]\n}\nreturn [outputs: [criticalBuckets: criticalBuckets], inputs: [\"minimumBucketCount\": minimumBucketCount], message: messages.join()]",
+				"code":"if (!(binding.hasVariable(\"criticalBuckets\") && criticalBuckets)) {\n  return [message: \"\", inputs: [minimumBucketCount: minimumBucketCount], outputs: [criticalBuckets: []]]\n}\ndef messages = []\n\nif (criticalBuckets.size() > 0) {\n  for (item in criticalBuckets) {\n    def bucketMessage = [\"[ \"]\n    for (partitions in item.buckets) {\n      bucketMessage << \" [ PartitionName = \" + partitions.partitionName + \", PartitionId = \" + partitions.paritionId + \", buckets = \" + partitions.buckets + \" ] , \"\n    }\n    bucketMessage << \" ]\"\n    bucketMessage = bucketMessage.join()\n    messages << \"• Database = \" + item.dbName + \", tableName =  \" + item.tableName + \", partitions = \" + bucketMessage + \"\\n\"\n  }\n}\nif (messages.size() > 100) {\n  messages = [\"• Message length is too large to send. Please check details in rootAutomationId: \" + rootAutomationId + \" and rootExecutionId: \" + rootExecutionId]\n}\nreturn [outputs: [criticalBuckets: criticalBuckets], inputs: [\"minimumBucketCount\": minimumBucketCount], message: messages.join()]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -945,5 +945,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
