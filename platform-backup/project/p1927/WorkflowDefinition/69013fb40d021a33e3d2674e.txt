@@ -9,14 +9,14 @@
 			"fromNodeId":"n_qNiwn",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_bYbzq",
+			"toNodeId":"n_b25XZ",
 			"type":"next"
 		}
 	],
 	"id":"69013fb40d021a33e3d2674e",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerrepsschedulerfn] calculaterepssummarytimetrigger",
-	"modifiedTime":1761689736602,
+	"modifiedTime":1761689755422,
 	"name":"[virtu-emPowerRepsSchedulerFN] CalculateRepsSummaryTimeTrigger",
 	"nodes":[
 		{
@@ -48,14 +48,25 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":224,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_WGkj7-1",
-			"id":"_bYbzq",
+			"id":"n_b25XZ",
 			"index":2,
+			"inputs":{
+				"code":"using System;\nusing System.Threading.Tasks;\nusing System.Collections.Generic;\nusing System.Globalization;\nusing System.Net.Http;\nusing System.Text;\nusing System.Text.Json;\n\n// DateTimeExtension\npublic static class DateTimeExtension\n{\n    private static readonly int monthsPerFinancialHalf = 6;\n\n    public static string ToFinancialHalfShort(this DateTime dateTime)\n    {\n        string year = CalculateFinancialYear(dateTime);\n        int half = CalculateFinancialHalf(dateTime);\n\n        return $\"FY{year}H{half}\";\n    }\n\n    public static DateTime FinancialHalfStartDate(this DateTime dateTime)\n    {\n        string year = CalculateFinancialYear(dateTime);\n        int half = CalculateFinancialCycle(dateTime, monthsPerFinancialHalf);\n        if (half == 1)\n        {\n            return new DateTime(dateTime.Year, 4, 1);\n        }\n\n        var currentYear = dateTime.ToString(\"yy\");\n        if (currentYear == year)\n        {\n            return new DateTime(dateTime.AddYears(-1).Year, 10, 1);\n        }\n\n        return new DateTime(dateTime.Year, 10, 1);\n    }\n\n    public static DateTime FinancialHalfEndDate(this DateTime dateTime)\n    {\n        var startDate = FinancialHalfStartDate(dateTime);\n        var nextCycleStartDate = FinancialHalfStartDate(startDate.AddMonths(monthsPerFinancialHalf + 1));\n        return nextCycleStartDate.AddDays(-1);\n    }\n\n    public static DateTime CappingStartDate(this DateTime effectiveDate, short cappingFrequency)\n    {\n        var startDate = effectiveDate.FinancialHalfStartDate();\n        if (cappingFrequency == 0)\n        {\n            return startDate;\n        }\n\n        var totalDaysForEvaluationPeriod = (effectiveDate - startDate).Days;\n        var daysWithinCappingPeriod = totalDaysForEvaluationPeriod % cappingFrequency;\n        var cappingStartDate = effectiveDate.Date.AddDays(-daysWithinCappingPeriod);\n        return cappingStartDate;\n    }\n\n    public static DateTime CappingEndDate(this DateTime startDate, short cappingFrequency)\n    {\n        if (cappingFrequency == 0)\n        {\n            return startDate.FinancialHalfEndDate();\n        }\n\n        var cappingEndDate = startDate.Date.AddDays(cappingFrequency).AddTicks(-1);\n        return cappingEndDate;\n    }\n\n    private static int CalculateFinancialCycle(DateTime dateTime, int monthsPerCycle)\n    {\n        var targetMonth = dateTime.AddMonths(9).Month;\n        var half = targetMonth / monthsPerCycle;\n\n        if (targetMonth % monthsPerCycle > 0)\n        {\n            half++;\n        }\n\n        return half;\n    }\n\n    private static string CalculateFinancialYear(DateTime dateTime)\n    {\n        return dateTime.Month >= 4\n            ? dateTime.AddYears(1).ToString(\"yy\", CultureInfo.CurrentCulture)\n            : dateTime.ToString(\"yy\", CultureInfo.CurrentCulture);\n    }\n\n    private static int CalculateFinancialHalf(DateTime dateTime)\n    {\n        var targetMonth = dateTime.AddMonths(9).Month;\n        var monthsPerHalf = 6;\n        var half = targetMonth / monthsPerHalf;\n\n        if (targetMonth % monthsPerHalf > 0)\n        {\n            half++;\n        }\n\n        return half;\n    }\n}\n\n// Services\npublic static class ApiHelper\n{\n    private static readonly HttpClient httpClient = new HttpClient();\n\n    public static async Task<string> CallApiEndpointAsync(string endpointUrl, string operationType, object payload)\n    {\n        try\n        {\n            var requestBody = new\n            {\n                operationType = operationType,\n                payload = payload\n            };\n\n            string jsonBody = JsonSerializer.Serialize(requestBody);\n            var content = new StringContent(jsonBody, Encoding.UTF8, \"application/json\");\n\n            HttpResponseMessage response = await httpClient.PostAsync(endpointUrl, content);\n            string responseContent = await response.Content.ReadAsStringAsync();\n\n            if (!response.IsSuccessStatusCode)\n            {\n                return $\"Failed: {response.StatusCode}\";\n            }\n            return responseContent;\n        }\n        catch (Exception ex)\n        {\n            return $\"Error: {ex.Message}\";\n        }\n    }\n}\n\npublic static class RepsSummaryService\n{\n    public static async Task<int> UpdateRepsSummary(string cycle, DateTime startDate, DateTime endDate)\n    {\n        string repsSummaryEndpoint = \"https://api.qa.unifyapps.com/api-endpoint/VirtusaCollections/RepsSummaryEndpoint\";\n        \n        var payload = new\n        {\n            cycle = cycle,\n            startDate = startDate,\n            endDate = endDate\n        };\n\n        string apiResult = await ApiHelper.CallApiEndpointAsync(repsSummaryEndpoint, \"UpdateRepsSummary\", payload);\n        \n        // Parse the result to get affected rows count\n        // For now returning 0, implement actual parsing based on API response\n        return 0;\n    }\n}\n\npublic static class CalculateRepsSummaryTimerTrigger\n{\n    public static async Task<Dictionary<string, object>> Run()\n    {\n        try\n        {\n            var executionStartTime = DateTime.Now;\n\n            var cycle = DateTimeExtension.ToFinancialHalfShort(DateTime.Now);\n            var financialHalfStartDate = DateTimeExtension.FinancialHalfStartDate(DateTime.Now);\n            var financialHalfEndDate = DateTimeExtension.FinancialHalfEndDate(DateTime.Now);\n\n            var affectedRows = await RepsSummaryService.UpdateRepsSummary(cycle, financialHalfStartDate, financialHalfEndDate);\n\n            var executionEndTime = DateTime.Now;\n\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 200 },\n                { \"body\", new\n                    {\n                        message = \"Successfully completed\",\n                        executionStartTime = executionStartTime,\n                        executionEndTime = executionEndTime,\n                        cycle = cycle,\n                        financialHalfStartDate = financialHalfStartDate,\n                        financialHalfEndDate = financialHalfEndDate,\n                        affectedRows = affectedRows\n                    }\n                }\n            };\n        }\n        catch (ArgumentException ex)\n        {\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 400 },\n                { \"body\", $\"Invalid argument: {ex.ParamName}\" }\n            };\n        }\n        catch (InvalidOperationException ex)\n        {\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 400 },\n                { \"body\", \"Invalid operation during summary calculation\" }\n            };\n        }\n        catch (TimeoutException ex)\n        {\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 408 },\n                { \"body\", \"The operation timed out\" }\n            };\n        }\n        catch (Exception ex)\n        {\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 500 },\n                { \"body\", $\"Internal Server Error: {ex.Message}\" }\n            };\n        }\n    }\n}\n\nvar result = await CalculateRepsSummaryTimerTrigger.Run();\nresult",
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
 		}
 	],
@@ -77,5 +88,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
