@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761644191400,
+		"deployedAt":1761644601533,
 		"deployedBy":115477,
-		"deployedDefinitionId":"69008e9f5520d463972bfa31",
+		"deployedDefinitionId":"69009039151fb15bb249e00b",
 		"status":"DEPLOYED",
-		"version":29,
-		"workflowVersion":101
+		"version":30,
+		"workflowVersion":102
 	},
 	"edges":[
 		{
@@ -197,7 +197,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761644599810,
+	"modifiedTime":1761646678370,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -910,7 +910,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_pvdHU",
@@ -951,7 +951,7 @@
 					"limit":100,
 					"offset":0
 				},
-				"numberOfRecordsToFetch":"MULTIPLE",
+				"numberOfRecordsToFetch":"SINGLE",
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
@@ -1010,7 +1010,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_vquu7",
@@ -1126,7 +1126,7 @@
 						}
 					}
 				},
-				"code":"def joinAndFilter(reportArr, masterArr, page, dataSources, String status = null, String category = null) {\n    // 1) Normalize filters\n    def effectiveStatus   = (status   == \"null\" || status   == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\") ? null : category\n\n    // 2) Build lookup maps safely\n    // --- FIX 1: Added .findAll to prevent null keys in maps ---\n    def masterById       = (masterArr     ?: []).findAll { it != null && it.id != null }.collectEntries { [ (it.id): it ] }\n    def dataSourcesById  = (dataSources   ?: []).findAll { it != null && it.id != null }.collectEntries { [ (it.id): it ] }\n    def pageBlocks       = page?.blocks         ?: [:]\n    def pageVariables    = page?.pageVariables  ?: [:]\n    def pageFunctions    = page?.pageFunctions  ?: [:]\n\n    // 3) Filter + explode reports to rows\n    def results = (reportArr ?: [])\n        .findAll { rep ->\n            def m = masterById[ rep?.properties?.checkId ]\n            def okStatus   = (effectiveStatus   == null) || rep?.properties?.status                 == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category                == effectiveCategory\n            okStatus && okCategory\n        }\n        .collectMany { rep ->\n            def m = masterById[ rep?.properties?.checkId ]\n            def baseInfo = [\n                checkId          : rep?.properties?.checkId,\n                status           : rep?.properties?.status,\n                entityId         : rep?.properties?.entityId,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header\n            ]\n\n            def entities       = rep?.properties?.entities\n            def blockIds       = entities?.blockIds     ?: []\n            def dataSourceIds  = entities?.dataSources  ?: []\n            def variableIds    = entities?.variables    ?: []\n            def functionIds    = entities?.functions    ?: []\n\n            def blockResults = blockIds.collect { id ->\n                def b = pageBlocks[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : b?.displayName,\n                    impactedEntityType : 'block'\n                ]\n            }\n\n            def dataSourceResults = dataSourceIds.collect { id ->\n                def d = dataSourcesById[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : d?.properties?.name,\n                    impactedEntityType : 'dataSource'\n                ]\n            }\n\n            def variableResults = variableIds.collect { id ->\n                def v = pageVariables[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : v?.name,\n                    impactedEntityType : 'variable'\n                ]\n            }\n\n            def functionResults = functionIds.collect { id ->\n                def f = pageFunctions[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : f?.name,\n                    impactedEntityType : 'function'\n                ]\n            }\n\n            def combined = blockResults + dataSourceResults + variableResults + functionResults\n            combined.isEmpty()\n                ? [ baseInfo + [impactedEntityId:null, impactedEntityName:null, impactedEntityType:null] ]\n                : combined\n        }\n\n    [ results: results ]\n}\n\n// --- FIX 2: Check if 'dataSources' variable exists before calling the function ---\n// If 'dataSources' exists, use it. Otherwise, pass an empty list [].\ndef safeDataSources = binding.hasVariable('dataSources') ? dataSources : []\n\n// Call the function with the 'safeDataSources' variable\ndef output = joinAndFilter(reportArr, masterArr, page, safeDataSources, status, category)",
+				"code":"def joinAndFilter(reportArr, masterArr, page, dataSources, String status = null, String category = null) {\n    // 1) Normalize filters\n    def effectiveStatus   = (status   == \"null\" || status   == \"All\") ? null : status\n    def effectiveCategory = (category == \"null\" || category == \"All\") ? null : category\n\n    // 2) Build lookup maps safely\n    // --- FIX 1: Added .findAll to prevent null keys in maps ---\n    def masterById       = (masterArr     ?: []).findAll { it != null && it.id != null }.collectEntries { [ (it.id): it ] }\n    def dataSourcesById  = (dataSources   ?: []).findAll { it != null && it.id != null }.collectEntries { [ (it.id): it ] }\n    def pageBlocks       = page?.blocks         ?: [:]\n    def pageVariables    = page?.pageVariables  ?: [:]\n    def pageFunctions    = page?.pageFunctions  ?: [:]\n\n    // 3) Filter + explode reports to rows\n    def results = (reportArr ?: [])\n        .findAll { rep ->\n            def m = masterById[ rep?.checkId ]\n            def okStatus   = (effectiveStatus   == null) || rep?.status                 == effectiveStatus\n            def okCategory = (effectiveCategory == null) || m?.properties?.category                == effectiveCategory\n            okStatus && okCategory\n        }\n        .collectMany { rep ->\n            def m = masterById[ rep?.properties?.checkId ]\n            def baseInfo = [\n                checkId          : rep?.checkId,\n                status           : rep?.status,\n                checkTitle       : m?.properties?.title,\n                checkDescription : m?.properties?.description,\n                checkImpact      : m?.properties?.impact,\n                checkCategory    : m?.properties?.category,\n                checkHeader      : m?.properties?.main_header\n            ]\n\n            def entities       = rep?.entities\n            def blockIds       = entities?.blockIds     ?: []\n            def dataSourceIds  = entities?.dataSources  ?: []\n            def variableIds    = entities?.variables    ?: []\n            def functionIds    = entities?.functions    ?: []\n\n            def blockResults = blockIds.collect { id ->\n                def b = pageBlocks[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : b?.displayName,\n                    impactedEntityType : 'block'\n                ]\n            }\n\n            def dataSourceResults = dataSourceIds.collect { id ->\n                def d = dataSourcesById[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : d?.properties?.name,\n                    impactedEntityType : 'dataSource'\n                ]\n            }\n\n            def variableResults = variableIds.collect { id ->\n                def v = pageVariables[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : v?.name,\n                    impactedEntityType : 'variable'\n                ]\n            }\n\n            def functionResults = functionIds.collect { id ->\n                def f = pageFunctions[id]\n                baseInfo + [\n                    impactedEntityId       : id,\n                    impactedEntityName     : f?.name,\n                    impactedEntityType : 'function'\n                ]\n            }\n\n            def combined = blockResults + dataSourceResults + variableResults + functionResults\n            combined.isEmpty()\n                ? [ baseInfo + [impactedEntityId:null, impactedEntityName:null, impactedEntityType:null] ]\n                : combined\n        }\n\n    [ results: results ]\n}\n\n// --- FIX 2: Check if 'dataSources' variable exists before calling the function ---\n// If 'dataSources' exists, use it. Otherwise, pass an empty list [].\ndef safeDataSources = binding.hasVariable('dataSources') ? dataSources : []\n\n// Call the function with the 'safeDataSources' variable\ndef output = joinAndFilter(reportArr, masterArr, page, safeDataSources, status, category)",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1135,8 +1135,8 @@
 					"page":"{{ _M1PU3.outputs.properties }}",
 					"reportArr":{
 						"ua:type":"mappedArray",
-						"source":"{{ _pvdHU.outputs.objects }}",
-						"items":"{{ _pvdHU.outputs.objects[0] }}"
+						"source":"{{ _pvdHU.outputs.properties.checks }}",
+						"items":"{{ _pvdHU.outputs.properties.checks[0] }}"
 					},
 					"masterArr":{
 						"ua:type":"mappedArray",
@@ -1200,24 +1200,24 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wPsWL@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
 			"id":"_WeDSA",
 			"index":13,
 			"inputs":{
 				"itemToAdd":{
-					"checkCategory":"{{ _vquu7.outputs.result.results[0].checkCategory }}",
-					"checkDescription":"{{ _vquu7.outputs.result.results[0].checkDescription }}",
-					"checkHeader":"{{ _vquu7.outputs.result.results[0].checkHeader }}",
-					"checkId":"{{ _vquu7.outputs.result.results[0].checkId }}",
-					"checkImpact":"{{ _vquu7.outputs.result.results[0].checkImpact }}",
-					"checkTitle":"{{ _vquu7.outputs.result.results[0].checkTitle }}",
-					"entityId":"{{ _vquu7.outputs.result.results[0].entityId }}",
-					"status":"{{ _vquu7.outputs.result.results[0].status }}",
-					"impactedEntityId":"{{ _vquu7.outputs.result.results[0].impactedEntityId }}",
-					"impactedEntityName":"{{ _vquu7.outputs.result.results[0].impactedEntityName }}",
-					"impactedEntityType":"{{ _wPsWL.outputs.item.impactedEntityName }}",
+					"checkCategory":"{{ _wPsWL.outputs.item.checkCategory }}",
+					"checkDescription":"{{ _wPsWL.outputs.item.checkDescription }}",
+					"checkHeader":"{{ _wPsWL.outputs.item.checkHeader }}",
+					"checkId":"{{ _wPsWL.outputs.item.checkId }}",
+					"checkImpact":"{{ _wPsWL.outputs.item.checkImpact }}",
+					"checkTitle":"{{ _wPsWL.outputs.item.checkTitle }}",
+					"entityId":"{{ n_1ceQS.outputs.entityId }}",
+					"status":"{{ _wPsWL.outputs.item.status }}",
+					"impactedEntityId":"{{ _wPsWL.outputs.item.impactedEntityId }}",
+					"impactedEntityName":"{{ _wPsWL.outputs.item.impactedEntityName }}",
+					"impactedEntityType":"{{ _wPsWL.outputs.item.impactedEntityType }}",
 					"impactedEntityCategory":"{{ _vquu7.outputs.result.results[0].impactedEntityId }}",
 					"componentId":"{{ _vquu7.outputs.result.results[0].entityId }}",
 					"componentName":"{{ _vquu7.outputs.result.results[0].entityId }}",
@@ -1482,7 +1482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_aqVAB",
@@ -1650,7 +1650,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_WeSaM",
@@ -1927,5 +1927,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":102
+	"version":103
 }
