@@ -59,7 +59,7 @@
 	"id":"6900bff51cd6437e88615ea1",
 	"lastModifiedBy":190503,
 	"lcName":"saicharun",
-	"modifiedTime":1761657632034,
+	"modifiedTime":1761657661940,
 	"name":"saicharun",
 	"nodes":[
 		{
@@ -173,6 +173,11 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"utility_by_unifyapps",
 				"resourceVersion":1101,
@@ -190,25 +195,36 @@
 					"type":"object",
 					"additionalProperties":false,
 					"properties":{
-						"userId":{
-							"type":"integer",
-							"title":"userId"
-						},
-						"id":{
-							"type":"integer",
-							"title":"id"
-						},
-						"title":{
-							"type":"string",
-							"title":"title"
-						},
-						"completed":{
-							"type":"boolean",
-							"title":"completed"
+						"fileDetails":{
+							"type":"object",
+							"properties":{
+								"fileType":{
+									"type":"string",
+									"title":"fileType"
+								},
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"size":{
+									"type":"integer",
+									"title":"size"
+								},
+								"source":{
+									"type":"string",
+									"title":"source"
+								},
+								"sourceType":{
+									"type":"string",
+									"title":"sourceType"
+								}
+							},
+							"title":"fileDetails",
+							"additionalProperties":false
 						}
 					}
 				},
-				"jsonString":"\"{ \"userId\": 1, \"id\": 1, \"title\": \"delectus aut autem\", \"completed\": false }\""
+				"jsonString":"{\n\"fileDetails\": {\n\"fileType\": \"application/json\",\n\"name\": \"dwedew_1761582617509.json\",\n\"size\": 6039,\n\"source\": \"workflow_uploads/export/1/dwedew_1761582617509.json\",\n\"sourceType\": \"CLOUD_STORAGE\"\n}\n}"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -234,7 +250,7 @@
 			"id":"n_QWjaE",
 			"index":5,
 			"inputs":{
-				"fileDetails":"{{ n_78DFJ.outputs.result }}",
+				"fileDetails":"{{ n_78DFJ.outputs.result.fileDetails }}",
 				"startFromRecord":1,
 				"batch":false,
 				"encoding":"UTF-8",
@@ -300,5 +316,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
