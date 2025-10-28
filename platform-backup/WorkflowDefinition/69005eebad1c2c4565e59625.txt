@@ -1,51 +1,123 @@
 {
 	"appsUsed":[
-		
+		"jira_service_management"
 	],
 	"createdTime":1761631979868,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_5zRmO",
+			"fromNodeId":"n_hK3PM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_No3tZ",
+			"toNodeId":"n_o5EN6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_o5EN6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZfAhT",
 			"type":"next"
 		}
 	],
 	"id":"69005eebad1c2c4565e59625",
 	"lastModifiedBy":411,
 	"lcName":"hc",
-	"modifiedTime":1761631979868,
+	"modifiedTime":1761632437640,
 	"name":"hc",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5zRmO-1",
-			"id":"_5zRmO",
-			"index":0,
+			"id":"n_hK3PM",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.array_string___customfield_10047.items",
+					"root.record.array_attachment___attachment.items",
+					"root.record.array_user___customfield_10049.items"
+				]
+			},
+			"context":{
+				"appName":"jira_service_management",
+				"resourceVersion":4576,
+				"connectionId":"68fc9e03075ee3443166b831",
+				"resourceName":"jira_service_management_create_customer_request",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5zRmO-1",
-			"id":"_No3tZ",
-			"index":0,
+			"id":"n_o5EN6",
+			"index":2,
+			"inputs":{
+				"requestParticipants":[
+					"712020:10a9ca04-9ab9-46dd-9dfd-ed015506181d",
+					"712020:7237c482-b965-4f38-a911-b23ea1079fba"
+				],
+				"raiseOnBehalfOf":"712020:10a9ca04-9ab9-46dd-9dfd-ed015506181d",
+				"serviceDeskId":"1",
+				"requestTypeId":"10002",
+				"record":{
+					"option-with-child___customfield_10050":{
+						"parent":"10022",
+						"child":"10026"
+					},
+					"option___customfield_10048":"10020"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Jira Service Management",
+			"title":"Create customer request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"jira_service_management",
+				"resourceVersion":60,
+				"connectionId":"68fc9e03075ee3443166b831",
+				"resourceName":"jira_service_management_attach_temporary_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_5zRmO-1",
+			"id":"n_ZfAhT",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Jira Service Management",
+			"title":"Attach temporary file",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":411,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +131,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
