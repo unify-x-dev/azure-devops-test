@@ -23,7 +23,7 @@
 	"id":"69009b6ac85d6a3a6dc321dc",
 	"lastModifiedBy":46209,
 	"lcName":"[azure-function]processmailnotificationstimertrigger",
-	"modifiedTime":1761647561863,
+	"modifiedTime":1761648505510,
 	"name":"[Azure-function]ProcessMailNotificationsTimerTrigger",
 	"nodes":[
 		{
@@ -76,6 +76,7 @@
 			"id":"n_bUXST",
 			"index":2,
 			"inputs":{
+				"code":"\nusing ApplicationCore.Interfaces;\nusing System;\nusing System.Threading.Tasks;\nusing System.Linq;\n\npublic class BaseEntity\n{\n  public int Id { get; set; }\n}\npublic enum NotificationImportance\n{\n  High = 1,\n  Normal = 2,\n  Low = 3\n}\n\npublic enum NotificationStatus\n{\n  Pending = 1,\n  Sent = 2,\n  Fail = 3,\n  Delivered = 4\n}\n\npublic enum RecipientTypes\n{\n  None = 0,\n  To = 1,\n  Cc = 2,\n  Bcc = 3\n}\n\npublic class MailRecipient : BaseEntity\n{\n  public RecipientTypes RecipientTypes { get; set; }\n  public NotificationStatus Status { get; set; }\n  public string Email { get; set; }\n  public int NotificationId { get; set; }\n  public MailNotification Notification { get; set; }\n}\n\npublic class MailNotification : BaseEntity\n{\n  public string Subject { get; set; }\n  public string MessageBody { get; set; }\n  public NotificationImportance Importance { get; set; }\n  public DateTime CreatedDate { get; set; }\n  public ICollection<MailRecipient> Recipients { get; set; }\n  public string FromEmail { get; set; }\n}\n\npublic class MailNotificationByStatusSpecification : BaseSpecification<MailNotification>\n{\n  public MailNotificationByStatusSpecification(int take)\n         : base(x => x.Recipients.Any(e => e.Status == NotificationStatus.Pending))\n  {\n    ApplyPaging(0, take);\n    ApplyOrderBy(n => n.CreatedDate);\n    AddInclude(n => n.Recipients);\n  }\n}\n\npublic async Task ProcessSavedNotifications()\n{\n  string numberOfmails = _configuration[\"Mail:PageSize\"];\n  int pageSize = int.Parse(numberOfmails);\n  MailNotificationByStatusSpecification specification = new MailNotificationByStatusSpecification(pageSize);\n  // API call\n  var notifications = await _notificationRepository.ListAsync(specification);\n\n  foreach (var notification in notifications)\n  {\n    try\n    {\n      await Send(notification);\n      notification.Recipients.ToList().ForEach(x => x.Status = NotificationStatus.Sent);\n      // API call\n      await _notificationRepository.UpdateAsync(notification);\n    }\n    catch (Exception ex)\n    {\n      notification.Recipients.ToList()\n                  .ForEach(x => x.Status = NotificationStatus.Fail);\n      // API call\n      await _notificationRepository.UpdateAsync(notification);\n      //_appLogger.LogError($\"SendNotificationsTimerTrigger, an error occured at {DateTime.Now}. Error :  {ex.Message}\");\n    }\n  }\n}\n\n// log.LogInformation($\"Processing mail notifications started at: {DateTime.Now}\");\nawait ProcessSavedNotifications();\n// log.LogInformation($\"Processing mail notifications completed at: {DateTime.Now}\");\n// log.LogInformation($\"Next execution will be at: \" + $\"{myTimer.Schedule.GetNextOccurrence(DateTime.Now).ToString(\"MM/dd/yyyy HH:mm\")}\");",
 				"isAsync":false
 			},
 			"skip":true,
@@ -125,5 +126,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
