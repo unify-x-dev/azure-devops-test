@@ -5,12 +5,12 @@
 	"createdTime":1757066251826,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761559524502,
+		"deployedAt":1761590881932,
 		"deployedBy":670,
-		"deployedDefinitionId":"68ff43e43ee81015f2905b1e",
+		"deployedDefinitionId":"68ffbe61a309a82f9f70a104",
 		"status":"DEPLOYED",
-		"version":14,
-		"workflowVersion":30
+		"version":15,
+		"workflowVersion":31
 	},
 	"edges":[
 		{
@@ -49,7 +49,7 @@
 	"id":"68b56a34b6831d6a83c5a784",
 	"lastModifiedBy":670,
 	"lcName":"create gemini models payload",
-	"modifiedTime":1761590880447,
+	"modifiedTime":1761646631855,
 	"name":"Create Gemini Models Payload",
 	"nodes":[
 		{
@@ -443,9 +443,7 @@
 				},
 				"visibleOptionalFields":[
 					"root.parameters.tools.items",
-					"root.parameters.input_.messages.items.content.items.text",
-					"root.parameters.input_.messages.items.content.items.type",
-					"root.parameters.input_.messages.items.role"
+					"root.parameters.openaiMessages.items"
 				]
 			},
 			"context":{
@@ -455,7 +453,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"NmnYY-1",
 			"id":"n_yvvxi",
@@ -671,49 +669,19 @@
 							},
 							"title":"tools"
 						},
-						"input_":{
-							"type":"object",
-							"properties":{
-								"messages":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{
-											"content":{
-												"type":"array",
-												"items":{
-													"type":"object",
-													"properties":{
-														"text":{
-															"type":"string",
-															"title":"text"
-														},
-														"type":{
-															"type":"string",
-															"title":"type"
-														}
-													},
-													"additionalProperties":false
-												},
-												"title":"content"
-											},
-											"role":{
-												"type":"string",
-												"title":"role"
-											}
-										},
-										"additionalProperties":false
-									},
-									"title":"messages"
-								}
+						"openaiMessages":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
 							},
-							"additionalProperties":false,
-							"title":"input_"
+							"title":"openaiMessages"
 						}
 					}
 				},
 				"configurationMode":"DEFAULT",
-				"code":"def convert_openai_to_gemini(source_payload):\n    import json\n    import re\n    messages = source_payload.get(\"messages\", [])\n    \n    gemini_contents = []\n    gemini_system_instruction = None\n\n    for message in messages:\n        role = message.get(\"role\")\n        content_parts = message.get(\"content\", [])\n\n        if not role or not content_parts:\n            continue\n\n        if role == \"system\":\n            system_text = content_parts[0].get(\"text\", \"\")\n            if system_text:\n                gemini_system_instruction = {\"parts\": [{\"text\": system_text}]}\n        \n        elif role == \"user\":\n            gemini_parts = []\n            for part in content_parts:\n                part_type = part.get(\"type\")\n                if part_type == \"text\":\n                    gemini_parts.append({\"text\": part.get(\"text\", \"\")})\n                elif part_type == \"image_url\":\n                    image_url_data = part.get(\"image_url\", {}).get(\"url\", \"\")\n                    # Regex to parse the data URI scheme\n                    match = re.match(r\"data:(?P<mime_type>[\\w/\\-\\.+]+);base64,(?P<data>.+)\", image_url_data)\n                    if match:\n                        mime_type = match.group(\"mime_type\")\n                        data = match.group(\"data\")\n                        gemini_parts.append({\n                            \"inlineData\": {\n                                \"mimeType\": mime_type,\n                                \"data\": data\n                            }\n                        })\n            if gemini_parts:\n                gemini_contents.append({\"role\": \"user\", \"parts\": gemini_parts})\n\n        elif role == \"assistant\":\n            assistant_text = content_parts[0].get(\"text\", \"\")\n            if assistant_text: # Only add non-empty assistant messages\n                gemini_contents.append({\n                    \"role\": \"model\",\n                    \"parts\": [{\"text\": assistant_text}]\n                })\n\n    final_payload = {\"contents\": gemini_contents}\n    if gemini_system_instruction:\n        final_payload[\"systemInstruction\"] = gemini_system_instruction\n\n    return final_payload\n\ndef convert_tools_to_declarations(tools_json):\n    import json\n    function_list = []\n\n    for tool in tools_json:\n        if tool.get(\"type\") == \"function\" and \"function\" in tool:\n            function_data = tool[\"function\"]\n            \n            # Extract the required fields\n            name = function_data.get(\"name\")\n            description = function_data.get(\"description\", \"\") \n            parameters = function_data.get(\"parameters\", {}) \n            \n            if name:\n                new_func = {\n                    \"name\": name,\n                    \"description\": description,\n                    \"parameters\": parameters\n                }\n                function_list.append(new_func)\n    \n    output_declarations = [\n        {\n            \"functionDeclarations\": function_list\n        }\n    ]\n    \n    return output_declarations\ntry:\n    x = tools\nexcept:\n    tools = []\npayload = convert_openai_to_gemini(input_)\npayload['tools'] = convert_tools_to_declarations(tools)\n    \nresult = {\"payload\" : payload}\n\n",
+				"code":"def convert_openai_to_gemini(openai_messages):\n    import json\n    gemini_contents = []\n    last_tool_calls = None \n    \n    for message in openai_messages:\n        role = message.get(\"role\")\n        if role == \"system\":\n            continue\n\n        elif role == \"user\":\n            content = message.get(\"content\", \"\")\n            parts = []\n            if isinstance(content, str):\n                parts.append({\"text\": content})\n            elif isinstance(content, list):\n                for part in content:\n                    if part.get(\"type\") == \"text\":\n                        parts.append({\"text\": part.get(\"text\", \"\")})\n            \n            gemini_contents.append({\"role\": \"user\", \"parts\": parts})\n\n        elif role == \"assistant\":\n            if \"tool_calls\" in message:\n                last_tool_calls = message.get(\"tool_calls\", [])\n                gemini_parts = []\n                \n                for tool_call in last_tool_calls:\n                    function = tool_call.get(\"function\", {})\n                    func_name = function.get(\"name\") \n                    func_args = json.loads(function.get(\"arguments\", \"{}\"))\n                    gemini_parts.append({\n                        \"function_call\": {\n                            \"name\": func_name,\n                            \"args\": func_args\n                        }\n                    })\n                \n                gemini_contents.append({\"role\": \"model\", \"parts\": gemini_parts})\n                \n            else:\n                content = message.get(\"content\", \"\")\n                parts = []\n                \n                if isinstance(content, str):\n                    parts.append({\"text\": content})\n                elif isinstance(content, list):\n                    for part in content:\n                        if part.get(\"type\") == \"text\":\n                            parts.append({\"text\": part.get(\"text\", \"\")})\n                \n                gemini_contents.append({\"role\": \"model\", \"parts\": parts})\n\n        elif role == \"tool\":\n            tool_call_id = message.get(\"tool_call_id\")\n            content = message.get(\"content\", \"\")\n\n            if isinstance(content, list):\n                content_text = content[0].get(\"text\", \"\") if content else \"\"\n            else:\n                content_text = str(content)\n\n            func_name = None\n            if last_tool_calls:\n                for tc in last_tool_calls:\n                    if tc.get(\"id\") == tool_call_id:\n                        func_name = tc.get(\"function\", {}).get(\"name\")\n                        break\n            \n            if func_name:\n                gemini_contents.append({\n                    \"role\": \"user\",  \n                    \"parts\": [\n                        {\n                            \"function_response\": {\n                                \"name\": func_name,\n                                \"response\": {\n                                    \"content\": content_text\n                                }\n                            }\n                        }\n                    ]\n                })\n\n    return gemini_contents\n\ndef convert_tools_to_declarations(tools_json):\n    import json\n    function_list = []\n\n    for tool in tools_json:\n        if tool.get(\"type\") == \"function\" and \"function\" in tool:\n            function_data = tool[\"function\"]\n            \n            # Extract the required fields\n            name = function_data.get(\"name\")\n            description = function_data.get(\"description\", \"\") \n            parameters = function_data.get(\"parameters\", {}) \n            \n            if name:\n                new_func = {\n                    \"name\": name,\n                    \"description\": description,\n                    \"parameters\": parameters\n                }\n                function_list.append(new_func)\n    \n    output_declarations = [\n        {\n            \"functionDeclarations\": function_list\n        }\n    ]\n    \n    return output_declarations\ntry:\n    x = tools\nexcept:\n    tools = []\nmessages = convert_openai_to_gemini(openaiMessages)\ntools = convert_tools_to_declarations(tools)\npayload = {\"contents\" : messages,\"tools\" : tools}\nresult = {\"payload\" : payload}\n\n",
 				"isAsync":false,
 				"python_version":"3.12",
 				"captureStdOutput":false,
@@ -723,22 +691,10 @@
 						"ua:type":"mappedArray",
 						"items":"{{ RA2Aq.outputs.tools[0] }}"
 					},
-					"input_":{
-						"messages":{
-							"source":"{{ RA2Aq.outputs.messages }}",
-							"ua:type":"mappedArray",
-							"items":{
-								"content":{
-									"source":"{{ RA2Aq.outputs.messages[0].content }}",
-									"ua:type":"mappedArray",
-									"items":{
-										"text":"{{ RA2Aq.outputs.messages[0].content[0].text }}",
-										"type":"{{ RA2Aq.outputs.messages[0].content[0].type }}"
-									}
-								},
-								"role":"{{ RA2Aq.outputs.messages[0].role }}"
-							}
-						}
+					"openaiMessages":{
+						"source":"{{ 88S0T.outputs.openaiMessages }}",
+						"ua:type":"mappedArray",
+						"items":"{{ 88S0T.outputs.openaiMessages[0] }}"
 					}
 				}
 			},
@@ -785,5 +741,5 @@
 		}
 	},
 	"standard":false,
-	"version":31
+	"version":32
 }
