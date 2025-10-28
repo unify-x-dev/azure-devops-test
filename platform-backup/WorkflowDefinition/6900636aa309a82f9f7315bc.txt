@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761633130527,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_hUzcb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_0yRxW",
+			"type":"next"
+		}
+	],
+	"id":"6900636aa309a82f9f7315bc",
+	"lastModifiedBy":511,
+	"lcName":"dependancytrigger-dnd",
+	"modifiedTime":1761633130527,
+	"name":"DependancyTrigger-Dnd",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_hUzcb-1",
+			"id":"_hUzcb",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_hUzcb-1",
+			"id":"_0yRxW",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":511,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
