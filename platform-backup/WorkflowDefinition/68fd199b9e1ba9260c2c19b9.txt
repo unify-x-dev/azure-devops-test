@@ -117,7 +117,7 @@
 	"id":"68fd199b9e1ba9260c2c19b9",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | run page checks",
-	"modifiedTime":1761665203808,
+	"modifiedTime":1761665487666,
 	"name":"Best Practices | Run Page Checks",
 	"nodes":[
 		{
@@ -127,7 +127,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_tzKET",
@@ -172,7 +172,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_w4pTI",
@@ -215,7 +215,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_BCs9K",
@@ -259,7 +259,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_Q36ak",
@@ -297,7 +297,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_i3IrJ",
@@ -611,6 +611,18 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.interfacePage.modifiedTime",
+					"root.interfacePage.deleted",
+					"root.interfacePage.entityType",
+					"root.interfacePage.lastModifiedBy",
+					"root.interfacePage.ownerUserId",
+					"root.interfacePage.createdTime",
+					"root.interfacePage.id",
+					"root.interfacePage.version"
+				]
+			},
 			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1084,
@@ -631,104 +643,113 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"interfacePage":{
+						"object":{
 							"type":"object",
 							"properties":{
-								"standard":{
-									"type":"boolean",
-									"title":"standard"
-								},
-								"modifiedTime":{
-									"type":"integer",
-									"title":"modifiedTime"
-								},
-								"deleted":{
-									"type":"boolean",
-									"title":"deleted"
-								},
-								"entityType":{
-									"type":"string",
-									"title":"entityType"
-								},
-								"lastModifiedBy":{
-									"type":"integer",
-									"title":"lastModifiedBy"
-								},
-								"ownerUserId":{
-									"type":"integer",
-									"title":"ownerUserId"
-								},
-								"createdTime":{
-									"type":"integer",
-									"title":"createdTime"
-								},
-								"id":{
-									"type":"string",
-									"title":"id"
-								},
-								"version":{
-									"type":"integer",
-									"title":"version"
-								},
-								"properties":{
+								"interfacePage":{
 									"type":"object",
-									"title":"properties"
+									"properties":{
+										"standard":{
+											"type":"boolean",
+											"title":"standard"
+										},
+										"modifiedTime":{
+											"type":"integer",
+											"title":"modifiedTime"
+										},
+										"deleted":{
+											"type":"boolean",
+											"title":"deleted"
+										},
+										"entityType":{
+											"type":"string",
+											"title":"entityType"
+										},
+										"lastModifiedBy":{
+											"type":"integer",
+											"title":"lastModifiedBy"
+										},
+										"ownerUserId":{
+											"type":"integer",
+											"title":"ownerUserId"
+										},
+										"createdTime":{
+											"type":"integer",
+											"title":"createdTime"
+										},
+										"id":{
+											"type":"string",
+											"title":"id"
+										},
+										"version":{
+											"type":"integer",
+											"title":"version"
+										},
+										"properties":{
+											"type":"object",
+											"title":"properties"
+										}
+									},
+									"additionalProperties":false,
+									"title":"interfacePage"
+								},
+								"dataSources":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{
+											"createdTime":{
+												"type":"integer",
+												"title":"createdTime"
+											},
+											"deleted":{
+												"type":"boolean",
+												"title":"deleted"
+											},
+											"entityType":{
+												"type":"string",
+												"title":"entityType"
+											},
+											"id":{
+												"type":"string",
+												"title":"id"
+											},
+											"lastModifiedBy":{
+												"type":"integer",
+												"title":"lastModifiedBy"
+											},
+											"modifiedTime":{
+												"type":"integer",
+												"title":"modifiedTime"
+											},
+											"ownerUserId":{
+												"type":"integer",
+												"title":"ownerUserId"
+											},
+											"properties":{
+												"type":"object",
+												"title":"properties"
+											},
+											"standard":{
+												"type":"boolean",
+												"title":"standard"
+											},
+											"version":{
+												"type":"integer",
+												"title":"version"
+											}
+										},
+										"additionalProperties":false
+									},
+									"title":"dataSources"
 								}
 							},
-							"title":"interfacePage",
-							"additionalProperties":false
-						},
-						"dataSources":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"createdTime":{
-										"type":"integer",
-										"title":"createdTime"
-									},
-									"deleted":{
-										"type":"boolean",
-										"title":"deleted"
-									},
-									"entityType":{
-										"type":"string",
-										"title":"entityType"
-									},
-									"id":{
-										"type":"string",
-										"title":"id"
-									},
-									"lastModifiedBy":{
-										"type":"integer",
-										"title":"lastModifiedBy"
-									},
-									"modifiedTime":{
-										"type":"integer",
-										"title":"modifiedTime"
-									},
-									"ownerUserId":{
-										"type":"integer",
-										"title":"ownerUserId"
-									},
-									"properties":{
-										"type":"object",
-										"title":"properties"
-									},
-									"standard":{
-										"type":"boolean",
-										"title":"standard"
-									},
-									"version":{
-										"type":"integer",
-										"title":"version"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"dataSources"
+							"additionalProperties":false,
+							"title":"Object",
+							"required":[]
 						}
-					}
+					},
+					"required":[]
 				}
 			},
 			"inputs":{},
@@ -738,104 +759,113 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"interfacePage":{
+						"object":{
 							"type":"object",
 							"properties":{
-								"standard":{
-									"type":"boolean",
-									"title":"standard"
-								},
-								"modifiedTime":{
-									"type":"integer",
-									"title":"modifiedTime"
-								},
-								"deleted":{
-									"type":"boolean",
-									"title":"deleted"
-								},
-								"entityType":{
-									"type":"string",
-									"title":"entityType"
-								},
-								"lastModifiedBy":{
-									"type":"integer",
-									"title":"lastModifiedBy"
-								},
-								"ownerUserId":{
-									"type":"integer",
-									"title":"ownerUserId"
-								},
-								"createdTime":{
-									"type":"integer",
-									"title":"createdTime"
-								},
-								"id":{
-									"type":"string",
-									"title":"id"
-								},
-								"version":{
-									"type":"integer",
-									"title":"version"
-								},
-								"properties":{
+								"interfacePage":{
 									"type":"object",
-									"title":"properties"
+									"properties":{
+										"standard":{
+											"type":"boolean",
+											"title":"standard"
+										},
+										"modifiedTime":{
+											"type":"integer",
+											"title":"modifiedTime"
+										},
+										"deleted":{
+											"type":"boolean",
+											"title":"deleted"
+										},
+										"entityType":{
+											"type":"string",
+											"title":"entityType"
+										},
+										"lastModifiedBy":{
+											"type":"integer",
+											"title":"lastModifiedBy"
+										},
+										"ownerUserId":{
+											"type":"integer",
+											"title":"ownerUserId"
+										},
+										"createdTime":{
+											"type":"integer",
+											"title":"createdTime"
+										},
+										"id":{
+											"type":"string",
+											"title":"id"
+										},
+										"version":{
+											"type":"integer",
+											"title":"version"
+										},
+										"properties":{
+											"type":"object",
+											"title":"properties"
+										}
+									},
+									"additionalProperties":false,
+									"title":"interfacePage"
+								},
+								"dataSources":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{
+											"createdTime":{
+												"type":"integer",
+												"title":"createdTime"
+											},
+											"deleted":{
+												"type":"boolean",
+												"title":"deleted"
+											},
+											"entityType":{
+												"type":"string",
+												"title":"entityType"
+											},
+											"id":{
+												"type":"string",
+												"title":"id"
+											},
+											"lastModifiedBy":{
+												"type":"integer",
+												"title":"lastModifiedBy"
+											},
+											"modifiedTime":{
+												"type":"integer",
+												"title":"modifiedTime"
+											},
+											"ownerUserId":{
+												"type":"integer",
+												"title":"ownerUserId"
+											},
+											"properties":{
+												"type":"object",
+												"title":"properties"
+											},
+											"standard":{
+												"type":"boolean",
+												"title":"standard"
+											},
+											"version":{
+												"type":"integer",
+												"title":"version"
+											}
+										},
+										"additionalProperties":false
+									},
+									"title":"dataSources"
 								}
 							},
-							"title":"interfacePage",
-							"additionalProperties":false
-						},
-						"dataSources":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"createdTime":{
-										"type":"integer",
-										"title":"createdTime"
-									},
-									"deleted":{
-										"type":"boolean",
-										"title":"deleted"
-									},
-									"entityType":{
-										"type":"string",
-										"title":"entityType"
-									},
-									"id":{
-										"type":"string",
-										"title":"id"
-									},
-									"lastModifiedBy":{
-										"type":"integer",
-										"title":"lastModifiedBy"
-									},
-									"modifiedTime":{
-										"type":"integer",
-										"title":"modifiedTime"
-									},
-									"ownerUserId":{
-										"type":"integer",
-										"title":"ownerUserId"
-									},
-									"properties":{
-										"type":"object",
-										"title":"properties"
-									},
-									"standard":{
-										"type":"boolean",
-										"title":"standard"
-									},
-									"version":{
-										"type":"integer",
-										"title":"version"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"dataSources"
+							"additionalProperties":false,
+							"title":"Object",
+							"required":[]
 						}
-					}
+					},
+					"required":[]
 				}
 			},
 			"skip":false,
@@ -851,7 +881,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_jr8kl",
@@ -881,7 +911,7 @@
 			"id":"n_Klpog",
 			"index":8,
 			"inputs":{
-				"automationId":"6900c7cec273210924d05969",
+				"automationId":"6900ddc2665f7769ad63d0d5",
 				"runtimeConnections":{},
 				"synchronous":true,
 				"distributeWorkflowLoad":false,
@@ -889,37 +919,8 @@
 					"source":"{{ n_jr8kl.outputs.item }}",
 					"ua:type":"mappedArray",
 					"items":{
-						"dataSources":{
-							"source":"{{ n_BCs9K.outputs.objects }}",
-							"ua:type":"mappedArray",
-							"items":{
-								"createdTime":"{{ n_BCs9K.outputs.objects[0].createdTime }}",
-								"deleted":"{{ n_BCs9K.outputs.objects[0].deleted }}",
-								"entityType":"{{ n_BCs9K.outputs.objects[0].entityType }}",
-								"entityVersion":"{{ n_BCs9K.outputs.objects[0].version }}",
-								"id":"{{ n_BCs9K.outputs.objects[0].id }}",
-								"lastModifiedBy":"{{ n_BCs9K.outputs.objects[0].lastModifiedBy }}",
-								"modifiedTime":"{{ n_BCs9K.outputs.objects[0].modifiedTime }}",
-								"ownerUserId":"{{ n_BCs9K.outputs.objects[0].ownerUserId }}",
-								"properties":"{{ n_BCs9K.outputs.objects[0].properties }}",
-								"version":"{{ n_BCs9K.outputs.objects[0].version }}"
-							}
-						},
-						"interfacePage":{
-							"createdTime":"{{ n_w4pTI.outputs.createdTime }}",
-							"deleted":"{{ n_w4pTI.outputs.deleted }}",
-							"deploymentState":{
-								"entityVersion":"{{ n_w4pTI.outputs.version }}",
-								"version":"{{ n_w4pTI.outputs.version }}"
-							},
-							"entityType":"{{ n_w4pTI.outputs.entityType }}",
-							"id":"{{ n_w4pTI.outputs.id }}",
-							"lastModifiedBy":"{{ n_w4pTI.outputs.lastModifiedBy }}",
-							"modifiedTime":"{{ n_w4pTI.outputs.modifiedTime }}",
-							"ownerUserId":"{{ n_w4pTI.outputs.ownerUserId }}",
-							"properties":"{{ n_w4pTI.outputs.properties }}",
-							"version":"{{ n_w4pTI.outputs.version }}"
-						}
+						"object":"{{ n_wo5ba.outputs.object }}",
+						"automationId":"{{ n_jr8kl.outputs.item[0].id }}"
 					}
 				},
 				"version":"-1"
@@ -937,7 +938,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_jr8kl@_ZMmc1-1@l",
 			"id":"n_hsOgf",
@@ -969,7 +970,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_hsOgf@n_jr8kl@_ZMmc1-1@l@l",
 			"id":"n_WSSKv",
@@ -1012,7 +1013,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_7eRDF",
@@ -1044,7 +1045,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_0ITyo",
@@ -1091,7 +1092,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_WpRsG",
@@ -1124,5 +1125,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":18
+	"version":19
 }
