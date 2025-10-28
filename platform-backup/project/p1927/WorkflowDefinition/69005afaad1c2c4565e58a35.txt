@@ -46,7 +46,7 @@
 	"id":"69005afaad1c2c4565e58a35",
 	"lastModifiedBy":39715,
 	"lcName":"removenonprocessmessages",
-	"modifiedTime":1761640896214,
+	"modifiedTime":1761641443692,
 	"name":"RemoveNonProcessMessages",
 	"nodes":[
 		{
@@ -140,12 +140,30 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fXaki-1",
 			"id":"n_2Wbzq",
 			"index":3,
-			"inputs":{},
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ _NWeKH.outputs.result }}",
+						"filter":{
+							"operator":"CONTAINS",
+							"value":"responseState"
+						}
+					},
+					{
+						"property":"responseState",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"true"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
 			"subTitle":"Condition",
 			"title":"Condition",
@@ -216,5 +234,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
