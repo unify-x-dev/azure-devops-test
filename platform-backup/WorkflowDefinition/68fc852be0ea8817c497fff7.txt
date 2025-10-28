@@ -53,12 +53,26 @@
 			"skip":false,
 			"toNodeId":"n_HZuO9",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HZuO9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UiGsB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UiGsB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PlvN4",
+			"type":"next"
 		}
 	],
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761627360845,
+	"modifiedTime":1761651251675,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -141,7 +155,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_7qS37",
@@ -242,6 +256,54 @@
 			"subTitle":"Coupa",
 			"title":"List requisition comments",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":835,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_get_invoice",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_UiGsB",
+			"index":9,
+			"inputs":{
+				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
+				"id":"1"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Get invoice",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.payload.invoice-lines.items.po-number"
+				]
+			},
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":322,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_update_invoice",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_PlvN4",
+			"index":10,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Update invoice",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":161875,
@@ -261,5 +323,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
