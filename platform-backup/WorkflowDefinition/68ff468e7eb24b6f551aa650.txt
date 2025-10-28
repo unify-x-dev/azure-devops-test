@@ -192,7 +192,7 @@
 	"id":"68ff468e7eb24b6f551aa650",
 	"lastModifiedBy":15080,
 	"lcName":"bdi hana",
-	"modifiedTime":1761634976509,
+	"modifiedTime":1761635054733,
 	"name":"BDI HANA",
 	"nodes":[
 		{
@@ -598,7 +598,7 @@
 			"inputs":{
 				"performAsync":false,
 				"objectSourceResourceName":"oracledb_execute_sql_metadata",
-				"sql":"SELECT \r\n    NUM_CONC,\r\n    'PE' AS COD_PAIS,\r\n    TRIM(VAL_DESC_CONC) AS VAL_DESC_CONC,\r\n    TRIM(VAL_DESC_DIRI_A) AS VAL_DESC_DIRI_A,\r\n    TRIM(VAL_DESC_TIPO_CONC) AS VAL_DESC_TIPO_CONC,\r\n    TRIM(VAL_STAT_CONC) AS VAL_STAT_CONC,\r\n    NUM_NIVE_CONC,\r\n    CAMP_INIC,\r\n    CAMP_FINA,\r\n    CAMP_INIC_DESP,\r\n    CAMP_FINA_DESP\r\nFROM SSICC_PE_ES.INT_TMP_INCEN_CONCU"
+				"sql":"SELECT \r\n    NUM_CONC,\r\n    'PE' AS COD_PAIS,\r\n    TRIM(VAL_DESC_CONC) AS VAL_DESC_CONC,\r\n    TRIM(VAL_DESC_DIRI_A) AS VAL_DESC_DIRI_A,\r\n    TRIM(VAL_DESC_TIPO_CONC) AS VAL_DESC_TIPO_CONC,\r\n    TRIM(VAL_STAT_CONC) AS VAL_STAT_CONC,\r\n    NUM_NIVE_CONC,\r\n    TRIM(CAMP_INIC) AS CAMP_INIC,\r\n    TRIM(CAMP_FINA) AS CAMP_FINA,\r\n    TRIM(CAMP_INIC_DESP) AS CAMP_INIC_DESP,\r\n    TRIM(CAMP_FINA_DESP) AS CAMP_FINA_DESP\r\nFROM SSICC_PE_ES.INT_TMP_INCEN_CONCU"
 			},
 			"skip":false,
 			"subTitle":"Oracle DB",
@@ -669,5 +669,5 @@
 	"tags":[
 		"cactus"
 	],
-	"version":9
+	"version":10
 }
