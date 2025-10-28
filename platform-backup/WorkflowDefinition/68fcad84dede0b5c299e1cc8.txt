@@ -149,7 +149,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761645475112,
+	"modifiedTime":1761645488053,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -905,7 +905,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
@@ -913,7 +913,7 @@
 			"inputs":{
 				"result":{
 					"score":"=CEILING.MATH(VALUE({{ n_X4F6n.outputs.result.passPercentage }}))",
-					"pageId":"{{ n_X4F6n.outputs.result.pageId }}",
+					"pageId":"{{ n_mICBz.outputs.pageId }}",
 					"pageName":"{{ n_5CcMh.outputs.properties.name }}",
 					"totalChecks":"{{ n_X4F6n.outputs.result.totalChecks }}",
 					"passedChecks":"{{ n_X4F6n.outputs.result.passedChecks }}"
@@ -942,5 +942,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":37
+	"version":38
 }
