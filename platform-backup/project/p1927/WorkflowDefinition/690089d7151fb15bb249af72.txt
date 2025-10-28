@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761642967429,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761648996812,
+		"deployedBy":39713,
+		"deployedDefinitionId":"6900a164151fb15bb24a4ef3",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":2
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_b2pce",
@@ -156,7 +164,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39713,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761648992178,
+	"modifiedTime":1761649343205,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -183,9 +191,9 @@
 								"additionalProperties":false,
 								"title":"Payload"
 							},
-							"functionName":{
+							"operationName":{
 								"type":"string",
-								"title":"Function Name"
+								"title":"Operation Name"
 							}
 						},
 						"additionalProperties":false,
@@ -233,7 +241,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_b2pce.outputs.body.functionName }}",
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
 										"filter":{
 											"operator":"EQUAL",
 											"value":"CountAsync"
@@ -251,7 +259,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_b2pce.outputs.body.functionName }}",
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
 										"filter":{
 											"operator":"EQUAL",
 											"value":"FirstOrDefaultAsync"
@@ -269,7 +277,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_b2pce.outputs.body.functionName }}",
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
 										"filter":{
 											"operator":"EQUAL",
 											"value":"AddAsync"
@@ -287,7 +295,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_b2pce.outputs.body.functionName }}",
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
 										"filter":{
 											"operator":"EQUAL",
 											"value":"UpdateAsync"
@@ -305,7 +313,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_b2pce.outputs.body.functionName }}",
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
 										"filter":{
 											"operator":"EQUAL",
 											"value":"DeleteAsync"
@@ -323,7 +331,7 @@
 							"conditions":{
 								"filters":[
 									{
-										"property":"{{ n_b2pce.outputs.body.functionName }}",
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
 										"filter":{
 											"operator":"EQUAL",
 											"value":"ListAsync"
@@ -362,7 +370,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_b2pce.outputs.body.functionName }}",
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"CountAsync"
@@ -417,7 +425,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_b2pce.outputs.body.functionName }}",
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"FirstOrDefaultAsync"
@@ -472,7 +480,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_b2pce.outputs.body.functionName }}",
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"AddAsync"
@@ -527,7 +535,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_b2pce.outputs.body.functionName }}",
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"UpdateAsync"
@@ -582,7 +590,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_b2pce.outputs.body.functionName }}",
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"DeleteAsync"
@@ -637,7 +645,7 @@
 				"conditions":{
 					"filters":[
 						{
-							"property":"{{ n_b2pce.outputs.body.functionName }}",
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"ListAsync"
@@ -716,5 +724,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
