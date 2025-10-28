@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761634991505,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_2RQln",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_jugq3",
+			"type":"next"
+		}
+	],
+	"id":"69006aafa309a82f9f733a20",
+	"lastModifiedBy":39712,
+	"lcName":"[virtu-approvalsfunctionappfn] -> getapproval",
+	"modifiedTime":1761634991505,
+	"name":"[virtu-ApprovalsFunctionAppFN] -> GetApproval",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_2RQln-1",
+			"id":"_2RQln",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_2RQln-1",
+			"id":"_jugq3",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":39712,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
