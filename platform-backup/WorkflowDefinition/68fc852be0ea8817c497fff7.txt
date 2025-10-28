@@ -58,6 +58,13 @@
 			"fromNodeId":"n_HZuO9",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_dozOM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dozOM",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_UiGsB",
 			"type":"next"
 		},
@@ -72,7 +79,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761651251675,
+	"modifiedTime":1761651430413,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -260,6 +267,28 @@
 		{
 			"context":{
 				"appName":"coupa",
+				"resourceVersion":1260,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_get_purchase_order_by_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_dozOM",
+			"index":9,
+			"inputs":{
+				"id":"143"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Get purchase order by ID",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
 				"resourceVersion":835,
 				"connectionId":"68f8b49a17a0e608e13fb3a8",
 				"resourceName":"coupa_get_invoice",
@@ -270,7 +299,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_UiGsB",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
 				"id":"1"
@@ -298,8 +327,21 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_PlvN4",
-			"index":10,
-			"inputs":{},
+			"index":11,
+			"inputs":{
+				"payload":{
+					"invoice-number":"{{ n_UiGsB.outputs.invoice-number }}",
+					"invoice-lines":{
+						"ua:type":"mappedArray",
+						"items":{
+							"id":"{{ n_UiGsB.outputs.invoice-lines[0].updated-by.id }}",
+							"po-number":"PO000143"
+						},
+						"source":"{{ n_UiGsB.outputs.invoice-lines[0].id }}"
+					}
+				},
+				"id":"{{ n_UiGsB.outputs.id }}"
+			},
 			"skip":false,
 			"subTitle":"Coupa",
 			"title":"Update invoice",
@@ -323,5 +365,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
