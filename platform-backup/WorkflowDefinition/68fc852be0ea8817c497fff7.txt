@@ -87,7 +87,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761670960618,
+	"modifiedTime":1761671035863,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -355,8 +355,8 @@
 							"account":{
 								"id":"{{ n_UiGsB.outputs.invoice-lines[0].account.account-type.id }}"
 							},
-							"id":"{{ n_UiGsB.outputs.invoice-lines[0].updated-by.id }}",
-							"order-line-id":150
+							"order-line-id":150,
+							"id":"{{ n_UiGsB.outputs.invoice-lines[0].id }}"
 						}
 					}
 				},
@@ -385,5 +385,5 @@
 	"tags":[
 		
 	],
-	"version":65
+	"version":66
 }
