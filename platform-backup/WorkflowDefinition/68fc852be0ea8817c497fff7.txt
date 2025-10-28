@@ -65,6 +65,13 @@
 			"fromNodeId":"n_dozOM",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_GScIA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GScIA",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_UiGsB",
 			"type":"next"
 		},
@@ -79,7 +86,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761667463129,
+	"modifiedTime":1761668550274,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -289,17 +296,41 @@
 		{
 			"context":{
 				"appName":"coupa",
-				"resourceVersion":835,
+				"resourceVersion":1257,
 				"connectionId":"68f8b49a17a0e608e13fb3a8",
-				"resourceName":"coupa_get_invoice",
+				"resourceName":"coupa_create_purchase_order",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
-			"id":"n_UiGsB",
+			"id":"n_GScIA",
 			"index":10,
+			"inputs":{
+				"requisition_id":"760",
+				"currency":"{{ n_dozOM.outputs.currency }}",
+				"supplier_id":"1"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Create purchase order",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":835,
+				"connectionId":"68f8b49a17a0e608e13fb3a8",
+				"resourceName":"coupa_get_invoice",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_kkabk-1",
+			"id":"n_UiGsB",
+			"index":11,
 			"inputs":{
 				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
 				"id":"520"
@@ -335,11 +366,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_PlvN4",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"payload":{
 					"invoice-number":"{{ n_UiGsB.outputs.invoice-number }}",
@@ -353,7 +384,7 @@
 							"line-num":"{{ n_UiGsB.outputs.invoice-lines[0].line-num }}",
 							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}",
 							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}",
-							"po-number":"PO000149"
+							"po-number":"PO000149-1"
 						},
 						"source":"{{ n_UiGsB.outputs.invoice-lines }}"
 					}
@@ -383,5 +414,5 @@
 	"tags":[
 		
 	],
-	"version":42
+	"version":46
 }
