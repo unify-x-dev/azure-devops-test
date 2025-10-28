@@ -5,12 +5,12 @@
 	"createdTime":1761463366389,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761491346206,
-		"deployedBy":23949,
-		"deployedDefinitionId":"68fe39913fb06214ee4c8b80",
+		"deployedAt":1761588054773,
+		"deployedBy":115477,
+		"deployedDefinitionId":"68ffb356baa3204b3201f290",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":3
+		"version":3,
+		"workflowVersion":6
 	},
 	"edges":[
 		{
@@ -36,6 +36,13 @@
 		},
 		{
 			"fromNodeId":"n_gS9ox",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_q1WBt",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_q1WBt",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_A3jM9",
@@ -79,9 +86,9 @@
 		}
 	],
 	"id":"68fdcc4622a8224e27f3b498",
-	"lastModifiedBy":115477,
+	"lastModifiedBy":23949,
 	"lcName":"best practices | app score",
-	"modifiedTime":1761491432241,
+	"modifiedTime":1761667164009,
 	"name":"Best Practices | App Score",
 	"nodes":[
 		{
@@ -91,7 +98,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5VXzP-1",
 			"id":"n_LlXSM",
@@ -142,6 +149,10 @@
 						"appId":{
 							"type":"string",
 							"title":"appId"
+						},
+						"category":{
+							"type":"string",
+							"title":"category"
 						}
 					}
 				}
@@ -162,7 +173,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5VXzP-1",
 			"id":"n_7MOe4",
@@ -205,7 +216,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5VXzP-1",
 			"id":"n_rIjBB",
@@ -490,7 +501,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5VXzP-1",
 			"id":"n_gS9ox",
@@ -517,17 +528,299 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1072,
+				"resourceName":"variable_by_unifyapps_create_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_5VXzP-1",
+			"id":"n_q1WBt",
+			"index":5,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"additionalProperties":false,
+									"type":[
+										"object",
+										"string",
+										"number",
+										"boolean",
+										"integer"
+									],
+									"properties":{
+										"id":{
+											"type":"string",
+											"title":"Id"
+										},
+										"createdTime":{
+											"type":"integer",
+											"title":"Created Time"
+										}
+									},
+									"required":[]
+								}
+							}
+						}
+					}
+				}
+			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_7MOe4.outputs.objects }}",
+					"items":{
+						"id":"{{ n_7MOe4.outputs.objects[0].id }}",
+						"createdTime":"{{ n_7MOe4.outputs.objects[0].createdTime }}"
+					}
+				},
+				"ua:title":"CreatedTimesByID",
+				"ua:list_type":"OBJECT"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"CreatedTimesByID",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"createdTime":{
+										"type":"integer",
+										"title":"Created Time"
+									}
+								},
+								"required":[]
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":865,
 				"resourceName":"loop_for_each",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5VXzP-1",
 			"id":"n_A3jM9",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"repeatMode":"BATCH",
 				"listSource":"{{ n_gS9ox.outputs.filteredList }}",
@@ -547,11 +840,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_A3jM9@_5VXzP-1@l",
 			"id":"n_kdytg",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"automationId":"68fcad84dede0b5c299e1cc8",
 				"runtimeConnections":{},
@@ -561,7 +854,7 @@
 					"source":"{{ n_A3jM9.outputs.item }}",
 					"ua:type":"mappedArray",
 					"items":{
-						"category":"",
+						"category":"{{ n_LlXSM.outputs.category }}",
 						"pageId":"{{ n_A3jM9.outputs.item[0].id }}"
 					}
 				},
@@ -587,11 +880,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_A3jM9@_5VXzP-1@l",
 			"id":"n_g7bqk",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -622,7 +915,8 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.parameters.items.items"
+					"root.parameters.items.items",
+					"root.parameters.pageDetails.items"
 				]
 			},
 			"context":{
@@ -632,11 +926,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5VXzP-1",
 			"id":"n_0xngq",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -692,6 +986,15 @@
 						"interfaceId":{
 							"type":"string",
 							"title":"interfaceId"
+						},
+						"pageDetails":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Page Details"
 						}
 					}
 				},
@@ -704,6 +1007,11 @@
 						"source":"{{ n_rIjBB.outputs.items }}",
 						"ua:type":"mappedArray",
 						"items":"{{ n_rIjBB.outputs.items[0] }}"
+					},
+					"pageDetails":{
+						"source":"{{ n_q1WBt.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_q1WBt.outputs.items[0] }}"
 					}
 				}
 			},
@@ -720,11 +1028,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5VXzP-1",
 			"id":"n_tQ3Tp",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"result":{
 					"AvgScore":"{{ n_0xngq.outputs.result.AvgScore }}",
@@ -763,5 +1071,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":4
+	"version":7
 }
