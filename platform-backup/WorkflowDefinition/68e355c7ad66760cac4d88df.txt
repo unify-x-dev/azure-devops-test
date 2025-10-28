@@ -105,6 +105,13 @@
 			"fromNodeId":"n_OZEfu",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_HunmC",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HunmC",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_LTl0h",
 			"type":"next"
 		},
@@ -161,7 +168,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761642839683,
+	"modifiedTime":1761642880329,
 	"name":"test",
 	"nodes":[
 		{
@@ -171,7 +178,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_cFwuH",
@@ -199,7 +206,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_22Bji",
@@ -222,7 +229,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"_WCoZX",
@@ -245,7 +252,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_9qaQu",
@@ -267,7 +274,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_wiCYR",
@@ -289,7 +296,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_4K5Iz",
@@ -311,7 +318,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_w5oM1",
@@ -339,7 +346,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_oBeQ2",
@@ -361,7 +368,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_fRZSx",
@@ -385,7 +392,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_1QMIm",
@@ -407,7 +414,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_VALyF",
@@ -429,7 +436,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_5KOVj",
@@ -492,7 +499,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_NyUQd",
@@ -531,6 +538,52 @@
 		{
 			"context":{
 				"appName":"mongo",
+				"resourceVersion":5552,
+				"connectionId":"67eed8989f7b3d7aa7b8a529",
+				"resourceName":"mongodb_create_document",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SDPQ9-1",
+			"id":"n_HunmC",
+			"index":15,
+			"inputs":{
+				"document_schema":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"id",
+						"name",
+						"present"
+					],
+					"properties":{
+						"id":{
+							"type":"integer",
+							"title":"Id"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"present":{
+							"type":"boolean",
+							"title":"Present"
+						}
+					}
+				},
+				"set_null_value":false,
+				"collection":"big_table_check_1"
+			},
+			"skip":false,
+			"subTitle":"MongoDB",
+			"title":"Create document",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"mongo",
 				"resourceVersion":5515,
 				"connectionId":"67eed8989f7b3d7aa7b8a529",
 				"resourceName":"mongodb_delete_documents",
@@ -541,7 +594,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_LTl0h",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"filter":{
 					"filters":[
@@ -572,11 +625,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_2QKYn",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"query":"show ROUTINE LOAD where TableName = \"ENTITY_jay_test__shamyak_etl_2025_10_23_06\";",
 				"group":"ENTITY_REPORTING"
@@ -595,11 +648,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_GJM9g",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"objectSourceResourceName":"mysql_execute_sql_metadata",
 				"sql":"select * from big_table"
@@ -618,11 +671,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_X8nvd",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"path":"/CTL/"
 			},
@@ -640,11 +693,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_uCZ3C",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"path":"/CTL/file.csv",
 				"input_type":"url",
@@ -664,11 +717,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_rl8DR",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"path":"/CTL/Stock_Trades_Quality_Test - Sheet1.csv"
 			},
@@ -686,11 +739,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_lOmxs",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"path":"/CTL/Stock_Trades_Quality_Test - Sheet1.csv",
 				"performAsync":true
@@ -709,11 +762,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SDPQ9-1",
 			"id":"n_gir1A",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"queries":[
 					{
@@ -756,5 +809,5 @@
 	"tags":[
 		
 	],
-	"version":88
+	"version":89
 }
