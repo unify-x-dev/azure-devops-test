@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		"okta"
+		
 	],
 	"createdTime":1761543735045,
 	"deleted":false,
@@ -16,13 +16,6 @@
 			"fromNodeId":"n_LmkeN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Jp4ST",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Jp4ST",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_CuoIf",
 			"type":"next"
 		}
@@ -30,7 +23,7 @@
 	"id":"68ff063777db7a5bde982687",
 	"lastModifiedBy":6701,
 	"lcName":"shs",
-	"modifiedTime":1761632251752,
+	"modifiedTime":1761632269769,
 	"name":"shs",
 	"nodes":[
 		{
@@ -117,29 +110,6 @@
 		},
 		{
 			"context":{
-				"appName":"okta",
-				"resourceVersion":6512,
-				"connectionId":"68b9d8c295eb3f05dd7bc572",
-				"resourceName":"okta_get_user_groups",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_Yhqdm-1",
-			"id":"n_Jp4ST",
-			"index":3,
-			"inputs":{
-				"pageSize":1000,
-				"userId":"{{ n_LmkeN.outputs.result.firstTag }}"
-			},
-			"skip":false,
-			"subTitle":"Okta",
-			"title":"Get user groups",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -147,7 +117,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Yhqdm-1",
 			"id":"n_CuoIf",
-			"index":4,
+			"index":3,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -171,5 +141,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
