@@ -6,47 +6,112 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_uACUs",
+			"fromNodeId":"n_FSpW2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_98BYx",
+			"toNodeId":"n_0hlXF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0hlXF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XfJ5C",
 			"type":"next"
 		}
 	],
 	"id":"69007046a309a82f9f735aea",
 	"lastModifiedBy":45010,
 	"lcName":"syncemployeetierhttptrigger",
-	"modifiedTime":1761636422378,
+	"modifiedTime":1761636505830,
 	"name":"SyncEmployeeTierHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1155,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_uACUs-1",
-			"id":"_uACUs",
-			"index":0,
+			"id":"n_FSpW2",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":224,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_uACUs-1",
-			"id":"_98BYx",
-			"index":0,
+			"id":"n_0hlXF",
+			"index":2,
+			"inputs":{
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uACUs-1",
+			"id":"n_XfJ5C",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":45010,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +125,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
