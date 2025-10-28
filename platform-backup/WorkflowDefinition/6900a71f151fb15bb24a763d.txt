@@ -16,6 +16,13 @@
 			"fromNodeId":"n_4hXDW",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_4gk0w",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4gk0w",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_VdssN",
 			"type":"next"
 		}
@@ -23,7 +30,7 @@
 	"id":"6900a71f151fb15bb24a763d",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | page",
-	"modifiedTime":1761654281431,
+	"modifiedTime":1761654425744,
 	"name":"Best Practices | Check Group | Page",
 	"nodes":[
 		{
@@ -563,6 +570,228 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":959,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uv02c-1",
+			"id":"n_4gk0w",
+			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"ua:__linkedVariable__":"n_4hXDW.outputs",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"checks",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{
+									"check_id":{
+										"type":"string",
+										"title":"check_id"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"targets":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{
+												"entityId":{
+													"type":"string",
+													"title":"entityId"
+												},
+												"entityType":{
+													"type":"string",
+													"title":"entityType"
+												},
+												"selectors":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"selectors"
+												}
+											},
+											"additionalProperties":false
+										},
+										"title":"targets"
+									}
+								},
+								"required":[
+									"check_id",
+									"status"
+								]
+							}
+						}
+					}
+				},
+				"input":{
+					"additionalProperties":false,
+					"type":"object",
+					"ua:__linkedVariable__":"n_Ff9PD.outputs",
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"properties":{
+						"check_id":{
+							"type":"string",
+							"title":"check_id"
+						},
+						"dataSources":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"createdTime":{
+										"type":"integer",
+										"title":"createdTime"
+									},
+									"deleted":{
+										"type":"boolean",
+										"title":"deleted"
+									},
+									"deployedEntityVersion":{
+										"type":"integer",
+										"title":"deployedEntityVersion"
+									},
+									"entityType":{
+										"type":"string",
+										"title":"entityType"
+									},
+									"entityVersion":{
+										"type":"integer",
+										"title":"entityVersion"
+									},
+									"id":{
+										"type":"string",
+										"title":"id"
+									},
+									"lastModifiedBy":{
+										"type":"integer",
+										"title":"lastModifiedBy"
+									},
+									"modifiedTime":{
+										"type":"integer",
+										"title":"modifiedTime"
+									},
+									"ownerUserId":{
+										"type":"integer",
+										"title":"ownerUserId"
+									},
+									"properties":{
+										"type":"object",
+										"title":"properties"
+									},
+									"standard":{
+										"type":"boolean",
+										"title":"standard"
+									},
+									"version":{
+										"type":"integer",
+										"title":"version"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"dataSources"
+						},
+						"interfacePage":{
+							"type":"object",
+							"properties":{
+								"createdTime":{
+									"type":"integer",
+									"title":"createdTime"
+								},
+								"deleted":{
+									"type":"boolean",
+									"title":"deleted"
+								},
+								"deploymentState":{
+									"type":"object",
+									"properties":{
+										"deployedAt":{
+											"type":"integer",
+											"title":"deployedAt"
+										},
+										"deployedBy":{
+											"type":"integer",
+											"title":"deployedBy"
+										},
+										"entityVersion":{
+											"type":"integer",
+											"title":"entityVersion"
+										},
+										"version":{
+											"type":"integer",
+											"title":"version"
+										}
+									},
+									"title":"deploymentState",
+									"additionalProperties":false
+								},
+								"entityType":{
+									"type":"string",
+									"title":"entityType"
+								},
+								"id":{
+									"type":"string",
+									"title":"id"
+								},
+								"lastModifiedBy":{
+									"type":"integer",
+									"title":"lastModifiedBy"
+								},
+								"modifiedTime":{
+									"type":"integer",
+									"title":"modifiedTime"
+								},
+								"ownerUserId":{
+									"type":"integer",
+									"title":"ownerUserId"
+								},
+								"properties":{
+									"type":"object",
+									"title":"properties"
+								},
+								"standard":{
+									"type":"boolean",
+									"title":"standard"
+								},
+								"version":{
+									"type":"integer",
+									"title":"version"
+								}
+							},
+							"title":"interfacePage",
+							"additionalProperties":false
+						}
+					}
+				},
+				"isAsync":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Javascript",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1102,
@@ -570,11 +799,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_VdssN",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"result":{
 					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
@@ -604,5 +833,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":6
+	"version":7
 }
