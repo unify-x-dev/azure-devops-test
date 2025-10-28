@@ -216,7 +216,7 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_QvTnt",
+			"toNodeId":"n_QnSJn",
 			"type":"if"
 		},
 		{
@@ -224,80 +224,28 @@
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_chFjD",
+			"toNodeId":"n_68NqR",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_QvTnt",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_sAIka",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_chFjD",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_sAIka",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_sAIka",
-			"name":"1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_sAIka@1",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_sAIka@1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_q981K",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_sAIka",
-			"name":"2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_sAIka@2",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_sAIka@2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_pIkV6",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_q981K",
+			"fromNodeId":"n_QnSJn",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_rMERn",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_pIkV6",
+			"fromNodeId":"n_68NqR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_rMERn",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_sAIka",
-			"name":"default",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_rMERn",
-			"type":"branch"
 		}
 	],
 	"id":"69009258c85d6a3a6dc30684",
 	"lastModifiedBy":178103,
 	"lcName":"test_chirag ",
-	"modifiedTime":1761646161547,
+	"modifiedTime":1761646254145,
 	"name":"test_chirag ",
 	"nodes":[
 		{
@@ -1270,203 +1218,40 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":1015,
+				"resourceName":"analytics_by_unifyapps_query_reports",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_D7NfW@_mzkHe-1@y",
-			"id":"n_QvTnt",
+			"id":"n_QnSJn",
 			"index":22,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
-		},
-		{
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_D7NfW@_mzkHe-1@n",
-			"id":"n_chFjD",
-			"index":23,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"branch",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_mzkHe-1",
-			"id":"n_sAIka",
-			"index":24,
 			"inputs":{
-				"branches":[
-					{
-						"id":"1",
-						"inputs":{
-							"name":"Branch 1",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_0Jwyj.outputs.body.input }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"getTop5"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"2",
-						"inputs":{
-							"name":"Branch 2"
-						}
-					},
-					{
-						"id":"default"
-					}
-				]
-			},
-			"skip":true,
-			"subTitle":"Branch",
-			"title":"",
-			"type":"BRANCH"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@1",
-			"id":"n_sAIka@1",
-			"index":25,
-			"inputs":{
-				"name":"Branch 1",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_0Jwyj.outputs.body.input }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"getTop5"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":true,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"analytics_by_unifyapps",
-				"resourceVersion":930,
-				"resourceName":"analytics_by_unifyapps_execute_query",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@1",
-			"id":"n_q981K",
-			"index":26,
-			"inputs":{
-				"query":"select * from List1",
-				"params":{
-					"type":"array",
-					"title":"List1",
-					"disableActions":true,
-					"ua:__linkedVariable__":"n_BLMSm.outputs.items[0]",
-					"items":{
-						"type":"object",
-						"properties":{
-							"leaves_taken":{
-								"type":"string",
-								"title":"Leaves Taken"
-							},
-							"employee_id":{
-								"type":"string",
-								"title":"Employee Id"
-							},
-							"Department":{
-								"type":"string",
-								"title":"Department"
-							},
-							"Name":{
-								"type":"string",
-								"title":"Name"
-							},
-							"Bonus_amount":{
-								"type":"string",
-								"title":"Bonus Amount"
-							}
-						},
-						"required":[
-							"leaves_taken",
-							"employee_id",
-							"Department",
-							"Name",
-							"Bonus_amount"
-						]
-					}
-				},
 				"group":"ENTITY_REPORTING"
 			},
 			"skip":false,
 			"subTitle":"Analytics by UnifyApps",
-			"title":"Execute Analytics SQL Query",
+			"title":"Analytics Query",
 			"type":"ACTION"
 		},
 		{
 			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
+				"appName":"analytics_by_unifyapps",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@2",
-			"id":"n_sAIka@2",
-			"index":27,
-			"inputs":{
-				"name":"Branch 2"
-			},
-			"skip":true,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":708,
-				"resourceName":"utility_by_unifyapps_run_sql_query_on_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@2",
-			"id":"_pIkV6",
-			"index":28,
-			"inputs":{},
+			"groupId":"n_D7NfW@_mzkHe-1@n",
+			"id":"n_68NqR",
+			"index":23,
 			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Run SQL query on list",
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Select an action",
 			"type":"ACTION"
 		},
 		{
@@ -1481,7 +1266,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_rMERn",
-			"index":29,
+			"index":24,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1510,5 +1295,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
