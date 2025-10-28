@@ -1,51 +1,143 @@
 {
 	"appsUsed":[
-		
+		"slack",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761633130527,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_hUzcb",
+			"fromNodeId":"n_AMhxs",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_0yRxW",
+			"toNodeId":"n_yNygL",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yNygL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aUaKv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_aUaKv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Okryy",
 			"type":"next"
 		}
 	],
 	"id":"6900636aa309a82f9f7315bc",
 	"lastModifiedBy":511,
 	"lcName":"dependancytrigger-dnd",
-	"modifiedTime":1761633130527,
+	"modifiedTime":1761633847014,
 	"name":"DependancyTrigger-Dnd",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1066,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hUzcb-1",
-			"id":"_hUzcb",
-			"index":0,
+			"id":"n_AMhxs",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"var"
+					],
+					"properties":{
+						"var":{
+							"type":"string",
+							"title":"Var"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6351,
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hUzcb-1",
-			"id":"_0yRxW",
-			"index":0,
+			"id":"n_yNygL",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Slack",
+			"title":"Post message",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4615,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_hUzcb-1",
+			"id":"n_aUaKv",
+			"index":3,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"dnt_anlaytics_object",
+				"skipIfBlank":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1102,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_hUzcb-1",
+			"id":"n_Okryy",
+			"index":4,
+			"inputs":{
+				"result":{
+					"var":"edf"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":511,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +151,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
