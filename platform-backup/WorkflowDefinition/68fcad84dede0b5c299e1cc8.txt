@@ -5,12 +5,12 @@
 	"createdTime":1761389956257,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761588594893,
+		"deployedAt":1761645988116,
 		"deployedBy":115477,
-		"deployedDefinitionId":"68ffb572baa3204b3201f942",
+		"deployedDefinitionId":"690095a35520d463972c0d2f",
 		"status":"DEPLOYED",
-		"version":18,
-		"workflowVersion":35
+		"version":19,
+		"workflowVersion":40
 	},
 	"edges":[
 		{
@@ -149,7 +149,7 @@
 	"id":"68fcad84dede0b5c299e1cc8",
 	"lastModifiedBy":115477,
 	"lcName":"best practices | page score",
-	"modifiedTime":1761645985190,
+	"modifiedTime":1761647344035,
 	"name":"Best Practices | Page Score",
 	"nodes":[
 		{
@@ -275,7 +275,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_eQp2R",
@@ -424,7 +424,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_w184U",
@@ -480,7 +480,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_AwEoF",
@@ -569,7 +569,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_ZpyhG",
@@ -577,10 +577,9 @@
 			"inputs":{
 				"filters":[
 					{
-						"property":"{{ n_AwEoF.outputs.total }}",
+						"property":"{{ n_AwEoF.outputs.properties.checks }}",
 						"filter":{
-							"operator":"GT",
-							"value":"0"
+							"operator":"EXISTS"
 						}
 					}
 				],
@@ -599,7 +598,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"n_yGQY6",
@@ -626,7 +625,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_S5WW9",
@@ -690,7 +689,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_UmXGt",
@@ -781,7 +780,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZpyhG@_6NnBb-1@n",
 			"id":"_SMKPo",
@@ -814,7 +813,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_X4F6n",
@@ -905,7 +904,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6NnBb-1",
 			"id":"n_6OuEr",
@@ -942,5 +941,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":40
+	"version":41
 }
