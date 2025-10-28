@@ -1,51 +1,74 @@
 {
 	"appsUsed":[
-		
+		"coupa"
 	],
 	"createdTime":1761646386666,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_hhXqz",
+			"fromNodeId":"n_LtQZ8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_MGt6y",
+			"toNodeId":"n_BJmmF",
 			"type":"next"
 		}
 	],
 	"id":"69009732151fb15bb24a126f",
 	"lastModifiedBy":426,
 	"lcName":"abhay",
-	"modifiedTime":1761646386666,
+	"modifiedTime":1761646435570,
 	"name":"abhay",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hhXqz-1",
-			"id":"_hhXqz",
-			"index":0,
+			"id":"n_LtQZ8",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":320,
+				"connectionId":"689f438dad8d1849f80656b3",
+				"resourceName":"coupa_update_invoice",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hhXqz-1",
-			"id":"_MGt6y",
-			"index":0,
+			"id":"n_BJmmF",
+			"index":2,
+			"inputs":{},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Coupa",
+			"title":"Update invoice",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":426,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +82,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
