@@ -87,7 +87,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761668826141,
+	"modifiedTime":1761668912179,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -325,14 +325,7 @@
 					"root.payload.invoice-lines.items.line-num",
 					"root.payload.invoice-lines.items.description",
 					"root.payload.invoice-lines.items.quantity",
-					"root.payload.invoice-lines.items.price",
-					"root.payload.invoice-lines.items.po-number",
-					"root.payload.invoice-lines.items.order-line-id",
-					"root.payload.invoice-lines.items.uom.id",
-					"root.payload.invoice-lines.items.type",
-					"root.payload.invoice-lines.items.commodity.id",
-					"root.payload.invoice-lines.items.commodity.name",
-					"root.payload.invoice-lines.items.account.id"
+					"root.payload.invoice-lines.items.po-number"
 				]
 			},
 			"context":{
@@ -355,16 +348,10 @@
 					"invoice-lines":{
 						"ua:type":"mappedArray",
 						"items":{
-							"quantity":"{{ n_dozOM.outputs.order_lines[0].quantity }}",
 							"description":"{{ n_UiGsB.outputs.invoice-lines[0].description }}",
 							"line-num":"{{ n_UiGsB.outputs.invoice-lines[0].line-num }}",
-							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}",
 							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}",
-							"po-number":"PO000150",
-							"type":"{{ n_UiGsB.outputs.invoice-lines[0].type }}",
-							"commodity":{
-								"id":"{{ n_UiGsB.outputs.invoice-lines[0].account.account-type.currency.updated-by.id }}"
-							}
+							"po-number":"PO000150"
 						},
 						"source":"{{ n_UiGsB.outputs.invoice-lines }}"
 					}
@@ -394,5 +381,5 @@
 	"tags":[
 		
 	],
-	"version":51
+	"version":52
 }
