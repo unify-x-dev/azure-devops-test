@@ -6,47 +6,166 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_fXaki",
+			"fromNodeId":"n_w6Fgz",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_mzpkd",
+			"toNodeId":"n_51Fju",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_51Fju",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TtIeq",
 			"type":"next"
 		}
 	],
 	"id":"69005afaad1c2c4565e58a35",
 	"lastModifiedBy":39715,
 	"lcName":"removenonprocessmessages",
-	"modifiedTime":1761630970243,
+	"modifiedTime":1761633494627,
 	"name":"RemoveNonProcessMessages",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1154,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fXaki-1",
-			"id":"_fXaki",
-			"index":0,
+			"id":"n_w6Fgz",
+			"index":1,
+			"inputs":{
+				"request":{
+					"queryParams":{
+						"type":"object",
+						"additionalProperties":false,
+						"required":[],
+						"properties":{
+							"subscription":{
+								"type":"string",
+								"title":"Subscription"
+							},
+							"topic":{
+								"type":"string",
+								"title":"Topic"
+							}
+						}
+					},
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"name":"ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"result":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Result"
+								}
+							},
+							"additionalProperties":false,
+							"required":[
+								"result"
+							]
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":223,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_fXaki-1",
-			"id":"_mzpkd",
-			"index":0,
+			"id":"n_51Fju",
+			"index":2,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"subscription",
+						"topic"
+					],
+					"properties":{
+						"subscription":{
+							"type":"string",
+							"title":"Subscription"
+						},
+						"topic":{
+							"type":"string",
+							"title":"Topic"
+						}
+					}
+				},
+				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing Newtonsoft.Json;\nusing System.Net.Http;\nusing System.Collections.Generic;\n\npublic class QueueDescription : IEquatable<QueueDescription>\n    {\n        internal TimeSpan duplicateDetectionHistoryTimeWindow = TimeSpan.FromMinutes(1);\n        internal string path;\n        internal bool? internalSupportOrdering = null;\n        TimeSpan lockDuration = TimeSpan.FromSeconds(60);\n        TimeSpan defaultMessageTimeToLive = TimeSpan.MaxValue;\n        TimeSpan autoDeleteOnIdle = TimeSpan.MaxValue;\n        int maxDeliveryCount = 10;\n        string forwardTo = null;\n        string forwardDeadLetteredMessagesTo = null;\n        string userMetadata = null;\n\n        /// <summary>\n        /// Initializes a new instance of QueueDescription class with the specified relative path.\n        /// </summary>\n        /// <param name=\"path\">Path of the queue relative to the namespace base address.</param>\n        public QueueDescription(string path)\n        {\n            this.Path = path;\n        }\n\n        /// <summary>\n        /// Path of the queue relative to the namespace base address.\n        /// </summary>\n        /// <remarks>Max length is 260 chars. Cannot start or end with a slash.\n        /// Cannot have restricted characters: '@','?','#','*'</remarks>\n        public string Path\n        {\n            get => this.path;\n            set\n            {\n                EntityNameHelper.CheckValidQueueName(value, nameof(Path));\n                this.path = value;\n            }\n        }\n\n        /// <summary>\n        /// Duration of a peek lock receive. i.e., the amount of time that the message is locked by a given receiver so that\n        /// no other receiver receives the same message.\n        /// </summary>\n        /// <remarks>Max value is 5 minutes. Default value is 60 seconds.</remarks>\n        public TimeSpan LockDuration\n        {\n            get => this.lockDuration;\n            set\n            {\n                TimeoutHelper.ThrowIfNonPositiveArgument(value, nameof(LockDuration));\n                this.lockDuration = value;\n            }\n        }\n\n        /// <summary>\n        /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.\n        /// </summary>\n        /// <remarks>Default value is 1024.</remarks>\n        public long MaxSizeInMB { get; set; } = 1024;\n\n        /// <summary>\n        /// This value indicates if the queue requires guard against duplicate messages. If true, duplicate messages having same\n        /// <see cref=\"Message.MessageId\"/> and sent to queue within duration of <see cref=\"DuplicateDetectionHistoryTimeWindow\"/>\n        /// will be discarded.\n        /// </summary>\n        /// <remarks>Defaults to false.</remarks>\n        public bool RequiresDuplicateDetection { get; set; } = false;\n\n        /// <summary>\n        /// This indicates whether the queue supports the concept of session. Sessionful-messages follow FIFO ordering.\n        /// </summary>\n        /// <remarks>\n        /// If true, the receiver can only receive messages using <see cref=\"SessionClient.AcceptMessageSessionAsync()\"/>.\n        /// Defaults to false.\n        /// </remarks>\n        public bool RequiresSession { get; set; } = false;\n\n        /// <summary>\n        /// The default time to live value for the messages. This is the duration after which the message expires, starting from when\n        /// the message is sent to Service Bus. </summary>\n        /// <remarks>\n        /// This is the default value used when <see cref=\"Message.TimeToLive\"/> is not set on a\n        ///  message itself. Messages older than their TimeToLive value will expire and no longer be retained in the message store.\n        ///  Subscribers will be unable to receive expired messages.\n        ///  Default value is <see cref=\"TimeSpan.MaxValue\"/>.\n        ///  </remarks>\n        public TimeSpan DefaultMessageTimeToLive\n        {\n            get => this.defaultMessageTimeToLive;\n            set\n            {\n                if (value < ManagementClientConstants.MinimumAllowedTimeToLive || value > ManagementClientConstants.MaximumAllowedTimeToLive)\n                {\n                    throw new ArgumentOutOfRangeException(nameof(DefaultMessageTimeToLive),\n                        $\"The value must be between {ManagementClientConstants.MinimumAllowedTimeToLive} and {ManagementClientConstants.MaximumAllowedTimeToLive}\");\n                }\n\n                this.defaultMessageTimeToLive = value;\n            }\n        }\n\n        /// <summary>\n        /// The <see cref=\"TimeSpan\"/> idle interval after which the queue is automatically deleted.\n        /// </summary>\n        /// <remarks>The minimum duration is 5 minutes. Default value is <see cref=\"TimeSpan.MaxValue\"/>.</remarks>\n        public TimeSpan AutoDeleteOnIdle\n        {\n            get => this.autoDeleteOnIdle;\n            set\n            {\n                if (value < ManagementClientConstants.MinimumAllowedAutoDeleteOnIdle)\n                {\n                    throw new ArgumentOutOfRangeException(nameof(AutoDeleteOnIdle),\n                        $\"The value must be greater than {ManagementClientConstants.MinimumAllowedAutoDeleteOnIdle}\");\n                }\n\n                this.autoDeleteOnIdle = value;\n            }\n        }\n\n        /// <summary>\n        /// Indicates whether this queue has dead letter support when a message expires.\n        /// </summary>\n        /// <remarks>If true, the expired messages are moved to dead-letter sub-queue. Default value is false.</remarks>\n        public bool EnableDeadLetteringOnMessageExpiration { get; set; } = false;\n\n        /// <summary>\n        /// The <see cref=\"TimeSpan\"/> duration of duplicate detection history that is maintained by the service.\n        /// </summary>\n        /// <remarks>\n        /// The default value is 1 minute. Max value is 7 days and minimum is 20 seconds.\n        /// </remarks>\n        public TimeSpan DuplicateDetectionHistoryTimeWindow\n        {\n            get => this.duplicateDetectionHistoryTimeWindow;\n            set\n            {\n                if (value < ManagementClientConstants.MinimumDuplicateDetectionHistoryTimeWindow || value > ManagementClientConstants.MaximumDuplicateDetectionHistoryTimeWindow)\n                {\n                    throw new ArgumentOutOfRangeException(nameof(DuplicateDetectionHistoryTimeWindow),\n                        $\"The value must be between {ManagementClientConstants.MinimumDuplicateDetectionHistoryTimeWindow} and {ManagementClientConstants.MaximumDuplicateDetectionHistoryTimeWindow}\");\n                }\n\n                this.duplicateDetectionHistoryTimeWindow = value;\n            }\n        }\n\n        /// <summary>\n        /// The maximum delivery count of a message before it is dead-lettered.\n        /// </summary>\n        /// <remarks>The delivery count is increased when a message is received in <see cref=\"ReceiveMode.PeekLock\"/> mode\n        /// and didn't complete the message before the message lock expired.\n        /// Default value is 10. Minimum value is 1.</remarks>\n        public int MaxDeliveryCount\n        {\n            get => this.maxDeliveryCount;\n            set\n            {\n                if (value < ManagementClientConstants.MinAllowedMaxDeliveryCount)\n                {\n                    throw new ArgumentOutOfRangeException(nameof(MaxDeliveryCount),\n                        $\"The value must be greater than {ManagementClientConstants.MinAllowedMaxDeliveryCount}\");\n                }\n\n                this.maxDeliveryCount = value;\n            }\n        }\n\n        /// <summary>\n        /// Indicates whether server-side batched operations are enabled.\n        /// </summary>\n        /// <remarks>Defaults to true.</remarks>\n        public bool EnableBatchedOperations { get; set; } = true;\n\n        /// <summary>\n        /// The <see cref=\"AuthorizationRules\"/> on the queue to control user access at entity level.\n        /// </summary>\n        public AuthorizationRules AuthorizationRules { get; internal set; } = new AuthorizationRules();\n\n        /// <summary>\n        /// The current status of the queue (Enabled / Disabled).\n        /// </summary>\n        /// <remarks>When an entity is disabled, that entity cannot send or receive messages.</remarks>\n        public EntityStatus Status { get; set; } = EntityStatus.Active;\n\n        /// <summary>\n        /// The path of the recipient entity to which all the messages sent to the queue are forwarded to.\n        /// </summary>\n        /// <remarks>If set, user cannot manually receive messages from this queue. The destination entity\n        /// must be an already existing entity.</remarks>\n        public string ForwardTo\n        {\n            get => this.forwardTo;\n            set\n            {\n                if (string.IsNullOrWhiteSpace(value))\n                {\n                    this.forwardTo = value;\n                    return;\n                }\n\n                EntityNameHelper.CheckValidQueueName(value, nameof(ForwardTo));\n                if (this.path.Equals(value, StringComparison.CurrentCultureIgnoreCase))\n                {\n                    throw new InvalidOperationException(\"Entity cannot have auto-forwarding policy to itself\");\n                }\n\n                this.forwardTo = value;\n            }\n        }\n\n        /// <summary>\n        /// The path of the recipient entity to which all the dead-lettered messages of this queue are forwarded to.\n        /// </summary>\n        /// <remarks>If set, user cannot manually receive dead-lettered messages from this queue. The destination\n        /// entity must already exist.</remarks>\n        public string ForwardDeadLetteredMessagesTo\n        {\n            get => this.forwardDeadLetteredMessagesTo;\n            set\n            {\n                if (string.IsNullOrWhiteSpace(value))\n                {\n                    this.forwardDeadLetteredMessagesTo = value;\n                    return;\n                }\n\n                EntityNameHelper.CheckValidQueueName(value, nameof(ForwardDeadLetteredMessagesTo));\n                if (this.path.Equals(value, StringComparison.CurrentCultureIgnoreCase))\n                {\n                    throw new InvalidOperationException(\"Entity cannot have auto-forwarding policy to itself\");\n                }\n\n                this.forwardDeadLetteredMessagesTo = value;\n            }\n        }\n\n        /// <summary>\n        /// Indicates whether the queue is to be partitioned across multiple message brokers.\n        /// </summary>\n        /// <remarks>Defaults to false.</remarks>\n        public bool EnablePartitioning { get; set; } = false;\n\n        /// <summary>\n        /// Custom metdata that user can associate with the description.\n        /// </summary>\n        /// <remarks>Cannot be null. Max length is 1024 chars.</remarks>\n        public string UserMetadata\n        {\n            get => this.userMetadata;\n            set\n            {\n                if (value == null)\n                {\n                    throw new ArgumentNullException(nameof(UserMetadata), $\"Value cannot be null\");\n                }\n\n                if (value.Length > ManagementClientConstants.MaxUserMetadataLength)\n                {\n                    throw new ArgumentOutOfRangeException(nameof(UserMetadata), $\"Length cannot cross {ManagementClientConstants.MaxUserMetadataLength} characters\");\n                }\n\n                this.userMetadata = value;\n            }\n        }\n\n        internal bool IsAnonymousAccessible { get; set; } = false;\n\n        internal bool SupportOrdering\n        { \n            get\n            {\n                return this.internalSupportOrdering ?? !this.EnablePartitioning;\n            }\n            set\n            {\n                this.internalSupportOrdering = value;\n            }\n        }\n\n        internal bool EnableExpress { get; set; } = false;\n\n        /// <summary>\n        /// List of properties that were retrieved using GetQueue but are not understood by this version of client is stored here.\n        /// The list will be sent back when an already retrieved QueueDescription will be used in UpdateQueue call.\n        /// </summary>\n        internal List<XElement> UnknownProperties { get; set; }\n\n        public override int GetHashCode()\n        {\n            return this.Path?.GetHashCode() ?? base.GetHashCode();\n        }\n\n        public override bool Equals(object obj)\n        {\n            var other = obj as QueueDescription;\n            return this.Equals(other);\n        }\n\n        public bool Equals(QueueDescription otherDescription)\n        {\n            if (otherDescription is QueueDescription other\n                && this.Path.Equals(other.Path, StringComparison.OrdinalIgnoreCase)\n                && this.AutoDeleteOnIdle.Equals(other.AutoDeleteOnIdle)\n                && this.DefaultMessageTimeToLive.Equals(other.DefaultMessageTimeToLive)\n                && (!this.RequiresDuplicateDetection || this.DuplicateDetectionHistoryTimeWindow.Equals(other.DuplicateDetectionHistoryTimeWindow))\n                && this.EnableBatchedOperations == other.EnableBatchedOperations\n                && this.EnableDeadLetteringOnMessageExpiration == other.EnableDeadLetteringOnMessageExpiration\n                && this.EnablePartitioning == other.EnablePartitioning\n                && string.Equals(this.ForwardDeadLetteredMessagesTo, other.ForwardDeadLetteredMessagesTo, StringComparison.OrdinalIgnoreCase)\n                && string.Equals(this.ForwardTo, other.ForwardTo, StringComparison.OrdinalIgnoreCase)\n                && this.LockDuration.Equals(other.LockDuration)\n                && this.MaxDeliveryCount == other.MaxDeliveryCount\n                && this.MaxSizeInMB == other.MaxSizeInMB\n                && this.RequiresDuplicateDetection.Equals(other.RequiresDuplicateDetection)\n                && this.RequiresSession.Equals(other.RequiresSession)\n                && this.Status.Equals(other.Status)\n                && this.SupportOrdering.Equals(other.SupportOrdering)\n                && this.EnableExpress == other.EnableExpress\n                && this.IsAnonymousAccessible == other.IsAnonymousAccessible\n                && string.Equals(this.userMetadata, other.userMetadata, StringComparison.OrdinalIgnoreCase)\n                && (this.AuthorizationRules != null && other.AuthorizationRules != null\n                    || this.AuthorizationRules == null && other.AuthorizationRules == null)\n                && (this.AuthorizationRules == null || this.AuthorizationRules.Equals(other.AuthorizationRules)))\n            {\n                return true;\n            }\n\n            return false;\n        }\n\n        public static bool operator ==(QueueDescription o1, QueueDescription o2)\n        {\n            if (ReferenceEquals(o1, o2))\n            {\n                return true;\n            }\n\n            if (ReferenceEquals(o1, null) || ReferenceEquals(o2, null))\n            {\n                return false;\n            }\n\n            return o1.Equals(o2);\n        }\n\n        public static bool operator !=(QueueDescription o1, QueueDescription o2)\n        {\n            return !(o1 == o2);\n        }\n    }\n\n    /// <summary>\n    /// Represents the metadata description of the topic.\n    /// </summary>\npublic class TopicDescription : IEquatable<TopicDescription>\n{\n    internal TimeSpan duplicateDetectionHistoryTimeWindow = TimeSpan.FromMinutes(1);\n    internal string path;\n    TimeSpan defaultMessageTimeToLive = TimeSpan.MaxValue;\n    TimeSpan autoDeleteOnIdle = TimeSpan.MaxValue;\n    string userMetadata = null;\n    /// <summary>\n    /// Initializes a new instance of TopicDescription class with the specified relative path.\n    /// </summary>\n    /// <param name=\"path\">Path of the topic relative to the namespace base address.</param>\n    public TopicDescription(string path)\n    {\n        this.Path = path;\n    }\n    /// <summary>\n    /// The default time to live value for the messages. This is the duration after which the message expires, starting from when\n    /// the message is sent to Service Bus. </summary>\n    /// <remarks>\n    /// This is the default value used when <see cref=\"Message.TimeToLive\"/> is not set on a\n    ///  message itself. Messages older than their TimeToLive value will expire and no longer be retained in the message store.\n    ///  Subscribers will be unable to receive expired messages.\n    ///  Default value is <see cref=\"TimeSpan.MaxValue\"/>.\n    ///  </remarks>\n    public TimeSpan DefaultMessageTimeToLive\n    {\n        get => this.defaultMessageTimeToLive;\n        set\n        {\n            if (value < ManagementClientConstants.MinimumAllowedTimeToLive || value > ManagementClientConstants.MaximumAllowedTimeToLive)\n            {\n                throw new ArgumentOutOfRangeException(nameof(DefaultMessageTimeToLive),\n                    $\"The value must be between {ManagementClientConstants.MinimumAllowedTimeToLive} and {ManagementClientConstants.MaximumAllowedTimeToLive}\");\n            }\n            this.defaultMessageTimeToLive = value;\n        }\n    }\n    /// <summary>\n    /// The <see cref=\"TimeSpan\"/> idle interval after which the topic is automatically deleted.\n    /// </summary>\n    /// <remarks>The minimum duration is 5 minutes. Default value is <see cref=\"TimeSpan.MaxValue\"/>.</remarks>\n    public TimeSpan AutoDeleteOnIdle\n    {\n        get => this.autoDeleteOnIdle;\n        set\n        {\n            if (value < ManagementClientConstants.MinimumAllowedAutoDeleteOnIdle)\n            {\n                throw new ArgumentOutOfRangeException(nameof(AutoDeleteOnIdle),\n                    $\"The value must be greater than {ManagementClientConstants.MinimumAllowedAutoDeleteOnIdle}\");\n            }\n            this.autoDeleteOnIdle = value;\n        }\n    }\n    /// <summary>\n    /// The maximum size of the topic in megabytes, which is the size of memory allocated for the topic.\n    /// </summary>\n    /// <remarks>Default value is 1024.</remarks>\n    public long MaxSizeInMB { get; set; } = 1024;\n    /// <summary>\n    /// This value indicates if the topic requires guard against duplicate messages. If true, duplicate messages having same\n    /// <see cref=\"Message.MessageId\"/> and sent to topic within duration of <see cref=\"DuplicateDetectionHistoryTimeWindow\"/>\n    /// will be discarded.\n    /// </summary>\n    /// <remarks>Defaults to false.</remarks>\n    public bool RequiresDuplicateDetection { get; set; } = false;\n    /// <summary>\n    /// The <see cref=\"TimeSpan\"/> duration of duplicate detection history that is maintained by the service.\n    /// </summary>\n    /// <remarks>\n    /// The default value is 1 minute. Max value is 7 days and minimum is 20 seconds.\n    /// </remarks>\n    public TimeSpan DuplicateDetectionHistoryTimeWindow\n    {\n        get => this.duplicateDetectionHistoryTimeWindow;\n        set\n        {\n            if (value < ManagementClientConstants.MinimumDuplicateDetectionHistoryTimeWindow || value > ManagementClientConstants.MaximumDuplicateDetectionHistoryTimeWindow)\n            {\n                throw new ArgumentOutOfRangeException(nameof(DuplicateDetectionHistoryTimeWindow),\n                    $\"The value must be between {ManagementClientConstants.MinimumDuplicateDetectionHistoryTimeWindow} and {ManagementClientConstants.MaximumDuplicateDetectionHistoryTimeWindow}\");\n            }\n            this.duplicateDetectionHistoryTimeWindow = value;\n        }\n    }\n    /// <summary>\n    /// Path of the topic relative to the namespace base address.\n    /// </summary>\n    /// <remarks>Max length is 260 chars. Cannot start or end with a slash.\n    /// Cannot have restricted characters: '@','?','#','*'</remarks>\n    public string Path\n    {\n        get => this.path;\n        set\n        {\n            EntityNameHelper.CheckValidTopicName(value, nameof(Path));\n            this.path = value;\n        }\n    }\n    /// <summary>\n    /// The <see cref=\"AuthorizationRules\"/> on the topic to control user access at entity level.\n    /// </summary>\n    public AuthorizationRules AuthorizationRules { get; internal set; } = new AuthorizationRules();\n    /// <summary>\n    /// The current status of the topic (Enabled / Disabled).\n    /// </summary>\n    /// <remarks>When an entity is disabled, that entity cannot send or receive messages.</remarks>\n    public EntityStatus Status { get; set; } = EntityStatus.Active;\n    /// <summary>\n    /// Indicates whether the topic is to be partitioned across multiple message brokers.\n    /// </summary>\n    /// <remarks>Defaults to false.</remarks>\n    public bool EnablePartitioning { get; set; } = false;\n    /// <summary>\n    /// Defines whether ordering needs to be maintained. If true, messages sent to topic will be\n    /// forwarded to the subscription in order.\n    /// </summary>\n    /// <remarks>Defaults to false.</remarks>\n    public bool SupportOrdering { get; set; } = false;\n    /// <summary>\n    /// Indicates whether server-side batched operations are enabled.\n    /// </summary>\n    /// <remarks>Defaults to true.</remarks>\n    public bool EnableBatchedOperations { get; set; } = true;\n    /// <summary>\n    /// Custom metdata that user can associate with the description.\n    /// </summary>\n    /// <remarks>Cannot be null. Max length is 1024 chars.</remarks>\n    public string UserMetadata\n    {\n        get => this.userMetadata;\n        set\n        {\n            if (value == null)\n            {\n                throw new ArgumentNullException(nameof(UserMetadata), $\"Value cannot be null\");\n            }\n            if (value.Length > ManagementClientConstants.MaxUserMetadataLength)\n            {\n                throw new ArgumentOutOfRangeException(nameof(UserMetadata), $\"Length cannot cross {ManagementClientConstants.MaxUserMetadataLength} characters\");\n            }\n            this.userMetadata = value;\n        }\n    }\n    internal bool IsAnonymousAccessible { get; set; } = false;\n    internal bool FilteringMessagesBeforePublishing { get; set; } = false;\n    internal string ForwardTo { get; set; } = null;\n    internal bool EnableExpress { get; set; } = false;\n    internal bool EnableSubscriptionPartitioning { get; set; } = false;\n    /// <summary>\n    /// List of properties that were retrieved using GetTopic but are not understood by this version of client is stored here.\n    /// The list will be sent back when an already retrieved TopicDescription will be used in UpdateTopic call.\n    /// </summary>\n    internal List<object> UnknownProperties { get; set; }\n    public override int GetHashCode()\n    {\n        return this.Path?.GetHashCode() ?? base.GetHashCode();\n    }\n    public override bool Equals(object obj)\n    {\n        var other = obj as TopicDescription;\n        return this.Equals(other);\n    }\n    public bool Equals(TopicDescription otherDescription)\n    {\n        if (otherDescription is TopicDescription other\n            && this.Path.Equals(other.Path, StringComparison.OrdinalIgnoreCase)\n            && this.AutoDeleteOnIdle.Equals(other.AutoDeleteOnIdle)\n            && this.DefaultMessageTimeToLive.Equals(other.DefaultMessageTimeToLive)\n            && (!this.RequiresDuplicateDetection || this.DuplicateDetectionHistoryTimeWindow.Equals(other.DuplicateDetectionHistoryTimeWindow))\n            && this.EnableBatchedOperations == other.EnableBatchedOperations\n            && this.EnablePartitioning == other.EnablePartitioning\n            && this.MaxSizeInMB == other.MaxSizeInMB\n            && this.RequiresDuplicateDetection.Equals(other.RequiresDuplicateDetection)\n            && this.Status.Equals(other.Status)\n            && string.Equals(this.userMetadata, other.userMetadata, StringComparison.OrdinalIgnoreCase)\n            && string.Equals(this.ForwardTo, other.ForwardTo, StringComparison.OrdinalIgnoreCase)\n            && this.EnableExpress == other.EnableExpress\n            && this.IsAnonymousAccessible == other.IsAnonymousAccessible\n            && this.FilteringMessagesBeforePublishing == other.FilteringMessagesBeforePublishing\n            && this.EnableSubscriptionPartitioning == other.EnableSubscriptionPartitioning\n            && (this.AuthorizationRules != null && other.AuthorizationRules != null\n                || this.AuthorizationRules == null && other.AuthorizationRules == null)\n            && (this.AuthorizationRules == null || this.AuthorizationRules.Equals(other.AuthorizationRules)))\n        {\n            return true;\n        }\n        return false;\n    }\n    public static bool operator ==(TopicDescription o1, TopicDescription o2)\n    {\n        if (ReferenceEquals(o1, o2))\n        {\n            return true;\n        }\n        if (ReferenceEquals(o1, null) || ReferenceEquals(o2, null))\n        {\n            return false;\n        }\n        return o1.Equals(o2);\n    }\n    public static bool operator !=(TopicDescription o1, TopicDescription o2)\n    {\n        return !(o1 == o2);\n    }\n}\n\npublic  String GetRequestResultAsync(String secretName)\n{\n    log.LogInformation(\"Call to get Service Request Result :\" + secretName);\n    String keyVaultUrl = Environment.GetEnvironmentVariable(\"keyVaultUrl\");\n    //String keyVaultUrl = \"https://virtu-keyvaultfn-dev3.azurewebsites.net/api/keyvault/virtuEAGIntegKV-dev3/secrets?code=vjohKWp6zVu4k8ZwQ/CGIaOXStBnoqqg9f3/KsStnNJmrLyMB4wkPw==\";\n    keyVaultUrl = keyVaultUrl + \"&items=\" + secretName;\n//    log.LogInformation(\"Key vault url\" + keyVaultUrl);\n   \n    String result = GetResponseAsync(secretName, keyVaultUrl).GetAwaiter().GetResult();\n    // log.LogInformation(\"got response\" + result);\n    return result;\n}\n\npublic string getServiceBusConnetion()\n{\n    //return SERVICEBUSCONNECTION;\n    // log.LogInformation(\"Getting ServiceBusConnection String from the KeyvaultFunction\");\n      \n   String serviceBusConnection = GetRequestResultAsync(\"ServiceBusConnectionString\");\n    return serviceBusConnection;\n}\n\nprivate async Task<String> GetResponseAsync(String secretName,string path)\n{\n    HttpClient client = new HttpClient();\n  \n   \n    HttpResponseMessage response = await client.GetAsync(path);\n    String s = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();\n    //String[] array = JSONDecoders.DecodeJsStringArray(s);\n    // log.LogInformation(\"RESPONSE \" + s);\n    JsonObject[] obj = (JsonObject[])Newtonsoft.Json.JsonConvert.DeserializeObject<JsonObject[]>(s);\n    JsonObject value = Array.Find(obj, element => element.name == secretName);\n    // log.LogInformation(\" Result Vaule from the keyvault\" + value.value);\n    if (response.IsSuccessStatusCode)\n    {\n        // log.LogInformation(\"Secreat is received succssfully\");\n        return value.value;\n    }\n    // log.LogError(\" ERROR on getting requested secret value\");\n    return null;\n}\n\n\n\n",
+				"isAsync":false,
+				"parameters":{
+					"subscription":"{{ n_w6Fgz.outputs.queryParams.subscription }}",
+					"topic":"{{ n_w6Fgz.outputs.queryParams.topic }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1123,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_fXaki-1",
+			"id":"n_TtIeq",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39715,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +179,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
