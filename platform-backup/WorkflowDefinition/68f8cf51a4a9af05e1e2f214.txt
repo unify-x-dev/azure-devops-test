@@ -56,9 +56,9 @@
 		}
 	],
 	"id":"68f8cf51a4a9af05e1e2f214",
-	"lastModifiedBy":508,
+	"lastModifiedBy":44567,
 	"lcName":"web_jobs_testing",
-	"modifiedTime":1761354135321,
+	"modifiedTime":1761641475505,
 	"name":"web_jobs_testing",
 	"nodes":[
 		{
@@ -261,7 +261,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"_k9SU8",
@@ -383,19 +383,19 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"n_Iyzj1",
 			"index":8,
 			"inputs":{
-				"webJobFile":"{{ _B4pG8.outputs.result.fileDetails }}",
+				"webJobFile":"e_69007668789e022c9a44e10b",
 				"metadata":{
 					"replaceValues":[],
 					"scriptArguments":[]
 				},
-				"setupFile":"{{ n_uMej7.outputs.result.fileDetails }}",
-				"javaFile":"{{ _k9SU8.outputs.result.fileDetails }}"
+				"setupFile":"e_690076d8789e022c9a44e10d",
+				"javaFile":"e_6900769b789e022c9a44e10c"
 			},
 			"options":{
 				"bulkheadConfig":{
@@ -471,5 +471,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
