@@ -87,7 +87,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761670532421,
+	"modifiedTime":1761670791641,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -310,7 +310,7 @@
 			"index":10,
 			"inputs":{
 				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
-				"id":"520"
+				"id":"445"
 			},
 			"skip":false,
 			"subTitle":"Coupa",
@@ -336,7 +336,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_s9YKE",
@@ -355,7 +355,8 @@
 							"account":{
 								"id":"{{ n_UiGsB.outputs.invoice-lines[0].account.account-type.id }}"
 							},
-							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}"
+							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}",
+							"id":"{{ n_UiGsB.outputs.invoice-lines[0].updated-by.id }}"
 						}
 					}
 				},
@@ -384,5 +385,5 @@
 	"tags":[
 		
 	],
-	"version":60
+	"version":61
 }
