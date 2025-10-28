@@ -5,12 +5,12 @@
 	"createdTime":1761417627746,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761661373506,
+		"deployedAt":1761665489356,
 		"deployedBy":23949,
-		"deployedDefinitionId":"6900d1bdc273210924d09708",
-		"status":"PAUSED",
-		"version":8,
-		"workflowVersion":17
+		"deployedDefinitionId":"6900e1d1a0bcbf740ac54c72",
+		"status":"DEPLOYED",
+		"version":9,
+		"workflowVersion":19
 	},
 	"edges":[
 		{
@@ -117,7 +117,7 @@
 	"id":"68fd199b9e1ba9260c2c19b9",
 	"lastModifiedBy":23949,
 	"lcName":"best practices | run page checks",
-	"modifiedTime":1761665487666,
+	"modifiedTime":1761665571466,
 	"name":"Best Practices | Run Page Checks",
 	"nodes":[
 		{
@@ -127,7 +127,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_tzKET",
@@ -172,7 +172,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_w4pTI",
@@ -215,7 +215,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_BCs9K",
@@ -259,7 +259,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_Q36ak",
@@ -297,7 +297,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_i3IrJ",
@@ -630,7 +630,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_wo5ba",
@@ -881,7 +881,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_jr8kl",
@@ -920,7 +920,7 @@
 					"ua:type":"mappedArray",
 					"items":{
 						"object":"{{ n_wo5ba.outputs.object }}",
-						"automationId":"{{ n_jr8kl.outputs.item[0].id }}"
+						"automationId":"{{ n_jr8kl.outputs.item[0].properties.automationId }}"
 					}
 				},
 				"version":"-1"
@@ -938,7 +938,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_jr8kl@_ZMmc1-1@l",
 			"id":"n_hsOgf",
@@ -970,7 +970,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_hsOgf@n_jr8kl@_ZMmc1-1@l@l",
 			"id":"n_WSSKv",
@@ -1013,7 +1013,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_7eRDF",
@@ -1045,7 +1045,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_0ITyo",
@@ -1092,7 +1092,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ZMmc1-1",
 			"id":"n_WpRsG",
@@ -1125,5 +1125,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":19
+	"version":20
 }
