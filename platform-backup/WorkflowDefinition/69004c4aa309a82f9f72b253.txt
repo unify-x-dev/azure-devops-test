@@ -1,51 +1,197 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761627210616,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_1rWbt",
+			"fromNodeId":"n_nOLHN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_PhWcg",
+			"toNodeId":"n_NTkbV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_NTkbV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5QPjw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5QPjw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DehR5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_DehR5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vIzga",
 			"type":"next"
 		}
 	],
 	"id":"69004c4aa309a82f9f72b253",
 	"lastModifiedBy":190398,
 	"lcName":"trying1 ",
-	"modifiedTime":1761627210616,
+	"modifiedTime":1761629639775,
 	"name":"trying1 ",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":2967,
+				"connectionId":"68ff375d0cc6fc60b7728488",
+				"resourceName":"gmail_on_new_attachment"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1rWbt-1",
-			"id":"_1rWbt",
-			"index":0,
+			"id":"n_nOLHN",
+			"index":1,
+			"inputs":{
+				"pageSize":500,
+				"interval":5,
+				"batchSize":5
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Gmail",
+			"title":"New Email Attachment",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":3500,
+				"connectionId":"68ff375d0cc6fc60b7728488",
+				"resourceName":"gmail_remove_labels",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1rWbt-1",
-			"id":"_PhWcg",
-			"index":0,
+			"id":"n_NTkbV",
+			"index":2,
+			"inputs":{
+				"labelIds":{
+					"source":"{{ n_nOLHN.outputs.batch[0].raw.labelIds }}",
+					"ua:type":"mappedArray",
+					"items":"UNREAD"
+				},
+				"id":"{{ n_nOLHN.outputs.batch[0].id }}"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"Remove labels",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":964,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_1rWbt-1",
+			"id":"n_5QPjw",
+			"index":3,
+			"inputs":{
+				"base64Content":"{{ n_nOLHN.outputs.batch[0].allAttachments }}",
+				"fileName":"{{ n_nOLHN.outputs.batch[0].attachments[0].file_name }}",
+				"mimeType":"{{ n_nOLHN.outputs.batch[0].attachments[0].mime_type }}",
+				"option":"base64Content"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":932,
+				"resourceName":"files_by_unifyapps_append_line_to_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_1rWbt-1",
+			"id":"n_DehR5",
+			"index":4,
+			"inputs":{
+				"file":"{{ n_5QPjw.outputs.fileDetails }}",
+				"type":"SINGLE",
+				"contentType":"plainText",
+				"content":"This file has been updated by Sahil kumar"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Append line(s) to file",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.attachments.items.attachment_option",
+					"root.attachments.items.file_name"
+				]
+			},
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5632,
+				"connectionId":"68ff375d0cc6fc60b7728488",
+				"resourceName":"gmail_send_email",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_1rWbt-1",
+			"id":"n_vIzga",
+			"index":5,
+			"inputs":{
+				"labelIds":{
+					"source":"{{ n_NTkbV.outputs.labelIds }}",
+					"ua:type":"mappedArray",
+					"items":"SENT"
+				},
+				"attachments":{
+					"items":{
+						"attachment_option":"use_file_binary_content",
+						"file_name":"{{ n_5QPjw.outputs.fileDetails.name }}",
+						"file_binary_content":"{{ n_5QPjw.outputs.fileDetails.sourceType }}"
+					},
+					"ua:type":"mappedArray"
+				},
+				"email_type":"text",
+				"subject":"{{ n_nOLHN.outputs.batch[0].subject }}",
+				"to":{
+					"source":"{{ n_nOLHN.outputs.batch[0].to.toEmails[0] }}",
+					"ua:type":"mappedArray"
+				}
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Send email",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190398,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +205,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
