@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761644705457,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_XonOy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_DQTHa",
+			"type":"next"
+		}
+	],
+	"id":"690090a1c85d6a3a6dc300f7",
+	"lastModifiedBy":186875,
+	"lcName":"virtu-empowerreactionssfn - syncemployeesshttptrigger",
+	"modifiedTime":1761644705457,
+	"name":"virtu-emPowerReactionsSFN - SyncEmployeessHttpTrigger",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_XonOy-1",
+			"id":"_XonOy",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_XonOy-1",
+			"id":"_DQTHa",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":186875,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
