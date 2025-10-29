@@ -2,9 +2,29 @@
 	"createdTime":1761747246313,
 	"deleted":false,
 	"entityType":"e_interface",
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"E",
+					"V",
+					"M_L"
+				],
+				"principalIds":[
+					"37018"
+				],
+				"principalType":"USER"
+			}
+		]
+	},
 	"id":"dnt-inbound-changeset-application-clone",
 	"lastModifiedBy":37018,
-	"modifiedTime":1761747246313,
+	"modifiedTime":1761747530840,
 	"ownerUserId":37018,
 	"properties":{
 		"standard":false,
@@ -19,7 +39,7 @@
 			},
 			"_counter":{
 				"_mqttTopicCounter":0,
-				"_dataSourceCounter":6,
+				"_dataSourceCounter":9,
 				"_pageCount":3,
 				"_moduleCount":0,
 				"_variableCounter":3
@@ -301,5 +321,5 @@
 		}
 	},
 	"standard":false,
-	"version":0
+	"version":9
 }
