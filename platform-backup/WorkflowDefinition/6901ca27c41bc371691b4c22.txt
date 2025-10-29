@@ -8,12 +8,12 @@
 	"createdTime":1761724967714,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761730454001,
+		"deployedAt":1761731113102,
 		"deployedBy":122909,
-		"deployedDefinitionId":"6901df950a7959277f204afd",
+		"deployedDefinitionId":"6901e229c41bc371691c49b2",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":9
+		"version":5,
+		"workflowVersion":10
 	},
 	"edges":[
 		{
@@ -39,6 +39,13 @@
 		},
 		{
 			"fromNodeId":"n_cYSml",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aFqhh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_aFqhh",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_S671S",
@@ -153,7 +160,7 @@
 	"id":"6901ca27c41bc371691b4c22",
 	"lastModifiedBy":122909,
 	"lcName":"workflow1",
-	"modifiedTime":1761731110948,
+	"modifiedTime":1761731862140,
 	"name":"Workflow1",
 	"nodes":[
 		{
@@ -277,6 +284,31 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_aFqhh",
+			"index":5,
+			"inputs":{
+				"automationId":"6901df810a7959277f204a96",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
 				"appName":"streams_by_unifyapps",
 				"resourceVersion":1674,
 				"resourceName":"streams_by_unifyapps_publish_event",
@@ -287,7 +319,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_S671S",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"streamId":"e_687f3487c30a93f7d8417e99",
 				"skipInputValidation":false,
@@ -318,7 +350,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_YFMUg",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"streamId":"e_68f34eba0e135e412acff3b7",
 				"skipInputValidation":false
@@ -341,7 +373,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_C4CYB",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"link_names":true,
 				"mrkdwn":true
@@ -364,7 +396,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_7YcvJ",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"baseUrl":"https://uat-automation.uat.unifyapps.com",
 				"password":"__UNIFYAPPS_GARBAGE_CONSTANT__Z29vZCBsdWNrIQ==",
@@ -395,7 +427,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_jqeIq",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"entityId":"e_689b71e217baaa435004d2ba"
 			},
@@ -416,7 +448,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_au8JJ",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"name":"Decision table"
 			},
@@ -437,7 +469,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_dZsnv",
-			"index":11,
+			"index":12,
 			"skip":false,
 			"subTitle":"Test Connector",
 			"title":"test",
@@ -455,7 +487,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_dUqY6",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"callableInterfaceId":"675ebde6ff5f7c09416c6231",
 				"runtimeConnections":{},
@@ -480,7 +512,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_XxnqY",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"callableInterfaceId":"669790139c3e61557976a2d0",
 				"runtimeConnections":{},
@@ -505,7 +537,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_ACnXR",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"template_id":"e_6791ddb2c08e4143355dc4e0"
 			},
@@ -526,7 +558,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_yozkd",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"template_id":"failed_export_notification_template"
 			},
@@ -547,7 +579,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_rBRML",
-			"index":16,
+			"index":17,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -602,7 +634,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_SM6hC",
-			"index":17,
+			"index":18,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -859,7 +891,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_2Q0Tk",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"automationId":"68fc9ee9f968ee435c61d3e0",
 				"runtimeConnections":{},
@@ -890,7 +922,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_OSLmc",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"automationId":"68fc9fd60b160667834cfdf3",
 				"runtimeConnections":{},
@@ -917,7 +949,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_FiulW",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"result":{
 					"result":"{{ n_T9qrN.outputs.encryptedData }}"
@@ -950,5 +982,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
