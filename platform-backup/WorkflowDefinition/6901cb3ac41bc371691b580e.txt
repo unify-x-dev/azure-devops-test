@@ -5,12 +5,12 @@
 	"createdTime":1761725242827,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761725291526,
+		"deployedAt":1761727359857,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901cb6bc41bc371691b59db",
+		"deployedDefinitionId":"6901d37fc41bc371691bafb3",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":2
+		"version":3,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
@@ -22,6 +22,13 @@
 		},
 		{
 			"fromNodeId":"n_C4CYB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jqeIq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jqeIq",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_9w3T9",
@@ -38,7 +45,7 @@
 	"id":"6901cb3ac41bc371691b580e",
 	"lastModifiedBy":132116,
 	"lcName":"main_automation",
-	"modifiedTime":1761727357774,
+	"modifiedTime":1761727386332,
 	"name":"main_automation",
 	"nodes":[
 		{
@@ -85,7 +92,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_C4CYB",
@@ -101,17 +108,38 @@
 		},
 		{
 			"context":{
+				"appName":"decision_table_by_unifyapps",
+				"resourceVersion":885,
+				"resourceName":"decision_table_by_unifyapps_add_row",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qEDOz-1",
+			"id":"n_jqeIq",
+			"index":3,
+			"inputs":{
+				"entityId":"e_689b71e217baaa435004d2ba"
+			},
+			"skip":false,
+			"subTitle":"Decision Table by UnifyApps",
+			"title":"Add Row",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1124,
 				"resourceName":"callables_call_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_9w3T9",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -136,7 +164,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_UfCTG",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"result":{
 					"output1":"res"
@@ -165,5 +193,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
