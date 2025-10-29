@@ -9,33 +9,34 @@
 			"fromNodeId":"n_5t3rY",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_zmQqK",
+			"toNodeId":"n_hZ2lC",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_zmQqK",
+			"fromNodeId":"n_hZ2lC",
+			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_pVEfy",
-			"type":"loop"
+			"toNodeId":"n_SfOqr",
+			"type":"if"
 		},
 		{
-			"fromNodeId":"n_pVEfy",
-			"name":"loopback",
+			"fromNodeId":"n_hZ2lC",
+			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_zmQqK",
+			"toNodeId":"n_txO2P",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_zmQqK",
+			"fromNodeId":"n_SfOqr",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_QFpGK",
+			"toNodeId":"n_Ok0IT",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_QFpGK",
+			"fromNodeId":"n_txO2P",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Ok0IT",
@@ -45,7 +46,7 @@
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761751655411,
+	"modifiedTime":1761751744010,
 	"name":"test",
 	"nodes":[
 		{
@@ -71,27 +72,34 @@
 		},
 		{
 			"context":{
-				"appName":"loop",
-				"resourceVersion":36,
-				"resourceName":"loop_for",
+				"appName":"if_else",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gBa2Z-1",
-			"id":"n_zmQqK",
+			"id":"n_hZ2lC",
 			"index":2,
-			"inputs":{
-				"start":0,
-				"limit":1,
-				"step":1,
-				"captureIterations":false
-			},
 			"skip":false,
-			"subTitle":"Loop",
-			"title":"For loop",
-			"type":"LOOP"
+			"subTitle":"Condition",
+			"title":"Select an action",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_hZ2lC@_gBa2Z-1@y",
+			"id":"n_SfOqr",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -103,9 +111,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_zmQqK@_gBa2Z-1@l",
-			"id":"n_pVEfy",
-			"index":3,
+			"groupId":"n_hZ2lC@_gBa2Z-1@n",
+			"id":"n_txO2P",
+			"index":4,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -148,21 +156,6 @@
 		},
 		{
 			"context":{
-				"appName":"stop"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_gBa2Z-1",
-			"id":"n_QFpGK",
-			"index":4,
-			"skip":true,
-			"subTitle":"Stop",
-			"title":"Stop",
-			"type":"STOP"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":1105,
 				"resourceName":"callables_return_to_automation",
@@ -200,5 +193,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
