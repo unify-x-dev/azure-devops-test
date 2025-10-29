@@ -5,20 +5,26 @@
 	"createdTime":1761731091309,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761731104191,
+		"deployedAt":1761731116039,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901e21fc41bc371691c491b",
+		"deployedDefinitionId":"6901e22c0a7959277f205753",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
-		
+		{
+			"fromNodeId":"n_0wkTW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_InZzd",
+			"type":"next"
+		}
 	],
 	"id":"6901e213c41bc371691c489b",
 	"lastModifiedBy":132116,
 	"lcName":"execution_test_3",
-	"modifiedTime":1761731114322,
+	"modifiedTime":1761731127807,
 	"name":"execution_test_3",
 	"nodes":[
 		{
@@ -46,6 +52,31 @@
 				"type":"SCHEDULED"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_y4t8A-1",
+			"id":"n_InZzd",
+			"index":2,
+			"inputs":{
+				"automationId":"6901cb3ac41bc371691b580e",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":132116,
@@ -65,5 +96,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
