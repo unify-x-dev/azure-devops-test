@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761717564702,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761717578912,
+		"deployedBy":511,
+		"deployedDefinitionId":"6901ad4adb965a67e0478b05",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_Eg5j6",
@@ -11,12 +19,19 @@
 			"skip":false,
 			"toNodeId":"n_af2WM",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_af2WM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9MPQI",
+			"type":"next"
 		}
 	],
 	"id":"6901ad3cdb965a67e0478acd",
 	"lastModifiedBy":511,
 	"lcName":"executesworkflow",
-	"modifiedTime":1761717577277,
+	"modifiedTime":1761717708001,
 	"name":"executesworkflow",
 	"nodes":[
 		{
@@ -76,6 +91,21 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_QW8Xn-1",
+			"id":"n_9MPQI",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":511,
@@ -95,5 +125,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
