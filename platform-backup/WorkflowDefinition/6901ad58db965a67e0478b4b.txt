@@ -6,46 +6,112 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_hJ958",
+			"fromNodeId":"n_tZNxb",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_O7fM9",
+			"toNodeId":"n_9oUgu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9oUgu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_o4cZo",
 			"type":"next"
 		}
 	],
 	"id":"6901ad58db965a67e0478b4b",
 	"lastModifiedBy":511,
 	"lcName":"mainautomation",
-	"modifiedTime":1761717592013,
+	"modifiedTime":1761717617233,
 	"name":"mainautomation",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1066,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hJ958-1",
-			"id":"_hJ958",
-			"index":0,
+			"id":"n_tZNxb",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"esd"
+					],
+					"properties":{
+						"esd":{
+							"type":"string",
+							"title":"Esd"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1122,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_hJ958-1",
-			"id":"_O7fM9",
-			"index":0,
+			"id":"n_9oUgu",
+			"index":2,
+			"inputs":{
+				"automationId":"6901ad3cdb965a67e0478acd",
+				"synchronous":true,
+				"version":"-1"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1102,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_hJ958-1",
+			"id":"n_o4cZo",
+			"index":3,
+			"inputs":{
+				"result":{
+					"esd":"dc"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":511,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +125,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
