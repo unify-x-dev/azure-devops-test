@@ -6,13 +6,13 @@
 	"createdTime":1761721145809,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761730656258,
+		"deployedAt":1761732275424,
 		"deployedBy":190505,
-		"deployedDefinitionId":"6901e0600a7959277f204e4d",
-		"deploymentTag":"V3-pdf-zip",
+		"deployedDefinitionId":"6901e6b3960f455f6fd00caf",
+		"deploymentTag":"V3-pdf-zip-message",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":10
+		"version":4,
+		"workflowVersion":11
 	},
 	"edges":[
 		{
@@ -56,7 +56,7 @@
 	"id":"6901bb39db965a67e0483595",
 	"lastModifiedBy":190505,
 	"lcName":"test22",
-	"modifiedTime":1761732253104,
+	"modifiedTime":1761736392321,
 	"name":"Test22",
 	"nodes":[
 		{
@@ -67,7 +67,7 @@
 				"resourceName":"gmail_on_new_email_polling"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cjlKb-1",
 			"id":"n_tObdH",
@@ -78,7 +78,7 @@
 				"pageSize":5,
 				"interval":15,
 				"includeSpamTrash":false,
-				"batchSize":5
+				"batchSize":1
 			},
 			"skip":false,
 			"subTitle":"Gmail",
@@ -230,5 +230,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
