@@ -14,29 +14,22 @@
 		},
 		{
 			"fromNodeId":"n_hZ2lC",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_SfOqr",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"n_hZ2lC",
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_txO2P",
+			"toNodeId":"n_vdbfu",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_SfOqr",
+			"fromNodeId":"n_hZ2lC",
+			"name":"yes",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Ok0IT",
-			"type":"next"
+			"type":"if"
 		},
 		{
-			"fromNodeId":"n_txO2P",
+			"fromNodeId":"n_vdbfu",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Ok0IT",
@@ -46,7 +39,7 @@
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761751779117,
+	"modifiedTime":1761752056424,
 	"name":"test",
 	"nodes":[
 		{
@@ -102,70 +95,24 @@
 		},
 		{
 			"context":{
-				"appName":"stop"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_hZ2lC@_gBa2Z-1@y",
-			"id":"n_SfOqr",
-			"index":3,
-			"skip":true,
-			"subTitle":"Stop",
-			"title":"Stop",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1087,
-				"resourceName":"variable_by_unifyapps_create_variables",
+				"appName":"test_http",
+				"resourceVersion":3686,
+				"connectionId":"66b0ee649c311126267a17b7",
+				"resourceName":"test_http_post_api",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_hZ2lC@_gBa2Z-1@n",
-			"id":"n_txO2P",
-			"index":4,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{},
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"a":{
-							"type":"string",
-							"title":"A"
-						}
-					},
-					"required":[
-						"a"
-					]
-				}
-			},
-			"inputs":{},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"a":{
-							"type":"string",
-							"title":"A"
-						}
-					},
-					"required":[
-						"a"
-					]
-				}
+			"id":"n_vdbfu",
+			"index":3,
+			"inputs":{
+				"field2":true
 			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create variables",
+			"subTitle":"Test HTTP API",
+			"title":"Test HTTP Post API",
 			"type":"ACTION"
 		},
 		{
@@ -180,7 +127,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_gBa2Z-1",
 			"id":"n_Ok0IT",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"result":"1"
 			},
@@ -207,5 +154,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
