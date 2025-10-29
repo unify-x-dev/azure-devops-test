@@ -5,12 +5,12 @@
 	"createdTime":1761746777939,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761747311914,
+		"deployedAt":1761748920210,
 		"deployedBy":178108,
-		"deployedDefinitionId":"6902216fc8faae2299399e08",
+		"deployedDefinitionId":"690227b79d15203017265bae",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -26,19 +26,12 @@
 			"skip":false,
 			"toNodeId":"n_0UF73",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_0UF73",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_izSM1",
-			"type":"next"
 		}
 	],
 	"id":"69021f59c8faae2299398e99",
 	"lastModifiedBy":178108,
 	"lcName":"testing changeset",
-	"modifiedTime":1761748917494,
+	"modifiedTime":1761748943228,
 	"name":"testing changeset",
 	"nodes":[
 		{
@@ -129,31 +122,6 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1125,
-				"resourceName":"callables_call_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_Dusp9-1",
-			"id":"n_izSM1",
-			"index":4,
-			"inputs":{
-				"automationId":"69021f59c8faae2299398e99",
-				"runtimeConnections":{},
-				"synchronous":false,
-				"version":"-1",
-				"parameters":{}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Call automation",
-			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":178108,
@@ -173,5 +141,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
