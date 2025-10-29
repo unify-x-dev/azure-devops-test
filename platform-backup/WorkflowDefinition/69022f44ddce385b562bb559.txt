@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_5t3rY",
+			"fromNodeId":"n_vtJpy",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_pumV6",
@@ -46,27 +46,31 @@
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761752637729,
+	"modifiedTime":1761752660939,
 	"name":"test",
 	"nodes":[
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1069,
-				"resourceName":"callables_from_automation"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gBa2Z-1",
-			"id":"n_5t3rY",
+			"id":"n_vtJpy",
 			"index":1,
-			"inputs":{},
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger via automation",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"CALLABLE"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -247,5 +251,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
