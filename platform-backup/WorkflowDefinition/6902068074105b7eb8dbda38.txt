@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"amazon_comprehend"
+		"amazon_comprehend",
+		"amazon_s3"
 	],
 	"createdTime":1761740416924,
 	"deleted":false,
@@ -24,21 +25,89 @@
 			"fromNodeId":"n_d6tEe",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_fRDWk",
+			"toNodeId":"n_dPnJ0",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dPnJ0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fRDWk",
+			"type":"loop"
 		},
 		{
 			"fromNodeId":"n_fRDWk",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_wgFbS",
+			"toNodeId":"_CYQLY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_CYQLY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_uFvZS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uFvZS",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_RHSFj",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_uFvZS",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_JdccL",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RHSFj",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dPnJ0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_JdccL",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dPnJ0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dPnJ0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_l4EWa",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_l4EWa",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GzHhM",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_GzHhM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XOOIc",
 			"type":"next"
 		}
 	],
 	"id":"6902068074105b7eb8dbda38",
 	"lastModifiedBy":1,
 	"lcName":"aws comprehend test",
-	"modifiedTime":1761742109720,
+	"modifiedTime":1761742670313,
 	"name":"AWS comprehend test",
 	"nodes":[
 		{
@@ -106,6 +175,27 @@
 		},
 		{
 			"context":{
+				"appName":"loop",
+				"resourceVersion":877,
+				"resourceName":"loop_while",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uKLsa-1",
+			"id":"n_dPnJ0",
+			"index":3,
+			"inputs":{
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"While loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
 				"appName":"delay",
 				"resourceVersion":809,
 				"resourceName":"delay_for",
@@ -114,9 +204,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_uKLsa-1",
+			"groupId":"n_dPnJ0@_uKLsa-1@l",
 			"id":"n_fRDWk",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"duration":30,
 				"unit":"SECONDS"
@@ -137,15 +227,203 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_uKLsa-1",
-			"id":"n_wgFbS",
-			"index":4,
+			"groupId":"n_dPnJ0@_uKLsa-1@l",
+			"id":"_CYQLY",
+			"index":5,
 			"inputs":{
 				"JobId":"{{ n_d6tEe.outputs.JobId }}"
 			},
 			"skip":false,
 			"subTitle":"Amazon Comprehend",
 			"title":"Describe PII Entities Detection Job",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_dPnJ0@_uKLsa-1@l",
+			"id":"n_uFvZS",
+			"index":6,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ _CYQLY.outputs.PiiEntitiesDetectionJobProperties.JobStatus }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"IN_PROGRESS"
+						}
+					},
+					{
+						"property":"{{ _CYQLY.outputs.PiiEntitiesDetectionJobProperties.JobStatus }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"SUBMITTED"
+						}
+					}
+				],
+				"operator":"OR"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"continue",
+				"resourceVersion":791,
+				"resourceName":"continue",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_uFvZS@n_dPnJ0@_uKLsa-1@l@y",
+			"id":"n_RHSFj",
+			"index":7,
+			"inputs":{
+				"loop":"n_dPnJ0"
+			},
+			"skip":false,
+			"subTitle":"Continue",
+			"title":"Continue",
+			"type":"CONTINUE"
+		},
+		{
+			"context":{
+				"appName":"break",
+				"resourceVersion":817,
+				"resourceName":"break",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_uFvZS@n_dPnJ0@_uKLsa-1@l@n",
+			"id":"n_JdccL",
+			"index":8,
+			"inputs":{
+				"loop":"n_dPnJ0"
+			},
+			"skip":false,
+			"subTitle":"Break",
+			"title":"Break",
+			"type":"BREAK"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uKLsa-1",
+			"id":"n_l4EWa",
+			"index":9,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ _CYQLY.outputs.PiiEntitiesDetectionJobProperties.JobStatus }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"COMPLETED"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1035,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_l4EWa@_uKLsa-1@y",
+			"id":"n_GzHhM",
+			"index":10,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"bucket",
+						"file"
+					],
+					"properties":{
+						"bucket":{
+							"type":"string",
+							"title":"Bucket"
+						},
+						"file":{
+							"type":"string",
+							"title":"File"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"s3Key"
+					],
+					"properties":{
+						"s3Key":{
+							"type":"string",
+							"title":"S 3 Key"
+						}
+					}
+				},
+				"code":"def pattern = ~/s3:\\/\\/([^\\/]+)\\/(.+)/\ndef matcher = s3Key =~ pattern\nif (matcher.matches()) {\n    def bucketName = matcher[0][1]\n    def fileName = matcher[0][2]\n    return [bucketName: bucketName, fileName: fileName]\n} else {\n    throw new IllegalArgumentException(\"Invalid S3 key format\")\n}",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"amazon_s3",
+				"resourceVersion":6713,
+				"connectionId":"677051bb4b746c52c3d16cd5",
+				"resourceName":"amazon_s3_download_file_content",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_l4EWa@_uKLsa-1@y",
+			"id":"n_XOOIc",
+			"index":11,
+			"inputs":{
+				"bucketName":"{{ n_GzHhM.outputs.result.bucket }}",
+				"acceleratedEndpoint":false,
+				"objectName":"{{ n_GzHhM.outputs.result.file }}",
+				"region":"ap-south-1"
+			},
+			"skip":false,
+			"subTitle":"Amazon S3",
+			"title":"Download file",
 			"type":"ACTION"
 		}
 	],
@@ -166,5 +444,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
