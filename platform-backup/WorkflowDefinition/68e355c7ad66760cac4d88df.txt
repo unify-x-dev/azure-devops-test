@@ -205,7 +205,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761726644716,
+	"modifiedTime":1761732144091,
 	"name":"test",
 	"nodes":[
 		{
@@ -283,9 +283,9 @@
 		{
 			"context":{
 				"appName":"azure_blob",
-				"resourceVersion":5105,
+				"resourceVersion":5182,
 				"connectionId":"68ee30f2af190e20d1cbcaa1",
-				"resourceName":"azure_blob_upload_blob",
+				"resourceName":"azure_blob_download_blob",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -295,15 +295,11 @@
 			"id":"n_xjHrO",
 			"index":4,
 			"inputs":{
-				"attachment":{
-					"attachment_option":"use_file_url",
-					"blobName":"txtfile/sample_data.txt"
-				},
-				"containerName":"automation"
+				"useDecompression":false
 			},
 			"skip":false,
 			"subTitle":"Azure Blob",
-			"title":"Upload blob",
+			"title":"Download blob contents",
 			"type":"ACTION"
 		},
 		{
@@ -321,6 +317,7 @@
 			"id":"n_cLHag",
 			"index":5,
 			"inputs":{
+				"blobName":"txtfile/Vivazen_Weekly_Extract_characteristics_ref_3865160.txt.gz",
 				"useDecompression":false,
 				"lines":10
 			},
@@ -963,5 +960,5 @@
 	"tags":[
 		
 	],
-	"version":99
+	"version":100
 }
