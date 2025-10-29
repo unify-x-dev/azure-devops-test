@@ -47,7 +47,7 @@
 	"id":"69022241d7e7bd77b0587cad",
 	"lastModifiedBy":33648,
 	"lcName":"calendar ai - auto schedule meeting",
-	"modifiedTime":1761751966808,
+	"modifiedTime":1761751977293,
 	"name":"Calendar AI - Auto Schedule Meeting",
 	"nodes":[
 		{
@@ -58,7 +58,7 @@
 				"resourceName":"gmail_on_new_email_polling"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_v9l63-1",
 			"id":"n_dVUvC",
@@ -67,7 +67,7 @@
 				"intervalType":"minutes",
 				"fetchAllMails":false,
 				"pageSize":10,
-				"interval":1,
+				"interval":5,
 				"batchSize":5
 			},
 			"skip":false,
@@ -190,5 +190,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":28
 }
