@@ -56,7 +56,7 @@
 	"id":"6901bb39db965a67e0483595",
 	"lastModifiedBy":190505,
 	"lcName":"test22",
-	"modifiedTime":1761737172940,
+	"modifiedTime":1761738073927,
 	"name":"Test22",
 	"nodes":[
 		{
@@ -106,15 +106,8 @@
 					{
 						"property":"{{ n_tObdH.outputs.batch[0].attachments }}",
 						"filter":{
-							"operator":"IN",
+							"operator":"EQUAL",
 							"value":"pdf"
-						}
-					},
-					{
-						"property":"{{ n_tObdH.outputs.batch[0].attachments }}",
-						"filter":{
-							"operator":"IN",
-							"value":"zip"
 						}
 					}
 				],
@@ -230,5 +223,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
