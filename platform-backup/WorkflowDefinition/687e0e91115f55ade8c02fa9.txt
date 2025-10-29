@@ -1,0 +1,362 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1756411294921,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760529865068,
+		"deployedBy":0,
+		"deployedDefinitionId":"68ef8dc915076a51390878dd",
+		"status":"DEPLOYED",
+		"version":31,
+		"workflowVersion":51
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_iEFIx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_RKWof",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RKWof",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ZzBl4",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_ZzBl4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_uxuPq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uxuPq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_l0HR8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_l0HR8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_JFJWt",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_JFJWt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tEC1d",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"687e0e91115f55ade8c02fa9",
+	"lastModifiedBy":0,
+	"lcName":"deep research (workflow agent)",
+	"modifiedTime":1761722665624,
+	"name":"Deep Research (Workflow Agent)",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":436,
+				"resourceName":"callables_from_interface"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mqYbu-1",
+			"id":"n_iEFIx",
+			"index":1,
+			"inputs":{
+				"result":{
+					"additionalProperties":false,
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"type":"object",
+					"properties":{
+						"result":{
+							"type":"boolean",
+							"title":"result"
+						}
+					}
+				},
+				"callableInterfaceId":"__ua__deep_research_interface",
+				"setup":{
+					"additionalProperties":false,
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"type":"object",
+					"properties":{
+						"query":{
+							"type":"string",
+							"title":"query"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger interface",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":432,
+				"resourceName":"variable_by_unifyapps_get_session_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mqYbu-1",
+			"id":"n_RKWof",
+			"index":2,
+			"inputs":{
+				"variableSchema":{
+					"type":"object",
+					"properties":{
+						"caseId":{
+							"type":"string",
+							"title":"Case Id"
+						},
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Get case and AI agent ID",
+			"title":"Get Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.filters.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":52,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mqYbu-1",
+			"id":"_ZzBl4",
+			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"rawLLMResponse":{
+							"type":"string",
+							"title":"Raw LLM Response"
+						},
+						"toolInputs":{
+							"type":"object",
+							"properties":{
+								"query":{
+									"type":"string",
+									"title":"Query"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Tool Inputs",
+							"required":[]
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"query":{
+							"type":"string",
+							"title":"Query"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"if(binding.hasVariable('query')){\n  query = query\n}\n\nreturn [\n  \"rawllmResponse\": \"Thought:Let's conduct a deep research\", \n  \"toolInputs\": [\n   \"query\": query\n  ]\n]\n",
+				"parameters":{
+					"query":"{{ n_iEFIx.outputs.query }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Prepare Inputs",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"ai_agents_by_unifyapps",
+				"resourceVersion":217,
+				"resourceName":"ai_agents_by_unifyapps_invoke_agent",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mqYbu-1",
+			"id":"n_uxuPq",
+			"index":4,
+			"inputs":{
+				"callableInterfaceId":"__ua__invoke_ai_agent_by_unifyapps",
+				"parameters":{
+					"aiAgentId":"e_68807e41a9a1094426182623",
+					"userQuery":"{{ n_iEFIx.outputs.query }}",
+					"citations":false
+				}
+			},
+			"skip":false,
+			"subTitle":"AI Agents",
+			"title":"Invoke Agent",
+			"type":"CALL_INTERFACE_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":58,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mqYbu-1",
+			"id":"_l0HR8",
+			"index":5,
+			"inputs":{
+				"automationId":"67a31b86addac8605df79166",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"caseId":"{{ n_RKWof.outputs.caseId }}",
+					"createMessageIfAbsent":true,
+					"aiAgentId":"{{ n_RKWof.outputs.aiAgentId }}",
+					"internalMessageType":"AGENT_INTERNAL_RESPONSE",
+					"rawLLMResponse":"{{ _ZzBl4.outputs.result.rawLLMResponse }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Ingest Agent Response",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":58,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mqYbu-1",
+			"id":"_JFJWt",
+			"index":6,
+			"inputs":{
+				"automationId":"67a31b86addac8605df79166",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"caseId":"{{ n_RKWof.outputs.caseId }}",
+					"createMessageIfAbsent":false,
+					"aiAgentId":"{{ n_RKWof.outputs.aiAgentId }}",
+					"messageId":"{{ _l0HR8.outputs.messageId }}",
+					"toolUseDetails":{
+						"toolId":"DeepResearch",
+						"toolName":"DeepResearch",
+						"toolOutput":"{{ n_uxuPq.outputs.agentResponse[0] }}",
+						"toolInput":"{{ _ZzBl4.outputs.result.toolInputs }}"
+					},
+					"internalMessageType":"AGENT_INTERNAL_RESPONSE",
+					"executionOutput":"{{ n_uxuPq.outputs.agentResponse[0] }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Ingest Agent Response",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":455,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mqYbu-1",
+			"id":"n_tEC1d",
+			"index":7,
+			"inputs":{
+				"result":{
+					"result":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":-1,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		
+	],
+	"version":53
+}
