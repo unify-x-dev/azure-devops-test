@@ -18,12 +18,19 @@
 			"skip":false,
 			"toNodeId":"n_DTYR9",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_DTYR9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_H1Um3",
+			"type":"next"
 		}
 	],
 	"id":"6901d370c41bc371691baeef",
 	"lastModifiedBy":6701,
 	"lcName":"create invoice currency test (copy)",
-	"modifiedTime":1761727344823,
+	"modifiedTime":1761733601984,
 	"name":"create invoice currency test (copy)",
 	"nodes":[
 		{
@@ -82,7 +89,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_HTrUs-1",
 			"id":"n_DTYR9",
@@ -101,11 +108,6 @@
 					]
 				},
 				"memo":"FRMD-53443",
-				"currency":{
-					"id":"2",
-					"name":"US Dollar",
-					"displaySymbol":"$"
-				},
 				"entity":{
 					"id":"50556"
 				},
@@ -116,6 +118,28 @@
 			"skip":false,
 			"subTitle":"Netsuite",
 			"title":"Create an invoice",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"netsuite",
+				"resourceVersion":181,
+				"connectionId":"69006bcf3fac98019bacb11f",
+				"resourceName":"netsuite_list_invoices",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_HTrUs-1",
+			"id":"n_H1Um3",
+			"index":4,
+			"inputs":{
+				"limit":3
+			},
+			"skip":false,
+			"subTitle":"Netsuite",
+			"title":"List invoices",
 			"type":"ACTION"
 		}
 	],
@@ -136,5 +160,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
