@@ -1,0 +1,1170 @@
+{
+	"appsUsed":[
+		"storage_by_unifyapps"
+	],
+	"createdTime":1753185910080,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761288016383,
+		"deployedBy":635,
+		"deployedDefinitionId":"68fb1f50cc36024e0ca63b06",
+		"status":"DEPLOYED",
+		"version":35,
+		"workflowVersion":81
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_ZIRlC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_P93AM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_P93AM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_QaWIK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_QaWIK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_T8gU1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_T8gU1",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aiYv2",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_aiYv2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dz1Pk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_T8gU1",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dz1Pk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dz1Pk",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UM23y",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UM23y",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_c2Egx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_c2Egx",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jjAkI",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_jjAkI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_U3tg7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_c2Egx",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_U3tg7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_U3tg7",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9pucR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9pucR",
+			"name":"success",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OX3Vg",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9pucR",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_CQUbR",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"_CQUbR",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_o0pkm",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_o0pkm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hdS77",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hdS77",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_8cYDH",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_hdS77",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_K33p5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_K33p5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HLmOy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HLmOy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Vhv41",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_CQUbR",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_BHmxW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OX3Vg",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CWfsk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_8cYDH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CWfsk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Vhv41",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CWfsk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_BHmxW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CWfsk",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"6866a8b3009dd56d80fcfbef",
+	"lastModifiedBy":0,
+	"lcName":"knowledge downloader wrapper",
+	"modifiedTime":1761722797039,
+	"name":"Knowledge Downloader Wrapper",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":444,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_ZIRlC",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"success":{
+							"type":"boolean",
+							"title":"Success"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"importerParams":{
+							"type":"object",
+							"properties":{
+								"inputs":{
+									"type":"object",
+									"title":"inputs"
+								},
+								"knowledgeId":{
+									"type":"string",
+									"title":"knowledgeId"
+								},
+								"knowledge":{
+									"type":"object",
+									"title":"knowledge"
+								},
+								"aiAgentId":{
+									"type":"string",
+									"title":"Ai Agent Id"
+								}
+							},
+							"additionalProperties":false,
+							"required":[]
+						},
+						"downloaderAutomation":{
+							"type":"string",
+							"title":"Downloader Automation"
+						},
+						"knowledgeId":{
+							"type":"string",
+							"title":"Knowledge Id"
+						},
+						"importerConnections":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Importer Connections"
+						},
+						"downloaderStartTime":{
+							"type":"integer",
+							"title":"Downloader Start Time"
+						},
+						"grabberConfig":{
+							"type":"object",
+							"properties":{
+								"type":{
+									"type":"string",
+									"title":"Type"
+								},
+								"unit":{
+									"type":"string",
+									"title":"Unit"
+								},
+								"duration":{
+									"type":"integer",
+									"title":"Duration"
+								},
+								"grabberType":{
+									"type":"string",
+									"title":"Grabber Type"
+								},
+								"scheduleType":{
+									"type":"string",
+									"title":"Schedule Type"
+								},
+								"daysOfWeek":{
+									"type":"array",
+									"items":{
+										"type":"string"
+									},
+									"title":"Days Of Week"
+								},
+								"daysOfMonth":{
+									"type":"array",
+									"items":{
+										"type":"integer"
+									},
+									"title":"Days Of Month"
+								},
+								"expression":{
+									"type":"string",
+									"title":"Expression"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Grabber Config",
+							"required":[]
+						},
+						"errorCount":{
+							"type":"integer",
+							"title":"Error Count"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":453,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_P93AM",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"errorCount":{
+							"type":"integer",
+							"title":"Error Count"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"errorCount":"{{ n_ZIRlC.outputs.errorCount }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"errorCount":{
+							"type":"integer",
+							"title":"Error Count"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variables",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":77,
+				"resourceName":"storage_by_unifyapps_get_record_by_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_QaWIK",
+			"index":3,
+			"inputs":{
+				"object_type":"knowledge",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"id":"{{ n_ZIRlC.outputs.importerParams.knowledgeId }}",
+				"readThroughSessionVariables":false
+			},
+			"skip":false,
+			"subTitle":"Knowledge",
+			"title":"Fetch record by ID",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":442,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_T8gU1",
+			"index":4,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_QaWIK.outputs.id }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Knowledge not present",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":0,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_T8gU1@_F0Yag-1@y",
+			"id":"n_aiYv2",
+			"index":5,
+			"inputs":{
+				"result":{
+					"success":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":448,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_dz1Pk",
+			"index":6,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"currentTimeEpoch":{
+							"type":"string",
+							"title":"Current Time Epoch"
+						},
+						"startTimeEpoch":{
+							"type":"string",
+							"title":"Start Time Epoch"
+						},
+						"grabberType":{
+							"type":"string",
+							"title":"Grabber Type"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"lastRefreshStartTime":{
+							"type":"integer",
+							"title":"Last Refresh Start Time"
+						},
+						"grabberConfig":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Grabber Config"
+						}
+					}
+				},
+				"code":"import java.time.LocalDateTime\nimport java.time.ZoneId\n\ndef getPastEpochMillis(duration, unit) {\n    def now = LocalDateTime.now()\n    def pastTime\n    def durationLong = duration.toLong()\n\n    switch (unit) {\n        case 'MINUTES':\n            pastTime = now.minusMinutes(durationLong)\n            break\n        case 'HOURS':\n            pastTime = now.minusHours(durationLong)\n            break\n        case 'DAYS':\n            pastTime = now.minusDays(durationLong)\n            break\n        case 'WEEKS':\n            pastTime = now.minusWeeks(durationLong)\n            break\n        case 'MONTHS':\n            pastTime = now.minusMonths(durationLong)\n            break\n        case 'YEARS':\n            pastTime = now.minusYears(durationLong)\n            break\n        default:\n            throw new IllegalArgumentException(\"Unsupported unit: $unit\")\n    }\n\n    return pastTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()\n}\n\ndef getLastExecutionTime(expression) {\n    return com.unifyapps.infra.utils.cron.CronUtils.getLastExecutionTime(expression)\n}\n\n\ndef currentTimeEpoch = System.currentTimeMillis()\ndef grabberConfig = binding.hasVariable(\"grabberConfig\") ? grabberConfig : [:]\ndef grabberType = grabberConfig.containsKey('grabberType') ? grabberConfig.grabberType : (grabberConfig.containsKey('type') ? grabberConfig.type : \"backward\")\ndef startTimeEpoch = 0\n\nif (grabberConfig.containsKey('scheduleType') && scheduleType == 'EXPRESSION') {\n    if (grabberConfig.containsKey('expression')) {\n        def defaultStartTime = getLastExecutionTime(grabberConfig.expression)\n        startTimeEpoch = binding.hasVariable(\"lastRefreshStartTime\") ? Math.min(lastRefreshStartTime,defaultStartTime) : defaultStartTime\n    }\n    grabberType = grabberType + \"_\" + grabberConfig.expression\n} else if (grabberConfig.containsKey('duration') && grabberConfig.containsKey('unit')) {\n    if (grabberType == \"forward\") {\n        def defaultStartTime = getPastEpochMillis(grabberConfig.duration, grabberConfig.unit)\n        startTimeEpoch = binding.hasVariable(\"lastRefreshStartTime\") ? Math.min(lastRefreshStartTime,defaultStartTime) : defaultStartTime\n    }\n    grabberType = grabberType + \"_\" + grabberConfig.duration + \"_\" + grabberConfig.unit\n}\n\nreturn [\n    \"currentTimeEpoch\": currentTimeEpoch.toLong(),\n    \"grabberType\": grabberType,\n    \"startTimeEpoch\": startTimeEpoch.toLong()\n]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"lastRefreshStartTime":"{{ n_QaWIK.outputs.properties.refreshDetails.lastRefreshStartTime }}",
+					"grabberConfig":"{{ n_ZIRlC.outputs.grabberConfig }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Calculating time duration for Forward Grabber",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":460,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_UM23y",
+			"index":7,
+			"inputs":{
+				"automationId":"686e83805b3e851f0a9a628b",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"knowledgeId":"{{ n_ZIRlC.outputs.knowledgeId }}",
+					"grabberType":"{{ n_dz1Pk.outputs.result.grabberType }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Remove Stale Downloader Task Data",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":439,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_c2Egx",
+			"index":8,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_dz1Pk.outputs.result.grabberType }}",
+						"filter":{
+							"operator":"STARTS_WITH",
+							"value":"forward"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Forward grabber",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.updateFields.items.fieldName",
+					"root.updateFields.items.actionType"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":512,
+				"resourceName":"storage_by_unifyapps_update_record_fields_by_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_c2Egx@_F0Yag-1@y",
+			"id":"n_jjAkI",
+			"index":9,
+			"inputs":{
+				"recordId":"{{ n_ZIRlC.outputs.knowledgeId }}",
+				"writeThroughSessionVariables":false,
+				"object_type":"knowledge",
+				"skipIfBlank":false,
+				"skipPermissionCheck":false,
+				"updateFields":[
+					{
+						"fieldName":"properties.refreshDetails.lastRefreshStartTime",
+						"actionType":"SET",
+						"setValue":"{{ n_dz1Pk.outputs.result.currentTimeEpoch }}"
+					}
+				],
+				"unsetIfNull":false
+			},
+			"skip":false,
+			"subTitle":"Update start time",
+			"title":"Update an existing record's fields",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.downloadDuration.startTimeEpoch",
+					"root.parameters.downloadDuration.currentTimeEpoch"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":448,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_U3tg7",
+			"index":10,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"importerParams":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Importer Params"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"importerParams":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Importer Params",
+							"required":[]
+						},
+						"importerConnections":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Importer Connections"
+						},
+						"downloaderConfig":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Downloader Config"
+						}
+					}
+				},
+				"code":"if (binding.hasVariable('downloaderConfig')) {\n  importerParams << [\"downloaderConfig\": downloaderConfig]\n}\n\nif (binding.hasVariable('importerConnections')) {\n  importerParams << [\"importerConnections\": importerConnections]\n}\n\nreturn [\"importerParams\" : importerParams]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"importerParams":"{{ n_ZIRlC.outputs.importerParams }}",
+					"importerConnections":"{{ n_ZIRlC.outputs.importerConnections }}",
+					"downloaderConfig":"{{ n_dz1Pk.outputs.result }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Add downloader config to importer params",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":459,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"MANUAL",
+			"groupId":"_F0Yag-1",
+			"id":"n_9pucR",
+			"index":11,
+			"inputs":{
+				"automationId":"{{ n_ZIRlC.outputs.downloaderAutomation }}",
+				"runtimeConnections":"{{ n_ZIRlC.outputs.importerConnections }}",
+				"synchronous":true,
+				"version":"-1",
+				"parameters":"{{ n_U3tg7.outputs.result.importerParams }}"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Call Downloader",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":333,
+				"resourceName":"storage_by_unifyapps_upsert_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_9pucR@_F0Yag-1@success",
+			"id":"n_OX3Vg",
+			"index":12,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"indexing_progress",
+				"skipIfBlank":false,
+				"updateFields":[
+					{
+						"fieldName":"properties.totalEntities",
+						"actionType":"SET",
+						"setValue":"{{ n_9pucR.outputs.entityCount }}"
+					},
+					{
+						"fieldName":"properties.knowledgeId",
+						"actionType":"SET",
+						"setValue":"{{ n_ZIRlC.outputs.knowledgeId }}"
+					}
+				],
+				"id":"{{ n_ZIRlC.outputs.knowledgeId }}",
+				"unsetIfNull":false
+			},
+			"skip":false,
+			"subTitle":"Upsert indexing progress",
+			"title":"Upsert Record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":439,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_9pucR@_F0Yag-1@error",
+			"id":"_CQUbR",
+			"index":13,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_dz1Pk.outputs.result.grabberType }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"backward"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Backward grabber?",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":508,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_CQUbR@n_9pucR@_F0Yag-1@error@y",
+			"id":"_o0pkm",
+			"index":14,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_P93AM.outputs.errorCount }}",
+						"value":"={{ n_P93AM.outputs.errorCount }}+1"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Increase Error Count",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":438,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_CQUbR@n_9pucR@_F0Yag-1@error@y",
+			"id":"n_hdS77",
+			"index":15,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_P93AM.outputs.errorCount }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"3"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"errorCount == 3",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":465,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_hdS77@_CQUbR@n_9pucR@_F0Yag-1@error@y@y",
+			"id":"_8cYDH",
+			"index":16,
+			"inputs":{
+				"automationId":"6859d4e214b92d4d229075bd",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"status":"FAILED",
+					"knowledgeId":"{{ n_ZIRlC.outputs.knowledgeId }}",
+					"errorDetails":"{{ n_9pucR.outputs }}",
+					"grabberType":"{{ n_dz1Pk.outputs.result.grabberType }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Set status=FAILED",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":450,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_hdS77@_CQUbR@n_9pucR@_F0Yag-1@error@y@n",
+			"id":"n_K33p5",
+			"index":17,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"scheduleFrequencyMins":{
+							"type":"integer",
+							"title":"Schedule Frequency Mins"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"scheduleFrequencyMins":{
+							"type":"integer",
+							"title":"Schedule Frequency Mins"
+						}
+					}
+				},
+				"code":"return [\n  \"scheduleFrequencyMins\" : binding.hasVariable(\"scheduleFrequencyMins\") ? scheduleFrequencyMins : 2\n]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"scheduleFrequencyMins":"{{ __ENV__.outputs.KNOWLEDGE_DOWNLOADER_SCHEDULING_FREQ_MINS }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"get Environment Vars",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":459,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_hdS77@_CQUbR@n_9pucR@_F0Yag-1@error@y@n",
+			"id":"n_HLmOy",
+			"index":18,
+			"inputs":{
+				"automationId":"6867ed5ad467b02057cb4ac8",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"DEFAULT",
+				"version":"-1",
+				"parameters":{
+					"unit":"MINUTES",
+					"duration":"{{ n_K33p5.outputs.result.scheduleFrequencyMins }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Get nextFireTime",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.schedule_type",
+					"root.parameters.importerParams.knowledgeId",
+					"root.parameters.importerParams.aiAgentId",
+					"root.parameters.downloaderAutomation",
+					"root.parameters.knowledgeId",
+					"root.parameters.downloaderStartTime",
+					"root.parameters.grabberConfig.type",
+					"root.parameters.grabberConfig.unit",
+					"root.parameters.grabberConfig.duration",
+					"root.parameters.grabberConfig.grabberType",
+					"root.parameters.grabberConfig.scheduleType",
+					"root.parameters.grabberConfig.daysOfWeek.source",
+					"root.parameters.grabberConfig.daysOfWeek.ua:type",
+					"root.parameters.grabberConfig.daysOfWeek.items",
+					"root.parameters.grabberConfig.daysOfMonth.source",
+					"root.parameters.grabberConfig.daysOfMonth.ua:type",
+					"root.parameters.grabberConfig.daysOfMonth.items",
+					"root.parameters.grabberConfig.expression",
+					"root.parameters.errorCount"
+				]
+			},
+			"context":{
+				"appName":"callables",
+				"resourceVersion":463,
+				"resourceName":"callables_schedule_a_callable",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_hdS77@_CQUbR@n_9pucR@_F0Yag-1@error@y@n",
+			"id":"_Vhv41",
+			"index":19,
+			"inputs":{
+				"automation_id":"6866a8b3009dd56d80fcfbef",
+				"start_time":"{{ n_HLmOy.outputs.nextFireTime }}",
+				"runtimeConnections":{},
+				"schedule_type":"{{ n_ZIRlC.outputs.grabberConfig.scheduleType }}",
+				"cancel_existing":true,
+				"schedule_name":"knowledge_task_downloader_{{ n_ZIRlC.outputs.importerParams.knowledgeId }}_{{ n_dz1Pk.outputs.result.grabberType }}",
+				"version":"-1",
+				"parameters":{
+					"importerParams":{
+						"inputs":"{{ n_ZIRlC.outputs.importerParams.inputs }}",
+						"knowledgeId":"{{ n_ZIRlC.outputs.importerParams.knowledgeId }}",
+						"knowledge":"{{ n_ZIRlC.outputs.importerParams.knowledge }}",
+						"aiAgentId":"{{ n_ZIRlC.outputs.importerParams.aiAgentId }}"
+					},
+					"downloaderAutomation":"{{ n_ZIRlC.outputs.downloaderAutomation }}",
+					"knowledgeId":"{{ n_ZIRlC.outputs.knowledgeId }}",
+					"importerConnections":"{{ n_ZIRlC.outputs.importerConnections }}",
+					"downloaderStartTime":"{{ n_ZIRlC.outputs.downloaderStartTime }}",
+					"grabberConfig":{
+						"type":"{{ n_ZIRlC.outputs.grabberConfig.type }}",
+						"unit":"{{ n_ZIRlC.outputs.grabberConfig.unit }}",
+						"duration":"{{ n_ZIRlC.outputs.grabberConfig.duration }}",
+						"grabberType":"{{ n_ZIRlC.outputs.grabberConfig.grabberType }}",
+						"scheduleType":"{{ n_ZIRlC.outputs.grabberConfig.scheduleType }}",
+						"expression":"{{ n_ZIRlC.outputs.grabberConfig.expression }}",
+						"daysOfWeek":{
+							"source":"{{ n_ZIRlC.outputs.grabberConfig.daysOfWeek }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_ZIRlC.outputs.grabberConfig.daysOfWeek[0] }}"
+						},
+						"daysOfMonth":{
+							"source":"{{ n_ZIRlC.outputs.grabberConfig.daysOfMonth }}",
+							"ua:type":"mappedArray",
+							"items":"{{ n_ZIRlC.outputs.grabberConfig.daysOfMonth[0] }}"
+						}
+					},
+					"errorCount":"{{ n_P93AM.outputs.errorCount }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Schedule next call",
+			"title":"Schedule callable",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":465,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_CQUbR@n_9pucR@_F0Yag-1@error@n",
+			"id":"_BHmxW",
+			"index":20,
+			"inputs":{
+				"automationId":"6859d4e214b92d4d229075bd",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"status":"FAILED",
+					"knowledgeId":"{{ n_ZIRlC.outputs.knowledgeId }}",
+					"errorDetails":"{{ n_9pucR.outputs }}",
+					"grabberType":"{{ n_dz1Pk.outputs.result.grabberType }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Set status=FAILED",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":454,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_F0Yag-1",
+			"id":"n_CWfsk",
+			"index":21,
+			"inputs":{
+				"result":{
+					"success":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":0,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		"knowledge_v2"
+	],
+	"version":82
+}
