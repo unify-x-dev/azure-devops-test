@@ -46,7 +46,7 @@
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761752578101,
+	"modifiedTime":1761752637729,
 	"name":"test",
 	"nodes":[
 		{
@@ -86,13 +86,37 @@
 					{
 						"id":"1",
 						"inputs":{
-							"name":"Branch 1"
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"1",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"1"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
 						"id":"2",
 						"inputs":{
-							"name":"Branch 2"
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"1",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"1"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
@@ -119,7 +143,19 @@
 			"id":"n_pumV6@1",
 			"index":3,
 			"inputs":{
-				"name":"Branch 1"
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
@@ -138,7 +174,9 @@
 			"groupId":"n_pumV6@_gBa2Z-1@1",
 			"id":"n_llLAA",
 			"index":4,
-			"inputs":{},
+			"inputs":{
+				"result":"1"
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -158,7 +196,19 @@
 			"id":"n_pumV6@2",
 			"index":5,
 			"inputs":{
-				"name":"Branch 2"
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
@@ -197,5 +247,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
