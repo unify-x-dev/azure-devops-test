@@ -31,42 +31,14 @@
 			"fromNodeId":"n_yEEgN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_qa947",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_qa947",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_5vPHo",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_5vPHo",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"_sBK48",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_sBK48",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_MPWzB",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_MPWzB",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_vQNwr",
 			"type":"next"
 		}
 	],
 	"id":"690235f0d015237911e35bcc",
 	"lastModifiedBy":170149,
 	"lcName":"test_vertex",
-	"modifiedTime":1761753336499,
+	"modifiedTime":1761753364410,
 	"name":"test_Vertex",
 	"nodes":[
 		{
@@ -256,84 +228,6 @@
 			"type":"ACTION"
 		},
 		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_h5Bu3-1",
-			"id":"n_qa947",
-			"index":5,
-			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"cleanedText":{
-							"type":"string",
-							"title":"Cleaned Text"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"vertexText":{
-							"type":"string",
-							"title":"Vertex Text"
-						}
-					}
-				},
-				"code":"// Input text from Vertex\ndef raw = (vertexText ?: \"\")\n\n// (Optional) cap size to avoid regex slowness on huge outputs\nif (raw.length() > 1_000_000) raw = raw.substring(0, 1_000_000)\n\n// ---- light cleaning (no imports) ----\n\n// strip BOM if present\nif (raw.startsWith(\"\\uFEFF\")) raw = raw.substring(1)\n\n// strip ```json fences (keep inner payload)\nraw = raw.replaceAll(/```(?:json)?\\s*([\\s\\S]*?)\\s*```/, { all, g1 -> g1 ?: \"\" })\n\n// normalise curly/smart quotes to plain quotes\nraw = raw\n  .replace('\\u201C','\"').replace('\\u201D','\"').replace('\\u201E','\"').replace('\\u201F','\"')\n  .replace('\\u2018','\\'').replace('\\u2019','\\'').replace('\\u201A','\\'').replace('\\u201B','\\'')\n\n// remove ASCII control chars (except \\t \\n \\r)\nraw = raw.replaceAll(/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F]/, \"\")\n\n// remove trailing commas before ] or }\nraw = raw.replaceAll(/,\\s*]/, \"]\").replaceAll(/,\\s*}/, \"}\");\n\n// ---- extract first JSON block ----\nString candidate = \"{}\"\nboolean hadErr = false\n\nint objStart = raw.indexOf(\"{\")\nint objEnd   = raw.lastIndexOf(\"}\")\nif (objStart != -1 && objEnd > objStart) {\n  candidate = raw.substring(objStart, objEnd + 1).trim()\n} else {\n  // fallback: allow array (in case the model returns [] unexpectedly)\n  int arrStart = raw.indexOf(\"[\")\n  int arrEnd   = raw.lastIndexOf(\"]\")\n  if (arrStart != -1 && arrEnd > arrStart) {\n    candidate = raw.substring(arrStart, arrEnd + 1).trim()\n  } else {\n    hadErr = true\n  }\n}\n\n// Return map → will appear at steps.<codeStep>.outputs.result\n[ cleanedText: candidate, hadError: hadErr ]\n",
-				"compile_static":false,
-				"captureStdOutput":false,
-				"parameters":{
-					"vertexText":"{{ n_yEEgN.outputs.candidates[0].content.parts[0].text }}"
-				}
-			},
-			"skip":false,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"xsdSchemaConfig":{
-					"root":{}
-				}
-			},
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"utility_by_unifyapps_to_json_object",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_h5Bu3-1",
-			"id":"n_5vPHo",
-			"index":6,
-			"inputs":{
-				"jsonSchema":{
-					"$ref":"#/definitions/entity|e_code_snippet|e_6901343c9f21754a31c190c6",
-					"$comment":"[Tax] Invoice Data Extraction"
-				},
-				"jsonString":"{{ n_qa947.outputs.result.cleanedText }}"
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Deserialise string to JSON object",
-			"type":"ACTION"
-		},
-		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.payload.labelsArray.items.key",
@@ -352,7 +246,7 @@
 			"fallbackMode":"CONTINUE",
 			"groupId":"_h5Bu3-1",
 			"id":"_sBK48",
-			"index":7,
+			"index":5,
 			"inputs":{
 				"payload":{
 					"contents":[
@@ -441,84 +335,6 @@
 			"subTitle":"Google vertex AI",
 			"title":"Generate content",
 			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_h5Bu3-1",
-			"id":"_MPWzB",
-			"index":8,
-			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"cleanedText":{
-							"type":"string",
-							"title":"Cleaned Text"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"vertexText":{
-							"type":"string",
-							"title":"Vertex Text"
-						}
-					}
-				},
-				"code":"// ===== Vertex JSON cleaner (Tax Code Assignment Copilot v2.3) =====\n\n// Raw text from Vertex\ndef raw = (vertexText ?: \"\")\n\n// (Optional) cap size to avoid regex slowness on huge outputs\nif (raw.length() > 1_000_000) raw = raw.substring(0, 1_000_000)\n\n// ---- light cleaning (no imports) ----\n\n// strip BOM if present\nif (raw.startsWith(\"\\uFEFF\")) raw = raw.substring(1)\n\n// remove zero-width & NBSP which sometimes sneak in\nraw = raw.replace(\"\\u200B\",\"\").replace(\"\\u200C\",\"\").replace(\"\\u200D\",\"\").replace(\"\\u00A0\",\" \")\n\n// strip ```json fences (keep inner payload)\nraw = raw.replaceAll(/```(?:json)?\\s*([\\s\\S]*?)\\s*```/, { all, g1 -> g1 ?: \"\" })\n\n// strip accidental \"Input JSON\" wrappers or labels the model might echo\nraw = raw.replaceAll(/^\\s*Input JSON\\s*[\\r\\n]*/, \"\")\n\n// normalise curly/smart quotes to plain quotes\nraw = raw\n  .replace('\\u201C','\"').replace('\\u201D','\"').replace('\\u201E','\"').replace('\\u201F','\"')\n  .replace('\\u2018','\\'').replace('\\u2019','\\'').replace('\\u201A','\\'').replace('\\u201B','\\'')\n\n// remove ASCII control chars (except \\t \\n \\r)\nraw = raw.replaceAll(/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F]/, \"\")\n\n// remove trailing commas before ] or }\nraw = raw.replaceAll(/,\\s*]/, \"]\").replaceAll(/,\\s*}/, \"}\");\n\n// ---- extract first JSON object block (not array) ----\nString candidate = \"{}\"\nboolean hadErr = false\nString errMsg = \"\"\n\n// prefer object {...}; fall back to array [...] only if no object found\nint objStart = raw.indexOf(\"{\")\nint objEnd   = raw.lastIndexOf(\"}\")\nif (objStart != -1 && objEnd > objStart) {\n  candidate = raw.substring(objStart, objEnd + 1).trim()\n} else {\n  int arrStart = raw.indexOf(\"[\")\n  int arrEnd   = raw.lastIndexOf(\"]\")\n  if (arrStart != -1 && arrEnd > arrStart) {\n    // Some models might accidentally return an array — keep it but flag error\n    candidate = raw.substring(arrStart, arrEnd + 1).trim()\n    hadErr = true\n    errMsg = \"Model returned an array instead of a single JSON object.\"\n  } else {\n    hadErr = true\n    errMsg = \"No JSON object or array detected in model output.\"\n  }\n}\n\n// ---- minimal structural sanity checks (textual) ----\ndef hasLinesKey = candidate.contains(\"\\\"lines\\\"\") || candidate.contains(\"'lines'\")\ndef looksObject = candidate.startsWith(\"{\") && candidate.endsWith(\"}\")\n\nif (!looksObject) {\n  // keep candidate (might be array) but record issue\n  if (!hadErr) { hadErr = true; errMsg = \"Top-level payload is not a JSON object.\" }\n}\n\n// ensure we at least see the lines array key for this prompt family\nif (!hasLinesKey) {\n  // not fatal, but signal for downstream handling\n  if (!hadErr) { hadErr = true; errMsg = \"Expected key 'lines' not found in payload.\" }\n}\n\n// Return map → will appear at steps.<codeStep>.outputs.result\n[\n  cleanedText : candidate,   // stringified JSON to feed into UA JSON deserializer\n  hadError    : hadErr,      // boolean flag\n  errorMsg    : errMsg       // short description (\"\" if none)\n]\n",
-				"compile_static":false,
-				"captureStdOutput":false,
-				"parameters":{
-					"vertexText":"{{ _sBK48.outputs.candidates[0].content.parts[0].text }}"
-				}
-			},
-			"skip":false,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"xsdSchemaConfig":{
-					"root":{}
-				}
-			},
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"utility_by_unifyapps_to_json_object",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_h5Bu3-1",
-			"id":"_vQNwr",
-			"index":9,
-			"inputs":{
-				"jsonSchema":{
-					"$ref":"#/definitions/entity|e_code_snippet|e_6901343c9f21754a31c190c6",
-					"$comment":"[Tax] Invoice Data Extraction"
-				},
-				"jsonString":"{{ _MPWzB.outputs.result.cleanedText }}"
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Deserialise string to JSON object",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":170149,
@@ -538,5 +354,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
