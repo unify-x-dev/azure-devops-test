@@ -38,14 +38,14 @@
 			"fromNodeId":"n_wdDn6",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_ptWbU",
+			"toNodeId":"n_Wh4Hz",
 			"type":"next"
 		}
 	],
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761727217047,
+	"modifiedTime":1761727237900,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -180,17 +180,23 @@
 		},
 		{
 			"context":{
-				"appName":"stop"
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
-			"id":"n_ptWbU",
+			"id":"n_Wh4Hz",
 			"index":5,
+			"inputs":{
+				"result":"{{ n_gTqHM.outputs.data }}"
+			},
 			"skip":false,
-			"subTitle":"Stop",
-			"title":"Stop",
+			"subTitle":"Callable",
+			"title":"Respond to automation",
 			"type":"STOP"
 		}
 	],
@@ -211,5 +217,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
