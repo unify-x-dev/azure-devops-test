@@ -1,12 +1,13 @@
 {
 	"appsUsed":[
-		"6891bf0e6a75a1a04357eacc"
+		"6891bf0e6a75a1a04357eacc",
+		"bill"
 	],
 	"createdTime":1761697136692,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_E3Cha",
+			"fromNodeId":"n_Veclz",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Zg4Tf",
@@ -16,31 +17,32 @@
 	"id":"69015d709688a922b6483b0d",
 	"lastModifiedBy":124029,
 	"lcName":"rate limit (copy)",
-	"modifiedTime":1761697136692,
+	"modifiedTime":1761697168680,
 	"name":"rate limit (copy)",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"bill",
+				"resourceVersion":450,
+				"connectionId":"68d3d2f83b40ca75987490bc",
+				"resourceName":"bill_on_new_approved_bill_polling"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ofgo5-1",
-			"id":"n_E3Cha",
+			"id":"n_Veclz",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json"
-				}
+				"fromDate":"2025-10-01T00:19:00.000Z",
+				"interval":1,
+				"batchSize":1
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Bill",
+			"title":"New approved bill",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"EVENT"
 			},
 			"type":"START"
 		},
@@ -87,5 +89,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
