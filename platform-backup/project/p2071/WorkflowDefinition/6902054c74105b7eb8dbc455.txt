@@ -6,40 +6,345 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_S7cAG",
+			"fromNodeId":"n_Wv9Vh",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_2Y1Mh",
+			"toNodeId":"n_Qs8r8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Qs8r8",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8o1nY",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_8o1nY",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lLSKO",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_8o1nY",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AnOHM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_AnOHM",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_kNsSg",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_kNsSg",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2QX2t",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_kNsSg",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ueQ9w",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_AnOHM",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_xbg34",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Qs8r8",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Jbz3R",
 			"type":"next"
 		}
 	],
 	"id":"6902054c74105b7eb8dbc455",
 	"lastModifiedBy":189756,
 	"lcName":"amnack",
-	"modifiedTime":1761740108648,
+	"modifiedTime":1761741070836,
 	"name":"AMNACK",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_S7cAG-1",
-			"id":"_S7cAG",
-			"index":0,
+			"id":"n_Wv9Vh",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"complianceStatus":{
+							"type":"string",
+							"title":"Compliance Status"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"frequency":{
+							"type":"string",
+							"title":"Frequency"
+						},
+						"travelerDc":{
+							"type":"string",
+							"title":"Traveler Dc"
+						},
+						"placementStartDate":{
+							"type":"string",
+							"title":"Placement Start Date"
+						},
+						"placementEndDate":{
+							"type":"string",
+							"title":"Placement End Date"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_S7cAG-1",
-			"id":"_2Y1Mh",
-			"index":0,
+			"id":"n_Qs8r8",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_Wv9Vh.outputs.frequency }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Qs8r8@_S7cAG-1@y",
+			"id":"n_8o1nY",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"={{ n_Wv9Vh.outputs.travelerDc }}+{{ n_Wv9Vh.outputs.frequency }}",
+						"filter":{
+							"operator":"LT",
+							"value":"=today()"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8o1nY@n_Qs8r8@_S7cAG-1@y@y",
+			"id":"n_lLSKO",
+			"index":4,
+			"inputs":{
+				"result":{
+					"complianceStatus":"Non-Compliant"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8o1nY@n_Qs8r8@_S7cAG-1@y@n",
+			"id":"n_AnOHM",
+			"index":5,
+			"inputs":{
+				"filters":[
+					{
+						"property":"={{ n_Wv9Vh.outputs.frequency }}+{{ n_Wv9Vh.outputs.travelerDc }}",
+						"filter":{
+							"operator":"GTE",
+							"value":"{{ n_Wv9Vh.outputs.placementStartDate }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_AnOHM@n_8o1nY@n_Qs8r8@_S7cAG-1@y@n@y",
+			"id":"n_kNsSg",
+			"index":6,
+			"inputs":{
+				"filters":[
+					{
+						"property":"={{ n_Wv9Vh.outputs.frequency }}+{{ n_Wv9Vh.outputs.travelerDc }}",
+						"filter":{
+							"operator":"LT",
+							"value":"{{ n_Wv9Vh.outputs.placementEndDate }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_kNsSg@n_AnOHM@n_8o1nY@n_Qs8r8@_S7cAG-1@y@n@y@y",
+			"id":"n_2QX2t",
+			"index":7,
+			"inputs":{
+				"result":{
+					"complianceStatus":"Compliant with frowny face"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_kNsSg@n_AnOHM@n_8o1nY@n_Qs8r8@_S7cAG-1@y@n@y@n",
+			"id":"n_ueQ9w",
+			"index":8,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_AnOHM@n_8o1nY@n_Qs8r8@_S7cAG-1@y@n@n",
+			"id":"n_xbg34",
+			"index":9,
+			"inputs":{
+				"result":{
+					"complianceStatus":"Not Compiant"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Qs8r8@_S7cAG-1@n",
+			"id":"n_Jbz3R",
+			"index":10,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -47,6 +352,9 @@
 	],
 	"ownerUserId":189756,
 	"projectId":2071,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +368,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
