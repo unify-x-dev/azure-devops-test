@@ -90,13 +90,6 @@
 			"fromNodeId":"n_jqeIq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_M5Pmr",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_M5Pmr",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_au8JJ",
 			"type":"next"
 		},
@@ -181,7 +174,7 @@
 	"id":"6901ca27c41bc371691b4c22",
 	"lastModifiedBy":122909,
 	"lcName":"workflow1",
-	"modifiedTime":1761734786630,
+	"modifiedTime":1761734794881,
 	"name":"Workflow1",
 	"nodes":[
 		{
@@ -500,22 +493,6 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_6GPcC-1",
-			"id":"n_M5Pmr",
-			"index":12,
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Select an action",
-			"type":"CALL_WORKFLOW"
-		},
-		{
-			"context":{
 				"appName":"decision_table_by_unifyapps",
 				"resourceVersion":916,
 				"resourceName":"decision_table_by_unifyapps_create_table",
@@ -526,7 +503,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_au8JJ",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"name":"Decision table"
 			},
@@ -547,7 +524,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_dZsnv",
-			"index":14,
+			"index":13,
 			"skip":false,
 			"subTitle":"Test Connector",
 			"title":"test",
@@ -565,7 +542,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_dUqY6",
-			"index":15,
+			"index":14,
 			"inputs":{
 				"callableInterfaceId":"675ebde6ff5f7c09416c6231",
 				"runtimeConnections":{},
@@ -590,7 +567,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_XxnqY",
-			"index":16,
+			"index":15,
 			"inputs":{
 				"callableInterfaceId":"669790139c3e61557976a2d0",
 				"runtimeConnections":{},
@@ -615,7 +592,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_ACnXR",
-			"index":17,
+			"index":16,
 			"inputs":{
 				"template_id":"e_6791ddb2c08e4143355dc4e0"
 			},
@@ -636,7 +613,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_yozkd",
-			"index":18,
+			"index":17,
 			"inputs":{
 				"template_id":"failed_export_notification_template"
 			},
@@ -657,7 +634,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_rBRML",
-			"index":19,
+			"index":18,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -712,7 +689,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_SM6hC",
-			"index":20,
+			"index":19,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -969,7 +946,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_2Q0Tk",
-			"index":21,
+			"index":20,
 			"inputs":{
 				"automationId":"68fc9ee9f968ee435c61d3e0",
 				"runtimeConnections":{},
@@ -1000,7 +977,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_OSLmc",
-			"index":22,
+			"index":21,
 			"inputs":{
 				"automationId":"68fc9fd60b160667834cfdf3",
 				"runtimeConnections":{},
@@ -1027,7 +1004,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_qpB3t",
-			"index":23,
+			"index":22,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -1062,7 +1039,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_FiulW",
-			"index":24,
+			"index":23,
 			"inputs":{
 				"result":{
 					"result":"{{ n_T9qrN.outputs.encryptedData }}"
@@ -1095,5 +1072,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":18
 }
