@@ -21,6 +21,13 @@
 			"type":"branch"
 		},
 		{
+			"fromNodeId":"n_pumV6@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_llLAA",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_pumV6",
 			"name":"2",
 			"priority":0,
@@ -29,32 +36,17 @@
 			"type":"branch"
 		},
 		{
-			"fromNodeId":"n_pumV6@1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Ok0IT",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_pumV6@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Ok0IT",
+			"toNodeId":"n_aepmN",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_pumV6",
-			"name":"default",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Ok0IT",
-			"type":"branch"
 		}
 	],
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761752503511,
+	"modifiedTime":1761752578101,
 	"name":"test",
 	"nodes":[
 		{
@@ -135,6 +127,25 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1105,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_pumV6@_gBa2Z-1@1",
+			"id":"n_llLAA",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -145,7 +156,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_pumV6@_gBa2Z-1@2",
 			"id":"n_pumV6@2",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -155,23 +166,17 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1105,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
+				"appName":"stop"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_gBa2Z-1",
-			"id":"n_Ok0IT",
-			"index":5,
-			"inputs":{
-				"result":"1"
-			},
+			"groupId":"n_pumV6@_gBa2Z-1@2",
+			"id":"n_aepmN",
+			"index":6,
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
+			"subTitle":"Stop",
+			"title":"Stop",
 			"type":"STOP"
 		}
 	],
@@ -192,5 +197,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
