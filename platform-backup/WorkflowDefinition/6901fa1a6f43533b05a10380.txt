@@ -23,7 +23,7 @@
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737385163,
+	"modifiedTime":1761737389986,
 	"name":"test1",
 	"nodes":[
 		{
@@ -315,7 +315,9 @@
 			"groupId":"_zM0cA-1",
 			"id":"n_nveKC",
 			"index":3,
-			"inputs":{},
+			"inputs":{
+				"result":"{{ n_Rgo1T.outputs.items[0] }}"
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -339,5 +341,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
