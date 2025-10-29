@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761710933207,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_xChs4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_4uWOj",
+			"type":"next"
+		}
+	],
+	"id":"69019355db965a67e04706bc",
+	"lastModifiedBy":46209,
+	"lcName":"notificationsenderobjectautomation",
+	"modifiedTime":1761710933207,
+	"name":"NotificationSenderObjectAutomation",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_xChs4-1",
+			"id":"_xChs4",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_xChs4-1",
+			"id":"_4uWOj",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":46209,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
