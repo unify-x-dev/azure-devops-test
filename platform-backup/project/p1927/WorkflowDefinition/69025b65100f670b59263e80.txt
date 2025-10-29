@@ -198,7 +198,7 @@
 	"id":"69025b65100f670b59263e80",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation - smsrecipient",
-	"modifiedTime":1761762694893,
+	"modifiedTime":1761762716727,
 	"name":"NotificationSenderObjectAutomation - SmsRecipient",
 	"nodes":[
 		{
@@ -639,16 +639,9 @@
 			"index":9,
 			"inputs":{
 				"writeThroughSessionVariables":false,
+				"object_type":"infra_alerts",
 				"skipIfBlank":false,
-				"record":{
-					"Id":"{{ _eJ7rD.outputs.result.Id }}",
-					"Subject":"{{ _eJ7rD.outputs.result.Subject }}",
-					"MessageBody":"{{ _eJ7rD.outputs.result.MessageBody }}",
-					"Importance":"{{ _eJ7rD.outputs.result.Importance }}",
-					"CreatedDate":"{{ _eJ7rD.outputs.result.CreatedDate }}",
-					"FromEmail":"{{ _eJ7rD.outputs.result.FromEmail }}",
-					"Practice":"{{ _eJ7rD.outputs.result.Practice }}"
-				}
+				"record":{}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
@@ -811,38 +804,7 @@
 				},
 				"object_type":"mail_notifications",
 				"skipIfBlank":false,
-				"updateFields":[
-					{
-						"fieldName":"properties.Importance",
-						"actionType":"SET",
-						"setValue":"{{ n_sHZOw.outputs.result.Importance }}"
-					},
-					{
-						"fieldName":"properties.CreatedDate",
-						"actionType":"SET",
-						"setValue":"{{ n_sHZOw.outputs.result.CreatedDate }}"
-					},
-					{
-						"fieldName":"properties.Practice",
-						"actionType":"SET",
-						"setValue":"{{ n_sHZOw.outputs.result.Practice }}"
-					},
-					{
-						"fieldName":"properties.FromEmail",
-						"actionType":"SET",
-						"setValue":"{{ n_sHZOw.outputs.result.FromEmail }}"
-					},
-					{
-						"fieldName":"properties.Subject",
-						"actionType":"SET",
-						"setValue":"{{ n_sHZOw.outputs.result.Subject }}"
-					},
-					{
-						"fieldName":"properties.MessageBody",
-						"actionType":"SET",
-						"setValue":"{{ n_sHZOw.outputs.result.MessageBody }}"
-					}
-				],
+				"updateFields":[],
 				"page":{
 					"offset":0,
 					"limit":20
@@ -1161,5 +1123,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
