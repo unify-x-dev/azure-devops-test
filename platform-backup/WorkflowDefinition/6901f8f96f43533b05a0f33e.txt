@@ -1,51 +1,127 @@
 {
 	"appsUsed":[
-		
+		"google_vertex_ai"
 	],
 	"createdTime":1761736953398,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_qi844",
+			"fromNodeId":"n_ieAPZ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_NLVbk",
+			"toNodeId":"n_y4Rgr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_y4Rgr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_gPXTw",
 			"type":"next"
 		}
 	],
 	"id":"6901f8f96f43533b05a0f33e",
 	"lastModifiedBy":39712,
 	"lcName":"test",
-	"modifiedTime":1761736953398,
+	"modifiedTime":1761737150166,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qi844-1",
-			"id":"_qi844",
-			"index":0,
+			"id":"n_ieAPZ",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.payload.systemInstruction.role",
+					"root.payload.tools.items.functionDeclarations.items.description",
+					"root.payload.tools.items.functionDeclarations.items.parameters",
+					"root.payload.generationConfig.temperature",
+					"root.payload.generationConfig.topP",
+					"root.payload.generationConfig.topK",
+					"root.payload.generationConfig.candidateCount",
+					"root.payload.generationConfig.maxOutputTokens",
+					"root.payload.generationConfig.presencePenalty",
+					"root.payload.generationConfig.frequencyPenalty",
+					"root.payload.generationConfig.stopSequences.items",
+					"root.payload.generationConfig.responseMimeType",
+					"root.payload.generationConfig.seed",
+					"root.payload.generationConfig.responseLogprobs",
+					"root.payload.generationConfig.logprobs",
+					"root.payload.generationConfig.audioTimestamp",
+					"root.payload.generationConfig.thinkingConfig.includeThoughts",
+					"root.payload.generationConfig.thinkingConfig.thinkingBudget",
+					"root.payload.labelsArray.items.key",
+					"root.payload.labelsArray.items.value"
+				]
+			},
+			"context":{
+				"appName":"google_vertex_ai",
+				"resourceVersion":1518,
+				"connectionId":"69009a0fee7300699c7b850d",
+				"resourceName":"google_vertex_ai_generate_content",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qi844-1",
-			"id":"_NLVbk",
-			"index":0,
+			"id":"n_y4Rgr",
+			"index":2,
+			"inputs":{
+				"payload":{
+					"generationConfig":{
+						"responseMimeType":"application/json"
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Google vertex AI",
+			"title":"Generate content",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qi844-1",
+			"id":"n_gPXTw",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39712,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +135,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
