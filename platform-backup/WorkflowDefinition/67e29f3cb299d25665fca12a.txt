@@ -1,0 +1,2276 @@
+{
+	"appsUsed":[
+		"notion"
+	],
+	"createdTime":1743574234320,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296279096,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd57672fcc41fb70f335",
+		"status":"DEPLOYED",
+		"version":0,
+		"workflowVersion":93
+	},
+	"edges":[
+		{
+			"fromNodeId":"VwmfG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"bJua5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"bJua5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"l7iR1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"l7iR1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"i7fjG",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"i7fjG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"7pb99",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"7pb99",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"xKVzW",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"xKVzW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"k403C",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"k403C",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"BtVcs",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"BtVcs",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"IchwS",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"IchwS",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"znOxz",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"BtVcs",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"Ey4Kf",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"k403C",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"hatzD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"znOxz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"0d8o0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"IchwS",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"0d8o0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"Ey4Kf",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"0d8o0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"hatzD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"0d8o0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"0d8o0",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"Fi7Nm",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"Fi7Nm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"TcJ5U",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"TcJ5U",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"jk1Ja",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"jk1Ja",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"jLttA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"0d8o0",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"t1pvg",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"t1pvg",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"t1pvg@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"t1pvg@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"DH2M5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"DH2M5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"JYlQn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"JYlQn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"9CpZa",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"9CpZa",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"NQbnz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"t1pvg",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"t1pvg@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"t1pvg@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"jo69j",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"jo69j",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"KDd5I",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"KDd5I",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"PajqX",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"PajqX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"9BRPh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"t1pvg",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"i9sxo",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"i9sxo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"c4Y59",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"c4Y59",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"jUEen",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"jUEen",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"YLwxr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"jLttA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"TL3ry",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"NQbnz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"TL3ry",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"9BRPh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"TL3ry",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"YLwxr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"TL3ry",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"TL3ry",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"k5gUq",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"k5gUq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"K5JgG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"K5JgG",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"ARsN0",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"ARsN0",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"7pb99",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"K5JgG",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"7pb99",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"TL3ry",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"7pb99",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"7pb99",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"x3tHz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"x3tHz",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"9e8Gy",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"x3tHz",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"z3Tju",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"9e8Gy",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"l7iR1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"z3Tju",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"l7iR1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"l7iR1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"9Cwnk",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"67e29f3cb299d25665fca12a",
+	"lastModifiedBy":0,
+	"lcName":"knowledge indexer | notion | index all blocks",
+	"modifiedTime":1761722829654,
+	"name":"Knowledge Indexer | Notion | Index all blocks",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":161,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"u8Dn5-1",
+			"id":"VwmfG",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"success":{
+							"type":"boolean",
+							"title":"Success"
+						},
+						"maxLastSyncTime":{
+							"type":"integer",
+							"title":"Max Last Sync Time"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"success",
+						"maxLastSyncTime"
+					]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"blockId":{
+							"type":"string",
+							"title":"Block Id"
+						},
+						"readVersion":{
+							"type":"number",
+							"title":"Read Version"
+						},
+						"knowledgeId":{
+							"type":"string",
+							"title":"Knowledge Id"
+						},
+						"uniqueEntityId":{
+							"type":"string",
+							"title":"Unique Entity Id"
+						},
+						"connectionId":{
+							"type":"string",
+							"title":"Connection Id"
+						},
+						"lastSyncTime":{
+							"type":"integer",
+							"title":"Last Sync Time"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"blockId",
+						"readVersion",
+						"knowledgeId",
+						"uniqueEntityId",
+						"connectionId",
+						"lastSyncTime"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":162,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"u8Dn5-1",
+			"id":"bJua5",
+			"index":0,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
+						},
+						"nextCursor":{
+							"type":"string",
+							"title":"Next Cursor"
+						},
+						"maxLastSyncTime":{
+							"type":"integer",
+							"title":"Max Last Sync Time"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"hasMore":true
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
+						},
+						"nextCursor":{
+							"type":"string",
+							"title":"Next Cursor"
+						},
+						"maxLastSyncTime":{
+							"type":"integer",
+							"title":"Max Last Sync Time"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":164,
+				"resourceName":"loop_while",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"u8Dn5-1",
+			"id":"l7iR1",
+			"index":0,
+			"inputs":{
+				"condition":{
+					"filters":[
+						{
+							"property":"{{ bJua5.outputs.hasMore }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"True"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"While loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"notion",
+				"resourceVersion":6,
+				"connectionId":"67e3afdde7e0ef269c6b868b",
+				"resourceName":"notion_get_block_children_page",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"l7iR1@u8Dn5-1@l",
+			"id":"i7fjG",
+			"index":0,
+			"inputs":{
+				"page_id":"{{ VwmfG.outputs.blockId }}",
+				"next_cursor":"{{ bJua5.outputs.nextCursor }}",
+				"page_size":100
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Notion",
+			"title":"Get blocks in a page by ID",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":163,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"l7iR1@u8Dn5-1@l",
+			"id":"7pb99",
+			"index":0,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ i7fjG.outputs.results }}",
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":460,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"7pb99@l7iR1@u8Dn5-1@l@l",
+			"id":"xKVzW",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"lastActivity":{
+							"type":"integer",
+							"title":"Last Activity"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"lastActivity"
+					]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"lastActivity":{
+							"type":"integer",
+							"title":"Last Activity"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"lastActivity"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\ndef ret = [:]\nif (lastActivity) {\n    OffsetDateTime dateTime = OffsetDateTime.parse(lastActivity, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n    long epochMillis = dateTime.toInstant().toEpochMilli()\n    ret << [\"lastActivity\": epochMillis]\n}\nreturn ret",
+				"parameters":{
+					"lastActivity":"{{ 7pb99.outputs.item.last_edited_time }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":420,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"7pb99@l7iR1@u8Dn5-1@l@l",
+			"id":"k403C",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ VwmfG.outputs.lastSyncTime }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":420,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"k403C@7pb99@l7iR1@u8Dn5-1@l@l@y",
+			"id":"BtVcs",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ xKVzW.outputs.result.lastActivity }}",
+						"filter":{
+							"operator":"GT",
+							"value":"{{ VwmfG.outputs.lastSyncTime }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":420,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"BtVcs@k403C@7pb99@l7iR1@u8Dn5-1@l@l@y@y",
+			"id":"IchwS",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ bJua5.outputs.maxLastSyncTime }}",
+						"filter":{
+							"operator":"LT",
+							"value":"{{ xKVzW.outputs.result.lastActivity }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":449,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"IchwS@BtVcs@k403C@7pb99@l7iR1@u8Dn5-1@l@l@y@y@y",
+			"id":"znOxz",
+			"index":0,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ bJua5.outputs.maxLastSyncTime }}",
+						"value":"{{ xKVzW.outputs.result.lastActivity }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"continue",
+				"resourceVersion":420,
+				"resourceName":"continue",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"BtVcs@k403C@7pb99@l7iR1@u8Dn5-1@l@l@y@n",
+			"id":"Ey4Kf",
+			"index":0,
+			"inputs":{
+				"loop":"7pb99"
+			},
+			"skip":false,
+			"subTitle":"Continue",
+			"title":"Continue",
+			"type":"CONTINUE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":449,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"k403C@7pb99@l7iR1@u8Dn5-1@l@l@n",
+			"id":"hatzD",
+			"index":0,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ bJua5.outputs.maxLastSyncTime }}",
+						"value":"{{ xKVzW.outputs.result.lastActivity }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":158,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"7pb99@l7iR1@u8Dn5-1@l@l",
+			"id":"0d8o0",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ 7pb99.outputs.item.type }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"file"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":161,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"CONTINUE",
+			"groupId":"0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@y",
+			"id":"Fi7Nm",
+			"index":0,
+			"inputs":{
+				"fileName":"{{ 7pb99.outputs.item.file.name }}",
+				"url":"{{ 7pb99.outputs.item.file.file.url }}",
+				"option":"url"
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":65,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"CONTINUE",
+			"groupId":"0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@y",
+			"id":"TcJ5U",
+			"index":0,
+			"inputs":{
+				"automationId":"67e28e3768e137202db70562",
+				"runtimeConnections":{
+					"trello":"{{ KeJfa.outputs.knowledge.applicationInfo.context.connectionId }}",
+					"notion":"{{ VwmfG.outputs.connectionId }}"
+				},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"boardId":"{{ kQBxo.outputs.result.idBoard }}",
+					"organisationId":"{{ kQBxo.outputs.result.idOrganization }}",
+					"listId":"{{ kQBxo.outputs.result.idList }}",
+					"cardId":"{{ gvUTh.outputs.item.id }}"
+				}
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"get user sharedIDs",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":58,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"CONTINUE",
+			"groupId":"0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@y",
+			"id":"jk1Ja",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"chunkMetadata":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Chunk Metadata"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"referenceUrl":{
+							"type":"string",
+							"title":"Reference Url"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"lastActivity":{
+							"type":"string",
+							"title":"Last Activity"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"id",
+						"lastActivity"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\ndef chunkMetadata = [:]\nchunkMetadata << [\"appName\": \"notion\"]\nchunkMetadata << [\"id\": id]\n// chunkMetadata << [\"referenceUrl\": referenceUrl]\nif (lastActivity) {\n    OffsetDateTime dateTime = OffsetDateTime.parse(lastActivity, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n    long epochMillis = dateTime.toInstant().toEpochMilli()\n    chunkMetadata << [\"lastActivity\": epochMillis]\n}\n// chunkMetadata << [\"createdOn\": createdOn]\n// chunkMetadata << [\"modifiedOn\": modifiedOn]\nchunkMetadata << [\"name\": name]\nreturn [\"chunkMetadata\": chunkMetadata]",
+				"parameters":{
+					"name":"{{ 7pb99.outputs.item.id }}",
+					"id":"{{ 7pb99.outputs.item.id }}",
+					"lastActivity":"{{ 7pb99.outputs.item.last_edited_time }}"
+				}
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"chunk metadata",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":173,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"CONTINUE",
+			"groupId":"0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@y",
+			"id":"jLttA",
+			"index":0,
+			"inputs":{
+				"automationId":"6708d0a1e5c64343ba9b24c8",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"knowledgeId":"{{ VwmfG.outputs.knowledgeId }}",
+					"mimeType":"{{ Fi7Nm.outputs.fileDetails.fileType }}",
+					"fileDetails":"{{ Fi7Nm.outputs.fileDetails }}",
+					"chunkMetadata":"{{ jk1Ja.outputs.result.chunkMetadata }}",
+					"knowledgeVersion":"{{ VwmfG.outputs.readVersion }}",
+					"uniqueEntityId":"{{ 7pb99.outputs.item.id }}",
+					"sharedWithIds":{
+						"source":"{{ TcJ5U.outputs.userSharedIds }}",
+						"ua:type":"mappedArray",
+						"items":"{{ TcJ5U.outputs.userSharedIds[0] }}"
+					}
+				}
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n",
+			"id":"t1pvg",
+			"index":0,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ 7pb99.outputs.item.type }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"child_page"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ 7pb99.outputs.item.type }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"paragraph"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":169,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@1",
+			"id":"t1pvg@1",
+			"index":0,
+			"inputs":{
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ 7pb99.outputs.item.type }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"child_page"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":58,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@1",
+			"id":"DH2M5",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"data":{
+							"type":"string",
+							"title":"Data"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"data"
+					]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"type":{
+							"type":"string",
+							"title":"Type"
+						},
+						"inTrash":{
+							"type":"boolean",
+							"title":"In Trash"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"title":{
+							"type":"string",
+							"title":"Title"
+						},
+						"archived":{
+							"type":"boolean",
+							"title":"Archived"
+						},
+						"createdTime":{
+							"type":"string",
+							"title":"Created Time"
+						},
+						"createdUser":{
+							"type":"string",
+							"title":"Created User"
+						},
+						"editedTime":{
+							"type":"string",
+							"title":"Edited Time"
+						},
+						"editedUser":{
+							"type":"string",
+							"title":"Edited User"
+						},
+						"parentPage":{
+							"type":"string",
+							"title":"Parent Page"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"type",
+						"inTrash",
+						"id",
+						"title",
+						"archived",
+						"createdTime",
+						"createdUser",
+						"editedTime",
+						"editedUser",
+						"parentPage"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\n\ndef getEpoch(time){\n        OffsetDateTime timeEpoch = OffsetDateTime.parse(time, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n        long epochMillis= timeEpoch.toInstant().toEpochMilli()\n        return epochMillis    \n}\n\ndef dataString=\"The page id is \"+id+\", its parent page id is \"+parentPage+\", title of the page is \"+title+\", the page is in trash \"+inTrash+\", the page is archived \"+archived+\", the page was created on \"+getEpoch(createdTime)+\" by user \"+createdUser+\" and last edited on \"+getEpoch(editedTime)+\" by user \"+editedUser\n\nreturn [\"data\":dataString]",
+				"parameters":{
+					"type":"{{ 7pb99.outputs.item.type }}",
+					"inTrash":"{{ 7pb99.outputs.item.in_trash }}",
+					"id":"{{ 7pb99.outputs.item.id }}",
+					"title":"{{ 7pb99.outputs.item.child_page.title }}",
+					"archived":"{{ 7pb99.outputs.item.archived }}",
+					"createdTime":"{{ 7pb99.outputs.item.created_time }}",
+					"createdUser":"{{ 7pb99.outputs.item.created_by.id }}",
+					"editedTime":"{{ 7pb99.outputs.item.last_edited_time }}",
+					"editedUser":"{{ 7pb99.outputs.item.last_edited_by.id }}",
+					"parentPage":"{{ 7pb99.outputs.item.parent.page_id }}{{ 7pb99.outputs.item.parent.block_id }}{{ 7pb99.outputs.item.parent.database_id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"index data",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":65,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@1",
+			"id":"JYlQn",
+			"index":0,
+			"inputs":{
+				"automationId":"67e28e3768e137202db70562",
+				"runtimeConnections":{
+					"trello":"{{ KeJfa.outputs.knowledge.applicationInfo.context.connectionId }}",
+					"notion":"{{ VwmfG.outputs.connectionId }}"
+				},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"boardId":"{{ kQBxo.outputs.result.idBoard }}",
+					"organisationId":"{{ kQBxo.outputs.result.idOrganization }}",
+					"listId":"{{ kQBxo.outputs.result.idList }}",
+					"cardId":"{{ gvUTh.outputs.item.id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"get user sharedIDs",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":58,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@1",
+			"id":"9CpZa",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"chunkMetadata":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Chunk Metadata"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"referenceUrl":{
+							"type":"string",
+							"title":"Reference Url"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"lastActivity":{
+							"type":"string",
+							"title":"Last Activity"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"id",
+						"lastActivity"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\ndef chunkMetadata = [:]\nchunkMetadata << [\"appName\": \"notion\"]\nchunkMetadata << [\"id\": id]\n// chunkMetadata << [\"referenceUrl\": referenceUrl]\nif (lastActivity) {\n    OffsetDateTime dateTime = OffsetDateTime.parse(lastActivity, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n    long epochMillis = dateTime.toInstant().toEpochMilli()\n    chunkMetadata << [\"lastActivity\": epochMillis]\n}\n// chunkMetadata << [\"createdOn\": createdOn]\n// chunkMetadata << [\"modifiedOn\": modifiedOn]\nchunkMetadata << [\"name\": name]\nreturn [\"chunkMetadata\": chunkMetadata]",
+				"parameters":{
+					"name":"{{ 7pb99.outputs.item.id }}",
+					"id":"{{ 7pb99.outputs.item.id }}",
+					"lastActivity":"{{ 7pb99.outputs.item.last_edited_time }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"chunk metadata",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":72,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@1",
+			"id":"NQbnz",
+			"index":0,
+			"inputs":{
+				"automationId":"66af3ff4cd79b321cb478a37",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"chunks":{
+						"items":{
+							"sharedWithIds":{
+								"ua:type":"mappedArray",
+								"source":"{{ JYlQn.outputs.userSharedIds }}",
+								"items":"{{ JYlQn.outputs.userSharedIds[0] }}"
+							},
+							"chunkMetadata":"{{ 9CpZa.outputs.result.chunkMetadata }}",
+							"data":"{{ DH2M5.outputs.result.data }}"
+						},
+						"ua:type":"mappedArray"
+					},
+					"chunkMetadata":"{{ 9CpZa.outputs.result.chunkMetadata }}",
+					"knowledgeId":"{{ VwmfG.outputs.knowledgeId }}",
+					"knowledgeVersion":"{{ VwmfG.outputs.readVersion }}",
+					"uniqueEntityId":"{{ 7pb99.outputs.item.id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"indexer",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":169,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@2",
+			"id":"t1pvg@2",
+			"index":0,
+			"inputs":{
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ 7pb99.outputs.item.type }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"paragraph"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":58,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@2",
+			"id":"jo69j",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"data":{
+							"type":"string",
+							"title":"Data"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"data"
+					]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"type":{
+							"type":"string",
+							"title":"Type"
+						},
+						"inTrash":{
+							"type":"boolean",
+							"title":"In Trash"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"archived":{
+							"type":"boolean",
+							"title":"Archived"
+						},
+						"createdTime":{
+							"type":"string",
+							"title":"Created Time"
+						},
+						"createdUser":{
+							"type":"string",
+							"title":"Created User"
+						},
+						"editedTime":{
+							"type":"string",
+							"title":"Edited Time"
+						},
+						"editedUser":{
+							"type":"string",
+							"title":"Edited User"
+						},
+						"content":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Content"
+						},
+						"parentPage":{
+							"type":"string",
+							"title":"Parent Page"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"type",
+						"inTrash",
+						"id",
+						"archived",
+						"createdTime",
+						"createdUser",
+						"editedTime",
+						"editedUser",
+						"content",
+						"parentPage"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\n\ndef getEpoch(time){\n        OffsetDateTime timeEpoch = OffsetDateTime.parse(time, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n        long epochMillis= timeEpoch.toInstant().toEpochMilli()\n        return epochMillis    \n}\n\ndef contentString(content){\n     return combinedText = content.collect { it.text.content }.join(\" \")\n}\n\ndef contentStr=\"\"\nif(binding.hasVariable('content')){\n        tempcontentStr=contentString(content)\n        contentStr=\", content of the block is \"+tempcontentStr\n}\n\ndef dataString=\"The block id is \"+id+\", its parent page id is \"+parentPage+contentStr+\", the page is in trash \"+inTrash+\", the page is archived \"+archived+\", the page was created on \"+getEpoch(createdTime)+\" by user \"+createdUser+\" and last edited on \"+getEpoch(editedTime)+\" by user \"+editedUser\n\n\nreturn [\"data\":dataString]",
+				"parameters":{
+					"type":"{{ 7pb99.outputs.item.type }}",
+					"inTrash":"{{ 7pb99.outputs.item.in_trash }}",
+					"id":"{{ 7pb99.outputs.item.id }}",
+					"archived":"{{ 7pb99.outputs.item.archived }}",
+					"createdTime":"{{ 7pb99.outputs.item.created_time }}",
+					"createdUser":"{{ 7pb99.outputs.item.created_by.id }}",
+					"editedTime":"{{ 7pb99.outputs.item.last_edited_time }}",
+					"editedUser":"{{ 7pb99.outputs.item.last_edited_by.id }}",
+					"parentPage":"{{ 7pb99.outputs.item.parent.page_id }}{{ 7pb99.outputs.item.parent.block_id }}{{ 7pb99.outputs.item.parent.database_id }}",
+					"content":{
+						"source":"{{ 7pb99.outputs.item.paragraph.rich_text }}",
+						"ua:type":"mappedArray",
+						"items":"{{ 7pb99.outputs.item.paragraph.rich_text[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"index data",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":65,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@2",
+			"id":"KDd5I",
+			"index":0,
+			"inputs":{
+				"automationId":"67e28e3768e137202db70562",
+				"runtimeConnections":{
+					"trello":"{{ KeJfa.outputs.knowledge.applicationInfo.context.connectionId }}",
+					"notion":"{{ VwmfG.outputs.connectionId }}"
+				},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"boardId":"{{ kQBxo.outputs.result.idBoard }}",
+					"organisationId":"{{ kQBxo.outputs.result.idOrganization }}",
+					"listId":"{{ kQBxo.outputs.result.idList }}",
+					"cardId":"{{ gvUTh.outputs.item.id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"get user sharedIDs",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":58,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@2",
+			"id":"PajqX",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"chunkMetadata":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Chunk Metadata"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"referenceUrl":{
+							"type":"string",
+							"title":"Reference Url"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"lastActivity":{
+							"type":"string",
+							"title":"Last Activity"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"id",
+						"lastActivity"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\ndef chunkMetadata = [:]\nchunkMetadata << [\"appName\": \"notion\"]\nchunkMetadata << [\"id\": id]\n// chunkMetadata << [\"referenceUrl\": referenceUrl]\nif (lastActivity) {\n    OffsetDateTime dateTime = OffsetDateTime.parse(lastActivity, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n    long epochMillis = dateTime.toInstant().toEpochMilli()\n    chunkMetadata << [\"lastActivity\": epochMillis]\n}\n// chunkMetadata << [\"createdOn\": createdOn]\n// chunkMetadata << [\"modifiedOn\": modifiedOn]\nchunkMetadata << [\"name\": name]\nreturn [\"chunkMetadata\": chunkMetadata]",
+				"parameters":{
+					"name":"{{ 7pb99.outputs.item.id }}",
+					"id":"{{ 7pb99.outputs.item.id }}",
+					"lastActivity":"{{ 7pb99.outputs.item.last_edited_time }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"chunk metadata",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":72,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@2",
+			"id":"9BRPh",
+			"index":0,
+			"inputs":{
+				"automationId":"66af3ff4cd79b321cb478a37",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"chunks":{
+						"items":{
+							"sharedWithIds":{
+								"ua:type":"mappedArray",
+								"source":"{{ KDd5I.outputs.userSharedIds }}",
+								"items":"{{ KDd5I.outputs.userSharedIds[0] }}"
+							},
+							"chunkMetadata":"{{ PajqX.outputs.result.chunkMetadata }}",
+							"data":"{{ bAemZ.outputs.result.data }}"
+						},
+						"ua:type":"mappedArray"
+					},
+					"chunkMetadata":"{{ PajqX.outputs.result.chunkMetadata }}",
+					"knowledgeId":"{{ VwmfG.outputs.knowledgeId }}",
+					"knowledgeVersion":"{{ VwmfG.outputs.readVersion }}",
+					"uniqueEntityId":"{{ 7pb99.outputs.item.id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"indexer",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":58,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@default",
+			"id":"i9sxo",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"data":{
+							"type":"string",
+							"title":"Data"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"data"
+					]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"string",
+							"title":"Items"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"items"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\n\ndef getEpoch(key,time){\n    if(key.toLowerCase().contains(\"time\")){\n        OffsetDateTime timeEpoch = OffsetDateTime.parse(time, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n        long epochMillis= timeEpoch.toInstant().toEpochMilli()\n        return epochMillis\n    }\n    return time\n    \n}\n\ndef checkMap(value){\n    if(value instanceof Map){\n        return \" is the object :- \"\n    }\n    return \" is \"\n}\n\ndef checkEnd(value,key){\n    if(value instanceof Map){\n        return \" end of object \"+key\n    }\n    return \"\"\n}\n\ndef convertToString(data, indent=\" \") {\n    if (data instanceof Map) {\n        if(data==[:]){\n            return \"not given, \"\n        }\n        return data.findAll { key, value -> value != null || value != \"\" }\n               .collect { key, value -> \"${indent}${key}\"+checkMap(value)+\"${convertToString(getEpoch(key,value), indent)}\"+checkEnd(value,key)}\n               .join(\", \")\n    } else if (data instanceof List) {\n        if(data.size()==0){\n            return \"not given, \"\n        }\n        return data.collect { item -> convertToString(item, indent) }.join(\", \")\n    } else {\n        return data?.toString() ?: \"not given, \"\n    }\n}\ndef data = binding.hasVariable(\"items\") && items ? convertToString(items) : null\n\nreturn [\"data\":data]",
+				"parameters":{
+					"items":"{{ 7pb99.outputs.item }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"index data",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":65,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@default",
+			"id":"c4Y59",
+			"index":0,
+			"inputs":{
+				"automationId":"67e28e3768e137202db70562",
+				"runtimeConnections":{
+					"trello":"{{ KeJfa.outputs.knowledge.applicationInfo.context.connectionId }}",
+					"notion":"{{ VwmfG.outputs.connectionId }}"
+				},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"boardId":"{{ kQBxo.outputs.result.idBoard }}",
+					"organisationId":"{{ kQBxo.outputs.result.idOrganization }}",
+					"listId":"{{ kQBxo.outputs.result.idList }}",
+					"cardId":"{{ gvUTh.outputs.item.id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"get user sharedIDs",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":58,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@default",
+			"id":"jUEen",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"chunkMetadata":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Chunk Metadata"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"referenceUrl":{
+							"type":"string",
+							"title":"Reference Url"
+						},
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"lastActivity":{
+							"type":"string",
+							"title":"Last Activity"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"id",
+						"lastActivity"
+					]
+				},
+				"compile_static":false,
+				"code":"import java.time.OffsetDateTime\nimport java.time.format.DateTimeFormatter\ndef chunkMetadata = [:]\nchunkMetadata << [\"appName\": \"notion\"]\nchunkMetadata << [\"id\": id]\n// chunkMetadata << [\"referenceUrl\": referenceUrl]\nif (lastActivity) {\n    OffsetDateTime dateTime = OffsetDateTime.parse(lastActivity, DateTimeFormatter.ISO_OFFSET_DATE_TIME)\n    long epochMillis = dateTime.toInstant().toEpochMilli()\n    chunkMetadata << [\"lastActivity\": epochMillis]\n}\n// chunkMetadata << [\"createdOn\": createdOn]\n// chunkMetadata << [\"modifiedOn\": modifiedOn]\nchunkMetadata << [\"name\": name]\nreturn [\"chunkMetadata\": chunkMetadata]",
+				"parameters":{
+					"name":"{{ 7pb99.outputs.item.id }}",
+					"id":"{{ 7pb99.outputs.item.id }}",
+					"lastActivity":"{{ 7pb99.outputs.item.last_edited_time }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"chunk metadata",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":72,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"t1pvg@0d8o0@7pb99@l7iR1@u8Dn5-1@l@l@n@default",
+			"id":"YLwxr",
+			"index":0,
+			"inputs":{
+				"automationId":"66af3ff4cd79b321cb478a37",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"chunks":{
+						"items":{
+							"sharedWithIds":{
+								"ua:type":"mappedArray",
+								"source":"{{ c4Y59.outputs.userSharedIds }}",
+								"items":"{{ c4Y59.outputs.userSharedIds[0] }}"
+							},
+							"chunkMetadata":"{{ jUEen.outputs.result.chunkMetadata }}",
+							"data":"{{ i9sxo.outputs.result.data }}"
+						},
+						"ua:type":"mappedArray"
+					},
+					"chunkMetadata":"{{ jUEen.outputs.result.chunkMetadata }}",
+					"knowledgeId":"{{ VwmfG.outputs.knowledgeId }}",
+					"knowledgeVersion":"{{ VwmfG.outputs.readVersion }}",
+					"uniqueEntityId":"{{ 7pb99.outputs.item.id }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"indexer",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":158,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"7pb99@l7iR1@u8Dn5-1@l@l",
+			"id":"TL3ry",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ 7pb99.outputs.item.has_children }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"True"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":173,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"TL3ry@7pb99@l7iR1@u8Dn5-1@l@l@y",
+			"id":"k5gUq",
+			"index":0,
+			"inputs":{
+				"automationId":"67e29f3cb299d25665fca12a",
+				"runtimeConnections":{
+					"notion":"{{ VwmfG.outputs.connectionId }}"
+				},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"readVersion":"{{ VwmfG.outputs.readVersion }}",
+					"knowledgeId":"{{ VwmfG.outputs.knowledgeId }}",
+					"uniqueEntityId":"{{ VwmfG.outputs.uniqueEntityId }}",
+					"blockId":"{{ 7pb99.outputs.item.id }}",
+					"connectionId":"{{ VwmfG.outputs.connectionId }}",
+					"lastSyncTime":"{{ VwmfG.outputs.lastSyncTime }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":420,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"TL3ry@7pb99@l7iR1@u8Dn5-1@l@l@y",
+			"id":"K5JgG",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ bJua5.outputs.maxLastSyncTime }}",
+						"filter":{
+							"operator":"LT",
+							"value":"{{ k5gUq.outputs.maxLastSyncTime }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":450,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"K5JgG@TL3ry@7pb99@l7iR1@u8Dn5-1@l@l@y@y",
+			"id":"ARsN0",
+			"index":0,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ bJua5.outputs.maxLastSyncTime }}",
+						"value":"{{ k5gUq.outputs.maxLastSyncTime }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":159,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"l7iR1@u8Dn5-1@l",
+			"id":"x3tHz",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ i7fjG.outputs.has_more }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"true"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":162,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"x3tHz@l7iR1@u8Dn5-1@l@y",
+			"id":"9e8Gy",
+			"index":0,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ bJua5.outputs.hasMore }}",
+						"value":true
+					},
+					{
+						"source":"{{ bJua5.outputs.nextCursor }}",
+						"value":"{{ i7fjG.outputs.next_cursor }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":162,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"x3tHz@l7iR1@u8Dn5-1@l@n",
+			"id":"z3Tju",
+			"index":0,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ bJua5.outputs.hasMore }}",
+						"value":false
+					},
+					{
+						"source":"{{ bJua5.outputs.nextCursor }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":164,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"u8Dn5-1",
+			"id":"9Cwnk",
+			"index":0,
+			"inputs":{
+				"result":{
+					"success":true,
+					"maxLastSyncTime":"{{ bJua5.outputs.maxLastSyncTime }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":44096,
+	"runtimeConnectionAppNames":[
+		"notion"
+	],
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"headerValueTierMap":{},
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		
+	],
+	"version":95
+}
