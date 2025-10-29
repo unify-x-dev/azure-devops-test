@@ -45,10 +45,15 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761731251623,
+	"modifiedTime":1761731313229,
 	"name":"xyzzz",
 	"nodes":[
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1068,
@@ -60,21 +65,7 @@
 			"groupId":"_QuCjn-1",
 			"id":"n_JUbjR",
 			"index":1,
-			"inputs":{
-				"result":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"file"
-					],
-					"properties":{
-						"file":{
-							"type":"string",
-							"title":"File"
-						}
-					}
-				}
-			},
+			"inputs":{},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Trigger via automation",
@@ -233,5 +224,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
