@@ -43,13 +43,6 @@
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_73GI6",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_EHrXV",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"_OG8x0",
 			"name":"no",
 			"priority":0,
@@ -66,25 +59,11 @@
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_BtoMp",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_SBZFw",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"_X3glp",
 			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_3F75m",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_3F75m",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_RCk8f",
 			"type":"next"
 		},
 		{
@@ -111,21 +90,21 @@
 			"type":"if"
 		},
 		{
-			"fromNodeId":"_EHrXV",
+			"fromNodeId":"n_73GI6",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_2ddK8",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_SBZFw",
+			"fromNodeId":"n_BtoMp",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_2ddK8",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_RCk8f",
+			"fromNodeId":"n_3F75m",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_2ddK8",
@@ -158,7 +137,7 @@
 	"id":"6901b833db965a67e047eb25",
 	"lastModifiedBy":189756,
 	"lcName":"appl amn applications",
-	"modifiedTime":1761723393076,
+	"modifiedTime":1761723404665,
 	"name":"APPL AMN Applications",
 	"nodes":[
 		{
@@ -405,29 +384,6 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1102,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_OG8x0@n_AQnJF@_LgtSD-1@1@y",
-			"id":"_EHrXV",
-			"index":7,
-			"inputs":{
-				"result":{
-					"dateCompleted":"Completed"
-				}
-			},
-			"skip":true,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
-			"context":{
 				"appName":"if_else",
 				"resourceVersion":791,
 				"resourceName":"if_else_condition",
@@ -438,7 +394,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_OG8x0@n_AQnJF@_LgtSD-1@1@n",
 			"id":"_X3glp",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"filters":[
 					{
@@ -468,7 +424,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_X3glp@_OG8x0@n_AQnJF@_LgtSD-1@1@n@y",
 			"id":"n_BtoMp",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"variables":[
 					{
@@ -483,29 +439,6 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1102,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_X3glp@_OG8x0@n_AQnJF@_LgtSD-1@1@n@y",
-			"id":"_SBZFw",
-			"index":10,
-			"inputs":{
-				"result":{
-					"dateCompleted":"Not Compliant"
-				}
-			},
-			"skip":true,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
-			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1004,
 				"resourceName":"variable_by_unifyapps_update_variables",
@@ -516,7 +449,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_X3glp@_OG8x0@n_AQnJF@_LgtSD-1@1@n@n",
 			"id":"n_3F75m",
-			"index":11,
+			"index":9,
 			"inputs":{
 				"variables":[
 					{
@@ -532,29 +465,6 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1102,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_X3glp@_OG8x0@n_AQnJF@_LgtSD-1@1@n@n",
-			"id":"_RCk8f",
-			"index":12,
-			"inputs":{
-				"result":{
-					"dateCompleted":"Compliant but frowny"
-				}
-			},
-			"skip":true,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
-			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -565,7 +475,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AQnJF@_LgtSD-1@2",
 			"id":"n_AQnJF@2",
-			"index":13,
+			"index":10,
 			"inputs":{
 				"name":"Type"
 			},
@@ -585,7 +495,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AQnJF@_LgtSD-1@2",
 			"id":"n_VPIRG",
-			"index":14,
+			"index":11,
 			"inputs":{
 				"filters":[
 					{
@@ -614,7 +524,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_VPIRG@n_AQnJF@_LgtSD-1@2@y",
 			"id":"n_AUubd",
-			"index":15,
+			"index":12,
 			"inputs":{
 				"result":{
 					"Type":"{{ n_f44SR.outputs.travelType }}"
@@ -637,7 +547,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_LgtSD-1",
 			"id":"n_2ddK8",
-			"index":16,
+			"index":13,
 			"inputs":{
 				"result":{
 					"dateCompleted":"{{ n_aye0q.outputs.data }}"
@@ -667,5 +577,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
