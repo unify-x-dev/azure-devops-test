@@ -5,12 +5,12 @@
 	"createdTime":1738309677710,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1760296215068,
-		"deployedBy":-1,
-		"deployedDefinitionId":"68ebfd16672fcc41fb70f135",
+		"deployedAt":1761424591128,
+		"deployedBy":309,
+		"deployedDefinitionId":"68fd34cebab8db141ba5ffda",
 		"status":"DEPLOYED",
-		"version":66,
-		"workflowVersion":96
+		"version":67,
+		"workflowVersion":98
 	},
 	"edges":[
 		{
@@ -59,16 +59,23 @@
 			"fromNodeId":"_LDYaq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_KwFz2",
+			"toNodeId":"n_vpnsf",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_KwFz2",
-			"name":"yes",
+			"fromNodeId":"n_vpnsf",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vpnsf@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_vpnsf@1",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_ZeXKb",
-			"type":"if"
+			"type":"next"
 		},
 		{
 			"fromNodeId":"_ZeXKb",
@@ -185,6 +192,13 @@
 			"fromNodeId":"_cyNOJ",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_slFIB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_slFIB",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_yZT3b",
 			"type":"next"
 		},
@@ -218,22 +232,15 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_ZeXKb",
+			"fromNodeId":"n_vpnsf",
+			"name":"2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"GJSUp",
-			"type":"next"
+			"toNodeId":"n_vpnsf@2",
+			"type":"branch"
 		},
 		{
-			"fromNodeId":"oZ3KL",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"GJSUp",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_KwFz2",
-			"name":"no",
+			"fromNodeId":"n_vpnsf@2",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"GJSUp",
@@ -370,6 +377,13 @@
 			"fromNodeId":"_KLlkQ",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_80FZb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_80FZb",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_LkfRx",
 			"type":"next"
 		},
@@ -395,11 +409,34 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"oZ3KL",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"GJSUp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_ZeXKb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"HUjmx",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"GJSUp",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"HUjmx",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vpnsf",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"HUjmx",
+			"type":"branch"
 		},
 		{
 			"fromNodeId":"HUjmx",
@@ -413,7 +450,6 @@
 		"configs":[
 			{
 				"permissions":[
-					"VIEW_RUNS",
 					"V"
 				],
 				"principalType":"GLOBAL"
@@ -421,9 +457,9 @@
 		]
 	},
 	"id":"679b7fdad2256d4d7f3277fe",
-	"lastModifiedBy":309,
+	"lastModifiedBy":0,
 	"lcName":"fetch chunks given filter and embedding models",
-	"modifiedTime":1761424590604,
+	"modifiedTime":1761722751991,
 	"name":"Fetch Chunks Given Filter and Embedding Models",
 	"nodes":[
 		{
@@ -1377,32 +1413,112 @@
 		},
 		{
 			"context":{
-				"appName":"if_else",
-				"resourceVersion":13,
-				"resourceName":"if_else_condition",
+				"appName":"branch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"qoogX-1",
-			"id":"_KwFz2",
+			"id":"n_vpnsf",
 			"index":8,
 			"inputs":{
-				"filters":[
+				"branches":[
 					{
-						"property":"{{ le3y3.outputs.knowledgeSets }}",
-						"filter":{
-							"operator":"EXISTS"
+						"id":"1",
+						"inputs":{
+							"name":"knowledge set",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ le3y3.outputs.knowledgeSets }}",
+										"filter":{
+											"operator":"EXISTS"
+										}
+									},
+									{
+										"property":"=LEN({{ le3y3.outputs.knowledges }})",
+										"filter":{
+											"operator":"GT",
+											"value":"0"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"knowledge",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ le3y3.outputs.knowledges }}",
+										"filter":{
+											"operator":"EXISTS"
+										}
+									},
+									{
+										"property":"=LEN({{ le3y3.outputs.knowledges }})",
+										"filter":{
+											"operator":"GT",
+											"value":"0"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
 					}
-				],
-				"operator":"AND"
+				]
 			},
 			"skip":false,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_vpnsf@qoogX-1@1",
+			"id":"n_vpnsf@1",
+			"index":9,
+			"inputs":{
+				"name":"knowledge set",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ le3y3.outputs.knowledgeSets }}",
+							"filter":{
+								"operator":"EXISTS"
+							}
+						},
+						{
+							"property":"=LEN({{ le3y3.outputs.knowledges }})",
+							"filter":{
+								"operator":"GT",
+								"value":"0"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
 		},
 		{
 			"context":{
@@ -1414,9 +1530,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_KwFz2@qoogX-1@y",
+			"groupId":"n_vpnsf@qoogX-1@1",
 			"id":"_ZeXKb",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ _NGFnl.outputs.result.embeddingVsKnowledgeFilter }}",
@@ -1437,9 +1553,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"_UlrMo",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1480,9 +1596,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"_94gvN",
-			"index":11,
+			"index":12,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -1554,9 +1670,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"_UyrXt",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"filters":[
 					{
@@ -1584,9 +1700,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_UyrXt@_ZeXKb@_KwFz2@qoogX-1@y@l@y",
+			"groupId":"_UyrXt@_ZeXKb@n_vpnsf@qoogX-1@1@l@y",
 			"id":"_0dCO5",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"automationId":"68beb1f8c6c0920a8698f516",
 				"runtimeConnections":{},
@@ -1618,9 +1734,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_UyrXt@_ZeXKb@_KwFz2@qoogX-1@y@l@y",
+			"groupId":"_UyrXt@_ZeXKb@n_vpnsf@qoogX-1@1@l@y",
 			"id":"_MLDQc",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"filters":[
 					{
@@ -1653,9 +1769,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_MLDQc@_UyrXt@_ZeXKb@_KwFz2@qoogX-1@y@l@y@y",
+			"groupId":"_MLDQc@_UyrXt@_ZeXKb@n_vpnsf@qoogX-1@1@l@y@y",
 			"id":"_XNZhr",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"result":{
 					"relevantContent":{
@@ -1683,9 +1799,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_UyrXt@_ZeXKb@_KwFz2@qoogX-1@y@l@y",
+			"groupId":"_UyrXt@_ZeXKb@n_vpnsf@qoogX-1@1@l@y",
 			"id":"_NBFmP",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"variables":[
 					{
@@ -1716,9 +1832,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"_keZUp",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1819,9 +1935,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"n_Auu7o",
-			"index":18,
+			"index":19,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -1906,9 +2022,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"MANUAL",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"_XvvRo",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"automationId":"6784b9216fb83f0972c5625d",
 				"runtimeConnections":{},
@@ -1986,9 +2102,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_XvvRo@_ZeXKb@_KwFz2@qoogX-1@y@l@success",
+			"groupId":"_XvvRo@_ZeXKb@n_vpnsf@qoogX-1@1@l@success",
 			"id":"n_LCpO5",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"automationId":"680bb38e89c13d6ab6b7babe",
 				"runtimeConnections":{},
@@ -2015,9 +2131,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"CONTINUE",
-			"groupId":"_XvvRo@_ZeXKb@_KwFz2@qoogX-1@y@l@success",
+			"groupId":"_XvvRo@_ZeXKb@n_vpnsf@qoogX-1@1@l@success",
 			"id":"n_4np6g",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"automationId":"68c51597269ad81cc750a3ca",
 				"runtimeConnections":{},
@@ -2113,9 +2229,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"CONTINUE",
-			"groupId":"_XvvRo@_ZeXKb@_KwFz2@qoogX-1@y@l@error",
+			"groupId":"_XvvRo@_ZeXKb@n_vpnsf@qoogX-1@1@l@error",
 			"id":"_cyNOJ",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"automationId":"68c51597269ad81cc750a3ca",
 				"runtimeConnections":{},
@@ -2198,6 +2314,27 @@
 		},
 		{
 			"context":{
+				"appName":"continue",
+				"resourceVersion":450,
+				"resourceName":"continue",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_XvvRo@_ZeXKb@n_vpnsf@qoogX-1@1@l@error",
+			"id":"n_slFIB",
+			"index":24,
+			"inputs":{
+				"loop":"_ZeXKb"
+			},
+			"skip":false,
+			"subTitle":"Continue",
+			"title":"Continue",
+			"type":"CONTINUE"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":467,
 				"resourceName":"callables_call_automation",
@@ -2206,9 +2343,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_XvvRo@_ZeXKb@_KwFz2@qoogX-1@y@l@error",
+			"groupId":"_XvvRo@_ZeXKb@n_vpnsf@qoogX-1@1@l@error",
 			"id":"n_yZT3b",
-			"index":23,
+			"index":25,
 			"inputs":{
 				"automationId":"68b827559a4a9d0149caa07d",
 				"runtimeConnections":{},
@@ -2235,9 +2372,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"_yhHvW",
-			"index":24,
+			"index":26,
 			"inputs":{
 				"automationId":"6784ec5e2bf24b00b3976630",
 				"runtimeConnections":{},
@@ -2277,9 +2414,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_ZeXKb@_KwFz2@qoogX-1@y@l",
+			"groupId":"_ZeXKb@n_vpnsf@qoogX-1@1@l",
 			"id":"_F80jl",
-			"index":25,
+			"index":27,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -2299,6 +2436,44 @@
 		},
 		{
 			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_vpnsf@qoogX-1@2",
+			"id":"n_vpnsf@2",
+			"index":28,
+			"inputs":{
+				"name":"knowledge",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ le3y3.outputs.knowledges }}",
+							"filter":{
+								"operator":"EXISTS"
+							}
+						},
+						{
+							"property":"=LEN({{ le3y3.outputs.knowledges }})",
+							"filter":{
+								"operator":"GT",
+								"value":"0"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":215,
 				"resourceName":"loop_for_each",
@@ -2307,16 +2482,16 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"qoogX-1",
+			"groupId":"n_vpnsf@qoogX-1@2",
 			"id":"GJSUp",
-			"index":26,
+			"index":29,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ do2nR.outputs.result.embeddingVsKnowledgeFilter }}",
 				"captureIterations":false
 			},
 			"skip":false,
-			"subTitle":"embeddings",
+			"subTitle":"LoopOnKnowledges",
 			"title":"For loop",
 			"type":"LOOP"
 		},
@@ -2330,9 +2505,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"7AvkW",
-			"index":27,
+			"index":30,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -2380,9 +2555,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"n_OgZ1z",
-			"index":28,
+			"index":31,
 			"inputs":{
 				"filters":[
 					{
@@ -2410,9 +2585,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"n_OgZ1z@GJSUp@qoogX-1@l@y",
+			"groupId":"n_OgZ1z@GJSUp@n_vpnsf@qoogX-1@2@l@y",
 			"id":"_waB5G",
-			"index":29,
+			"index":32,
 			"inputs":{
 				"loop":"GJSUp"
 			},
@@ -2431,9 +2606,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"lr0UB",
-			"index":30,
+			"index":33,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -2505,9 +2680,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"nLE0z",
-			"index":31,
+			"index":34,
 			"inputs":{
 				"filters":[
 					{
@@ -2535,9 +2710,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"nLE0z@GJSUp@qoogX-1@l@y",
+			"groupId":"nLE0z@GJSUp@n_vpnsf@qoogX-1@2@l@y",
 			"id":"_dGN2s",
-			"index":32,
+			"index":35,
 			"inputs":{
 				"automationId":"6762c6bfaaaee539c3421ac7",
 				"runtimeConnections":{},
@@ -2574,9 +2749,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"nLE0z@GJSUp@qoogX-1@l@y",
+			"groupId":"nLE0z@GJSUp@n_vpnsf@qoogX-1@2@l@y",
 			"id":"n_eC5KA",
-			"index":33,
+			"index":36,
 			"inputs":{
 				"filters":[
 					{
@@ -2609,9 +2784,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"n_eC5KA@nLE0z@GJSUp@qoogX-1@l@y@y",
+			"groupId":"n_eC5KA@nLE0z@GJSUp@n_vpnsf@qoogX-1@2@l@y@y",
 			"id":"_NzqcM",
-			"index":34,
+			"index":37,
 			"inputs":{
 				"result":{
 					"relevantContent":{
@@ -2639,9 +2814,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"nLE0z@GJSUp@qoogX-1@l@y",
+			"groupId":"nLE0z@GJSUp@n_vpnsf@qoogX-1@2@l@y",
 			"id":"9JXJ6",
-			"index":35,
+			"index":38,
 			"inputs":{
 				"variables":[
 					{
@@ -2674,9 +2849,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"PXUiF",
-			"index":36,
+			"index":39,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2788,9 +2963,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"_DLXc9",
-			"index":37,
+			"index":40,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -2875,9 +3050,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"MANUAL",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"Ymh6A",
-			"index":38,
+			"index":41,
 			"inputs":{
 				"automationId":"6784b9216fb83f0972c5625d",
 				"runtimeConnections":{},
@@ -2954,9 +3129,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"CONTINUE",
-			"groupId":"Ymh6A@GJSUp@qoogX-1@l@success",
+			"groupId":"Ymh6A@GJSUp@n_vpnsf@qoogX-1@2@l@success",
 			"id":"_IMnXd",
-			"index":39,
+			"index":42,
 			"inputs":{
 				"automationId":"68c51597269ad81cc750a3ca",
 				"runtimeConnections":{},
@@ -3046,9 +3221,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"CONTINUE",
-			"groupId":"Ymh6A@GJSUp@qoogX-1@l@error",
+			"groupId":"Ymh6A@GJSUp@n_vpnsf@qoogX-1@2@l@error",
 			"id":"_KLlkQ",
-			"index":40,
+			"index":43,
 			"inputs":{
 				"automationId":"68c51597269ad81cc750a3ca",
 				"runtimeConnections":{},
@@ -3131,6 +3306,27 @@
 		},
 		{
 			"context":{
+				"appName":"continue",
+				"resourceVersion":450,
+				"resourceName":"continue",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"Ymh6A@GJSUp@n_vpnsf@qoogX-1@2@l@error",
+			"id":"_80FZb",
+			"index":44,
+			"inputs":{
+				"loop":"GJSUp"
+			},
+			"skip":false,
+			"subTitle":"Continue",
+			"title":"Continue",
+			"type":"CONTINUE"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":467,
 				"resourceName":"callables_call_automation",
@@ -3139,9 +3335,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"Ymh6A@GJSUp@qoogX-1@l@error",
+			"groupId":"Ymh6A@GJSUp@n_vpnsf@qoogX-1@2@l@error",
 			"id":"_LkfRx",
-			"index":41,
+			"index":45,
 			"inputs":{
 				"automationId":"68b827559a4a9d0149caa07d",
 				"runtimeConnections":{},
@@ -3168,9 +3364,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"fYHvJ",
-			"index":42,
+			"index":46,
 			"inputs":{
 				"automationId":"6784ec5e2bf24b00b3976630",
 				"runtimeConnections":{},
@@ -3210,9 +3406,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"GJSUp@qoogX-1@l",
+			"groupId":"GJSUp@n_vpnsf@qoogX-1@2@l",
 			"id":"oZ3KL",
-			"index":43,
+			"index":47,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -3248,10 +3444,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"qoogX-1",
 			"id":"HUjmx",
-			"index":44,
+			"index":48,
 			"inputs":{
 				"output":{
 					"type":"object",
+					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"relevantContent":{
 							"type":"array",
@@ -3274,12 +3472,12 @@
 							},
 							"title":"Relevant Content"
 						}
-					},
-					"additionalProperties":false,
-					"required":[]
+					}
 				},
 				"input":{
 					"type":"object",
+					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"relevantContent":{
 							"type":"array",
@@ -3302,12 +3500,11 @@
 							},
 							"title":"Relevant Content"
 						}
-					},
-					"additionalProperties":false,
-					"required":[]
+					}
 				},
-				"compile_static":false,
 				"code":"if (binding.hasVariable('relevantContent') && !relevantContent?.isEmpty()) {\n  return [\n    'relevantContent': relevantContent.sort { -it.score }\n  ]\n}\n\nreturn [\n  'relevantContent' : []\n]",
+				"compile_static":false,
+				"captureStdOutput":false,
 				"parameters":{
 					"relevantContent":{
 						"source":"{{ _LDYaq.outputs.items }}",
@@ -3342,7 +3539,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"qoogX-1",
 			"id":"XYHEW",
-			"index":45,
+			"index":49,
 			"inputs":{
 				"result":{
 					"relevantContent":{
@@ -3374,10 +3571,10 @@
 			"tierName":"global"
 		}
 	},
-	"standard":false,
+	"standard":true,
 	"tags":[
 		"AI Agent",
 		"Knowledge"
 	],
-	"version":98
+	"version":99
 }
