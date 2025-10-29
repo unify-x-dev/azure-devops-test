@@ -6,12 +6,12 @@
 	"createdTime":1761725242827,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761731791389,
+		"deployedAt":1761731910700,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901e4cf0a7959277f20674f",
+		"deployedDefinitionId":"6901e546c41bc371691c6b5a",
 		"status":"DEPLOYED",
-		"version":14,
-		"workflowVersion":14
+		"version":15,
+		"workflowVersion":15
 	},
 	"edges":[
 		{
@@ -58,6 +58,13 @@
 		},
 		{
 			"fromNodeId":"_p4gBG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_w78VF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_w78VF",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_o2V3G",
@@ -137,7 +144,7 @@
 	"id":"6901cb3ac41bc371691b580e",
 	"lastModifiedBy":132116,
 	"lcName":"main_automation",
-	"modifiedTime":1761731908961,
+	"modifiedTime":1761731972925,
 	"name":"main_automation",
 	"nodes":[
 		{
@@ -291,7 +298,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_p4gBG",
@@ -316,11 +323,36 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qEDOz-1",
+			"id":"_w78VF",
+			"index":8,
+			"inputs":{
+				"automationId":"6901b833db965a67e047eb25",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_o2V3G",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -345,7 +377,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_UhUbM",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"automationId":"6901bf41dc12803a78e8de7e",
 				"runtimeConnections":{},
@@ -370,7 +402,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_VwKwa",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"automationId":"6901bf41dc12803a78e8de7e",
 				"runtimeConnections":{},
@@ -391,11 +423,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_0lCnj",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"automationId":"6901c6280a7959277f1f8ade",
 				"runtimeConnections":{},
@@ -420,7 +452,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_XxMBO",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"automationId":"6901df810a7959277f204a96",
 				"runtimeConnections":{},
@@ -445,7 +477,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_wuWZh",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"automationId":"68fdd8c5ff97b736e67e85d5",
 				"runtimeConnections":{},
@@ -470,7 +502,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_yHnFY",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"automationId":"68fb12ef9bb45819e17a8f56",
 				"runtimeConnections":{},
@@ -495,7 +527,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_Oj1e9",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"automationId":"6901c6a30a7959277f1f8ddb",
 				"runtimeConnections":{},
@@ -520,7 +552,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_ScrRb",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"automationId":"6846983710ced17b8d13d250",
 				"runtimeConnections":{},
@@ -545,7 +577,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_9w3T9",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -570,7 +602,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_UfCTG",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"result":{
 					"output1":"res"
@@ -599,5 +631,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":16
 }
