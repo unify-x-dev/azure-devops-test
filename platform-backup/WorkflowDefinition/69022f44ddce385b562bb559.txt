@@ -46,7 +46,7 @@
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761751744010,
+	"modifiedTime":1761751758832,
 	"name":"test",
 	"nodes":[
 		{
@@ -73,6 +73,8 @@
 		{
 			"context":{
 				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -81,9 +83,21 @@
 			"groupId":"_gBa2Z-1",
 			"id":"n_hZ2lC",
 			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"1",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"1"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
 			"subTitle":"Condition",
-			"title":"Select an action",
+			"title":"Condition",
 			"type":"IF_ELSE"
 		},
 		{
@@ -193,5 +207,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
