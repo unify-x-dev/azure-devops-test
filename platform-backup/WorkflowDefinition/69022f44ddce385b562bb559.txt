@@ -14,22 +14,22 @@
 		},
 		{
 			"fromNodeId":"n_hZ2lC",
-			"name":"no",
+			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_vdbfu",
+			"toNodeId":"n_nHOra",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_nHOra",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Ok0IT",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"n_hZ2lC",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Ok0IT",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"n_vdbfu",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Ok0IT",
@@ -39,7 +39,7 @@
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761752056424,
+	"modifiedTime":1761752189108,
 	"name":"test",
 	"nodes":[
 		{
@@ -95,24 +95,18 @@
 		},
 		{
 			"context":{
-				"appName":"test_http",
-				"resourceVersion":3686,
-				"connectionId":"66b0ee649c311126267a17b7",
-				"resourceName":"test_http_post_api",
+				"appName":"variable_by_unifyapps",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_hZ2lC@_gBa2Z-1@n",
-			"id":"n_vdbfu",
+			"groupId":"n_hZ2lC@_gBa2Z-1@y",
+			"id":"n_nHOra",
 			"index":3,
-			"inputs":{
-				"field2":true
-			},
-			"skip":false,
-			"subTitle":"Test HTTP API",
-			"title":"Test HTTP Post API",
+			"skip":true,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Select an action",
 			"type":"ACTION"
 		},
 		{
@@ -131,7 +125,7 @@
 			"inputs":{
 				"result":"1"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
@@ -154,5 +148,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
