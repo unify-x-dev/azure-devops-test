@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761726370608,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_dGwIT",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_mKvWh",
+			"type":"next"
+		}
+	],
+	"id":"6901cfa2c41bc371691b883a",
+	"lastModifiedBy":122909,
+	"lcName":"childworkflow2",
+	"modifiedTime":1761726370608,
+	"name":"ChildWorkflow2",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_dGwIT-1",
+			"id":"_dGwIT",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_dGwIT-1",
+			"id":"_mKvWh",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":122909,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
