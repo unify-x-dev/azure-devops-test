@@ -5,12 +5,12 @@
 	"createdTime":1754285350564,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1760296171791,
-		"deployedBy":-1,
-		"deployedDefinitionId":"68ebfcebd60dd816d7798f3c",
+		"deployedAt":1761288018447,
+		"deployedBy":635,
+		"deployedDefinitionId":"68fb1f52cc36024e0ca63b1f",
 		"status":"DEPLOYED",
-		"version":31,
-		"workflowVersion":65
+		"version":32,
+		"workflowVersion":67
 	},
 	"edges":[
 		{
@@ -74,11 +74,11 @@
 			"fromNodeId":"n_bVmrn",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_pTzHJ",
+			"toNodeId":"n_dbmXg",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_pTzHJ",
+			"fromNodeId":"n_dbmXg",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_RTmbq",
@@ -158,7 +158,6 @@
 		"configs":[
 			{
 				"permissions":[
-					"VIEW_RUNS",
 					"V"
 				],
 				"principalType":"GLOBAL"
@@ -166,9 +165,9 @@
 		]
 	},
 	"id":"6868e842482e2420f2435c96",
-	"lastModifiedBy":635,
+	"lastModifiedBy":0,
 	"lcName":"indexing status update job",
-	"modifiedTime":1761288018374,
+	"modifiedTime":1761722687068,
 	"name":"Indexing Status Update Job",
 	"nodes":[
 		{
@@ -469,32 +468,7 @@
 									"title":"List Item Source"
 								},
 								"items":{
-									"additionalProperties":false,
-									"type":[
-										"object",
-										"string",
-										"number",
-										"boolean",
-										"integer"
-									],
-									"properties":{
-										"id":{
-											"type":"string",
-											"title":"Id"
-										},
-										"resourceName":{
-											"type":"string",
-											"title":"Resource Name"
-										},
-										"indexingVersion":{
-											"type":"integer",
-											"title":"Indexing Version"
-										}
-									},
-									"required":[
-										"id",
-										"resourceName"
-									]
+									"type":"object"
 								}
 							}
 						}
@@ -519,24 +493,7 @@
 							"disableActions":true,
 							"items":{
 								"type":"object",
-								"properties":{
-									"id":{
-										"type":"string",
-										"title":"Id"
-									},
-									"resourceName":{
-										"type":"string",
-										"title":"Resource Name"
-									},
-									"indexingVersion":{
-										"type":"integer",
-										"title":"Indexing Version"
-									}
-								},
-								"required":[
-									"id",
-									"resourceName"
-								]
+								"properties":{}
 							}
 						}
 					}
@@ -673,11 +630,7 @@
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
 					"source":"{{ n_AQUPZ.outputs.objects }}",
-					"items":{
-						"id":"{{ n_AQUPZ.outputs.objects[0].id }}",
-						"resourceName":"{{ n_AQUPZ.outputs.objects[0].properties.applicationInfo.context.resourceName }}",
-						"indexingVersion":"{{ n_AQUPZ.outputs.objects[0].properties.indexingVersion }}"
-					}
+					"items":"{{ n_AQUPZ.outputs.objects[0] }}"
 				},
 				"listName":"{{ n_zYkn1.outputs.items[0] }}"
 			},
@@ -741,79 +694,30 @@
 		},
 		{
 			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":3,
-				"resourceName":"storage_by_unifyapps_get_record_by_id",
+				"appName":"callables",
+				"resourceVersion":609,
+				"resourceName":"callables_call_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_bVmrn@_OeNtM-1@l",
-			"id":"n_pTzHJ",
+			"id":"n_dbmXg",
 			"index":9,
 			"inputs":{
-				"object_type":"knowledge_source",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"id":"{{ n_bVmrn.outputs.item.resourceName }}",
-				"readThroughSessionVariables":false
-			},
-			"options":{
-				"businessHoursConfig":{
-					"enabled":false,
-					"waitForNextWindow":false
-				},
-				"cacheConfig":{
-					"cacheKey":"{{ n_bVmrn.outputs.item.resourceName }}",
-					"enabled":true,
-					"timeToLive":"72000",
-					"usagePolicy":"ALWAYS"
-				},
-				"circuitBreakerConfig":{
-					"enabled":false,
-					"slidingWindowType":"COUNT_BASED"
-				},
-				"disableLogging":false,
-				"enabledForReExecution":false,
-				"hookConfig":{
-					"enabled":false,
-					"postHooks":[
-						
-					],
-					"preHooks":[
-						
-					]
-				},
-				"logConfig":{
-					"enabled":false,
-					"logPolicies":[
-						
-					]
-				},
-				"rateLimitConfig":{
-					"enabled":false,
-					"unit":"MINUTES",
-					"waitForNextWindow":false
-				},
-				"retryConfig":{
-					"backOffFactor":null,
-					"captureRetries":false,
-					"enabled":false
-				},
-				"stepError":"STOP",
-				"telemetryConfig":{
-					"enableTelemetry":false,
-					"metricConfigs":[
-						
-					]
+				"automationId":"68e3e0235742db1a6d5f90bb",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"knowledge":"{{ n_bVmrn.outputs.item.properties }}"
 				}
 			},
 			"skip":false,
-			"subTitle":"knowledgeSource",
-			"title":"Fetch record by ID",
-			"type":"ACTION"
+			"subTitle":"Get KnowledgeSource",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		},
 		{
 			"context":{
@@ -878,7 +782,7 @@
 			"inputs":{
 				"filters":[
 					{
-						"property":"=LEN({{ n_pTzHJ.outputs.properties.indexerAutomations }})",
+						"property":"=LEN({{ n_dbmXg.outputs.knowledgeSource.indexerAutomations }})",
 						"filter":{
 							"operator":"EQUAL",
 							"value":"{{ _RTmbq.outputs.count }}"
@@ -944,17 +848,17 @@
 							}
 						},
 						{
-							"property":"properties_status",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"FAILED"
-							}
-						},
-						{
 							"property":"properties_type",
 							"filter":{
 								"operator":"EQUAL",
 								"value":"backward"
+							}
+						},
+						{
+							"property":"properties_status",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"FAILED"
 							}
 						}
 					],
@@ -1073,9 +977,9 @@
 			"tierName":"global"
 		}
 	},
-	"standard":false,
+	"standard":true,
 	"tags":[
 		"knowledge_v2"
 	],
-	"version":67
+	"version":68
 }
