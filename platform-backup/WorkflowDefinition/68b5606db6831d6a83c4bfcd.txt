@@ -5,12 +5,12 @@
 	"createdTime":1757066175589,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761647219091,
+		"deployedAt":1761647414911,
 		"deployedBy":670,
-		"deployedDefinitionId":"69009a72c85d6a3a6dc31f4f",
+		"deployedDefinitionId":"69009b36151fb15bb24a29af",
 		"status":"DEPLOYED",
-		"version":9,
-		"workflowVersion":37
+		"version":10,
+		"workflowVersion":38
 	},
 	"edges":[
 		{
@@ -176,7 +176,6 @@
 		"configs":[
 			{
 				"permissions":[
-					"VIEW_RUNS",
 					"V"
 				],
 				"principalType":"GLOBAL"
@@ -184,9 +183,9 @@
 		]
 	},
 	"id":"68b5606db6831d6a83c4bfcd",
-	"lastModifiedBy":670,
+	"lastModifiedBy":0,
 	"lcName":"call vertex ai",
-	"modifiedTime":1761647413490,
+	"modifiedTime":1761722750275,
 	"name":"Call Vertex AI",
 	"nodes":[
 		{
@@ -886,7 +885,7 @@
 			"context":{
 				"appName":"google_vertex_ai",
 				"resourceVersion":1130,
-				"connectionId":"69009a0fee7300699c7b850d",
+				"connectionId":"68cc3b577abc9920a1e38ad5",
 				"resourceName":"google_vertex_ai_generate_content_generic",
 				"type":"APPLICATION"
 			},
@@ -1947,12 +1946,12 @@
 			"context":{
 				"appName":"google_vertex_ai",
 				"resourceVersion":1129,
-				"connectionId":"69009a0fee7300699c7b850d",
+				"connectionId":"68cc3b577abc9920a1e38ad5",
 				"resourceName":"google_vertex_ai_generate_content_generic",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_nbGVk@_Kho8l-1@n",
 			"id":"_IZMIF",
@@ -3035,9 +3034,9 @@
 			"tierName":"global"
 		}
 	},
-	"standard":false,
+	"standard":true,
 	"tags":[
 		
 	],
-	"version":38
+	"version":39
 }
