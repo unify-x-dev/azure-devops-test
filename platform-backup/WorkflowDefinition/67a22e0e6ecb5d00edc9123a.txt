@@ -1,0 +1,382 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1738691629226,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296216854,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd180c3d19149a9e3533",
+		"status":"DEPLOYED",
+		"version":60,
+		"workflowVersion":80
+	},
+	"edges":[
+		{
+			"fromNodeId":"l4OfB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"sBFUD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"sBFUD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UwPrM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UwPrM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"TMv7V",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"TMv7V",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"pSE9R",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"TMv7V",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AqLZr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_AqLZr",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"3Fe6q",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_AqLZr",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_HZdif",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"67a22e0e6ecb5d00edc9123a",
+	"lastModifiedBy":0,
+	"lcName":"fetch role goal background",
+	"modifiedTime":1761722754503,
+	"name":"Fetch role goal background",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":51,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"MMSRQ-1",
+			"id":"l4OfB",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"role":{
+							"type":"string",
+							"title":"Role"
+						},
+						"goal":{
+							"type":"string",
+							"title":"Goal"
+						},
+						"background":{
+							"type":"string",
+							"title":"Background"
+						},
+						"agentName":{
+							"type":"string",
+							"title":"Agent Name"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"role",
+						"goal",
+						"background"
+					]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"aiAgentId"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":52,
+				"resourceName":"variable_by_unifyapps_get_session_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"MMSRQ-1",
+			"id":"sBFUD",
+			"index":0,
+			"inputs":{
+				"variableSchema":{
+					"type":"object",
+					"properties":{
+						"ai_agent_ua_test_mode":{
+							"type":"boolean",
+							"title":"Ai Agent Ua Test Mode"
+						},
+						"ai_agent_ua_instructions":{
+							"type":"string",
+							"title":"Ai Agent Ua Instructions"
+						},
+						"ai_agent_ua_goal":{
+							"type":"string",
+							"title":"Ai Agent Ua Goal"
+						},
+						"ai_agent_ua_role":{
+							"type":"string",
+							"title":"Ai Agent Ua Role"
+						},
+						"ai_agent_use_deployed_entity":{
+							"type":"boolean",
+							"title":"Ai Agent Use Deployed Entity"
+						},
+						"ai_agent_deployed_version":{
+							"type":"integer",
+							"title":"Ai Agent Deployed Version"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Get Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":458,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"MMSRQ-1",
+			"id":"n_UwPrM",
+			"index":0,
+			"inputs":{
+				"automationId":"67a48d37f8f1744841dabb63",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"aiAgentId":"{{ l4OfB.outputs.aiAgentId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":51,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"MMSRQ-1",
+			"id":"TMv7V",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ sBFUD.outputs.ai_agent_ua_test_mode }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"true"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":52,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"TMv7V@MMSRQ-1@y",
+			"id":"pSE9R",
+			"index":0,
+			"inputs":{
+				"result":{
+					"role":"{{ sBFUD.outputs.ai_agent_ua_role }}",
+					"goal":"{{ sBFUD.outputs.ai_agent_ua_goal }}",
+					"background":"{{ sBFUD.outputs.ai_agent_ua_instructions }}",
+					"agentName":"{{ n_UwPrM.outputs.properties.name }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":438,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"TMv7V@MMSRQ-1@n",
+			"id":"n_AqLZr",
+			"index":0,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_UwPrM.outputs.properties.instructions }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":52,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_AqLZr@TMv7V@MMSRQ-1@n@y",
+			"id":"3Fe6q",
+			"index":0,
+			"inputs":{
+				"result":{
+					"background":"{{ n_UwPrM.outputs.properties.background }} \\nHere are some instructions to keep in mind : {{ n_UwPrM.outputs.properties.instructions }}",
+					"role":"{{ n_UwPrM.outputs.properties.role }}",
+					"goal":"{{ n_UwPrM.outputs.properties.goal }}",
+					"agentName":"{{ n_UwPrM.outputs.properties.name }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":52,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_AqLZr@TMv7V@MMSRQ-1@n@n",
+			"id":"_HZdif",
+			"index":0,
+			"inputs":{
+				"result":{
+					"role":"{{ n_UwPrM.outputs.properties.role }}",
+					"goal":"{{ n_UwPrM.outputs.properties.goal }}",
+					"agentName":"{{ n_UwPrM.outputs.properties.name }}",
+					"background":"{{ n_UwPrM.outputs.properties.background }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":635,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		"AI Agent"
+	],
+	"version":82
+}
