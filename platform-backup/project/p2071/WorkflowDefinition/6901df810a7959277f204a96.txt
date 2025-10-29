@@ -6,47 +6,309 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_6X8pQ",
+			"fromNodeId":"n_S0YMu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_IIMiJ",
+			"toNodeId":"n_VfJG9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VfJG9",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8cfk7",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_8cfk7",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_gFaVm",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_gFaVm",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nHeuq",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_gFaVm",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_P5RIm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8cfk7",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Slze0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VfJG9",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_0hewz",
 			"type":"next"
 		}
 	],
 	"id":"6901df810a7959277f204a96",
 	"lastModifiedBy":189756,
 	"lcName":"bgc vaccine",
-	"modifiedTime":1761730433628,
+	"modifiedTime":1761730986402,
 	"name":"BGC Vaccine",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6X8pQ-1",
-			"id":"_6X8pQ",
-			"index":0,
+			"id":"n_S0YMu",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"molecule_requirement":{
+							"type":"boolean",
+							"title":"Molecule Requirement"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"BGC":{
+							"type":"string",
+							"title":"BGC"
+						},
+						"compliance":{
+							"type":"string",
+							"title":"Compliance"
+						},
+						"molecule":{
+							"type":"string",
+							"title":"Molecule"
+						},
+						"travelerMolecule":{
+							"type":"boolean",
+							"title":"Traveler Module"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6X8pQ-1",
-			"id":"_IIMiJ",
-			"index":0,
+			"id":"n_VfJG9",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_S0YMu.outputs.compliance }}",
+						"filter":{
+							"operator":"CONTAINS",
+							"value":"{{ n_S0YMu.outputs.molecule }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_VfJG9@_6X8pQ-1@y",
+			"id":"n_8cfk7",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_S0YMu.outputs.travelerMolecule }}",
+						"filter":{
+							"operator":"EQUAL"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@y",
+			"id":"n_gFaVm",
+			"index":4,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_S0YMu.outputs.BGC }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_gFaVm@n_8cfk7@n_VfJG9@_6X8pQ-1@y@y@y",
+			"id":"n_nHeuq",
+			"index":5,
+			"inputs":{
+				"result":{
+					"molecule_requirement":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_gFaVm@n_8cfk7@n_VfJG9@_6X8pQ-1@y@y@n",
+			"id":"n_P5RIm",
+			"index":6,
+			"inputs":{
+				"result":{
+					"molecule_requirement":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@n",
+			"id":"n_Slze0",
+			"index":7,
+			"inputs":{
+				"result":{
+					"molecule_requirement":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_VfJG9@_6X8pQ-1@n",
+			"id":"n_0hewz",
+			"index":8,
+			"inputs":{
+				"result":{
+					"molecule_requirement":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":189756,
 	"projectId":2071,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +322,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
