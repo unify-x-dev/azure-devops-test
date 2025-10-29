@@ -57,7 +57,7 @@
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_ueQ9w",
+			"toNodeId":"n_UztMn",
 			"type":"next"
 		},
 		{
@@ -80,7 +80,7 @@
 	"id":"6902054c74105b7eb8dbc455",
 	"lastModifiedBy":189756,
 	"lcName":"amnack",
-	"modifiedTime":1761741070836,
+	"modifiedTime":1761741083974,
 	"name":"AMNACK",
 	"nodes":[
 		{
@@ -305,15 +305,27 @@
 			"type":"STOP"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_kNsSg@n_AnOHM@n_8o1nY@n_Qs8r8@_S7cAG-1@y@n@y@n",
-			"id":"n_ueQ9w",
+			"id":"n_UztMn",
 			"index":8,
+			"inputs":{
+				"result":{
+					"complianceStatus":"Compliant"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -368,5 +380,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
