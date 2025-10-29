@@ -45,7 +45,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761737132798,
+	"modifiedTime":1761742877685,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -96,7 +96,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_ZMSaW",
@@ -124,7 +124,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_wdDn6",
@@ -143,6 +143,9 @@
 			"type":"LOOP"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{}
+			},
 			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1086,
@@ -150,7 +153,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_wdDn6@_QuCjn-1@l",
 			"id":"n_gTqHM",
@@ -163,18 +166,15 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"data":{
+						"Data":{
 							"type":"string",
 							"title":"Data"
 						}
-					},
-					"required":[
-						"data"
-					]
+					}
 				}
 			},
 			"inputs":{
-				"data":"{{ n_wdDn6.outputs.item }}"
+				"Data":"{{ n_wdDn6.outputs.item }}"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -182,14 +182,11 @@
 					"additionalProperties":false,
 					"type":"object",
 					"properties":{
-						"data":{
+						"Data":{
 							"type":"string",
 							"title":"Data"
 						}
-					},
-					"required":[
-						"data"
-					]
+					}
 				}
 			},
 			"skip":false,
@@ -238,5 +235,5 @@
 	"tags":[
 		
 	],
-	"version":21
+	"version":22
 }
