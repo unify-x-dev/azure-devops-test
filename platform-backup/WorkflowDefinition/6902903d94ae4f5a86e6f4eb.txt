@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761775721103,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761775721228,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69029069077ede5563327a93",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":2
+	},
 	"edges":[
 		{
 			"fromNodeId":"7pKsG",
@@ -16,7 +24,7 @@
 	"id":"6902903d94ae4f5a86e6f4eb",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2i1jabxfiiuha",
-	"modifiedTime":1761775721103,
+	"modifiedTime":1761775784991,
 	"name":"changeSetQA2i1JAbxFiiuHa",
 	"nodes":[
 		{
@@ -87,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -113,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
