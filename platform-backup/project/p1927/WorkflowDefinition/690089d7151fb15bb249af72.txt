@@ -206,7 +206,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761746334996,
+	"modifiedTime":1761746555270,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -681,7 +681,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
-					"employee":"{{ n_VArKP.outputs.objects[0] }}"
+					"employee":"{{ n_VArKP.outputs.objects[0].properties }}"
 				},
 				"status":200
 			},
@@ -853,6 +853,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"employee":"{{ n_xotUN.outputs.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1067,5 +1070,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
