@@ -6,46 +6,154 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_MzYPg",
+			"fromNodeId":"n_lHLbf",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_YxK1M",
+			"toNodeId":"n_7vPmc",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_7vPmc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_E8gdI",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_E8gdI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aZMVq",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_aZMVq",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_E8gdI",
 			"type":"next"
 		}
 	],
 	"id":"69019d64db965a67e0472c09",
-	"lastModifiedBy":45518,
+	"lastModifiedBy":3952,
 	"lcName":"test",
-	"modifiedTime":1761713508466,
+	"modifiedTime":1761716596964,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_MzYPg-1",
-			"id":"_MzYPg",
-			"index":0,
+			"id":"n_lHLbf",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"fileUrl":{
+								"type":"string",
+								"title":"File Url"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"fileUrl"
+						]
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":965,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_MzYPg-1",
-			"id":"_YxK1M",
-			"index":0,
+			"id":"n_7vPmc",
+			"index":2,
+			"inputs":{
+				"fileName":"file.json",
+				"url":"{{ n_lHLbf.outputs.body.fileUrl }}",
+				"option":"url"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"json_by_unifyapps",
+				"resourceVersion":162,
+				"resourceName":"json_by_unifyapps_for_each_record_or_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_MzYPg-1",
+			"id":"n_E8gdI",
+			"index":3,
+			"inputs":{
+				"fileDetails":"{{ n_7vPmc.outputs.fileDetails }}",
+				"startFromRecord":1,
+				"batch":false,
+				"encoding":"UTF-8",
+				"batchSize":100,
+				"fileType":"json"
+			},
+			"skip":false,
+			"subTitle":"JSON by UnifyApps",
+			"title":"Consume data from JSON file",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"continue",
+				"resourceVersion":791,
+				"resourceName":"continue",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_E8gdI@_MzYPg-1@l",
+			"id":"n_aZMVq",
+			"index":4,
+			"inputs":{
+				"loop":"n_E8gdI"
+			},
+			"skip":false,
+			"subTitle":"Continue",
+			"title":"Continue",
+			"type":"CONTINUE"
 		}
 	],
 	"ownerUserId":45518,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +167,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
