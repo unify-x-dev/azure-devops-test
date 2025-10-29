@@ -6,46 +6,119 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Dusp9",
+			"fromNodeId":"n_KV1sZ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_EaW2x",
+			"toNodeId":"n_LJoER",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LJoER",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_0UF73",
 			"type":"next"
 		}
 	],
 	"id":"69021f59c8faae2299398e99",
 	"lastModifiedBy":178108,
 	"lcName":"testing changeset",
-	"modifiedTime":1761746777939,
+	"modifiedTime":1761747307201,
 	"name":"testing changeset",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1069,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Dusp9-1",
-			"id":"_Dusp9",
-			"index":0,
+			"id":"n_KV1sZ",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Success"
+					],
+					"properties":{
+						"Success":{
+							"type":"string",
+							"title":"Success"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":669,
+				"resourceName":"standard_entities_submit_changeset",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Dusp9-1",
-			"id":"_EaW2x",
-			"index":0,
+			"id":"n_LJoER",
+			"index":2,
+			"inputs":{
+				"assetDetails":{
+					"items":{
+						"assetId":"e_69009d73789e022c9a450d7a",
+						"assetClass":"ai_agent"
+					},
+					"ua:type":"mappedArray"
+				},
+				"envIds":[
+					"69021fb7382afe539057b04a"
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"Submit changeset",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1105,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Dusp9-1",
+			"id":"n_0UF73",
+			"index":3,
+			"inputs":{
+				"result":{
+					"Success":"200"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":178108,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +132,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
