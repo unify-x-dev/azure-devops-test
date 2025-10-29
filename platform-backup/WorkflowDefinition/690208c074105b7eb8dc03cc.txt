@@ -16,6 +16,13 @@
 			"fromNodeId":"n_SEXDV",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_7zNNU",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_7zNNU",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_V2pe9",
 			"type":"next"
 		},
@@ -37,7 +44,7 @@
 	"id":"690208c074105b7eb8dc03cc",
 	"lastModifiedBy":39714,
 	"lcName":"bin to pdf",
-	"modifiedTime":1761743283781,
+	"modifiedTime":1761743338382,
 	"name":"bin to pdf",
 	"nodes":[
 		{
@@ -123,8 +130,53 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Auhb7-1",
-			"id":"n_V2pe9",
+			"id":"n_7zNNU",
 			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"base64_file":{
+							"type":"string",
+							"title":"Base 64 File"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"binaryData":{
+							"type":"string",
+							"title":"Binary Data"
+						}
+					}
+				},
+				"code":"return [\"base64_file\": \"hi\"]\n",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1036,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Auhb7-1",
+			"id":"n_V2pe9",
+			"index":4,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -172,7 +224,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Auhb7-1",
 			"id":"n_I4dnN",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"uploadPublic":true,
 				"base64Content":"{{ n_ts1PZ.outputs.result.base64_file }}",
@@ -197,7 +249,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Auhb7-1",
 			"id":"n_vgCXA",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"select":"CLOUD_STORAGE",
 				"file":"{{ n_I4dnN.outputs.fileDetails }}",
@@ -228,5 +280,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
