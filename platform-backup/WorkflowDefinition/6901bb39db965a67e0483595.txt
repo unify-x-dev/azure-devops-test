@@ -6,13 +6,13 @@
 	"createdTime":1761721145809,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761721744841,
+		"deployedAt":1761725152007,
 		"deployedBy":190505,
-		"deployedDefinitionId":"6901bd90dc12803a78e8b2d3",
-		"deploymentTag":"v1",
+		"deployedDefinitionId":"6901cadfc41bc371691b548a",
+		"deploymentTag":"V1",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
@@ -26,6 +26,36 @@
 			"fromNodeId":"n_PHiml",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_EGnzL",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_EGnzL",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_78I6F",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_EGnzL",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9E6KC",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_78I6F",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_feWL6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9E6KC",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_feWL6",
 			"type":"next"
 		}
@@ -33,7 +63,7 @@
 	"id":"6901bb39db965a67e0483595",
 	"lastModifiedBy":190505,
 	"lcName":"test22",
-	"modifiedTime":1761722574768,
+	"modifiedTime":1761729238354,
 	"name":"Test22",
 	"nodes":[
 		{
@@ -52,8 +82,9 @@
 			"inputs":{
 				"intervalType":"minutes",
 				"fetchAllMails":false,
-				"pageSize":500,
-				"interval":5,
+				"pageSize":5,
+				"interval":15,
+				"includeSpamTrash":false,
 				"batchSize":5
 			},
 			"skip":false,
@@ -73,14 +104,28 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_cjlKb-1",
 			"id":"n_PHiml",
 			"index":2,
 			"inputs":{
 				"link_names":true,
-				"messageType":"text",
+				"messageType":"blocks",
+				"Attach":[
+					{
+						"attachmentsType":"attachmentBlock",
+						"attachmentsBlock":{
+							"color":"#36a64f",
+							"mrkdwn_in":[
+								"text",
+								"pretext",
+								"fields",
+								"footer"
+							]
+						}
+					}
+				],
 				"channel":"C09NWHKKCA3",
 				"text":"hello",
 				"mrkdwn":true
@@ -92,6 +137,58 @@
 		},
 		{
 			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_cjlKb-1",
+			"id":"n_EGnzL",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_PHiml.outputs.message.attachments }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"pdf"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_EGnzL@_cjlKb-1@y",
+			"id":"n_78I6F",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_EGnzL@_cjlKb-1@n",
+			"id":"n_9E6KC",
+			"index":5,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -99,7 +196,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_cjlKb-1",
 			"id":"n_feWL6",
-			"index":3,
+			"index":6,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -123,5 +220,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":6
 }
