@@ -2,10 +2,10 @@
 	"createdTime":1761738611924,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761738615764,
+		"deployedAt":1761739076187,
 		"deployedBy":19752,
-		"entityVersion":3,
-		"version":1
+		"entityVersion":8,
+		"version":4
 	},
 	"entityType":"e_interface",
 	"grants":{
@@ -30,7 +30,7 @@
 	},
 	"id":"qddqqfq",
 	"lastModifiedBy":19752,
-	"modifiedTime":1761738700288,
+	"modifiedTime":1761739146825,
 	"ownerUserId":19752,
 	"properties":{
 		"standard":false,
@@ -44,10 +44,22 @@
 				"favicon":"/favicon.ico"
 			},
 			"_counter":{
-				"_moduleCount":0,
 				"_mqttTopicCounter":1,
-				"_pageCount":1
+				"_dataSourceCounter":1,
+				"_pageCount":1,
+				"_moduleCount":0
 			}
+		},
+		"manifest":{
+			"type":"MOBILE"
+		},
+		"pagePermissions":{
+			"e_6901ff74613a401c65a0a84c":{}
+		},
+		"description":"q",
+		"type":"application",
+		"locale":{
+			"defaultLocale":"en-US"
 		},
 		"navigation":{
 			"secondary":[
@@ -261,6 +273,9 @@
 				}
 			]
 		},
+		"security":{
+			"type":"PUBLIC"
+		},
 		"interfacePageIdVsSlugMap":{
 			"e_6901ff74613a401c65a0a84c":"homepage",
 			"e_global_qddqqfq":"global-page-of-qddqqfq"
@@ -282,22 +297,11 @@
 				}
 			}
 		],
-		"manifest":{
-			"type":"MOBILE"
-		},
-		"pagePermissions":{
-			"e_6901ff74613a401c65a0a84c":{}
-		},
-		"name":"habstest",
-		"description":"q",
-		"type":"application",
-		"locale":{
-			"defaultLocale":"en-US"
-		}
+		"name":"habstest"
 	},
 	"standard":false,
 	"tags":[
 		
 	],
-	"version":4
+	"version":9
 }
