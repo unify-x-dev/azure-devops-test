@@ -8,12 +8,12 @@
 	"createdTime":1760033604120,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761752845024,
+		"deployedAt":1761765307761,
 		"deployedBy":155543,
-		"deployedDefinitionId":"6902370cd015237911e362d5",
+		"deployedDefinitionId":"690267bb54d72b1772a0d3e3",
 		"status":"DEPLOYED",
-		"version":51,
-		"workflowVersion":322
+		"version":53,
+		"workflowVersion":324
 	},
 	"description":"To Scan Images",
 	"edges":[
@@ -230,7 +230,7 @@
 	"id":"68e7fb4450c30c5009b3bca6",
 	"lastModifiedBy":155543,
 	"lcName":"image scans",
-	"modifiedTime":1761752991507,
+	"modifiedTime":1761766318322,
 	"name":"Image Scans",
 	"nodes":[
 		{
@@ -2874,7 +2874,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_LwJrh",
@@ -2902,7 +2902,7 @@
 			"id":"n_j2Lb9",
 			"index":20,
 			"inputs":{
-				"url":"{{ n_LwJrh.outputs.url }}"
+				"url":"https://drive.google.com/file/d/123HvfPTEzJ32MKMLD2xFU2eO42uUrDJi/view?usp=sharing"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -3084,5 +3084,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":323
+	"version":325
 }
