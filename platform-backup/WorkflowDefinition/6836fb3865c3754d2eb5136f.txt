@@ -1,0 +1,807 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1750490577840,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296293632,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd650c3d19149a9e3661",
+		"status":"DEPLOYED",
+		"version":49,
+		"workflowVersion":75
+	},
+	"edges":[
+		{
+			"fromNodeId":"lgMZn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vdWdW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vdWdW",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LSL8G",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_LSL8G",
+			"name":"success",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_NvoL8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LSL8G",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_V9CSH",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"n_vdWdW",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CMlR4",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CMlR4",
+			"name":"success",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Cw5jX",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CMlR4",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yCDhl",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"n_NvoL8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"5a1RM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_V9CSH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"5a1RM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Cw5jX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"5a1RM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yCDhl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"5a1RM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"5a1RM",
+			"name":"success",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"TCmuo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"5a1RM",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"xRt5N",
+			"type":"error"
+		},
+		{
+			"fromNodeId":"TCmuo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"OXLjy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"xRt5N",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"OXLjy",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"6836fb3865c3754d2eb5136f",
+	"lastModifiedBy":0,
+	"lcName":"graphrag | upsert graph (hybrid) | signal wrapper",
+	"modifiedTime":1761722846625,
+	"name":"GraphRAG | Upsert Graph (hybrid) | Signal Wrapper",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":383,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"AMBzt-1",
+			"id":"lgMZn",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"status":{
+							"type":"string",
+							"title":"Status"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"signalProperties":{
+							"type":"object",
+							"properties":{
+								"signalId":{
+									"type":"string",
+									"title":"signalId"
+								},
+								"waitingInstanceId":{
+									"type":"string",
+									"title":"waitingInstanceId"
+								},
+								"waitingInstanceRunTimeType":{
+									"type":"string",
+									"title":"waitingInstanceRunTimeType"
+								}
+							},
+							"additionalProperties":false
+						},
+						"nodes":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"description":{
+										"type":"string",
+										"title":"Description"
+									},
+									"sourceChunkID":{
+										"type":"string",
+										"title":"Source Chunk ID"
+									},
+									"type":{
+										"type":"string",
+										"title":"Type"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Nodes"
+						},
+						"edges":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Edges"
+						},
+						"batchSize":{
+							"type":"integer",
+							"title":"Batch Size"
+						},
+						"graphId":{
+							"type":"string",
+							"title":"Graph Id"
+						},
+						"version":{
+							"type":"integer",
+							"title":"Version"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":99,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"AMBzt-1",
+			"id":"n_vdWdW",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ lgMZn.outputs.version }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"1"
+						}
+					},
+					{
+						"property":"1",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"2"
+						}
+					}
+				],
+				"operator":"OR"
+			},
+			"skip":false,
+			"subTitle":"v1 or v2",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":104,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"MANUAL",
+			"groupId":"n_vdWdW@AMBzt-1@y",
+			"id":"n_LSL8G",
+			"index":3,
+			"inputs":{
+				"automationId":"67acf79bd8c1996958569131",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"batchSize":"{{ lgMZn.outputs.batchSize }}",
+					"relationships":{
+						"source":"{{ lgMZn.outputs.edges }}",
+						"ua:type":"mappedArray",
+						"items":"{{ lgMZn.outputs.edges[0] }}"
+					},
+					"entities":{
+						"source":"{{ lgMZn.outputs.nodes }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"name":"{{ lgMZn.outputs.nodes[0].name }}",
+							"description":"{{ lgMZn.outputs.nodes[0].description }}",
+							"sourceChunkID":"{{ lgMZn.outputs.nodes[0].sourceChunkID }}",
+							"type":"{{ lgMZn.outputs.nodes[0].type }}"
+						}
+					},
+					"graphId":"{{ lgMZn.outputs.graphId }}"
+				}
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.nodeIds.items"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":99,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_LSL8G@n_vdWdW@AMBzt-1@y@success",
+			"id":"n_NvoL8",
+			"index":4,
+			"inputs":{
+				"automation_id":"6835668650b3973ae9e37c54",
+				"with_signal_id":true,
+				"waitingInstanceRuntimeType":"{{ lgMZn.outputs.signalProperties.waitingInstanceRunTimeType }}",
+				"waitingInstanceId":"{{ lgMZn.outputs.signalProperties.waitingInstanceId }}",
+				"signal_id":"{{ lgMZn.outputs.signalProperties.signalId }}",
+				"signal_payload":{
+					"nodeIds":{
+						"source":"{{ n_LSL8G.outputs.nodeIDs }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_LSL8G.outputs.nodeIDs[0] }}"
+					}
+				},
+				"nodeId":"Qnyhq"
+			},
+			"skip":false,
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.nodeIds.items"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":99,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_LSL8G@n_vdWdW@AMBzt-1@y@error",
+			"id":"n_V9CSH",
+			"index":5,
+			"inputs":{
+				"automation_id":"6835668650b3973ae9e37c54",
+				"with_signal_id":true,
+				"waitingInstanceRuntimeType":"{{ lgMZn.outputs.signalProperties.waitingInstanceRunTimeType }}",
+				"waitingInstanceId":"{{ lgMZn.outputs.signalProperties.waitingInstanceId }}",
+				"signal_id":"{{ lgMZn.outputs.signalProperties.signalId }}",
+				"nodeId":"Qnyhq"
+			},
+			"skip":false,
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":104,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"MANUAL",
+			"groupId":"n_vdWdW@AMBzt-1@n",
+			"id":"n_CMlR4",
+			"index":6,
+			"inputs":{
+				"automationId":"6889ce2bac75fa6f1c5c0ca4",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"batchSize":"{{ lgMZn.outputs.batchSize }}",
+					"entities":{
+						"source":"{{ lgMZn.outputs.nodes }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"name":"{{ lgMZn.outputs.nodes[0].name }}",
+							"description":"{{ lgMZn.outputs.nodes[0].description }}",
+							"sourceChunkID":"{{ lgMZn.outputs.nodes[0].sourceChunkID }}",
+							"type":"{{ lgMZn.outputs.nodes[0].type }}"
+						}
+					},
+					"relationships":{
+						"source":"{{ lgMZn.outputs.edges }}",
+						"ua:type":"mappedArray",
+						"items":"{{ lgMZn.outputs.edges[0] }}"
+					},
+					"graphId":"{{ lgMZn.outputs.graphId }}"
+				}
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.nodeIds.items"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":99,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_CMlR4@n_vdWdW@AMBzt-1@n@success",
+			"id":"n_Cw5jX",
+			"index":7,
+			"inputs":{
+				"automation_id":"6835668650b3973ae9e37c54",
+				"with_signal_id":true,
+				"waitingInstanceRuntimeType":"{{ lgMZn.outputs.signalProperties.waitingInstanceRunTimeType }}",
+				"waitingInstanceId":"{{ lgMZn.outputs.signalProperties.waitingInstanceId }}",
+				"signal_id":"{{ lgMZn.outputs.signalProperties.signalId }}",
+				"signal_payload":{
+					"nodeIds":{
+						"source":"{{ n_CMlR4.outputs.nodeIDs }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_CMlR4.outputs.nodeIDs[0] }}"
+					}
+				},
+				"nodeId":"Qnyhq"
+			},
+			"skip":false,
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.nodeIds.items"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":99,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_CMlR4@n_vdWdW@AMBzt-1@n@error",
+			"id":"n_yCDhl",
+			"index":8,
+			"inputs":{
+				"automation_id":"6835668650b3973ae9e37c54",
+				"with_signal_id":true,
+				"waitingInstanceRuntimeType":"{{ lgMZn.outputs.signalProperties.waitingInstanceRunTimeType }}",
+				"waitingInstanceId":"{{ lgMZn.outputs.signalProperties.waitingInstanceId }}",
+				"signal_id":"{{ lgMZn.outputs.signalProperties.signalId }}",
+				"nodeId":"Qnyhq"
+			},
+			"skip":false,
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":397,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"MANUAL",
+			"groupId":"AMBzt-1",
+			"id":"5a1RM",
+			"index":9,
+			"inputs":{
+				"automationId":"67acf79bd8c1996958569131",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"batchSize":"{{ lgMZn.outputs.batchSize }}",
+					"graphId":"{{ lgMZn.outputs.graphId }}",
+					"entities":{
+						"source":"{{ lgMZn.outputs.nodes }}",
+						"ua:type":"mappedArray",
+						"items":"{{ lgMZn.outputs.nodes[0] }}"
+					},
+					"relationships":{
+						"source":"{{ lgMZn.outputs.edges }}",
+						"ua:type":"mappedArray",
+						"items":"{{ lgMZn.outputs.edges[0] }}"
+					}
+				}
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":true,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.nodeIds.items"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":388,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"5a1RM@AMBzt-1@success",
+			"id":"TCmuo",
+			"index":10,
+			"inputs":{
+				"automation_id":"6835668650b3973ae9e37c54",
+				"with_signal_id":true,
+				"waitingInstanceRuntimeType":"{{ lgMZn.outputs.signalProperties.waitingInstanceRunTimeType }}",
+				"waitingInstanceId":"{{ lgMZn.outputs.signalProperties.waitingInstanceId }}",
+				"signal_id":"{{ lgMZn.outputs.signalProperties.signalId }}",
+				"signal_payload":{
+					"nodeIds":{
+						"source":"{{ 5a1RM.outputs.nodeIDs }}",
+						"ua:type":"mappedArray",
+						"items":"{{ 5a1RM.outputs.nodeIDs[0] }}"
+					}
+				},
+				"nodeId":"Qnyhq"
+			},
+			"skip":true,
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.nodeIds.items"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":388,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"5a1RM@AMBzt-1@error",
+			"id":"xRt5N",
+			"index":11,
+			"inputs":{
+				"automation_id":"6835668650b3973ae9e37c54",
+				"with_signal_id":true,
+				"waitingInstanceRuntimeType":"{{ lgMZn.outputs.signalProperties.waitingInstanceRunTimeType }}",
+				"waitingInstanceId":"{{ lgMZn.outputs.signalProperties.waitingInstanceId }}",
+				"signal_id":"{{ lgMZn.outputs.signalProperties.signalId }}",
+				"nodeId":"Qnyhq"
+			},
+			"skip":true,
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":389,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"AMBzt-1",
+			"id":"OXLjy",
+			"index":12,
+			"inputs":{
+				"result":{
+					"status":"ok"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":1728,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"headerValueTierMap":{},
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		
+	],
+	"version":77
+}
