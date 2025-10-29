@@ -9,14 +9,14 @@
 			"fromNodeId":"n_pmYg4",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ji5Ie",
+			"toNodeId":"n_CjuiY",
 			"type":"next"
 		}
 	],
 	"id":"69023ae7d015237911e37bc8",
 	"lastModifiedBy":33648,
 	"lcName":"gmail test",
-	"modifiedTime":1761753851518,
+	"modifiedTime":1761753866631,
 	"name":"Gmail Test",
 	"nodes":[
 		{
@@ -34,6 +34,7 @@
 			"index":1,
 			"inputs":{
 				"interval":1,
+				"from":"2025-10-29T16:04:00Z",
 				"batchSize":1
 			},
 			"skip":false,
@@ -45,15 +46,19 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"stop"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_h9fT8-1",
-			"id":"_ji5Ie",
+			"id":"n_CjuiY",
 			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":33648,
@@ -73,5 +78,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
