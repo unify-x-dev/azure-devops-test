@@ -8,16 +8,16 @@
 	"createdTime":1761724967714,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761733151576,
+		"deployedAt":1761733281721,
 		"deployedBy":122909,
-		"deployedDefinitionId":"6901ea1fc41bc371691ca30b",
+		"deployedDefinitionId":"6901eaa1dad3c27b954e353c",
 		"status":"DEPLOYED",
-		"version":8,
-		"workflowVersion":15
+		"version":9,
+		"workflowVersion":16
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_kR8X1",
+			"fromNodeId":"n_PuoqR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_T9qrN",
@@ -62,6 +62,13 @@
 			"fromNodeId":"n_YFMUg",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_RBpp3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RBpp3",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_C4CYB",
 			"type":"next"
 		},
@@ -81,6 +88,13 @@
 		},
 		{
 			"fromNodeId":"n_jqeIq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_M5Pmr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_M5Pmr",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_au8JJ",
@@ -167,31 +181,27 @@
 	"id":"6901ca27c41bc371691b4c22",
 	"lastModifiedBy":122909,
 	"lcName":"workflow1",
-	"modifiedTime":1761733279789,
+	"modifiedTime":1761734786630,
 	"name":"Workflow1",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
-			"id":"n_kR8X1",
+			"id":"n_PuoqR",
 			"index":1,
-			"inputs":{
-				"request":{
-					"contentType":"application/json"
-				}
-			},
+			"inputs":{},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -287,7 +297,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_aFqhh",
@@ -359,6 +369,61 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1086,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_RBpp3",
+			"index":8,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"var1":{
+							"type":"string",
+							"title":"Var 1"
+						}
+					},
+					"required":[
+						"var1"
+					]
+				}
+			},
+			"inputs":{
+				"var1":"{{ __ENV__.outputs.DND_custom_policy }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"var1":{
+							"type":"string",
+							"title":"Var 1"
+						}
+					},
+					"required":[
+						"var1"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"slack",
 				"resourceVersion":6345,
 				"connectionId":"68f81bf3a46a456d73b2cb46",
@@ -370,7 +435,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_C4CYB",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"link_names":true,
 				"mrkdwn":true
@@ -393,7 +458,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_7YcvJ",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"baseUrl":"https://uat-automation.uat.unifyapps.com",
 				"password":"__UNIFYAPPS_GARBAGE_CONSTANT__Z29vZCBsdWNrIQ==",
@@ -424,7 +489,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_jqeIq",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"entityId":"e_689b71e217baaa435004d2ba"
 			},
@@ -432,6 +497,22 @@
 			"subTitle":"Decision Table by UnifyApps",
 			"title":"Add Row",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_M5Pmr",
+			"index":12,
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Select an action",
+			"type":"CALL_WORKFLOW"
 		},
 		{
 			"context":{
@@ -445,7 +526,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_au8JJ",
-			"index":11,
+			"index":13,
 			"inputs":{
 				"name":"Decision table"
 			},
@@ -466,7 +547,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_dZsnv",
-			"index":12,
+			"index":14,
 			"skip":false,
 			"subTitle":"Test Connector",
 			"title":"test",
@@ -480,11 +561,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_dUqY6",
-			"index":13,
+			"index":15,
 			"inputs":{
 				"callableInterfaceId":"675ebde6ff5f7c09416c6231",
 				"runtimeConnections":{},
@@ -505,11 +586,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_XxnqY",
-			"index":14,
+			"index":16,
 			"inputs":{
 				"callableInterfaceId":"669790139c3e61557976a2d0",
 				"runtimeConnections":{},
@@ -534,7 +615,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_ACnXR",
-			"index":15,
+			"index":17,
 			"inputs":{
 				"template_id":"e_6791ddb2c08e4143355dc4e0"
 			},
@@ -555,7 +636,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_yozkd",
-			"index":16,
+			"index":18,
 			"inputs":{
 				"template_id":"failed_export_notification_template"
 			},
@@ -576,7 +657,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_rBRML",
-			"index":17,
+			"index":19,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -627,11 +708,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_SM6hC",
-			"index":18,
+			"index":20,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -884,11 +965,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_2Q0Tk",
-			"index":19,
+			"index":21,
 			"inputs":{
 				"automationId":"68fc9ee9f968ee435c61d3e0",
 				"runtimeConnections":{},
@@ -915,11 +996,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_OSLmc",
-			"index":20,
+			"index":22,
 			"inputs":{
 				"automationId":"68fc9fd60b160667834cfdf3",
 				"runtimeConnections":{},
@@ -946,7 +1027,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_qpB3t",
-			"index":21,
+			"index":23,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -981,7 +1062,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_FiulW",
-			"index":22,
+			"index":24,
 			"inputs":{
 				"result":{
 					"result":"{{ n_T9qrN.outputs.encryptedData }}"
@@ -1014,5 +1095,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":17
 }
