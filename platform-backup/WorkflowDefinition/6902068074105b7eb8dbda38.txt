@@ -1,51 +1,94 @@
 {
 	"appsUsed":[
-		
+		"amazon_comprehend"
 	],
 	"createdTime":1761740416924,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_uKLsa",
+			"fromNodeId":"n_O9GQh",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_izsnm",
+			"toNodeId":"n_d6tEe",
 			"type":"next"
 		}
 	],
 	"id":"6902068074105b7eb8dbda38",
 	"lastModifiedBy":1,
 	"lcName":"aws comprehend test",
-	"modifiedTime":1761740416924,
+	"modifiedTime":1761741390206,
 	"name":"AWS comprehend test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_uKLsa-1",
-			"id":"_uKLsa",
-			"index":0,
+			"id":"n_O9GQh",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.RedactionConfig.PiiEntityTypes.items"
+				]
+			},
+			"context":{
+				"appName":"amazon_comprehend",
+				"resourceVersion":5,
+				"connectionId":"6901f5602334c537588f2d25",
+				"resourceName":"amazon_comprehend_start_pii_entities_detection_job",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_uKLsa-1",
-			"id":"_izsnm",
-			"index":0,
+			"id":"n_d6tEe",
+			"index":2,
+			"inputs":{
+				"LanguageCode":"en",
+				"ClientRequestToken":"{{ __RUN__.outputs.executionId }}",
+				"DataAccessRoleArn":"arn:aws:iam::546918106283:role/AmazonEKSNodeRole",
+				"OutputDataConfig":{
+					"S3Uri":"s3://qa-uploads.unifyapps.com/comprehend-pii/pii_test.txt"
+				},
+				"Mode":"ONLY_REDACTION",
+				"JobName":"job-{{ __RUN__.outputs.executionId }}",
+				"RedactionConfig":{
+					"MaskMode":"REPLACE_WITH_PII_ENTITY_TYPE"
+				},
+				"InputDataConfig":{
+					"InputFormat":"ONE_DOC_PER_LINE"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Amazon Comprehend",
+			"title":"Start PII Entities Detection Job",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":1,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +102,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
