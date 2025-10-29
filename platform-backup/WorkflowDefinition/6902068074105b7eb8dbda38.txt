@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761740416924,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_uKLsa",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_izsnm",
+			"type":"next"
+		}
+	],
+	"id":"6902068074105b7eb8dbda38",
+	"lastModifiedBy":1,
+	"lcName":"aws comprehend test",
+	"modifiedTime":1761740416924,
+	"name":"AWS comprehend test",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uKLsa-1",
+			"id":"_uKLsa",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_uKLsa-1",
+			"id":"_izsnm",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":1,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
