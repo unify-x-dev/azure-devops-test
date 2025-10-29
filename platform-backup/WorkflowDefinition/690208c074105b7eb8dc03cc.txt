@@ -30,7 +30,7 @@
 	"id":"690208c074105b7eb8dc03cc",
 	"lastModifiedBy":39714,
 	"lcName":"bin to pdf",
-	"modifiedTime":1761741519317,
+	"modifiedTime":1761741768044,
 	"name":"bin to pdf",
 	"nodes":[
 		{
@@ -141,6 +141,7 @@
 						}
 					}
 				},
+				"code":"import org.apache.pdfbox.pdmodel.PDDocument\nimport org.apache.pdfbox.pdmodel.PDPage\nimport org.apache.pdfbox.pdmodel.PDPageContentStream\nimport org.apache.pdfbox.pdmodel.font.PDType1Font\n\ndef convertBinaryToBase64Pdf(byte[] binaryData) {\n    PDDocument document = new PDDocument()\n    ByteArrayOutputStream baos = new ByteArrayOutputStream()\n    \n    try {\n        PDPage page = new PDPage()\n        document.addPage(page)\n        \n        PDPageContentStream contentStream = new PDPageContentStream(document, page)\n        contentStream.setFont(PDType1Font.COURIER, 10)\n        contentStream.beginText()\n        contentStream.newLineAtOffset(25, 750)\n        \n        // Convert binary to hex for display\n        String hexString = binaryData.encodeHex().toString()\n        \n        // Write content to PDF\n        int lineLength = 80\n        int yPosition = 750\n        \n        for (int i = 0; i < hexString.length(); i += lineLength) {\n            int end = Math.min(i + lineLength, hexString.length())\n            String line = hexString.substring(i, end)\n            contentStream.showText(line)\n            contentStream.newLineAtOffset(0, -12)\n            yPosition -= 12\n            \n            if (yPosition < 50) {\n                contentStream.endText()\n                contentStream.close()\n                \n                page = new PDPage()\n                document.addPage(page)\n                contentStream = new PDPageContentStream(document, page)\n                contentStream.setFont(PDType1Font.COURIER, 10)\n                contentStream.beginText()\n                contentStream.newLineAtOffset(25, 750)\n                yPosition = 750\n            }\n        }\n        \n        contentStream.endText()\n        contentStream.close()\n        \n        // Save to ByteArrayOutputStream\n        document.save(baos)\n        \n        // Convert PDF bytes to Base64\n        byte[] pdfBytes = baos.toByteArray()\n        String base64Pdf = pdfBytes.encodeBase64().toString()\n        \n        return base64Pdf\n        \n    } finally {\n        document.close()\n        baos.close()\n    }\n}\n\n// Usage\ndef binaryData = binaryData\nString base64EncodedPdf = convertBinaryToBase64Pdf(binaryData)\n\nreturn [\"base64_file\": base64EncodedPdf]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -191,5 +192,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
