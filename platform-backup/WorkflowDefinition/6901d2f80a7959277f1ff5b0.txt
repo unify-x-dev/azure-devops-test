@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761727224208,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_HTrUs",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ATt77",
+			"type":"next"
+		}
+	],
+	"id":"6901d2f80a7959277f1ff5b0",
+	"lastModifiedBy":33644,
+	"lcName":"create invoice currency test",
+	"modifiedTime":1761727224208,
+	"name":"create invoice currency test",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_HTrUs-1",
+			"id":"_HTrUs",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_HTrUs-1",
+			"id":"_ATt77",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":33644,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
