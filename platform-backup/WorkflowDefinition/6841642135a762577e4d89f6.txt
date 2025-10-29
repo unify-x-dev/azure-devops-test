@@ -1,0 +1,368 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1750490471681,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296306736,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd72d60dd816d7799139",
+		"status":"DEPLOYED",
+		"version":48,
+		"workflowVersion":76
+	},
+	"edges":[
+		{
+			"fromNodeId":"gGLqh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"LY0Q3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"LY0Q3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"83Zxp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"83Zxp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"B1Wga",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"B1Wga",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"EkiCA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"EkiCA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"IYicY",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"6841642135a762577e4d89f6",
+	"lastModifiedBy":0,
+	"lcName":"graphrag | chunk to entity relationship",
+	"modifiedTime":1761722860011,
+	"name":"GraphRAG | Chunk to Entity Relationship",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":2,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"WOiI4-1",
+			"id":"gGLqh",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"status":{
+							"type":"string",
+							"title":"Status"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"nodeIds":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"nodeIds"
+						},
+						"chunk":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Chunk"
+						},
+						"chunkId":{
+							"type":"string",
+							"title":"Chunk Id"
+						},
+						"graphId":{
+							"type":"string",
+							"title":"Graph Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"WOiI4-1",
+			"id":"LY0Q3",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"cypher_query":{
+							"type":"string",
+							"title":"Cypher Query"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"chunkMetadata":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Chunk Metadata"
+						},
+						"graphId":{
+							"type":"string",
+							"title":"Graph Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"def source = chunkMetadata?.source\n\ndef cypher = \"\"\"\nMERGE (doc:${graphId}_NODE {type: 'Document', name: '$source'})\nRETURN id(doc) AS document_id\n\"\"\"\n\nreturn [\n    cypher_query: cypher.stripIndent().toString()\n]",
+				"parameters":{
+					"chunkMetadata":"{{ gGLqh.outputs.chunk }}",
+					"graphId":"{{ gGLqh.outputs.graphId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Document Cypher",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":2,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"WOiI4-1",
+			"id":"83Zxp",
+			"index":0,
+			"inputs":{
+				"automationId":"67a9e903bdf95a2dab1df8cb",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"cypherQuery":"{{ LY0Q3.outputs.result.cypher_query }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Neo4j",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.nodeIds.items",
+					"root.parameters.dbOutput.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"WOiI4-1",
+			"id":"B1Wga",
+			"index":0,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"cypher_query":{
+							"type":"string",
+							"title":"Cypher Query"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"nodeIds":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"nodeIds"
+						},
+						"chunk":{
+							"type":"object",
+							"title":"chunk"
+						},
+						"chunkName":{
+							"type":"string",
+							"title":"chunkName"
+						},
+						"graphId":{
+							"type":"string",
+							"title":"Graph Id"
+						},
+						"dbOutput":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Db Output"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"def documentId = dbOutput[0].document_id\n\ndef cypher = \"\"\"\nMERGE (chunk:${graphId}_NODE {name: '$chunkName', type: 'Chunk'})\nWITH chunk\nUNWIND $nodeIds AS nodeId\nMATCH (n) WHERE id(n) = nodeId\nCREATE (chunk)-[:${graphId}_REL {description: 'has_entity'}]->(n)\nWITH chunk\nMATCH (doc) WHERE id(doc) = $documentId\nCREATE (doc)-[:${graphId}_REL {description: 'has_chunk'}]->(chunk)\nRETURN id(chunk) AS chunkId\n\"\"\"\n\nreturn [\n    cypher_query: cypher.stripIndent().toString()\n]",
+				"parameters":{
+					"nodeIds":{
+						"source":"{{ gGLqh.outputs.nodeIds }}",
+						"ua:type":"mappedArray",
+						"items":"{{ gGLqh.outputs.nodeIds[0] }}"
+					},
+					"chunk":"{{ gGLqh.outputs.chunk }}",
+					"chunkName":"{{ gGLqh.outputs.chunkId }}",
+					"graphId":"{{ gGLqh.outputs.graphId }}",
+					"dbOutput":{
+						"source":"{{ 83Zxp.outputs.blocks }}",
+						"ua:type":"mappedArray",
+						"items":"{{ 83Zxp.outputs.blocks[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Relationships cypher",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":2,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"WOiI4-1",
+			"id":"EkiCA",
+			"index":0,
+			"inputs":{
+				"automationId":"67a9e903bdf95a2dab1df8cb",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"cypherQuery":"{{ B1Wga.outputs.result.cypher_query }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Neo4j",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":2,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"WOiI4-1",
+			"id":"IYicY",
+			"index":0,
+			"inputs":{
+				"result":{
+					"status":"OK"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":1728,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		
+	],
+	"version":78
+}
