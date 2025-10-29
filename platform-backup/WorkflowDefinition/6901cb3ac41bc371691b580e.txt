@@ -6,12 +6,12 @@
 	"createdTime":1761725242827,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761731719507,
+		"deployedAt":1761731754700,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901e4870a7959277f2065e9",
+		"deployedDefinitionId":"6901e4aa960f455f6fd0004d",
 		"status":"DEPLOYED",
-		"version":12,
-		"workflowVersion":12
+		"version":13,
+		"workflowVersion":13
 	},
 	"edges":[
 		{
@@ -102,6 +102,13 @@
 			"fromNodeId":"_yHnFY",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_Oj1e9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Oj1e9",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_ScrRb",
 			"type":"next"
 		},
@@ -123,7 +130,7 @@
 	"id":"6901cb3ac41bc371691b580e",
 	"lastModifiedBy":132116,
 	"lcName":"main_automation",
-	"modifiedTime":1761731752579,
+	"modifiedTime":1761731789490,
 	"name":"main_automation",
 	"nodes":[
 		{
@@ -327,7 +334,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_UhUbM",
@@ -452,11 +459,36 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qEDOz-1",
+			"id":"_Oj1e9",
+			"index":14,
+			"inputs":{
+				"automationId":"6901c6a30a7959277f1f8ddb",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_ScrRb",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"automationId":"6846983710ced17b8d13d250",
 				"runtimeConnections":{},
@@ -481,7 +513,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_9w3T9",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -506,7 +538,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_UfCTG",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"result":{
 					"output1":"res"
@@ -535,5 +567,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
