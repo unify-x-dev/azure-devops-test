@@ -16,6 +16,13 @@
 			"fromNodeId":"n_cc5G5",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_OwRIy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OwRIy",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_OV8GQ",
 			"type":"next"
 		}
@@ -23,7 +30,7 @@
 	"id":"6901f019dad3c27b954ea68f",
 	"lastModifiedBy":6701,
 	"lcName":"create invoice netsuite testing",
-	"modifiedTime":1761734842064,
+	"modifiedTime":1761735058861,
 	"name":"Create invoice netsuite testing",
 	"nodes":[
 		{
@@ -113,6 +120,28 @@
 		},
 		{
 			"context":{
+				"appName":"netsuite",
+				"resourceVersion":1665,
+				"connectionId":"68a5cd6261da06bf1fd18e16",
+				"resourceName":"netsuite_get_invoice_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_0gb4s-1",
+			"id":"n_OwRIy",
+			"index":3,
+			"inputs":{
+				"id":"685496"
+			},
+			"skip":false,
+			"subTitle":"Netsuite",
+			"title":"Get invoice details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -120,7 +149,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_0gb4s-1",
 			"id":"n_OV8GQ",
-			"index":3,
+			"index":4,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -144,5 +173,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
