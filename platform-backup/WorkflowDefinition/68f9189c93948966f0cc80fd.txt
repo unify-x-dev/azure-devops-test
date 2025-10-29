@@ -5,142 +5,207 @@
 	"createdTime":1761283323374,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761312158236,
+		"deployedAt":1761312685323,
 		"deployedBy":44109,
-		"deployedDefinitionId":"68fb7d9e00ea623ea74f2b96",
+		"deployedDefinitionId":"68fb7fad00ea623ea74f482a",
 		"status":"DEPLOYED",
-		"version":9,
-		"workflowVersion":51
+		"version":10,
+		"workflowVersion":52
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_vH4Qn",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_HOWK6",
+			"toNodeId":"_40Ii2",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_HOWK6",
+			"fromNodeId":"_40Ii2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_7xidW",
+			"toNodeId":"_3OILF",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_7xidW",
+			"fromNodeId":"_3OILF",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_MnCI7",
+			"toNodeId":"_lpBn6",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_MnCI7",
+			"fromNodeId":"_lpBn6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Dz303",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Dz303",
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_3DzlV",
+			"toNodeId":"_bZTdi",
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_3DzlV",
+			"fromNodeId":"_bZTdi",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_NuHJq",
+			"toNodeId":"_1qHrg",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_NuHJq",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_FvrXa",
-			"type":"loop"
-		},
-		{
-			"fromNodeId":"n_FvrXa",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_IURf1",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_IURf1",
-			"name":"loopback",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_NuHJq",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_MnCI7",
+			"fromNodeId":"_Dz303",
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_fP3iR",
+			"toNodeId":"_1qHrg",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_fP3iR",
+			"fromNodeId":"_1qHrg",
+			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_wjSBm",
+			"toNodeId":"_kH3UL",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_kH3UL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_oZgB8",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_wjSBm",
+			"fromNodeId":"_oZgB8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_wfW6L",
+			"toNodeId":"n_NG8iB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_NG8iB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9qh3U",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_wfW6L",
+			"fromNodeId":"n_9qh3U",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_UupXH",
+			"toNodeId":"n_Igovj",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_UupXH",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_VEUCk",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_VEUCk",
+			"fromNodeId":"n_Igovj",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_wjSBm",
+			"toNodeId":"n_NG8iB",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_NuHJq",
+			"fromNodeId":"n_NG8iB",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_1Xzlq",
+			"toNodeId":"_adrQa",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_wjSBm",
+			"fromNodeId":"_adrQa",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_1Xzlq",
+			"toNodeId":"n_3y4Y5",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_1Xzlq",
+			"fromNodeId":"_1qHrg",
+			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Wc16Y",
+			"toNodeId":"_9yBQ6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_9yBQ6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tERqY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tERqY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_iuFEc",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_iuFEc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Eg7Rm",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"_Eg7Rm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_LuDKN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_LuDKN",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_iuFEc",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_iuFEc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_FgzyI",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_FgzyI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_5zmfq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_3y4Y5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_V5b02",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_5zmfq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_V5b02",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_V5b02",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_V9QIF",
 			"type":"next"
 		}
 	],
 	"id":"68f9189c93948966f0cc80fd",
 	"lastModifiedBy":44109,
 	"lcName":"[dt] filtered and sort agent list",
-	"modifiedTime":1761312683119,
+	"modifiedTime":1761757374335,
 	"name":"[DT] Filtered and sort agent list",
 	"nodes":[
 		{
@@ -168,13 +233,6 @@
 								},
 								"title":"Sort Fields"
 							},
-							"tagList":{
-								"type":"array",
-								"items":{
-									"type":"string"
-								},
-								"title":"Tag List"
-							},
 							"limit":{
 								"type":"integer",
 								"title":"Limit"
@@ -182,6 +240,17 @@
 							"offset":{
 								"type":"integer",
 								"title":"Offset"
+							},
+							"tags":{
+								"type":"array",
+								"items":{
+									"type":"string"
+								},
+								"title":"Tags"
+							},
+							"agentName":{
+								"type":"string",
+								"title":"Agent Name"
 							}
 						},
 						"additionalProperties":false,
@@ -219,12 +288,28 @@
 											"description":{
 												"type":"string",
 												"title":"Description"
+											},
+											"author":{
+												"type":"string",
+												"title":"Author"
+											},
+											"icnonUrl":{
+												"type":"string",
+												"title":"Icnon Url"
 											}
 										},
 										"additionalProperties":false,
 										"required":[]
 									},
 									"title":"Agents"
+								},
+								"agentCount":{
+									"type":"integer",
+									"title":"Agent Count"
+								},
+								"hasMore":{
+									"type":"boolean",
+									"title":"Has More"
 								}
 							},
 							"additionalProperties":false,
@@ -253,7 +338,7 @@
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
-			"id":"n_HOWK6",
+			"id":"_40Ii2",
 			"index":2,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
@@ -476,6 +561,10 @@
 										"createdTime":{
 											"type":"string",
 											"title":"Created Time"
+										},
+										"iconUrl":{
+											"type":"string",
+											"title":"Icon Url"
 										}
 									},
 									"required":[]
@@ -523,6 +612,280 @@
 									"createdTime":{
 										"type":"string",
 										"title":"Created Time"
+									},
+									"iconUrl":{
+										"type":"string",
+										"title":"Icon Url"
+									}
+								},
+								"required":[]
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Agent",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":541,
+				"resourceName":"variable_by_unifyapps_create_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_5OzFd-1",
+			"id":"_3OILF",
+			"index":3,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"type":"object",
+									"properties":{
+										"id":{
+											"type":"string",
+											"title":"Id"
+										},
+										"author":{
+											"type":"string",
+											"title":"Author"
+										}
+									},
+									"required":[]
+								}
+							}
+						}
+					}
+				}
+			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"authorList",
+				"ua:list_type":"OBJECT"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"authorList",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"author":{
+										"type":"string",
+										"title":"Author"
 									}
 								},
 								"required":[]
@@ -547,8 +910,8 @@
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
-			"id":"n_7xidW",
-			"index":3,
+			"id":"_lpBn6",
+			"index":4,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -564,6 +927,10 @@
 						"limit":{
 							"type":"integer",
 							"title":"Limit"
+						},
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
 						}
 					},
 					"required":[]
@@ -571,7 +938,8 @@
 			},
 			"inputs":{
 				"offset":"=IF(ISBLANK({{ n_vH4Qn.outputs.body.offset }}),0,{{ n_vH4Qn.outputs.body.offset }})",
-				"limit":"=IF(ISBLANK({{ n_vH4Qn.outputs.body.limit }}),20,{{ n_vH4Qn.outputs.body.limit }})"
+				"limit":"=IF(ISBLANK({{ n_vH4Qn.outputs.body.limit }}),20,{{ n_vH4Qn.outputs.body.limit }})",
+				"hasMore":false
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -586,6 +954,10 @@
 						"limit":{
 							"type":"integer",
 							"title":"Limit"
+						},
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
 						}
 					},
 					"required":[]
@@ -607,14 +979,85 @@
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
-			"id":"n_MnCI7",
-			"index":4,
+			"id":"_Dz303",
+			"index":5,
 			"inputs":{
 				"filters":[
 					{
-						"property":"{{ n_vH4Qn.outputs.body.tagList[0] }}",
+						"property":"{{ n_vH4Qn.outputs.body.tags[0] }}",
+						"filter":{
+							"operator":"CONTAINS",
+							"value":"All"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"tag",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":533,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Dz303@_5OzFd-1@y",
+			"id":"_bZTdi",
+			"index":6,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ _lpBn6.outputs.hasMore }}",
+						"value":false
+					},
+					{
+						"source":"{{ _lpBn6.outputs.limit }}",
+						"value":20000
+					},
+					{
+						"source":"{{ _lpBn6.outputs.offset }}",
+						"value":0
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"hasMore",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":447,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_5OzFd-1",
+			"id":"_1qHrg",
+			"index":7,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_vH4Qn.outputs.body.tags[0] }}",
 						"filter":{
 							"operator":"EXISTS"
+						}
+					},
+					{
+						"property":"{{ n_vH4Qn.outputs.body.tags }}",
+						"filter":{
+							"operator":"NOT_CONTAINS",
+							"value":"All"
 						}
 					}
 				],
@@ -635,9 +1078,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"n_MnCI7@_5OzFd-1@y",
-			"id":"n_3DzlV",
-			"index":5,
+			"groupId":"_1qHrg@_5OzFd-1@y",
+			"id":"_kH3UL",
+			"index":8,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -645,7 +1088,7 @@
 							"property":"tags",
 							"filter":{
 								"operator":"IN",
-								"value":"{{ n_vH4Qn.outputs.body.tagList }}"
+								"value":"{{ n_vH4Qn.outputs.body.tags }}"
 							}
 						}
 					],
@@ -663,8 +1106,8 @@
 				"translationsOption":"DEFAULT",
 				"page":{
 					"paginateBy":"OFFSET",
-					"limit":"{{ n_7xidW.outputs.limit }}",
-					"offset":"{{ n_7xidW.outputs.offset }}"
+					"limit":20000,
+					"offset":0
 				},
 				"numberOfRecordsToFetch":"MULTIPLE",
 				"readThroughSessionVariables":false,
@@ -676,192 +1119,76 @@
 			"type":"ACTION"
 		},
 		{
-			"context":{
-				"appName":"loop",
-				"resourceVersion":463,
-				"resourceName":"loop_for_each",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_MnCI7@_5OzFd-1@y",
-			"id":"n_NuHJq",
-			"index":6,
-			"inputs":{
-				"repeatMode":"BATCH",
-				"listSource":"{{ n_3DzlV.outputs.objects }}",
-				"captureIterations":false,
-				"batchSize":20
-			},
-			"skip":false,
-			"subTitle":"Loop",
-			"title":"For each loop",
-			"type":"LOOP"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":604,
-				"resourceName":"callables_call_automation_batch",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_NuHJq@n_MnCI7@_5OzFd-1@y@l",
-			"id":"n_FvrXa",
-			"index":7,
-			"inputs":{
-				"automationId":"68f9245c7f66d147d99eba99",
-				"runtimeConnections":{},
-				"synchronous":true,
-				"distributeWorkflowLoad":false,
-				"parametersList":{
-					"ua:type":"mappedArray",
-					"source":"{{ n_NuHJq.outputs.item }}",
-					"items":{
-						"aiAgentId":"{{ n_NuHJq.outputs.item[0].id }}"
-					}
-				},
-				"version":"-1"
-			},
-			"skip":false,
-			"subTitle":"count agent message",
-			"title":"Call automation",
-			"type":"CALL_WORKFLOW"
-		},
-		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.itemsToAdd.items.messageCount",
-					"root.itemsToAdd.items.id",
-					"root.itemsToAdd.items.name",
-					"root.itemsToAdd.items.description",
-					"root.itemsToAdd.items.createdTime"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":535,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_NuHJq@n_MnCI7@_5OzFd-1@y@l",
-			"id":"n_IURf1",
-			"index":8,
-			"inputs":{
-				"insertLocation":"END",
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"source":"{{ n_FvrXa.outputs.result }}",
-					"items":{
-						"messageCount":"{{ n_FvrXa.outputs.result[0].messageCount }}",
-						"id":"{{ n_FvrXa.outputs.result[0].response.id }}",
-						"name":"{{ n_FvrXa.outputs.result[0].response.properties.name }}",
-						"description":"{{ n_FvrXa.outputs.result[0].response.properties.role }}",
-						"createdTime":"{{ n_FvrXa.outputs.result[0].response.createdTime }}"
-					}
-				},
-				"listName":"{{ n_HOWK6.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"agents",
-			"title":"Add items to list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":841,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_MnCI7@_5OzFd-1@n",
-			"id":"_fP3iR",
-			"index":9,
-			"inputs":{
-				"object_type":"ai_agent",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"sortBy":[
-					{
-						"field":"cTm",
-						"order":"DESC"
-					}
-				],
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":"{{ n_7xidW.outputs.limit }}",
-					"offset":"{{ n_7xidW.outputs.offset }}"
-				},
-				"numberOfRecordsToFetch":"MULTIPLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Agents",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"loop",
-				"resourceVersion":463,
-				"resourceName":"loop_for_each",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_MnCI7@_5OzFd-1@n",
-			"id":"_wjSBm",
-			"index":10,
-			"inputs":{
-				"repeatMode":"BATCH",
-				"listSource":"{{ _fP3iR.outputs.objects }}",
-				"captureIterations":false,
-				"batchSize":20
-			},
-			"skip":false,
-			"subTitle":"Loop",
-			"title":"For each loop",
-			"type":"LOOP"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.parameters.agentIds.items"
+					"root.parameters.sortsList.items.messageCount",
+					"root.parameters.sortsList.items.id",
+					"root.parameters.sortsList.items.name",
+					"root.parameters.sortsList.items.description",
+					"root.parameters.sortsList.items.createdTime",
+					"root.parameters.sortsList.items.ownerUserId",
+					"root.parameters.sortsList.items.iconUrl"
 				]
 			},
 			"context":{
 				"appName":"code_by_unifyapps",
-				"resourceVersion":547,
+				"resourceVersion":550,
 				"resourceName":"code_by_unifyapps_groovy",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_wjSBm@n_MnCI7@_5OzFd-1@n@l",
-			"id":"n_wfW6L",
-			"index":11,
+			"groupId":"_1qHrg@_5OzFd-1@y",
+			"id":"_oZgB8",
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
-					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"cacheField":{
-							"type":"string",
-							"title":"Cache Field"
+						"agentList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"messageCount":{
+										"type":"integer",
+										"title":"Message Count"
+									},
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"description":{
+										"type":"string",
+										"title":"Description"
+									},
+									"createdTime":{
+										"type":"string",
+										"title":"Created Time"
+									},
+									"ownerUserId":{
+										"type":"string",
+										"title":"Owner User Id"
+									},
+									"iconUrl":{
+										"type":"string",
+										"title":"Icon Url"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"agentList"
+						},
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
 						}
 					}
 				},
@@ -870,54 +1197,134 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"agentIds":{
+						"sortsList":{
 							"type":"array",
 							"items":{
-								"type":"string"
+								"type":"object",
+								"properties":{
+									"messageCount":{
+										"type":"integer",
+										"title":"Message Count"
+									},
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"description":{
+										"type":"string",
+										"title":"Description"
+									},
+									"createdTime":{
+										"type":"string",
+										"title":"Created Time"
+									},
+									"ownerUserId":{
+										"type":"string",
+										"title":"Owner User Id"
+									},
+									"iconUrl":{
+										"type":"string",
+										"title":"Icon Url"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
 							},
-							"title":"Agent Ids"
+							"title":"Sorts List"
+						},
+						"limit":{
+							"type":"integer",
+							"title":"Limit"
+						},
+						"offset":{
+							"type":"integer",
+							"title":"Offset"
+						},
+						"agentName":{
+							"type":"string",
+							"title":"Agent Name"
 						}
 					}
 				},
-				"code":"return [ 'cacheField': agentIds.findAll { it }.join('#') ]",
+				"code":"if(binding.hasVariable('sortsList') && sortsList.size()>0) {\n    def filteredList = sortsList\n\n    // Filter by agentName if provided\n    if (binding.hasVariable('agentName') && agentName) {\n        filteredList = sortsList.findAll { it?.name?.toLowerCase()?.contains(agentName.toLowerCase()) }\n    }\n\n    def sortedList = filteredList.sort { a, b ->\n        (b?.messageCount ?: 0) <=> (a?.messageCount ?: 0)\n    }\n\n    // Apply offset and limit safely\n    def start = Math.max(0, offset ?: 0)\n    def end = Math.min(sortedList.size(), start + (limit ?: sortedList.size()))\n\n    def pagedList = sortedList.subList(start as int, end as int)\n\n    return [ \"agentList\": pagedList, 'hasMore': ((start as int) + (limit as int) < filteredList.size())]\n}",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"agentIds":{
-						"source":"{{ _wjSBm.outputs.item }}",
+					"limit":"{{ _lpBn6.outputs.limit }}",
+					"offset":"{{ _lpBn6.outputs.offset }}",
+					"agentName":"{{ n_vH4Qn.outputs.body.agentName }}",
+					"sortsList":{
 						"ua:type":"mappedArray",
-						"items":"{{ _wjSBm.outputs.item[0].id }}"
+						"items":{
+							"messageCount":"{{ _kH3UL.outputs.objects[0].properties.usedCount }}",
+							"id":"{{ _kH3UL.outputs.objects[0].id }}",
+							"name":"{{ _kH3UL.outputs.objects[0].properties.name }}",
+							"description":"{{ _kH3UL.outputs.objects[0].properties.description }}",
+							"createdTime":"{{ _kH3UL.outputs.objects[0].createdTime }}",
+							"ownerUserId":"{{ _kH3UL.outputs.objects[0].ownerUserId }}",
+							"iconUrl":"{{ _kH3UL.outputs.objects[0].properties.avatarUrl }}"
+						},
+						"source":"{{ _kH3UL.outputs.objects }}"
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"cachedFields",
+			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
 		{
 			"context":{
+				"appName":"loop",
+				"resourceVersion":463,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1qHrg@_5OzFd-1@y",
+			"id":"n_NG8iB",
+			"index":10,
+			"inputs":{
+				"repeatMode":"BATCH",
+				"listSource":"{{ _oZgB8.outputs.result.agentList }}",
+				"captureIterations":false,
+				"batchSize":20
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
 				"appName":"callables",
-				"resourceVersion":604,
+				"resourceVersion":605,
 				"resourceName":"callables_call_automation_batch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_wjSBm@n_MnCI7@_5OzFd-1@n@l",
-			"id":"_UupXH",
-			"index":12,
+			"groupId":"n_NG8iB@_1qHrg@_5OzFd-1@y@l",
+			"id":"n_9qh3U",
+			"index":11,
 			"inputs":{
 				"automationId":"68f9245c7f66d147d99eba99",
 				"runtimeConnections":{},
 				"synchronous":true,
 				"distributeWorkflowLoad":false,
 				"parametersList":{
-					"source":"{{ _wjSBm.outputs.item }}",
+					"source":"{{ n_NG8iB.outputs.item }}",
 					"ua:type":"mappedArray",
 					"items":{
-						"aiAgentId":"{{ _wjSBm.outputs.item[0].id }}"
+						"ownerUserId":"{{ n_NG8iB.outputs.item[0].ownerUserId }}",
+						"aiAgentId":"{{ n_NG8iB.outputs.item[0].id }}"
 					}
 				},
 				"version":"-1"
@@ -933,9 +1340,9 @@
 					"waitForNextWindow":false
 				},
 				"cacheConfig":{
-					"cacheKey":"{{ n_wfW6L.outputs.result.cacheField }}",
+					"cacheKey":"{{ n_NG8iB.outputs.item[0].id }}",
 					"enabled":true,
-					"timeToLive":"300",
+					"timeToLive":"3600",
 					"usagePolicy":"ALWAYS"
 				},
 				"circuitBreakerConfig":{
@@ -979,9 +1386,45 @@
 				}
 			},
 			"skip":false,
-			"subTitle":"count agent message",
+			"subTitle":"author",
 			"title":"Call automation",
 			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.id",
+					"root.itemsToAdd.items.author"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":536,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_NG8iB@_1qHrg@_5OzFd-1@y@l",
+			"id":"n_Igovj",
+			"index":12,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_9qh3U.outputs.result }}",
+					"items":{
+						"id":"{{ n_9qh3U.outputs.result[0].aiAgentId }}",
+						"author":"{{ n_9qh3U.outputs.result[0].author }}"
+					}
+				},
+				"listName":"{{ _3OILF.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"author",
+			"title":"Add items to list",
+			"type":"ACTION"
 		},
 		{
 			"additional":{
@@ -990,7 +1433,8 @@
 					"root.itemsToAdd.items.id",
 					"root.itemsToAdd.items.name",
 					"root.itemsToAdd.items.description",
-					"root.itemsToAdd.items.createdTime"
+					"root.itemsToAdd.items.createdTime",
+					"root.itemsToAdd.items.iconUrl"
 				]
 			},
 			"context":{
@@ -1002,23 +1446,24 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_wjSBm@n_MnCI7@_5OzFd-1@n@l",
-			"id":"_VEUCk",
+			"groupId":"_1qHrg@_5OzFd-1@y",
+			"id":"_adrQa",
 			"index":13,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
-					"source":"{{ _UupXH.outputs.result }}",
+					"source":"{{ _oZgB8.outputs.result.agentList }}",
 					"items":{
-						"messageCount":"{{ _UupXH.outputs.result[0].messageCount }}",
-						"id":"{{ _UupXH.outputs.result[0].response.id }}",
-						"name":"{{ _UupXH.outputs.result[0].response.properties.name }}",
-						"description":"{{ _UupXH.outputs.result[0].response.properties.role }}",
-						"createdTime":"{{ _UupXH.outputs.result[0].response.createdTime }}"
+						"messageCount":"{{ _oZgB8.outputs.result.agentList[0].messageCount }}",
+						"id":"{{ _oZgB8.outputs.result.agentList[0].id }}",
+						"name":"{{ _oZgB8.outputs.result.agentList[0].name }}",
+						"description":"{{ _oZgB8.outputs.result.agentList[0].description }}",
+						"createdTime":"{{ _oZgB8.outputs.result.agentList[0].createdTime }}",
+						"iconUrl":"{{ _oZgB8.outputs.result.agentList[0].iconUrl }}"
 					}
 				},
-				"listName":"{{ n_HOWK6.outputs.items[0] }}"
+				"listName":"{{ _40Ii2.outputs.items[0] }}"
 			},
 			"skip":false,
 			"subTitle":"agents",
@@ -1026,14 +1471,514 @@
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":533,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1qHrg@_5OzFd-1@y",
+			"id":"n_3y4Y5",
+			"index":14,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ _lpBn6.outputs.hasMore }}",
+						"value":"{{ _kH3UL.outputs.hasMore }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"hasMore",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":841,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1qHrg@_5OzFd-1@n",
+			"id":"_9yBQ6",
+			"index":15,
+			"inputs":{
+				"object_type":"ai_agent",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"sortBy":[
+					{
+						"field":"cTm",
+						"order":"DESC"
+					}
+				],
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20000,
+					"offset":0
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":true,
+					"timeToLive":"360",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Agents",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.parameters.agentList.items.messageCount",
+					"root.parameters.sortsList.items.messageCount",
+					"root.parameters.sortsList.items.id",
+					"root.parameters.sortsList.items.name",
+					"root.parameters.sortsList.items.description",
+					"root.parameters.sortsList.items.createdTime",
+					"root.parameters.sortsList.items.ownerUserId",
+					"root.parameters.sortsList.items.iconUrl"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":550,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1qHrg@_5OzFd-1@n",
+			"id":"n_tERqY",
+			"index":16,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"required":[],
+					"properties":{
+						"agentList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"messageCount":{
+										"type":"integer",
+										"title":"Message Count"
+									},
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"description":{
+										"type":"string",
+										"title":"Description"
+									},
+									"createdTime":{
+										"type":"string",
+										"title":"Created Time"
+									},
+									"ownerUserId":{
+										"type":"string",
+										"title":"Owner User Id"
+									},
+									"iconUrl":{
+										"type":"string",
+										"title":"Icon Url"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"agentList"
+						},
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"sortsList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"messageCount":{
+										"type":"integer",
+										"title":"Message Count"
+									},
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"description":{
+										"type":"string",
+										"title":"Description"
+									},
+									"createdTime":{
+										"type":"string",
+										"title":"Created Time"
+									},
+									"ownerUserId":{
+										"type":"string",
+										"title":"Owner User Id"
+									},
+									"iconUrl":{
+										"type":"string",
+										"title":"Icon Url"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Sorts List"
+						},
+						"limit":{
+							"type":"integer",
+							"title":"Limit"
+						},
+						"offset":{
+							"type":"integer",
+							"title":"Offset"
+						},
+						"agentName":{
+							"type":"string",
+							"title":"Agent Name"
+						}
+					}
+				},
+				"code":"if(binding.hasVariable('sortsList') && sortsList.size()>0) {\n    def filteredList = sortsList\n\n    // Filter by agentName if provided\n    if (binding.hasVariable('agentName') && agentName) {\n        filteredList = sortsList.findAll { it?.name?.toLowerCase()?.contains(agentName.toLowerCase()) }\n    }\n\n    def sortedList = filteredList.sort { a, b ->\n        (b?.messageCount ?: 0) <=> (a?.messageCount ?: 0)\n    }\n\n    // Apply offset and limit safely\n    def start = Math.max(0, offset ?: 0)\n    def end = Math.min(sortedList.size(), start + (limit ?: sortedList.size()))\n\n    def pagedList = sortedList.subList(start as int, end as int)\n\n    return [ \"agentList\": pagedList, 'hasMore': ((start as int) + (limit as int) < filteredList.size())]\n}",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"limit":"{{ _lpBn6.outputs.limit }}",
+					"offset":"{{ _lpBn6.outputs.offset }}",
+					"agentName":"{{ n_vH4Qn.outputs.body.agentName }}",
+					"sortsList":{
+						"ua:type":"mappedArray",
+						"items":{
+							"messageCount":"{{ _9yBQ6.outputs.objects[0].properties.usedCount }}",
+							"id":"{{ _9yBQ6.outputs.objects[0].id }}",
+							"name":"{{ _9yBQ6.outputs.objects[0].properties.name }}",
+							"description":"{{ _9yBQ6.outputs.objects[0].properties.description }}",
+							"createdTime":"{{ _9yBQ6.outputs.objects[0].createdTime }}",
+							"ownerUserId":"{{ _9yBQ6.outputs.objects[0].ownerUserId }}",
+							"iconUrl":"{{ _9yBQ6.outputs.objects[0].properties.avatarUrl }}"
+						},
+						"source":"{{ _9yBQ6.outputs.objects }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":463,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1qHrg@_5OzFd-1@n",
+			"id":"_iuFEc",
+			"index":17,
+			"inputs":{
+				"repeatMode":"BATCH",
+				"listSource":"{{ n_tERqY.outputs.result.agentList }}",
+				"captureIterations":false,
+				"batchSize":20
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":605,
+				"resourceName":"callables_call_automation_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iuFEc@_1qHrg@_5OzFd-1@n@l",
+			"id":"_Eg7Rm",
+			"index":18,
+			"inputs":{
+				"automationId":"68f9245c7f66d147d99eba99",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"distributeWorkflowLoad":false,
+				"parametersList":{
+					"source":"{{ _iuFEc.outputs.item }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"ownerUserId":"{{ _iuFEc.outputs.item[0].ownerUserId }}",
+						"aiAgentId":"{{ _iuFEc.outputs.item[0].id }}"
+					}
+				},
+				"version":"-1"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"cacheKey":"{{ _iuFEc.outputs.item[0].id }}",
+					"enabled":true,
+					"timeToLive":"360",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"author",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.id",
+					"root.itemsToAdd.items.author"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":536,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iuFEc@_1qHrg@_5OzFd-1@n@l",
+			"id":"_LuDKN",
+			"index":19,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ _Eg7Rm.outputs.result }}",
+					"items":{
+						"id":"{{ _Eg7Rm.outputs.result[0].aiAgentId }}",
+						"author":"{{ _Eg7Rm.outputs.result[0].author }}"
+					}
+				},
+				"listName":"{{ _3OILF.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"author",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.messageCount",
+					"root.itemsToAdd.items.id",
+					"root.itemsToAdd.items.name",
+					"root.itemsToAdd.items.description",
+					"root.itemsToAdd.items.createdTime",
+					"root.itemsToAdd.items.iconUrl"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":536,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1qHrg@_5OzFd-1@n",
+			"id":"n_FgzyI",
+			"index":20,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_tERqY.outputs.result.agentList }}",
+					"items":{
+						"messageCount":"{{ n_tERqY.outputs.result.agentList[0].messageCount }}",
+						"id":"{{ n_tERqY.outputs.result.agentList[0].id }}",
+						"name":"{{ n_tERqY.outputs.result.agentList[0].name }}",
+						"description":"{{ n_tERqY.outputs.result.agentList[0].description }}",
+						"createdTime":"{{ n_tERqY.outputs.result.agentList[0].createdTime }}",
+						"iconUrl":"{{ n_tERqY.outputs.result.agentList[0].iconUrl }}"
+					}
+				},
+				"listName":"{{ _40Ii2.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":533,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1qHrg@_5OzFd-1@n",
+			"id":"_5zmfq",
+			"index":21,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ _lpBn6.outputs.hasMore }}",
+						"value":"{{ n_tERqY.outputs.result.hasMore }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"hasMore",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
 					"root.parameters.sortList.items",
-					"root.parameters.agentList.items.id",
-					"root.parameters.agentList.items.name",
-					"root.parameters.agentList.items.createdTime",
-					"root.parameters.agentList.items.description"
+					"root.parameters.authorList.items.id",
+					"root.parameters.authorList.items.author",
+					"root.parameters.agentsList.items.messageCount",
+					"root.parameters.agentsList.items.id",
+					"root.parameters.agentsList.items.name",
+					"root.parameters.agentsList.items.createdTime",
+					"root.parameters.agentsList.items.description",
+					"root.parameters.agentsList.items.iconUrl"
 				]
 			},
 			"context":{
@@ -1046,8 +1991,8 @@
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
-			"id":"n_1Xzlq",
-			"index":14,
+			"id":"_V5b02",
+			"index":22,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1078,6 +2023,14 @@
 									"createdTime":{
 										"type":"string",
 										"title":"Created Time"
+									},
+									"author":{
+										"type":"string",
+										"title":"Author"
+									},
+									"iconUrl":{
+										"type":"string",
+										"title":"Icon Url"
 									}
 								},
 								"additionalProperties":false,
@@ -1092,7 +2045,39 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"agentList":{
+						"sortList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Sort List"
+						},
+						"limit":{
+							"type":"integer",
+							"title":"Limit"
+						},
+						"authorList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"string",
+										"title":"Id"
+									},
+									"author":{
+										"type":"string",
+										"title":"Author"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Author List"
+						},
+						"agentsList":{
 							"type":"array",
 							"items":{
 								"type":"object",
@@ -1116,48 +2101,48 @@
 									"description":{
 										"type":"string",
 										"title":"Description"
+									},
+									"iconUrl":{
+										"type":"string",
+										"title":"Icon Url"
 									}
 								},
 								"additionalProperties":false,
 								"required":[]
 							},
-							"title":"Agent List"
-						},
-						"sortList":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{},
-								"additionalProperties":false
-							},
-							"title":"Sort List"
-						},
-						"limit":{
-							"type":"integer",
-							"title":"Limit"
+							"title":"Agents List"
 						}
 					}
 				},
-				"code":"List sortAgents(List agentList, List sortList) {\n    def normalizedSortList = sortList.collect { it.toLowerCase().replaceAll(/\\s+/, '') }\n\n    return agentList.sort { a, b ->\n        for (String key : normalizedSortList) {\n            if (key.contains('mostused')) {\n                // Sort by messageCount DESC\n                if (a.messageCount != b.messageCount) {\n                    return b.messageCount <=> a.messageCount\n                }\n            } else if (key.contains('newestfirst')) {\n                // Sort by property.createdTime DESC\n                def timeA = a?.createdTime as long\n                def timeB = b?.createdTime as long\n                if (timeA != timeB) {\n                    return timeB <=> timeA\n                }\n            }\n        }\n        return 0\n    }\n}\n\ndef sortFields = [ \"mostUsed\" ]\n\nif(binding.hasVariable('sortList')) {\n    \n    sortFields = sortList\n}\n\nif(binding.hasVariable('agentList')) {\n  def limit = binding.hasVariable('limit') ? limit as int : agentList.size()\n  return [ 'agentList': sortAgents(agentList, sortFields).take(limit) ]\n}",
+				"code":"List sortAgents(List agentList, List sortList, List authorList) {\n    def normalizedSortList = sortList.collect { it.toLowerCase().replaceAll(/\\s+/, '') }\n\n    agentList.each { agent ->\n        def matchedAuthor = authorList.find { it?.id == agent?.id }\n        agent.author = matchedAuthor ? matchedAuthor.author : null\n    }\n\n    return agentList.sort { a, b ->\n        for (String key : normalizedSortList) {\n            if (key.contains('mostused') || key.contains('most_used')) {\n                // Sort by messageCount DESC\n                if (a.messageCount != b.messageCount) {\n                    return b.messageCount <=> a.messageCount\n                }\n            } else if (key.contains('newestfirst') || key.contains('newest_first')) {\n                // Sort by property.createdTime DESC\n                def timeA = a?.createdTime as long\n                def timeB = b?.createdTime as long\n                if (timeA != timeB) {\n                    return timeB <=> timeA\n                }\n            }\n        }\n        return 0\n    }\n}\n\ndef sortFields = [ \"mostUsed\" ]\n\nif(binding.hasVariable('sortList')) {\n    sortFields = sortList\n}\n\nif(binding.hasVariable('agentsList')) {\n  def limit = binding.hasVariable('limit') ? limit as int : agentsList.size()\n  def authorList = binding.hasVariable('authorList') ? authorList : []\n\n  return [ 'agentList': sortAgents(agentsList, sortFields, authorList).take(limit) ]\n}",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"limit":"{{ n_7xidW.outputs.limit }}",
-					"agentList":{
-						"source":"{{ n_HOWK6.outputs.items }}",
-						"ua:type":"mappedArray",
-						"items":{
-							"messageCount":"{{ n_HOWK6.outputs.items[0].messageCount }}",
-							"id":"{{ n_HOWK6.outputs.items[0].id }}",
-							"name":"{{ n_HOWK6.outputs.items[0].name }}",
-							"createdTime":"{{ n_HOWK6.outputs.items[0].createdTime }}",
-							"description":"{{ n_HOWK6.outputs.items[0].description }}"
-						}
-					},
+					"limit":"{{ _lpBn6.outputs.limit }}",
 					"sortList":{
 						"source":"{{ n_vH4Qn.outputs.body.sortFields }}",
 						"ua:type":"mappedArray",
 						"items":"{{ n_vH4Qn.outputs.body.sortFields[0] }}"
+					},
+					"authorList":{
+						"source":"{{ _3OILF.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"id":"{{ _3OILF.outputs.items[0].id }}",
+							"author":"{{ _3OILF.outputs.items[0].author }}"
+						}
+					},
+					"agentsList":{
+						"source":"{{ _40Ii2.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"messageCount":"{{ _40Ii2.outputs.items[0].messageCount }}",
+							"id":"{{ _40Ii2.outputs.items[0].id }}",
+							"name":"{{ _40Ii2.outputs.items[0].name }}",
+							"createdTime":"{{ _40Ii2.outputs.items[0].createdTime }}",
+							"description":"{{ _40Ii2.outputs.items[0].description }}",
+							"iconUrl":"{{ _40Ii2.outputs.items[0].iconUrl }}"
+						}
 					}
 				}
 			},
@@ -1177,20 +2162,24 @@
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_5OzFd-1",
-			"id":"n_Wc16Y",
-			"index":15,
+			"id":"_V9QIF",
+			"index":23,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
+					"agentCount":"=LEN({{ _V5b02.outputs.result.agentList }})",
+					"hasMore":"{{ _lpBn6.outputs.hasMore }}",
 					"agents":{
-						"source":"{{ n_1Xzlq.outputs.result.agentList }}",
+						"source":"{{ _V5b02.outputs.result.agentList }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"messageCount":"{{ n_1Xzlq.outputs.result.agentList[0].messageCount }}",
-							"id":"{{ n_1Xzlq.outputs.result.agentList[0].id }}",
-							"name":"{{ n_1Xzlq.outputs.result.agentList[0].name }}",
-							"description":"{{ n_1Xzlq.outputs.result.agentList[0].description }}"
+							"messageCount":"{{ _V5b02.outputs.result.agentList[0].messageCount }}",
+							"id":"{{ _V5b02.outputs.result.agentList[0].id }}",
+							"name":"{{ _V5b02.outputs.result.agentList[0].name }}",
+							"description":"{{ _V5b02.outputs.result.agentList[0].description }}",
+							"author":"{{ _V5b02.outputs.result.agentList[0].author }}",
+							"icnonUrl":"{{ _V5b02.outputs.result.agentList[0].iconUrl }}"
 						}
 					}
 				},
@@ -1219,5 +2208,5 @@
 	"tags":[
 		
 	],
-	"version":52
+	"version":53
 }
