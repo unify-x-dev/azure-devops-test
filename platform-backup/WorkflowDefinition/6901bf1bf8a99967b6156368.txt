@@ -1,20 +1,27 @@
 {
 	"appsUsed":[
-		
+		"jira"
 	],
 	"createdTime":1761722365371,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761722574293,
+		"deployedAt":1761723414991,
 		"deployedBy":37018,
-		"deployedDefinitionId":"6901c0cedc12803a78e8e474",
+		"deployedDefinitionId":"6901c416c41bc371691b172c",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":4
+		"version":3,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
-			"fromNodeId":"lZXRK",
+			"fromNodeId":"n_VTgfD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zeaVD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_zeaVD",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"CPBFM",
@@ -22,57 +29,55 @@
 		}
 	],
 	"id":"6901bf1bf8a99967b6156368",
-	"lastModifiedBy":37018,
+	"lastModifiedBy":504,
 	"lcName":"changesetqa2autoyijxsovywi",
-	"modifiedTime":1761723414836,
+	"modifiedTime":1761730198957,
 	"name":"changeSetQA2autoYijXsovyWi",
 	"nodes":[
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":125,
-				"resourceName":"callables_from_interface"
+				"appName":"jira",
+				"resourceVersion":6437,
+				"connectionId":"69005cae7ed34409f4877bf0",
+				"resourceName":"jira_on_new_or_updated_issue"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"3tFTv-1",
-			"id":"lZXRK",
-			"index":0,
+			"id":"n_VTgfD",
+			"index":1,
 			"inputs":{
-				"result":{
-					"type":"object",
-					"properties":{
-						"c":{
-							"type":"integer",
-							"title":"c"
-						}
-					},
-					"required":[]
-				},
-				"callableInterfaceId":"6901bf1bf8a99967b6156367",
-				"setup":{
-					"type":"object",
-					"properties":{
-						"a":{
-							"type":"integer",
-							"title":"a"
-						},
-						"b":{
-							"type":"integer",
-							"title":"b"
-						}
-					},
-					"required":[]
-				}
+				"objectSourceResourceName":"jira_fetch_issue_schema"
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger interface",
+			"subTitle":"Jira",
+			"title":"New or updated issue",
 			"trigger":{
-				"type":"CALLABLE"
+				"type":"EVENT"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":961,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"3tFTv-1",
+			"id":"n_zeaVD",
+			"index":2,
+			"inputs":{
+				"isAsync":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Javascript",
+			"type":"ACTION"
 		},
 		{
 			"context":{
@@ -86,7 +91,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"3tFTv-1",
 			"id":"CPBFM",
-			"index":0,
+			"index":3,
 			"inputs":{
 				"result":{
 					"c":"=SUM({{ lZXRK.outputs.a }},{{ lZXRK.outputs.b }})"
@@ -115,5 +120,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
