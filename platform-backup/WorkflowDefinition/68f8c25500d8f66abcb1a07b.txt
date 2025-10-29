@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761424571105,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761424589643,
+		"deployedBy":309,
+		"deployedDefinitionId":"68fd34bbbab8db141ba5ff67",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":23
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_s7NdB",
@@ -71,10 +79,20 @@
 			"type":"next"
 		}
 	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
 	"id":"68f8c25500d8f66abcb1a07b",
-	"lastModifiedBy":309,
+	"lastModifiedBy":0,
 	"lcName":"internal | update knowledge | grabbing frequency",
-	"modifiedTime":1761424571105,
+	"modifiedTime":1761722711375,
 	"name":"Internal | Update Knowledge | Grabbing frequency",
 	"nodes":[
 		{
@@ -354,9 +372,9 @@
 			"tierName":"global"
 		}
 	},
-	"standard":false,
+	"standard":true,
 	"tags":[
 		"knowledge_v2"
 	],
-	"version":23
+	"version":24
 }
