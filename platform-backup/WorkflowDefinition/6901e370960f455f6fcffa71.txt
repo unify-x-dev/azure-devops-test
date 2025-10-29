@@ -4,79 +4,76 @@
 	],
 	"createdTime":1761731440484,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761731487701,
+		"deployedBy":122909,
+		"deployedDefinitionId":"6901e39f0a7959277f205fb5",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
-			"fromNodeId":"n_yl0Hz",
+			"fromNodeId":"n_hOYCS",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_ayX2K",
+			"toNodeId":"n_yhAYc",
 			"type":"next"
 		}
 	],
 	"id":"6901e370960f455f6fcffa71",
 	"lastModifiedBy":122909,
 	"lcName":"p1",
-	"modifiedTime":1761731482955,
+	"modifiedTime":1761732458976,
 	"name":"P1",
 	"nodes":[
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1157,
-				"resourceName":"callables_from_api"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pfUIz-1",
-			"id":"n_yl0Hz",
+			"id":"n_hOYCS",
 			"index":1,
 			"inputs":{
 				"request":{
 					"contentType":"application/json"
-				},
-				"endpointType":"REST",
-				"response":[
-					{
-						"status":200,
-						"contentType":"application/json",
-						"textBody":{
-							"type":"string"
-						}
-					}
-				],
-				"streamingResponse":false
+				}
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger via API",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"CALLABLE"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1126,
-				"resourceName":"callables_return_response_to_api",
+				"appName":"encryption_tools_by_unifyapps",
+				"resourceVersion":861,
+				"connectionId":"68f866b15be7140f8d0ee1a1",
+				"resourceName":"encryption_tools_by_unifyapps_encrypt_data",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pfUIz-1",
-			"id":"n_ayX2K",
+			"id":"n_yhAYc",
 			"index":2,
 			"inputs":{
-				"streamingCompleted":true,
-				"responseName":"200_undefined",
-				"status":200
+				"data":"kumar",
+				"dataType":"STRING"
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to API request",
-			"type":"STOP"
+			"subTitle":"Encryption Tools by UnifyApps",
+			"title":"Encrypt data",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":122909,
@@ -96,5 +93,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
