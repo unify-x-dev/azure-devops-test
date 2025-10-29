@@ -6,47 +6,113 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_qqaEc",
+			"fromNodeId":"n_EFbkU",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_xjJAg",
+			"toNodeId":"n_qsw1B",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_qsw1B",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_td7mf",
 			"type":"next"
 		}
 	],
 	"id":"69019b23db965a67e0472177",
 	"lastModifiedBy":46209,
 	"lcName":"[azure-function]processsmsnotificationstimertrigger",
-	"modifiedTime":1761712931063,
+	"modifiedTime":1761713825519,
 	"name":"[Azure-function]ProcessSmsNotificationsTimerTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1155,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qqaEc-1",
-			"id":"_qqaEc",
-			"index":0,
+			"id":"n_EFbkU",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":224,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qqaEc-1",
-			"id":"_xjJAg",
-			"index":0,
+			"id":"n_qsw1B",
+			"index":2,
+			"inputs":{
+				"code":"using System;\nusing System.Threading.Tasks;\nusing System.Collections.Generic;\nusing System.Linq.Expressions;\nusing Twilio;\nusing Twilio.Rest.Api.V2010.Account;\nusing Twilio.Types;\n\npublic class BaseEntity\n{\n    public int Id { get; set; }\n}\n\npublic enum NotificationStatus\n{\n    Pending = 1,\n    Sent = 2,\n    Fail = 3,\n    Delivered = 4\n}\n\npublic class SmsNotification : BaseEntity\n{\n    public string MessageBody { get; set; }\n    public DateTime CreatedDate { get; set; }\n    public IEnumerable<SmsRecipient> Recipients { get; set; }\n}\n\npublic class SmsRecipient : BaseEntity\n{\n    public string ContactNumber { get; set; }\n    public string Sid { get; set; }\n    public NotificationStatus Status { get; set; }\n    public SmsNotification Notification { get; set; }\n    public int NotificationId { get; set; }\n}\n\npublic abstract class BaseSpecification<T> : ISpecification<T>\n{\n    protected BaseSpecification(Expression<Func<T, bool>> criteria)\n    {\n        Criteria = criteria;\n    }\n    public Expression<Func<T, bool>> Criteria { get; }\n    public List<Expression<Func<T, object>>> Includes { get; } = new List<Expression<Func<T, object>>>();\n    //public List<string> IncludeStrings { get; } = new List<string>();\n    public Expression<Func<T, object>> OrderBy { get; private set; }\n    //public Expression<Func<T, object>> OrderByDescending { get; private set; }\n    //public Expression<Func<T, object>> GroupBy { get; private set; }\n\n    public int Take { get; private set; }\n    public int Skip { get; private set; }\n    public bool IsPagingEnabled { get; private set; } = false;\n\n    protected virtual void AddInclude(Expression<Func<T, object>> includeExpression)\n    {\n        Includes.Add(includeExpression);\n    }\n    //protected virtual void AddInclude(string includeString)\n    //{\n    //    IncludeStrings.Add(includeString);\n    //}\n    protected virtual void ApplyPaging(int skip, int take)\n    {\n        Skip = skip;\n        Take = take;\n        IsPagingEnabled = true;\n    }\n    protected virtual void ApplyOrderBy(Expression<Func<T, object>> orderByExpression)\n    {\n        OrderBy = orderByExpression;\n    }\n    //protected virtual void ApplyOrderByDescending(Expression<Func<T, object>> orderByDescendingExpression)\n    //{\n    //    OrderByDescending = orderByDescendingExpression;\n    //}\n\n    //protected virtual void ApplyGroupBy(Expression<Func<T, object>> groupByExpression)\n    //{\n    //    GroupBy = groupByExpression;\n    //}\n\n}\n\ninternal class SmsNotificationRecipientBySidSpecification : BaseSpecification<SmsRecipient>\n{\n    public SmsNotificationRecipientBySidSpecification(string sid)\n        : base(x => x.Sid == sid)\n    {\n\n    }\n}\n\nprivate async Task Send(SmsRecipient recipient)\n{\n    TwilioClient.Init(\"Sms:AccountId\", \"Sms:Password\");\n    MessageResource message = await MessageResource.CreateAsync(\n        body: recipient.Notification.MessageBody,\n        from: new PhoneNumber(\"+12163429166\"),\n        to: new PhoneNumber(recipient.ContactNumber)\n        );\n    recipient.Sid = message.Sid;\n}\n\npublic async Task ProcessSavedNotifications()\n{\n    string numberOfmails = \"2\"'\n    int pageSize = int.Parse(numberOfmails);\n    SmsNotificationRecipientByStatusSpecification specification = new SmsNotificationRecipientByStatusSpecification(pageSize);\n    var recipients = await _recipientRepository.ListAsync(specification);\n    // API call\n    // var recipients = await _recipientRepository.ListAsync(specification);\n    var notifications = Enumerable.Empty<SmsRecipient>();\n\n    foreach (var recipient in recipients)\n    {\n        try\n        {\n            await Send(recipient);\n            recipient.Status = NotificationStatus.Sent;\n        }\n        catch (Exception ex)\n        {\n            recipient.Status = NotificationStatus.Fail;\n            //_appLogger.LogError($\"SendNotificationsTimerTrigger, an error occured at {DateTime.Now}. Error :  {ex.Message}\");\n            Console.WriteLine($\"SendNotificationsTimerTrigger, an error occured at {DateTime.Now}. Error :  {ex.Message}\");\n        }\n        // API Call\n        // await _recipientRepository.UpdateAsync(recipient); ************\n    }\n}\n\n// log.LogInformation($\"Processing mail notifications started at: {DateTime.Now}\");\nConsole.WriteLine($\"Processing mail notifications started at: {DateTime.Now}\");\nawait ProcessSavedNotifications();\n// log.LogInformation($\"Processing mail notifications completed at: {DateTime.Now}\");\n// log.LogInformation($\"Next execution will be at: \" + $\"{myTimer.Schedule.GetNextOccurrence(DateTime.Now).ToString(\"MM/dd/yyyy HH:mm\")}\");",
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qqaEc-1",
+			"id":"n_td7mf",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":46209,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +126,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
