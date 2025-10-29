@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761775340420,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761775340541,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69028eec077ede5563326e28",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"Ew0OA",
@@ -16,7 +24,7 @@
 	"id":"69028e92461e5528af4ac102",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2yvusbn01khtx",
-	"modifiedTime":1761775340420,
+	"modifiedTime":1761775448511,
 	"name":"changeSetQA2yvusBn01kHtx",
 	"nodes":[
 		{
@@ -89,7 +97,7 @@
 			"inputs":{
 				"responseName":"200_Response",
 				"set_cookies":[
-					"= SUM({{ Ew0OA.outputs.body.a }},{{ Ew0OA.outputs.body.b }})"
+					"= PRODUCT({{ Ew0OA.outputs.body.a }},{{ Ew0OA.outputs.body.b }})"
 				],
 				"status":200
 			},
@@ -116,5 +124,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
