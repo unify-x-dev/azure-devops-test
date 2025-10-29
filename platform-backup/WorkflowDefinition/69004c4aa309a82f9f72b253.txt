@@ -44,7 +44,7 @@
 	"id":"69004c4aa309a82f9f72b253",
 	"lastModifiedBy":190398,
 	"lcName":"trying1 ",
-	"modifiedTime":1761639102575,
+	"modifiedTime":1761738868826,
 	"name":"trying1 ",
 	"nodes":[
 		{
@@ -55,7 +55,7 @@
 				"resourceName":"gmail_on_new_attachment"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_1rWbt-1",
 			"id":"n_nOLHN",
@@ -93,7 +93,7 @@
 					"ua:type":"mappedArray",
 					"items":"UNREAD"
 				},
-				"id":"{{ n_nOLHN.outputs.batch[0] }}"
+				"id":"{{ n_nOLHN.outputs.batch[0].id }}"
 			},
 			"skip":false,
 			"subTitle":"Gmail",
@@ -227,5 +227,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
