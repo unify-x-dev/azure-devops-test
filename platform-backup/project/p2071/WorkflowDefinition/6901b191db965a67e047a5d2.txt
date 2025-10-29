@@ -17,23 +17,78 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_juNXl",
+			"toNodeId":"n_C3t87",
 			"type":"if"
+		},
+		{
+			"fromNodeId":"n_C3t87",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_7ifDQ",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_C3t87",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GjeUD",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"n_ZDT3b",
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_TTiLu",
+			"toNodeId":"n_mxQLR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mxQLR",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_3Po0T",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_mxQLR",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5Ge7p",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5Ge7p",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_7RfSj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_7RfSj",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9qtpk",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_7RfSj",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6sKQZ",
 			"type":"next"
 		}
 	],
 	"id":"6901b191db965a67e047a5d2",
 	"lastModifiedBy":189756,
-	"lcName":"amn annual evaluation",
-	"modifiedTime":1761719154629,
-	"name":"AMN Annual evaluation",
+	"lcName":"amn annual evaluation anne val",
+	"modifiedTime":1761722775974,
+	"name":"AMN Annual evaluation ANNE VAL",
 	"nodes":[
 		{
 			"context":{
@@ -42,7 +97,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Uxlvr-1",
 			"id":"n_chH1p",
@@ -101,7 +156,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Uxlvr-1",
 			"id":"n_ZDT3b",
@@ -124,17 +179,47 @@
 		},
 		{
 			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZDT3b@_Uxlvr-1@y",
+			"id":"n_C3t87",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"={{ n_chH1p.outputs.frequency }}+{{ n_chH1p.outputs.completionDate }}",
+						"filter":{
+							"operator":"GTE",
+							"value":"{{ n_chH1p.outputs.placementStartDate }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1102,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"n_ZDT3b@_Uxlvr-1@y",
-			"id":"n_juNXl",
-			"index":3,
+			"groupId":"n_C3t87@n_ZDT3b@_Uxlvr-1@y@y",
+			"id":"n_7ifDQ",
+			"index":4,
 			"inputs":{
 				"result":{
 					"output":true
@@ -153,14 +238,164 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"n_ZDT3b@_Uxlvr-1@n",
-			"id":"n_TTiLu",
-			"index":4,
+			"groupId":"n_C3t87@n_ZDT3b@_Uxlvr-1@y@n",
+			"id":"n_GjeUD",
+			"index":5,
 			"inputs":{
 				"result":{
 					"output":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZDT3b@_Uxlvr-1@n",
+			"id":"n_mxQLR",
+			"index":6,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_chH1p.outputs.molecule }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1102,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mxQLR@n_ZDT3b@_Uxlvr-1@n@y",
+			"id":"n_3Po0T",
+			"index":7,
+			"inputs":{
+				"result":{
+					"output":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1103,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mxQLR@n_ZDT3b@_Uxlvr-1@n@n",
+			"id":"n_5Ge7p",
+			"index":8,
+			"inputs":{
+				"result":{
+					"output":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_mxQLR@n_ZDT3b@_Uxlvr-1@n@n",
+			"id":"n_7RfSj",
+			"index":9,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_chH1p.outputs.completionDate }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":true,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1102,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_7RfSj@n_mxQLR@n_ZDT3b@_Uxlvr-1@n@n@y",
+			"id":"n_9qtpk",
+			"index":10,
+			"inputs":{
+				"result":{
+					"output":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1102,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_7RfSj@n_mxQLR@n_ZDT3b@_Uxlvr-1@n@n@n",
+			"id":"n_6sKQZ",
+			"index":11,
+			"inputs":{
+				"result":{
+					"output":true
 				}
 			},
 			"skip":false,
@@ -187,5 +422,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":7
 }
