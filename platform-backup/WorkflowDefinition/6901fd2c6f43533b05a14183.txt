@@ -4,13 +4,21 @@
 	],
 	"createdTime":1761738028672,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761738070633,
+		"deployedBy":161875,
+		"deployedDefinitionId":"6901fd566f43533b05a14659",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		
 	],
 	"id":"6901fd2c6f43533b05a14183",
 	"lastModifiedBy":161875,
 	"lcName":"update requisition trigger",
-	"modifiedTime":1761738068702,
+	"modifiedTime":1761738188440,
 	"name":"Update Requisition Trigger",
 	"nodes":[
 		{
@@ -27,6 +35,7 @@
 			"id":"n_dUHdP",
 			"index":1,
 			"inputs":{
+				"interval":1,
 				"from":"2025-10-28T11:40:00Z",
 				"batchSize":100
 			},
@@ -56,5 +65,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
