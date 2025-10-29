@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_oqyYF",
+			"fromNodeId":"n_JUbjR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_ZMSaW",
@@ -45,44 +45,41 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761730196559,
+	"modifiedTime":1761731162552,
 	"name":"xyzzz",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
-			"id":"n_oqyYF",
+			"id":"n_JUbjR",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json",
-					"body":{
-						"type":"object",
-						"properties":{
-							"file":{
-								"type":"string",
-								"title":"File"
-							}
-						},
-						"additionalProperties":false,
-						"required":[
-							"file"
-						]
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"file"
+					],
+					"properties":{
+						"file":{
+							"type":"string",
+							"title":"File"
+						}
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -101,7 +98,7 @@
 			"index":2,
 			"inputs":{
 				"fileName":"abcd.json",
-				"url":"{{ n_oqyYF.outputs.body.file }}",
+				"url":"{{ n_JUbjR.outputs }}",
 				"option":"url"
 			},
 			"skip":false,
@@ -236,5 +233,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":18
 }
