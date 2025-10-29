@@ -6,12 +6,12 @@
 	"createdTime":1761725242827,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761731975015,
+		"deployedAt":1761732030007,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901e586960f455f6fd00551",
+		"deployedDefinitionId":"6901e5bd0a7959277f206c29",
 		"status":"DEPLOYED",
-		"version":16,
-		"workflowVersion":16
+		"version":17,
+		"workflowVersion":17
 	},
 	"edges":[
 		{
@@ -58,6 +58,13 @@
 		},
 		{
 			"fromNodeId":"_p4gBG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_eXjDF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_eXjDF",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_w78VF",
@@ -151,7 +158,7 @@
 	"id":"6901cb3ac41bc371691b580e",
 	"lastModifiedBy":132116,
 	"lcName":"main_automation",
-	"modifiedTime":1761732028199,
+	"modifiedTime":1761732069939,
 	"name":"main_automation",
 	"nodes":[
 		{
@@ -330,11 +337,36 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qEDOz-1",
+			"id":"_eXjDF",
+			"index":8,
+			"inputs":{
+				"automationId":"6901c6280a7959277f1f8ade",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_w78VF",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"automationId":"6901b833db965a67e047eb25",
 				"runtimeConnections":{},
@@ -359,7 +391,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_o2V3G",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -384,7 +416,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_UhUbM",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"automationId":"6901bf41dc12803a78e8de7e",
 				"runtimeConnections":{},
@@ -405,11 +437,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_CP0uX",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"automationId":"6900776fc85d6a3a6dc1c8e0",
 				"runtimeConnections":{},
@@ -434,7 +466,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_VwKwa",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"automationId":"6901bf41dc12803a78e8de7e",
 				"runtimeConnections":{},
@@ -459,7 +491,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_0lCnj",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"automationId":"6901c6280a7959277f1f8ade",
 				"runtimeConnections":{},
@@ -484,7 +516,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_XxMBO",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"automationId":"6901df810a7959277f204a96",
 				"runtimeConnections":{},
@@ -509,7 +541,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_wuWZh",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"automationId":"68fdd8c5ff97b736e67e85d5",
 				"runtimeConnections":{},
@@ -534,7 +566,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_yHnFY",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"automationId":"68fb12ef9bb45819e17a8f56",
 				"runtimeConnections":{},
@@ -559,7 +591,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_Oj1e9",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"automationId":"6901c6a30a7959277f1f8ddb",
 				"runtimeConnections":{},
@@ -584,7 +616,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_ScrRb",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"automationId":"6846983710ced17b8d13d250",
 				"runtimeConnections":{},
@@ -609,7 +641,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_9w3T9",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -634,7 +666,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_UfCTG",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"result":{
 					"output1":"res"
@@ -663,5 +695,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":18
 }
