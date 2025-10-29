@@ -45,7 +45,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761744176352,
+	"modifiedTime":1761746070808,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -132,9 +132,9 @@
 			"inputs":{
 				"fileDetails":"{{ n_ZMSaW.outputs.fileDetails }}",
 				"startFromRecord":1,
-				"batch":false,
+				"batch":true,
 				"encoding":"UTF-8",
-				"batchSize":100,
+				"batchSize":5,
 				"fileType":"json"
 			},
 			"skip":false,
@@ -235,5 +235,5 @@
 	"tags":[
 		
 	],
-	"version":23
+	"version":24
 }
