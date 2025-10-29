@@ -19,51 +19,44 @@
 			"fromNodeId":"n_tObdH",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_PHiml",
+			"toNodeId":"n_QnXLE",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_PHiml",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_EGnzL",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_EGnzL",
+			"fromNodeId":"n_QnXLE",
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_78I6F",
+			"toNodeId":"n_qpgur",
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_EGnzL",
+			"fromNodeId":"n_QnXLE",
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_9E6KC",
+			"toNodeId":"n_oyVJj",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_78I6F",
+			"fromNodeId":"n_qpgur",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_feWL6",
+			"toNodeId":"n_1UgRM",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_9E6KC",
+			"fromNodeId":"n_oyVJj",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_feWL6",
+			"toNodeId":"n_1UgRM",
 			"type":"next"
 		}
 	],
 	"id":"6901bb39db965a67e0483595",
 	"lastModifiedBy":190505,
 	"lcName":"test22",
-	"modifiedTime":1761729238354,
+	"modifiedTime":1761730472132,
 	"name":"Test22",
 	"nodes":[
 		{
@@ -97,46 +90,6 @@
 		},
 		{
 			"context":{
-				"appName":"slack",
-				"resourceVersion":6351,
-				"connectionId":"6901bc775ddb6f065a1fea69",
-				"resourceName":"slack_post_message_in_channel",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_cjlKb-1",
-			"id":"n_PHiml",
-			"index":2,
-			"inputs":{
-				"link_names":true,
-				"messageType":"blocks",
-				"Attach":[
-					{
-						"attachmentsType":"attachmentBlock",
-						"attachmentsBlock":{
-							"color":"#36a64f",
-							"mrkdwn_in":[
-								"text",
-								"pretext",
-								"fields",
-								"footer"
-							]
-						}
-					}
-				],
-				"channel":"C09NWHKKCA3",
-				"text":"hello",
-				"mrkdwn":true
-			},
-			"skip":false,
-			"subTitle":"Slack",
-			"title":"Post message",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"if_else",
 				"resourceVersion":791,
 				"resourceName":"if_else_condition",
@@ -146,15 +99,22 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cjlKb-1",
-			"id":"n_EGnzL",
-			"index":3,
+			"id":"n_QnXLE",
+			"index":2,
 			"inputs":{
 				"filters":[
 					{
-						"property":"{{ n_PHiml.outputs.message.attachments }}",
+						"property":"{{ n_tObdH.outputs.batch[0].attachments }}",
+						"filter":{
+							"operator":"CONTAINS",
+							"value":"pdf"
+						}
+					},
+					{
+						"property":"{{ n_tObdH.outputs.batch[0].attachments }}",
 						"filter":{
 							"operator":"EQUAL",
-							"value":"pdf"
+							"value":"zip"
 						}
 					}
 				],
@@ -166,25 +126,72 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6353,
+				"connectionId":"6901bc775ddb6f065a1fea69",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_EGnzL@_cjlKb-1@y",
-			"id":"n_78I6F",
-			"index":4,
+			"groupId":"n_QnXLE@_cjlKb-1@y",
+			"id":"n_qpgur",
+			"index":3,
+			"inputs":{
+				"link_names":true,
+				"messageType":"blocks",
+				"Attach":[
+					{
+						"attachmentsType":"attachmentBlock",
+						"attachmentsBlock":{
+							"mrkdwn_in":[
+								"text",
+								"pretext",
+								"fields",
+								"footer"
+							],
+							"fields":{
+								"items":{
+									"title":"Attachment Message",
+									"value":"This email containing the attachments{{ n_tObdH.outputs }}{{ n_QnXLE.outputs }}"
+								},
+								"ua:type":"mappedArray"
+							}
+						}
+					}
+				],
+				"channel":"C09NWHKKCA3",
+				"mrkdwn":true
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Slack",
+			"title":"Post message",
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6353,
+				"connectionId":"6901bc775ddb6f065a1fea69",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_EGnzL@_cjlKb-1@n",
-			"id":"n_9E6KC",
-			"index":5,
+			"groupId":"n_QnXLE@_cjlKb-1@n",
+			"id":"n_oyVJj",
+			"index":4,
+			"inputs":{
+				"link_names":true,
+				"channel":"C09NWHKKCA3",
+				"mrkdwn":true
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Slack",
+			"title":"Post message",
 			"type":"ACTION"
 		},
 		{
@@ -192,11 +199,11 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cjlKb-1",
-			"id":"n_feWL6",
-			"index":6,
+			"id":"n_1UgRM",
+			"index":5,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -220,5 +227,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
