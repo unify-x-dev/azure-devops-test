@@ -6,47 +6,113 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_ZwQHW",
+			"fromNodeId":"n_df9yx",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_15hqO",
+			"toNodeId":"n_BBYpV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_BBYpV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_3KHk3",
 			"type":"next"
 		}
 	],
 	"id":"690161560d021a33e3d2bcea",
 	"lastModifiedBy":39713,
 	"lcName":"[virtu-empowerrepsschedulerfn]syncemployeeshttptrigger",
-	"modifiedTime":1761698134676,
+	"modifiedTime":1761698187016,
 	"name":"[virtu-emPowerRepsSchedulerFN]SyncEmployeesHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1155,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZwQHW-1",
-			"id":"_ZwQHW",
-			"index":0,
+			"id":"n_df9yx",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"name":"200",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":224,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZwQHW-1",
-			"id":"_15hqO",
-			"index":0,
+			"id":"n_BBYpV",
+			"index":2,
+			"inputs":{
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ZwQHW-1",
+			"id":"n_3KHk3",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39713,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +126,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
