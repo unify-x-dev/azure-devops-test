@@ -37,7 +37,7 @@
 	"id":"690208c074105b7eb8dc03cc",
 	"lastModifiedBy":39714,
 	"lcName":"bin to pdf",
-	"modifiedTime":1761742838989,
+	"modifiedTime":1761742848445,
 	"name":"bin to pdf",
 	"nodes":[
 		{
@@ -202,6 +202,7 @@
 				"select":"CLOUD_STORAGE",
 				"file":"{{ n_I4dnN.outputs.fileDetails }}",
 				"acceleratedEndpoint":false,
+				"mimeType":"application/pdf",
 				"region":"ap-south-1"
 			},
 			"skip":false,
@@ -227,5 +228,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
