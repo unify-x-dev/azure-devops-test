@@ -5,13 +5,13 @@
 	"createdTime":1761737242064,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761737397673,
+		"deployedAt":1761737413117,
 		"deployedBy":643,
-		"deployedDefinitionId":"6901fab56f43533b05a10eff",
-		"deploymentTag":"v1",
+		"deployedDefinitionId":"6901fac56f43533b05a110a6",
+		"deploymentTag":"v3",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":10
+		"version":2,
+		"workflowVersion":11
 	},
 	"edges":[
 		{
@@ -25,6 +25,13 @@
 			"fromNodeId":"n_Rgo1T",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_un05P",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_un05P",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_nveKC",
 			"type":"next"
 		}
@@ -32,7 +39,7 @@
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737408413,
+	"modifiedTime":1761737419518,
 	"name":"test1",
 	"nodes":[
 		{
@@ -314,6 +321,27 @@
 		},
 		{
 			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":892,
+				"resourceName":"analytics_by_unifyapps_filter_to_sql_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_zM0cA-1",
+			"id":"n_un05P",
+			"index":3,
+			"inputs":{
+				"group":"ENTITY_REPORTING"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Converts filter to SQL condition",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1104,
 				"resourceName":"callables_return_to_automation",
@@ -324,7 +352,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_zM0cA-1",
 			"id":"n_nveKC",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"result":"{{ n_Rgo1T.outputs.items[0] }}"
 			},
@@ -351,5 +379,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
