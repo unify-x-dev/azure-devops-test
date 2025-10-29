@@ -87,7 +87,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761740306568,
+	"modifiedTime":1761740327862,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -303,7 +303,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_UiGsB",
@@ -352,8 +352,8 @@
 							"description":"{{ n_UiGsB.outputs.invoice-lines[0].description }}",
 							"id":"{{ n_UiGsB.outputs.invoice-lines[0].id }}",
 							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}",
-							"po-number":"{{ n_UiGsB.outputs.invoice-lines[0].po-number }}",
-							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}"
+							"po-number":"6000002",
+							"order-line-id":2
 						}
 					}
 				},
@@ -382,5 +382,5 @@
 	"tags":[
 		
 	],
-	"version":73
+	"version":74
 }
