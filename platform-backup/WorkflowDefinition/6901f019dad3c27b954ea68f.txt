@@ -1,5 +1,6 @@
 {
 	"appsUsed":[
+		"amazon_comprehend",
 		"netsuite"
 	],
 	"createdTime":1761734681565,
@@ -7,6 +8,13 @@
 	"edges":[
 		{
 			"fromNodeId":"n_f06xb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_i1xmx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_i1xmx",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_cc5G5",
@@ -28,9 +36,9 @@
 		}
 	],
 	"id":"6901f019dad3c27b954ea68f",
-	"lastModifiedBy":6701,
+	"lastModifiedBy":1,
 	"lcName":"create invoice netsuite testing",
-	"modifiedTime":1761735058861,
+	"modifiedTime":1761736724492,
 	"name":"Create invoice netsuite testing",
 	"nodes":[
 		{
@@ -40,7 +48,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0gb4s-1",
 			"id":"n_f06xb",
@@ -60,6 +68,29 @@
 		},
 		{
 			"context":{
+				"appName":"amazon_comprehend",
+				"resourceVersion":2,
+				"connectionId":"6901f5602334c537588f2d25",
+				"resourceName":"amazon_comprehend_detect_pii",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_0gb4s-1",
+			"id":"n_i1xmx",
+			"index":2,
+			"inputs":{
+				"text":"my name is kavish",
+				"languageCode":"en"
+			},
+			"skip":false,
+			"subTitle":"Amazon Comprehend",
+			"title":"Detect PII Entities",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"netsuite",
 				"resourceVersion":1667,
 				"connectionId":"68a5cd6261da06bf1fd18e16",
@@ -67,11 +98,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0gb4s-1",
 			"id":"n_cc5G5",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"item":{
 					"items":[
@@ -127,11 +158,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0gb4s-1",
 			"id":"n_OwRIy",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"id":"685496"
 			},
@@ -145,11 +176,11 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0gb4s-1",
 			"id":"n_OV8GQ",
-			"index":4,
+			"index":5,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -173,5 +204,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
