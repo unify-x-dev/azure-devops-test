@@ -1,0 +1,1248 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1738691629310,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296297199,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd690c3d19149a9e367a",
+		"status":"DEPLOYED",
+		"version":72,
+		"workflowVersion":103
+	},
+	"edges":[
+		{
+			"fromNodeId":"3V1Pq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"Wjm4u",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"Wjm4u",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"FRCxZ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"FRCxZ",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"IU6F3",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"IU6F3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"gprZK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"gprZK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yMA2T",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"FRCxZ",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yMA2T",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yMA2T",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"qlnOW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"qlnOW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"doZ3J",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"doZ3J",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"jmzX0",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"jmzX0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"zKCrV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"doZ3J",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"zKCrV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"zKCrV",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"q5Ajz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"zKCrV",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_E6yxH",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"q5Ajz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_E6yxH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_E6yxH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"Z9PMm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"Z9PMm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"JnSRV",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"67a215271cb90843a91fefca",
+	"lastModifiedBy":0,
+	"lcName":"test agent ",
+	"modifiedTime":1761722850074,
+	"name":"Test Agent ",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":50,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"3V1Pq",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"messageId":{
+							"type":"string",
+							"title":"Message Id"
+						},
+						"caseId":{
+							"type":"string",
+							"title":"Case Id"
+						},
+						"messageCreatedTime":{
+							"type":"string",
+							"title":"Message Created Time"
+						},
+						"fromCustomerUserId":{
+							"type":"string",
+							"title":"From Customer User Id"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"$comment":"agent_Test",
+					"required":[
+						"formData"
+					],
+					"properties":{
+						"aiAgentId":{
+							"type":"string"
+						},
+						"copilotType":{
+							"type":"string"
+						},
+						"message":{
+							"type":"string"
+						},
+						"caseId":{
+							"type":"string"
+						},
+						"attachments":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"string"
+									},
+									"name":{
+										"type":"string"
+									},
+									"url":{
+										"type":"string"
+									},
+									"sourceType":{
+										"type":"string"
+									},
+									"source":{
+										"type":"string"
+									},
+									"fileType":{
+										"type":"string"
+									},
+									"size":{
+										"type":"integer"
+									},
+									"type":{
+										"type":"string"
+									},
+									"mimeType":{
+										"type":"string"
+									},
+									"temporaryUrl":{
+										"type":"string"
+									},
+									"progress":{
+										"type":"integer"
+									},
+									"isUploaded":{
+										"type":"boolean"
+									},
+									"key":{
+										"type":"string"
+									},
+									"bucket":{
+										"type":"string"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"Attachments"
+						},
+						"knowledgeIds":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							}
+						},
+						"toolIds":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							}
+						},
+						"role":{
+							"type":"string"
+						},
+						"goal":{
+							"type":"string"
+						},
+						"background":{
+							"type":"string"
+						},
+						"instructions":{
+							"type":"string"
+						},
+						"agentVariables":{
+							"type":"object"
+						},
+						"steps":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"instructions":{
+										"type":"string"
+									},
+									"nodes":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{},
+											"additionalProperties":false
+										},
+										"title":"Nodes"
+									}
+								},
+								"required":[
+									"nodes"
+								]
+							}
+						},
+						"knowledgeSetIds":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Knowledge Set Ids"
+						},
+						"defaultTools":{
+							"type":"object",
+							"properties":{
+								"webSearch":{
+									"type":"boolean",
+									"title":"Web Search"
+								},
+								"deepResearch":{
+									"type":"boolean",
+									"title":"Deep Research"
+								},
+								"documentVision":{
+									"type":"boolean",
+									"title":"Document Vision"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Default Tools",
+							"required":[]
+						},
+						"settings":{
+							"type":"object",
+							"properties":{
+								"taskExecutionModel":{
+									"type":"string",
+									"title":"Task Execution Model"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Settings",
+							"required":[]
+						},
+						"formData":{
+							"type":"object",
+							"properties":{
+								"id":{
+									"type":"string",
+									"title":"id"
+								},
+								"data":{
+									"type":"object",
+									"title":"data"
+								},
+								"brandMessageId":{
+									"type":"string",
+									"title":"brandMessageId"
+								}
+							},
+							"additionalProperties":false
+						},
+						"agentVersion":{
+							"type":"integer",
+							"title":"Agent Version"
+						},
+						"workflowInputs":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Workflow Inputs"
+						},
+						"spaceId":{
+							"type":"string",
+							"title":"Space Id"
+						},
+						"messageId":{
+							"type":"string",
+							"title":"Message Id"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":203,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"Wjm4u",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"testMode":{
+							"type":"boolean",
+							"title":"Test Mode"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"testMode":true
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"testMode":{
+							"type":"boolean",
+							"title":"Test Mode"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":199,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"FRCxZ",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ 3V1Pq.outputs.agentVersion }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":201,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"FRCxZ@CmKop-1@y",
+			"id":"IU6F3",
+			"index":4,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ Wjm4u.outputs.testMode }}",
+						"value":false
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{}
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":201,
+				"resourceName":"variable_by_unifyapps_set_session_variable",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"FRCxZ@CmKop-1@y",
+			"id":"gprZK",
+			"index":5,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"ai_agent_use_deployed_entity":{
+							"type":"boolean",
+							"title":"Ai Agent Use Deployed Entity"
+						},
+						"ai_agent_deployed_version":{
+							"type":"integer",
+							"title":"Ai Agent Deployed Version"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"ai_agent_use_deployed_entity":true,
+				"ai_agent_deployed_version":"{{ 3V1Pq.outputs.agentVersion }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"ai_agent_use_deployed_entity":{
+							"type":"boolean",
+							"title":"Ai Agent Use Deployed Entity"
+						},
+						"ai_agent_deployed_version":{
+							"type":"integer",
+							"title":"Ai Agent Deployed Version"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Set Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":458,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"n_yMA2T",
+			"index":6,
+			"inputs":{
+				"automationId":"67a48d37f8f1744841dabb63",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"aiAgentId":"{{ 3V1Pq.outputs.aiAgentId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":23,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"qlnOW",
+			"index":7,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"message":{
+							"type":"string",
+							"title":"Message"
+						},
+						"internalMessageType":{
+							"type":"string",
+							"title":"Internal Message Type"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"message":"{{ 3V1Pq.outputs.message }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"message":{
+							"type":"string",
+							"title":"Message"
+						},
+						"internalMessageType":{
+							"type":"string",
+							"title":"Internal Message Type"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Message",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":23,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"doZ3J",
+			"index":8,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ qlnOW.outputs.message }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					},
+					{
+						"property":"=LEN({{ 3V1Pq.outputs.attachments }})",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"0"
+						}
+					},
+					{
+						"property":"{{ n_yMA2T.outputs.properties.agentType }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"workflow"
+						}
+					},
+					{
+						"property":"{{ 3V1Pq.outputs.caseId }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Empty Message",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":23,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"doZ3J@CmKop-1@y",
+			"id":"jmzX0",
+			"index":9,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ qlnOW.outputs.message }}",
+						"value":"These are Form Input: {{ 3V1Pq.outputs.workflowInputs }}"
+					},
+					{
+						"source":"{{ qlnOW.outputs.internalMessageType }}",
+						"value":"AGENT_INTERNAL_RESPONSE"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":75,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"zKCrV",
+			"index":10,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_yMA2T.outputs.properties.agentType }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					},
+					{
+						"property":"{{ n_yMA2T.outputs.properties.agentType }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"ai-agent"
+						}
+					},
+					{
+						"property":"{{ n_yMA2T.outputs.properties.agentType }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"team"
+						}
+					},
+					{
+						"property":"{{ n_yMA2T.outputs.properties.agentType }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"workflow"
+						}
+					}
+				],
+				"operator":"OR"
+			},
+			"skip":false,
+			"subTitle":"Advance agent?",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":50,
+				"resourceName":"variable_by_unifyapps_set_session_variable",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"zKCrV@CmKop-1@n",
+			"id":"q5Ajz",
+			"index":11,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"ai_agent_ua_knowledgeIds":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Ai Agent Ua Knowledge Ids"
+						},
+						"ai_agent_ua_toolIds":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Ai Agent Ua Tool Ids"
+						},
+						"ai_agent_ua_instructions":{
+							"type":"string",
+							"title":"Ai Agent Ua Instructions"
+						},
+						"ai_agent_ua_steps":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"instructions":{
+										"type":"string",
+										"title":"Instructions"
+									},
+									"nodes":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{},
+											"additionalProperties":false
+										},
+										"title":"Nodes"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Ai Agent Ua Steps"
+						},
+						"ai_agent_ua_goal":{
+							"type":"string",
+							"title":"Ai Agent Ua Goal"
+						},
+						"ai_agent_ua_test_mode":{
+							"type":"boolean",
+							"title":"Ai Agent Ua Test Mode"
+						},
+						"ai_agent_ua_role":{
+							"type":"string",
+							"title":"Ai Agent Ua Role"
+						},
+						"ai_agent_ua_knowledgeSetIds":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Ai Agent Ua Knowledge Set Ids"
+						},
+						"ai_agent_default_tools":{
+							"type":"object",
+							"properties":{
+								"webSearch":{
+									"type":"boolean",
+									"title":"Web Search"
+								},
+								"deepResearch":{
+									"type":"boolean",
+									"title":"Deep Research"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Ai Agent Default Tools",
+							"required":[]
+						},
+						"ua_taskExecutionModel":{
+							"type":"string",
+							"title":"Ua Task Execution Model"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"ai_agent_ua_goal":"{{ 3V1Pq.outputs.goal }}",
+				"ai_agent_ua_toolIds":{
+					"source":"{{ 3V1Pq.outputs.toolIds }}",
+					"ua:type":"mappedArray",
+					"items":"{{ 3V1Pq.outputs.toolIds[0] }}"
+				},
+				"ai_agent_ua_role":"{{ 3V1Pq.outputs.role }}",
+				"ua_taskExecutionModel":"{{ 3V1Pq.outputs.settings.taskExecutionModel }}",
+				"ai_agent_ua_steps":{
+					"source":"{{ 3V1Pq.outputs.steps }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"instructions":"{{ 3V1Pq.outputs.steps[0].instructions }}",
+						"nodes":{
+							"source":"{{ 3V1Pq.outputs.steps[0].nodes }}",
+							"ua:type":"mappedArray",
+							"items":"{{ 3V1Pq.outputs.steps[0].nodes[0] }}"
+						}
+					}
+				},
+				"ai_agent_ua_knowledgeSetIds":{
+					"source":"{{ 3V1Pq.outputs.knowledgeSetIds }}",
+					"ua:type":"mappedArray",
+					"items":"{{ 3V1Pq.outputs.knowledgeSetIds[0] }}"
+				},
+				"ai_agent_default_tools":{
+					"webSearch":"{{ 3V1Pq.outputs.defaultTools.webSearch }}",
+					"deepResearch":"{{ 3V1Pq.outputs.defaultTools.deepResearch }}"
+				},
+				"ai_agent_ua_knowledgeIds":{
+					"source":"{{ 3V1Pq.outputs.knowledgeIds }}",
+					"ua:type":"mappedArray",
+					"items":"{{ 3V1Pq.outputs.knowledgeIds[0] }}"
+				},
+				"ai_agent_ua_instructions":"{{ 3V1Pq.outputs.instructions }}",
+				"ai_agent_ua_test_mode":"{{ Wjm4u.outputs.testMode }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"ai_agent_ua_knowledgeIds":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Ai Agent Ua Knowledge Ids"
+						},
+						"ai_agent_ua_toolIds":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Ai Agent Ua Tool Ids"
+						},
+						"ai_agent_ua_instructions":{
+							"type":"string",
+							"title":"Ai Agent Ua Instructions"
+						},
+						"ai_agent_ua_steps":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"instructions":{
+										"type":"string",
+										"title":"Instructions"
+									},
+									"nodes":{
+										"type":"array",
+										"items":{
+											"type":"object",
+											"properties":{},
+											"additionalProperties":false
+										},
+										"title":"Nodes"
+									}
+								},
+								"additionalProperties":false,
+								"required":[]
+							},
+							"title":"Ai Agent Ua Steps"
+						},
+						"ai_agent_ua_goal":{
+							"type":"string",
+							"title":"Ai Agent Ua Goal"
+						},
+						"ai_agent_ua_test_mode":{
+							"type":"boolean",
+							"title":"Ai Agent Ua Test Mode"
+						},
+						"ai_agent_ua_role":{
+							"type":"string",
+							"title":"Ai Agent Ua Role"
+						},
+						"ai_agent_ua_knowledgeSetIds":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Ai Agent Ua Knowledge Set Ids"
+						},
+						"ai_agent_default_tools":{
+							"type":"object",
+							"properties":{
+								"webSearch":{
+									"type":"boolean",
+									"title":"Web Search"
+								},
+								"deepResearch":{
+									"type":"boolean",
+									"title":"Deep Research"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Ai Agent Default Tools",
+							"required":[]
+						},
+						"ua_taskExecutionModel":{
+							"type":"string",
+							"title":"Ua Task Execution Model"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Test mode",
+			"title":"Set Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":449,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"n_E6yxH",
+			"index":12,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"aiAgentID":{
+							"type":"string",
+							"title":"aiAgentID"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"aiAgentID":{
+							"type":"string",
+							"title":"aiAgentID"
+						}
+					}
+				},
+				"code":"def aiAgentId = binding.getVariable(\"aiAgentID\")\n\nreturn [ \"aiAgentId\" : aiAgentId ]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"aiAgentID":"{{ 3V1Pq.outputs.aiAgentId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.message",
+					"root.parameters.caseId",
+					"root.parameters.aiAgentId",
+					"root.parameters.copilotType",
+					"root.parameters.attachments.source",
+					"root.parameters.attachments.ua:type",
+					"root.parameters.attachments.items.id",
+					"root.parameters.attachments.items.url",
+					"root.parameters.attachments.items.name",
+					"root.parameters.attachments.items.fileType",
+					"root.parameters.attachments.items.mimeType",
+					"root.parameters.attachments.items.temporaryUrl",
+					"root.parameters.attachments.items.key"
+				]
+			},
+			"context":{
+				"appName":"callables",
+				"resourceVersion":54,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"Z9PMm",
+			"index":13,
+			"inputs":{
+				"automationId":"66ab81a6a1c8b020e8374956",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"message":"{{ qlnOW.outputs.message }}",
+					"caseId":"{{ 3V1Pq.outputs.caseId }}",
+					"aiAgentId":"{{ 3V1Pq.outputs.aiAgentId }}",
+					"copilotType":"{{ 3V1Pq.outputs.copilotType }}",
+					"internalMessageType":"{{ qlnOW.outputs.internalMessageType }}",
+					"messageId":"{{ 3V1Pq.outputs.messageId }}",
+					"settings":{
+						"taskExecutionModel":"{{ 3V1Pq.outputs.settings.taskExecutionModel }}"
+					},
+					"defaultTools":{
+						"webSearch":"{{ 3V1Pq.outputs.defaultTools.webSearch }}",
+						"documentVision":"{{ 3V1Pq.outputs.defaultTools.documentVision }}"
+					},
+					"formData":{
+						"id":"{{ 3V1Pq.outputs.formData.id }}",
+						"data":"{{ 3V1Pq.outputs.formData.data }}",
+						"brandMessageId":"{{ 3V1Pq.outputs.formData.brandMessageId }}"
+					},
+					"workflowInputs":"{{ 3V1Pq.outputs.workflowInputs }}",
+					"spaceId":"{{ 3V1Pq.outputs.spaceId }}",
+					"attachments":{
+						"source":"{{ 3V1Pq.outputs.attachments }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"id":"{{ 3V1Pq.outputs.attachments[0].id }}",
+							"url":"{{ 3V1Pq.outputs.attachments[0].url }}",
+							"name":"{{ 3V1Pq.outputs.attachments[0].name }}",
+							"fileType":"{{ 3V1Pq.outputs.attachments[0].fileType }}",
+							"mimeType":"{{ 3V1Pq.outputs.attachments[0].mimeType }}",
+							"temporaryUrl":"{{ 3V1Pq.outputs.attachments[0].temporaryUrl }}",
+							"key":"{{ 3V1Pq.outputs.attachments[0].key }}",
+							"sourceType":"{{ 3V1Pq.outputs.attachments[0].sourceType }}",
+							"source":"{{ 3V1Pq.outputs.attachments[0].source }}",
+							"size":"{{ 3V1Pq.outputs.attachments[0].size }}"
+						}
+					}
+				}
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Create case",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":51,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"CmKop-1",
+			"id":"JnSRV",
+			"index":14,
+			"inputs":{
+				"result":{
+					"messageId":"{{ Z9PMm.outputs.messageId }}",
+					"caseId":"{{ Z9PMm.outputs.caseId }}",
+					"messageCreatedTime":"{{ Z9PMm.outputs.messageCreatedTime }}",
+					"fromCustomerUserId":"{{ Z9PMm.outputs.fromCustomerUserId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":635,
+	"schemaReferences":[
+		"entity|e_code_snippet|e_67a2172ddff5de75934bd167"
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		"AI Agent"
+	],
+	"version":105
+}
