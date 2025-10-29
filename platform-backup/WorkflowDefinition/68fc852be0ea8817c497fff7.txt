@@ -87,7 +87,7 @@
 	"id":"68fc852be0ea8817c497fff7",
 	"lastModifiedBy":161875,
 	"lcName":"test automation",
-	"modifiedTime":1761740161428,
+	"modifiedTime":1761740263850,
 	"name":"Test automation",
 	"nodes":[
 		{
@@ -303,14 +303,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kkabk-1",
 			"id":"n_UiGsB",
 			"index":10,
 			"inputs":{
 				"objectSourceResourceName":"coupa_fetch_invoice_schema_metadata",
-				"id":"61"
+				"id":"520"
 			},
 			"skip":false,
 			"subTitle":"Coupa",
@@ -354,13 +354,13 @@
 								"id":"{{ n_UiGsB.outputs.invoice-lines[0].account.account-type.id }}"
 							},
 							"id":"{{ n_UiGsB.outputs.invoice-lines[0].id }}",
-							"po-number":"6000002",
-							"order-line-id":2,
-							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}"
+							"price":"{{ n_UiGsB.outputs.invoice-lines[0].price }}",
+							"po-number":"{{ n_UiGsB.outputs.invoice-lines[0].po-number }}",
+							"order-line-id":"{{ n_UiGsB.outputs.invoice-lines[0].order-line-id }}"
 						}
 					}
 				},
-				"id":61
+				"id":520
 			},
 			"skip":false,
 			"subTitle":"Coupa",
@@ -385,5 +385,5 @@
 	"tags":[
 		
 	],
-	"version":70
+	"version":72
 }
