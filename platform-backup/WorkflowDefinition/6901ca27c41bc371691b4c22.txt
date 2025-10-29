@@ -8,12 +8,12 @@
 	"createdTime":1761724967714,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761731113102,
+		"deployedAt":1761731863955,
 		"deployedBy":122909,
-		"deployedDefinitionId":"6901e229c41bc371691c49b2",
+		"deployedDefinitionId":"6901e517960f455f6fd002e1",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":10
+		"version":6,
+		"workflowVersion":11
 	},
 	"edges":[
 		{
@@ -153,6 +153,13 @@
 			"fromNodeId":"n_OSLmc",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_qpB3t",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_qpB3t",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_FiulW",
 			"type":"next"
 		}
@@ -160,7 +167,7 @@
 	"id":"6901ca27c41bc371691b4c22",
 	"lastModifiedBy":122909,
 	"lcName":"workflow1",
-	"modifiedTime":1761731862140,
+	"modifiedTime":1761732677820,
 	"name":"Workflow1",
 	"nodes":[
 		{
@@ -290,7 +297,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_aFqhh",
@@ -939,6 +946,41 @@
 		},
 		{
 			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":1119,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_qpB3t",
+			"index":21,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"GET",
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/",
+				"baseUrl":"https://api.qa.unifyapps.com/api-endpoint/trigger-workflow/6901e7dc960f455f6fd01388",
+				"httpVersion":"HTTP_2",
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"skip":false,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1104,
 				"resourceName":"callables_return_to_automation",
@@ -949,7 +991,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_FiulW",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"result":{
 					"result":"{{ n_T9qrN.outputs.encryptedData }}"
@@ -982,5 +1024,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
