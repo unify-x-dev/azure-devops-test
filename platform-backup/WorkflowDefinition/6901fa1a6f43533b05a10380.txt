@@ -16,14 +16,14 @@
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737342054,
+	"modifiedTime":1761737363652,
 	"name":"test1",
 	"nodes":[
 		{
 			"context":{
 				"appName":"callables",
-				"resourceVersion":1157,
-				"resourceName":"callables_from_api"
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
 			"dirty":true,
@@ -31,16 +31,10 @@
 			"groupId":"_zM0cA-1",
 			"id":"n_9RSLJ",
 			"index":1,
-			"inputs":{
-				"request":{
-					"contentType":"application/json"
-				},
-				"endpointType":"REST",
-				"streamingResponse":false
-			},
+			"inputs":{},
 			"skip":false,
 			"subTitle":"Callable",
-			"title":"Trigger via API",
+			"title":"Trigger via automation",
 			"trigger":{
 				"type":"CALLABLE"
 			},
@@ -319,5 +313,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
