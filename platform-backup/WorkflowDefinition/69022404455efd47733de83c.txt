@@ -37,7 +37,7 @@
 	"id":"69022404455efd47733de83c",
 	"lastModifiedBy":59995,
 	"lcName":"test-exports",
-	"modifiedTime":1761748979302,
+	"modifiedTime":1761750221016,
 	"name":"test-exports",
 	"nodes":[
 		{
@@ -155,14 +155,15 @@
 			"index":4,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"test_export_analytics",
+				"object_type":"test_analytics_11123",
 				"skipIfBlank":false,
 				"record":{
+					"test":"testing1",
 					"test1":12345678912345.012,
 					"test2":12345678912345
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Create record",
 			"type":"ACTION"
@@ -190,7 +191,7 @@
 				"fileType":"CSV",
 				"group":"ENTITY_REPORTING"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Analytics by UnifyApps",
 			"title":"Export Reports",
 			"type":"ACTION"
@@ -213,5 +214,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
