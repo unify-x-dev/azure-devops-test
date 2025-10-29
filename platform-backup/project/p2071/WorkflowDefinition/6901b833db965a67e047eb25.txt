@@ -137,7 +137,7 @@
 	"id":"6901b833db965a67e047eb25",
 	"lastModifiedBy":189756,
 	"lcName":"appl amn applications",
-	"modifiedTime":1761723598922,
+	"modifiedTime":1761723689037,
 	"name":"APPL AMN Applications",
 	"nodes":[
 		{
@@ -424,7 +424,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_X3glp@_OG8x0@n_AQnJF@_LgtSD-1@1@n@y",
 			"id":"n_BtoMp",
@@ -432,7 +432,8 @@
 			"inputs":{
 				"variables":[
 					{
-						"source":"{{ n_aye0q.outputs.data }}"
+						"source":"{{ n_aye0q.outputs.data }}",
+						"value":"Compliant"
 					}
 				]
 			},
@@ -583,5 +584,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
