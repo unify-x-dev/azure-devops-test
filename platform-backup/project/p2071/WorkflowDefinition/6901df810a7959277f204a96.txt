@@ -9,6 +9,13 @@
 			"fromNodeId":"n_S0YMu",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_HaHJE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HaHJE",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_VfJG9",
 			"type":"next"
 		},
@@ -25,31 +32,15 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_gFaVm",
+			"toNodeId":"n_oy9ds",
 			"type":"if"
-		},
-		{
-			"fromNodeId":"n_gFaVm",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_nHeuq",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"n_gFaVm",
-			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_P5RIm",
-			"type":"next"
 		},
 		{
 			"fromNodeId":"n_8cfk7",
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Slze0",
+			"toNodeId":"n_wCsR3",
 			"type":"next"
 		},
 		{
@@ -57,14 +48,67 @@
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_0hewz",
+			"toNodeId":"n_KMMBh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oy9ds",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UrnkY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wCsR3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UrnkY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_KMMBh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UrnkY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UrnkY",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ScaBc",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_ScaBc",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yT902",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_ScaBc",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2gYYm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UrnkY",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2OQ",
 			"type":"next"
 		}
 	],
 	"id":"6901df810a7959277f204a96",
 	"lastModifiedBy":189756,
 	"lcName":"bgc vaccine",
-	"modifiedTime":1761730986402,
+	"modifiedTime":1761731382024,
 	"name":"BGC Vaccine",
 	"nodes":[
 		{
@@ -125,6 +169,59 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1086,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6X8pQ-1",
+			"id":"n_HaHJE",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"value":{
+							"type":"boolean",
+							"title":"Value"
+						}
+					},
+					"required":[
+						"value"
+					]
+				}
+			},
+			"inputs":{},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"value":{
+							"type":"boolean",
+							"title":"Value"
+						}
+					},
+					"required":[
+						"value"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"if_else",
 				"resourceVersion":791,
 				"resourceName":"if_else_condition",
@@ -135,7 +232,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6X8pQ-1",
 			"id":"n_VfJG9",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"filters":[
 					{
@@ -165,13 +262,120 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_VfJG9@_6X8pQ-1@y",
 			"id":"n_8cfk7",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"filters":[
 					{
 						"property":"{{ n_S0YMu.outputs.travelerMolecule }}",
 						"filter":{
-							"operator":"EQUAL"
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1005,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@y",
+			"id":"n_oy9ds",
+			"index":5,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_HaHJE.outputs.value }}",
+						"value":true
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1005,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@n",
+			"id":"n_wCsR3",
+			"index":6,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_HaHJE.outputs.value }}",
+						"value":false
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1005,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_VfJG9@_6X8pQ-1@n",
+			"id":"n_KMMBh",
+			"index":7,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_HaHJE.outputs.value }}",
+						"value":true
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6X8pQ-1",
+			"id":"n_UrnkY",
+			"index":8,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_S0YMu.outputs.BGC }}",
+						"filter":{
+							"operator":"EXISTS"
 						}
 					}
 				],
@@ -192,15 +396,16 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@y",
-			"id":"n_gFaVm",
-			"index":4,
+			"groupId":"n_UrnkY@_6X8pQ-1@y",
+			"id":"n_ScaBc",
+			"index":9,
 			"inputs":{
 				"filters":[
 					{
-						"property":"{{ n_S0YMu.outputs.BGC }}",
+						"property":"{{ n_HaHJE.outputs.value }}",
 						"filter":{
-							"operator":"EXISTS"
+							"operator":"EQUAL",
+							"value":"true"
 						}
 					}
 				],
@@ -221,9 +426,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_gFaVm@n_8cfk7@n_VfJG9@_6X8pQ-1@y@y@y",
-			"id":"n_nHeuq",
-			"index":5,
+			"groupId":"n_ScaBc@n_UrnkY@_6X8pQ-1@y@y",
+			"id":"n_yT902",
+			"index":10,
 			"inputs":{
 				"result":{
 					"molecule_requirement":true
@@ -244,9 +449,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_gFaVm@n_8cfk7@n_VfJG9@_6X8pQ-1@y@y@n",
-			"id":"n_P5RIm",
-			"index":6,
+			"groupId":"n_ScaBc@n_UrnkY@_6X8pQ-1@y@n",
+			"id":"n_2gYYm",
+			"index":11,
 			"inputs":{
 				"result":{
 					"molecule_requirement":false
@@ -267,32 +472,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@n",
-			"id":"n_Slze0",
-			"index":7,
-			"inputs":{
-				"result":{
-					"molecule_requirement":false
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1104,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_VfJG9@_6X8pQ-1@n",
-			"id":"n_0hewz",
-			"index":8,
+			"groupId":"n_UrnkY@_6X8pQ-1@n",
+			"id":"n_Km2OQ",
+			"index":12,
 			"inputs":{
 				"result":{
 					"molecule_requirement":false
@@ -322,5 +504,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
