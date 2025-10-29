@@ -153,7 +153,7 @@
 	"id":"6901ca27c41bc371691b4c22",
 	"lastModifiedBy":122909,
 	"lcName":"workflow1",
-	"modifiedTime":1761730396731,
+	"modifiedTime":1761730432943,
 	"name":"Workflow1",
 	"nodes":[
 		{
@@ -817,6 +817,14 @@
 					}
 				}
 			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray",
+					"source":"[12,2,,6,8]"
+				},
+				"ua:title":"List",
+				"ua:list_type":"STRING"
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -827,8 +835,7 @@
 							"title":"List",
 							"disableActions":true,
 							"items":{
-								"type":"object",
-								"properties":{}
+								"type":"string"
 							}
 						}
 					}
@@ -942,5 +949,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
