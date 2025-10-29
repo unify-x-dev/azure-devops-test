@@ -33,12 +33,19 @@
 			"skip":false,
 			"toNodeId":"n_E8gdI",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_E8gdI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ihqy5",
+			"type":"next"
 		}
 	],
 	"id":"69019d64db965a67e0472c09",
 	"lastModifiedBy":3952,
 	"lcName":"test",
-	"modifiedTime":1761716596964,
+	"modifiedTime":1761716603483,
 	"name":"test",
 	"nodes":[
 		{
@@ -148,6 +155,21 @@
 			"subTitle":"Continue",
 			"title":"Continue",
 			"type":"CONTINUE"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_MzYPg-1",
+			"id":"n_ihqy5",
+			"index":5,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":45518,
@@ -167,5 +189,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
