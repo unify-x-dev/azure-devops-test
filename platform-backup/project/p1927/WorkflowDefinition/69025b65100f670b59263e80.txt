@@ -198,7 +198,7 @@
 	"id":"69025b65100f670b59263e80",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation - smsrecipient",
-	"modifiedTime":1761762716727,
+	"modifiedTime":1761762744413,
 	"name":"NotificationSenderObjectAutomation - SmsRecipient",
 	"nodes":[
 		{
@@ -1068,7 +1068,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
-					"MailNotifications":{
+					"SmsRecipient":{
 						"source":"{{ n_vdWy7.outputs.objects }}",
 						"ua:type":"mappedArray",
 						"items":"{{ n_vdWy7.outputs.objects[0] }}"
@@ -1123,5 +1123,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
