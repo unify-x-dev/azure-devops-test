@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761740416924,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761741395806,
+		"deployedBy":1,
+		"deployedDefinitionId":"69020a5274105b7eb8dc19f2",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_O9GQh",
@@ -11,12 +19,19 @@
 			"skip":false,
 			"toNodeId":"n_d6tEe",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_d6tEe",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_wgFbS",
+			"type":"next"
 		}
 	],
 	"id":"6902068074105b7eb8dbda38",
 	"lastModifiedBy":1,
 	"lcName":"aws comprehend test",
-	"modifiedTime":1761741390206,
+	"modifiedTime":1761741829641,
 	"name":"AWS comprehend test",
 	"nodes":[
 		{
@@ -65,23 +80,47 @@
 			"index":2,
 			"inputs":{
 				"LanguageCode":"en",
-				"ClientRequestToken":"{{ __RUN__.outputs.executionId }}",
+				"ClientRequestToken":"job-{{ __RUN__.outputs.executionId }}",
 				"DataAccessRoleArn":"arn:aws:iam::546918106283:role/AmazonEKSNodeRole",
 				"OutputDataConfig":{
-					"S3Uri":"s3://qa-uploads.unifyapps.com/comprehend-pii/pii_test.txt"
+					"S3Uri":"s3://qa-uploads.unifyapps.com/comprehend-pii/"
 				},
-				"Mode":"ONLY_REDACTION",
+				"Mode":"ONLY_OFFSETS",
 				"JobName":"job-{{ __RUN__.outputs.executionId }}",
 				"RedactionConfig":{
-					"MaskMode":"REPLACE_WITH_PII_ENTITY_TYPE"
+					"MaskMode":"REPLACE_WITH_PII_ENTITY_TYPE",
+					"PiiEntityTypes":[]
 				},
 				"InputDataConfig":{
+					"S3Uri":"s3://qa-uploads.unifyapps.com/comprehend-pii/pii_test.txt",
 					"InputFormat":"ONE_DOC_PER_LINE"
 				}
 			},
 			"skip":false,
 			"subTitle":"Amazon Comprehend",
 			"title":"Start PII Entities Detection Job",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"amazon_comprehend",
+				"resourceVersion":8,
+				"connectionId":"6901f5602334c537588f2d25",
+				"resourceName":"amazon_comprehend_describe_pii_entities_detection_job",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uKLsa-1",
+			"id":"n_wgFbS",
+			"index":3,
+			"inputs":{
+				"JobId":"fc70fedb0e12f831a87084d7fb0ce5a5"
+			},
+			"skip":false,
+			"subTitle":"Amazon Comprehend",
+			"title":"Describe PII Entities Detection Job",
 			"type":"ACTION"
 		}
 	],
@@ -102,5 +141,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
