@@ -16,7 +16,7 @@
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737265262,
+	"modifiedTime":1761737274686,
 	"name":"test1",
 	"nodes":[
 		{
@@ -49,9 +49,9 @@
 		{
 			"context":{
 				"appName":"slack",
-				"resourceVersion":6348,
+				"resourceVersion":6353,
 				"connectionId":"6901e04d75b0c3591d0c17bb",
-				"resourceName":"slack_archives_conversation",
+				"resourceName":"slack_post_message_in_channel",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -60,10 +60,15 @@
 			"groupId":"_zM0cA-1",
 			"id":"n_Pz88N",
 			"index":2,
-			"inputs":{},
+			"inputs":{
+				"link_names":true,
+				"messageType":"text",
+				"channel":"C08H241390W",
+				"mrkdwn":true
+			},
 			"skip":false,
 			"subTitle":"Slack",
-			"title":"Archive conversation",
+			"title":"Post message",
 			"type":"ACTION"
 		}
 	],
@@ -84,5 +89,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
