@@ -1,51 +1,74 @@
 {
 	"appsUsed":[
-		
+		"slack"
 	],
 	"createdTime":1761737242064,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_zM0cA",
+			"fromNodeId":"n_9RSLJ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_SGUGC",
+			"toNodeId":"n_Pz88N",
 			"type":"next"
 		}
 	],
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737242064,
+	"modifiedTime":1761737263294,
 	"name":"test1",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1157,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_zM0cA-1",
-			"id":"_zM0cA",
-			"index":0,
+			"id":"n_9RSLJ",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6348,
+				"resourceName":"slack_archives_conversation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_zM0cA-1",
-			"id":"_SGUGC",
-			"index":0,
+			"id":"n_Pz88N",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Slack",
+			"title":"Archive conversation",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":643,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +82,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
