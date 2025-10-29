@@ -1,0 +1,721 @@
+{
+	"appsUsed":[
+		"gdrive"
+	],
+	"createdTime":1757072345254,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296248773,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd38672fcc41fb70f1f7",
+		"status":"DEPLOYED",
+		"version":0,
+		"workflowVersion":32
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_oiNl2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"1WPP3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"1WPP3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_sUivN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_sUivN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CPRYj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CPRYj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8yOnB",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_8yOnB",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CPRYj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CPRYj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tC1DS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tC1DS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_u1ypS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_u1ypS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vwbKn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vwbKn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Rah3o",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"68891c41297b02c59d61c4c7",
+	"lastModifiedBy":0,
+	"lcName":"knowledge downloader | google drive | folder - mtm",
+	"modifiedTime":1761722795929,
+	"name":"Knowledge Downloader | Google Drive | Folder - MTM",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":436,
+				"resourceName":"callables_from_interface"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KQIbE-1",
+			"id":"n_oiNl2",
+			"index":1,
+			"inputs":{
+				"result":{
+					"additionalProperties":false,
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"type":"object",
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						},
+						"downloadedEntitiesCount":{
+							"type":"integer",
+							"title":"Downloaded Entities Count"
+						},
+						"knowledgeDownloadFinished":{
+							"type":"boolean",
+							"title":"Knowledge Download Finished"
+						}
+					},
+					"required":[]
+				},
+				"callableInterfaceId":"6854484ac68462013926b9cf",
+				"setup":{
+					"additionalProperties":false,
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"type":"object",
+					"properties":{
+						"knowledgeId":{
+							"type":"string",
+							"title":"knowledgeId"
+						},
+						"aiAgentId":{
+							"type":"string",
+							"title":"aiAgentId"
+						},
+						"knowledge":{
+							"type":"object",
+							"properties":{
+								"readVersion":{
+									"type":"integer",
+									"title":"readVersion"
+								},
+								"lastSyncTime":{
+									"type":"integer",
+									"title":"lastSyncTime"
+								},
+								"cursorObject":{
+									"type":"object",
+									"title":"cursorObject"
+								},
+								"applicationInfo":{
+									"type":"object",
+									"properties":{
+										"context":{
+											"type":"object",
+											"properties":{
+												"connectionId":{
+													"type":"string",
+													"title":"Connection Id"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Context",
+											"required":[]
+										}
+									},
+									"additionalProperties":false,
+									"title":"Application Info",
+									"required":[]
+								},
+								"indexingVersion":{
+									"type":"integer",
+									"title":"Indexing Version"
+								}
+							},
+							"title":"knowledge",
+							"additionalProperties":false,
+							"required":[]
+						},
+						"inputs":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Inputs"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						},
+						"importerConnections":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Importer Connections"
+						},
+						"downloaderConfig":{
+							"type":"object",
+							"properties":{
+								"grabberType":{
+									"type":"string",
+									"title":"Grabber Type"
+								},
+								"currentTimeEpoch":{
+									"type":"integer",
+									"title":"Current Time Epoch"
+								},
+								"startTimeEpoch":{
+									"type":"integer",
+									"title":"Start Time Epoch"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Downloader Config",
+							"required":[]
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger interface",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":68,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KQIbE-1",
+			"id":"1WPP3",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"mappedInputs":{
+							"type":"object",
+							"properties":{
+								"query":{
+									"type":"string",
+									"title":"Query"
+								},
+								"folderId":{
+									"type":"string",
+									"title":"Folder Id"
+								},
+								"startDate":{
+									"type":"number",
+									"title":"Start Date"
+								},
+								"endDate":{
+									"type":"number",
+									"title":"End Date"
+								},
+								"recursive":{
+									"type":"boolean",
+									"title":"Recursive"
+								},
+								"includeSharedDrive":{
+									"type":"boolean",
+									"title":"Include Shared Drive"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Mapped Inputs",
+							"required":[]
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"inputs":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Inputs"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						},
+						"downloaderConfig":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Downloader Config"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"import java.lang.Math\nimport java.time.Instant\nimport java.time.LocalDateTime\nimport java.time.ZoneId\nimport java.time.format.DateTimeFormatter\n\ndef mappedInputs = [:]\ndef queryParts = []\n\ndef startDate = binding.hasVariable(\"downloaderConfig\") ? downloaderConfig.get(\"startTimeEpoch\",0) : 0\ndef endDate = binding.hasVariable(\"downloaderConfig\") ? downloaderConfig.get(\"currentTimeEpoch\") : null\n\nif(binding.hasVariable('inputs')){\n    mappedInputs[\"folderId\"] = inputs?.folderId\n    mappedInputs[\"recursive\"] = inputs?.recursive\n    mappedInputs[\"includeSharedDrive\"] = inputs?.includeSharedDrive\n}\n\nif (binding.hasVariable('cursor') && cursor.containsKey('lastFileModifiedTime')) {\n    startDate = (cursor['lastFileModifiedTime']).longValue()\n}\n\nmappedInputs[\"startDate\"] = startDate\nmappedInputs[\"endDate\"] = endDate\n\n\ndef startDateQuery = startDate!=null ? \"modifiedTime > '${getTimeStampString(startDate)}'\":null\ndef endDateQuery = endDate!=null ? \"modifiedTime < '${getTimeStampString(endDate)}'\":null\n\ndef modifiedQuery = [startDateQuery, endDateQuery].findAll { it != null }.join(\" and \")\nif (modifiedQuery) queryParts << modifiedQuery\ndef mimeTypeQuery = \"mimeType != 'application/vnd.google-apps.folder'\"\n\nif (binding.hasVariable(\"inputs\") && inputs.containsKey(\"fileType\") && inputs.fileType instanceof List && !inputs.fileType.isEmpty()) {\n    def fileTypeQuery = inputs.fileType.collect { \"mimeType = '${it}'\" }.join(\" or \")\n    mimeTypeQuery = \"(mimeType != 'application/vnd.google-apps.folder' or ${fileTypeQuery})\"\n}\n\nqueryParts << mimeTypeQuery\n\ndef finalQuery = queryParts ? queryParts.join(\" and \") : null\n\nif(finalQuery!=null){\n    mappedInputs[\"query\"] = finalQuery\n}\n\nreturn [\"mappedInputs\": mappedInputs];\n\n\nString getTimeStampString(Long epoch) {\n    return LocalDateTime.ofInstant(Instant.ofEpochMilli(epoch), ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd'T'HH:mm:ss\"));\n}",
+				"parameters":{
+					"inputs":"{{ n_oiNl2.outputs.inputs }}",
+					"cursor":"{{ n_oiNl2.outputs.cursor }}",
+					"downloaderConfig":"{{ n_oiNl2.outputs.downloaderConfig }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Resolve inputs",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.orderBy.items.key",
+					"root.orderBy.items.order"
+				]
+			},
+			"context":{
+				"appName":"gdrive",
+				"resourceVersion":2270,
+				"connectionId":"687e19627a11d1b61a43ecb5",
+				"resourceName":"gdrive_list_files",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KQIbE-1",
+			"id":"n_sUivN",
+			"index":3,
+			"inputs":{
+				"includeItemsFromAllDrives":"{{ 1WPP3.outputs.result.mappedInputs.includeSharedDrive }}",
+				"query":"{{ 1WPP3.outputs.result.mappedInputs.query }}",
+				"orderBy":[
+					{
+						"key":"modifiedTime",
+						"order":"asc"
+					}
+				],
+				"supportsAllDrives":"{{ 1WPP3.outputs.result.mappedInputs.includeSharedDrive }}",
+				"folderId":"{{ 1WPP3.outputs.result.mappedInputs.folderId }}",
+				"trashed":false
+			},
+			"skip":false,
+			"subTitle":"Google Drive",
+			"title":"List files",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":453,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KQIbE-1",
+			"id":"n_CPRYj",
+			"index":4,
+			"inputs":{
+				"repeatMode":"BATCH",
+				"listSource":"{{ n_sUivN.outputs.files }}",
+				"captureIterations":false,
+				"batchSize":30
+			},
+			"skip":false,
+			"subTitle":"Loop (Batch = 30) on files",
+			"title":"For loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":447,
+				"resourceName":"callables_call_automation_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_CPRYj@_KQIbE-1@l",
+			"id":"n_8yOnB",
+			"index":5,
+			"inputs":{
+				"automationId":"687dddcf011363a381b172d9",
+				"runtimeConnections":{
+					"slack":"{{ n_YxLaL.outputs.knowledge.applicationInfo.context.connectionId }}",
+					"gdrive":"{{ n_oiNl2.outputs.knowledge.applicationInfo.context.connectionId }}"
+				},
+				"synchronous":true,
+				"distributeWorkflowLoad":false,
+				"parametersList":{
+					"ua:type":"mappedArray",
+					"items":{
+						"knowledgeId":"{{ n_oiNl2.outputs.knowledgeId }}",
+						"connectionId":"{{ n_oiNl2.outputs.knowledge.applicationInfo.context.connectionId }}",
+						"indexingVersion":"{{ n_oiNl2.outputs.knowledge.indexingVersion }}",
+						"folderId":"{{ 1WPP3.outputs.result.mappedInputs.folderId }}",
+						"fileId":"{{ n_CPRYj.outputs.item[0].id }}",
+						"sortByCtm":false,
+						"userSpecifiedEndTime":"{{ 1WPP3.outputs.result.mappedInputs.endDate }}",
+						"userSpecifiedStartTime":"{{ 1WPP3.outputs.result.mappedInputs.startDate }}"
+					},
+					"source":"{{ n_CPRYj.outputs.item }}"
+				},
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"File Downloader",
+			"title":"Call automation (batch)",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.files.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":449,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KQIbE-1",
+			"id":"n_tC1DS",
+			"index":6,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"lastFileId":{
+							"type":"string",
+							"title":"Last File Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"files":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Files"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"if (binding.hasVariable('files') && files.size() != 0) {\n    def lastFileId = files[-1].id;\n    return [\"lastFileId\":lastFileId]\n}",
+				"parameters":{
+					"files":{
+						"source":"{{ n_sUivN.outputs.files }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_sUivN.outputs.files[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Get last file id",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gdrive",
+				"resourceVersion":2266,
+				"connectionId":"687e19627a11d1b61a43ecb5",
+				"resourceName":"gdrive_get_file_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"CONTINUE",
+			"groupId":"_KQIbE-1",
+			"id":"n_u1ypS",
+			"index":7,
+			"inputs":{
+				"fileId":"{{ n_tC1DS.outputs.result.lastFileId }}"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Get last file details",
+			"title":"Get file details",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.files.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":449,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KQIbE-1",
+			"id":"n_vwbKn",
+			"index":8,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"downloadedFileCount":{
+							"type":"integer",
+							"title":"Downloaded File Count"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						},
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"files":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Files"
+						},
+						"nextToken":{
+							"type":"string",
+							"title":"Next Token"
+						},
+						"userSpecifiedEndTime":{
+							"type":"number",
+							"title":"User Specified End Time"
+						},
+						"currentTimeEpoch":{
+							"type":"number",
+							"title":"Current Time Epoch"
+						},
+						"lastFileModifiedTime":{
+							"type":"string",
+							"title":"Last File Modified Time"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"import java.time.Instant\n\nboolean channelHasMore = false\nif(binding.hasVariable('nextToken') && nextToken.length()>0){\n    channelHasMore = true \n}\ndef lastFileModifiedTimeEpoch = binding.hasVariable('lastFileModifiedTime') ? Instant.parse(lastFileModifiedTime).toEpochMilli() : currentTimeEpoch\n\nboolean hasMore = (channelHasMore) && (currentTimeEpoch > lastFileModifiedTimeEpoch)\n\ndef downloadedFileCount = binding.hasVariable('files') ? files.size() : 0\nreturn [\"downloadedFileCount\":downloadedFileCount ,\"cursor\": [\"lastFileTime\": lastFileModifiedTimeEpoch], \"hasMore\":hasMore]\n",
+				"parameters":{
+					"files":{
+						"ua:type":"mappedArray",
+						"source":"{{ n_sUivN.outputs.files }}",
+						"items":"{{ n_sUivN.outputs.files[0] }}"
+					},
+					"nextToken":"{{ n_sUivN.outputs.nextPageToken }}",
+					"userSpecifiedEndTime":"{{ 1WPP3.outputs.result.mappedInputs.endDate }}",
+					"currentTimeEpoch":"{{ n_oiNl2.outputs.downloaderConfig.currentTimeEpoch }}",
+					"lastFileModifiedTime":"{{ n_u1ypS.outputs.modifiedTime }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Resolve cursor and flags",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":454,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KQIbE-1",
+			"id":"n_Rah3o",
+			"index":9,
+			"inputs":{
+				"result":{
+					"downloadedEntitiesCount":"{{ n_vwbKn.outputs.result.downloadedFileCount }}",
+					"cursor":"{{ n_vwbKn.outputs.result.cursor }}",
+					"hasMore":"{{ n_vwbKn.outputs.result.hasMore }}",
+					"knowledgeDownloadFinished":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":-1,
+	"runtimeConnectionAppNames":[
+		"gdrive"
+	],
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"headerValueTierMap":{},
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		"knowledge_v2"
+	],
+	"version":34
+}
