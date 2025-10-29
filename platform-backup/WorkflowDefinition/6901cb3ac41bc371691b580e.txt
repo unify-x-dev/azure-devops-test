@@ -6,12 +6,12 @@
 	"createdTime":1761725242827,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761727477598,
+		"deployedAt":1761727572175,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901d3f5c41bc371691bb3be",
+		"deployedDefinitionId":"6901d4530a7959277f200277",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":7
+		"version":8,
+		"workflowVersion":8
 	},
 	"edges":[
 		{
@@ -60,6 +60,13 @@
 			"fromNodeId":"_p4gBG",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_sj4Op",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_sj4Op",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_9w3T9",
 			"type":"next"
 		},
@@ -74,7 +81,7 @@
 	"id":"6901cb3ac41bc371691b580e",
 	"lastModifiedBy":132116,
 	"lcName":"main_automation",
-	"modifiedTime":1761727569260,
+	"modifiedTime":1761731433133,
 	"name":"main_automation",
 	"nodes":[
 		{
@@ -228,7 +235,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_p4gBG",
@@ -253,11 +260,36 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qEDOz-1",
+			"id":"_sj4Op",
+			"index":8,
+			"inputs":{
+				"automationId":"6901c6280a7959277f1f8ade",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_9w3T9",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -282,7 +314,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_UfCTG",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"result":{
 					"output1":"res"
@@ -311,5 +343,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
