@@ -8,12 +8,12 @@
 	"createdTime":1760033604120,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1760625428279,
-		"deployedBy":164544,
-		"deployedDefinitionId":"68f10314ecb3ea2701410138",
-		"status":"PAUSED",
-		"version":49,
-		"workflowVersion":316
+		"deployedAt":1761752814706,
+		"deployedBy":155543,
+		"deployedDefinitionId":"690236eed015237911e36259",
+		"status":"DEPLOYED",
+		"version":50,
+		"workflowVersion":321
 	},
 	"description":"To Scan Images",
 	"edges":[
@@ -166,6 +166,13 @@
 			"fromNodeId":"n_jtptB",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_LwJrh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LwJrh",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_XNoQ8",
 			"type":"next"
 		},
@@ -216,7 +223,7 @@
 	"id":"68e7fb4450c30c5009b3bca6",
 	"lastModifiedBy":155543,
 	"lcName":"image scans",
-	"modifiedTime":1761752812910,
+	"modifiedTime":1761752843002,
 	"name":"Image Scans",
 	"nodes":[
 		{
@@ -2855,6 +2862,28 @@
 		{
 			"context":{
 				"appName":"utility_by_unifyapps",
+				"resourceVersion":1105,
+				"resourceName":"utility_by_unifyapps_generate_public_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_fFQyR-1",
+			"id":"n_LwJrh",
+			"index":19,
+			"inputs":{
+				"file":"{{ n_jtptB.outputs.result }}",
+				"expiryTime":1
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Generate public file URL",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
 				"resourceVersion":1052,
 				"resourceName":"utility_by_unifyapps_unzip_file",
 				"type":"APPLICATION"
@@ -2864,7 +2893,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_XNoQ8",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"fileDetails":"{{ n_jtptB.outputs.result }}"
 			},
@@ -2886,7 +2915,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_2vk4D",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"folderName":"{{ n_sO6Iq.outputs.RAW_TAG }}",
 				"folderId":"1aM2F6rPCRg3ML7onEk_MRuSGwjMA4gJZ"
@@ -2908,7 +2937,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_cN9FJ",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_XNoQ8.outputs.filesDetails }}",
@@ -2931,7 +2960,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_cN9FJ@_fFQyR-1@l",
 			"id":"n_OJzaX",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"file":"{{ n_cN9FJ.outputs.item }}",
 				"expiryTime":1
@@ -2954,7 +2983,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_cN9FJ@_fFQyR-1@l",
 			"id":"n_jVzkr",
-			"index":23,
+			"index":24,
 			"inputs":{
 				"attachment":{
 					"attachment_option":"use_file_url",
@@ -2986,7 +3015,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_x1dEn",
-			"index":24,
+			"index":25,
 			"inputs":{
 				"link_names":true,
 				"messageType":"text",
@@ -3027,5 +3056,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":321
+	"version":322
 }
