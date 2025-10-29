@@ -45,7 +45,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761727331404,
+	"modifiedTime":1761727409443,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -60,7 +60,21 @@
 			"groupId":"_QuCjn-1",
 			"id":"n_qdVVi",
 			"index":1,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"file"
+					],
+					"properties":{
+						"file":{
+							"type":"string",
+							"title":"File"
+						}
+					}
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Trigger via automation",
@@ -192,7 +206,9 @@
 			"id":"n_Wh4Hz",
 			"index":5,
 			"inputs":{
-				"result":"{{ n_ZMSaW.outputs.fileDetails }}"
+				"result":{
+					"file":"{{ n_ZMSaW.outputs.fileDetails }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -217,5 +233,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
