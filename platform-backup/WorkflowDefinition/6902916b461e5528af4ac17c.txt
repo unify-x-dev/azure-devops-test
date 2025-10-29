@@ -16,7 +16,7 @@
 	"id":"6902916b461e5528af4ac17c",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa21761775979111rmzifjaxjz",
-	"modifiedTime":1761776032138,
+	"modifiedTime":1761776074029,
 	"name":"changeSetQA21761775979111RmZIFJAxjz",
 	"nodes":[
 		{
@@ -26,7 +26,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"5stgo-1",
 			"id":"7pKsG",
@@ -80,14 +80,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"5stgo-1",
 			"id":"mGr1K",
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"= MIN({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -103,11 +103,15 @@
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
 	},
 	"standard":false,
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
