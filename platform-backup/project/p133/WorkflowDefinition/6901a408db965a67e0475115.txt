@@ -7,7 +7,7 @@
 	"description":"making a simple automation to know the working of callable automations",
 	"edges":[
 		{
-			"fromNodeId":"_kdgtL",
+			"fromNodeId":"n_KhoXW",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_fF1HM",
@@ -17,20 +17,69 @@
 	"id":"6901a408db965a67e0475115",
 	"lastModifiedBy":190411,
 	"lcName":"automation_practice",
-	"modifiedTime":1761715208112,
+	"modifiedTime":1761715760534,
 	"name":"automation_practice",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1066,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_kdgtL-1",
-			"id":"_kdgtL",
-			"index":0,
+			"id":"n_KhoXW",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"greet"
+					],
+					"properties":{
+						"greet":{
+							"type":"string",
+							"title":"Greet",
+							"default":"hello N/A"
+						}
+					}
+				},
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"{{ n_KhoXW.outputs.name }}",
+							"filter":{
+								"operator":"NOT_EQUAL",
+								"value":"N/A"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"name"
+					],
+					"properties":{
+						"name":{
+							"type":"string",
+							"title":"Name",
+							"default":"N/A",
+							"help":"please add your name"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -40,7 +89,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kdgtL-1",
 			"id":"_fF1HM",
-			"index":0,
+			"index":2,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -48,6 +97,9 @@
 	],
 	"ownerUserId":190411,
 	"projectId":133,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -61,5 +113,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
