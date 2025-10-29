@@ -6,46 +6,72 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_2cGpO",
+			"fromNodeId":"n_rDZEL",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_nSxHd",
+			"toNodeId":"n_UTFkn",
 			"type":"next"
 		}
 	],
 	"id":"6901e7dc960f455f6fd01388",
 	"lastModifiedBy":122909,
 	"lcName":"dependencyworkflow",
-	"modifiedTime":1761732572227,
+	"modifiedTime":1761732599605,
 	"name":"dependencyWorkflow",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_2cGpO-1",
-			"id":"_2cGpO",
-			"index":0,
+			"id":"n_rDZEL",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"encryption_tools_by_unifyapps",
+				"resourceVersion":861,
+				"connectionId":"68f866b15be7140f8d0ee1a1",
+				"resourceName":"encryption_tools_by_unifyapps_encrypt_data",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_2cGpO-1",
-			"id":"_nSxHd",
-			"index":0,
+			"id":"n_UTFkn",
+			"index":2,
+			"inputs":{
+				"data":"Kumar",
+				"dataType":"STRING"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Encryption Tools by UnifyApps",
+			"title":"Encrypt data",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":122909,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +85,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
