@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761710933207,
 	"deleted":false,
@@ -107,6 +107,20 @@
 			"fromNodeId":"n_AtUPv@6",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_XWNsV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XWNsV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vdWy7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_vdWy7",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_ODo2P",
 			"type":"next"
 		},
@@ -164,7 +178,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761755474442,
+	"modifiedTime":1761756242511,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -174,7 +188,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Yq92w",
@@ -227,7 +241,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_AtUPv",
@@ -360,7 +374,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_AtUPv@1",
@@ -392,7 +406,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_6XhsF",
@@ -415,7 +429,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@2",
 			"id":"n_AtUPv@2",
@@ -447,7 +461,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@2",
 			"id":"n_8TAQ3",
@@ -470,7 +484,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_AtUPv@3",
@@ -525,7 +539,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_AtUPv@4",
@@ -557,7 +571,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_lYvBi",
@@ -580,7 +594,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@5",
 			"id":"n_AtUPv@5",
@@ -612,7 +626,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@5",
 			"id":"n_VBVOV",
@@ -635,7 +649,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_AtUPv@6",
@@ -660,6 +674,130 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1036,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_AtUPv@_xChs4-1@6",
+			"id":"n_XWNsV",
+			"index":14,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"Importance":{
+							"type":"integer",
+							"title":"Importance"
+						},
+						"Include":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Include"
+						},
+						"OrderBy":{
+							"type":"string",
+							"title":"OrderBy"
+						},
+						"Skip":{
+							"type":"integer",
+							"title":"Skip"
+						},
+						"Take":{
+							"type":"integer",
+							"title":"Take"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"def result = [\n        \"Importance\" : payload.Filter.RecipientStatus ?: '',\n        \"Include\" : payload.Include ?: '',\n        \"OrderBy\" : payload.OrderBy ?: false,\n        \"Skip\" : payload.Skip ?: '',\n        \"Take\" : payload.Take ?: ''\n    ]\nreturn result",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_Yq92w.outputs.body.payload }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4621,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_AtUPv@_xChs4-1@6",
+			"id":"n_vdWy7",
+			"index":15,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_Importance",
+							"filter":{
+								"operator":"EQUAL",
+								"value":""
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"mail_notifications",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"sortBy":[
+					{
+						"field":"",
+						"order":"ASC"
+					}
+				],
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1124,
@@ -671,7 +809,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_ODo2P",
-			"index":14,
+			"index":16,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -690,11 +828,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Km2Dj",
-			"index":15,
+			"index":17,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -724,5 +862,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
