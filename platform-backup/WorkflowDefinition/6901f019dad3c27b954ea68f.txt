@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_cc5G5",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_cc5G5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OV8GQ",
+			"type":"next"
 		}
 	],
 	"id":"6901f019dad3c27b954ea68f",
 	"lastModifiedBy":6701,
 	"lcName":"create invoice netsuite testing",
-	"modifiedTime":1761734836989,
+	"modifiedTime":1761734842064,
 	"name":"Create invoice netsuite testing",
 	"nodes":[
 		{
@@ -103,6 +110,21 @@
 			"subTitle":"Netsuite",
 			"title":"Create an invoice",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_0gb4s-1",
+			"id":"n_OV8GQ",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":6701,
@@ -122,5 +144,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
