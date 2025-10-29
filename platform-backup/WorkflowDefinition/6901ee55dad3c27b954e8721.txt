@@ -6,46 +6,114 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_LxdNA",
+			"fromNodeId":"n_MrT96",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_7wWwH",
+			"toNodeId":"n_J6P6Q",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_J6P6Q",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1qTw9",
 			"type":"next"
 		}
 	],
 	"id":"6901ee55dad3c27b954e8721",
 	"lastModifiedBy":132116,
 	"lcName":"main_dep",
-	"modifiedTime":1761734229353,
+	"modifiedTime":1761734258766,
 	"name":"main_dep",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LxdNA-1",
-			"id":"_LxdNA",
-			"index":0,
+			"id":"n_MrT96",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Output"
+					],
+					"properties":{
+						"Output":{
+							"type":"string",
+							"title":"Output"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LxdNA-1",
-			"id":"_7wWwH",
-			"index":0,
+			"id":"n_J6P6Q",
+			"index":2,
+			"inputs":{
+				"automationId":"6901c6280a7959277f1f8ade",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_LxdNA-1",
+			"id":"n_1qTw9",
+			"index":3,
+			"inputs":{
+				"result":{
+					"Output":"dfghjk"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":132116,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +127,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
