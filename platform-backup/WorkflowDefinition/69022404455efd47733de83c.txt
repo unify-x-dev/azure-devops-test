@@ -39,12 +39,26 @@
 			"skip":false,
 			"toNodeId":"n_g2hMJ",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_g2hMJ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_N3mzQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_N3mzQ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_m7wRA",
+			"type":"next"
 		}
 	],
 	"id":"69022404455efd47733de83c",
 	"lastModifiedBy":59995,
 	"lcName":"test-exports",
-	"modifiedTime":1761751156427,
+	"modifiedTime":1761751196431,
 	"name":"test-exports",
 	"nodes":[
 		{
@@ -231,6 +245,251 @@
 			"subTitle":"Analytics by UnifyApps",
 			"title":"Execute Analytics SQL Query",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1050,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5E8G-1",
+			"id":"n_N3mzQ",
+			"index":7,
+			"inputs":{
+				"jsonSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"cursorKeyReference":{
+							"type":"string",
+							"title":"cursorKeyReference"
+						},
+						"cursorValueReference":{
+							"type":"string",
+							"title":"cursorValueReference"
+						},
+						"datasource":{
+							"type":"object",
+							"properties":{
+								"context":{
+									"type":"object",
+									"properties":{
+										"appName":{
+											"type":"string",
+											"title":"appName"
+										},
+										"resourceName":{
+											"type":"string",
+											"title":"resourceName"
+										}
+									},
+									"title":"context",
+									"additionalProperties":false
+								},
+								"id":{
+									"type":"string",
+									"title":"id"
+								},
+								"inputs":{
+									"type":"object",
+									"properties":{
+										"includeTotalCount":{
+											"type":"boolean",
+											"title":"includeTotalCount"
+										},
+										"numberOfRecordsToFetch":{
+											"type":"string",
+											"title":"numberOfRecordsToFetch"
+										},
+										"object_type":{
+											"type":"string",
+											"title":"object_type"
+										},
+										"searchField":{
+											"type":"object",
+											"properties":{
+												"fields":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"fields"
+												}
+											},
+											"title":"searchField",
+											"additionalProperties":false
+										},
+										"sortBy":{
+											"type":"array",
+											"title":"sortBy"
+										},
+										"triggerInputCondition":{
+											"type":"object",
+											"properties":{
+												"filters":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"filter":{
+																"type":"object",
+																"properties":{
+																	"operator":{
+																		"type":"string",
+																		"title":"operator"
+																	},
+																	"value":{
+																		"type":"integer",
+																		"title":"value"
+																	}
+																},
+																"title":"filter",
+																"additionalProperties":false
+															},
+															"property":{
+																"type":"string",
+																"title":"property"
+															}
+														},
+														"additionalProperties":false
+													},
+													"title":"filters"
+												},
+												"operator":{
+													"type":"string",
+													"title":"operator"
+												}
+											},
+											"title":"triggerInputCondition",
+											"additionalProperties":false
+										}
+									},
+									"title":"inputs",
+									"additionalProperties":false
+								}
+							},
+							"title":"datasource",
+							"additionalProperties":false
+						},
+						"fieldMappings":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"fieldKey":{
+										"type":"object",
+										"properties":{
+											"path":{
+												"type":"string",
+												"title":"path"
+											},
+											"type":{
+												"type":"string",
+												"title":"type"
+											}
+										},
+										"title":"fieldKey",
+										"additionalProperties":false
+									},
+									"label":{
+										"type":"string",
+										"title":"label"
+									},
+									"type":{
+										"type":"string",
+										"title":"type"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"fieldMappings"
+						},
+						"fileName":{
+							"type":"string",
+							"title":"fileName"
+						},
+						"fileType":{
+							"type":"string",
+							"title":"fileType"
+						},
+						"limitKeyReference":{
+							"type":"string",
+							"title":"limitKeyReference"
+						},
+						"offsetKeyReference":{
+							"type":"string",
+							"title":"offsetKeyReference"
+						},
+						"paginateBy":{
+							"type":"string",
+							"title":"paginateBy"
+						},
+						"recordsPathKey":{
+							"type":"string",
+							"title":"recordsPathKey"
+						},
+						"timezone":{
+							"type":"string",
+							"title":"timezone"
+						}
+					}
+				},
+				"jsonString":"{\n  \"cursorKeyReference\": \"page.cursor\",\n\"cursorValueReference\": \"cursor.next\",\n\"datasource\": {\n\"context\": {\n\"appName\": \"storage_by_unifyapps\",\n\"resourceName\": \"storage_by_unifyapps_fetch_records\"\n    },\n\"id\": \"entityDataSource$b_YYdoL$test_export_data_source\",\n\"inputs\": {\n\"includeTotalCount\": true,\n\"numberOfRecordsToFetch\": \"MULTIPLE\",\n\"object_type\": \"test_export_data_source\",\n\"searchField\": {\n\"fields\": [\n\"properties_test1\"\n        ]\n      },\n\"sortBy\": [],\n\"triggerInputCondition\": {\n\"filters\": [\n          {\n\"filter\": {\n\"operator\": \"GTE\",\n\"value\": 1756751400000\n            },\n\"property\": \"cTm\"\n          }\n        ],\n\"operator\": \"AND\"\n      }\n    }\n  },\n\"fieldMappings\": [\n    {\n\"fieldKey\": {\n\"path\": \"properties.test1\",\n\"type\": \"TEXT\"\n      },\n\"label\": \"Test1 Field\",\n\"type\": \"TEXT\"\n    }\n  ],\n\"fileName\": \"3218000606\",\n\"fileType\": \"XLSX\",\n\"limitKeyReference\": \"page.limit\",\n\"offsetKeyReference\": \"page.offset\",\n\"paginateBy\": \"OFFSET\",\n\"recordsPathKey\": \"objects\",\n\"timezone\": \"Asia/Calcutta\"\n}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1034,
+				"resourceName":"utility_by_unifyapps_export_datasource",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5E8G-1",
+			"id":"n_m7wRA",
+			"index":8,
+			"inputs":{
+				"fileName":"test",
+				"sheetName":"TestSheetLog",
+				"timezone":"UTC",
+				"datasource":{
+					"id":"{{ n_N3mzQ.outputs.result.datasource.id }}",
+					"context":"{{ n_N3mzQ.outputs.result.datasource.context }}",
+					"inputs":"{{ n_N3mzQ.outputs.result.datasource.inputs }}"
+				},
+				"paginateBy":"OFFSET",
+				"offsetKeyReference":"page.offset",
+				"fieldMappings":{
+					"source":"{{ n_N3mzQ.outputs.result.fieldMappings }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"label":"{{ n_N3mzQ.outputs.result.fieldMappings[0].label }}",
+						"fieldKey":{
+							"path":"{{ n_N3mzQ.outputs.result.fieldMappings[0].fieldKey.path }}",
+							"originalKey":"{{ n_N3mzQ.outputs.result.fieldMappings[0].fieldKey.path }}"
+						},
+						"type":"{{ n_N3mzQ.outputs.result.fieldMappings[0].type }}"
+					}
+				},
+				"recordsPathKey":"{{ n_N3mzQ.outputs.result.recordsPathKey }}",
+				"batchSize":100,
+				"limitKeyReference":"page.limit",
+				"fileType":"XLSX"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Export Application Datasource",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":59995,
@@ -250,5 +509,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
