@@ -1,0 +1,556 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1732255670721,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296200322,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd08d60dd816d7798fae",
+		"status":"DEPLOYED",
+		"version":70,
+		"workflowVersion":95
+	},
+	"edges":[
+		{
+			"fromNodeId":"_CmtV5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_9aO4j",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_9aO4j",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_blgbi",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_blgbi",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_a6CcP",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_a6CcP",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_QVMGK",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_QVMGK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_dG6pr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_a6CcP",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_dG6pr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_dG6pr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ylljS",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"67401fb6a28c4a295d14cd30",
+	"lastModifiedBy":0,
+	"lcName":"copilotpublisher(ai agent)",
+	"modifiedTime":1761722735252,
+	"name":"CoPilotPublisher(AI Agent)",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":79,
+				"resourceName":"callables_from_interface"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_78WZK-1",
+			"id":"_CmtV5",
+			"index":1,
+			"inputs":{
+				"result":{
+					"additionalProperties":false,
+					"type":"object",
+					"required":[],
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"properties":{
+						"success":{
+							"type":"boolean",
+							"title":"success"
+						},
+						"messageId":{
+							"type":"string",
+							"title":"Message Id"
+						}
+					}
+				},
+				"callableInterfaceId":"66e80063f5ec4205eb06242c",
+				"setup":{
+					"additionalProperties":false,
+					"type":"object",
+					"required":[],
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"properties":{
+						"endConversation":{
+							"type":"boolean",
+							"title":"endConversation"
+						},
+						"choices":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"string",
+										"title":"id"
+									},
+									"title":{
+										"type":"string",
+										"title":"title"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"choices"
+						},
+						"content":{
+							"type":"string",
+							"title":"content"
+						},
+						"url":{
+							"type":"string",
+							"title":"url"
+						},
+						"caseId":{
+							"type":"string",
+							"title":"Case"
+						},
+						"lang":{
+							"type":"string",
+							"title":"Lang"
+						},
+						"attachments":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"name":{
+										"type":"string",
+										"title":"Name"
+									},
+									"url":{
+										"type":"string",
+										"title":"Url"
+									},
+									"type":{
+										"type":"string",
+										"title":"Type"
+									},
+									"mimeType":{
+										"type":"string",
+										"title":"Mime Type"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"Attachments",
+							"required":[]
+						},
+						"input":{
+							"type":"object",
+							"properties":{
+								"triggerInput":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Trigger Input"
+								},
+								"userInputsForPublish":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"User Inputs For Publish"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Input",
+							"required":[]
+						},
+						"coPilotBlocks":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Co Pilot Blocks"
+						},
+						"caseDetails":{
+							"type":"object",
+							"properties":{
+								"customerUserDetails":{
+									"type":"object",
+									"properties":{
+										"channelUserId":{
+											"type":"string",
+											"title":"Channel User Id"
+										}
+									},
+									"additionalProperties":false,
+									"title":"Customer User Details",
+									"required":[]
+								}
+							},
+							"additionalProperties":false,
+							"title":"Case Details",
+							"required":[]
+						},
+						"publishToEndUser":{
+							"type":"boolean",
+							"title":"Publish To End User"
+						},
+						"temporaryMessage":{
+							"type":"boolean",
+							"title":"Temporary Message"
+						},
+						"chunkMetadata":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Chunk Metadata"
+						},
+						"fromCustomerUserId":{
+							"type":"string",
+							"title":"From Customer User Id"
+						},
+						"internalMessageType":{
+							"type":"string",
+							"title":"Internal Message Type"
+						},
+						"deepResearchEnabled":{
+							"type":"boolean",
+							"title":"Deep Research Enabled"
+						},
+						"followups":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Followups"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger interface",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":143,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_78WZK-1",
+			"id":"_9aO4j",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"caseId":{
+							"type":"string",
+							"title":"Case Id"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"caseId":"{{ _CmtV5.outputs.caseId }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"caseId":{
+							"type":"string",
+							"title":"Case Id"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":89,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_78WZK-1",
+			"id":"_blgbi",
+			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"widgetName":{
+							"type":"string",
+							"title":"widgetName"
+						}
+					},
+					"additionalProperties":false
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"input":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Input"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"input"
+					]
+				},
+				"compile_static":false,
+				"code":"def toReturn = [:]\nif(binding.hasVariable(\"input\")){\n  toReturn = input\n}\nreturn toReturn",
+				"isAsync":false,
+				"parameters":{
+					"input":"{{ _CmtV5.outputs.input }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":72,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_78WZK-1",
+			"id":"_a6CcP",
+			"index":4,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ _blgbi.outputs.result.widgetName }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"343"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":83,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_a6CcP@_78WZK-1@y",
+			"id":"_QVMGK",
+			"index":5,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ _9aO4j.outputs.caseId }}",
+						"value":"{{ _9aO4j.outputs.caseId }}_{{ _blgbi.outputs.result.widgetName }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":79,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_78WZK-1",
+			"id":"_dG6pr",
+			"index":6,
+			"inputs":{
+				"automationId":"66d1673d9627d00147081244",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"caseId":"{{ _9aO4j.outputs.caseId }}",
+					"message":"{{ _CmtV5.outputs.content }}",
+					"temporaryMessage":"{{ _CmtV5.outputs.temporaryMessage }}",
+					"fromCustomerUserId":"{{ _CmtV5.outputs.fromCustomerUserId }}",
+					"internalMessageType":"{{ _CmtV5.outputs.internalMessageType }}",
+					"language":"{{ _CmtV5.outputs.lang }}",
+					"deepResearchEnabled":"{{ _CmtV5.outputs.deepResearchEnabled }}",
+					"coPilotBlocks":{
+						"blocks":{
+							"source":"{{ _CmtV5.outputs.coPilotBlocks }}",
+							"ua:type":"mappedArray",
+							"items":"{{ _CmtV5.outputs.coPilotBlocks[0] }}"
+						}
+					},
+					"choices":{
+						"source":"{{ _CmtV5.outputs.choices }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"title":"{{ _CmtV5.outputs.choices[0].title }}",
+							"id":"{{ _CmtV5.outputs.choices[0].id }}"
+						}
+					},
+					"attachments":{
+						"source":"{{ _CmtV5.outputs.attachments }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"name":"{{ _CmtV5.outputs.attachments[0].name }}",
+							"mimeType":"{{ _CmtV5.outputs.attachments[0].mimeType }}",
+							"type":"{{ _CmtV5.outputs.attachments[0].type }}",
+							"url":"{{ _CmtV5.outputs.attachments[0].url }}"
+						}
+					},
+					"chunkMetadata":{
+						"source":"{{ _CmtV5.outputs.chunkMetadata }}",
+						"ua:type":"mappedArray",
+						"items":"{{ _CmtV5.outputs.chunkMetadata[0] }}"
+					},
+					"followups":{
+						"source":"{{ _CmtV5.outputs.followups }}",
+						"ua:type":"mappedArray",
+						"items":"{{ _CmtV5.outputs.followups[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":74,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_78WZK-1",
+			"id":"_ylljS",
+			"index":7,
+			"inputs":{
+				"result":{
+					"success":true,
+					"messageId":"{{ _dG6pr.outputs.messageId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":1866,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		"AI Agent"
+	],
+	"version":97
+}
