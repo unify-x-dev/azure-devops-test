@@ -12,12 +12,19 @@
 			"skip":false,
 			"toNodeId":"n_ppwZC",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ppwZC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aw8uD",
+			"type":"next"
 		}
 	],
 	"id":"6901db02960f455f6fcfd080",
 	"lastModifiedBy":190519,
 	"lcName":"testnischay",
-	"modifiedTime":1761731173250,
+	"modifiedTime":1761731183989,
 	"name":"TestNischay",
 	"nodes":[
 		{
@@ -83,6 +90,21 @@
 			"subTitle":"Slack",
 			"title":"Post message",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_saVcU-1",
+			"id":"n_aw8uD",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":190519,
@@ -102,5 +124,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
