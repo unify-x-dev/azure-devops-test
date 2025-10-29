@@ -5,12 +5,12 @@
 	"createdTime":1761719581321,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761719581407,
+		"deployedAt":1761719581554,
 		"deployedBy":175325,
-		"deployedDefinitionId":"6901b51ddb965a67e047c51f",
+		"deployedDefinitionId":"6901b51ddb965a67e047c525",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":3,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"6901b4f9f758d25da939ba4b",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa24tawlfahdwrp",
-	"modifiedTime":1761719581428,
+	"modifiedTime":1761719630018,
 	"name":"changeSetQA24tawlFAHdwrP",
 	"nodes":[
 		{
@@ -95,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -121,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":5
 }
