@@ -31,7 +31,7 @@
 	"id":"68d6b7fd3de91f4f90c1ee6e",
 	"lastModifiedBy":39713,
 	"lcName":"syncemployeehttptrigger",
-	"modifiedTime":1761697884800,
+	"modifiedTime":1761697894735,
 	"name":"SyncEmployeeHttpTrigger",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0jUTW-1",
 			"id":"n_F6UGW",
@@ -89,7 +89,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0jUTW-1",
 			"id":"n_tUSTr",
@@ -136,6 +136,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"result":"{{ n_tUSTr.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -162,5 +165,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
