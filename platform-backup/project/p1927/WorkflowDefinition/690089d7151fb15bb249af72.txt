@@ -206,7 +206,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761746095793,
+	"modifiedTime":1761746306307,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -736,6 +736,48 @@
 			"id":"_b3pn9",
 			"index":12,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Email",
+						"IsActive",
+						"FullName",
+						"EmployeeNumber",
+						"row_num",
+						"EmployeeId"
+					],
+					"properties":{
+						"UserName":{
+							"type":"string",
+							"title":"User Name"
+						},
+						"Email":{
+							"type":"string",
+							"title":"Email"
+						},
+						"IsActive":{
+							"type":"string",
+							"title":"Is Active"
+						},
+						"FullName":{
+							"type":"string",
+							"title":"Full Name"
+						},
+						"EmployeeNumber":{
+							"type":"string",
+							"title":"Employee Number"
+						},
+						"row_num":{
+							"type":"integer",
+							"title":"Row Num"
+						},
+						"EmployeeId":{
+							"type":"string",
+							"title":"Employee Id"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -751,7 +793,7 @@
 						}
 					}
 				},
-				"code":"// def result = [\n//         UserName        : payload.UserName ?: '',\n//         Email           : payload.Email ?: '',\n//         IsActive        : payload.IsActive ?: false,\n//         FullName        : payload.FullName ?: '',\n//         EmployeeNumber  : payload.EmployeeNumber ?: '',\n//         row_num         : payload.row_num ?: 0,\n//         EmployeeId      : payload.EmployeeId ?: ''\n//     ]\n\n// def inputPayload = [\"UserName\": \"jdoe\"]\nresult = \"sumit\"",
+				"code":"def result = [\n        UserName        : payload.UserName ?: '',\n        Email           : payload.Email ?: '',\n        IsActive        : payload.IsActive ?: false,\n        FullName        : payload.FullName ?: '',\n        EmployeeNumber  : payload.EmployeeNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        EmployeeId      : payload.EmployeeId ?: ''\n    ]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1016,5 +1058,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
