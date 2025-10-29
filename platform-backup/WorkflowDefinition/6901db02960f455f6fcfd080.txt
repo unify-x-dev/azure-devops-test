@@ -1,51 +1,94 @@
 {
 	"appsUsed":[
-		
+		"gmail",
+		"slack"
 	],
 	"createdTime":1761729282427,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_saVcU",
+			"fromNodeId":"n_7wzCu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_T2rP5",
+			"toNodeId":"n_ppwZC",
 			"type":"next"
 		}
 	],
 	"id":"6901db02960f455f6fcfd080",
 	"lastModifiedBy":190519,
 	"lcName":"testnischay",
-	"modifiedTime":1761729282427,
+	"modifiedTime":1761731173250,
 	"name":"TestNischay",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":2970,
+				"connectionId":"6901df7975b0c3591d0c1453",
+				"resourceName":"gmail_on_new_attachment"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_saVcU-1",
-			"id":"_saVcU",
-			"index":0,
+			"id":"n_7wzCu",
+			"index":1,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"{{ n_7wzCu.outputs.batch[0].attachments[0].mime_type }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"application/pdf"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"pageSize":5,
+				"interval":5,
+				"batchSize":5
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Gmail",
+			"title":"New Email Attachment",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6353,
+				"connectionId":"6901e04d75b0c3591d0c17bb",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_saVcU-1",
-			"id":"_T2rP5",
-			"index":0,
+			"id":"n_ppwZC",
+			"index":2,
+			"inputs":{
+				"link_names":true,
+				"messageType":"text",
+				"channel":"C09PB5W8QUE",
+				"text":"{{ n_7wzCu.outputs.batch[0].attachments[0].file_name }} is a pdf document.",
+				"mrkdwn":true
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Slack",
+			"title":"Post message",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190519,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +102,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
