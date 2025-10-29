@@ -8,12 +8,12 @@
 	"createdTime":1760033604120,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761766646042,
+		"deployedAt":1761766677445,
 		"deployedBy":155543,
-		"deployedDefinitionId":"69026cf654d72b1772a0e987",
+		"deployedDefinitionId":"69026d15100f670b5926a74d",
 		"status":"DEPLOYED",
-		"version":55,
-		"workflowVersion":326
+		"version":56,
+		"workflowVersion":327
 	},
 	"description":"To Scan Images",
 	"edges":[
@@ -166,34 +166,6 @@
 			"fromNodeId":"n_jtptB",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_LwJrh",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_LwJrh",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_j2Lb9",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_j2Lb9",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_0FOb5",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_0FOb5",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_W3KAu",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_W3KAu",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_XNoQ8",
 			"type":"next"
 		},
@@ -244,7 +216,7 @@
 	"id":"68e7fb4450c30c5009b3bca6",
 	"lastModifiedBy":155543,
 	"lcName":"image scans",
-	"modifiedTime":1761766675635,
+	"modifiedTime":1761766728937,
 	"name":"Image Scans",
 	"nodes":[
 		{
@@ -2883,92 +2855,6 @@
 		{
 			"context":{
 				"appName":"utility_by_unifyapps",
-				"resourceVersion":1105,
-				"resourceName":"utility_by_unifyapps_generate_public_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_fFQyR-1",
-			"id":"n_LwJrh",
-			"index":19,
-			"inputs":{
-				"file":"{{ n_jtptB.outputs.result }}",
-				"expiryTime":1
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Generate public file URL",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1038,
-				"resourceName":"utility_by_unifyapps_create_unifyapps_file_from_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_fFQyR-1",
-			"id":"n_j2Lb9",
-			"index":20,
-			"inputs":{
-				"url":"https://drive.google.com/file/d/123HvfPTEzJ32MKMLD2xFU2eO42uUrDJi/view?usp=sharing"
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Create UnifyApps file from url",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1106,
-				"resourceName":"utility_by_unifyapps_generate_public_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_fFQyR-1",
-			"id":"n_0FOb5",
-			"index":21,
-			"inputs":{
-				"file":"{{ n_j2Lb9.outputs.file }}",
-				"expiryTime":1
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Generate public file URL",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1039,
-				"resourceName":"utility_by_unifyapps_create_unifyapps_file_from_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_fFQyR-1",
-			"id":"n_W3KAu",
-			"index":22,
-			"inputs":{
-				"url":"{{ n_0FOb5.outputs.url }}"
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Create UnifyApps file from url",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
 				"resourceVersion":1052,
 				"resourceName":"utility_by_unifyapps_unzip_file",
 				"type":"APPLICATION"
@@ -2978,9 +2864,9 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_XNoQ8",
-			"index":23,
+			"index":19,
 			"inputs":{
-				"fileDetails":"{{ n_W3KAu.outputs.file }}"
+				"fileDetails":"{{ n_jtptB.outputs.result }}"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -3000,7 +2886,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_2vk4D",
-			"index":24,
+			"index":20,
 			"inputs":{
 				"folderName":"{{ n_sO6Iq.outputs.RAW_TAG }}",
 				"folderId":"1aM2F6rPCRg3ML7onEk_MRuSGwjMA4gJZ"
@@ -3022,7 +2908,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_cN9FJ",
-			"index":25,
+			"index":21,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_XNoQ8.outputs.filesDetails }}",
@@ -3045,7 +2931,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_cN9FJ@_fFQyR-1@l",
 			"id":"n_OJzaX",
-			"index":26,
+			"index":22,
 			"inputs":{
 				"file":"{{ n_cN9FJ.outputs.item }}",
 				"expiryTime":1
@@ -3068,7 +2954,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_cN9FJ@_fFQyR-1@l",
 			"id":"n_jVzkr",
-			"index":27,
+			"index":23,
 			"inputs":{
 				"attachment":{
 					"attachment_option":"use_file_url",
@@ -3100,7 +2986,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_x1dEn",
-			"index":28,
+			"index":24,
 			"inputs":{
 				"link_names":true,
 				"messageType":"text",
@@ -3141,5 +3027,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":327
+	"version":328
 }
