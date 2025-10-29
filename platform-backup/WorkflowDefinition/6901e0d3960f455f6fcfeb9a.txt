@@ -5,16 +5,23 @@
 	"createdTime":1761730771684,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761730882029,
+		"deployedAt":1761730898874,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901e1410a7959277f205336",
+		"deployedDefinitionId":"6901e1520a7959277f205360",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":2
+		"version":3,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_6l2nK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_4xREO",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4xREO",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_HmFpX",
@@ -24,7 +31,7 @@
 	"id":"6901e0d3960f455f6fcfeb9a",
 	"lastModifiedBy":132116,
 	"lcName":"executiontest_1",
-	"modifiedTime":1761730896688,
+	"modifiedTime":1761730953983,
 	"name":"executiontest_1",
 	"nodes":[
 		{
@@ -54,6 +61,61 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1086,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_hJANk-1",
+			"id":"n_4xREO",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"name":{
+							"type":"string",
+							"title":"Name"
+						}
+					},
+					"required":[
+						"name"
+					]
+				}
+			},
+			"inputs":{
+				"name":"name"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"name":{
+							"type":"string",
+							"title":"Name"
+						}
+					},
+					"required":[
+						"name"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1124,
 				"resourceName":"callables_call_automation",
@@ -64,7 +126,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_hJANk-1",
 			"id":"n_HmFpX",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"automationId":"6901cb3ac41bc371691b580e",
 				"runtimeConnections":{},
@@ -95,5 +157,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
