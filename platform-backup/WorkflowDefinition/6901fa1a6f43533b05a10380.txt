@@ -4,6 +4,15 @@
 	],
 	"createdTime":1761737242064,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761737397673,
+		"deployedBy":643,
+		"deployedDefinitionId":"6901fab56f43533b05a10eff",
+		"deploymentTag":"v1",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":10
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_9RSLJ",
@@ -23,7 +32,7 @@
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737389986,
+	"modifiedTime":1761737408413,
 	"name":"test1",
 	"nodes":[
 		{
@@ -55,7 +64,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_zM0cA-1",
 			"id":"n_Rgo1T",
@@ -279,6 +288,7 @@
 				"createList":{
 					"ua:type":"mappedArray"
 				},
+				"ua:title":"Listkllas",
 				"ua:list_type":"STRING"
 			},
 			"outputSchema":{
@@ -288,7 +298,7 @@
 					"properties":{
 						"items":{
 							"type":"array",
-							"title":"List",
+							"title":"Listkllas",
 							"disableActions":true,
 							"items":{
 								"type":"string"
@@ -341,5 +351,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
