@@ -189,7 +189,7 @@
 	"id":"6901b833db965a67e047eb25",
 	"lastModifiedBy":189756,
 	"lcName":"appl amn applications",
-	"modifiedTime":1761730417901,
+	"modifiedTime":1761742588219,
 	"name":"APPL AMN Applications",
 	"nodes":[
 		{
@@ -464,7 +464,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_OG8x0@n_AQnJF@_LgtSD-1@1@n",
 			"id":"_X3glp",
@@ -475,7 +475,7 @@
 						"property":"={{ n_f44SR.outputs.TravelerDC }}+730",
 						"filter":{
 							"operator":"LT",
-							"value":"800"
+							"value":"=TODAY()"
 						}
 					}
 				],
@@ -494,7 +494,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_X3glp@_OG8x0@n_AQnJF@_LgtSD-1@1@n@y",
 			"id":"n_BtoMp",
@@ -566,7 +566,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AQnJF@_LgtSD-1@2",
 			"id":"n_VPIRG",
@@ -595,7 +595,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_VPIRG@n_AQnJF@_LgtSD-1@2@y",
 			"id":"n_asbwh",
@@ -784,5 +784,5 @@
 	"tags":[
 		
 	],
-	"version":30
+	"version":31
 }
