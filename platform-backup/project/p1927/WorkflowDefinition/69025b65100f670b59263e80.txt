@@ -198,7 +198,7 @@
 	"id":"69025b65100f670b59263e80",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation - smsrecipient",
-	"modifiedTime":1761762607248,
+	"modifiedTime":1761762694893,
 	"name":"NotificationSenderObjectAutomation - SmsRecipient",
 	"nodes":[
 		{
@@ -803,7 +803,7 @@
 							"property":"properties_Id",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_sHZOw.outputs.result.Id }}"
+								"value":"{{ _240Oa.outputs.result.Id }}"
 							}
 						}
 					],
@@ -1031,7 +1031,7 @@
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"payload":"{{ n_Yq92w.outputs.body.payload }}"
+					"payload":"{{ n_Xz6Jk.outputs.body.payload }}"
 				}
 			},
 			"skip":false,
@@ -1161,5 +1161,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
