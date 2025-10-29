@@ -1,51 +1,205 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761747972245,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_h5E8G",
+			"fromNodeId":"n_DsREm",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_gkFrY",
+			"toNodeId":"n_f9x11",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_f9x11",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_BMrU1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_BMrU1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HVstb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HVstb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Ifbeh",
 			"type":"next"
 		}
 	],
 	"id":"69022404455efd47733de83c",
 	"lastModifiedBy":59995,
 	"lcName":"test-exports",
-	"modifiedTime":1761747972245,
+	"modifiedTime":1761748979302,
 	"name":"test-exports",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_h5E8G-1",
-			"id":"_h5E8G",
-			"index":0,
+			"id":"n_DsREm",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4621,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_h5E8G-1",
-			"id":"_gkFrY",
-			"index":0,
+			"id":"n_f9x11",
+			"index":2,
+			"inputs":{
+				"object_type":"test_export_analytics",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":true,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4637,
+				"resourceName":"storage_by_unifyapps_export_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5E8G-1",
+			"id":"n_BMrU1",
+			"index":3,
+			"inputs":{
+				"maxRowsPerFile":1048576,
+				"object_type":"test_export_data_source",
+				"fieldsToExport":[
+					"VERSION_ID",
+					"cTm",
+					"deploymentNotes",
+					"deploymentState",
+					"deploymentTag",
+					"entityType",
+					"id",
+					"lMBy",
+					"mTm",
+					"oUId",
+					"pId",
+					"properties_test1",
+					"spaceId",
+					"standard",
+					"tags"
+				],
+				"format":"MM/dd/yyyy",
+				"recordsBatchSize":100,
+				"writeToMultipleFilesIfOverflow":false,
+				"keepExactFileName":false,
+				"fileType":"CSV"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Export records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4618,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5E8G-1",
+			"id":"n_HVstb",
+			"index":4,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"test_export_analytics",
+				"skipIfBlank":false,
+				"record":{
+					"test1":12345678912345.012,
+					"test2":12345678912345
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":988,
+				"resourceName":"analytics_by_unifyapps_export",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5E8G-1",
+			"id":"n_Ifbeh",
+			"index":5,
+			"inputs":{
+				"projections":[
+					{
+						"aggregationFunction":"GROUP"
+					}
+				],
+				"keepExactFileName":false,
+				"fileType":"CSV",
+				"group":"ENTITY_REPORTING"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Export Reports",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":59995,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +213,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
