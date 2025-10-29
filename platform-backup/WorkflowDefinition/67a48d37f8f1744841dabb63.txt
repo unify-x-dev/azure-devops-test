@@ -1,0 +1,3295 @@
+{
+	"appsUsed":[
+		"storage_by_unifyapps"
+	],
+	"createdTime":1738842129949,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760357432715,
+		"deployedBy":1728,
+		"deployedDefinitionId":"68ecec38251288747667f249",
+		"status":"DEPLOYED",
+		"version":101,
+		"workflowVersion":142
+	},
+	"edges":[
+		{
+			"fromNodeId":"TRoZH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Uicsb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Uicsb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2Zr8w",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2Zr8w",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dI2yv",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_dI2yv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TuWd2",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_TuWd2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"53LAF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2Zr8w",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"53LAF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"53LAF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"mtswW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"mtswW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hishG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hishG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"OayXU",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"OayXU",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GJKY4",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_GJKY4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Gc1ZO",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Gc1ZO",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"XVWVe",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"OayXU",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"OCPfh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"OCPfh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"yTBQp",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"67a48d37f8f1744841dabb63",
+	"lastModifiedBy":0,
+	"lcName":"getagentcached",
+	"modifiedTime":1761722665805,
+	"name":"GetAgentCached",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":54,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"wEa8T-1",
+			"id":"TRoZH",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"re"
+					],
+					"dynamic":true,
+					"properties":{
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"entityType":{
+							"type":"string",
+							"title":"Entity Type"
+						},
+						"properties":{
+							"additionalProperties":false,
+							"type":"object",
+							"properties":{
+								"indexingSettings":{
+									"type":"object",
+									"properties":{
+										"vectorStore":{
+											"type":"string",
+											"title":"vectorStore"
+										},
+										"embeddingModel":{
+											"type":"string",
+											"title":"embeddingModel"
+										},
+										"strategySettings":{
+											"type":"object",
+											"properties":{
+												"mimeTypeOverride":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"contentTypeConfig":{
+																"type":"object",
+																"properties":{
+																	"image":{
+																		"type":"object",
+																		"properties":{
+																			"textExtractionModel":{
+																				"type":"string"
+																			},
+																			"processingMethod":{
+																				"type":"string"
+																			}
+																		}
+																	},
+																	"tabularData":{
+																		"type":"object",
+																		"properties":{
+																			"indexingType":{
+																				"type":"string",
+																				"oneOf":[
+																					{
+																						"const":"textIndexing",
+																						"title":"textIndexing"
+																					},
+																					{
+																						"const":"metadataIndexing",
+																						"title":"metadataIndexing"
+																					}
+																				],
+																				"title":"Indexing Type",
+																				"searchable":false,
+																				"sortable":false,
+																				"filterable":false,
+																				"primaryKey":false,
+																				"nameField":false
+																			}
+																		},
+																		"required":[]
+																	},
+																	"text":{
+																		"type":"object",
+																		"properties":{
+																			"embeddingType":{
+																				"type":"string"
+																			},
+																			"chunkOverlap":{
+																				"type":"integer"
+																			},
+																			"delimiters":{
+																				"type":"array",
+																				"items":{
+																					"type":"string"
+																				}
+																			},
+																			"language":{
+																				"type":"string"
+																			},
+																			"embeddingModel":{
+																				"type":"string"
+																			},
+																			"maxChunkSize":{
+																				"type":"integer"
+																			},
+																			"thresholdType":{
+																				"type":"string"
+																			},
+																			"algorithm":{
+																				"type":"string"
+																			}
+																		}
+																	},
+																	"audio":{
+																		"type":"object",
+																		"properties":{
+																			"embeddingType":{
+																				"type":"string"
+																			},
+																			"chunkOverlap":{
+																				"type":"integer"
+																			},
+																			"delimiters":{
+																				"type":"array",
+																				"items":{
+																					"type":"string"
+																				}
+																			},
+																			"processingMethod":{
+																				"type":"string"
+																			},
+																			"language":{
+																				"type":"string"
+																			},
+																			"transcriptionModel":{
+																				"type":"string"
+																			},
+																			"embeddingModel":{
+																				"type":"string"
+																			},
+																			"maxChunkSize":{
+																				"type":"integer"
+																			},
+																			"thresholdType":{
+																				"type":"string"
+																			},
+																			"algorithm":{
+																				"type":"string"
+																			}
+																		}
+																	}
+																}
+															},
+															"mimeType":{
+																"type":"array",
+																"items":{
+																	"type":"string"
+																}
+															}
+														}
+													}
+												},
+												"defaultStrategy":{
+													"type":"object",
+													"properties":{
+														"contentTypeConfig":{
+															"type":"object",
+															"properties":{
+																"image":{
+																	"type":"object",
+																	"properties":{
+																		"textExtractionModel":{
+																			"type":"string"
+																		},
+																		"processingMethod":{
+																			"type":"string"
+																		}
+																	}
+																},
+																"tabularData":{
+																	"type":"object",
+																	"properties":{
+																		"indexingType":{
+																			"type":"string",
+																			"oneOf":[
+																				{
+																					"const":"textIndexing",
+																					"title":"textIndexing"
+																				},
+																				{
+																					"const":"metadataIndexing",
+																					"title":"metadataIndexing"
+																				}
+																			],
+																			"title":"Indexing Type",
+																			"searchable":false,
+																			"sortable":false,
+																			"filterable":false,
+																			"primaryKey":false,
+																			"nameField":false
+																		}
+																	},
+																	"required":[]
+																},
+																"text":{
+																	"type":"object",
+																	"properties":{
+																		"embeddingType":{
+																			"type":"string"
+																		},
+																		"chunkOverlap":{
+																			"type":"integer"
+																		},
+																		"delimiters":{
+																			"type":"array",
+																			"items":{
+																				"type":"string"
+																			}
+																		},
+																		"language":{
+																			"type":"string"
+																		},
+																		"embeddingModel":{
+																			"type":"string"
+																		},
+																		"maxChunkSize":{
+																			"type":"integer"
+																		},
+																		"thresholdType":{
+																			"type":"string"
+																		},
+																		"algorithm":{
+																			"type":"string"
+																		}
+																	}
+																},
+																"audio":{
+																	"type":"object",
+																	"properties":{
+																		"embeddingType":{
+																			"type":"string"
+																		},
+																		"chunkOverlap":{
+																			"type":"integer"
+																		},
+																		"delimiters":{
+																			"type":"array",
+																			"items":{
+																				"type":"string"
+																			}
+																		},
+																		"processingMethod":{
+																			"type":"string"
+																		},
+																		"language":{
+																			"type":"string"
+																		},
+																		"transcriptionModel":{
+																			"type":"string"
+																		},
+																		"embeddingModel":{
+																			"type":"string"
+																		},
+																		"maxChunkSize":{
+																			"type":"integer"
+																		},
+																		"thresholdType":{
+																			"type":"string"
+																		},
+																		"algorithm":{
+																			"type":"string"
+																		}
+																	}
+																}
+															}
+														},
+														"documentParsingConfig":{
+															"type":"object",
+															"properties":{
+																"type":{
+																	"type":"string",
+																	"title":"Type"
+																},
+																"agenticParsingModel":{
+																	"type":"string",
+																	"title":"Agentic Parsing Model"
+																},
+																"appName":{
+																	"type":"string",
+																	"title":"App Name"
+																},
+																"connectionId":{
+																	"type":"string",
+																	"title":"Connection Id"
+																},
+																"automationId":{
+																	"type":"string",
+																	"title":"Automation Id"
+																},
+																"version":{
+																	"type":"string",
+																	"title":"Version"
+																}
+															},
+															"additionalProperties":false,
+															"title":"Document Parsing Config",
+															"required":[]
+														}
+													},
+													"required":[]
+												},
+												"metadataEnrichmentSettings":{
+													"type":"object",
+													"properties":{
+														"enabled":{
+															"type":"boolean",
+															"title":"Enabled"
+														},
+														"automations":{
+															"type":"array",
+															"items":{
+																"type":"object",
+																"properties":{
+																	"entityId":{
+																		"type":"string",
+																		"title":"Entity Id"
+																	},
+																	"version":{
+																		"type":"string",
+																		"title":"Version"
+																	}
+																},
+																"additionalProperties":false,
+																"required":[]
+															},
+															"title":"Automations"
+														}
+													},
+													"additionalProperties":false,
+													"title":"Metadata Enrichment Settings",
+													"required":[]
+												}
+											},
+											"required":[]
+										},
+										"chunkingSettings":{
+											"type":"object",
+											"properties":{
+												"chunkingAlgorithm":{
+													"type":"string",
+													"title":"chunkingAlgorithm"
+												},
+												"chunkOverlap":{
+													"type":"string",
+													"title":"chunkOverlap"
+												},
+												"delimiters":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"delimiters"
+												},
+												"language":{
+													"type":"string",
+													"title":"language"
+												},
+												"embeddingModel":{
+													"type":"string",
+													"title":"embeddingModel"
+												},
+												"summarizingModel":{
+													"type":"string",
+													"title":"summarizingModel"
+												},
+												"maxChunkSize":{
+													"type":"integer",
+													"title":"maxChunkSize"
+												},
+												"thresholdType":{
+													"type":"string",
+													"title":"thresholdType"
+												},
+												"enableSummarize":{
+													"type":"boolean",
+													"title":"Enable Summarize",
+													"default":false,
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												},
+												"enableImageExtraction":{
+													"type":"boolean",
+													"title":"enableImageExtraction"
+												}
+											},
+											"title":"chunkingSettings",
+											"additionalProperties":false,
+											"required":[]
+										},
+										"metadata":{
+											"type":"object",
+											"properties":{
+												"model":{
+													"type":"string",
+													"title":"Model",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												},
+												"paramaters":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"name":{
+																"type":"string",
+																"title":"Name",
+																"searchable":false,
+																"sortable":false,
+																"filterable":false,
+																"primaryKey":false,
+																"nameField":false
+															},
+															"description":{
+																"type":"string",
+																"title":"Description",
+																"searchable":false,
+																"sortable":false,
+																"filterable":false,
+																"primaryKey":false,
+																"nameField":false
+															},
+															"isStandard":{
+																"type":"boolean",
+																"title":"Is Standard",
+																"default":false,
+																"searchable":false,
+																"sortable":false,
+																"filterable":false,
+																"primaryKey":false,
+																"nameField":false
+															}
+														},
+														"additionalProperties":false
+													},
+													"title":"Paramaters",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												},
+												"processingMethod":{
+													"type":"string",
+													"title":"Processing Method",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												},
+												"enrichmentStrategies":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"processingMethod":{
+																"type":"string",
+																"title":"Processing Method"
+															},
+															"model":{
+																"type":"string",
+																"title":"Model"
+															},
+															"automationId":{
+																"type":"string",
+																"title":"Automation Id"
+															},
+															"Version":{
+																"type":"string",
+																"title":"Version"
+															},
+															"parameters":{
+																"type":"array",
+																"items":{
+																	"type":"object",
+																	"properties":{
+																		"name":{
+																			"type":"string",
+																			"title":"Name"
+																		},
+																		"description":{
+																			"type":"string",
+																			"title":"Description"
+																		},
+																		"isStandard":{
+																			"type":"boolean",
+																			"title":"Is Standard"
+																		}
+																	},
+																	"additionalProperties":false,
+																	"required":[]
+																},
+																"title":"Parameters"
+															},
+															"manualEnrichmentParameters":{
+																"type":"array",
+																"items":{
+																	"type":"object",
+																	"properties":{
+																		"key":{
+																			"type":"string",
+																			"title":"Key"
+																		},
+																		"value":{
+																			"type":"string",
+																			"title":"Value"
+																		}
+																	},
+																	"additionalProperties":false,
+																	"required":[]
+																},
+																"title":"Manual Enrichment Parameters"
+															},
+															"inputMappings":{
+																"type":"array",
+																"items":{
+																	"type":"object",
+																	"properties":{
+																		"key":{
+																			"type":"string",
+																			"title":"Key"
+																		},
+																		"value":{
+																			"type":"string",
+																			"title":"Value"
+																		}
+																	},
+																	"additionalProperties":false,
+																	"required":[]
+																},
+																"title":"Input Mappings"
+															},
+															"outputMappings":{
+																"type":"array",
+																"items":{
+																	"type":"object",
+																	"properties":{
+																		"key":{
+																			"type":"string",
+																			"title":"Key"
+																		},
+																		"value":{
+																			"type":"string",
+																			"title":"Value"
+																		}
+																	},
+																	"additionalProperties":false,
+																	"required":[]
+																},
+																"title":"Output Mappings"
+															},
+															"manualParameters":{
+																"type":"object",
+																"properties":{},
+																"additionalProperties":false,
+																"title":"Manual Parameters"
+															},
+															"inputMapping":{
+																"type":"object",
+																"properties":{},
+																"additionalProperties":false,
+																"title":"Input Mapping"
+															},
+															"outputMapping":{
+																"type":"object",
+																"properties":{},
+																"additionalProperties":false,
+																"title":"Output Mapping"
+															}
+														},
+														"additionalProperties":false,
+														"required":[]
+													},
+													"title":"Enrichment Strategies"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Metadata",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false,
+											"required":[]
+										},
+										"graphRAGSettings":{
+											"type":"object",
+											"properties":{
+												"graphId":{
+													"type":"string",
+													"title":"Graph Id"
+												},
+												"enable":{
+													"type":"boolean",
+													"title":"Enable"
+												},
+												"dedupSimilarityThreshold":{
+													"type":"number",
+													"title":"Dedup Similarity Threshold"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Graph RAG Settings",
+											"required":[]
+										},
+										"vectorStoreConnectionId":{
+											"type":"string",
+											"title":"Vector Store Connection Id"
+										}
+									},
+									"title":"indexingSettings",
+									"additionalProperties":false,
+									"required":[]
+								},
+								"responsePostProcessingModel":{
+									"type":"object",
+									"properties":{
+										"answerPostProcessingModel":{
+											"type":"string",
+											"title":"answerPostProcessingModel"
+										},
+										"guardRailModel":{
+											"type":"string",
+											"title":"guardRailModel"
+										}
+									},
+									"title":"responsePostProcessingModel",
+									"additionalProperties":false,
+									"required":[]
+								},
+								"name":{
+									"type":"string",
+									"title":"name",
+									"searchable":true,
+									"filterable":true
+								},
+								"description":{
+									"type":"string",
+									"title":"description"
+								},
+								"responseGenerationSettings":{
+									"type":"object",
+									"properties":{
+										"answerGenerationModel":{
+											"type":"string",
+											"title":"answerGenerationModel"
+										},
+										"language":{
+											"type":"string",
+											"title":"Language",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"tone":{
+											"type":"string",
+											"title":"Tone",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"style":{
+											"type":"string",
+											"title":"Style",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"format":{
+											"type":"string",
+											"title":"Format",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"watermarkingConfig":{
+											"type":"object",
+											"properties":{
+												"enableWatermarking":{
+													"type":"boolean",
+													"title":"Enable Watermarking",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												},
+												"watermarkingTechnique":{
+													"type":"string",
+													"title":"Watermarking Technique",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												},
+												"watermarkingText":{
+													"type":"string",
+													"title":"Watermarking Text",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												}
+											},
+											"additionalProperties":false,
+											"title":"Watermarking Config",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false,
+											"required":[]
+										},
+										"answerGenerationModelSettings":{
+											"type":"object",
+											"properties":{
+												"modelId":{
+													"type":"string",
+													"title":"Answer generation Model",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false
+												},
+												"settings":{
+													"type":"object",
+													"properties":{
+														"topK":{
+															"type":"number",
+															"title":"Top K",
+															"searchable":false,
+															"sortable":false,
+															"filterable":false,
+															"primaryKey":false,
+															"nameField":false
+														},
+														"presencePenalty":{
+															"type":"number",
+															"title":"Presence Penalty",
+															"searchable":false,
+															"sortable":false,
+															"filterable":false,
+															"primaryKey":false,
+															"nameField":false
+														},
+														"temperature":{
+															"type":"number",
+															"title":"Temperature",
+															"searchable":false,
+															"sortable":false,
+															"filterable":false,
+															"primaryKey":false,
+															"nameField":false
+														},
+														"maxOutputTokens":{
+															"type":"integer",
+															"title":"Max Output Tokens",
+															"searchable":false,
+															"sortable":false,
+															"filterable":false,
+															"primaryKey":false,
+															"nameField":false
+														},
+														"topP":{
+															"type":"integer",
+															"title":"Top P",
+															"searchable":false,
+															"sortable":false,
+															"filterable":false,
+															"primaryKey":false,
+															"nameField":false
+														},
+														"frequencyPenalty":{
+															"type":"number",
+															"title":"Frequency Penalty",
+															"searchable":false,
+															"sortable":false,
+															"filterable":false,
+															"primaryKey":false,
+															"nameField":false
+														}
+													},
+													"additionalProperties":false,
+													"title":"Settings",
+													"searchable":false,
+													"sortable":false,
+													"filterable":false,
+													"primaryKey":false,
+													"nameField":false,
+													"required":[]
+												}
+											},
+											"additionalProperties":false,
+											"title":"Answer Generation Model Settings",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false,
+											"required":[]
+										},
+										"languageSettings":{
+											"type":"object",
+											"properties":{
+												"language":{
+													"type":"string",
+													"title":"Language"
+												},
+												"responseLanguagePreference":{
+													"type":"string",
+													"title":"Response Language Preference"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Language Settings",
+											"required":[]
+										},
+										"ttsEnabled":{
+											"type":"boolean",
+											"title":"Tts Enabled"
+										},
+										"disableThought":{
+											"type":"boolean",
+											"title":"Disable Thought"
+										},
+										"sqlSettings":{
+											"type":"object",
+											"properties":{
+												"sqlModel":{
+													"type":"string",
+													"title":"Sql Model"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Sql Settings",
+											"required":[]
+										},
+										"chartGenerationSettings":{
+											"type":"object",
+											"properties":{
+												"chartGenerationModel":{
+													"type":"string",
+													"title":"Chart Generation Model"
+												},
+												"generateChartWithBlocks_NewVersion":{
+													"type":"boolean",
+													"title":"Generate Chart With Blocks New Version"
+												},
+												"chartInstructions":{
+													"type":"string",
+													"title":"Chart Instructions"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Chart Generation Settings",
+											"required":[]
+										},
+										"customModels":{
+											"type":"object",
+											"properties":{
+												"inputFillingModel":{
+													"type":"string",
+													"title":"Input Filling Model"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Custom Models",
+											"required":[]
+										},
+										"graphRAGSettings":{
+											"type":"object",
+											"properties":{
+												"limitPageRankNodes":{
+													"type":"integer",
+													"title":"Limit Page Rank Nodes"
+												},
+												"limitSeedNodes":{
+													"type":"integer",
+													"title":"Limit Seed Nodes"
+												},
+												"limitChunks":{
+													"type":"integer",
+													"title":"Limit Chunks"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Graph RAG Settings",
+											"required":[]
+										},
+										"disableVoiceThought":{
+											"type":"boolean",
+											"title":"Disable Voice Thought"
+										},
+										"chartInstructions":{
+											"type":"string",
+											"title":"Chart Instructions"
+										},
+										"streamingEnabled":{
+											"type":"boolean",
+											"title":"Streaming Enabled"
+										},
+										"skipSourceRBAC":{
+											"type":"boolean",
+											"title":"Skip Source RBAC"
+										},
+										"disableInlineCitations":{
+											"type":"boolean",
+											"title":"Disable Inline Citations"
+										},
+										"disableCitationReferenceUrl":{
+											"type":"boolean",
+											"title":"Disable Citation Reference Url"
+										},
+										"disableSearchingReadingBlock":{
+											"type":"boolean",
+											"title":"Disable Searching Reading Block"
+										},
+										"sendSuggestedQueries":{
+											"type":"boolean",
+											"title":"Send Suggested Queries"
+										}
+									},
+									"title":"responseGenerationSettings",
+									"additionalProperties":false,
+									"required":[]
+								},
+								"preProcessingSettings":{
+									"type":"object",
+									"properties":{
+										"queryRephrasingModel":{
+											"type":"string",
+											"title":"queryRephrasingModel"
+										},
+										"chunkRetrieval":{
+											"type":"integer",
+											"title":"chunkRetrieval"
+										},
+										"rankingModel":{
+											"type":"string",
+											"title":"Ranking Model",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"disableGuardrail":{
+											"type":"boolean",
+											"title":"Disable Guardrail",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"disableRephraser":{
+											"type":"boolean",
+											"title":"Disable Rephraser",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"disableHyDE":{
+											"type":"boolean",
+											"title":"disableHyDE"
+										},
+										"rerankingSettings":{
+											"type":"object",
+											"properties":{
+												"disableReranking":{
+													"type":"boolean",
+													"title":"Disable Reranking"
+												},
+												"numberOfChunksAfterReranking":{
+													"type":"integer",
+													"title":"Number Of Chunks After Reranking"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Reranking Settings",
+											"required":[]
+										},
+										"maxRowLimitForSQL":{
+											"type":"integer",
+											"title":"Max Row Limit For SQL"
+										},
+										"userInputProcessingSettings":{
+											"type":"object",
+											"properties":{
+												"interfaceInputHandler":{
+													"type":"string",
+													"title":"Interface Input Handler"
+												},
+												"userInputPreProcessor":{
+													"type":"string",
+													"title":"User Input Pre Processor"
+												},
+												"storeUserQueryEmbedding":{
+													"type":"boolean",
+													"title":"Store User Query Embedding"
+												}
+											},
+											"additionalProperties":false,
+											"title":"User Input Processing Settings",
+											"required":[]
+										},
+										"preFetchKnowledge":{
+											"type":"boolean",
+											"title":"Pre Fetch Knowledge"
+										},
+										"knowledgeAccessScope":{
+											"type":"string",
+											"title":"Knowledge Access Scope"
+										},
+										"enableKnowledgeTagsFiltering":{
+											"type":"boolean",
+											"title":"Enable Knowledge Tags Filtering"
+										},
+										"disableConvertToImages":{
+											"type":"boolean",
+											"title":"Disable Convert To Images"
+										},
+										"preAnalyseAttachmentEnabled":{
+											"type":"boolean",
+											"title":"Pre Analyse Attachment Enabled"
+										},
+										"preReferFromKnowledge":{
+											"type":"boolean",
+											"title":"Pre Refer From Knowledge"
+										}
+									},
+									"title":"preProcessingSettings",
+									"additionalProperties":false,
+									"required":[]
+								},
+								"status":{
+									"type":"string",
+									"title":"status"
+								},
+								"deployedOn":{
+									"type":"array",
+									"items":{
+										"type":"string"
+									},
+									"title":"deployedOn",
+									"searchable":false,
+									"sortable":false,
+									"filterable":true,
+									"primaryKey":false,
+									"nameField":false
+								},
+								"avatarUrl":{
+									"type":"string",
+									"title":"Avatar Url",
+									"searchable":false,
+									"sortable":false,
+									"filterable":false,
+									"primaryKey":false,
+									"nameField":false
+								},
+								"topicExecutionSettings":{
+									"type":"object",
+									"properties":{
+										"fetchFromKnowledgeEnabled":{
+											"type":"boolean",
+											"title":"Fetch From Knowledge Enabled",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"fetchFromPrevSessionsEnabled":{
+											"type":"boolean",
+											"title":"Fetch From Prev Sessions Enabled",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"topicSelectionModel":{
+											"type":"string",
+											"title":"Topic Selection Model",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"topicExecutionModel":{
+											"type":"string",
+											"title":"Topic Execution Model",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"agentExecutorEnabled":{
+											"type":"boolean",
+											"title":"Agent Executor Enabled",
+											"searchable":false,
+											"sortable":false,
+											"filterable":false,
+											"primaryKey":false,
+											"nameField":false
+										},
+										"thinkToolDisabled":{
+											"type":"boolean",
+											"title":"Think Tool Disabled"
+										},
+										"topicAsTool":{
+											"type":"boolean",
+											"title":"Topic As Tool",
+											"help":"Topics are exposed to agent as tools if enabled."
+										}
+									},
+									"additionalProperties":false,
+									"title":"Topic Execution Settings",
+									"searchable":false,
+									"sortable":false,
+									"filterable":false,
+									"primaryKey":false,
+									"nameField":false,
+									"required":[]
+								},
+								"role":{
+									"type":"string",
+									"title":"Role",
+									"searchable":false,
+									"sortable":false,
+									"filterable":false,
+									"primaryKey":false,
+									"nameField":false
+								},
+								"goal":{
+									"type":"string",
+									"title":"Goal",
+									"searchable":false,
+									"sortable":false,
+									"filterable":false,
+									"primaryKey":false,
+									"nameField":false
+								},
+								"background":{
+									"type":"string",
+									"title":"Background",
+									"searchable":false,
+									"sortable":false,
+									"filterable":false,
+									"primaryKey":false,
+									"nameField":false
+								},
+								"agentType":{
+									"type":"string",
+									"title":"Agent Type",
+									"searchable":false,
+									"sortable":false,
+									"filterable":false,
+									"primaryKey":false,
+									"nameField":false
+								},
+								"workflowGPTDetails":{
+									"type":"object",
+									"properties":{
+										"variablesSchema":{
+											"type":"object",
+											"title":"variablesSchema"
+										},
+										"steps":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"instructions":{
+														"type":"string",
+														"title":"instructions"
+													},
+													"nodes":{
+														"type":"array",
+														"items":{
+															"type":"object",
+															"properties":{},
+															"additionalProperties":false
+														},
+														"title":"Nodes"
+													}
+												},
+												"additionalProperties":false,
+												"required":[]
+											},
+											"title":"steps"
+										},
+										"workflowId":{
+											"type":"string",
+											"title":"Workflow Id"
+										}
+									},
+									"additionalProperties":false,
+									"required":[]
+								},
+								"goalSummary":{
+									"type":"object",
+									"properties":{
+										"briefSummary":{
+											"type":"string",
+											"title":"Brief Summary"
+										},
+										"detailedSummary":{
+											"type":"string",
+											"title":"Detailed Summary"
+										}
+									},
+									"additionalProperties":false,
+									"title":"Goal Summary",
+									"required":[]
+								},
+								"conversationStarters":{
+									"type":"array",
+									"items":{
+										"type":"string"
+									},
+									"title":"Conversation Starters"
+								},
+								"externalAgentConfig":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"External Agent Config"
+								},
+								"multiAgentConfig":{
+									"type":"object",
+									"properties":{
+										"associatedAgentIds":{
+											"type":"array",
+											"items":{
+												"type":"string"
+											},
+											"title":"Associated Agent Ids"
+										}
+									},
+									"additionalProperties":false,
+									"title":"Multi Agent Config",
+									"required":[]
+								},
+								"conversationPlaceholder":{
+									"type":"string",
+									"title":"Conversation Placeholder"
+								},
+								"voiceSettings":{
+									"type":"object",
+									"properties":{
+										"provider":{
+											"type":"string",
+											"title":"Provider"
+										}
+									},
+									"additionalProperties":false,
+									"title":"Voice Settings",
+									"required":[
+										"provider"
+									]
+								},
+								"defaultTools":{
+									"type":"object",
+									"properties":{
+										"websearch":{
+											"type":"boolean",
+											"title":"Websearch"
+										},
+										"analyseFile":{
+											"type":"boolean",
+											"title":"Analyse File"
+										},
+										"createPDF":{
+											"type":"boolean",
+											"title":"Create PDF"
+										},
+										"createPPTX":{
+											"type":"boolean",
+											"title":"Create PPTX"
+										},
+										"generateChartTool":{
+											"type":"boolean",
+											"title":"Generate Chart Tool"
+										},
+										"createExcel":{
+											"type":"boolean",
+											"title":"Create Excel"
+										},
+										"documentVision":{
+											"type":"boolean",
+											"title":"Document Vision"
+										},
+										"ingestKnowledge":{
+											"type":"boolean",
+											"title":"Ingest Knowledge"
+										},
+										"clarifyFromUser":{
+											"type":"boolean",
+											"title":"Clarify From User"
+										}
+									},
+									"additionalProperties":false,
+									"title":"Default Tools",
+									"required":[]
+								},
+								"chatSummaryModel":{
+									"type":"string",
+									"title":"Chat Summary Model"
+								},
+								"instructions":{
+									"type":"string",
+									"title":"Instructions"
+								},
+								"language":{
+									"type":"string",
+									"title":"Language"
+								},
+								"longTermMemorySettings":{
+									"type":"object",
+									"properties":{
+										"enabled":{
+											"type":"boolean",
+											"title":"enabled"
+										},
+										"limitMemoriesForDedup":{
+											"type":"integer",
+											"title":"limitMemoriesForDedup"
+										},
+										"limitRetrievalMemories":{
+											"type":"integer",
+											"title":"limitRetrievalMemories"
+										},
+										"ProceduralMemoryRetrievalEnabled":{
+											"type":"boolean",
+											"title":"Procedural Memory Retrieval Enabled"
+										}
+									},
+									"additionalProperties":false,
+									"required":[]
+								},
+								"defaultToolsNotNeeded":{
+									"type":"boolean",
+									"title":"Default Tools Not Needed"
+								},
+								"textToSQLSettings":{
+									"type":"object",
+									"properties":{
+										"isOnlyTextToSQLAgent":{
+											"type":"boolean",
+											"title":"isOnlyTextToSQLAgent"
+										},
+										"topicIdForOnlyText2SQL":{
+											"type":"string",
+											"title":"topicIdForOnlyText2SQL"
+										},
+										"sqlAndChart1LLMCall_Variant":{
+											"type":"boolean",
+											"title":"sqlAndChart1LLMCall_Variant"
+										},
+										"AutomationIdForContextAdditionForSQLQueryGeneration":{
+											"type":"string",
+											"title":"Automation Id For Context Addition For SQL Query Generation"
+										},
+										"DirectlyPublishTableIfHasMoreData":{
+											"type":"boolean",
+											"title":"Directly Publish Table If Has More Data"
+										},
+										"fewShotExtraFilterNeeded":{
+											"type":"boolean",
+											"title":"Few Shot Extra Filter Needed"
+										},
+										"AutomationIdForFewShotExtraFilter":{
+											"type":"string",
+											"title":"Automation Id For Few Shot Extra Filter"
+										},
+										"PublishAssumptionsTakenForSQLgeneration":{
+											"type":"boolean",
+											"title":"Publish Assumptions Taken For SQ Lgeneration"
+										},
+										"sourcesNeeded":{
+											"type":"boolean",
+											"title":"Sources Needed"
+										},
+										"clarificationQuestionNeeded":{
+											"type":"boolean",
+											"title":"Clarification Question Needed"
+										}
+									},
+									"additionalProperties":false,
+									"required":[]
+								},
+								"teamManagerSettings":{
+									"type":"object",
+									"properties":{
+										"agentsAsTools":{
+											"type":"boolean",
+											"title":"Agents As Tools"
+										}
+									},
+									"additionalProperties":false,
+									"title":"Team Manager Settings",
+									"required":[]
+								},
+								"deepResearchSettings":{
+									"type":"object",
+									"properties":{
+										"WebSearchSummariserModel":{
+											"type":"string",
+											"title":"WebSearchSummariserModel"
+										},
+										"ExecutionModel":{
+											"type":"string",
+											"title":"ExecutionModel"
+										},
+										"searchEngineToUse":{
+											"type":"string",
+											"title":"searchEngineToUse"
+										},
+										"WebScrappingEngine":{
+											"type":"string",
+											"title":"WebScrappingEngine"
+										},
+										"useProviderDeepResearch":{
+											"type":"string",
+											"title":"useProviderDeepResearch"
+										}
+									},
+									"additionalProperties":false,
+									"required":[]
+								},
+								"websearchSettings":{
+									"type":"object",
+									"properties":{
+										"useProviderWebSearch":{
+											"type":"boolean",
+											"title":"useProviderWebSearch"
+										},
+										"webSearchProviderModel":{
+											"type":"string",
+											"title":"webSearchProviderModel"
+										}
+									},
+									"additionalProperties":false,
+									"title":"websearchSettings",
+									"required":[]
+								},
+								"teamType":{
+									"type":"string",
+									"title":"Team Type"
+								}
+							},
+							"required":[]
+						},
+						"version":{
+							"type":"integer",
+							"title":"Version"
+						},
+						"createdTime":{
+							"type":"integer",
+							"title":"Created Time (Epoch)"
+						},
+						"modifiedTime":{
+							"type":"integer",
+							"title":"Modified Time (Epoch)"
+						},
+						"ownerUserId":{
+							"type":"integer",
+							"title":"Owner User Id",
+							"foreignKey":{
+								"reference":"USER"
+							}
+						},
+						"lastModifiedBy":{
+							"type":"integer",
+							"title":"Last Modified By User Id",
+							"foreignKey":{
+								"reference":"USER"
+							}
+						},
+						"deleted":{
+							"type":"boolean",
+							"title":"Deleted"
+						},
+						"properties.indexingSettings.metadata.model":{
+							"type":"string",
+							"title":"Model"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":458,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"wEa8T-1",
+			"id":"n_Uicsb",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					},
+					"required":[
+						"aiAgentId"
+					]
+				}
+			},
+			"inputs":{
+				"aiAgentId":"{{ TRoZH.outputs.aiAgentId }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					},
+					"required":[
+						"aiAgentId"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":439,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"wEa8T-1",
+			"id":"n_2Zr8w",
+			"index":3,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_Uicsb.outputs.aiAgentId }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"variable_by_unifyapps_get_session_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_2Zr8w@wEa8T-1@y",
+			"id":"n_dI2yv",
+			"index":4,
+			"inputs":{
+				"variableSchema":{
+					"type":"object",
+					"properties":{
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Get Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":447,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_2Zr8w@wEa8T-1@y",
+			"id":"n_TuWd2",
+			"index":5,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_Uicsb.outputs.aiAgentId }}",
+						"value":"{{ n_dI2yv.outputs.aiAgentId }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":220,
+				"resourceName":"variable_by_unifyapps_get_session_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"wEa8T-1",
+			"id":"53LAF",
+			"index":6,
+			"inputs":{
+				"variableSchema":{
+					"type":"object",
+					"properties":{
+						"ai_agent_use_deployed_entity":{
+							"type":"boolean",
+							"title":"Ai Agent Use Deployed Entity"
+						},
+						"ai_agent_deployed_version":{
+							"type":"integer",
+							"title":"Ai Agent Deployed Version"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Get Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":54,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"wEa8T-1",
+			"id":"mtswW",
+			"index":7,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_Uicsb.outputs.aiAgentId }}"
+							}
+						},
+						{
+							"property":"properties_archived",
+							"filter":{
+								"operator":"NOT_EQUAL",
+								"value":"true"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"ai_agent",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false,
+				"fetchDeployedEntity":"{{ 53LAF.outputs.ai_agent_use_deployed_entity }}",
+				"deployedEntityVersion":"{{ 53LAF.outputs.ai_agent_deployed_version }}"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"cacheKey":"{{ TRoZH.outputs.aiAgentId }}",
+					"enabled":true,
+					"timeToLive":"3600",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Agent",
+			"title":"Fetch Agent by Id",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"variable_by_unifyapps_set_session_variable",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"wEa8T-1",
+			"id":"n_hishG",
+			"index":8,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"isOnlyTextToSQLAgent":{
+							"type":"boolean",
+							"title":"Is Only Text To SQL Agent"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"isOnlyTextToSQLAgent":"{{ mtswW.outputs.properties.textToSQLSettings.isOnlyTextToSQLAgent }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"isOnlyTextToSQLAgent":{
+							"type":"boolean",
+							"title":"Is Only Text To SQL Agent"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Set Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":58,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"wEa8T-1",
+			"id":"OayXU",
+			"index":9,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ mtswW.outputs.id }}",
+						"filter":{
+							"operator":"EXISTS"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"agent?",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":439,
+				"resourceName":"storage_by_unifyapps_get_records_by_ids",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"OayXU@wEa8T-1@y",
+			"id":"n_GJKY4",
+			"index":10,
+			"inputs":{
+				"object_type":"ai_agent_llm_model",
+				"includeRoleMappings":false,
+				"ids":[
+					"{{ mtswW.outputs.properties.topicExecutionSettings.topicSelectionModel }}",
+					"{{ mtswW.outputs.properties.topicExecutionSettings.topicExecutionModel }}",
+					"{{ mtswW.outputs.properties.preProcessingSettings.rankingModel }}"
+				],
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"readThroughSessionVariables":false
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"cacheKey":"{{ TRoZH.outputs.aiAgentId }}",
+					"enabled":true,
+					"timeToLive":"3600",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Fetch llm models",
+			"title":"Fetch llm models by IDs",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.validModelList.items",
+					"root.parameters.givenModelList.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":449,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"OayXU@wEa8T-1@y",
+			"id":"n_Gc1ZO",
+			"index":11,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"models":{
+							"type":"object",
+							"properties":{
+								"topicSelectionModel":{
+									"type":"string",
+									"title":"Topic Selection Model"
+								},
+								"topicExecutionModel":{
+									"type":"string",
+									"title":"Topic Execution Model"
+								},
+								"rankingModel":{
+									"type":"string",
+									"title":"Ranking Model"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Models",
+							"required":[]
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"validModelList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Valid Model List"
+						},
+						"givenModel":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Given Model"
+						},
+						"DEFAULT_MODEL":{
+							"type":"string",
+							"title":"DEFAULT MODEL"
+						}
+					}
+				},
+				"code":"def DEFAULT_MODEL = binding.hasVariable('DEFAULT_MODEL') ? DEFAULT_MODEL : 'e_ai_agent_bedrock_default_model'\n\ndef result = [\n        'topicSelectionModel': DEFAULT_MODEL,\n        'topicExecutionModel': DEFAULT_MODEL,\n        'rankingModel'       : DEFAULT_MODEL\n]\n\nif (binding.hasVariable('validModelList') && binding.hasVariable('givenModel')) {\n    def selectionModelId = givenModel?.topicExecutionSettings?.topicSelectionModel\n    def executionModelId = givenModel?.topicExecutionSettings?.topicExecutionModel\n    def rankingModelId = givenModel?.preProcessingSettings?.rankingModel\n\n    def validIds = validModelList.collect { it.id }\n\n    result['topicSelectionModel'] = validIds.contains(selectionModelId) ? selectionModelId : DEFAULT_MODEL\n    result['topicExecutionModel'] = validIds.contains(executionModelId) ? executionModelId : DEFAULT_MODEL\n    result['rankingModel'] = validIds.contains(rankingModelId) ? rankingModelId : DEFAULT_MODEL\n}\n\nreturn ['models': result]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"givenModel":"{{ mtswW.outputs.properties }}",
+					"validModelList":{
+						"source":"{{ n_GJKY4.outputs.objects }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_GJKY4.outputs.objects[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Validate llm model",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.result.id",
+					"root.result.entityType",
+					"root.result.properties.indexingSettings.vectorStore",
+					"root.result.properties.indexingSettings.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.image.textExtractionModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.image.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.tabularData.indexingType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.language",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.algorithm",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.language",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.transcriptionModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.algorithm",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.mimeType.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.mimeType.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.mimeType.items",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.textExtractionModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.tabularData.indexingType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.language",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.algorithm",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.language",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.transcriptionModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.algorithm",
+					"root.result.properties.indexingSettings.chunkingSettings.chunkingAlgorithm",
+					"root.result.properties.indexingSettings.chunkingSettings.chunkOverlap",
+					"root.result.properties.indexingSettings.chunkingSettings.delimiters.source",
+					"root.result.properties.indexingSettings.chunkingSettings.delimiters.ua:type",
+					"root.result.properties.indexingSettings.chunkingSettings.delimiters.items",
+					"root.result.properties.indexingSettings.chunkingSettings.language",
+					"root.result.properties.indexingSettings.chunkingSettings.embeddingModel",
+					"root.result.properties.indexingSettings.chunkingSettings.summarizingModel",
+					"root.result.properties.indexingSettings.chunkingSettings.maxChunkSize",
+					"root.result.properties.indexingSettings.chunkingSettings.thresholdType",
+					"root.result.properties.indexingSettings.chunkingSettings.enableSummarize",
+					"root.result.properties.indexingSettings.metadata.model",
+					"root.result.properties.indexingSettings.metadata.paramaters.source",
+					"root.result.properties.indexingSettings.metadata.paramaters.ua:type",
+					"root.result.properties.indexingSettings.metadata.paramaters.items.name",
+					"root.result.properties.indexingSettings.metadata.paramaters.items.description",
+					"root.result.properties.indexingSettings.metadata.paramaters.items.isStandard",
+					"root.result.properties.indexingSettings.metadata.processingMethod",
+					"root.result.properties.responsePostProcessingModel.answerPostProcessingModel",
+					"root.result.properties.responsePostProcessingModel.guardRailModel",
+					"root.result.properties.name",
+					"root.result.properties.description",
+					"root.result.properties.responseGenerationSettings.answerGenerationModel",
+					"root.result.properties.responseGenerationSettings.language",
+					"root.result.properties.responseGenerationSettings.tone",
+					"root.result.properties.responseGenerationSettings.style",
+					"root.result.properties.responseGenerationSettings.format",
+					"root.result.properties.responseGenerationSettings.watermarkingConfig.enableWatermarking",
+					"root.result.properties.responseGenerationSettings.watermarkingConfig.watermarkingTechnique",
+					"root.result.properties.responseGenerationSettings.watermarkingConfig.watermarkingText",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.modelId",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topK",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.presencePenalty",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.temperature",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.maxOutputTokens",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topP",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.frequencyPenalty",
+					"root.result.properties.preProcessingSettings.queryRephrasingModel",
+					"root.result.properties.preProcessingSettings.chunkRetrieval",
+					"root.result.properties.preProcessingSettings.rankingModel",
+					"root.result.properties.preProcessingSettings.disableGuardrail",
+					"root.result.properties.preProcessingSettings.disableRephraser",
+					"root.result.properties.status",
+					"root.result.properties.deployedOn.source",
+					"root.result.properties.deployedOn.ua:type",
+					"root.result.properties.deployedOn.items",
+					"root.result.properties.avatarUrl",
+					"root.result.properties.topicExecutionSettings.fetchFromKnowledgeEnabled",
+					"root.result.properties.topicExecutionSettings.fetchFromPrevSessionsEnabled",
+					"root.result.properties.topicExecutionSettings.topicSelectionModel",
+					"root.result.properties.topicExecutionSettings.topicExecutionModel",
+					"root.result.properties.topicExecutionSettings.agentExecutorEnabled",
+					"root.result.properties.role",
+					"root.result.properties.goal",
+					"root.result.properties.background",
+					"root.result.properties.agentType",
+					"root.result.properties.workflowGPTDetails.steps.source",
+					"root.result.properties.workflowGPTDetails.steps.ua:type",
+					"root.result.properties.workflowGPTDetails.steps.items.instructions",
+					"root.result.version",
+					"root.result.createdTime",
+					"root.result.modifiedTime",
+					"root.result.ownerUserId",
+					"root.result.lastModifiedBy",
+					"root.result.deleted"
+				]
+			},
+			"context":{
+				"appName":"callables",
+				"resourceVersion":55,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"OayXU@wEa8T-1@y",
+			"id":"XVWVe",
+			"index":12,
+			"inputs":{
+				"result":{
+					"id":"{{ mtswW.outputs.id }}",
+					"entityType":"{{ mtswW.outputs.entityType }}",
+					"properties":{
+						"indexingSettings":{
+							"vectorStore":"{{ mtswW.outputs.properties.indexingSettings.vectorStore }}",
+							"embeddingModel":"{{ mtswW.outputs.properties.indexingSettings.embeddingModel }}",
+							"strategySettings":{
+								"defaultStrategy":{
+									"contentTypeConfig":{
+										"image":{
+											"textExtractionModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.textExtractionModel }}",
+											"processingMethod":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.processingMethod }}"
+										},
+										"tabularData":{
+											"indexingType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.tabularData.indexingType }}"
+										},
+										"text":{
+											"embeddingType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingType }}",
+											"chunkOverlap":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.chunkOverlap }}",
+											"language":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.language }}",
+											"embeddingModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingModel }}",
+											"maxChunkSize":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.maxChunkSize }}",
+											"thresholdType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.thresholdType }}",
+											"algorithm":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.algorithm }}",
+											"delimiters":{
+												"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters }}",
+												"ua:type":"mappedArray",
+												"items":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters[0] }}"
+											}
+										},
+										"audio":{
+											"embeddingType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingType }}",
+											"chunkOverlap":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.chunkOverlap }}",
+											"processingMethod":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.processingMethod }}",
+											"language":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.language }}",
+											"transcriptionModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.transcriptionModel }}",
+											"embeddingModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingModel }}",
+											"maxChunkSize":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.maxChunkSize }}",
+											"thresholdType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.thresholdType }}",
+											"algorithm":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.algorithm }}",
+											"delimiters":{
+												"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters }}",
+												"ua:type":"mappedArray",
+												"items":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters[0] }}"
+											}
+										}
+									},
+									"documentParsingConfig":{
+										"type":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.type }}",
+										"agenticParsingModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.agenticParsingModel }}",
+										"appName":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.appName }}",
+										"connectionId":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.connectionId }}",
+										"automationId":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.automationId }}",
+										"version":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.version }}"
+									}
+								},
+								"metadataEnrichmentSettings":{
+									"enabled":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.enabled }}",
+									"automations":{
+										"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.automations }}",
+										"ua:type":"mappedArray",
+										"items":{
+											"entityId":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.automations[0].entityId }}",
+											"version":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.automations[0].version }}"
+										}
+									}
+								},
+								"mimeTypeOverride":{
+									"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"contentTypeConfig":{
+											"image":{
+												"textExtractionModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.image.textExtractionModel }}",
+												"processingMethod":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.image.processingMethod }}"
+											},
+											"tabularData":{
+												"indexingType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.tabularData.indexingType }}"
+											},
+											"text":{
+												"embeddingType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.embeddingType }}",
+												"chunkOverlap":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.chunkOverlap }}",
+												"delimiters":{
+													"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.delimiters }}",
+													"ua:type":"mappedArray",
+													"items":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.delimiters[0] }}"
+												},
+												"language":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.language }}",
+												"embeddingModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.embeddingModel }}",
+												"maxChunkSize":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.maxChunkSize }}",
+												"thresholdType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.thresholdType }}",
+												"algorithm":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.algorithm }}"
+											},
+											"audio":{
+												"embeddingType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.embeddingType }}",
+												"chunkOverlap":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.chunkOverlap }}",
+												"delimiters":{
+													"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.delimiters }}",
+													"ua:type":"mappedArray",
+													"items":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.delimiters[0] }}"
+												},
+												"processingMethod":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.processingMethod }}",
+												"language":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.language }}",
+												"transcriptionModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.transcriptionModel }}",
+												"embeddingModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.embeddingModel }}",
+												"maxChunkSize":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.maxChunkSize }}",
+												"thresholdType":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.thresholdType }}",
+												"algorithm":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.algorithm }}"
+											}
+										},
+										"mimeType":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].mimeType }}",
+											"ua:type":"mappedArray",
+											"items":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].mimeType[0] }}"
+										}
+									}
+								}
+							},
+							"chunkingSettings":{
+								"chunkingAlgorithm":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.chunkingAlgorithm }}",
+								"chunkOverlap":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.chunkOverlap }}",
+								"language":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.language }}",
+								"embeddingModel":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.embeddingModel }}",
+								"summarizingModel":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.summarizingModel }}",
+								"maxChunkSize":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.maxChunkSize }}",
+								"thresholdType":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.thresholdType }}",
+								"enableSummarize":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.enableSummarize }}",
+								"enableImageExtraction":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.enableImageExtraction }}",
+								"delimiters":{
+									"source":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.delimiters }}",
+									"ua:type":"mappedArray",
+									"items":"{{ mtswW.outputs.properties.indexingSettings.chunkingSettings.delimiters[0] }}"
+								}
+							},
+							"metadata":{
+								"model":"{{ mtswW.outputs.properties.indexingSettings.metadata.model }}",
+								"processingMethod":"{{ mtswW.outputs.properties.indexingSettings.metadata.processingMethod }}",
+								"paramaters":{
+									"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.paramaters }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"name":"{{ mtswW.outputs.properties.indexingSettings.metadata.paramaters[0].name }}",
+										"description":"{{ mtswW.outputs.properties.indexingSettings.metadata.paramaters[0].description }}",
+										"isStandard":"{{ mtswW.outputs.properties.indexingSettings.metadata.paramaters[0].isStandard }}"
+									}
+								},
+								"enrichmentStrategies":{
+									"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"processingMethod":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].processingMethod }}",
+										"model":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].model }}",
+										"automationId":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].automationId }}",
+										"Version":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].version }}",
+										"parameters":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"name":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters[0].name }}",
+												"description":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters[0].description }}",
+												"isStandard":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters[0].isStandard }}"
+											}
+										},
+										"manualEnrichmentParameters":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualEnrichmentParameters }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"key":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualEnrichmentParameters[0].key }}",
+												"value":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualEnrichmentParameters[0].value }}"
+											}
+										},
+										"inputMappings":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].inputMappings }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"value":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].inputMappings[0].value }}",
+												"key":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].inputMappings[0].key }}"
+											}
+										},
+										"outputMappings":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].outputMappings }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"key":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].outputMappings[0].key }}",
+												"value":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].outputMappings[0].value }}"
+											}
+										},
+										"manualParameters":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualParameters }}",
+										"inputMapping":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].automationInput }}",
+										"outputMapping":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].enrichmentInput }}"
+									}
+								}
+							},
+							"graphRAGSettings":{
+								"enable":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.graphRagSettings.enable }}"
+							},
+							"vectorStoreConnectionId":"{{ mtswW.outputs.properties.indexingSettings.vectorStoreConnectionId }}"
+						},
+						"responsePostProcessingModel":{
+							"answerPostProcessingModel":"{{ mtswW.outputs.properties.responsePostProcessingModel.answerPostProcessingModel }}",
+							"guardRailModel":"{{ mtswW.outputs.properties.responsePostProcessingModel.guardRailModel }}"
+						},
+						"name":"{{ mtswW.outputs.properties.name }}",
+						"description":"{{ mtswW.outputs.properties.description }}",
+						"responseGenerationSettings":{
+							"answerGenerationModel":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModel }}",
+							"language":"{{ mtswW.outputs.properties.responseGenerationSettings.language }}",
+							"tone":"{{ mtswW.outputs.properties.responseGenerationSettings.tone }}",
+							"style":"{{ mtswW.outputs.properties.responseGenerationSettings.style }}",
+							"format":"{{ mtswW.outputs.properties.responseGenerationSettings.format }}",
+							"watermarkingConfig":{
+								"enableWatermarking":"{{ mtswW.outputs.properties.responseGenerationSettings.watermarkingConfig.enableWatermarking }}",
+								"watermarkingTechnique":"{{ mtswW.outputs.properties.responseGenerationSettings.watermarkingConfig.watermarkingTechnique }}",
+								"watermarkingText":"{{ mtswW.outputs.properties.responseGenerationSettings.watermarkingConfig.watermarkingText }}"
+							},
+							"answerGenerationModelSettings":{
+								"modelId":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.modelId }}",
+								"settings":{
+									"topK":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topK }}",
+									"presencePenalty":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.presencePenalty }}",
+									"temperature":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.temperature }}",
+									"maxOutputTokens":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.maxOutputTokens }}",
+									"topP":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topP }}",
+									"frequencyPenalty":"{{ mtswW.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.frequencyPenalty }}"
+								}
+							},
+							"languageSettings":{
+								"language":"{{ mtswW.outputs.properties.responseGenerationSettings.languageSettings.language }}",
+								"responseLanguagePreference":"{{ mtswW.outputs.properties.responseGenerationSettings.languageSettings.responseLanguagePreference }}"
+							},
+							"ttsEnabled":"{{ mtswW.outputs.properties.responseGenerationSettings.ttsEnabled }}",
+							"disableThought":"{{ mtswW.outputs.properties.responseGenerationSettings.disableThought }}",
+							"sqlSettings":{
+								"sqlModel":"{{ mtswW.outputs.properties.responseGenerationSettings.sqlSettings.sqlModel }}"
+							},
+							"chartGenerationSettings":{
+								"chartGenerationModel":"{{ mtswW.outputs.properties.responseGenerationSettings.chartGenerationSettings.chartGenerationModel }}",
+								"generateChartWithBlocks_NewVersion":"{{ mtswW.outputs.properties.responseGenerationSettings.chartGenerationSettings.generateChartWithBlocks_NewVersion }}",
+								"chartInstructions":"{{ mtswW.outputs.properties.responseGenerationSettings.chartInstructions }}"
+							},
+							"graphRAGSettings":{
+								"limitPageRankNodes":"{{ mtswW.outputs.properties.responseGenerationSettings.graphRAGSettings.limitPageRankNodes }}",
+								"limitSeedNodes":"{{ mtswW.outputs.properties.responseGenerationSettings.graphRAGSettings.limitSeedNodes }}",
+								"limitChunks":"{{ mtswW.outputs.properties.responseGenerationSettings.graphRAGSettings.limitChunks }}"
+							},
+							"disableVoiceThought":"{{ mtswW.outputs.properties.responseGenerationSettings.disableVoiceThought }}",
+							"chartInstructions":"{{ mtswW.outputs.properties.responseGenerationSettings.chartInstructions }}",
+							"streamingEnabled":"{{ mtswW.outputs.properties.responseGenerationSettings.streamingEnabled }}",
+							"skipSourceRBAC":"{{ mtswW.outputs.properties.responseGenerationSettings.skipSourceRBAC }}",
+							"disableInlineCitations":"{{ mtswW.outputs.properties.responseGenerationSettings.disableInlineCitations }}",
+							"disableCitationReferenceUrl":"{{ mtswW.outputs.properties.responseGenerationSettings.disableCitationReferenceUrl }}",
+							"disableSearchingReadingBlock":"{{ mtswW.outputs.properties.responseGenerationSettings.disableSearchingReadingBlock }}",
+							"sendSuggestedQueries":"{{ mtswW.outputs.properties.responseGenerationSettings.sendSuggestedQueries }}"
+						},
+						"preProcessingSettings":{
+							"queryRephrasingModel":"{{ mtswW.outputs.properties.preProcessingSettings.queryRephrasingModel }}",
+							"chunkRetrieval":"{{ mtswW.outputs.properties.preProcessingSettings.chunkRetrieval }}",
+							"rankingModel":"{{ n_Gc1ZO.outputs.result.models.rankingModel }}",
+							"disableGuardrail":"{{ mtswW.outputs.properties.preProcessingSettings.disableGuardrail }}",
+							"disableRephraser":"{{ mtswW.outputs.properties.preProcessingSettings.disableRephraser }}",
+							"disableHyDE":"{{ mtswW.outputs.properties.preProcessingSettings.disableHyDE }}",
+							"rerankingSettings":{
+								"disableReranking":"{{ mtswW.outputs.properties.preProcessingSettings.reRankingSettings.disableReRanking }}",
+								"numberOfChunksAfterReranking":"{{ mtswW.outputs.properties.preProcessingSettings.reRankingSettings.numberOfChunkAfterReRanking }}"
+							},
+							"maxRowLimitForSQL":"{{ mtswW.outputs.properties.preProcessingSettings.maxRowLimitForSQL }}",
+							"userInputProcessingSettings":{
+								"interfaceInputHandler":"{{ mtswW.outputs.properties.preProcessingSettings.userInputProcessingSettings.interfaceInputHanlder }}",
+								"userInputPreProcessor":"{{ mtswW.outputs.properties.preProcessingSettings.userInputProcessingSettings.userInputPreProcessor }}",
+								"storeUserQueryEmbedding":"{{ mtswW.outputs.properties.preProcessingSettings.userInputProcessingSettings.storeUserQueryEmbedding }}"
+							},
+							"preFetchKnowledge":"{{ mtswW.outputs.properties.preProcessingSettings.preFetchKnowledge }}",
+							"knowledgeAccessScope":"{{ mtswW.outputs.properties.preProcessingSettings.knowledgeAccessScope }}",
+							"enableKnowledgeTagsFiltering":"{{ mtswW.outputs.properties.preProcessingSettings.enableKnowledgeTagsFiltering }}",
+							"disableConvertToImages":"{{ mtswW.outputs.properties.preProcessingSettings.disableConvertToImages }}",
+							"preAnalyseAttachmentEnabled":"{{ mtswW.outputs.properties.preProcessingSettings.preAnalyseAttachmentEnabled }}",
+							"preReferFromKnowledge":"{{ mtswW.outputs.properties.preProcessingSettings.preReferFromKnowledge }}"
+						},
+						"status":"{{ mtswW.outputs.properties.status }}",
+						"avatarUrl":"{{ mtswW.outputs.properties.avatarUrl }}",
+						"topicExecutionSettings":{
+							"fetchFromKnowledgeEnabled":"{{ mtswW.outputs.properties.topicExecutionSettings.fetchFromKnowledgeEnabled }}",
+							"fetchFromPrevSessionsEnabled":"{{ mtswW.outputs.properties.topicExecutionSettings.fetchFromPrevSessionsEnabled }}",
+							"topicSelectionModel":"{{ n_Gc1ZO.outputs.result.models.topicSelectionModel }}",
+							"topicExecutionModel":"{{ n_Gc1ZO.outputs.result.models.topicExecutionModel }}",
+							"agentExecutorEnabled":"{{ mtswW.outputs.properties.topicExecutionSettings.agentExecutorEnabled }}",
+							"thinkToolDisabled":"{{ mtswW.outputs.properties.topicExecutionSettings.thinkToolDisabled }}",
+							"topicAsTool":"{{ mtswW.outputs.properties.topicExecutionSettings.topicAsTool }}"
+						},
+						"role":"{{ mtswW.outputs.properties.role }}",
+						"goal":"{{ mtswW.outputs.properties.goal }}",
+						"background":"{{ mtswW.outputs.properties.background }}",
+						"agentType":"{{ mtswW.outputs.properties.agentType }}",
+						"workflowGPTDetails":{
+							"workflowId":"{{ mtswW.outputs.properties.workflowGPTDetails.workflowId }}",
+							"steps":{
+								"source":"{{ mtswW.outputs.properties.workflowGPTDetails.steps }}",
+								"ua:type":"mappedArray",
+								"items":{
+									"instructions":"{{ mtswW.outputs.properties.workflowGPTDetails.steps[0].instructions }}",
+									"nodes":{
+										"source":"{{ mtswW.outputs.properties.workflowGPTDetails.steps[0].nodes }}",
+										"ua:type":"mappedArray",
+										"items":"{{ mtswW.outputs.properties.workflowGPTDetails.steps[0].nodes[0] }}"
+									}
+								}
+							}
+						},
+						"goalSummary":{
+							"briefSummary":"{{ mtswW.outputs.properties.goalSummary.briefSummary }}",
+							"detailedSummary":"{{ mtswW.outputs.properties.goalSummary.detailedSummary }}"
+						},
+						"externalAgentConfig":"{{ mtswW.outputs.properties.externalAgentConfig }}",
+						"conversationPlaceholder":"{{ mtswW.outputs.properties.conversationPlaceholder }}",
+						"voiceSettings":{
+							"provider":"{{ mtswW.outputs.properties.voiceSettings.provider }}"
+						},
+						"defaultTools":{
+							"websearch":"{{ mtswW.outputs.properties.defaultTools.webSearch }}",
+							"analyseFile":"{{ mtswW.outputs.properties.defaultTools.analyseFile }}",
+							"createPDF":"{{ mtswW.outputs.properties.defaultTools.createPDF }}",
+							"createPPTX":"{{ mtswW.outputs.properties.defaultTools.createPPTX }}",
+							"generateChartTool":"{{ mtswW.outputs.properties.defaultTools.generateChartTool }}",
+							"createExcel":"{{ mtswW.outputs.properties.defaultTools.createExcel }}",
+							"documentVision":"{{ mtswW.outputs.properties.defaultTools.documentVision }}",
+							"ingestKnowledge":"{{ mtswW.outputs.properties.defaultTools.ingestKnowledge }}",
+							"clarifyFromUser":"{{ mtswW.outputs.properties.defaultTools.clarifyFromUser }}"
+						},
+						"chatSummaryModel":"{{ mtswW.outputs.properties.chatSummaryModel }}",
+						"instructions":"{{ mtswW.outputs.properties.instructions }}",
+						"longTermMemorySettings":{
+							"enabled":"{{ mtswW.outputs.properties.longTermMemorySettings.enabled }}",
+							"limitMemoriesForDedup":"{{ mtswW.outputs.properties.longTermMemorySettings.limitMemoriesForDedup }}",
+							"limitRetrievalMemories":"{{ mtswW.outputs.properties.longTermMemorySettings.limitRetrievalMemories }}",
+							"ProceduralMemoryRetrievalEnabled":"{{ mtswW.outputs.properties.longTermMemorySettings.ProceduralMemoryRetrievalEnabled }}"
+						},
+						"defaultToolsNotNeeded":"{{ mtswW.outputs.properties.defaultToolsNotNeeded }}",
+						"textToSQLSettings":{
+							"isOnlyTextToSQLAgent":"{{ mtswW.outputs.properties.textToSQLSettings.isOnlyTextToSQLAgent }}",
+							"topicIdForOnlyText2SQL":"{{ mtswW.outputs.properties.textToSQLSettings.topicIdForOnlyText2SQL }}",
+							"sqlAndChart1LLMCall_Variant":"{{ mtswW.outputs.properties.textToSQLSettings.sqlAndChart1LLMCall_Variant }}",
+							"AutomationIdForContextAdditionForSQLQueryGeneration":"{{ mtswW.outputs.properties.textToSQLSettings.AutomationIdForContextAdditionForSQLQueryGeneration }}",
+							"DirectlyPublishTableIfHasMoreData":"{{ mtswW.outputs.properties.textToSQLSettings.DirectlyPublishTableIfHasMoreData }}",
+							"fewShotExtraFilterNeeded":"{{ mtswW.outputs.properties.textToSQLSettings.fewShotExtraFilterNeeded }}",
+							"AutomationIdForFewShotExtraFilter":"{{ mtswW.outputs.properties.textToSQLSettings.AutomationIdForFewShotExtraFilter }}",
+							"PublishAssumptionsTakenForSQLgeneration":"{{ mtswW.outputs.properties.textToSQLSettings.PublishAssumptionsTakenForSQLgeneration }}",
+							"sourcesNeeded":"{{ mtswW.outputs.properties.textToSQLSettings.sourcesNeeded }}",
+							"clarificationQuestionNeeded":"{{ mtswW.outputs.properties.textToSQLSettings.clarificationQuestionNeeded }}"
+						},
+						"teamManagerSettings":{
+							"agentsAsTools":"{{ mtswW.outputs.properties.teamManagerSettings.agentsAsTools }}"
+						},
+						"deepResearchSettings":{
+							"WebSearchSummariserModel":"{{ mtswW.outputs.properties.deepResearchSettings.WebSearchSummariserModel }}",
+							"ExecutionModel":"{{ mtswW.outputs.properties.deepResearchSettings.ExecutionModel }}",
+							"searchEngineToUse":"{{ mtswW.outputs.properties.deepResearchSettings.searchEngineToUse }}",
+							"WebScrappingEngine":"{{ mtswW.outputs.properties.deepResearchSettings.WebScrappingEngine }}",
+							"useProviderDeepResearch":"{{ mtswW.outputs.properties.deepResearchSettings.useProviderDeepResearch }}"
+						},
+						"websearchSettings":{
+							"useProviderWebSearch":"{{ mtswW.outputs.properties.websearchSettings.useProviderWebSearch }}",
+							"webSearchProviderModel":"{{ mtswW.outputs.properties.websearchSettings.webSearchProviderModel }}"
+						},
+						"teamType":"{{ mtswW.outputs.properties.teamType }}",
+						"deployedOn":{
+							"source":"{{ mtswW.outputs.properties.deployedOn }}",
+							"ua:type":"mappedArray",
+							"items":"{{ mtswW.outputs.properties.deployedOn[0] }}"
+						},
+						"conversationStarters":{
+							"source":"{{ mtswW.outputs.properties.conversationStarters }}",
+							"ua:type":"mappedArray",
+							"items":"{{ mtswW.outputs.properties.conversationStarters[0] }}"
+						},
+						"multiAgentConfig":{
+							"associatedAgentIds":{
+								"source":"{{ mtswW.outputs.properties.multiAgentConfig.associatedAgentIds }}",
+								"ua:type":"mappedArray",
+								"items":"{{ mtswW.outputs.properties.multiAgentConfig.associatedAgentIds[0] }}"
+							}
+						}
+					},
+					"version":"{{ mtswW.outputs.version }}",
+					"createdTime":"{{ mtswW.outputs.createdTime }}",
+					"modifiedTime":"{{ mtswW.outputs.modifiedTime }}",
+					"ownerUserId":"{{ mtswW.outputs.ownerUserId }}",
+					"lastModifiedBy":"{{ mtswW.outputs.lastModifiedBy }}",
+					"deleted":"{{ mtswW.outputs.deleted }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"storage_by_unifyapps_get_record_by_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"OayXU@wEa8T-1@n",
+			"id":"OCPfh",
+			"index":13,
+			"inputs":{
+				"object_type":"e_ai_agent_team",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"id":"{{ TRoZH.outputs.aiAgentId }}",
+				"readThroughSessionVariables":false
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"cacheKey":"{{ TRoZH.outputs.aiAgentId }}",
+					"enabled":true,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch AI Agent Team by ID",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.result.id",
+					"root.result.entityType",
+					"root.result.properties.indexingSettings.vectorStore",
+					"root.result.properties.indexingSettings.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.image.textExtractionModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.image.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.tabularData.indexingType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.language",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.text.algorithm",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.language",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.transcriptionModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.contentTypeConfig.audio.algorithm",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.mimeType.source",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.mimeType.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.mimeTypeOverride.items.mimeType.items",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.textExtractionModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.tabularData.indexingType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.language",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.algorithm",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.chunkOverlap",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters.source",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters.ua:type",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters.items",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.processingMethod",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.language",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.transcriptionModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingModel",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.maxChunkSize",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.thresholdType",
+					"root.result.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.algorithm",
+					"root.result.properties.indexingSettings.chunkingSettings.chunkingAlgorithm",
+					"root.result.properties.indexingSettings.chunkingSettings.chunkOverlap",
+					"root.result.properties.indexingSettings.chunkingSettings.delimiters.source",
+					"root.result.properties.indexingSettings.chunkingSettings.delimiters.ua:type",
+					"root.result.properties.indexingSettings.chunkingSettings.delimiters.items",
+					"root.result.properties.indexingSettings.chunkingSettings.language",
+					"root.result.properties.indexingSettings.chunkingSettings.embeddingModel",
+					"root.result.properties.indexingSettings.chunkingSettings.summarizingModel",
+					"root.result.properties.indexingSettings.chunkingSettings.maxChunkSize",
+					"root.result.properties.indexingSettings.chunkingSettings.thresholdType",
+					"root.result.properties.indexingSettings.chunkingSettings.enableSummarize",
+					"root.result.properties.indexingSettings.metadata.model",
+					"root.result.properties.indexingSettings.metadata.paramaters.source",
+					"root.result.properties.indexingSettings.metadata.paramaters.ua:type",
+					"root.result.properties.indexingSettings.metadata.paramaters.items.name",
+					"root.result.properties.indexingSettings.metadata.paramaters.items.description",
+					"root.result.properties.indexingSettings.metadata.paramaters.items.isStandard",
+					"root.result.properties.indexingSettings.metadata.processingMethod",
+					"root.result.properties.responsePostProcessingModel.answerPostProcessingModel",
+					"root.result.properties.responsePostProcessingModel.guardRailModel",
+					"root.result.properties.name",
+					"root.result.properties.responseGenerationSettings.answerGenerationModel",
+					"root.result.properties.responseGenerationSettings.language",
+					"root.result.properties.responseGenerationSettings.tone",
+					"root.result.properties.responseGenerationSettings.style",
+					"root.result.properties.responseGenerationSettings.format",
+					"root.result.properties.responseGenerationSettings.watermarkingConfig.enableWatermarking",
+					"root.result.properties.responseGenerationSettings.watermarkingConfig.watermarkingTechnique",
+					"root.result.properties.responseGenerationSettings.watermarkingConfig.watermarkingText",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.modelId",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topK",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.presencePenalty",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.temperature",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.maxOutputTokens",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topP",
+					"root.result.properties.responseGenerationSettings.answerGenerationModelSettings.settings.frequencyPenalty",
+					"root.result.properties.preProcessingSettings.queryRephrasingModel",
+					"root.result.properties.preProcessingSettings.chunkRetrieval",
+					"root.result.properties.preProcessingSettings.rankingModel",
+					"root.result.properties.preProcessingSettings.disableGuardrail",
+					"root.result.properties.preProcessingSettings.disableRephraser",
+					"root.result.properties.avatarUrl",
+					"root.result.properties.topicExecutionSettings.fetchFromKnowledgeEnabled",
+					"root.result.properties.topicExecutionSettings.fetchFromPrevSessionsEnabled",
+					"root.result.properties.topicExecutionSettings.topicSelectionModel",
+					"root.result.properties.topicExecutionSettings.topicExecutionModel",
+					"root.result.version",
+					"root.result.createdTime",
+					"root.result.modifiedTime",
+					"root.result.ownerUserId",
+					"root.result.lastModifiedBy",
+					"root.result.deleted"
+				]
+			},
+			"context":{
+				"appName":"callables",
+				"resourceVersion":59,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"OayXU@wEa8T-1@n",
+			"id":"yTBQp",
+			"index":14,
+			"inputs":{
+				"result":{
+					"id":"{{ OCPfh.outputs.id }}",
+					"entityType":"{{ OCPfh.outputs.entityType }}",
+					"properties":{
+						"indexingSettings":{
+							"vectorStore":"{{ OCPfh.outputs.properties.indexingSettings.vectorStore }}",
+							"embeddingModel":"{{ OCPfh.outputs.properties.indexingSettings.embeddingModel }}",
+							"strategySettings":{
+								"defaultStrategy":{
+									"contentTypeConfig":{
+										"image":{
+											"textExtractionModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.textExtractionModel }}",
+											"processingMethod":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.image.processingMethod }}"
+										},
+										"tabularData":{
+											"indexingType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.tabularData.indexingType }}"
+										},
+										"text":{
+											"embeddingType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingType }}",
+											"chunkOverlap":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.chunkOverlap }}",
+											"language":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.language }}",
+											"embeddingModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.embeddingModel }}",
+											"maxChunkSize":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.maxChunkSize }}",
+											"thresholdType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.thresholdType }}",
+											"algorithm":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.algorithm }}",
+											"delimiters":{
+												"source":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters }}",
+												"ua:type":"mappedArray",
+												"items":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.text.delimiters[0] }}"
+											}
+										},
+										"audio":{
+											"embeddingType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingType }}",
+											"chunkOverlap":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.chunkOverlap }}",
+											"processingMethod":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.processingMethod }}",
+											"language":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.language }}",
+											"transcriptionModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.transcriptionModel }}",
+											"embeddingModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.embeddingModel }}",
+											"maxChunkSize":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.maxChunkSize }}",
+											"thresholdType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.thresholdType }}",
+											"algorithm":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.algorithm }}",
+											"delimiters":{
+												"source":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters }}",
+												"ua:type":"mappedArray",
+												"items":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.defaultStrategy.contentTypeConfig.audio.delimiters[0] }}"
+											}
+										}
+									},
+									"documentParsingConfig":{
+										"type":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.type }}",
+										"agenticParsingModel":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.agenticParsingModel }}",
+										"appName":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.appName }}",
+										"connectionId":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.connectionId }}",
+										"automationId":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.automationId }}",
+										"version":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.defaultStrategy.documentParsingConfig.version }}"
+									}
+								},
+								"metadataEnrichmentSettings":{
+									"enabled":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.enabled }}",
+									"automations":{
+										"source":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.automations }}",
+										"ua:type":"mappedArray",
+										"items":{
+											"entityId":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.automations[0].entityId }}",
+											"version":"{{ mtswW.outputs.properties.indexingSettings.strategySettings.metadataEnrichmentSettings.automations[0].version }}"
+										}
+									}
+								},
+								"mimeTypeOverride":{
+									"source":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"contentTypeConfig":{
+											"image":{
+												"textExtractionModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.image.textExtractionModel }}",
+												"processingMethod":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.image.processingMethod }}"
+											},
+											"tabularData":{
+												"indexingType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.tabularData.indexingType }}"
+											},
+											"text":{
+												"embeddingType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.embeddingType }}",
+												"chunkOverlap":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.chunkOverlap }}",
+												"delimiters":{
+													"source":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.delimiters }}",
+													"ua:type":"mappedArray",
+													"items":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.delimiters[0] }}"
+												},
+												"language":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.language }}",
+												"embeddingModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.embeddingModel }}",
+												"maxChunkSize":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.maxChunkSize }}",
+												"thresholdType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.thresholdType }}",
+												"algorithm":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.text.algorithm }}"
+											},
+											"audio":{
+												"embeddingType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.embeddingType }}",
+												"chunkOverlap":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.chunkOverlap }}",
+												"delimiters":{
+													"source":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.delimiters }}",
+													"ua:type":"mappedArray",
+													"items":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.delimiters[0] }}"
+												},
+												"processingMethod":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.processingMethod }}",
+												"language":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.language }}",
+												"transcriptionModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.transcriptionModel }}",
+												"embeddingModel":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.embeddingModel }}",
+												"maxChunkSize":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.maxChunkSize }}",
+												"thresholdType":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.thresholdType }}",
+												"algorithm":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].contentTypeConfig.audio.algorithm }}"
+											}
+										},
+										"mimeType":{
+											"source":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].mimeType }}",
+											"ua:type":"mappedArray",
+											"items":"{{ OCPfh.outputs.properties.indexingSettings.strategySettings.mimeTypeOverride[0].mimeType[0] }}"
+										}
+									}
+								}
+							},
+							"chunkingSettings":{
+								"chunkingAlgorithm":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.chunkingAlgorithm }}",
+								"chunkOverlap":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.chunkOverlap }}",
+								"language":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.language }}",
+								"embeddingModel":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.embeddingModel }}",
+								"summarizingModel":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.summarizingModel }}",
+								"maxChunkSize":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.maxChunkSize }}",
+								"thresholdType":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.thresholdType }}",
+								"enableSummarize":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.enableSummarize }}",
+								"delimiters":{
+									"source":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.delimiters }}",
+									"ua:type":"mappedArray",
+									"items":"{{ OCPfh.outputs.properties.indexingSettings.chunkingSettings.delimiters[0] }}"
+								}
+							},
+							"metadata":{
+								"model":"{{ OCPfh.outputs.properties.indexingSettings.metadata.model }}",
+								"processingMethod":"{{ OCPfh.outputs.properties.indexingSettings.metadata.processingMethod }}",
+								"paramaters":{
+									"source":"{{ OCPfh.outputs.properties.indexingSettings.metadata.paramaters }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"name":"{{ OCPfh.outputs.properties.indexingSettings.metadata.paramaters[0].name }}",
+										"description":"{{ OCPfh.outputs.properties.indexingSettings.metadata.paramaters[0].description }}",
+										"isStandard":"{{ OCPfh.outputs.properties.indexingSettings.metadata.paramaters[0].isStandard }}"
+									}
+								},
+								"enrichmentStrategies":{
+									"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"processingMethod":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].processingMethod }}",
+										"model":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].model }}",
+										"automationId":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].automationId }}",
+										"Version":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].version }}",
+										"parameters":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"name":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters[0].name }}",
+												"description":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters[0].description }}",
+												"isStandard":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].parameters[0].isStandard }}"
+											}
+										},
+										"manualEnrichmentParameters":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualEnrichmentParameters }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"key":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualEnrichmentParameters[0].key }}",
+												"value":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualEnrichmentParameters[0].value }}"
+											}
+										},
+										"inputMappings":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].inputMappings }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"key":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].inputMappings[0].key }}",
+												"value":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].inputMappings[0].value }}"
+											}
+										},
+										"outputMappings":{
+											"source":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].outputMappings }}",
+											"ua:type":"mappedArray",
+											"items":{
+												"key":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].outputMappings[0].key }}",
+												"value":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].outputMappings[0].value }}"
+											}
+										},
+										"manualParameters":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].manualParameters }}",
+										"inputMapping":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].automationInput }}",
+										"outputMapping":"{{ mtswW.outputs.properties.indexingSettings.metadata.enrichmentStrategies[0].enrichmentInput }}"
+									}
+								}
+							},
+							"graphRAGSettings":{
+								"graphId":"{{ mtswW.outputs.properties.indexingSettings.graphRAGSettings.graphId }}"
+							},
+							"vectorStoreConnectionId":"{{ OCPfh.outputs.properties.indexingSettings.vectorStoreConnectionId }}"
+						},
+						"responsePostProcessingModel":{
+							"answerPostProcessingModel":"{{ OCPfh.outputs.properties.responsePostProcessingModel.answerPostProcessingModel }}",
+							"guardRailModel":"{{ OCPfh.outputs.properties.responsePostProcessingModel.guardRailModel }}"
+						},
+						"name":"{{ OCPfh.outputs.properties.name }}",
+						"responseGenerationSettings":{
+							"answerGenerationModel":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModel }}",
+							"language":"{{ OCPfh.outputs.properties.responseGenerationSettings.language }}",
+							"tone":"{{ OCPfh.outputs.properties.responseGenerationSettings.tone }}",
+							"style":"{{ OCPfh.outputs.properties.responseGenerationSettings.style }}",
+							"format":"{{ OCPfh.outputs.properties.responseGenerationSettings.format }}",
+							"watermarkingConfig":{
+								"enableWatermarking":"{{ OCPfh.outputs.properties.responseGenerationSettings.watermarkingConfig.enableWatermarking }}",
+								"watermarkingTechnique":"{{ OCPfh.outputs.properties.responseGenerationSettings.watermarkingConfig.watermarkingTechnique }}",
+								"watermarkingText":"{{ OCPfh.outputs.properties.responseGenerationSettings.watermarkingConfig.watermarkingText }}"
+							},
+							"answerGenerationModelSettings":{
+								"modelId":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.modelId }}",
+								"settings":{
+									"topK":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topK }}",
+									"presencePenalty":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.presencePenalty }}",
+									"temperature":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.temperature }}",
+									"maxOutputTokens":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.maxOutputTokens }}",
+									"topP":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.topP }}",
+									"frequencyPenalty":"{{ OCPfh.outputs.properties.responseGenerationSettings.answerGenerationModelSettings.settings.frequencyPenalty }}"
+								}
+							},
+							"languageSettings":{
+								"language":"{{ mtswW.outputs.properties.responseGenerationSettings.languageSettings.language }}",
+								"responseLanguagePreference":"{{ mtswW.outputs.properties.responseGenerationSettings.languageSettings.responseLanguagePreference }}"
+							},
+							"ttsEnabled":"{{ mtswW.outputs.properties.responseGenerationSettings.ttsEnabled }}",
+							"disableThought":"{{ mtswW.outputs.properties.responseGenerationSettings.disableThought }}",
+							"sqlSettings":{
+								"sqlModel":"{{ mtswW.outputs.properties.responseGenerationSettings.sqlSettings.sqlModel }}"
+							},
+							"chartGenerationSettings":{
+								"chartGenerationModel":"{{ mtswW.outputs.properties.responseGenerationSettings.chartGenerationSettings.chartGenerationModel }}",
+								"generateChartWithBlocks_NewVersion":"{{ mtswW.outputs.properties.responseGenerationSettings.chartGenerationSettings.generateChartWithBlocks_NewVersion }}"
+							},
+							"graphRAGSettings":{
+								"limitPageRankNodes":"{{ mtswW.outputs.properties.responseGenerationSettings.graphRAGSettings.limitPageRankNodes }}",
+								"limitSeedNodes":"{{ mtswW.outputs.properties.responseGenerationSettings.graphRAGSettings.limitSeedNodes }}",
+								"limitChunks":"{{ mtswW.outputs.properties.responseGenerationSettings.graphRAGSettings.limitChunks }}"
+							},
+							"disableVoiceThought":"{{ mtswW.outputs.properties.responseGenerationSettings.disableVoiceThought }}",
+							"streamingEnabled":"{{ mtswW.outputs.properties.responseGenerationSettings.streamingEnabled }}",
+							"skipSourceRBAC":"{{ mtswW.outputs.properties.responseGenerationSettings.skipSourceRBAC }}",
+							"disableInlineCitations":"{{ mtswW.outputs.properties.responseGenerationSettings.disableInlineCitations }}",
+							"disableCitationReferenceUrl":"{{ mtswW.outputs.properties.responseGenerationSettings.disableCitationReferenceUrl }}"
+						},
+						"preProcessingSettings":{
+							"queryRephrasingModel":"{{ OCPfh.outputs.properties.preProcessingSettings.queryRephrasingModel }}",
+							"chunkRetrieval":"{{ OCPfh.outputs.properties.preProcessingSettings.chunkRetrieval }}",
+							"rankingModel":"{{ OCPfh.outputs.properties.preProcessingSettings.rankingModel }}",
+							"disableGuardrail":"{{ OCPfh.outputs.properties.preProcessingSettings.disableGuardrail }}",
+							"disableRephraser":"{{ OCPfh.outputs.properties.preProcessingSettings.disableRephraser }}",
+							"disableHyDE":"{{ mtswW.outputs.properties.preProcessingSettings.disableHyDE }}",
+							"rerankingSettings":{
+								"disableReranking":"{{ mtswW.outputs.properties.preProcessingSettings.reRankingSettings.disableReRanking }}",
+								"numberOfChunksAfterReranking":"{{ mtswW.outputs.properties.preProcessingSettings.reRankingSettings.numberOfChunkAfterReRanking }}"
+							},
+							"maxRowLimitForSQL":"{{ mtswW.outputs.properties.preProcessingSettings.maxRowLimitForSQL }}",
+							"userInputProcessingSettings":{
+								"userInputPreProcessor":"{{ mtswW.outputs.properties.preProcessingSettings.userInputProcessingSettings.userInputPreProcessor }}",
+								"storeUserQueryEmbedding":"{{ mtswW.outputs.properties.preProcessingSettings.userInputProcessingSettings.storeUserQueryEmbedding }}"
+							},
+							"enableKnowledgeTagsFiltering":"{{ mtswW.outputs.properties.preProcessingSettings.enableKnowledgeTagsFiltering }}",
+							"disableConvertToImages":"{{ OCPfh.outputs.properties.preProcessingSettings.disableConvertToImages }}"
+						},
+						"avatarUrl":"{{ OCPfh.outputs.properties.avatarUrl }}",
+						"topicExecutionSettings":{
+							"fetchFromKnowledgeEnabled":"{{ OCPfh.outputs.properties.topicExecutionSettings.fetchFromKnowledgeEnabled }}",
+							"fetchFromPrevSessionsEnabled":"{{ OCPfh.outputs.properties.topicExecutionSettings.fetchFromPrevSessionsEnabled }}",
+							"topicSelectionModel":"{{ OCPfh.outputs.properties.topicExecutionSettings.topicSelectionModel }}",
+							"topicExecutionModel":"{{ OCPfh.outputs.properties.topicExecutionSettings.topicExecutionModel }}",
+							"thinkToolDisabled":"{{ mtswW.outputs.properties.topicExecutionSettings.thinkToolDisabled }}",
+							"topicAsTool":"{{ mtswW.outputs.properties.topicExecutionSettings.topicAsTool }}"
+						},
+						"conversationPlaceholder":"{{ mtswW.outputs.properties.conversationPlaceholder }}",
+						"defaultTools":{
+							"websearch":"{{ mtswW.outputs.properties.defaultTools.webSearch }}",
+							"analyseFile":"{{ mtswW.outputs.properties.defaultTools.analyseFile }}",
+							"createPDF":"{{ mtswW.outputs.properties.defaultTools.createPDF }}",
+							"createPPTX":"{{ mtswW.outputs.properties.defaultTools.createPPTX }}",
+							"generateChartTool":"{{ mtswW.outputs.properties.defaultTools.generateChartTool }}",
+							"createExcel":"{{ mtswW.outputs.properties.defaultTools.createExcel }}",
+							"documentVision":"{{ mtswW.outputs.properties.defaultTools.documentVision }}",
+							"ingestKnowledge":"{{ mtswW.outputs.properties.defaultTools.ingestKnowledge }}",
+							"clarifyFromUser":"{{ mtswW.outputs.properties.defaultTools.clarifyFromUser }}"
+						},
+						"chatSummaryModel":"{{ mtswW.outputs.properties.chatSummaryModel }}",
+						"instructions":"{{ mtswW.outputs.properties.instructions }}",
+						"teamManagerSettings":{
+							"agentsAsTools":"{{ OCPfh.outputs.properties.teamManagerSettings.agentsAsTools }}"
+						},
+						"deepResearchSettings":{
+							"WebSearchSummariserModel":"{{ mtswW.outputs.properties.deepResearchSettings.WebSearchSummariserModel }}",
+							"ExecutionModel":"{{ mtswW.outputs.properties.deepResearchSettings.ExecutionModel }}",
+							"searchEngineToUse":"{{ mtswW.outputs.properties.deepResearchSettings.searchEngineToUse }}",
+							"WebScrappingEngine":"{{ mtswW.outputs.properties.deepResearchSettings.WebScrappingEngine }}",
+							"useProviderDeepResearch":"{{ mtswW.outputs.properties.deepResearchSettings.useProviderDeepResearch }}"
+						},
+						"websearchSettings":{
+							"useProviderWebSearch":"{{ mtswW.outputs.properties.websearchSettings.useProviderWebSearch }}"
+						},
+						"teamType":"{{ mtswW.outputs.properties.teamType }}",
+						"conversationStarters":{
+							"source":"{{ OCPfh.outputs.properties.conversationStarters }}",
+							"ua:type":"mappedArray",
+							"items":"{{ OCPfh.outputs.properties.conversationStarters[0] }}"
+						},
+						"multiAgentConfig":{
+							"associatedAgentIds":{
+								"source":"{{ OCPfh.outputs.properties.associatedAgentIds }}",
+								"ua:type":"mappedArray",
+								"items":"{{ OCPfh.outputs.properties.associatedAgentIds[0] }}"
+							}
+						}
+					},
+					"version":"{{ OCPfh.outputs.version }}",
+					"createdTime":"{{ OCPfh.outputs.createdTime }}",
+					"modifiedTime":"{{ OCPfh.outputs.modifiedTime }}",
+					"ownerUserId":"{{ OCPfh.outputs.ownerUserId }}",
+					"lastModifiedBy":"{{ OCPfh.outputs.lastModifiedBy }}",
+					"deleted":"{{ OCPfh.outputs.deleted }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":1866,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":false,
+		"enableRunLogging":true,
+		"enableVariableLogging":false,
+		"route":{
+			"default":false,
+			"headerValueTierMap":{},
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"version":143
+}
