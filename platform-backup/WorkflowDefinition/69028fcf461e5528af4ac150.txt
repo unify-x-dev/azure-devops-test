@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761775608721,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761775609600,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69028ff9077ede55633276e6",
+		"status":"DEPLOYED",
+		"version":2,
+		"workflowVersion":2
+	},
 	"edges":[
 		{
 			"fromNodeId":"7pKsG",
@@ -16,7 +24,7 @@
 	"id":"69028fcf461e5528af4ac150",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2ticitvtosaob",
-	"modifiedTime":1761775608721,
+	"modifiedTime":1761775609733,
 	"name":"changeSetQA2TICItVTOSaob",
 	"nodes":[
 		{
@@ -87,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"= MIN({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -113,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":3
 }
