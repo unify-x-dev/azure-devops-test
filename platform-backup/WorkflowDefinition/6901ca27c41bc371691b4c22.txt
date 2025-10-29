@@ -1,5 +1,7 @@
 {
 	"appsUsed":[
+		"66796bb4071bfc39db918136",
+		"slack",
 		"storage_by_unifyapps"
 	],
 	"createdTime":1761724967714,
@@ -31,6 +33,69 @@
 			"fromNodeId":"n_2Whyk",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_S671S",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_S671S",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_C4CYB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_C4CYB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jqeIq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jqeIq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dZsnv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dZsnv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dUqY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dUqY6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ACnXR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ACnXR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_rBRML",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rBRML",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2Q0Tk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2Q0Tk",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OSLmc",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OSLmc",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_FiulW",
 			"type":"next"
 		}
@@ -38,7 +103,7 @@
 	"id":"6901ca27c41bc371691b4c22",
 	"lastModifiedBy":122909,
 	"lcName":"workflow1",
-	"modifiedTime":1761729447547,
+	"modifiedTime":1761729644584,
 	"name":"Workflow1",
 	"nodes":[
 		{
@@ -107,7 +172,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_2Whyk",
@@ -131,6 +196,258 @@
 		},
 		{
 			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":1674,
+				"resourceName":"streams_by_unifyapps_publish_event",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_S671S",
+			"index":4,
+			"inputs":{
+				"streamId":"e_687f3487c30a93f7d8417e99",
+				"skipInputValidation":false,
+				"event":{
+					"dateValue":"ws",
+					"stringValue":"wqs",
+					"dateTimeValue":"wd",
+					"singleSelectDropdown":"wedqw",
+					"integerValue":11,
+					"booleanValue":true,
+					"numberValue":1.1
+				}
+			},
+			"skip":false,
+			"subTitle":"Streams by UnifyApps",
+			"title":"Publish event to stream",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6345,
+				"connectionId":"68f81bf3a46a456d73b2cb46",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_C4CYB",
+			"index":5,
+			"inputs":{
+				"link_names":true,
+				"mrkdwn":true
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Post message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"decision_table_by_unifyapps",
+				"resourceVersion":885,
+				"resourceName":"decision_table_by_unifyapps_add_row",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_jqeIq",
+			"index":6,
+			"inputs":{
+				"entityId":"e_689b71e217baaa435004d2ba"
+			},
+			"skip":false,
+			"subTitle":"Decision Table by UnifyApps",
+			"title":"Add Row",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"66796bb4071bfc39db918136",
+				"resourceVersion":4721,
+				"resourceName":"66796bb4071bfc39db918136:66796dcc071bfc39db91813a",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_dZsnv",
+			"index":7,
+			"skip":false,
+			"subTitle":"Test Connector",
+			"title":"test",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1061,
+				"resourceName":"callables_call_interface",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_dUqY6",
+			"index":8,
+			"inputs":{
+				"callableInterfaceId":"675ebde6ff5f7c09416c6231",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"DEFAULT",
+				"fallbackWorkflowId":"675ebdf3b2023f4de2d40601"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call interface",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"template_by_unifyapps",
+				"resourceVersion":949,
+				"resourceName":"template_by_unifyapps_compile_template",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_ACnXR",
+			"index":9,
+			"inputs":{
+				"template_id":"e_6791ddb2c08e4143355dc4e0"
+			},
+			"skip":false,
+			"subTitle":"Template by UnifyApps",
+			"title":"Compile template",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1078,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_rBRML",
+			"index":10,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"erf":{
+							"type":"string",
+							"title":"Erf"
+						}
+					},
+					"required":[
+						"erf"
+					]
+				}
+			},
+			"inputs":{
+				"erf":"{{ __ENV__.outputs.alert_channel }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"erf":{
+							"type":"string",
+							"title":"Erf"
+						}
+					},
+					"required":[
+						"erf"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":922,
+				"resourceName":"callables_call_automation_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_2Q0Tk",
+			"index":11,
+			"inputs":{
+				"automationId":"68fc9ee9f968ee435c61d3e0",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"distributeWorkflowLoad":false,
+				"parametersList":{
+					"items":{
+						"a":"we"
+					},
+					"ua:type":"mappedArray"
+				},
+				"version":"1"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_6GPcC-1",
+			"id":"n_OSLmc",
+			"index":12,
+			"inputs":{
+				"automationId":"68fc9fd60b160667834cfdf3",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"a":"tgh"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1104,
 				"resourceName":"callables_return_to_automation",
@@ -141,7 +458,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_FiulW",
-			"index":4,
+			"index":13,
 			"inputs":{
 				"result":{
 					"result":"{{ n_T9qrN.outputs.encryptedData }}"
@@ -170,5 +487,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
