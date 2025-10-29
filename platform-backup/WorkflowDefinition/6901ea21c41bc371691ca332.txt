@@ -5,12 +5,12 @@
 	"createdTime":1761733153473,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761733167660,
+		"deployedAt":1761733211736,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901ea2fc41bc371691ca4a7",
+		"deployedDefinitionId":"6901ea5bdad3c27b954e2f8f",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -24,6 +24,13 @@
 			"fromNodeId":"n_WRxtb",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_2Jnuq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2Jnuq",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_k4tpa",
 			"type":"next"
 		}
@@ -31,7 +38,7 @@
 	"id":"6901ea21c41bc371691ca332",
 	"lastModifiedBy":132116,
 	"lcName":"main_testing_dependancy",
-	"modifiedTime":1761733208455,
+	"modifiedTime":1761733264282,
 	"name":"main_testing_dependancy",
 	"nodes":[
 		{
@@ -67,7 +74,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mG0zv-1",
 			"id":"n_WRxtb",
@@ -92,11 +99,36 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mG0zv-1",
+			"id":"n_2Jnuq",
+			"index":3,
+			"inputs":{
+				"automationId":"6901bf41dc12803a78e8de7e",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mG0zv-1",
 			"id":"n_k4tpa",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"automationId":"6901c6280a7959277f1f8ade",
 				"runtimeConnections":{},
@@ -127,5 +159,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
