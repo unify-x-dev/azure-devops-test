@@ -5,12 +5,12 @@
 	"createdTime":1722576997741,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1760601589555,
-		"deployedBy":33452,
-		"deployedDefinitionId":"68f0a5f5a7bd312b501179eb",
+		"deployedAt":1761589517432,
+		"deployedBy":670,
+		"deployedDefinitionId":"68ffb90da309a82f9f706e02",
 		"status":"DEPLOYED",
-		"version":169,
-		"workflowVersion":1019
+		"version":170,
+		"workflowVersion":1020
 	},
 	"description":"All LLM calls related to ai agent goes through this automation",
 	"edges":[
@@ -37,13 +37,6 @@
 		},
 		{
 			"fromNodeId":"LSMxh",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Q5pp9",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Q5pp9",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"GQFTz",
@@ -90,13 +83,6 @@
 			"fromNodeId":"_AdLmL",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Vd9b6",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Vd9b6",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_VqlW2",
 			"type":"next"
 		},
@@ -110,27 +96,6 @@
 		},
 		{
 			"fromNodeId":"n_fE8bT",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_L0MI2",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_L0MI2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_jT3IU",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_jT3IU",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_UMoiD",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_UMoiD",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"lBUmq",
@@ -449,127 +414,6 @@
 		"configs":[
 			{
 				"permissions":[
-					"EXPORT_AS_TEMPLATE",
-					"A",
-					"C",
-					"S",
-					"VI",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"VS",
-					"DEP"
-				],
-				"principalIds":[
-					"295"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"A",
-					"EXPORT_AS_TEMPLATE",
-					"C",
-					"S",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"DEP"
-				],
-				"principalIds":[
-					"17"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"VIEW_RUNS",
-					"V"
-				],
-				"principalIds":[
-					"45771"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"A",
-					"EXPORT_AS_TEMPLATE",
-					"C",
-					"S",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"DEP"
-				],
-				"principalIds":[
-					"76704"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"A",
-					"EXPORT_AS_TEMPLATE",
-					"C",
-					"S",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"DEP"
-				],
-				"principalIds":[
-					"311"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"A",
-					"EXPORT_AS_TEMPLATE",
-					"C",
-					"S",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"DEP"
-				],
-				"principalIds":[
-					"32120"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"A",
-					"EXPORT_AS_TEMPLATE",
-					"C",
-					"S",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"DEP"
-				],
-				"principalIds":[
-					"44109"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"VIEW_RUNS",
 					"V"
 				],
 				"principalType":"GLOBAL"
@@ -577,9 +421,9 @@
 		]
 	},
 	"id":"66ac70650f725f5b425d12d8",
-	"lastModifiedBy":670,
+	"lastModifiedBy":0,
 	"lcName":"call llm (ai agent)",
-	"modifiedTime":1761589515282,
+	"modifiedTime":1761722669849,
 	"name":"Call LLM (AI Agent)",
 	"nodes":[
 		{
@@ -664,9 +508,7 @@
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[
-						"systemPrompt"
-					],
+					"required":[],
 					"properties":{
 						"aiAgentId":{
 							"type":"string",
@@ -1227,7 +1069,8 @@
 			},
 			"inputs":{
 				"createList":{
-					"ua:type":"mappedArray"
+					"ua:type":"mappedArray",
+					"items":{}
 				},
 				"ua:title":"Tools",
 				"ua:list_type":"OBJECT"
@@ -1271,314 +1114,6 @@
 		{
 			"context":{
 				"appName":"variable_by_unifyapps",
-				"resourceVersion":147,
-				"resourceName":"variable_by_unifyapps_create_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"2b3FF-1",
-			"id":"n_Q5pp9",
-			"index":5,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{
-					"createList":{
-						"ui:title":"",
-						"ua:type":{
-							"ui:widget":"hidden"
-						},
-						"items":{
-							"ui:title":"Initial list items",
-							"ui:description":"Set the initial values of the list (defaults to empty)"
-						},
-						"ui:order":[
-							"*",
-							"items"
-						]
-					},
-					"ua:title":{
-						"ui:widget":"hidden"
-					},
-					"ua:list_type":{
-						"ui:widget":"hidden"
-					}
-				},
-				"schema":{
-					"allOf":[
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"OBJECT"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"items":{
-												"type":"object",
-												"properties":{}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"STRING"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of String"
-											},
-											"items":{
-												"type":"string"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"INTEGER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Integers"
-											},
-											"items":{
-												"type":"integer"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"NUMBER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Numbers"
-											},
-											"items":{
-												"type":"number"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"BOOLEAN"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Booleans"
-											},
-											"items":{
-												"type":"boolean"
-											}
-										}
-									}
-								}
-							}
-						}
-					],
-					"format":"ua:list",
-					"type":"object",
-					"properties":{
-						"ua:title":{
-							"type":"string"
-						},
-						"ua:list_type":{
-							"type":"string",
-							"title":"List Type",
-							"oneOf":[
-								{
-									"const":"OBJECT",
-									"title":"Object"
-								},
-								{
-									"const":"STRING",
-									"title":"String"
-								},
-								{
-									"const":"NUMBER",
-									"title":"Number"
-								},
-								{
-									"const":"INTEGER",
-									"title":"Integer"
-								},
-								{
-									"const":"BOOLEAN",
-									"title":"Boolean"
-								}
-							],
-							"default":"OBJECT"
-						},
-						"createList":{
-							"type":"object",
-							"properties":{
-								"ua:type":{
-									"type":"string",
-									"default":"mappedArray"
-								},
-								"source":{
-									"type":"string",
-									"format":"ua:source",
-									"title":"List Item Source"
-								},
-								"items":{
-									"type":"object",
-									"properties":{
-										"type":{
-											"type":"string",
-											"title":"type"
-										},
-										"function":{
-											"type":"object",
-											"properties":{
-												"name":{
-													"type":"string",
-													"title":"name"
-												},
-												"description":{
-													"type":"string",
-													"title":"description"
-												},
-												"parameters":{
-													"type":"object",
-													"title":"parameters"
-												}
-											},
-											"title":"function",
-											"additionalProperties":false
-										}
-									},
-									"additionalProperties":false
-								}
-							}
-						}
-					}
-				}
-			},
-			"inputs":{
-				"createList":{
-					"ua:type":"mappedArray",
-					"source":"{{ tFPm9.outputs.result.tools }}",
-					"items":{
-						"type":"{{ tFPm9.outputs.result.tools[0].type }}",
-						"function":{
-							"name":"{{ tFPm9.outputs.result.tools[0].function.name }}",
-							"description":"{{ tFPm9.outputs.result.tools[0].function.description }}",
-							"parameters":"{{ tFPm9.outputs.result.tools[0].function.parameters }}"
-						}
-					}
-				},
-				"ua:title":"inputTools",
-				"ua:list_type":"OBJECT"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"type":"object",
-					"properties":{
-						"items":{
-							"type":"array",
-							"title":"inputTools",
-							"disableActions":true,
-							"items":{
-								"type":"object",
-								"properties":{
-									"type":{
-										"type":"string",
-										"title":"type"
-									},
-									"function":{
-										"type":"object",
-										"properties":{
-											"name":{
-												"type":"string",
-												"title":"name"
-											},
-											"description":{
-												"type":"string",
-												"title":"description"
-											},
-											"parameters":{
-												"type":"object",
-												"title":"parameters"
-											}
-										},
-										"title":"function",
-										"additionalProperties":false
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"inputTools",
-			"title":"Create list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
 				"resourceVersion":120,
 				"resourceName":"variable_by_unifyapps_create_variables",
 				"type":"APPLICATION"
@@ -1588,7 +1123,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"GQFTz",
-			"index":6,
+			"index":5,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -1712,7 +1247,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"_kcItP",
-			"index":7,
+			"index":6,
 			"inputs":{
 				"filters":[
 					{
@@ -1725,7 +1260,7 @@
 				"operator":"AND"
 			},
 			"skip":false,
-			"subTitle":"modelId?",
+			"subTitle":"Condition",
 			"title":"Condition",
 			"type":"IF_ELSE"
 		},
@@ -1741,7 +1276,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_kcItP@2b3FF-1@y",
 			"id":"_UxY0i",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"variables":[
 					{
@@ -1751,7 +1286,7 @@
 				]
 			},
 			"skip":false,
-			"subTitle":"modelId",
+			"subTitle":"Variable by UnifyApps",
 			"title":"Update variables",
 			"type":"ACTION"
 		},
@@ -1767,7 +1302,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"n_rQhLl",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"automationId":"6854195c4a0205327f0f4712",
 				"runtimeConnections":{},
@@ -1816,7 +1351,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"_AdLmL",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2053,255 +1588,6 @@
 		},
 		{
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":147,
-				"resourceName":"variable_by_unifyapps_create_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"2b3FF-1",
-			"id":"n_Vd9b6",
-			"index":11,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{
-					"createList":{
-						"ui:title":"",
-						"ua:type":{
-							"ui:widget":"hidden"
-						},
-						"items":{
-							"ui:title":"Initial list items",
-							"ui:description":"Set the initial values of the list (defaults to empty)"
-						},
-						"ui:order":[
-							"*",
-							"items"
-						]
-					},
-					"ua:title":{
-						"ui:widget":"hidden"
-					},
-					"ua:list_type":{
-						"ui:widget":"hidden"
-					}
-				},
-				"schema":{
-					"allOf":[
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"OBJECT"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"items":{
-												"type":"object",
-												"properties":{}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"STRING"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of String"
-											},
-											"items":{
-												"type":"string"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"INTEGER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Integers"
-											},
-											"items":{
-												"type":"integer"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"NUMBER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Numbers"
-											},
-											"items":{
-												"type":"number"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"BOOLEAN"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Booleans"
-											},
-											"items":{
-												"type":"boolean"
-											}
-										}
-									}
-								}
-							}
-						}
-					],
-					"format":"ua:list",
-					"type":"object",
-					"properties":{
-						"ua:title":{
-							"type":"string"
-						},
-						"ua:list_type":{
-							"type":"string",
-							"title":"List Type",
-							"oneOf":[
-								{
-									"const":"OBJECT",
-									"title":"Object"
-								},
-								{
-									"const":"STRING",
-									"title":"String"
-								},
-								{
-									"const":"NUMBER",
-									"title":"Number"
-								},
-								{
-									"const":"INTEGER",
-									"title":"Integer"
-								},
-								{
-									"const":"BOOLEAN",
-									"title":"Boolean"
-								}
-							],
-							"default":"OBJECT"
-						},
-						"createList":{
-							"type":"object",
-							"properties":{
-								"ua:type":{
-									"type":"string",
-									"default":"mappedArray"
-								},
-								"source":{
-									"type":"string",
-									"format":"ua:source",
-									"title":"List Item Source"
-								},
-								"items":{
-									"type":"object"
-								}
-							}
-						}
-					}
-				}
-			},
-			"inputs":{
-				"createList":{
-					"ua:type":"mappedArray"
-				},
-				"ua:title":"plugins",
-				"ua:list_type":"OBJECT"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"type":"object",
-					"properties":{
-						"items":{
-							"type":"array",
-							"title":"plugins",
-							"disableActions":true,
-							"items":{
-								"type":"object",
-								"properties":{}
-							}
-						}
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"plugins",
-			"title":"Create list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"if_else",
 				"resourceVersion":442,
 				"resourceName":"if_else_condition",
@@ -2312,7 +1598,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"n_VqlW2",
-			"index":12,
+			"index":10,
 			"inputs":{
 				"filters":[
 					{
@@ -2331,11 +1617,6 @@
 			"type":"IF_ELSE"
 		},
 		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.parameters.tools.items"
-				]
-			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":0,
@@ -2347,12 +1628,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_VqlW2@2b3FF-1@y",
 			"id":"n_fE8bT",
-			"index":13,
+			"index":11,
 			"inputs":{
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
 					"properties":{
 						"plugins":{
 							"type":"array",
@@ -2360,50 +1640,12 @@
 								"type":"object"
 							},
 							"title":"plugins"
-						},
-						"tools":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"type":{
-										"type":"string",
-										"title":"type"
-									},
-									"function":{
-										"type":"object",
-										"properties":{
-											"name":{
-												"type":"string",
-												"title":"name"
-											},
-											"description":{
-												"type":"string",
-												"title":"description"
-											},
-											"parameters":{
-												"type":"object",
-												"properties":{},
-												"additionalProperties":false,
-												"title":"parameters"
-											}
-										},
-										"additionalProperties":false,
-										"title":"function",
-										"required":[]
-									}
-								},
-								"additionalProperties":false,
-								"required":[]
-							},
-							"title":"tools"
 						}
 					}
 				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
 					"properties":{
 						"provider":{
 							"type":"string",
@@ -2412,15 +1654,6 @@
 						"baseUrl":{
 							"type":"string",
 							"title":"baseUrl"
-						},
-						"tools":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{},
-								"additionalProperties":false
-							},
-							"title":"tools"
 						}
 					}
 				},
@@ -2429,107 +1662,12 @@
 				"captureStdOutput":false,
 				"parameters":{
 					"provider":"{{ n_rQhLl.outputs.properties.provider }}",
-					"baseUrl":"{{ n_rQhLl.outputs.properties.customHttpEndpoint.baseUrl }}",
-					"tools":{
-						"ua:type":"mappedArray",
-						"source":"{{ n_Q5pp9.outputs.items }}",
-						"items":"{{ n_Q5pp9.outputs.items[0] }}"
-					}
+					"baseUrl":"{{ n_rQhLl.outputs.properties.customHttpEndpoint.baseUrl }}"
 				}
 			},
 			"skip":false,
 			"subTitle":"plugins",
 			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":146,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_VqlW2@2b3FF-1@y",
-			"id":"n_L0MI2",
-			"index":14,
-			"inputs":{
-				"insertLocation":"END",
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"source":"{{ n_fE8bT.outputs.result.plugins }}",
-					"items":"{{ n_fE8bT.outputs.result.plugins[0] }}"
-				},
-				"listName":"{{ n_Vd9b6.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"plugins",
-			"title":"Add items to list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":146,
-				"resourceName":"variable_by_unifyapps_clear_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_VqlW2@2b3FF-1@y",
-			"id":"n_jT3IU",
-			"index":15,
-			"inputs":{
-				"listName":"{{ n_Q5pp9.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"inputTools",
-			"title":"Remove all items from list",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.itemsToAdd.items.type",
-					"root.itemsToAdd.items.function.name",
-					"root.itemsToAdd.items.function.description",
-					"root.itemsToAdd.items.function.parameters"
-				]
-			},
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":146,
-				"resourceName":"variable_by_unifyapps_add_items_to_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_VqlW2@2b3FF-1@y",
-			"id":"n_UMoiD",
-			"index":16,
-			"inputs":{
-				"insertLocation":"END",
-				"itemsToAdd":{
-					"ua:type":"mappedArray",
-					"source":"{{ n_fE8bT.outputs.result.tools }}",
-					"items":{
-						"type":"{{ n_fE8bT.outputs.result.tools[0].type }}",
-						"function":{
-							"name":"{{ n_fE8bT.outputs.result.tools[0].function.name }}",
-							"description":"{{ n_fE8bT.outputs.result.tools[0].function.description }}",
-							"parameters":"{{ n_fE8bT.outputs.result.tools[0].function.parameters }}"
-						}
-					}
-				},
-				"listName":"{{ n_Q5pp9.outputs.items[0] }}"
-			},
-			"skip":false,
-			"subTitle":"inputTools",
-			"title":"Add items to list",
 			"type":"ACTION"
 		},
 		{
@@ -2544,7 +1682,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"lBUmq",
-			"index":17,
+			"index":12,
 			"inputs":{
 				"filters":[
 					{
@@ -2573,7 +1711,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"lBUmq@2b3FF-1@y",
 			"id":"nohe2",
-			"index":18,
+			"index":13,
 			"inputs":{
 				"variables":[
 					{
@@ -2597,7 +1735,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"_NVWeC",
-			"index":19,
+			"index":14,
 			"inputs":{
 				"branches":[
 					{
@@ -2694,7 +1832,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@1",
 			"id":"_NVWeC@1",
-			"index":20,
+			"index":15,
 			"inputs":{
 				"name":"anthropic",
 				"conditions":{
@@ -2755,7 +1893,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@1",
 			"id":"_QyrqK",
-			"index":21,
+			"index":16,
 			"inputs":{
 				"callableInterfaceId":"__ua__call_llm_model_interface",
 				"runtimeConnections":{
@@ -2782,6 +1920,7 @@
 					"thoughtMethod":"{{ EE8de.outputs.thoughtMethod }}",
 					"isToolCallEnabled":"{{ EE8de.outputs.isToolCallEnabled }}",
 					"isMultipleToolCallEnabled":"{{ EE8de.outputs.isMultipleToolCallEnabled }}",
+					"promptCaching":"{{ n_rQhLl.outputs.properties.settings.promptCaching }}",
 					"messages":{
 						"source":"{{ EE8de.outputs.message }}",
 						"ua:type":"mappedArray",
@@ -2832,7 +1971,7 @@
 			"fallbackMode":"CONTINUE",
 			"groupId":"_NVWeC@2b3FF-1@1",
 			"id":"b4zCi",
-			"index":22,
+			"index":17,
 			"inputs":{
 				"automationId":"680bb38e89c13d6ab6b7babe",
 				"runtimeConnections":{},
@@ -2900,7 +2039,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@1",
 			"id":"_MOfK3",
-			"index":23,
+			"index":18,
 			"inputs":{
 				"variables":[
 					{
@@ -2960,7 +2099,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@1",
 			"id":"kASo0",
-			"index":24,
+			"index":19,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -2990,7 +2129,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@3",
 			"id":"_NVWeC@3",
-			"index":25,
+			"index":20,
 			"inputs":{
 				"name":"bedrock",
 				"conditions":{
@@ -3051,7 +2190,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@3",
 			"id":"2lchf",
-			"index":26,
+			"index":21,
 			"inputs":{
 				"automationId":"67b5fae75142a26fcdaba936",
 				"runtimeConnections":{},
@@ -3112,12 +2251,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@3",
 			"id":"_wBEir",
-			"index":27,
+			"index":22,
 			"inputs":{
 				"callableInterfaceId":"__ua__call_llm_model_interface",
 				"runtimeConnections":{
-					"anthropic":"{{ _dOGIN.outputs.properties.connectionId }}",
-					"amazon_bedrock":"{{ n_rQhLl.outputs.properties.connectionId }}"
+					"amazon_bedrock":"{{ n_rQhLl.outputs.properties.connectionId }}",
+					"anthropic":"{{ _dOGIN.outputs.properties.connectionId }}"
 				},
 				"synchronous":true,
 				"triggerWorkflowWithRuntimeType":"DEFAULT",
@@ -3141,6 +2280,7 @@
 					"thoughtMethod":"{{ EE8de.outputs.thoughtMethod }}",
 					"isToolCallEnabled":"{{ EE8de.outputs.isToolCallEnabled }}",
 					"isMultipleToolCallEnabled":"{{ EE8de.outputs.isMultipleToolCallEnabled }}",
+					"promptCaching":"{{ n_rQhLl.outputs.properties.settings.promptCaching }}",
 					"messages":{
 						"ua:type":"mappedArray",
 						"items":{
@@ -3198,7 +2338,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NVWeC@2b3FF-1@3",
 			"id":"hcX8G",
-			"index":28,
+			"index":23,
 			"inputs":{
 				"filters":[
 					{
@@ -3247,10 +2387,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@y",
 			"id":"cJQ5u",
-			"index":29,
+			"index":24,
 			"inputs":{
 				"output":{
 					"type":"object",
+					"additionalProperties":false,
 					"properties":{
 						"updatedMessage":{
 							"type":"array",
@@ -3292,9 +2433,34 @@
 												"tool_use_id":{
 													"type":"string",
 													"title":"tool_use_id"
+												},
+												"source":{
+													"type":"object",
+													"properties":{
+														"image_data":{
+															"type":"string",
+															"title":"image_data"
+														},
+														"image_type":{
+															"type":"string",
+															"title":"image_type"
+														},
+														"media_type":{
+															"type":"string",
+															"title":"media_type"
+														},
+														"detail":{
+															"type":"string",
+															"title":"detail"
+														}
+													},
+													"additionalProperties":false,
+													"title":"source",
+													"required":[]
 												}
 											},
-											"additionalProperties":false
+											"additionalProperties":false,
+											"required":[]
 										},
 										"title":"content"
 									},
@@ -3307,11 +2473,12 @@
 							},
 							"title":"updatedMessage"
 						}
-					},
-					"additionalProperties":false
+					}
 				},
 				"input":{
 					"type":"object",
+					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"message":{
 							"type":"array",
@@ -3322,12 +2489,11 @@
 							},
 							"title":"Message"
 						}
-					},
-					"additionalProperties":false,
-					"required":[]
+					}
 				},
-				"compile_static":false,
 				"code":"if (!binding.hasVariable('message')){\n  return [:]\n}\nmessage.add(\n  [\n    'role':'user',\n    'content': [\n      ['type':'text','text':'Thought:']\n    ]\n  ]\n)\nreturn ['updatedMessage':message]",
+				"compile_static":false,
+				"captureStdOutput":false,
 				"parameters":{
 					"message":{
 						"source":"{{ EE8de.outputs.message }}",
@@ -3375,20 +2541,32 @@
 			"fallbackMode":"STOP",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@y",
 			"id":"8znN4",
-			"index":30,
+			"index":25,
 			"inputs":{
 				"callableInterfaceId":"__ua__call_llm_model_interface",
 				"runtimeConnections":{
-					"anthropic":"{{ _dOGIN.outputs.properties.connectionId }}",
-					"amazon_bedrock":"{{ n_rQhLl.outputs.properties.connectionId }}"
+					"amazon_bedrock":"{{ n_rQhLl.outputs.properties.connectionId }}",
+					"anthropic":"{{ _dOGIN.outputs.properties.connectionId }}"
 				},
 				"synchronous":true,
 				"triggerWorkflowWithRuntimeType":"DEFAULT",
 				"fallbackWorkflowId":"6731e3bc4176134b6eb34953",
 				"parameters":{
+					"top_p":"{{ _AdLmL.outputs.result.topP }}",
 					"response_format":{
 						"type":"{{ EE8de.outputs.responseFormat.type }}"
 					},
+					"frequency_penalty":"{{ _AdLmL.outputs.result.frequencyPenalty }}",
+					"max_tokens":"{{ _AdLmL.outputs.result.maxOutputTokens }}",
+					"presence_penalty":"{{ _AdLmL.outputs.result.presencePenalty }}",
+					"temperature":"{{ _AdLmL.outputs.result.temperature }}",
+					"model":"{{ n_rQhLl.outputs.properties.model }}",
+					"logprobs":"{{ EE8de.outputs.logProbs }}",
+					"top_k":"{{ _AdLmL.outputs.result.topK }}",
+					"systemPrompt":"{{ EE8de.outputs.systemPrompt }}",
+					"sessionId":"{{ EE8de.outputs.caseId }}",
+					"aiAgentId":"{{ EE8de.outputs.aiAgentId }}",
+					"promptCaching":"{{ n_rQhLl.outputs.properties.settings.promptCaching }}",
 					"messages":{
 						"ua:type":"mappedArray",
 						"items":{
@@ -3401,7 +2579,13 @@
 									"name":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].name }}",
 									"input":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].input }}",
 									"id":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].id }}",
-									"tool_use_id":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].tool_use_id }}"
+									"tool_use_id":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].tool_use_id }}",
+									"source":{
+										"image_type":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].source.image_type }}",
+										"media_type":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].source.media_type }}",
+										"image_data":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].source.image_data }}",
+										"detail":"{{ cJQ5u.outputs.result.updatedMessage[0].content[0].source.detail }}"
+									}
 								},
 								"source":"{{ cJQ5u.outputs.result.updatedMessage[0].content }}"
 							},
@@ -3409,7 +2593,6 @@
 						},
 						"source":"{{ cJQ5u.outputs.result.updatedMessage }}"
 					},
-					"logprobs":"{{ EE8de.outputs.logProbs }}",
 					"tools":{
 						"ua:type":"mappedArray",
 						"items":{
@@ -3421,17 +2604,7 @@
 							}
 						},
 						"source":"{{ tFPm9.outputs.result.tools }}"
-					},
-					"top_p":"{{ _AdLmL.outputs.result.topP }}",
-					"frequency_penalty":"{{ _AdLmL.outputs.result.frequencyPenalty }}",
-					"max_tokens":"{{ _AdLmL.outputs.result.maxOutputTokens }}",
-					"presence_penalty":"{{ _AdLmL.outputs.result.presencePenalty }}",
-					"temperature":"{{ _AdLmL.outputs.result.temperature }}",
-					"top_k":"{{ _AdLmL.outputs.result.topK }}",
-					"systemPrompt":"{{ EE8de.outputs.systemPrompt }}",
-					"sessionId":"{{ EE8de.outputs.caseId }}",
-					"model":"{{ n_rQhLl.outputs.properties.model }}",
-					"aiAgentId":"{{ EE8de.outputs.aiAgentId }}"
+					}
 				}
 			},
 			"skip":false,
@@ -3451,7 +2624,7 @@
 			"fallbackMode":"CONTINUE",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@y",
 			"id":"39eRv",
-			"index":31,
+			"index":26,
 			"inputs":{
 				"automationId":"680bb38e89c13d6ab6b7babe",
 				"runtimeConnections":{},
@@ -3513,7 +2686,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@y",
 			"id":"d5mrL",
-			"index":32,
+			"index":27,
 			"inputs":{
 				"variables":[
 					{
@@ -3573,7 +2746,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@y",
 			"id":"R33oE",
-			"index":33,
+			"index":28,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -3603,7 +2776,7 @@
 			"fallbackMode":"CONTINUE",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@n",
 			"id":"2d2Iw",
-			"index":34,
+			"index":29,
 			"inputs":{
 				"automationId":"680bb38e89c13d6ab6b7babe",
 				"runtimeConnections":{},
@@ -3671,7 +2844,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@n",
 			"id":"_I6Wds",
-			"index":35,
+			"index":30,
 			"inputs":{
 				"variables":[
 					{
@@ -3731,7 +2904,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"hcX8G@_NVWeC@2b3FF-1@3@n",
 			"id":"Fa9Zn",
-			"index":36,
+			"index":31,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -3757,11 +2930,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"MANUAL",
 			"groupId":"_NVWeC@2b3FF-1@default",
 			"id":"NgK8L",
-			"index":37,
+			"index":32,
 			"inputs":{
 				"callableInterfaceId":"__ua__call_llm_model_interface",
 				"runtimeConnections":{
@@ -4157,7 +3330,7 @@
 								{
 									"property":"{{ n_rQhLl.outputs.properties.provider }}",
 									"filter":{
-										"operator":"CONTAINS",
+										"operator":"EQUAL",
 										"value":"vertex_ai"
 									}
 								},
@@ -4319,7 +3492,7 @@
 								{
 									"property":"{{ n_rQhLl.outputs.properties.provider }}",
 									"filter":{
-										"operator":"CONTAINS",
+										"operator":"EQUAL",
 										"value":"vertex_ai"
 									}
 								},
@@ -4405,21 +3578,21 @@
 						}
 					},
 					"tools":{
+						"source":"{{ tFPm9.outputs.result.tools }}",
 						"ua:type":"mappedArray",
 						"items":{
+							"type":"{{ tFPm9.outputs.result.tools[0].type }}",
 							"function":{
-								"name":"{{ n_Q5pp9.outputs.items[0].function.name }}",
-								"description":"{{ n_Q5pp9.outputs.items[0].function.description }}",
-								"parameters":"{{ n_Q5pp9.outputs.items[0].function.parameters }}"
-							},
-							"type":"{{ n_Q5pp9.outputs.items[0].type }}"
-						},
-						"source":"{{ n_Q5pp9.outputs.items }}"
+								"name":"{{ tFPm9.outputs.result.tools[0].function.name }}",
+								"description":"{{ tFPm9.outputs.result.tools[0].function.description }}",
+								"parameters":"{{ tFPm9.outputs.result.tools[0].function.parameters }}"
+							}
+						}
 					},
 					"plugins":{
-						"source":"{{ n_Vd9b6.outputs.items }}",
+						"source":"{{ n_fE8bT.outputs.result.plugins }}",
 						"ua:type":"mappedArray",
-						"items":"{{ n_Vd9b6.outputs.items[0] }}"
+						"items":"{{ n_fE8bT.outputs.result.plugins[0] }}"
 					}
 				}
 			},
@@ -4473,7 +3646,7 @@
 			"fallbackMode":"CONTINUE",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@success",
 			"id":"wS3r8",
-			"index":38,
+			"index":33,
 			"inputs":{
 				"automationId":"680bb38e89c13d6ab6b7babe",
 				"runtimeConnections":{},
@@ -4541,7 +3714,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@success",
 			"id":"d1NGP",
-			"index":39,
+			"index":34,
 			"inputs":{
 				"variables":[
 					{
@@ -4602,7 +3775,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@success",
 			"id":"nw9FK",
-			"index":40,
+			"index":35,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -4633,7 +3806,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@error",
 			"id":"BVlUI",
-			"index":41,
+			"index":36,
 			"inputs":{
 				"filters":[
 					{
@@ -4663,7 +3836,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"BVlUI@NgK8L@_NVWeC@2b3FF-1@default@error@y",
 			"id":"n_MZncg",
-			"index":42,
+			"index":37,
 			"inputs":{
 				"automationId":"68b827559a4a9d0149caa07d",
 				"runtimeConnections":{},
@@ -4717,7 +3890,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@error",
 			"id":"5bp5f",
-			"index":43,
+			"index":38,
 			"inputs":{
 				"automationId":"66ac70650f725f5b425d12d8",
 				"runtimeConnections":{},
@@ -4785,7 +3958,7 @@
 			"fallbackMode":"CONTINUE",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@error",
 			"id":"hH8bw",
-			"index":44,
+			"index":39,
 			"inputs":{
 				"automationId":"680bb38e89c13d6ab6b7babe",
 				"runtimeConnections":{},
@@ -4853,7 +4026,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@error",
 			"id":"ixnJH",
-			"index":45,
+			"index":40,
 			"inputs":{
 				"variables":[
 					{
@@ -4913,7 +4086,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"NgK8L@_NVWeC@2b3FF-1@default@error",
 			"id":"1uRxK",
-			"index":46,
+			"index":41,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -4943,7 +4116,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"_KVTMx",
-			"index":47,
+			"index":42,
 			"inputs":{
 				"filters":[
 					{
@@ -4973,7 +4146,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_KVTMx@2b3FF-1@y",
 			"id":"6adYg",
-			"index":48,
+			"index":43,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -5021,7 +4194,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_KVTMx@2b3FF-1@y",
 			"id":"_ptMKL",
-			"index":49,
+			"index":44,
 			"inputs":{
 				"variables":[
 					{
@@ -5047,7 +4220,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"BXNis",
-			"index":50,
+			"index":45,
 			"inputs":{
 				"variableSchema":{
 					"type":"object",
@@ -5078,7 +4251,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"2b3FF-1",
 			"id":"27dr9",
-			"index":51,
+			"index":46,
 			"inputs":{
 				"result":{
 					"tools":{
@@ -5120,10 +4293,10 @@
 			"tierName":"global"
 		}
 	},
-	"standard":false,
+	"standard":true,
 	"tags":[
 		"AI Agent",
 		"Internal"
 	],
-	"version":1020
+	"version":1021
 }
