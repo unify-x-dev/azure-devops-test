@@ -6,12 +6,12 @@
 	"createdTime":1761725242827,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761731754700,
+		"deployedAt":1761731791389,
 		"deployedBy":132116,
-		"deployedDefinitionId":"6901e4aa960f455f6fd0004d",
+		"deployedDefinitionId":"6901e4cf0a7959277f20674f",
 		"status":"DEPLOYED",
-		"version":13,
-		"workflowVersion":13
+		"version":14,
+		"workflowVersion":14
 	},
 	"edges":[
 		{
@@ -81,6 +81,13 @@
 			"fromNodeId":"_VwKwa",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_0lCnj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_0lCnj",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_XxMBO",
 			"type":"next"
 		},
@@ -130,7 +137,7 @@
 	"id":"6901cb3ac41bc371691b580e",
 	"lastModifiedBy":132116,
 	"lcName":"main_automation",
-	"modifiedTime":1761731789490,
+	"modifiedTime":1761731908961,
 	"name":"main_automation",
 	"nodes":[
 		{
@@ -384,11 +391,36 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qEDOz-1",
+			"id":"_0lCnj",
+			"index":11,
+			"inputs":{
+				"automationId":"6901c6280a7959277f1f8ade",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_XxMBO",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"automationId":"6901df810a7959277f204a96",
 				"runtimeConnections":{},
@@ -413,7 +445,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_wuWZh",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"automationId":"68fdd8c5ff97b736e67e85d5",
 				"runtimeConnections":{},
@@ -438,7 +470,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_yHnFY",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"automationId":"68fb12ef9bb45819e17a8f56",
 				"runtimeConnections":{},
@@ -459,11 +491,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_Oj1e9",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"automationId":"6901c6a30a7959277f1f8ddb",
 				"runtimeConnections":{},
@@ -484,11 +516,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"_ScrRb",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"automationId":"6846983710ced17b8d13d250",
 				"runtimeConnections":{},
@@ -513,7 +545,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_9w3T9",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"automationId":"6901cae20a7959277f1fb1af",
 				"runtimeConnections":{},
@@ -538,7 +570,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_qEDOz-1",
 			"id":"n_UfCTG",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"result":{
 					"output1":"res"
@@ -567,5 +599,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
