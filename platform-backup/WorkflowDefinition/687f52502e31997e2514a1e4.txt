@@ -1,0 +1,945 @@
+{
+	"appsUsed":[
+		"confluence"
+	],
+	"createdTime":1757480395157,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296164830,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfce40c3d19149a9e3441",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":58
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_YxLaL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_RtZVN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_RtZVN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_C599k",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_C599k",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_zQXPj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_zQXPj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UEPYk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UEPYk",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CPRYj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CPRYj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_LTeh6",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"_LTeh6",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CPRYj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CPRYj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_KefNv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_KefNv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Y2Rk0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Y2Rk0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Rah3o",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"687f52502e31997e2514a1e4",
+	"lastModifiedBy":0,
+	"lcName":"knowledge downloader | confluence | space blogs",
+	"modifiedTime":1761722676868,
+	"name":"Knowledge Downloader | Confluence | Space blogs",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":435,
+				"resourceName":"callables_from_interface"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"n_YxLaL",
+			"index":1,
+			"inputs":{
+				"result":{
+					"additionalProperties":false,
+					"type":"object",
+					"required":[],
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						},
+						"downloadedEntitiesCount":{
+							"type":"integer",
+							"title":"Downloaded Entities Count"
+						},
+						"knowledgeDownloadFinished":{
+							"type":"boolean",
+							"title":"Knowledge Download Finished"
+						}
+					}
+				},
+				"callableInterfaceId":"6854484ac68462013926b9cf",
+				"setup":{
+					"additionalProperties":false,
+					"type":"object",
+					"required":[],
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"properties":{
+						"knowledgeId":{
+							"type":"string",
+							"title":"knowledgeId"
+						},
+						"aiAgentId":{
+							"type":"string",
+							"title":"aiAgentId"
+						},
+						"knowledge":{
+							"type":"object",
+							"properties":{
+								"readVersion":{
+									"type":"integer",
+									"title":"readVersion"
+								},
+								"lastSyncTime":{
+									"type":"integer",
+									"title":"lastSyncTime"
+								},
+								"cursorObject":{
+									"type":"object",
+									"title":"cursorObject"
+								},
+								"applicationInfo":{
+									"type":"object",
+									"properties":{
+										"context":{
+											"type":"object",
+											"properties":{
+												"connectionId":{
+													"type":"string",
+													"title":"Connection Id"
+												}
+											},
+											"additionalProperties":false,
+											"title":"Context",
+											"required":[]
+										}
+									},
+									"additionalProperties":false,
+									"title":"Application Info",
+									"required":[]
+								},
+								"indexingVersion":{
+									"type":"integer",
+									"title":"Indexing Version"
+								},
+								"knowledgeSetId":{
+									"type":"string",
+									"title":"Knowledge Set Id"
+								}
+							},
+							"title":"knowledge",
+							"additionalProperties":false,
+							"required":[]
+						},
+						"inputs":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Inputs"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						},
+						"importerConnections":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Importer Connections"
+						},
+						"downloaderConfig":{
+							"type":"object",
+							"properties":{
+								"grabberType":{
+									"type":"string",
+									"title":"Grabber Type"
+								},
+								"currentTimeEpoch":{
+									"type":"integer",
+									"title":"Current Time Epoch"
+								},
+								"startTimeEpoch":{
+									"type":"integer",
+									"title":"Start Time Epoch"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Downloader Config",
+							"required":[]
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger interface",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":68,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"_RtZVN",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"mappedInputs":{
+							"type":"object",
+							"properties":{
+								"spaceId":{
+									"type":"string",
+									"title":"Space Id"
+								},
+								"includeComments":{
+									"type":"boolean",
+									"title":"Include Comments"
+								},
+								"includeAttachments":{
+									"type":"boolean",
+									"title":"Include Attachments"
+								},
+								"blogList":{
+									"type":"array",
+									"items":{
+										"type":"string"
+									},
+									"title":"Blog List"
+								},
+								"nextCur":{
+									"type":"string",
+									"title":"Next Cur"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Mapped Inputs",
+							"required":[]
+						},
+						"allowed":{
+							"type":"boolean",
+							"title":"Allowed"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"inputs":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Inputs"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						}
+					}
+				},
+				"code":"\n\ndef mappedInputs = [:]\n\nif (binding.hasVariable('inputs')) {\n    mappedInputs[\"spaceId\"] = inputs?.spaceId ?: null \n    mappedInputs[\"allowed\"] = inputs?.spaceId ? true: false \n    mappedInputs[\"includeAttachments\"] = inputs?.includeAttachments ?: false\n    mappedInputs[\"includeComments\"] = inputs?.includeComments ?: false\n    mappedInputs[\"blogList\"] = inputs?.blogList ?: [:]\n}\n\nif (binding.hasVariable('cursor')) {\n mappedInputs[\"nextCur\"] = cursor?.nextCur ?: null\n}\n\nreturn [\"mappedInputs\": mappedInputs];\n",
+				"compile_static":false,
+				"parameters":{
+					"inputs":"{{ n_YxLaL.outputs.inputs }}",
+					"cursor":"{{ n_YxLaL.outputs.cursor }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Resolve inputs",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.blogList.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":451,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"n_C599k",
+			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"blogListString":{
+							"type":"string",
+							"title":"Blog List String"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"blogList":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Blog List"
+						}
+					}
+				},
+				"code":"def blogListString = \"\"\n\nif (binding.hasVariable(\"blogList\")){\n    blogListString = blogList.join(\",\")\n}\n\nreturn [\n    \"blogListString\": blogListString\n]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"blogList":{
+						"source":"{{ _RtZVN.outputs.result.mappedInputs.blogList }}",
+						"ua:type":"mappedArray",
+						"items":"{{ _RtZVN.outputs.result.mappedInputs.blogList[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"confluence",
+				"resourceVersion":2312,
+				"connectionId":"68779d97c71fda18ce346642",
+				"resourceName":"confluence_list_blogs",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"_zQXPj",
+			"index":4,
+			"inputs":{
+				"cursor":"{{ _RtZVN.outputs.result.mappedInputs.nextCur }}",
+				"spaceId":"{{ _RtZVN.outputs.result.mappedInputs.spaceId }}",
+				"start":0,
+				"limit":30,
+				"id":"{{ n_C599k.outputs.result.blogListString }}",
+				"sort":"modified-date",
+				"bodyFormat":"storage"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"duration":"1",
+					"enabled":true,
+					"threshold":"1000",
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Confluence",
+			"title":"List blogs",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.blogList.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":452,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"n_UEPYk",
+			"index":5,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"filteredBlogList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"_links":{
+										"type":"object",
+										"properties":{
+											"editui":{
+												"type":"string",
+												"title":"editui"
+											},
+											"edituiv2":{
+												"type":"string",
+												"title":"edituiv2"
+											},
+											"tinyui":{
+												"type":"string",
+												"title":"tinyui"
+											},
+											"webui":{
+												"type":"string",
+												"title":"webui"
+											}
+										},
+										"title":"_links",
+										"additionalProperties":false
+									},
+									"authorId":{
+										"type":"string",
+										"title":"authorId"
+									},
+									"body":{
+										"type":"object",
+										"properties":{
+											"storage":{
+												"type":"object",
+												"properties":{
+													"representation":{
+														"type":"string",
+														"title":"representation"
+													},
+													"value":{
+														"type":"string",
+														"title":"value"
+													}
+												},
+												"title":"storage",
+												"additionalProperties":false
+											}
+										},
+										"title":"body",
+										"additionalProperties":false
+									},
+									"createdAt":{
+										"type":"string",
+										"title":"createdAt"
+									},
+									"id":{
+										"type":"string",
+										"title":"id"
+									},
+									"spaceId":{
+										"type":"string",
+										"title":"spaceId"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"title":{
+										"type":"string",
+										"title":"title"
+									},
+									"version":{
+										"type":"object",
+										"properties":{
+											"authorId":{
+												"type":"string",
+												"title":"authorId"
+											},
+											"createdAt":{
+												"type":"string",
+												"title":"createdAt"
+											},
+											"message":{
+												"type":"string",
+												"title":"message"
+											},
+											"minorEdit":{
+												"type":"boolean",
+												"title":"minorEdit"
+											},
+											"ncsStepVersion":{
+												"type":"string",
+												"title":"ncsStepVersion"
+											},
+											"number":{
+												"type":"integer",
+												"title":"number"
+											}
+										},
+										"title":"version",
+										"additionalProperties":false
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"filteredBlogList"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"blogList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Blog List"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						}
+					}
+				},
+				"code":"def filterBlogs(blogList, cursor) {\n    def lastModifiedTime = cursor?.lastModifiedTime ?: 0L\n\n    def filteredBlogList = blogList.findAll { blog ->\n        def createdAtStr = blog?.version?.createdAt\n        if (!createdAtStr) {\n            return false\n        }\n        long createdAtEpoch = java.time.Instant.parse(createdAtStr).toEpochMilli()\n        return createdAtEpoch > lastModifiedTime\n      \n    }\n\n    return [filteredBlogList: filteredBlogList]\n}\n\nif (!binding.hasVariable('blogList') || blogList == null) {\n    return [\"filteredBlogList\": []]\n}\n\nreturn binding.hasVariable('cursor') && cursor?.lastModifiedTime ? filterBlogs(blogList, cursor) :[\"filteredBlogList\" : blogList]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"cursor":"{{ n_YxLaL.outputs.cursor }}",
+					"blogList":{
+						"source":"{{ _zQXPj.outputs.results }}",
+						"ua:type":"mappedArray",
+						"items":"{{ _zQXPj.outputs.results[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":453,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"n_CPRYj",
+			"index":6,
+			"inputs":{
+				"repeatMode":"BATCH",
+				"listSource":"{{ n_UEPYk.outputs.result.filteredBlogList }}",
+				"captureIterations":false,
+				"batchSize":30
+			},
+			"skip":false,
+			"subTitle":"Loop (Batch = 30)",
+			"title":"For loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":447,
+				"resourceName":"callables_call_automation_batch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_CPRYj@_SQjXE-1@l",
+			"id":"_LTeh6",
+			"index":7,
+			"inputs":{
+				"automationId":"687dfef8115f55ade8bf814c",
+				"runtimeConnections":{
+					"confluence":"{{ n_YxLaL.outputs.knowledge.applicationInfo.context.connectionId }}",
+					"slack":"{{ n_YxLaL.outputs.knowledge.applicationInfo.context.connectionId }}"
+				},
+				"synchronous":true,
+				"distributeWorkflowLoad":false,
+				"parametersList":{
+					"ua:type":"mappedArray",
+					"items":{
+						"version":{
+							"number":"{{ n_CPRYj.outputs.item[0].version.number }}",
+							"message":"{{ n_CPRYj.outputs.item[0].version.message }}",
+							"minorEdit":"{{ n_CPRYj.outputs.item[0].version.minorEdit }}",
+							"authorId":"{{ n_CPRYj.outputs.item[0].version.authorId }}",
+							"createdAt":"{{ n_CPRYj.outputs.item[0].version.createdAt }}"
+						},
+						"body":{
+							"storage":{
+								"representation":"{{ n_CPRYj.outputs.item[0].body.storage.representation }}",
+								"value":"{{ n_CPRYj.outputs.item[0].body.storage.value }}"
+							}
+						},
+						"_links":{
+							"editui":"{{ n_CPRYj.outputs.item[0]._links.editui }}",
+							"webui":"{{ n_CPRYj.outputs.item[0]._links.webui }}",
+							"tinyui":"{{ n_CPRYj.outputs.item[0]._links.tinyui }}"
+						},
+						"connectionId":"{{ n_YxLaL.outputs.knowledge.applicationInfo.context.connectionId }}",
+						"knowledgeId":"{{ n_YxLaL.outputs.knowledgeId }}",
+						"indexingVersion":"{{ n_YxLaL.outputs.knowledge.indexingVersion }}",
+						"createdAt":"{{ n_CPRYj.outputs.item[0].createdAt }}",
+						"authorId":"{{ n_CPRYj.outputs.item[0].authorId }}",
+						"status":"{{ n_CPRYj.outputs.item[0].status }}",
+						"title":"{{ n_CPRYj.outputs.item[0].title }}",
+						"id":"{{ n_CPRYj.outputs.item[0].id }}",
+						"spaceId":"{{ n_CPRYj.outputs.item[0].spaceId }}",
+						"includeAttachments":"{{ _RtZVN.outputs.result.mappedInputs.includeAttachments }}",
+						"includeComments":"{{ _RtZVN.outputs.result.mappedInputs.includeComments }}",
+						"grabberType":"{{ n_YxLaL.outputs.downloaderConfig.grabberType }}",
+						"knowledgeSetId":"{{ n_YxLaL.outputs.knowledge.knowledgeSetId }}"
+					},
+					"source":"{{ n_CPRYj.outputs.item }}"
+				},
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"Blog Downloader",
+			"title":"Call automation (batch)",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.blogList.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":62,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"_KefNv",
+			"index":8,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						},
+						"hasMore":{
+							"type":"boolean",
+							"title":"Has More"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"nextUrl":{
+							"type":"string",
+							"title":"nextUrl"
+						},
+						"blogList":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Blog List"
+						},
+						"cursor":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Cursor"
+						}
+					}
+				},
+				"code":"def getCursor(url) {\n    def queryParams = url.split(\"\\\\?\")[-1] // Get the query string part\n    def paramsMap = queryParams.split(\"&\").collectEntries { entry ->\n        def (key, value) = entry.split(\"=\", 2)\n        [(key): value]\n    }\n     return [\"nextCur\": paramsMap[\"cursor\"]] \n}\n\ndef curCursor = [:]\nif (binding.hasVariable(\"blogList\") && blogList && !blogList.isEmpty()) {\n    def lastElement = blogList[-1]  // last element\n    def createdAtStr = lastElement?.version?.createdAt\n    long createdAtEpoch = 0\n    if (createdAtStr) {\n        createdAtEpoch = java.time.Instant.parse(createdAtStr).toEpochMilli()\n    }\n    curCursor[\"lastModifiedTime\"] = createdAtEpoch\n}\n\ncurCursor[\"nextCur\"] = (binding.hasVariable('cursor') && cursor?.nextCur) ? cursor.nextCur : null\n\nreturn [ \n    \"cursor\" : binding.hasVariable(\"nextUrl\") ? getCursor(nextUrl) : curCursor,\n    \"hasMore\" : binding.hasVariable(\"nextUrl\") ? true : false\n]",
+				"compile_static":false,
+				"isAsync":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"nextUrl":"{{ _zQXPj.outputs._links.next }}",
+					"cursor":"{{ n_YxLaL.outputs.cursor }}",
+					"blogList":{
+						"source":"{{ _zQXPj.outputs.results }}",
+						"ua:type":"mappedArray",
+						"items":"{{ _zQXPj.outputs.results[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.blogArray.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":449,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"n_Y2Rk0",
+			"index":9,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"downloadedBlogCount":{
+							"type":"integer",
+							"title":"Downloaded Blog Count"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"blogArray":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Blog Array"
+						}
+					}
+				},
+				"code":"def count = 0;\n\nif(binding.hasVariable('blogArray'))\n{\n  count = blogArray.size();\n}\n\nreturn ['downloadedBlogCount' : count]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"blogArray":{
+						"ua:type":"mappedArray",
+						"source":"{{ n_UEPYk.outputs.result.filteredBlogList }}",
+						"items":"{{ n_UEPYk.outputs.result.filteredBlogList[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":454,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_SQjXE-1",
+			"id":"n_Rah3o",
+			"index":10,
+			"inputs":{
+				"result":{
+					"downloadedEntitiesCount":"{{ n_Y2Rk0.outputs.result.downloadedBlogCount }}",
+					"hasMore":"{{ _KefNv.outputs.result.hasMore }}",
+					"cursor":"{{ _KefNv.outputs.result.cursor }}",
+					"knowledgeDownloadFinished":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":44103,
+	"runtimeConnectionAppNames":[
+		"confluence"
+	],
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"headerValueTierMap":{},
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		"knowledge_v2"
+	],
+	"version":60
+}
