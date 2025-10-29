@@ -5,12 +5,12 @@
 	"createdTime":1761710933207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761757128353,
+		"deployedAt":1761757592715,
 		"deployedBy":46209,
-		"deployedDefinitionId":"690247c7d015237911e3e7ea",
+		"deployedDefinitionId":"69024998d015237911e3feb4",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":8
+		"version":6,
+		"workflowVersion":9
 	},
 	"edges":[
 		{
@@ -178,7 +178,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761757590252,
+	"modifiedTime":1761758371201,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -222,6 +222,30 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"count":{
+									"type":"string",
+									"title":"Count"
+								},
+								"MailNotifications":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false
+									},
+									"title":"Mail Notifications"
+								},
+								"success":{
+									"type":"boolean",
+									"title":"Success"
+								}
+							},
+							"additionalProperties":false,
+							"required":[]
 						}
 					}
 				],
@@ -814,6 +838,13 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"MailNotifications":{
+						"source":"{{ n_vdWy7.outputs.objects }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_vdWy7.outputs.objects[0] }}"
+					}
+				},
 				"status":200
 			},
 			"skip":false,
@@ -863,5 +894,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
