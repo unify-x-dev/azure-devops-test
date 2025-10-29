@@ -45,7 +45,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761726495710,
+	"modifiedTime":1761726557016,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -62,7 +62,20 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"file":{
+								"type":"string",
+								"title":"File"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"file"
+						]
+					}
 				}
 			},
 			"skip":false,
@@ -88,7 +101,7 @@
 			"index":2,
 			"inputs":{
 				"fileName":"abcd.json",
-				"url":"https://uat-uploads.unifyapps.com/user-uploads/101/1761726060931/test.json",
+				"url":"{{ n_X3sq7.outputs.body.file }}",
 				"option":"url"
 			},
 			"skip":false,
@@ -215,5 +228,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
