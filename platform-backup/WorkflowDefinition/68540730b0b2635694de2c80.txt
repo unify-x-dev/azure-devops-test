@@ -1,0 +1,684 @@
+{
+	"appsUsed":[
+		"storage_by_unifyapps"
+	],
+	"createdTime":1750502186070,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760296212919,
+		"deployedBy":-1,
+		"deployedDefinitionId":"68ebfd140c3d19149a9e3523",
+		"status":"DEPLOYED",
+		"version":52,
+		"workflowVersion":68
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_hu82u",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"53LAF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"53LAF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"mtswW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"mtswW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GxUw1",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"68540730b0b2635694de2c80",
+	"lastModifiedBy":0,
+	"lcName":"getguardrailcached",
+	"modifiedTime":1761722749075,
+	"name":"GetGuardRailCached",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":444,
+				"resourceName":"callables_from_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Ga0Ql-1",
+			"id":"n_hu82u",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"properties":{
+							"type":"object",
+							"properties":{
+								"samplePhrases":{
+									"type":"array",
+									"items":{
+										"type":"string"
+									},
+									"title":"samplePhrases"
+								},
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"description":{
+									"type":"string",
+									"title":"description"
+								},
+								"aiAgentId":{
+									"type":"string",
+									"title":"aiAgentId"
+								},
+								"Hallucinations":{
+									"type":"object",
+									"properties":{
+										"groundingConfig":{
+											"type":"object",
+											"properties":{
+												"enableGrounding":{
+													"type":"boolean",
+													"title":"enableGrounding"
+												},
+												"groundingScore":{
+													"type":"number",
+													"title":"groundingScore"
+												}
+											},
+											"title":"groundingConfig",
+											"additionalProperties":false
+										},
+										"relevanceConfig":{
+											"type":"object",
+											"properties":{
+												"enableRelevance":{
+													"type":"boolean",
+													"title":"enableRelevance"
+												},
+												"relevanceScore":{
+													"type":"number",
+													"title":"relevanceScore"
+												}
+											},
+											"title":"relevanceConfig",
+											"additionalProperties":false
+										},
+										"llmModel":{
+											"type":"string",
+											"title":"llmModel"
+										}
+									},
+									"title":"Hallucinations",
+									"additionalProperties":false
+								},
+								"customWorldFilter":{
+									"type":"object",
+									"properties":{
+										"filterProfanity":{
+											"type":"boolean",
+											"title":"filterProfanity"
+										},
+										"wordsOrPhrases":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"name":{
+														"type":"string",
+														"title":"name"
+													}
+												},
+												"additionalProperties":false
+											},
+											"title":"wordsOrPhrases"
+										}
+									},
+									"title":"customWorldFilter",
+									"additionalProperties":false
+								},
+								"DeniedTopics":{
+									"type":"object",
+									"properties":{
+										"DeniedTopics":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"topicName":{
+														"type":"string",
+														"title":"topicName"
+													},
+													"addSamplePhrases":{
+														"type":"array",
+														"items":{
+															"type":"string"
+														},
+														"title":"addSamplePhrases"
+													},
+													"definitionOfYourTopic":{
+														"type":"string",
+														"title":"definitionOfYourTopic"
+													}
+												},
+												"additionalProperties":false
+											},
+											"title":"DeniedTopics"
+										},
+										"llmModel":{
+											"type":"string",
+											"title":"llmModel"
+										}
+									},
+									"title":"DeniedTopics",
+									"additionalProperties":false
+								},
+								"RedactSensitiveInformation":{
+									"type":"object",
+									"properties":{
+										"regex":{
+											"type":"object",
+											"properties":{
+												"enabled":{
+													"type":"boolean",
+													"title":"enabled"
+												},
+												"patterns":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"name":{
+																"type":"string",
+																"title":"name"
+															},
+															"pattern":{
+																"type":"string",
+																"title":"pattern"
+															},
+															"behaviour":{
+																"type":"string",
+																"title":"behaviour"
+															}
+														},
+														"additionalProperties":false
+													},
+													"title":"patterns"
+												}
+											},
+											"title":"regex",
+											"additionalProperties":false
+										},
+										"automations":{
+											"type":"object",
+											"properties":{
+												"enabled":{
+													"type":"boolean",
+													"title":"enabled"
+												},
+												"ids":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"ids"
+												}
+											},
+											"title":"automations",
+											"additionalProperties":false
+										},
+										"piiByUA":{
+											"type":"object",
+											"properties":{
+												"enabled":{
+													"type":"boolean",
+													"title":"enabled"
+												}
+											},
+											"title":"piiByUA",
+											"additionalProperties":false
+										}
+									},
+									"title":"RedactSensitiveInformation",
+									"additionalProperties":false
+								},
+								"BlockedMessaging":{
+									"type":"object",
+									"properties":{
+										"blockedMessagingForPrompts":{
+											"type":"object",
+											"properties":{
+												"blockedMessage":{
+													"type":"string",
+													"title":"blockedMessage"
+												}
+											},
+											"title":"blockedMessagingForPrompts",
+											"additionalProperties":false
+										},
+										"blockedMessagingForResponses":{
+											"type":"object",
+											"properties":{
+												"blockedMessage":{
+													"type":"string",
+													"title":"blockedMessage"
+												}
+											},
+											"title":"blockedMessagingForResponses",
+											"additionalProperties":false
+										}
+									},
+									"title":"BlockedMessaging",
+									"additionalProperties":false
+								},
+								"contentFilters":{
+									"type":"object",
+									"properties":{
+										"filterStrengthForResponses":{
+											"type":"object",
+											"properties":{
+												"hate":{
+													"type":"string",
+													"title":"hate"
+												},
+												"insult":{
+													"type":"string",
+													"title":"insult"
+												},
+												"misconduct":{
+													"type":"string",
+													"title":"misconduct"
+												},
+												"violence":{
+													"type":"string",
+													"title":"violence"
+												},
+												"sexual":{
+													"type":"string",
+													"title":"sexual"
+												},
+												"promptAttack":{
+													"type":"string",
+													"title":"promptAttack"
+												}
+											},
+											"title":"filterStrengthForResponses",
+											"additionalProperties":false
+										},
+										"filterStrengthForPrompts":{
+											"type":"object",
+											"properties":{
+												"hate":{
+													"type":"string",
+													"title":"hate"
+												},
+												"insult":{
+													"type":"string",
+													"title":"insult"
+												},
+												"misconduct":{
+													"type":"string",
+													"title":"misconduct"
+												},
+												"violence":{
+													"type":"string",
+													"title":"violence"
+												},
+												"sexual":{
+													"type":"string",
+													"title":"sexual"
+												},
+												"promptAttack":{
+													"type":"string",
+													"title":"promptAttack"
+												}
+											},
+											"title":"filterStrengthForPrompts",
+											"additionalProperties":false
+										},
+										"llmModel":{
+											"type":"string",
+											"title":"llmModel"
+										}
+									},
+									"title":"contentFilters",
+									"additionalProperties":false
+								}
+							},
+							"title":"properties",
+							"additionalProperties":false
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"entityType":{
+							"type":"string",
+							"title":"Entity Type"
+						},
+						"version":{
+							"type":"integer",
+							"title":"Version"
+						},
+						"createdTimeEpoch":{
+							"type":"integer",
+							"title":"Created Time Epoch"
+						},
+						"modifiedTimeEpoch":{
+							"type":"integer",
+							"title":"Modified Time Epoch"
+						},
+						"ownerUserId":{
+							"type":"integer",
+							"title":"Owner User Id"
+						},
+						"lastModifiedByUserId":{
+							"type":"integer",
+							"title":"Last Modified By User Id"
+						},
+						"deleted":{
+							"type":"boolean",
+							"title":"Deleted"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[
+						"aiAgentId"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":220,
+				"resourceName":"variable_by_unifyapps_get_session_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Ga0Ql-1",
+			"id":"53LAF",
+			"index":0,
+			"inputs":{
+				"variableSchema":{
+					"type":"object",
+					"properties":{
+						"ai_agent_use_deployed_entity":{
+							"type":"boolean",
+							"title":"Ai Agent Use Deployed Entity"
+						},
+						"ai_agent_deployed_version":{
+							"type":"integer",
+							"title":"Ai Agent Deployed Version"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Get Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":54,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Ga0Ql-1",
+			"id":"mtswW",
+			"index":0,
+			"inputs":{
+				"searchField":{
+					"fields":[
+						"properties_aiAgentId"
+					],
+					"expression":"{{ n_hu82u.outputs.aiAgentId }}"
+				},
+				"object_type":"gaurd_rail",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":true,
+				"includeTotalCount":false,
+				"fetchDeployedEntity":"{{ 53LAF.outputs.ai_agent_use_deployed_entity }}",
+				"deployedEntityVersion":"{{ 53LAF.outputs.ai_agent_deployed_version }}"
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"cacheKey":"{{ n_hu82u.outputs.aiAgentId }}",
+					"enabled":true,
+					"timeToLive":"3600",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Agent",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":454,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Ga0Ql-1",
+			"id":"n_GxUw1",
+			"index":0,
+			"inputs":{
+				"result":{
+					"properties":{
+						"samplePhrases":{
+							"source":"{{ mtswW.outputs.properties.samplePhrases }}",
+							"ua:type":"mappedArray",
+							"items":"{{ mtswW.outputs.properties.samplePhrases[0] }}"
+						},
+						"name":"{{ mtswW.outputs.properties.name }}",
+						"description":"{{ mtswW.outputs.properties.description }}",
+						"aiAgentId":"{{ mtswW.outputs.properties.aiAgentId }}",
+						"Hallucinations":{
+							"groundingConfig":{
+								"enableGrounding":"{{ mtswW.outputs.properties.Hallucinations.groundingConfig.enableGrounding }}",
+								"groundingScore":"{{ mtswW.outputs.properties.Hallucinations.groundingConfig.groundingScore }}"
+							},
+							"relevanceConfig":{
+								"enableRelevance":"{{ mtswW.outputs.properties.Hallucinations.relevanceConfig.enableRelevance }}",
+								"relevanceScore":"{{ mtswW.outputs.properties.Hallucinations.relevanceConfig.relevanceScore }}"
+							},
+							"llmModel":"{{ mtswW.outputs.properties.Hallucinations.llmModel }}"
+						},
+						"customWorldFilter":{
+							"filterProfanity":"{{ mtswW.outputs.properties.customWorldFilter.filterProfanity }}",
+							"wordsOrPhrases":{
+								"source":"{{ mtswW.outputs.properties.customWorldFilter.wordsOrPhrases }}",
+								"ua:type":"mappedArray",
+								"items":{
+									"name":"{{ mtswW.outputs.properties.customWorldFilter.wordsOrPhrases[0].name }}"
+								}
+							}
+						},
+						"DeniedTopics":{
+							"DeniedTopics":{
+								"source":"{{ mtswW.outputs.properties.DeniedTopics.DeniedTopics }}",
+								"ua:type":"mappedArray",
+								"items":{
+									"topicName":"{{ mtswW.outputs.properties.DeniedTopics.DeniedTopics[0].topicName }}",
+									"addSamplePhrases":{
+										"source":"{{ mtswW.outputs.properties.DeniedTopics.DeniedTopics[0].addSamplePhrases }}",
+										"ua:type":"mappedArray",
+										"items":"{{ mtswW.outputs.properties.DeniedTopics.DeniedTopics[0].addSamplePhrases[0] }}"
+									},
+									"definitionOfYourTopic":"{{ mtswW.outputs.properties.DeniedTopics.DeniedTopics[0].definitionOfYourTopic }}"
+								}
+							},
+							"llmModel":"{{ mtswW.outputs.properties.DeniedTopics.llmModel }}"
+						},
+						"RedactSensitiveInformation":{
+							"regex":{
+								"enabled":"{{ mtswW.outputs.properties.RedactSensitiveInformation.regex.enabled }}",
+								"patterns":{
+									"source":"{{ mtswW.outputs.properties.RedactSensitiveInformation.regex.patterns }}",
+									"ua:type":"mappedArray",
+									"items":{
+										"name":"{{ mtswW.outputs.properties.RedactSensitiveInformation.regex.patterns[0].name }}",
+										"pattern":"{{ mtswW.outputs.properties.RedactSensitiveInformation.regex.patterns[0].pattern }}",
+										"behaviour":"{{ mtswW.outputs.properties.RedactSensitiveInformation.regex.patterns[0].behaviour }}"
+									}
+								}
+							},
+							"automations":{
+								"enabled":"{{ mtswW.outputs.properties.RedactSensitiveInformation.automations.enabled }}",
+								"ids":{
+									"source":"{{ mtswW.outputs.properties.RedactSensitiveInformation.automations.ids }}",
+									"ua:type":"mappedArray",
+									"items":"{{ mtswW.outputs.properties.RedactSensitiveInformation.automations.ids[0] }}"
+								}
+							},
+							"piiByUA":{
+								"enabled":"{{ mtswW.outputs.properties.RedactSensitiveInformation.piiByUA.enabled }}"
+							}
+						},
+						"BlockedMessaging":{
+							"blockedMessagingForPrompts":{
+								"blockedMessage":"{{ mtswW.outputs.properties.BlockedMessaging.blockedMessagingForPrompts.blockedMessage }}"
+							},
+							"blockedMessagingForResponses":{
+								"blockedMessage":"{{ mtswW.outputs.properties.BlockedMessaging.blockedMessagingForResponses.blockedMessage }}"
+							}
+						},
+						"contentFilters":{
+							"filterStrengthForResponses":{
+								"hate":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForResponses.hate }}",
+								"insult":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForResponses.insult }}",
+								"misconduct":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForResponses.misconduct }}",
+								"violence":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForResponses.violence }}",
+								"sexual":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForResponses.sexual }}",
+								"promptAttack":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForResponses.promptAttack }}"
+							},
+							"filterStrengthForPrompts":{
+								"hate":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForPrompts.hate }}",
+								"insult":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForPrompts.insult }}",
+								"misconduct":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForPrompts.misconduct }}",
+								"violence":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForPrompts.violence }}",
+								"sexual":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForPrompts.sexual }}",
+								"promptAttack":"{{ mtswW.outputs.properties.contentFilters.filterStrengthForPrompts.promptAttack }}"
+							},
+							"llmModel":"{{ mtswW.outputs.properties.contentFilters.llmModel }}"
+						}
+					},
+					"id":"{{ mtswW.outputs.id }}",
+					"entityType":"{{ mtswW.outputs.entityType }}",
+					"version":"{{ mtswW.outputs.version }}",
+					"createdTimeEpoch":"{{ mtswW.outputs.createdTime }}",
+					"modifiedTimeEpoch":"{{ mtswW.outputs.modifiedTime }}",
+					"ownerUserId":"{{ mtswW.outputs.ownerUserId }}",
+					"lastModifiedByUserId":"{{ mtswW.outputs.lastModifiedBy }}",
+					"deleted":"{{ mtswW.outputs.deleted }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":45775,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		
+	],
+	"version":70
+}
