@@ -5,12 +5,12 @@
 	"createdTime":1761751950501,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761751767718,
-		"deployedBy":40548,
-		"deployedDefinitionId":"690232d769a2182503972c26",
-		"status":"PAUSED",
-		"version":14,
-		"workflowVersion":26
+		"deployedAt":1761751987312,
+		"deployedBy":33648,
+		"deployedDefinitionId":"690233adb1f2d27587b66b93",
+		"status":"DEPLOYED",
+		"version":15,
+		"workflowVersion":28
 	},
 	"edges":[
 		{
@@ -29,13 +29,6 @@
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_y2yKm",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_UvuaD",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_I6WZx",
 			"name":"no",
 			"priority":0,
@@ -47,7 +40,7 @@
 	"id":"69022241d7e7bd77b0587cad",
 	"lastModifiedBy":33648,
 	"lcName":"calendar ai - auto schedule meeting",
-	"modifiedTime":1761751977293,
+	"modifiedTime":1761752077119,
 	"name":"Calendar AI - Auto Schedule Meeting",
 	"nodes":[
 		{
@@ -58,7 +51,7 @@
 				"resourceName":"gmail_on_new_email_polling"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_v9l63-1",
 			"id":"n_dVUvC",
@@ -132,33 +125,6 @@
 		},
 		{
 			"context":{
-				"appName":"ai_agents_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"ai_agents_by_unifyapps_invoke_agent",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_I6WZx@_v9l63-1@y",
-			"id":"n_UvuaD",
-			"index":4,
-			"inputs":{
-				"callableInterfaceId":"__ua__invoke_ai_agent_by_unifyapps",
-				"defaultFallbackWorkflowId":"68050ca67df58855654804a0",
-				"parameters":{
-					"userQuery":"Gmail Trigger - Schedule Time slot According to the thread - Ignore if no times mentioned. {{ n_y2yKm.outputs.messages }} ",
-					"aiAgentId":"e_6901da6e36b584495d1ff008",
-					"triggerWorkflowWithRuntimeType":"IN_MEMORY"
-				}
-			},
-			"skip":false,
-			"subTitle":"AI Agents by UnifyApps",
-			"title":"Invoke Agent",
-			"type":"CALL_INTERFACE_WORKFLOW"
-		},
-		{
-			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -166,7 +132,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_I6WZx@_v9l63-1@n",
 			"id":"n_dANBX",
-			"index":5,
+			"index":4,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -190,5 +156,5 @@
 	"tags":[
 		
 	],
-	"version":28
+	"version":29
 }
