@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"amazon_s3"
 	],
 	"createdTime":1761740992292,
 	"deleted":false,
@@ -25,12 +25,19 @@
 			"skip":false,
 			"toNodeId":"n_I4dnN",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_I4dnN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_vgCXA",
+			"type":"next"
 		}
 	],
 	"id":"690208c074105b7eb8dc03cc",
 	"lastModifiedBy":39714,
 	"lcName":"bin to pdf",
-	"modifiedTime":1761742749602,
+	"modifiedTime":1761742838989,
 	"name":"bin to pdf",
 	"nodes":[
 		{
@@ -176,6 +183,31 @@
 			"subTitle":"Files by UnifyApps",
 			"title":"Upload file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"amazon_s3",
+				"resourceVersion":6731,
+				"connectionId":"68e789c1b357820a3558daf1",
+				"resourceName":"amazon_s3_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Auhb7-1",
+			"id":"n_vgCXA",
+			"index":5,
+			"inputs":{
+				"select":"CLOUD_STORAGE",
+				"file":"{{ n_I4dnN.outputs.fileDetails }}",
+				"acceleratedEndpoint":false,
+				"region":"ap-south-1"
+			},
+			"skip":false,
+			"subTitle":"Amazon S3",
+			"title":"Upload file",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39714,
@@ -195,5 +227,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
