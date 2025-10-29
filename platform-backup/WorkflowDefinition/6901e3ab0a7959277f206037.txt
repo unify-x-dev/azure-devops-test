@@ -6,46 +6,73 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_TegFw",
+			"fromNodeId":"n_j3yLH",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_kpoTv",
+			"toNodeId":"n_cetNT",
 			"type":"next"
 		}
 	],
 	"id":"6901e3ab0a7959277f206037",
 	"lastModifiedBy":122909,
 	"lcName":"c1",
-	"modifiedTime":1761731499568,
+	"modifiedTime":1761731532394,
 	"name":"C1",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TegFw-1",
-			"id":"_TegFw",
-			"index":0,
+			"id":"n_j3yLH",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TegFw-1",
-			"id":"_kpoTv",
-			"index":0,
+			"id":"n_cetNT",
+			"index":2,
+			"inputs":{
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":122909,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +86,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
