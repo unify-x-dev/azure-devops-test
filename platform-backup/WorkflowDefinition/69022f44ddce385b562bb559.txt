@@ -41,12 +41,20 @@
 			"skip":false,
 			"toNodeId":"n_aepmN",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_pumV6",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_exeiI",
+			"type":"branch"
 		}
 	],
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761752660939,
+	"modifiedTime":1761752683191,
 	"name":"test",
 	"nodes":[
 		{
@@ -232,6 +240,21 @@
 			"subTitle":"Stop",
 			"title":"Stop",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_pumV6@_gBa2Z-1@default",
+			"id":"n_exeiI",
+			"index":7,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":161877,
@@ -251,5 +274,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
