@@ -18,12 +18,19 @@
 			"skip":false,
 			"toNodeId":"n_ts1PZ",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ts1PZ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_I4dnN",
+			"type":"next"
 		}
 	],
 	"id":"690208c074105b7eb8dc03cc",
 	"lastModifiedBy":39714,
 	"lcName":"bin to pdf",
-	"modifiedTime":1761741309051,
+	"modifiedTime":1761741519317,
 	"name":"bin to pdf",
 	"nodes":[
 		{
@@ -144,6 +151,27 @@
 			"subTitle":"Bin to Base64",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":967,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Auhb7-1",
+			"id":"n_I4dnN",
+			"index":4,
+			"inputs":{
+				"option":"base64Content"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39714,
@@ -163,5 +191,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
