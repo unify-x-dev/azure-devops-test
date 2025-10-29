@@ -92,55 +92,6 @@
 		"configs":[
 			{
 				"permissions":[
-					"A",
-					"EXPORT_AS_TEMPLATE",
-					"C",
-					"S",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"DEP"
-				],
-				"principalIds":[
-					"17"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"VIEW_RUNS",
-					"V"
-				],
-				"principalIds":[
-					"45771"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"EXPORT_AS_TEMPLATE",
-					"A",
-					"C",
-					"S",
-					"VI",
-					"D",
-					"TEST",
-					"VIEW_RUNS",
-					"E",
-					"V",
-					"VS",
-					"DEP"
-				],
-				"principalIds":[
-					"161165"
-				],
-				"principalType":"USER"
-			},
-			{
-				"permissions":[
-					"VIEW_RUNS",
 					"V"
 				],
 				"principalType":"GLOBAL"
@@ -148,9 +99,9 @@
 		]
 	},
 	"id":"66dfd76eb70dad256986b784",
-	"lastModifiedBy":177799,
+	"lastModifiedBy":0,
 	"lcName":"simple call llm",
-	"modifiedTime":1761479045394,
+	"modifiedTime":1761722765045,
 	"name":"Simple Call LLM",
 	"nodes":[
 		{
@@ -718,7 +669,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"legJW-1",
 			"id":"2Vkdh",
@@ -735,8 +686,8 @@
 					"responseFormat":{
 						"type":"{{ VurtA.outputs.response_format }}"
 					},
-					"maxTokens":"=VALUE({{ VurtA.outputs.maxTokens }})",
-					"temperature":"=VALUE({{ VurtA.outputs.temperature }})",
+					"maxTokens":"{{ VurtA.outputs.maxTokens }}",
+					"temperature":"{{ VurtA.outputs.temperature }}",
 					"logProbs":false,
 					"stream":false,
 					"message":{
@@ -798,9 +749,9 @@
 			"tierName":"global"
 		}
 	},
-	"standard":false,
+	"standard":true,
 	"tags":[
 		"AI Agent"
 	],
-	"version":178
+	"version":179
 }
