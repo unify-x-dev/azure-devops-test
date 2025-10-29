@@ -1,51 +1,114 @@
 {
 	"appsUsed":[
-		
+		"netsuite"
 	],
 	"createdTime":1761734681565,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_0gb4s",
+			"fromNodeId":"n_f06xb",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_iz9c1",
+			"toNodeId":"n_cc5G5",
 			"type":"next"
 		}
 	],
 	"id":"6901f019dad3c27b954ea68f",
 	"lastModifiedBy":6701,
 	"lcName":"create invoice netsuite testing",
-	"modifiedTime":1761734681565,
+	"modifiedTime":1761734836989,
 	"name":"Create invoice netsuite testing",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0gb4s-1",
-			"id":"_0gb4s",
-			"index":0,
+			"id":"n_f06xb",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"netsuite",
+				"resourceVersion":1667,
+				"connectionId":"68a5cd6261da06bf1fd18e16",
+				"resourceName":"netsuite_create_invoice",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0gb4s-1",
-			"id":"_iz9c1",
-			"index":0,
+			"id":"n_cc5G5",
+			"index":2,
+			"inputs":{
+				"item":{
+					"items":[
+						{
+							"item":{
+								"id":"2240"
+							},
+							"rate":1000,
+							"amount":100
+						}
+					]
+				},
+				"terms":{
+					"id":"11"
+				},
+				"location":{
+					"id":"232"
+				},
+				"currency":{
+					"id":"1",
+					"name":"US Dollar",
+					"displaySymbol":"$",
+					"currencyPrecision":2,
+					"symbol":"USD",
+					"isInactive":false,
+					"formatSample":"$1,234.56",
+					"exchangeRate":1
+				},
+				"department":{
+					"id":"205"
+				},
+				"class":{
+					"id":"5"
+				},
+				"entity":{
+					"id":"1042"
+				},
+				"subsidiary":{
+					"id":"42"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Netsuite",
+			"title":"Create an invoice",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":6701,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +122,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
