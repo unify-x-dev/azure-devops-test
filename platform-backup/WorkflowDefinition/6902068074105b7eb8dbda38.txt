@@ -5,12 +5,12 @@
 	"createdTime":1761740416924,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761741395806,
+		"deployedAt":1761741833207,
 		"deployedBy":1,
-		"deployedDefinitionId":"69020a5274105b7eb8dc19f2",
+		"deployedDefinitionId":"69020c0774105b7eb8dc2768",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -31,7 +31,7 @@
 	"id":"6902068074105b7eb8dbda38",
 	"lastModifiedBy":1,
 	"lcName":"aws comprehend test",
-	"modifiedTime":1761741829641,
+	"modifiedTime":1761741838012,
 	"name":"AWS comprehend test",
 	"nodes":[
 		{
@@ -116,7 +116,7 @@
 			"id":"n_wgFbS",
 			"index":3,
 			"inputs":{
-				"JobId":"fc70fedb0e12f831a87084d7fb0ce5a5"
+				"JobId":"{{ n_d6tEe.outputs.JobId }}"
 			},
 			"skip":false,
 			"subTitle":"Amazon Comprehend",
@@ -141,5 +141,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
