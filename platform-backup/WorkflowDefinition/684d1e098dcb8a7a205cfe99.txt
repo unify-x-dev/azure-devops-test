@@ -1,0 +1,405 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1756411297532,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1760529865256,
+		"deployedBy":0,
+		"deployedDefinitionId":"68ef8dc915076a51390878df",
+		"status":"DEPLOYED",
+		"version":31,
+		"workflowVersion":62
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_RZaIU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_RKWof",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RKWof",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_uaRIG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_uaRIG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_70CpW",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_70CpW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_l0HR8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_l0HR8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"spDvx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"spDvx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"FHTNw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"FHTNw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_c5mla",
+			"type":"next"
+		}
+	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"V"
+				],
+				"principalType":"GLOBAL"
+			}
+		]
+	},
+	"id":"684d1e098dcb8a7a205cfe99",
+	"lastModifiedBy":0,
+	"lcName":"workflow agent | web search",
+	"modifiedTime":1761722672883,
+	"name":"Workflow Agent | Web Search",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":418,
+				"resourceName":"callables_from_interface"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"n_RZaIU",
+			"index":1,
+			"inputs":{
+				"result":{
+					"additionalProperties":false,
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"type":"object",
+					"properties":{
+						"result":{
+							"type":"boolean",
+							"title":"result"
+						}
+					}
+				},
+				"callableInterfaceId":"__ua__web_search_interface",
+				"setup":{
+					"additionalProperties":false,
+					"ua:modal":{
+						"field_type":"STRING",
+						"is_optional":true
+					},
+					"type":"object",
+					"properties":{
+						"query":{
+							"type":"string",
+							"title":"query"
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger interface",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":432,
+				"resourceName":"variable_by_unifyapps_get_session_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"n_RKWof",
+			"index":2,
+			"inputs":{
+				"variableSchema":{
+					"type":"object",
+					"properties":{
+						"caseId":{
+							"type":"string",
+							"title":"Case Id"
+						},
+						"aiAgentId":{
+							"type":"string",
+							"title":"Ai Agent Id"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Get Session Variables",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.filters.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":52,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"_uaRIG",
+			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"properties":{
+						"rawLLMResponse":{
+							"type":"string",
+							"title":"Raw LLM Response"
+						},
+						"toolInputs":{
+							"type":"object",
+							"properties":{
+								"query":{
+									"type":"string",
+									"title":"Query"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Tool Inputs",
+							"required":[]
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"input":{
+					"type":"object",
+					"properties":{
+						"query":{
+							"type":"string",
+							"title":"Query"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"compile_static":false,
+				"code":"if(binding.hasVariable('query')){\n  query = query\n}\n\nreturn [\n  \"rawLLMResponse\": \"Thought:Fetch Relevant Content by doing a Web Search\", \n  \"toolInputs\": [\n   \"query\": query\n  ]\n]\n",
+				"parameters":{
+					"query":"{{ n_RZaIU.outputs.query }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Prepare Inputs",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":360,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"_70CpW",
+			"index":4,
+			"inputs":{
+				"automationId":"67d5af775c39266befb87be3",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"purpose":"AGENTS_topicExecutionModel",
+					"aiAgentId":"{{ n_RKWof.outputs.aiAgentId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":58,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"_l0HR8",
+			"index":5,
+			"inputs":{
+				"automationId":"67a31b86addac8605df79166",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"createMessageIfAbsent":true,
+					"rawLLMResponse":"{{ _uaRIG.outputs.result.rawLLMResponse }}",
+					"internalMessageType":"AGENT_INTERNAL_RESPONSE",
+					"caseId":"{{ n_RKWof.outputs.caseId }}",
+					"aiAgentId":"{{ n_RKWof.outputs.aiAgentId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Ingest Agent Response",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":52,
+				"resourceName":"callables_call_interface",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"spDvx",
+			"index":6,
+			"inputs":{
+				"callableInterfaceId":"679484ef9c8ab5620dca9609",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"DEFAULT",
+				"callableInterfaces":[],
+				"fallbackWorkflowId":"67c87283bdfea60cd01141e6",
+				"parameters":{
+					"toolId":"WebSearch",
+					"triggeredByAgentId":"{{ n_RKWof.outputs.aiAgentId }}",
+					"caseId":"{{ n_RKWof.outputs.caseId }}",
+					"toolInputs":"{{ _uaRIG.outputs.result.toolInputs }}",
+					"executeUsingModel":"{{ _70CpW.outputs.modelId }}",
+					"agentResponseMessageId":"{{ _l0HR8.outputs.messageId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Web Search Tool",
+			"title":"Call interface",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":58,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"FHTNw",
+			"index":7,
+			"inputs":{
+				"automationId":"67a31b86addac8605df79166",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"createMessageIfAbsent":false,
+					"executionOutput":"{{ spDvx.outputs.toolOutput }}",
+					"toolUseDetails":{
+						"toolName":"WebSearch",
+						"toolOutput":"{{ spDvx.outputs.toolOutput }}",
+						"toolId":"WebSearch",
+						"toolInput":"{{ _uaRIG.outputs.result.toolInputs }}"
+					},
+					"internalMessageType":"AGENT_INTERNAL_RESPONSE",
+					"aiAgentId":"{{ n_RKWof.outputs.aiAgentId }}",
+					"caseId":"{{ n_RKWof.outputs.caseId }}",
+					"messageId":"{{ _l0HR8.outputs.messageId }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Ingest Agent Response",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":435,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Mac8v-1",
+			"id":"n_c5mla",
+			"index":8,
+			"inputs":{
+				"result":{
+					"result":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":-1,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":true,
+	"tags":[
+		
+	],
+	"version":64
+}
