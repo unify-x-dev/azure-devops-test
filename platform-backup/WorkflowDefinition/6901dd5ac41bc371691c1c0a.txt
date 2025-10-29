@@ -5,109 +5,26 @@
 	"createdTime":1761729882293,
 	"deleted":false,
 	"edges":[
-		{
-			"fromNodeId":"7pKsG",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"mGr1K",
-			"type":"next"
-		}
+		
 	],
 	"id":"6901dd5ac41bc371691c1c0a",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa21761729882260fuyniribjr",
-	"modifiedTime":1761729882369,
+	"modifiedTime":1761729882293,
 	"name":"changeSetQA21761729882260FuYNiRiBJr",
 	"nodes":[
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":127,
-				"resourceName":"callables_from_automation"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"5stgo-1",
-			"id":"7pKsG",
-			"index":0,
-			"inputs":{
-				"result":{
-					"type":"object",
-					"properties":{
-						"c":{
-							"type":"integer",
-							"title":"c"
-						}
-					},
-					"additionalProperties":false,
-					"required":[
-						"c"
-					]
-				},
-				"setup":{
-					"type":"object",
-					"properties":{
-						"a":{
-							"type":"integer",
-							"title":"a"
-						},
-						"b":{
-							"type":"integer",
-							"title":"b"
-						}
-					},
-					"additionalProperties":false,
-					"required":[
-						"a",
-						"b"
-					]
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger via automation",
-			"trigger":{
-				"type":"CALLABLE"
-			},
-			"type":"START"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":116,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"5stgo-1",
-			"id":"mGr1K",
-			"index":0,
-			"inputs":{
-				"result":{
-					"c":"=SUM({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
-				}
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		}
-	],
-	"ownerUserId":175325,
-	"schemaReferences":[
 		
 	],
+	"ownerUserId":175325,
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
 	},
 	"standard":false,
-	"tags":[
-		
-	],
-	"version":1
+	"version":0
 }
