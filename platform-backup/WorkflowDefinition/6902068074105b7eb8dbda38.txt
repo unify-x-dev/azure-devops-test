@@ -31,7 +31,7 @@
 	"id":"6902068074105b7eb8dbda38",
 	"lastModifiedBy":1,
 	"lcName":"aws comprehend test",
-	"modifiedTime":1761741838012,
+	"modifiedTime":1761741899128,
 	"name":"AWS comprehend test",
 	"nodes":[
 		{
@@ -88,7 +88,6 @@
 				"Mode":"ONLY_OFFSETS",
 				"JobName":"job-{{ __RUN__.outputs.executionId }}",
 				"RedactionConfig":{
-					"MaskMode":"REPLACE_WITH_PII_ENTITY_TYPE",
 					"PiiEntityTypes":[]
 				},
 				"InputDataConfig":{
@@ -141,5 +140,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
