@@ -6,13 +6,13 @@
 	"createdTime":1761721145809,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761725152007,
+		"deployedAt":1761730656258,
 		"deployedBy":190505,
-		"deployedDefinitionId":"6901cadfc41bc371691b548a",
-		"deploymentTag":"V1",
+		"deployedDefinitionId":"6901e0600a7959277f204e4d",
+		"deploymentTag":"V3-pdf-zip",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":5
+		"version":3,
+		"workflowVersion":10
 	},
 	"edges":[
 		{
@@ -56,7 +56,7 @@
 	"id":"6901bb39db965a67e0483595",
 	"lastModifiedBy":190505,
 	"lcName":"test22",
-	"modifiedTime":1761730578244,
+	"modifiedTime":1761732253104,
 	"name":"Test22",
 	"nodes":[
 		{
@@ -134,14 +134,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_QnXLE@_cjlKb-1@y",
 			"id":"n_qpgur",
 			"index":3,
 			"inputs":{
 				"link_names":true,
-				"messageType":"blocks",
+				"messageType":"text",
 				"Attach":[
 					{
 						"attachmentsType":"attachmentBlock",
@@ -163,6 +163,7 @@
 					}
 				],
 				"channel":"C09NWHKKCA3",
+				"text":"Attachment Received",
 				"mrkdwn":true
 			},
 			"skip":false,
@@ -179,14 +180,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_QnXLE@_cjlKb-1@n",
 			"id":"n_oyVJj",
 			"index":4,
 			"inputs":{
 				"link_names":true,
+				"messageType":"text",
 				"channel":"C09NWHKKCA3",
+				"text":"No Attachments here",
 				"mrkdwn":true
 			},
 			"skip":false,
@@ -227,5 +230,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
