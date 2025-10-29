@@ -192,7 +192,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761761481031,
+	"modifiedTime":1761761674321,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -664,8 +664,12 @@
 						}
 					}
 				},
+				"code":"def result = [\n        Importance      :payload.Importance ?: 1,\n        CreatedDate     : payload.CreatedDate ?: '',\n        Practice        : payload.Practice ?: '',\n        Id              : payload.Id ?: '',\n        FromEmail       : payload.FromEmail ?: '',\n        Subject         : payload.Subject ?: '',\n        MessageBody     : payload.MessageBody ?: ''\n    ]\nreturn result",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_Yq92w.outputs.body.payload }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -867,7 +871,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_XWNsV",
@@ -1051,5 +1055,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
