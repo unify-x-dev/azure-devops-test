@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_X3sq7",
+			"fromNodeId":"n_qdVVi",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_ZMSaW",
@@ -45,38 +45,27 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761727172623,
+	"modifiedTime":1761727217047,
 	"name":"xyzzz",
 	"nodes":[
 		{
-			"additional":{
-				"xsdSchemaConfig":{
-					"root":{
-						"request":{}
-					}
-				}
-			},
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
-			"id":"n_X3sq7",
+			"id":"n_qdVVi",
 			"index":1,
-			"inputs":{
-				"request":{
-					"contentType":"application/json"
-				}
-			},
+			"inputs":{},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -222,5 +211,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
