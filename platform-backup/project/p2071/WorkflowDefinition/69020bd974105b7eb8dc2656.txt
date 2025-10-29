@@ -6,47 +6,387 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_vbFg2",
+			"fromNodeId":"n_k80cv",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_h4NJ1",
+			"toNodeId":"n_APhXh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_APhXh",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WR3nm",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_APhXh",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XaSNa",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XaSNa",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_crVjZ",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_XaSNa",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_s98EK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_s98EK",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ivlry",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_ivlry",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZJT9E",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_ivlry",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_xjGkb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_s98EK",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CKe4Z",
 			"type":"next"
 		}
 	],
 	"id":"69020bd974105b7eb8dc2656",
 	"lastModifiedBy":189756,
 	"lcName":"beh-t",
-	"modifiedTime":1761741785647,
+	"modifiedTime":1761742487193,
 	"name":"BEH-T",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vbFg2-1",
-			"id":"_vbFg2",
-			"index":0,
+			"id":"n_k80cv",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"complianceStatus":{
+							"type":"string",
+							"title":"Compliance Status"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"followUp":{
+							"type":"string",
+							"title":"Follow Up"
+						},
+						"onFire":{
+							"type":"string",
+							"title":"On Fire"
+						},
+						"verified":{
+							"type":"string",
+							"title":"Verified"
+						},
+						"travelExpirationDate":{
+							"type":"string",
+							"title":"Travel Expiration Date"
+						},
+						"placementStartDate":{
+							"type":"string",
+							"title":"Placement Start Date"
+						},
+						"placementEndDate":{
+							"type":"string",
+							"title":"Placement End Date"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vbFg2-1",
-			"id":"_h4NJ1",
-			"index":0,
+			"id":"n_APhXh",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_k80cv.outputs.followUp }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_APhXh@_vbFg2-1@y",
+			"id":"n_WR3nm",
+			"index":3,
+			"inputs":{
+				"result":{
+					"complianceStatus":"to do"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_APhXh@_vbFg2-1@n",
+			"id":"n_XaSNa",
+			"index":4,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_k80cv.outputs.travelExpirationDate }}",
+						"filter":{
+							"operator":"LT",
+							"value":"=today()"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XaSNa@n_APhXh@_vbFg2-1@n@y",
+			"id":"n_crVjZ",
+			"index":5,
+			"inputs":{
+				"result":{
+					"complianceStatus":"Not Compiant"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_XaSNa@n_APhXh@_vbFg2-1@n@n",
+			"id":"n_s98EK",
+			"index":6,
+			"inputs":{
+				"filters":[
+					{
+						"property":"={{ n_k80cv.outputs.travelExpirationDate }}",
+						"filter":{
+							"operator":"GTE",
+							"value":"{{ n_k80cv.outputs.placementStartDate }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_s98EK@n_XaSNa@n_APhXh@_vbFg2-1@n@n@y",
+			"id":"n_ivlry",
+			"index":7,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_k80cv.outputs.travelExpirationDate }}",
+						"filter":{
+							"operator":"LT",
+							"value":"{{ n_k80cv.outputs.placementEndDate }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ivlry@n_s98EK@n_XaSNa@n_APhXh@_vbFg2-1@n@n@y@y",
+			"id":"n_ZJT9E",
+			"index":8,
+			"inputs":{
+				"result":{
+					"complianceStatus":"COMPLIANT WITH WARNING"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ivlry@n_s98EK@n_XaSNa@n_APhXh@_vbFg2-1@n@n@y@n",
+			"id":"n_xjGkb",
+			"index":9,
+			"inputs":{
+				"result":{
+					"complianceStatus":"Compiant"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_s98EK@n_XaSNa@n_APhXh@_vbFg2-1@n@n@n",
+			"id":"n_CKe4Z",
+			"index":10,
+			"inputs":{
+				"result":{
+					"complianceStatus":"Not Compiant"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":189756,
 	"projectId":2071,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +400,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
