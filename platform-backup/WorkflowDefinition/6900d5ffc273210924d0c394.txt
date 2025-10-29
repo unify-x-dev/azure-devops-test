@@ -1,51 +1,222 @@
 {
 	"appsUsed":[
-		
+		"craftmypdf",
+		"gcalendar",
+		"gmail"
 	],
 	"createdTime":1761662463380,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_LA0Mc",
+			"fromNodeId":"n_T6EzF",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_r1iFp",
+			"toNodeId":"n_IP5Nb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_IP5Nb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_K3lpv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_K3lpv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CXzKD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CXzKD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ao26U",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ao26U",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nSAKz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_nSAKz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Gq8r0",
 			"type":"next"
 		}
 	],
 	"id":"6900d5ffc273210924d0c394",
 	"lastModifiedBy":178084,
 	"lcName":"assignment_2_trinabh",
-	"modifiedTime":1761662463380,
+	"modifiedTime":1761743707090,
 	"name":"Assignment_2_Trinabh",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LA0Mc-1",
-			"id":"_LA0Mc",
-			"index":0,
+			"id":"n_T6EzF",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":24,
+				"frequency":"HOURS"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":4423,
+				"connectionId":"6900d6943fb991520cd29ce2",
+				"resourceName":"gmail_list_emails",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LA0Mc-1",
-			"id":"_r1iFp",
-			"index":0,
+			"id":"n_IP5Nb",
+			"index":2,
+			"inputs":{
+				"count":5,
+				"includeSpamTrash":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"List Emails",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":4054,
+				"connectionId":"6900d6943fb991520cd29ce2",
+				"resourceName":"gmail_get_message_specifics",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_LA0Mc-1",
+			"id":"n_K3lpv",
+			"index":3,
+			"inputs":{
+				"id":"19a2fe0b4a372c8b"
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Get message specifics",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gcalendar",
+				"resourceVersion":2223,
+				"connectionId":"6900d74c3fb991520cd29e81",
+				"resourceName":"gcalendar_list_meetings",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_LA0Mc-1",
+			"id":"n_CXzKD",
+			"index":4,
+			"inputs":{},
+			"skip":true,
+			"subTitle":"Google Calendar",
+			"title":"List meetings",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1048,
+				"resourceName":"utility_by_unifyapps_convert_html_to_pdf",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_LA0Mc-1",
+			"id":"n_ao26U",
+			"index":5,
+			"inputs":{
+				"multiLingualContent":false
+			},
+			"skip":true,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Convert HTML to PDF",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"craftmypdf",
+				"resourceVersion":2431,
+				"resourceName":"craftmypdf_create_pdf",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_LA0Mc-1",
+			"id":"n_nSAKz",
+			"index":6,
+			"skip":true,
+			"subTitle":"CraftMyPDF",
+			"title":"Create PDF",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5633,
+				"connectionId":"6900d6943fb991520cd29ce2",
+				"resourceName":"gmail_send_email",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_LA0Mc-1",
+			"id":"n_Gq8r0",
+			"index":7,
+			"inputs":{
+				"subject":"Your Morning Brief- Date",
+				"to":[
+					"trinabh.kohli@unifyapps.com"
+				],
+				"message":"{{ n_K3lpv.outputs.From }},{{ n_K3lpv.outputs.Date }},{{ n_K3lpv.outputs.Subject }}"
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Send email",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":178084,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +230,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
