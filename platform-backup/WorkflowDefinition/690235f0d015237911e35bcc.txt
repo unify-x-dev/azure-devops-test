@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		"coupa",
+		"gdrive",
 		"google_vertex_ai"
 	],
 	"createdTime":1761752560904,
@@ -10,11 +10,11 @@
 			"fromNodeId":"n_94FbG",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_btyR7",
+			"toNodeId":"n_VSvxS",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_btyR7",
+			"fromNodeId":"n_VSvxS",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_HNebn",
@@ -73,7 +73,7 @@
 	"id":"690235f0d015237911e35bcc",
 	"lastModifiedBy":170149,
 	"lcName":"test_vertex",
-	"modifiedTime":1761752976440,
+	"modifiedTime":1761753256327,
 	"name":"test_Vertex",
 	"nodes":[
 		{
@@ -103,24 +103,24 @@
 		},
 		{
 			"context":{
-				"appName":"coupa",
-				"resourceVersion":897,
-				"connectionId":"68c15f6903ed3e67105805c3",
-				"resourceName":"coupa_get_invoice_image_scan",
+				"appName":"gdrive",
+				"resourceVersion":6397,
+				"connectionId":"690238963aa1c92698dd39f0",
+				"resourceName":"gdrive_get_file",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_h5Bu3-1",
-			"id":"_btyR7",
+			"id":"n_VSvxS",
 			"index":2,
 			"inputs":{
-				"id":"{{ n_sngnM.outputs.item.coupa_id }}"
+				"fileId":"10ulS5ojny8PAI_nZtLtUxG-qHWr2grOL"
 			},
 			"skip":false,
-			"subTitle":"Coupa",
-			"title":"Get invoice image scan",
+			"subTitle":"Google Drive",
+			"title":"Get file",
 			"type":"ACTION"
 		},
 		{
@@ -556,5 +556,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
