@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_Rgo1T",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Rgo1T",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nveKC",
+			"type":"next"
 		}
 	],
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737363652,
+	"modifiedTime":1761737385163,
 	"name":"test1",
 	"nodes":[
 		{
@@ -48,7 +55,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_zM0cA-1",
 			"id":"n_Rgo1T",
@@ -294,6 +301,25 @@
 			"subTitle":"Variable by UnifyApps",
 			"title":"Create list",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_zM0cA-1",
+			"id":"n_nveKC",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":643,
@@ -313,5 +339,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
