@@ -39,7 +39,7 @@
 	"id":"6901fa1a6f43533b05a10380",
 	"lastModifiedBy":643,
 	"lcName":"test1",
-	"modifiedTime":1761737567472,
+	"modifiedTime":1761737569057,
 	"name":"test1",
 	"nodes":[
 		{
@@ -322,6 +322,8 @@
 		{
 			"context":{
 				"appName":"csv_by_unifyapps",
+				"resourceVersion":798,
+				"resourceName":"csv_by_unifyapps_extract_headers",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -330,9 +332,12 @@
 			"groupId":"_zM0cA-1",
 			"id":"n_H2FnZ",
 			"index":3,
+			"inputs":{
+				"delimiter":","
+			},
 			"skip":false,
 			"subTitle":"CSV by UnifyApps",
-			"title":"Select an action",
+			"title":"Extract headers from CSV file",
 			"type":"ACTION"
 		},
 		{
@@ -374,5 +379,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
