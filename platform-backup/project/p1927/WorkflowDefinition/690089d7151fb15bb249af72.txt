@@ -220,7 +220,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761746727523,
+	"modifiedTime":1761746736935,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -1045,6 +1045,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"success":"{{ n_WQBQv.outputs.success }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1204,5 +1207,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
