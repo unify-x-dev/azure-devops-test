@@ -32,12 +32,19 @@
 			"skip":false,
 			"toNodeId":"n_Ifbeh",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Ifbeh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_g2hMJ",
+			"type":"next"
 		}
 	],
 	"id":"69022404455efd47733de83c",
 	"lastModifiedBy":59995,
 	"lcName":"test-exports",
-	"modifiedTime":1761750255221,
+	"modifiedTime":1761751156427,
 	"name":"test-exports",
 	"nodes":[
 		{
@@ -185,16 +192,44 @@
 			"inputs":{
 				"projections":[
 					{
+						"name":"ENTITY_test_export_analytics=::=test1",
+						"aggregationFunction":"GROUP"
+					},
+					{
+						"name":"ENTITY_test_export_analytics=::=test2",
 						"aggregationFunction":"GROUP"
 					}
 				],
+				"entityType":"ENTITY_test_export_analytics",
 				"keepExactFileName":false,
 				"fileType":"CSV",
 				"group":"ENTITY_REPORTING"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Analytics by UnifyApps",
 			"title":"Export Reports",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":938,
+				"resourceName":"analytics_by_unifyapps_execute_query",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5E8G-1",
+			"id":"n_g2hMJ",
+			"index":6,
+			"inputs":{
+				"query":"SELECT * FROM ENTITY_test_export_analytics;",
+				"group":"ENTITY_REPORTING"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Execute Analytics SQL Query",
 			"type":"ACTION"
 		}
 	],
@@ -215,5 +250,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
