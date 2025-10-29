@@ -6,46 +6,120 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_7ygdb",
+			"fromNodeId":"n_2zus8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_GUwCM",
+			"toNodeId":"n_Ci2Ol",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Ci2Ol",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_x9J3n",
 			"type":"next"
 		}
 	],
 	"id":"6901ea97dad3c27b954e3493",
 	"lastModifiedBy":190503,
 	"lcName":"sample",
-	"modifiedTime":1761733271192,
+	"modifiedTime":1761733525166,
 	"name":"sample",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_7ygdb-1",
-			"id":"_7ygdb",
-			"index":0,
+			"id":"n_2zus8",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"data":{
+								"type":"string",
+								"title":"Data"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"data"
+						]
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":993,
+				"resourceName":"files_by_unifyapps_create_temp_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_7ygdb-1",
-			"id":"_GUwCM",
-			"index":0,
+			"id":"n_Ci2Ol",
+			"index":2,
+			"inputs":{
+				"isTmp":true,
+				"initialContentType":"plainText",
+				"initialContent":"{{ n_2zus8.outputs.body.data }}",
+				"type":"SINGLE",
+				"fileType":"txt"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Files by UnifyApps",
+			"title":"Create a file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"json_by_unifyapps",
+				"resourceVersion":179,
+				"resourceName":"json_by_unifyapps_write_data_to_json_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_7ygdb-1",
+			"id":"n_x9J3n",
+			"index":3,
+			"inputs":{
+				"appendData":false,
+				"fileName":"file",
+				"encoding":"UTF-8",
+				"dataSource":"{{ n_Ci2Ol.outputs.fileDetails.source }}",
+				"keepExactFileName":false,
+				"fileType":"json"
+			},
+			"skip":false,
+			"subTitle":"JSON by UnifyApps",
+			"title":"Write data to JSON file",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190503,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +133,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
