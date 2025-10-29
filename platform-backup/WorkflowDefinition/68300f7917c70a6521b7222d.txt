@@ -1,16 +1,16 @@
 {
 	"appsUsed":[
-		"slack"
+		
 	],
 	"createdTime":1747980153746,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1757326541407,
+		"deployedAt":1761771550803,
 		"deployedBy":508,
-		"deployedDefinitionId":"68beaccde4f88b609956a63a",
+		"deployedDefinitionId":"6902801e91823d39832c35ea",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":13
+		"version":5,
+		"workflowVersion":14
 	},
 	"edges":[
 		{
@@ -45,74 +45,8 @@
 			"fromNodeId":"TotXw",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"mG68D",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"mG68D",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"ZLpEQ",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"ZLpEQ",
-			"name":"1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"ZLpEQ@1",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"ZLpEQ@1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"Tb3e2",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"Tb3e2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"v2OyA",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"ZLpEQ",
-			"name":"2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"ZLpEQ@2",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"ZLpEQ@2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"KfjcL",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"v2OyA",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"2XnOz",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"KfjcL",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"2XnOz",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"ZLpEQ",
-			"name":"default",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"2XnOz",
-			"type":"branch"
 		},
 		{
 			"fromNodeId":"2XnOz",
@@ -125,7 +59,7 @@
 	"id":"68300f7917c70a6521b7222d",
 	"lastModifiedBy":508,
 	"lcName":"test-local-api",
-	"modifiedTime":1761771545498,
+	"modifiedTime":1761771684092,
 	"name":"test-local-api",
 	"nodes":[
 		{
@@ -197,7 +131,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"aff7M-1",
 			"id":"n_oPFJr",
@@ -219,7 +153,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"aff7M-1",
 			"id":"n_4YEnw",
@@ -345,221 +279,6 @@
 		},
 		{
 			"context":{
-				"appName":"analytics_by_unifyapps",
-				"resourceVersion":639,
-				"resourceName":"analytics_by_unifyapps_execute_query",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"aff7M-1",
-			"id":"mG68D",
-			"index":6,
-			"inputs":{
-				"query":"select * from API_ENDPOINT limit 5",
-				"group":"PLATFORM"
-			},
-			"skip":true,
-			"subTitle":"Analytics by UnifyApps",
-			"title":"Execute Analytics SQL Query",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"branch",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"aff7M-1",
-			"id":"ZLpEQ",
-			"index":7,
-			"inputs":{
-				"branches":[
-					{
-						"id":"1",
-						"inputs":{
-							"name":"Branch 1",
-							"conditions":{
-								"filters":[
-									{
-										"property":"q",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"q"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"2",
-						"inputs":{
-							"name":"Branch 2",
-							"conditions":{
-								"filters":[
-									{
-										"property":"q",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"q"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"default"
-					}
-				]
-			},
-			"skip":true,
-			"subTitle":"Branch",
-			"title":"",
-			"type":"BRANCH"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"ZLpEQ@aff7M-1@1",
-			"id":"ZLpEQ@1",
-			"index":8,
-			"inputs":{
-				"name":"Branch 1",
-				"conditions":{
-					"filters":[
-						{
-							"property":"q",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"q"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":true,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"slack",
-				"resourceVersion":5208,
-				"connectionId":"682cab2963662877ce9e5e66",
-				"resourceName":"slack_post_message_in_channel",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"ZLpEQ@aff7M-1@1",
-			"id":"Tb3e2",
-			"index":9,
-			"inputs":{
-				"link_names":true,
-				"messageType":"text",
-				"channel":"C08QQ3LG6N9",
-				"text":"test",
-				"mrkdwn":true
-			},
-			"skip":true,
-			"subTitle":"Slack",
-			"title":"Post message",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":705,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"ZLpEQ@aff7M-1@1",
-			"id":"v2OyA",
-			"index":10,
-			"inputs":{
-				"compile_static":false,
-				"code":"return \"test\""
-			},
-			"skip":true,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"ZLpEQ@aff7M-1@2",
-			"id":"ZLpEQ@2",
-			"index":11,
-			"inputs":{
-				"name":"Branch 2",
-				"conditions":{
-					"filters":[
-						{
-							"property":"q",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"q"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":705,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"ZLpEQ@aff7M-1@2",
-			"id":"KfjcL",
-			"index":12,
-			"inputs":{
-				"compile_static":false,
-				"code":"return \"lol\""
-			},
-			"skip":true,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":718,
 				"resourceName":"callables_return_response_to_api",
@@ -570,7 +289,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"aff7M-1",
 			"id":"2XnOz",
-			"index":13,
+			"index":6,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_ok",
@@ -593,7 +312,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"aff7M-1",
 			"id":"DOklv",
-			"index":14,
+			"index":7,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -613,5 +332,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
