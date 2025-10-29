@@ -45,7 +45,7 @@
 	"id":"69022f44ddce385b562bb559",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761751624728,
+	"modifiedTime":1761751648532,
 	"name":"test",
 	"nodes":[
 		{
@@ -72,17 +72,25 @@
 		{
 			"context":{
 				"appName":"loop",
+				"resourceVersion":36,
+				"resourceName":"loop_for",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gBa2Z-1",
 			"id":"n_zmQqK",
 			"index":2,
+			"inputs":{
+				"start":0,
+				"limit":1,
+				"step":1,
+				"captureIterations":false
+			},
 			"skip":false,
 			"subTitle":"Loop",
-			"title":"Select an action",
+			"title":"For loop",
 			"type":"LOOP"
 		},
 		{
@@ -190,5 +198,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
