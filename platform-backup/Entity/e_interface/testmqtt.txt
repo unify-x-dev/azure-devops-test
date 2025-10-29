@@ -30,7 +30,7 @@
 	},
 	"id":"testmqtt",
 	"lastModifiedBy":92,
-	"modifiedTime":1761737873556,
+	"modifiedTime":1761737909334,
 	"ownerUserId":33862,
 	"properties":{
 		"standard":false,
@@ -45,8 +45,27 @@
 			},
 			"_counter":{
 				"_moduleCount":0,
+				"_mqttTopicCounter":1,
 				"_pageCount":3
 			}
+		},
+		"manifest":{
+			"type":"WEB"
+		},
+		"pagePermissions":{
+			"e_67f50500ea4d885787074ee0":{}
+		},
+		"type":"application",
+		"locale":{
+			"defaultLocale":"en-US",
+			"supportedLocales":[
+				"fr-FR",
+				"es-ES"
+			]
+		},
+		"customCode":{
+			"footer":"new",
+			"header":"new"
 		},
 		"navigation":{
 			"secondary":[
@@ -275,12 +294,23 @@
 			"e_global_testmqtt":"global-page-of-testmqtt",
 			"e_6901fc911a82330212e789e8":"page-3"
 		},
-		"manifest":{
-			"type":"WEB"
-		},
-		"pagePermissions":{
-			"e_67f50500ea4d885787074ee0":{}
-		},
+		"mqttTopics":[
+			{
+				"id":"mqttTopic_VRQdc",
+				"topic":"new-topic-1",
+				"eventSchema":{
+					"type":"object",
+					"properties":{
+						"test":{
+							"type":"string",
+							"title":"Test"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			}
+		],
 		"name":"testmqttnew",
 		"theme":{
 			"defaultScheme":"light",
@@ -342,20 +372,8 @@
 				"--lineHeight-text-md":"1.6875rem",
 				"--palette-brand-secondary-950":"#7d0c0e"
 			}
-		},
-		"type":"application",
-		"locale":{
-			"defaultLocale":"en-US",
-			"supportedLocales":[
-				"fr-FR",
-				"es-ES"
-			]
-		},
-		"customCode":{
-			"footer":"new",
-			"header":"new"
 		}
 	},
 	"standard":false,
-	"version":76
+	"version":78
 }
