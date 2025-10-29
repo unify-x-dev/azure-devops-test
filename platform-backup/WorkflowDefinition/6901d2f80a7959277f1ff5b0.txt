@@ -1,51 +1,128 @@
 {
 	"appsUsed":[
-		
+		"netsuite"
 	],
 	"createdTime":1761727224208,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_HTrUs",
+			"fromNodeId":"n_ab2hv",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ATt77",
+			"toNodeId":"n_IBccx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_IBccx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DTYR9",
 			"type":"next"
 		}
 	],
 	"id":"6901d2f80a7959277f1ff5b0",
 	"lastModifiedBy":33644,
 	"lcName":"create invoice currency test",
-	"modifiedTime":1761727224208,
+	"modifiedTime":1761727232655,
 	"name":"create invoice currency test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_HTrUs-1",
-			"id":"_HTrUs",
-			"index":0,
+			"id":"n_ab2hv",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"netsuite",
+				"resourceVersion":1375,
+				"connectionId":"69006bcf3fac98019bacb11f",
+				"resourceName":"netsuite_execute_query",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_HTrUs-1",
-			"id":"_ATt77",
-			"index":0,
+			"id":"n_IBccx",
+			"index":2,
+			"inputs":{
+				"query":"SELECT * FROM currency;"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Netsuite",
+			"title":"Execute query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"netsuite",
+				"resourceVersion":1665,
+				"connectionId":"69006bcf3fac98019bacb11f",
+				"resourceName":"netsuite_create_invoice",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_HTrUs-1",
+			"id":"n_DTYR9",
+			"index":3,
+			"inputs":{
+				"item":{
+					"items":[
+						{
+							"item":{
+								"id":"19541"
+							},
+							"quantity":1,
+							"rate":1000,
+							"amount":1000
+						}
+					]
+				},
+				"memo":"FRMD-53443",
+				"currency":{
+					"id":"2",
+					"name":"US Dollar",
+					"displaySymbol":"$"
+				},
+				"entity":{
+					"id":"50556"
+				},
+				"subsidiary":{
+					"id":"35"
+				}
+			},
+			"skip":false,
+			"subTitle":"Netsuite",
+			"title":"Create an invoice",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33644,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +136,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
