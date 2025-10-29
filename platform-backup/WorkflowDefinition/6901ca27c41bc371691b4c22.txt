@@ -8,12 +8,12 @@
 	"createdTime":1761724967714,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761733281721,
+		"deployedAt":1761734798164,
 		"deployedBy":122909,
-		"deployedDefinitionId":"6901eaa1dad3c27b954e353c",
+		"deployedDefinitionId":"6901f08cdad3c27b954eaf28",
 		"status":"DEPLOYED",
-		"version":9,
-		"workflowVersion":16
+		"version":10,
+		"workflowVersion":18
 	},
 	"edges":[
 		{
@@ -174,7 +174,7 @@
 	"id":"6901ca27c41bc371691b4c22",
 	"lastModifiedBy":122909,
 	"lcName":"workflow1",
-	"modifiedTime":1761734794881,
+	"modifiedTime":1761735044790,
 	"name":"Workflow1",
 	"nodes":[
 		{
@@ -184,7 +184,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_PuoqR",
@@ -300,7 +300,9 @@
 				"runtimeConnections":{},
 				"synchronous":true,
 				"version":"-1",
-				"parameters":{}
+				"parameters":{
+					"BGC":"{{ __ENV__.outputs.changeSetQA24907983121 }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -368,7 +370,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_RBpp3",
@@ -538,7 +540,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_dUqY6",
@@ -563,7 +565,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_XxnqY",
@@ -685,7 +687,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_SM6hC",
@@ -942,7 +944,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_2Q0Tk",
@@ -973,7 +975,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6GPcC-1",
 			"id":"n_OSLmc",
@@ -1072,5 +1074,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
