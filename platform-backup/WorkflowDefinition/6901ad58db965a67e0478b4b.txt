@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761717592013,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761717618797,
+		"deployedBy":511,
+		"deployedDefinitionId":"6901ad72db965a67e0478c86",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_tZNxb",
@@ -23,7 +31,7 @@
 	"id":"6901ad58db965a67e0478b4b",
 	"lastModifiedBy":511,
 	"lcName":"mainautomation",
-	"modifiedTime":1761717617233,
+	"modifiedTime":1761717721933,
 	"name":"mainautomation",
 	"nodes":[
 		{
@@ -33,7 +41,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_hJ958-1",
 			"id":"n_tZNxb",
@@ -76,8 +84,10 @@
 			"index":2,
 			"inputs":{
 				"automationId":"6901ad3cdb965a67e0478acd",
+				"runtimeConnections":{},
 				"synchronous":true,
-				"version":"-1"
+				"version":"1",
+				"parameters":{}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -92,7 +102,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_hJ958-1",
 			"id":"n_o4cZo",
@@ -125,5 +135,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
