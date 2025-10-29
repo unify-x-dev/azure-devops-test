@@ -5,12 +5,12 @@
 	"createdTime":1761751950501,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761751987312,
+		"deployedAt":1761752079905,
 		"deployedBy":33648,
-		"deployedDefinitionId":"690233adb1f2d27587b66b93",
+		"deployedDefinitionId":"6902340fd015237911e35213",
 		"status":"DEPLOYED",
-		"version":15,
-		"workflowVersion":28
+		"version":16,
+		"workflowVersion":29
 	},
 	"edges":[
 		{
@@ -40,32 +40,29 @@
 	"id":"69022241d7e7bd77b0587cad",
 	"lastModifiedBy":33648,
 	"lcName":"calendar ai - auto schedule meeting",
-	"modifiedTime":1761752077119,
+	"modifiedTime":1761752542332,
 	"name":"Calendar AI - Auto Schedule Meeting",
 	"nodes":[
 		{
 			"context":{
 				"appName":"gmail",
-				"resourceVersion":1360,
+				"resourceVersion":2997,
 				"connectionId":"68df9fb610e69732a26ad4f6",
-				"resourceName":"gmail_on_new_email_polling"
+				"resourceName":"gmail_on_new_thread_polling"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_v9l63-1",
 			"id":"n_dVUvC",
 			"index":1,
 			"inputs":{
-				"intervalType":"minutes",
-				"fetchAllMails":false,
-				"pageSize":10,
 				"interval":5,
 				"batchSize":5
 			},
 			"skip":false,
 			"subTitle":"Gmail",
-			"title":"New email",
+			"title":"New email thread in Gmail",
 			"trigger":{
 				"type":"EVENT"
 			},
@@ -156,5 +153,5 @@
 	"tags":[
 		
 	],
-	"version":29
+	"version":30
 }
