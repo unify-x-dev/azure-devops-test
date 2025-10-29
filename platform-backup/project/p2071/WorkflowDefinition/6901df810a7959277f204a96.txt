@@ -108,7 +108,7 @@
 	"id":"6901df810a7959277f204a96",
 	"lastModifiedBy":189756,
 	"lcName":"bgc vaccine",
-	"modifiedTime":1761731382024,
+	"modifiedTime":1761731537935,
 	"name":"BGC Vaccine",
 	"nodes":[
 		{
@@ -118,7 +118,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6X8pQ-1",
 			"id":"n_S0YMu",
@@ -175,7 +175,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6X8pQ-1",
 			"id":"n_HaHJE",
@@ -228,7 +228,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_6X8pQ-1",
 			"id":"n_VfJG9",
@@ -268,7 +268,8 @@
 					{
 						"property":"{{ n_S0YMu.outputs.travelerMolecule }}",
 						"filter":{
-							"operator":"EXISTS"
+							"operator":"EQUAL",
+							"value":"True"
 						}
 					}
 				],
@@ -287,7 +288,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@y",
 			"id":"n_oy9ds",
@@ -313,7 +314,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_8cfk7@n_VfJG9@_6X8pQ-1@y@n",
 			"id":"n_wCsR3",
@@ -339,7 +340,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_VfJG9@_6X8pQ-1@n",
 			"id":"n_KMMBh",
@@ -394,7 +395,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_UrnkY@_6X8pQ-1@y",
 			"id":"n_ScaBc",
@@ -424,7 +425,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ScaBc@n_UrnkY@_6X8pQ-1@y@y",
 			"id":"n_yT902",
@@ -447,7 +448,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_ScaBc@n_UrnkY@_6X8pQ-1@y@n",
 			"id":"n_2gYYm",
@@ -470,7 +471,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_UrnkY@_6X8pQ-1@n",
 			"id":"n_Km2OQ",
@@ -504,5 +505,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
