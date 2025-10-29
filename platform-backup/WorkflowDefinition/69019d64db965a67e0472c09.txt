@@ -30,6 +30,20 @@
 			"fromNodeId":"n_SHa8R",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_0ls06",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0ls06",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_2mYtE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_2mYtE",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_ihqy5",
 			"type":"next"
 		}
@@ -37,7 +51,7 @@
 	"id":"69019d64db965a67e0472c09",
 	"lastModifiedBy":3952,
 	"lcName":"test",
-	"modifiedTime":1761716898922,
+	"modifiedTime":1761717394657,
 	"name":"test",
 	"nodes":[
 		{
@@ -194,6 +208,73 @@
 		},
 		{
 			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":879,
+				"resourceName":"excel_by_unifyapps_create_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_MzYPg-1",
+			"id":"n_0ls06",
+			"index":5,
+			"inputs":{
+				"fileName":"test",
+				"fileType":"xlsx"
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Create an excel file",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.dropDownDetails.items.beginRow",
+					"root.dropDownDetails.items.endRow",
+					"root.dropDownDetails.items.beginColumn",
+					"root.dropDownDetails.items.endColumn",
+					"root.dropDownDetails.items.options.items",
+					"root.headerFormatMapping.items.headerName",
+					"root.headerFormatMapping.items.formatType"
+				]
+			},
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":935,
+				"resourceName":"excel_by_unifyapps_list_to_excel_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_MzYPg-1",
+			"id":"_2mYtE",
+			"index":6,
+			"inputs":{
+				"fileName":"test",
+				"sheetName":"Sheet Sarthak",
+				"staticHeaders":[
+					{
+						"key":"Name",
+						"value":"{{ n_4N35k.outputs.list[0] }}"
+					}
+				],
+				"skipHeaderRow":false,
+				"headerType":"STATIC",
+				"dataSource":"{{ n_4N35k.outputs.list }}",
+				"existingFileDetails":"{{ n_0ls06.outputs.fileDetails }}",
+				"fileType":"xlsx",
+				"append":true
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to Excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -201,7 +282,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_MzYPg-1",
 			"id":"n_ihqy5",
-			"index":5,
+			"index":7,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -225,5 +306,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
