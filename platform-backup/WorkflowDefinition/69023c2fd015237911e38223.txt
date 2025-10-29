@@ -1,0 +1,82 @@
+{
+	"appsUsed":[
+		"gmail"
+	],
+	"createdTime":1761754159597,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_pmYg4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CjuiY",
+			"type":"next"
+		}
+	],
+	"id":"69023c2fd015237911e38223",
+	"lastModifiedBy":39712,
+	"lcName":"gmail test (copy)",
+	"modifiedTime":1761754159597,
+	"name":"Gmail Test (copy)",
+	"nodes":[
+		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":2997,
+				"connectionId":"68df9fb610e69732a26ad4f6",
+				"resourceName":"gmail_on_new_thread_polling"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_h9fT8-1",
+			"id":"n_pmYg4",
+			"index":1,
+			"inputs":{
+				"interval":1,
+				"from":"2025-10-28T21:00:00Z",
+				"batchSize":1
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"New email thread in Gmail",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_h9fT8-1",
+			"id":"n_CjuiY",
+			"index":2,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":39712,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
