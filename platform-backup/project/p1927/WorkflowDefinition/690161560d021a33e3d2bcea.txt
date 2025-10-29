@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761698134676,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_ZwQHW",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_15hqO",
+			"type":"next"
+		}
+	],
+	"id":"690161560d021a33e3d2bcea",
+	"lastModifiedBy":39713,
+	"lcName":"[virtu-empowerrepsschedulerfn]syncemployeeshttptrigger",
+	"modifiedTime":1761698134676,
+	"name":"[virtu-emPowerRepsSchedulerFN]SyncEmployeesHttpTrigger",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ZwQHW-1",
+			"id":"_ZwQHW",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ZwQHW-1",
+			"id":"_15hqO",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":39713,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
