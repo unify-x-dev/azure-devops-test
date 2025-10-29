@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
 		"attio",
+		"netsuite",
 		"smartlead"
 	],
 	"createdTime":1732091568019,
@@ -10,11 +11,11 @@
 			"fromNodeId":"_gKRyL",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_VDkEY",
+			"toNodeId":"n_DTYR9",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_VDkEY",
+			"fromNodeId":"n_DTYR9",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_PvB76",
@@ -59,7 +60,7 @@
 	"id":"673d9eb032661b6665a4dd00",
 	"lastModifiedBy":33644,
 	"lcName":"attio test",
-	"modifiedTime":1761590873780,
+	"modifiedTime":1761726994625,
 	"name":"attio test",
 	"nodes":[
 		{
@@ -89,23 +90,47 @@
 		},
 		{
 			"context":{
-				"appName":"analytics_by_unifyapps",
-				"resourceVersion":1013,
-				"resourceName":"analytics_by_unifyapps_query_reports",
+				"appName":"netsuite",
+				"resourceVersion":1665,
+				"connectionId":"69006bcf3fac98019bacb11f",
+				"resourceName":"netsuite_create_invoice",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_sHV3s-1",
-			"id":"n_VDkEY",
+			"id":"n_DTYR9",
 			"index":2,
 			"inputs":{
-				"group":"ENTITY_REPORTING"
+				"item":{
+					"items":[
+						{
+							"item":{
+								"id":"19541"
+							},
+							"quantity":1,
+							"rate":1000,
+							"amount":1000
+						}
+					]
+				},
+				"memo":"FRMD-53443",
+				"currency":{
+					"id":"1",
+					"name":"US Dollar",
+					"displaySymbol":"$"
+				},
+				"entity":{
+					"id":"50556"
+				},
+				"subsidiary":{
+					"id":"35"
+				}
 			},
 			"skip":false,
-			"subTitle":"Analytics by UnifyApps",
-			"title":"Analytics Query",
+			"subTitle":"Netsuite",
+			"title":"Create an invoice",
 			"type":"ACTION"
 		},
 		{
@@ -322,5 +347,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
