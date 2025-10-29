@@ -2,9 +2,29 @@
 	"createdTime":1761743266188,
 	"deleted":false,
 	"entityType":"e_interface",
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"E",
+					"V",
+					"M_L"
+				],
+				"principalIds":[
+					"11492"
+				],
+				"principalType":"USER"
+			}
+		]
+	},
 	"id":"responsive-table-filters",
 	"lastModifiedBy":11492,
-	"modifiedTime":1761743266188,
+	"modifiedTime":1761743270946,
 	"ownerUserId":11492,
 	"properties":{
 		"standard":false,
@@ -20,7 +40,7 @@
 			"_counter":{
 				"_moduleCount":0,
 				"_mqttTopicCounter":0,
-				"_pageCount":0
+				"_pageCount":1
 			}
 		},
 		"navigation":{
@@ -31,10 +51,15 @@
 					"id":"userMenu"
 				}
 			],
-			"defaultPageId":"",
+			"defaultPageId":"e_690211a637dfd65d91436097",
 			"appearance":{
 				"SM":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_YvHKg",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"none"
@@ -63,10 +88,21 @@
 						"padding":{
 							"all":"p-0"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				},
 				"LG":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_YvHKg",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"none"
@@ -101,10 +137,21 @@
 						"gapSecondary":{
 							"y":"gap-y-lg"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				},
 				"XL":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_YvHKg",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"expandable"
@@ -139,10 +186,21 @@
 						"gapSecondary":{
 							"y":"gap-y-lg"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				},
 				"MD":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_YvHKg",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"none"
@@ -177,10 +235,29 @@
 						"gapSecondary":{
 							"y":"gap-y-lg"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				}
 			},
-			"primary":[]
+			"primary":[
+				{
+					"name":"Homepage",
+					"icon":"Zap",
+					"id":"nav_YvHKg",
+					"type":"PAGE",
+					"pageId":"e_690211a637dfd65d91436097",
+					"slug":"homepage"
+				}
+			]
+		},
+		"interfacePageIdVsSlugMap":{
+			"e_690211a637dfd65d91436097":"homepage",
+			"e_global_responsive-table-filters":"global-page-of-responsive-table-filters"
 		},
 		"manifest":{
 			"type":"WEB"
@@ -195,5 +272,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":3
 }
