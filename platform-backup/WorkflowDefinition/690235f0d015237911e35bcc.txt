@@ -1,12 +1,69 @@
 {
 	"appsUsed":[
-		
+		"coupa",
+		"google_vertex_ai"
 	],
 	"createdTime":1761752560904,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_h5Bu3",
+			"fromNodeId":"n_94FbG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_btyR7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_btyR7",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HNebn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HNebn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yEEgN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yEEgN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_qa947",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_qa947",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5vPHo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5vPHo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_sBK48",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_sBK48",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_MPWzB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_MPWzB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_vQNwr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_vQNwr",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_4mhtk",
@@ -16,22 +73,459 @@
 	"id":"690235f0d015237911e35bcc",
 	"lastModifiedBy":170149,
 	"lcName":"test_vertex",
-	"modifiedTime":1761752560904,
+	"modifiedTime":1761752976440,
 	"name":"test_Vertex",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_h5Bu3-1",
-			"id":"_h5Bu3",
-			"index":0,
+			"id":"n_94FbG",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"coupa",
+				"resourceVersion":897,
+				"connectionId":"68c15f6903ed3e67105805c3",
+				"resourceName":"coupa_get_invoice_image_scan",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5Bu3-1",
+			"id":"_btyR7",
+			"index":2,
+			"inputs":{
+				"id":"{{ n_sngnM.outputs.item.coupa_id }}"
+			},
+			"skip":false,
+			"subTitle":"Coupa",
+			"title":"Get invoice image scan",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":261,
+				"resourceName":"utility_by_unifyapps_generate_public_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5Bu3-1",
+			"id":"n_HNebn",
+			"index":3,
+			"inputs":{
+				"file":"{{ _btyR7.outputs.file }}",
+				"expiryTime":72
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Generate public file URL",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.payload.labelsArray.items.key",
+					"root.payload.labelsArray.items.value"
+				]
+			},
+			"context":{
+				"appName":"google_vertex_ai",
+				"resourceVersion":375,
+				"connectionId":"68b9f7d5de25c663447f76fc",
+				"resourceName":"google_vertex_ai_generate_content",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"CONTINUE",
+			"groupId":"_h5Bu3-1",
+			"id":"n_yEEgN",
+			"index":4,
+			"inputs":{
+				"payload":{
+					"contents":[
+						{
+							"role":"user",
+							"parts":[
+								{
+									"contentType":"text",
+									"text":"INVOICE TAX CODE COPILOT – PROMPT v3\n\n\n1. Role & Purpose\nYou are a Finance AI Copilot responsible for reading supplier invoice PDFs and returning all data required for tax-code assignment and VAT validation.\n Your goal is to produce a complete, normalised, and validated JSON object for every invoice.\n2. Expected Input\nYou receive one supplier invoice PDF (machine-readable or OCR text).\nUse only the visible text within that file — no lookups, no external data, and no prior memory.\n3. Field Extraction Instructions\nEach field must return a Value, Confidence (0–1), and Evidence (≤ 40 words).\nFIELD: Invoice Number\n- Look near labels such as “Invoice No”, “Invoice #”, or “Inv”.\n- If none found, infer using patterns like “INV” or a unique alphanumeric ID near the header/title.\n- Return text exactly as shown, trimmed of whitespace.\n\n\nFIELD: Invoice Date\n- Extract the issue date.\n- Look near “Invoice Date” or “Issue Date”.\n- When ambiguous, assume UK order (DD/MM/YYYY).\n- Normalise to YYYY-MM-DD.\n\n\nFIELD: Due Date\n- Extract the payment due date.\n- Look near “Due Date”, “Payment Due”, or “Pay By”.\n- Normalise to YYYY-MM-DD.\n\n\nFIELD: PO Number\n- Extract the purchase-order reference.\n- Look near “PO No”, “Purchase Order”, or “Order Ref”.\n- Return text exactly as shown, trimmed of whitespace.\n\n\nFIELD: Supplier Name\n- Identify the supplier or issuing company name.\n- Return only the company name (exclude address lines) in Title Case.\n\n\nFIELD: Supplier Address\n- Capture the address block associated with the supplier name, typically directly above or below it.\n- Join lines into a single comma-separated string.\n\n\nFIELD: Supplier Tax ID\n- Extract the supplier’s VAT / GST number.\n- May include letters and digits (e.g., GB123456789).\n- Remove extra spaces and punctuation.\n\n\nFIELD: Customer Name\n- Identify the Revolut entity billed on the invoice.\n- Must include the word “Revolut”.\n\n\nFIELD: Billing Address\n- Extract the billing address linked to the Revolut entity.\n- Prefer the address closest to the customer or “Bill To” section.\n\n\nFIELD: Recipient’s Tax ID\n- Extract Revolut’s VAT / GST / Tax ID.\n- Must contain the country prefix where applicable (e.g., GB…).\n- Remove spaces and punctuation.\n\n\nFIELD: Ship From Address\n- Extract only if explicitly labeled as origin (e.g., “Ship From”, “Service location (origin)”).\n- If not explicitly present, return \"\" and confidence = 0.0.\n\n\nFIELD: Ship To Address\n- Extract only if the invoice shows a delivery or service location (e.g., “Ship To”, “Service location”, or an explicitly labeled property location in a charges/line table).\n- If not explicitly present, return \"\" and confidence = 0.0.\n\n\n\nFIELD: Item Description\n- Extract the text describing each product or service line.\n\n\nFIELD: Product / Service Code\n- Extract any visible HSN / SAC code; if none, output “Not Found”.\n\n\nFIELD: Quantity\n- Extract numeric quantity per line.\n\n\nFIELD: Unit Price\n- Extract numeric price value.\n- Handle both UK (1,000.00) and EU (1.000,00) formats.\n- Convert to two-decimal numeric (e.g., 2000.00).\n\n\nFIELD: Line Total (Net Amount)\n- Extract total before tax.\n- Validate: Quantity × Unit Price ≈ Line Total (± 0.2 %).\n\n\nFIELD: Tax Rate\n- Extract numeric rate (e.g., 20 or 0.2).\n- If expressed as decimal fraction (0.2), multiply by 100 to convert to percent.\n- Remove any “%” symbol.\n\n\nFIELD: Tax Amount\n- Extract tax amount applied.\n- Validate: Net × Rate ≈ Tax (± 0.2 %).\n\n\nFIELD: Subtotal\n- Extract subtotal before tax.\n- Should equal sum of all line net amounts (± 0.5 %).\n\n\nFIELD: Total Tax Amount\n- Extract total of all tax components (± 0.5 %).\n\n\nFIELD: Discounts\n- Extract any discount value; numeric only.\n\n\nFIELD: Additional Charges\n- Extract shipping, handling, or other surcharges; numeric only.\n\n\nFIELD: Total Amount Due\n- Extract final payable amount.\n- Validate: Subtotal + Tax − Discounts + Charges ≈ Total (± 0.5 %).\n\n\nFIELD: Currency\n- Extract the transaction currency.\n- Return as ISO 4217 code (e.g., GBP, EUR).\n\n\nFIELD: Supplier Country Code\n- Derive the ISO 3166-1 alpha-2 country code from the Supplier Address (e.g., GB, PL, JE).\n- If ambiguous, prefer explicit country names or well-known postal markers.\n- If still unclear, return \"Unknown\" and confidence = 0.0.\n\n\nFIELD: Billing Country Code\n- Derive the ISO 3166-1 alpha-2 country code from the Billing Address.\n- If unclear, return \"Unknown\" and confidence = 0.0.\n\n\nFIELD: Ship From Country Code\n- Derive the ISO 3166-1 alpha-2 country code from the Ship From Address.\n- If unclear, return \"Unknown\" and confidence = 0.0.\n\n\nFIELD: Ship To Country Code\n- Derive the ISO 3166-1 alpha-2 country code from the Ship To Address.\n- If unclear, return \"Unknown\" and confidence = 0.0.\n\n\n\n\n4. Derived / Reasoning Fields\nFIELD: Goods vs Services\n- Determine whether each line represents goods or services using description keywords.\n\n\nFIELD: Real Estate (Y/N)\n- Detect if any line relates to property, lease, or construction activity.\n\n\nFIELD: Jurisdiction Match (Ship To vs Ship From)\n- Compare country codes; output “Same Country” or “Cross-Border”.\n\n\nFIELD: Tax Applicability\n- Using jurisdictions + item type, infer if VAT should apply.\n- Output one of: Standard / Exempt / Reverse Charge.\n\n\nFIELD: Tax Consistency\n- Verify applied tax rate vs calculated amount (± 0.2 %); output “Consistent” / “Inconsistent”.\n\n\nFIELD: Reconciliation Check\n- Validate arithmetic: Subtotal + Tax − Discount + Charges ≈ Total (± 0.5 %).\n- Output “Pass” / “Fail”.\n\n\n5. Normalisation Rules\nDates → YYYY-MM-DD\nCurrency → ISO 4217 code\nPercentages → numeric (20 % → 20)\nNumbers → two decimal places\nNames → Title Case\nAddresses → comma-separated single line\nCountries → ISO 3166-1 alpha-2 code (e.g., GB, PL, JE).\nCompany suffix whitelist remains uppercase: LLP, LTD, LLC, BV, GmbH, S.A., S.p.A., Inc., PLC\n6. Analysis Workflow (Ordered Steps)\nRead invoice text and detect language.\nApply Field Extraction Instructions sequentially.\nApply Normalisation Rules.\nExecute Derived Field logic.\nPerform reconciliation and tax consistency checks.\nAssemble and return one complete JSON object.\n\n\n\n\n7. Critical Output Rules\nOutput exactly one valid JSON object (not an array). Begin with { and end with }.\nDo not include markdown, code fences, or explanations.\nEach key shown in the schema must exist even if empty (\"\", 0, or []).\nValidate JSON syntax before responding; output must parse successfully.\nDo not include any citation markers, source tokens, or labels (e.g., [cite], [source], [cite_start]).\nReturn numeric values using UK formatting: period (.) for decimals and comma (,) for thousands (e.g., 185,086.17).\nIf a numeric value is not explicitly present, return 0 (or 0.00) and set confidence to 0.0 — do not infer.\nEvidence must be a verbatim quote from the invoice text only (≤ 40 words). No reasoning, paraphrase, or “inferred from …” phrasing.\nEvidence must preserve the exact characters as printed (no locale/format conversion inside evidence).\nFor fields requiring explicit labels (e.g., Ship From / Ship To), if the label is not present, return \"\" with confidence 0.0; do not infer from other fields.\nPlace confidence and evidence beside each field exactly as defined in the Output Schema (using _confidence and _evidence keys)\n\n\n8. Constraints\nUse only visible content from the invoice.\nDo not fabricate or infer values beyond explicit text or clear numeric logic.\nUse UK English.\nResponse must not be truncated.\nDo not infer or fabricate quantities, unit prices, or dates if not visible.\nDo not infer Ship From or Ship To from other fields (e.g., Supplier, Billing, or Customer blocks).\nException (Country Disambiguation Only): If a country cannot be determined from the address text, you may perform a single online lookup to resolve the country code only. Do not use the internet for any other purpose.\n9. Non-Permissioned Behaviours (Do Not Clause)\nDo not access the internet or external databases.\nDo not fabricate missing data or add assumptions.\nDo not output commentary, reasoning text, or explanations.\nDo not alter field names or JSON structure.\nDo not include placeholders such as “example” or “test”.\nDo not output any content outside the defined JSON object.\n10. Output Schema (Exact Structure Required)\nReturn one valid JSON object.\nEach header field must appear once with confidence + evidence keys beside it.\nAll line-level data (values + confidence + evidence) must be contained inside the single lines[] array.\nValues may be blank (\"\", 0, or []) if not found.\n{\n  \"invoice_number\": \"\",\n  \"invoice_number_confidence\": 0.00,\n  \"invoice_number_evidence\": \"\",\n\n\n  \"invoice_date\": \"\",\n  \"invoice_date_confidence\": 0.00,\n  \"invoice_date_evidence\": \"\",\n\n\n  \"due_date\": \"\",\n  \"due_date_confidence\": 0.00,\n  \"due_date_evidence\": \"\",\n\n\n  \"po_number\": \"\",\n  \"po_number_confidence\": 0.00,\n  \"po_number_evidence\": \"\",\n\n\n  \"supplier_name\": \"\",\n  \"supplier_name_confidence\": 0.00,\n  \"supplier_name_evidence\": \"\",\n\n\n  \"supplier_address\": \"\",\n  \"supplier_address_confidence\": 0.00,\n  \"supplier_address_evidence\": \"\",\n  \"supplier_country_code\": \"\",\n  \"supplier_country_code_confidence\": 0.00,\n  \"supplier_country_code_evidence\": \"\",\n\n\n  \"supplier_tax_id\": \"\",\n  \"supplier_tax_id_confidence\": 0.00,\n  \"supplier_tax_id_evidence\": \"\",\n\n\n  \"customer_name\": \"\",\n  \"customer_name_confidence\": 0.00,\n  \"customer_name_evidence\": \"\",\n\n\n  \"billing_address\": \"\",\n  \"billing_address_confidence\": 0.00,\n  \"billing_address_evidence\": \"\",\n  \"billing_country_code\": \"\",\n  \"billing_country_code_confidence\": 0.00,\n  \"billing_country_code_evidence\": \"\",\n\n\n  \"recipients_tax_id\": \"\",\n  \"recipients_tax_id_confidence\": 0.00,\n  \"recipients_tax_id_evidence\": \"\",\n\n\n  \"ship_from_address\": \"\",\n  \"ship_from_address_confidence\": 0.00,\n  \"ship_from_address_evidence\": \"\",\n  \"ship_from_country_code\": \"\",\n  \"ship_from_country_code_confidence\": 0.00,\n  \"ship_from_country_code_evidence\": \"\",\n\n\n  \"ship_to_address\": \"\",\n  \"ship_to_address_confidence\": 0.00,\n  \"ship_to_address_evidence\": \"\",\n  \"ship_to_country_code\": \"\",\n  \"ship_to_country_code_confidence\": 0.00,\n  \"ship_to_country_code_evidence\": \"\",\n\n\n  \"currency\": \"\",\n  \"currency_confidence\": 0.00,\n  \"currency_evidence\": \"\",\n\n\n  \"subtotal\": 0.00,\n  \"subtotal_confidence\": 0.00,\n  \"subtotal_evidence\": \"\",\n\n\n  \"total_tax_amount\": 0.00,\n  \"total_tax_amount_confidence\": 0.00,\n  \"total_tax_amount_evidence\": \"\",\n\n\n  \"discounts\": 0.00,\n  \"discounts_confidence\": 0.00,\n  \"discounts_evidence\": \"\",\n\n\n  \"additional_charges\": 0.00,\n  \"additional_charges_confidence\": 0.00,\n  \"additional_charges_evidence\": \"\",\n\n\n  \"total_amount_due\": 0.00,\n  \"total_amount_due_confidence\": 0.00,\n  \"total_amount_due_evidence\": \"\",\n\n\n  \"jurisdiction_match\": \"\",\n  \"jurisdiction_match_confidence\": 0.00,\n  \"jurisdiction_match_evidence\": \"\",\n\n\n  \"tax_applicability\": \"\",\n  \"tax_applicability_confidence\": 0.00,\n  \"tax_applicability_evidence\": \"\",\n\n\n  \"tax_consistency\": \"\",\n  \"tax_consistency_confidence\": 0.00,\n  \"tax_consistency_evidence\": \"\",\n\n\n  \"reconciliation_check\": \"\",\n  \"reconciliation_check_confidence\": 0.00,\n  \"reconciliation_check_evidence\": \"\",\n\n\n  \"lines\": [\n    {\n      \"line_no\": 1,\n\n\n      \"item_description\": \"\",\n      \"item_description_confidence\": 0.00,\n      \"item_description_evidence\": \"\",\n\n\n      \"product_service_code\": \"\",\n      \"product_service_code_confidence\": 0.00,\n      \"product_service_code_evidence\": \"\",\n\n\n      \"quantity\": 0.00,\n      \"quantity_confidence\": 0.00,\n      \"quantity_evidence\": \"\",\n\n\n      \"unit_price\": 0.00,\n      \"unit_price_confidence\": 0.00,\n      \"unit_price_evidence\": \"\",\n\n\n      \"line_total_net\": 0.00,\n      \"line_total_net_confidence\": 0.00,\n      \"line_total_net_evidence\": \"\",\n\n\n      \"tax_rate\": 0.00,\n      \"tax_rate_confidence\": 0.00,\n      \"tax_rate_evidence\": \"\",\n\n\n      \"tax_amount\": 0.00,\n      \"tax_amount_confidence\": 0.00,\n      \"tax_amount_evidence\": \"\",\n\n\n      \"goods_vs_services\": \"\",\n      \"goods_vs_services_confidence\": 0.00,\n      \"goods_vs_services_evidence\": \"\",\n\n\n      \"real_estate\": \"\",\n      \"real_estate_confidence\": 0.00,\n      \"real_estate_evidence\": \"\"\n    }\n  ]\n}\n\n"
+								},
+								{
+									"contentType":"fileData",
+									"fileData":{
+										"fileType":"other",
+										"mimeType":"application/pdf",
+										"fileUri":"{{ n_HNebn.outputs.url }}"
+									}
+								}
+							]
+						}
+					],
+					"labelsArray":[
+						{
+							"key":"revolut-team",
+							"value":"Services · Finance · Operations"
+						},
+						{
+							"key":"revolut-department",
+							"value":"Finance"
+						}
+					]
+				},
+				"project":"revolut-dev-apps",
+				"location":"us-central1",
+				"publisher_model":"google/models/gemini-2.5-flash"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"count":1,
+					"enabled":true,
+					"initialDelay":30000
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Google vertex AI",
+			"title":"Generate content",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5Bu3-1",
+			"id":"n_qa947",
+			"index":5,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"cleanedText":{
+							"type":"string",
+							"title":"Cleaned Text"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"vertexText":{
+							"type":"string",
+							"title":"Vertex Text"
+						}
+					}
+				},
+				"code":"// Input text from Vertex\ndef raw = (vertexText ?: \"\")\n\n// (Optional) cap size to avoid regex slowness on huge outputs\nif (raw.length() > 1_000_000) raw = raw.substring(0, 1_000_000)\n\n// ---- light cleaning (no imports) ----\n\n// strip BOM if present\nif (raw.startsWith(\"\\uFEFF\")) raw = raw.substring(1)\n\n// strip ```json fences (keep inner payload)\nraw = raw.replaceAll(/```(?:json)?\\s*([\\s\\S]*?)\\s*```/, { all, g1 -> g1 ?: \"\" })\n\n// normalise curly/smart quotes to plain quotes\nraw = raw\n  .replace('\\u201C','\"').replace('\\u201D','\"').replace('\\u201E','\"').replace('\\u201F','\"')\n  .replace('\\u2018','\\'').replace('\\u2019','\\'').replace('\\u201A','\\'').replace('\\u201B','\\'')\n\n// remove ASCII control chars (except \\t \\n \\r)\nraw = raw.replaceAll(/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F]/, \"\")\n\n// remove trailing commas before ] or }\nraw = raw.replaceAll(/,\\s*]/, \"]\").replaceAll(/,\\s*}/, \"}\");\n\n// ---- extract first JSON block ----\nString candidate = \"{}\"\nboolean hadErr = false\n\nint objStart = raw.indexOf(\"{\")\nint objEnd   = raw.lastIndexOf(\"}\")\nif (objStart != -1 && objEnd > objStart) {\n  candidate = raw.substring(objStart, objEnd + 1).trim()\n} else {\n  // fallback: allow array (in case the model returns [] unexpectedly)\n  int arrStart = raw.indexOf(\"[\")\n  int arrEnd   = raw.lastIndexOf(\"]\")\n  if (arrStart != -1 && arrEnd > arrStart) {\n    candidate = raw.substring(arrStart, arrEnd + 1).trim()\n  } else {\n    hadErr = true\n  }\n}\n\n// Return map → will appear at steps.<codeStep>.outputs.result\n[ cleanedText: candidate, hadError: hadErr ]\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"vertexText":"{{ n_yEEgN.outputs.candidates[0].content.parts[0].text }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5Bu3-1",
+			"id":"n_5vPHo",
+			"index":6,
+			"inputs":{
+				"jsonSchema":{
+					"$ref":"#/definitions/entity|e_code_snippet|e_6901343c9f21754a31c190c6",
+					"$comment":"[Tax] Invoice Data Extraction"
+				},
+				"jsonString":"{{ n_qa947.outputs.result.cleanedText }}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.payload.labelsArray.items.key",
+					"root.payload.labelsArray.items.value"
+				]
+			},
+			"context":{
+				"appName":"google_vertex_ai",
+				"resourceVersion":375,
+				"connectionId":"68b9f7d5de25c663447f76fc",
+				"resourceName":"google_vertex_ai_generate_content",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"CONTINUE",
+			"groupId":"_h5Bu3-1",
+			"id":"_sBK48",
+			"index":7,
+			"inputs":{
+				"payload":{
+					"contents":[
+						{
+							"role":"user",
+							"parts":[
+								{
+									"contentType":"text",
+									"text":"🧾 TAX CODE ASSIGNMENT COPILOT – PROMPT v2.3\n\n\n1. Role & Purpose\nYou are a Finance AI Copilot responsible for assigning the correct tax code for each invoice line item, based on extracted invoice data and Revolut’s VAT-determination logic.\nYou analyse supplier, customer, VAT, and jurisdiction information to output tax-code recommendations that the Tax team can review and validate.\nYour goal is to automate tax-code assignment while maintaining full traceability and auditability.\n\n\n2. Input Values\nYou receive one complete JSON object as input.\nThis JSON is the full output from Invoice Tax Code Copilot (v3) and contains all header-level and line-level data for the invoice.\nUse the data exactly as provided — do not infer or fabricate missing values.\nThis includes supplier, customer, tax, jurisdiction, and all line-item details.\nInput JSON:\n{{ n_5vPHo.outputs.result }}\n\n3. Static Reference Data\n3.1 Revolut UK VAT Group\nRevolut Ltd \nRevolut Trading Ltd \nRevolut Travel Ltd \nRevolut NewCo UK Ltd \nGlobal Retail Technology Ltd \nRevolut Group Holdings Ltd\n3.2 Revolut Ltd Establishments\n[\n{ \"entity_name\": \"Revolut Ltd\", \"country\": \"United Kingdom\", \"country_code\": \"GB\" },\n{ \"entity_name\": \"Revolut Ltd (Sp z o.o.) Oddzial w Polsce\", \"country\": \"Poland\", \"country_code\": \"PL\" },\n{ \"entity_name\": \"Revolut Ltd - Sucursal em Portugal\", \"country\": \"Portugal\", \"country_code\": \"PT\" },\n{ \"entity_name\": \"Revolut Ltd (Irish Branch)\", \"country\": \"Ireland\", \"country_code\": \"IE\" },\n{ \"entity_name\": \"Revolut Ltd Londra Sucursala Bucuresti\", \"country\": \"Romania\", \"country_code\": \"RO\" },\n{ \"entity_name\": \"Revolut Ltd Succursale de France\", \"country\": \"France\", \"country_code\": \"FR\" },\n{ \"entity_name\": \"Revolut Ltd. Zweigniederlassung Deutschland\", \"country\": \"Germany\", \"country_code\": \"DE\" },\n{ \"entity_name\": \"Revolut Ltd filialas\", \"country\": \"Lithuania\", \"country_code\": \"LT\" }\n]\n3.3 Revolut Bank UAB Establishments\n[\n{ \"entity_name\": \"Revolut Bank UAB\", \"country\": \"Lithuania\", \"country_code\": \"LT\" },\n{ \"entity_name\": \"Revolut Bank UAB (Belgian Branch)\", \"country\": \"Belgium\", \"country_code\": \"BE\" },\n{ \"entity_name\": \"Revolut Bank UAB (Irish Branch)\", \"country\": \"Ireland\", \"country_code\": \"IE\" },\n{ \"entity_name\": \"Revolut Italia, Branch di Revolut Bank UAB\", \"country\": \"Italy\", \"country_code\": \"IT\" },\n{ \"entity_name\": \"Revolut Bank UAB (Netherlands Branch)\", \"country\": \"Netherlands\", \"country_code\": \"NL\" },\n{ \"entity_name\": \"Revolut Bank UAB (Sp z o.o.) Oddział w Polsce\", \"country\": \"Poland\", \"country_code\": \"PL\" },\n{ \"entity_name\": \"Revolut Bank UAB - Sucursal em Portugal\", \"country\": \"Portugal\", \"country_code\": \"PT\" },\n{ \"entity_name\": \"Revolut Bank UAB Vilnius Sucursala Bucuresti\", \"country\": \"Romania\", \"country_code\": \"RO\" },\n{ \"entity_name\": \"Revolut Bank UAB Zweigniederlassung Deutschland\", \"country\": \"Germany\", \"country_code\": \"DE\" },\n{ \"entity_name\": \"Revolut Bank UAB - Sucursal en Espana\", \"country\": \"Spain\", \"country_code\": \"ES\" },\n{ \"entity_name\": \"Revolut France succursale de Revolut Bank UAB\", \"country\": \"France\", \"country_code\": \"FR\" },\n{ \"entity_name\": \"Revolut Bank UAB Magyarországi Fióktelepe\", \"country\": \"Hungary\", \"country_code\": \"HU\" }\n]\n3.4 EU VAT Territories (ISO2)\nAT, BE, BG, HR, CY, CZ, DK, EE, FI, FR, DE, GR, HU, IE, IT, LV, LT, LU, MT, NL, PL, PT, RO, SK, SI, ES, SE\n3.5 Special Territories (Excluded from EU VAT)\nAland Islands, Guadeloupe, French Guiana, Martinique, Reunion, Mayotte, Saint-Martin, Heligoland, Busingen, Mount Athos, Livigno, Campione d’Italia, Lake Lugano, San Marino, Antilles, Ceuta, Melilla, Canary Islands, Faroe Islands, Greenland\n\n\n4. Core Logic Summary\nEvaluate the rules in order and stop after the first match.\nAll comparisons are case-insensitive and use ISO country codes.\n4.1 General VAT Group\nIf supplier and customer are both in the UK VAT Group\n→ tax_code_proposed = \"VAT-GROUP-GB\"\n\n\n4.2 Services Logic\nA. Branch-to-Branch (Same Entity, Different Country)\nIf both belong to Revolut Ltd or Revolut Bank UAB but are in different countries → SERV-BR-XX\nB. Domestic Standard Rate\nSame country, VAT > 0, tax rate = standard → SERV-S-XX\nC. Domestic Reduced Rate\nSame country, VAT > 0, tax rate = reduced → SERV-R-XX\nD. EU Reverse Charge\nSupplier in EU, Revolut customer outside EU, VAT = 0 → SERV-RC-EU-XX\nE. Non-EU Reverse Charge\nSupplier outside EU, Revolut customer in EU or UK, VAT = 0 → SERV-RC-NON-EU-XX\nF. Zero-Rated Domestic\nSame country, VAT = 0, vendor in zero-rated list → SERV-Z-DOM-XX\nG. Exempt Domestic\nSame country, VAT = 0, vendor in exempt list → SERV-E-DOM-XX\nH. Exempt Cross-Border\nDifferent countries, VAT = 0, vendor in exempt list → SERV-E-EU-XX or SERV-E-NON-EU-XX\n\n\n4.3 Goods Logic\nA. Domestic Standard Rate\nShip From = Ship To, VAT > 0, rate = standard → GOODS-S-XX\nB. Domestic Reduced Rate\nShip From = Ship To, VAT > 0, rate = reduced → GOODS-R-XX\nC. Domestic Exempt\nShip From = Ship To, VAT = 0 → GOODS-E-XX\nD. Intra-EU Purchase\nShip From ≠ Ship To, both in EU → GOODS-RC-EU-XX\nE. Import (Outside EU)\nShip From not in EU, Ship To in EU or UK → GOODS-IMP-XX\nF. Domestic Reverse Charge\nShip From = Ship To, vendor in domestic reverse-charge list → GOODS-RC-DOM-XX\n\n\n4.4 Fallback\nIf no rule matches → UNDEF-XX\n\n\n5. Normalisation Rules\nCountry codes → ISO 3166-1 alpha-2\nVAT rates → numeric % (0–100)\nMissing / empty values → treated as blank\nText comparison → case-insensitive\n“XX” → replaced with Revolut’s billing-country ISO2 code\n\n\n\n\n6. Analysis Workflow\nValidate input JSON.\nNormalise country and VAT values.\nApply logic sequentially.\nAssign per-line tax codes with confidence and reasoning.\nReturn one complete JSON object.\n7. Critical Output Rules\nOutput exactly one valid JSON object.\nNo markdown, commentary, or code fences.\nPreserve all input fields.\nAppend four new fields under each lines[] entry:\ntax_code_proposed\ntax_code_confidence\ntax_code_reason\ntax_code_evidence\nConfidence = 0 to 1.\nReason = ≤ 30 words (concise English).\nEvidence = quotes from input JSON fields.\nIf no match → tax_code_proposed = \"UNDEF-XX\", confidence = 0.0.\nStructural Integrity Rule:\nMaintain exact ordering and count of line items from the input lines[] array.\nFor each input line n, output the same line_no and append tax fields to that exact object.\nDo not merge, split, re-order, or remove any lines.\nDo not create new lines or modify existing keys.\nPreserve line_no values exactly as received.\n8. Constraints\nUse only input JSON and static data above.\nNo external lookups or assumptions.\nDo not fabricate supplier, VAT, or country data.\nUse UK English.\nOutput must not be truncated.\n9. Output Schema (Exact Structure Required)\nReturn the same schema as input, with these additional fields per line:\n{\n\"invoice_number\": \"\",\n\"supplier_country_code\": \"\",\n\"billing_country_code\": \"\",\n\"recipients_tax_id\": \"\",\n\"supplier_tax_id\": \"\",\n\"lines\": [\n{\n\"line_no\": 1,\n\"item_description\": \"\",\n\"tax_rate\": 0.00,\n\"tax_amount\": 0.00,\n\"goods_vs_services\": \"\",\n\"real_estate\": \"\",\n\"tax_code_proposed\": \"\",\n\"tax_code_confidence\": 0.00,\n\"tax_code_reason\": \"\",\n\"tax_code_evidence\": \"\"\n}\n]\n}\n\n"
+								}
+							]
+						}
+					],
+					"labelsArray":[
+						{
+							"key":"revolut-team",
+							"value":"Services · Finance · Operations"
+						},
+						{
+							"key":"revolut-department",
+							"value":"Finance"
+						}
+					]
+				},
+				"project":"revolut-dev-apps",
+				"location":"us-central1",
+				"publisher_model":"google/models/gemini-2.5-flash"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"count":1,
+					"enabled":true,
+					"initialDelay":30000
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Google vertex AI",
+			"title":"Generate content",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5Bu3-1",
+			"id":"_MPWzB",
+			"index":8,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"cleanedText":{
+							"type":"string",
+							"title":"Cleaned Text"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"vertexText":{
+							"type":"string",
+							"title":"Vertex Text"
+						}
+					}
+				},
+				"code":"// ===== Vertex JSON cleaner (Tax Code Assignment Copilot v2.3) =====\n\n// Raw text from Vertex\ndef raw = (vertexText ?: \"\")\n\n// (Optional) cap size to avoid regex slowness on huge outputs\nif (raw.length() > 1_000_000) raw = raw.substring(0, 1_000_000)\n\n// ---- light cleaning (no imports) ----\n\n// strip BOM if present\nif (raw.startsWith(\"\\uFEFF\")) raw = raw.substring(1)\n\n// remove zero-width & NBSP which sometimes sneak in\nraw = raw.replace(\"\\u200B\",\"\").replace(\"\\u200C\",\"\").replace(\"\\u200D\",\"\").replace(\"\\u00A0\",\" \")\n\n// strip ```json fences (keep inner payload)\nraw = raw.replaceAll(/```(?:json)?\\s*([\\s\\S]*?)\\s*```/, { all, g1 -> g1 ?: \"\" })\n\n// strip accidental \"Input JSON\" wrappers or labels the model might echo\nraw = raw.replaceAll(/^\\s*Input JSON\\s*[\\r\\n]*/, \"\")\n\n// normalise curly/smart quotes to plain quotes\nraw = raw\n  .replace('\\u201C','\"').replace('\\u201D','\"').replace('\\u201E','\"').replace('\\u201F','\"')\n  .replace('\\u2018','\\'').replace('\\u2019','\\'').replace('\\u201A','\\'').replace('\\u201B','\\'')\n\n// remove ASCII control chars (except \\t \\n \\r)\nraw = raw.replaceAll(/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F]/, \"\")\n\n// remove trailing commas before ] or }\nraw = raw.replaceAll(/,\\s*]/, \"]\").replaceAll(/,\\s*}/, \"}\");\n\n// ---- extract first JSON object block (not array) ----\nString candidate = \"{}\"\nboolean hadErr = false\nString errMsg = \"\"\n\n// prefer object {...}; fall back to array [...] only if no object found\nint objStart = raw.indexOf(\"{\")\nint objEnd   = raw.lastIndexOf(\"}\")\nif (objStart != -1 && objEnd > objStart) {\n  candidate = raw.substring(objStart, objEnd + 1).trim()\n} else {\n  int arrStart = raw.indexOf(\"[\")\n  int arrEnd   = raw.lastIndexOf(\"]\")\n  if (arrStart != -1 && arrEnd > arrStart) {\n    // Some models might accidentally return an array — keep it but flag error\n    candidate = raw.substring(arrStart, arrEnd + 1).trim()\n    hadErr = true\n    errMsg = \"Model returned an array instead of a single JSON object.\"\n  } else {\n    hadErr = true\n    errMsg = \"No JSON object or array detected in model output.\"\n  }\n}\n\n// ---- minimal structural sanity checks (textual) ----\ndef hasLinesKey = candidate.contains(\"\\\"lines\\\"\") || candidate.contains(\"'lines'\")\ndef looksObject = candidate.startsWith(\"{\") && candidate.endsWith(\"}\")\n\nif (!looksObject) {\n  // keep candidate (might be array) but record issue\n  if (!hadErr) { hadErr = true; errMsg = \"Top-level payload is not a JSON object.\" }\n}\n\n// ensure we at least see the lines array key for this prompt family\nif (!hasLinesKey) {\n  // not fatal, but signal for downstream handling\n  if (!hadErr) { hadErr = true; errMsg = \"Expected key 'lines' not found in payload.\" }\n}\n\n// Return map → will appear at steps.<codeStep>.outputs.result\n[\n  cleanedText : candidate,   // stringified JSON to feed into UA JSON deserializer\n  hadError    : hadErr,      // boolean flag\n  errorMsg    : errMsg       // short description (\"\" if none)\n]\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"vertexText":"{{ _sBK48.outputs.candidates[0].content.parts[0].text }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_h5Bu3-1",
+			"id":"_vQNwr",
+			"index":9,
+			"inputs":{
+				"jsonSchema":{
+					"$ref":"#/definitions/entity|e_code_snippet|e_6901343c9f21754a31c190c6",
+					"$comment":"[Tax] Invoice Data Extraction"
+				},
+				"jsonString":"{{ _MPWzB.outputs.result.cleanedText }}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
 		},
 		{
 			"debug":false,
@@ -39,13 +533,16 @@
 			"fallbackMode":"STOP",
 			"groupId":"_h5Bu3-1",
 			"id":"_4mhtk",
-			"index":0,
+			"index":10,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":170149,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +556,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
