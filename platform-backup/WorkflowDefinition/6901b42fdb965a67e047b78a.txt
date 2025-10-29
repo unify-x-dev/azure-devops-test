@@ -16,7 +16,7 @@
 	"id":"6901b42fdb965a67e047b78a",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa21761719343188kyrkxvsllu",
-	"modifiedTime":1761719343289,
+	"modifiedTime":1761719432764,
 	"name":"changeSetQA21761719343188kyrkxVSLLU",
 	"nodes":[
 		{
@@ -87,7 +87,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ xF4b9.outputs.a }},{{ xF4b9.outputs.b }})"
+					"c":"=PRODUCT({{ xF4b9.outputs.a }},{{ xF4b9.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -109,5 +109,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
