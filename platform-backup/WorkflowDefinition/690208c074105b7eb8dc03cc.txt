@@ -30,7 +30,7 @@
 	"id":"690208c074105b7eb8dc03cc",
 	"lastModifiedBy":39714,
 	"lcName":"bin to pdf",
-	"modifiedTime":1761742671944,
+	"modifiedTime":1761742749602,
 	"name":"bin to pdf",
 	"nodes":[
 		{
@@ -167,6 +167,9 @@
 			"id":"n_I4dnN",
 			"index":4,
 			"inputs":{
+				"uploadPublic":true,
+				"base64Content":"{{ n_ts1PZ.outputs.result.base64_file }}",
+				"fileName":"test.pdf",
 				"option":"base64Content"
 			},
 			"skip":false,
@@ -192,5 +195,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
