@@ -102,12 +102,27 @@
 			"skip":false,
 			"toNodeId":"n_XOOIc",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XOOIc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ku8Sx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_l4EWa",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ku8Sx",
+			"type":"next"
 		}
 	],
 	"id":"6902068074105b7eb8dbda38",
 	"lastModifiedBy":1,
 	"lcName":"aws comprehend test",
-	"modifiedTime":1761742670313,
+	"modifiedTime":1761742682969,
 	"name":"AWS comprehend test",
 	"nodes":[
 		{
@@ -425,6 +440,21 @@
 			"subTitle":"Amazon S3",
 			"title":"Download file",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uKLsa-1",
+			"id":"n_ku8Sx",
+			"index":12,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":1,
@@ -444,5 +474,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
