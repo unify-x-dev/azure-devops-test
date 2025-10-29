@@ -19,12 +19,19 @@
 			"skip":false,
 			"toNodeId":"n_grnGx",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_grnGx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bFZvp",
+			"type":"next"
 		}
 	],
 	"id":"6901c38a0a7959277f1f7d3b",
 	"lastModifiedBy":34802,
 	"lcName":"customhttp",
-	"modifiedTime":1761723685179,
+	"modifiedTime":1761723692949,
 	"name":"CustomHTTP",
 	"nodes":[
 		{
@@ -128,6 +135,21 @@
 			"subTitle":"Custom HTTP Endpoint",
 			"title":"Execute REST request",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_T48st-1",
+			"id":"n_bFZvp",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":34802,
@@ -147,5 +169,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
