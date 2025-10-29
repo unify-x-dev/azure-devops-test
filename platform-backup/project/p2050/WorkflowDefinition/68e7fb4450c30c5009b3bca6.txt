@@ -8,12 +8,12 @@
 	"createdTime":1760033604120,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761765307761,
+		"deployedAt":1761766320345,
 		"deployedBy":155543,
-		"deployedDefinitionId":"690267bb54d72b1772a0d3e3",
+		"deployedDefinitionId":"69026bb0100f670b5926a068",
 		"status":"DEPLOYED",
-		"version":53,
-		"workflowVersion":324
+		"version":54,
+		"workflowVersion":325
 	},
 	"description":"To Scan Images",
 	"edges":[
@@ -180,6 +180,13 @@
 			"fromNodeId":"n_j2Lb9",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_0FOb5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0FOb5",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_XNoQ8",
 			"type":"next"
 		},
@@ -230,7 +237,7 @@
 	"id":"68e7fb4450c30c5009b3bca6",
 	"lastModifiedBy":155543,
 	"lcName":"image scans",
-	"modifiedTime":1761766318322,
+	"modifiedTime":1761766644245,
 	"name":"Image Scans",
 	"nodes":[
 		{
@@ -2912,6 +2919,28 @@
 		{
 			"context":{
 				"appName":"utility_by_unifyapps",
+				"resourceVersion":1106,
+				"resourceName":"utility_by_unifyapps_generate_public_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_fFQyR-1",
+			"id":"n_0FOb5",
+			"index":21,
+			"inputs":{
+				"file":"{{ n_j2Lb9.outputs.file }}",
+				"expiryTime":1
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Generate public file URL",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
 				"resourceVersion":1052,
 				"resourceName":"utility_by_unifyapps_unzip_file",
 				"type":"APPLICATION"
@@ -2921,7 +2950,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_XNoQ8",
-			"index":21,
+			"index":22,
 			"inputs":{
 				"fileDetails":"{{ n_j2Lb9.outputs.file }}"
 			},
@@ -2943,7 +2972,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_2vk4D",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"folderName":"{{ n_sO6Iq.outputs.RAW_TAG }}",
 				"folderId":"1aM2F6rPCRg3ML7onEk_MRuSGwjMA4gJZ"
@@ -2965,7 +2994,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_cN9FJ",
-			"index":23,
+			"index":24,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_XNoQ8.outputs.filesDetails }}",
@@ -2988,7 +3017,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_cN9FJ@_fFQyR-1@l",
 			"id":"n_OJzaX",
-			"index":24,
+			"index":25,
 			"inputs":{
 				"file":"{{ n_cN9FJ.outputs.item }}",
 				"expiryTime":1
@@ -3011,7 +3040,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_cN9FJ@_fFQyR-1@l",
 			"id":"n_jVzkr",
-			"index":25,
+			"index":26,
 			"inputs":{
 				"attachment":{
 					"attachment_option":"use_file_url",
@@ -3043,7 +3072,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_fFQyR-1",
 			"id":"n_x1dEn",
-			"index":26,
+			"index":27,
 			"inputs":{
 				"link_names":true,
 				"messageType":"text",
@@ -3084,5 +3113,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":325
+	"version":326
 }
