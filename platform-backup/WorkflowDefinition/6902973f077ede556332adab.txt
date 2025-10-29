@@ -1,30 +1,210 @@
 {
 	"appsUsed":[
-		
+		"slack",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761777471907,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761777472248,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69029740077ede556332adac",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
-		
+		{
+			"fromNodeId":"qjdVT",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"4S8By",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"4S8By",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"KKsSg",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"KKsSg",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"0kHMA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"0kHMA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"ZyXg8",
+			"type":"next"
+		}
 	],
 	"id":"6902973f077ede556332adab",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa25993250599",
-	"modifiedTime":1761777471907,
+	"modifiedTime":1761777592538,
 	"name":"changeSetQA25993250599",
 	"nodes":[
-		
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":198,
+				"resourceName":"callables_from_interface"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"xWsbB-1",
+			"id":"qjdVT",
+			"index":0,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"c":{
+							"type":"integer",
+							"title":"c"
+						}
+					},
+					"required":[]
+				},
+				"callableInterfaceId":"6902973f077ede556332adaa",
+				"setup":{
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"integer",
+							"title":"a"
+						},
+						"b":{
+							"type":"integer",
+							"title":"b"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger interface",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":20114,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"xWsbB-1",
+			"id":"4S8By",
+			"index":0,
+			"inputs":{
+				"object_type":"changeSetQA2JIoTMUszPeYKXwNQBpQC",
+				"record":{
+					"n":"{{ qjdVT.outputs.a }}",
+					"m":"{{ qjdVT.outputs.b }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":5043,
+				"connectionId":"6669a9f6af1e7e51fa555bb8",
+				"resourceName":"slack_list_users",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"xWsbB-1",
+			"id":"KKsSg",
+			"index":0,
+			"inputs":{
+				"limit":"{{ 4S8By.outputs.properties.n }}",
+				"include_locale":false
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"List users",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":230,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"xWsbB-1",
+			"id":"0kHMA",
+			"index":0,
+			"inputs":{
+				"automationId":"690297b4077ede556332af5c",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":215,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"xWsbB-1",
+			"id":"ZyXg8",
+			"index":0,
+			"inputs":{
+				"result":{
+					"result":"{{ zOy1a.outputs.c }}",
+					"c":"= PRODUCT({{ 4S8By.outputs.properties.m }},{{ 4S8By.outputs.properties.n }})"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true,
-		"route":{
-			"default":false,
-			"tierName":"global"
-		}
+		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":0
+	"tags":[
+		
+	],
+	"version":2
 }
