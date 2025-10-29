@@ -206,7 +206,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761745573925,
+	"modifiedTime":1761746095793,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -736,19 +736,6 @@
 			"id":"_b3pn9",
 			"index":12,
 			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"EmployeeNumber"
-					],
-					"properties":{
-						"EmployeeNumber":{
-							"type":"string",
-							"title":"EmployeeNumber"
-						}
-					}
-				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -764,9 +751,12 @@
 						}
 					}
 				},
-				"code":"",
+				"code":"// def result = [\n//         UserName        : payload.UserName ?: '',\n//         Email           : payload.Email ?: '',\n//         IsActive        : payload.IsActive ?: false,\n//         FullName        : payload.FullName ?: '',\n//         EmployeeNumber  : payload.EmployeeNumber ?: '',\n//         row_num         : payload.row_num ?: 0,\n//         EmployeeId      : payload.EmployeeId ?: ''\n//     ]\n\n// def inputPayload = [\"UserName\": \"jdoe\"]\nresult = \"sumit\"",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_b2pce.outputs.body.payload }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -1026,5 +1016,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
