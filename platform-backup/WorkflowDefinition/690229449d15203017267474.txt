@@ -1,51 +1,119 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761749316399,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_zlTxz",
+			"fromNodeId":"n_5Fx0y",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_eKGJN",
+			"toNodeId":"n_UrIyS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UrIyS",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_M5OBF",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_UrIyS",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PWebo",
 			"type":"next"
 		}
 	],
 	"id":"690229449d15203017267474",
 	"lastModifiedBy":39714,
 	"lcName":"test",
-	"modifiedTime":1761749316399,
+	"modifiedTime":1761749392905,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":2993,
+				"connectionId":"6901df7975b0c3591d0c1453",
+				"resourceName":"gmail_on_new_thread_polling"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_zlTxz-1",
-			"id":"_zlTxz",
-			"index":0,
+			"id":"n_5Fx0y",
+			"index":1,
+			"inputs":{
+				"interval":5,
+				"batchSize":5
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Gmail",
+			"title":"New email thread in Gmail",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_zlTxz-1",
-			"id":"_eKGJN",
-			"index":0,
+			"id":"n_UrIyS",
+			"index":2,
+			"inputs":{},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_UrIyS@_zlTxz-1@y",
+			"id":"n_M5OBF",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_UrIyS@_zlTxz-1@n",
+			"id":"n_PWebo",
+			"index":4,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39714,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +127,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
