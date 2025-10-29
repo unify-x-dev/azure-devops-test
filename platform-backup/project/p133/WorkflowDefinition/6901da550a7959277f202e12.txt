@@ -1,52 +1,132 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761729109434,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Lnal4",
+			"fromNodeId":"n_kTGYE",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_knuJq",
+			"toNodeId":"n_qzlIy",
 			"type":"next"
 		}
 	],
 	"id":"6901da550a7959277f202e12",
 	"lastModifiedBy":190411,
 	"lcName":"practice",
-	"modifiedTime":1761729109434,
+	"modifiedTime":1761730469983,
 	"name":"practice",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5627,
+				"connectionId":"6901db9375b0c3591d0c0159",
+				"resourceName":"gmail_on_new_email_polling"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Lnal4-1",
-			"id":"_Lnal4",
-			"index":0,
+			"id":"n_kTGYE",
+			"index":1,
+			"inputs":{
+				"intervalType":"minutes",
+				"labelIds":"Unify_Team",
+				"fetchAllMails":false,
+				"pageSize":500,
+				"interval":5,
+				"from":"2025-10-27",
+				"includeSpamTrash":false,
+				"batchSize":5
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Gmail",
+			"title":"New email",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1086,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Lnal4-1",
-			"id":"_knuJq",
-			"index":0,
+			"id":"n_qzlIy",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"gmails":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Gmails",
+							"description":"this will store email we get from gmail"
+						}
+					},
+					"required":[
+						"gmails"
+					]
+				}
+			},
+			"inputs":{
+				"gmails":{
+					"source":"{{ n_kTGYE.outputs.batch[0].to }}{{ n_kTGYE.outputs.batch[0].cc }}{{ n_kTGYE.outputs.batch[0].bcc }}{{ n_kTGYE.outputs.batch[0].from }}{{ n_kTGYE.outputs.batch[0].replyTo }}{{ n_kTGYE.outputs.batch[0].subject }}{{ n_kTGYE.outputs.batch[0].body_plain }}{{ n_kTGYE.outputs.batch[0].attachments }}",
+					"ua:type":"mappedArray",
+					"items":"{{ n_kTGYE.outputs.batch[0].cc.ccNames }}{{ n_kTGYE.outputs.batch[0].cc.ccEmails }}{{ n_kTGYE.outputs.batch[0].bcc.bccNames }}{{ n_kTGYE.outputs.batch[0].bcc.bccEmails }}{{ n_kTGYE.outputs.batch[0].from.fromName }}{{ n_kTGYE.outputs.batch[0].from.fromEmail }}{{ n_kTGYE.outputs.batch[0].body_plain }}{{ n_kTGYE.outputs.batch[0].labels }}{{ n_kTGYE.outputs.batch[0].attachments }}{{ n_kTGYE.outputs.batch[0].raw.labelIds }}"
+				}
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"gmails":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Gmails",
+							"description":"this will store email we get from gmail"
+						}
+					},
+					"required":[
+						"gmails"
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190411,
 	"projectId":133,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +140,5 @@
 	"tags":[
 		"practice"
 	],
-	"version":0
+	"version":1
 }
