@@ -61,6 +61,20 @@
 			"fromNodeId":"n_AtUPv@2",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_SuXse",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_SuXse",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_VArKP",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VArKP",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_8TAQ3",
 			"type":"next"
 		},
@@ -178,7 +192,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761744296169,
+	"modifiedTime":1761745168636,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -222,6 +236,23 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"count":{
+									"type":"integer",
+									"title":"Count"
+								},
+								"employee":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Employee"
+								}
+							},
+							"additionalProperties":false,
+							"required":[]
 						}
 					}
 				],
@@ -452,8 +483,8 @@
 		{
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":4621,
-				"resourceName":"storage_by_unifyapps_fetch_records",
+				"resourceVersion":4620,
+				"resourceName":"storage_by_unifyapps_count_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -469,27 +500,17 @@
 							"property":"properties_EmployeeNumber",
 							"filter":{
 								"operator":"EQUAL",
-								"value":""
+								"value":"{{ n_cbnsU.outputs.result.EmployeeNumber }}"
 							}
 						}
 					],
 					"operator":"AND"
 				},
-				"object_type":"reps_employees",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
+				"object_type":"reps_employees"
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
+			"title":"Count records",
 			"type":"ACTION"
 		},
 		{
@@ -508,6 +529,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"count":"{{ n_wjSo3.outputs.count }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -549,6 +573,85 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1036,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_AtUPv@_JfTSF-1@2",
+			"id":"_SuXse",
+			"index":8,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"EmployeeNumber"
+					],
+					"properties":{
+						"EmployeeNumber":{
+							"type":"string",
+							"title":"EmployeeNumber"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"def res = [:]\nif (payload.containsKey(\"EmployeeNumber\")) {\n  res[\"EmployeeNumber\"] = payload[\"EmployeeNumber\"]\n}\nelse {\n  res[\"EmployeeNumber\"] = \"\"\n}\n",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4511,
+				"resourceName":"storage_by_unifyapps_get_records_by_ids",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_AtUPv@_JfTSF-1@2",
+			"id":"n_VArKP",
+			"index":9,
+			"inputs":{
+				"object_type":"reps_employees",
+				"includeRoleMappings":false,
+				"ids":[
+					"{{ _SuXse.outputs.result.EmployeeNumber }}"
+				],
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"readThroughSessionVariables":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Get records by IDs",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1124,
 				"resourceName":"callables_return_response_to_api",
@@ -559,10 +662,13 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_8TAQ3",
-			"index":8,
+			"index":10,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"employee":"{{ n_VArKP.outputs.objects[0] }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -582,7 +688,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_AtUPv@3",
-			"index":9,
+			"index":11,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -614,7 +720,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_GBDGh",
-			"index":10,
+			"index":12,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -637,7 +743,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_AtUPv@4",
-			"index":11,
+			"index":13,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -669,7 +775,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_lYvBi",
-			"index":12,
+			"index":14,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -692,7 +798,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_AtUPv@5",
-			"index":13,
+			"index":15,
 			"inputs":{
 				"name":"Branch 5",
 				"conditions":{
@@ -724,7 +830,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_VBVOV",
-			"index":14,
+			"index":16,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -747,7 +853,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_AtUPv@6",
-			"index":15,
+			"index":17,
 			"inputs":{
 				"name":"Branch 6",
 				"conditions":{
@@ -779,7 +885,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_ODo2P",
-			"index":16,
+			"index":18,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -802,7 +908,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
-			"index":17,
+			"index":19,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -832,5 +938,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
