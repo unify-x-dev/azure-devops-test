@@ -5,12 +5,12 @@
 	"createdTime":1761740416924,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761741902000,
+		"deployedAt":1761741920337,
 		"deployedBy":1,
-		"deployedDefinitionId":"69020c4c74105b7eb8dc28f2",
+		"deployedDefinitionId":"69020c6074105b7eb8dc2964",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":4
+		"version":4,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
@@ -24,6 +24,13 @@
 			"fromNodeId":"n_d6tEe",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_fRDWk",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fRDWk",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_wgFbS",
 			"type":"next"
 		}
@@ -31,7 +38,7 @@
 	"id":"6902068074105b7eb8dbda38",
 	"lastModifiedBy":1,
 	"lcName":"aws comprehend test",
-	"modifiedTime":1761741918805,
+	"modifiedTime":1761741989684,
 	"name":"AWS comprehend test",
 	"nodes":[
 		{
@@ -99,6 +106,28 @@
 		},
 		{
 			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_uKLsa-1",
+			"id":"n_fRDWk",
+			"index":3,
+			"inputs":{
+				"duration":30,
+				"unit":"SECONDS"
+			},
+			"skip":false,
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
+		},
+		{
+			"context":{
 				"appName":"amazon_comprehend",
 				"resourceVersion":8,
 				"connectionId":"6901f5602334c537588f2d25",
@@ -110,7 +139,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_uKLsa-1",
 			"id":"n_wgFbS",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"JobId":"{{ n_d6tEe.outputs.JobId }}"
 			},
@@ -137,5 +166,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
