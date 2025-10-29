@@ -206,7 +206,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761746306307,
+	"modifiedTime":1761746334996,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -821,7 +821,16 @@
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_employees",
-				"skipIfBlank":false
+				"skipIfBlank":false,
+				"record":{
+					"UserName":"{{ _b3pn9.outputs.result.UserName }}",
+					"Email":"{{ _b3pn9.outputs.result.Email }}",
+					"IsActive":"{{ _b3pn9.outputs.result.IsActive }}",
+					"FullName":"{{ _b3pn9.outputs.result.FullName }}",
+					"EmployeeNumber":"{{ _b3pn9.outputs.result.EmployeeNumber }}",
+					"row_num":"{{ _b3pn9.outputs.result.row_num }}",
+					"EmployeeId":"{{ _b3pn9.outputs.result.EmployeeId }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
@@ -1058,5 +1067,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
