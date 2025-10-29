@@ -23,7 +23,7 @@
 	"id":"690208c074105b7eb8dc03cc",
 	"lastModifiedBy":39714,
 	"lcName":"bin to pdf",
-	"modifiedTime":1761741285728,
+	"modifiedTime":1761741292763,
 	"name":"bin to pdf",
 	"nodes":[
 		{
@@ -135,7 +135,10 @@
 					}
 				},
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"binaryData":"{{ n_SEXDV.outputs.binaryData }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Bin to Base64",
@@ -160,5 +163,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
