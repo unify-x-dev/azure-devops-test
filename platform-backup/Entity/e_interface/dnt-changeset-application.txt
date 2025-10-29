@@ -1,10 +1,52 @@
 {
 	"createdTime":1761745475716,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761745476049,
+		"deployedBy":175325,
+		"entityVersion":58,
+		"version":1
+	},
 	"entityType":"e_interface",
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"E",
+					"V",
+					"M_L"
+				],
+				"principalIds":[
+					"37018"
+				],
+				"principalType":"USER"
+			},
+			{
+				"permissions":[
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"E",
+					"V",
+					"M_L"
+				],
+				"principalIds":[
+					"175325"
+				],
+				"principalType":"USER"
+			}
+		]
+	},
 	"id":"dnt-changeset-application",
-	"lastModifiedBy":175325,
-	"modifiedTime":1761745475716,
+	"lastModifiedBy":37018,
+	"modifiedTime":1761747204045,
 	"ownerUserId":175325,
 	"properties":{
 		"standard":false,
@@ -294,7 +336,7 @@
 		"manifest":{
 			"type":"WEB"
 		},
-		"name":"dnt-outbound-changeset-application",
+		"name":"dnt-inbound-changeset-application",
 		"type":"application",
 		"locale":{
 			"defaultLocale":"en-US"
@@ -304,5 +346,5 @@
 	"tags":[
 		
 	],
-	"version":58
+	"version":60
 }
