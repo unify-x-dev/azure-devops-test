@@ -1,0 +1,75 @@
+{
+	"appsUsed":[
+		"slack"
+	],
+	"createdTime":1761763850764,
+	"deleted":false,
+	"description":"Receives webhook payload and sends message to Slack channel",
+	"edges":[
+		{
+			"fromNodeId":"start-1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"action-slack-1",
+			"type":"next"
+		}
+	],
+	"id":"6902620ad6c93760f1917a7f",
+	"lastModifiedBy":0,
+	"lcName":"webhook to slack message",
+	"modifiedTime":1761763850764,
+	"name":"Webhook to Slack Message",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"id":"start-1",
+			"index":0,
+			"skip":false,
+			"title":"Webhook Trigger",
+			"trigger":{
+				"type":"WEBHOOK"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"connectionId":"66fbfd221d77f81aa2b8507a",
+				"resourceName":"send_message",
+				"type":"ACTION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"id":"action-slack-1",
+			"index":1,
+			"inputs":{
+				"channel":"{{$trigger.channel}}",
+				"text":"{{$trigger.message}}"
+			},
+			"skip":false,
+			"subTitle":"Post message to channel",
+			"title":"Send Slack Message",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":0,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"nodeLogLevel":"DEBUG",
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		"webhook",
+		"slack",
+		"notification"
+	],
+	"version":0
+}
