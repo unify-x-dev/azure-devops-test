@@ -58,7 +58,7 @@
 	"id":"69022404455efd47733de83c",
 	"lastModifiedBy":59995,
 	"lcName":"test-exports",
-	"modifiedTime":1761751212298,
+	"modifiedTime":1761751327608,
 	"name":"test-exports",
 	"nodes":[
 		{
@@ -227,23 +227,26 @@
 		{
 			"context":{
 				"appName":"analytics_by_unifyapps",
-				"resourceVersion":938,
-				"resourceName":"analytics_by_unifyapps_execute_query",
+				"resourceVersion":516,
+				"resourceName":"analytics_by_unifyapps_export_sql",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_h5E8G-1",
 			"id":"n_g2hMJ",
 			"index":6,
 			"inputs":{
+				"sheetName":"Sheet_0",
 				"query":"SELECT * FROM ENTITY_test_export_analytics;",
+				"keepExactFileName":false,
+				"fileType":"CSV",
 				"group":"ENTITY_REPORTING"
 			},
 			"skip":false,
 			"subTitle":"Analytics by UnifyApps",
-			"title":"Execute Analytics SQL Query",
+			"title":"Export SQL Query Result",
 			"type":"ACTION"
 		},
 		{
@@ -453,7 +456,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_h5E8G-1",
 			"id":"n_m7wRA",
@@ -484,7 +487,7 @@
 				"recordsPathKey":"{{ n_N3mzQ.outputs.result.recordsPathKey }}",
 				"batchSize":100,
 				"limitKeyReference":"page.limit",
-				"fileType":"XLSX"
+				"fileType":"CSV"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -509,5 +512,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
