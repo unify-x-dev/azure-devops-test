@@ -5,12 +5,12 @@
 	"createdTime":1761710933207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761757592715,
+		"deployedAt":1761758373418,
 		"deployedBy":46209,
-		"deployedDefinitionId":"69024998d015237911e3feb4",
+		"deployedDefinitionId":"69024ca5d015237911e41c08",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":9
+		"version":7,
+		"workflowVersion":10
 	},
 	"edges":[
 		{
@@ -75,6 +75,20 @@
 		},
 		{
 			"fromNodeId":"n_AtUPv@4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_sHZOw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_sHZOw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OfBCn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OfBCn",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_lYvBi",
@@ -178,7 +192,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761758371201,
+	"modifiedTime":1761761481031,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -188,7 +202,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Yq92w",
@@ -265,7 +279,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_AtUPv",
@@ -398,7 +412,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_AtUPv@1",
@@ -430,7 +444,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_6XhsF",
@@ -453,7 +467,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@2",
 			"id":"n_AtUPv@2",
@@ -485,7 +499,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@2",
 			"id":"n_8TAQ3",
@@ -508,7 +522,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_AtUPv@3",
@@ -540,7 +554,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_GBDGh",
@@ -563,7 +577,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_AtUPv@4",
@@ -589,17 +603,160 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1124,
-				"resourceName":"callables_return_response_to_api",
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
-			"id":"n_lYvBi",
+			"id":"n_sHZOw",
 			"index":10,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"Importance":{
+							"type":"integer",
+							"title":"Importance"
+						},
+						"CreatedDate":{
+							"type":"string",
+							"title":"CreatedDate"
+						},
+						"Practice":{
+							"type":"string",
+							"title":"Practice"
+						},
+						"Id":{
+							"type":"integer",
+							"title":"Id"
+						},
+						"FromEmail":{
+							"type":"string",
+							"title":"FromEmail"
+						},
+						"Subject":{
+							"type":"string",
+							"title":"Subject"
+						},
+						"MessageBody":{
+							"type":"string",
+							"title":"MessageBody"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4598,
+				"resourceName":"storage_by_unifyapps_update_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_AtUPv@_xChs4-1@4",
+			"id":"n_OfBCn",
+			"index":11,
+			"inputs":{
+				"numberOfRecordsToUpdate":"MULTIPLE",
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_Id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_sHZOw.outputs.result.Id }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"mail_notifications",
+				"skipIfBlank":false,
+				"updateFields":[
+					{
+						"fieldName":"properties.Importance",
+						"actionType":"SET",
+						"setValue":"{{ n_sHZOw.outputs.result.Importance }}"
+					},
+					{
+						"fieldName":"properties.CreatedDate",
+						"actionType":"SET",
+						"setValue":"{{ n_sHZOw.outputs.result.CreatedDate }}"
+					},
+					{
+						"fieldName":"properties.Practice",
+						"actionType":"SET",
+						"setValue":"{{ n_sHZOw.outputs.result.Practice }}"
+					},
+					{
+						"fieldName":"properties.FromEmail",
+						"actionType":"SET",
+						"setValue":"{{ n_sHZOw.outputs.result.FromEmail }}"
+					},
+					{
+						"fieldName":"properties.Subject",
+						"actionType":"SET",
+						"setValue":"{{ n_sHZOw.outputs.result.Subject }}"
+					},
+					{
+						"fieldName":"properties.MessageBody",
+						"actionType":"SET",
+						"setValue":"{{ n_sHZOw.outputs.result.MessageBody }}"
+					}
+				],
+				"page":{
+					"offset":0,
+					"limit":20
+				},
+				"unsetIfNull":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Update records by query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"n_AtUPv@_xChs4-1@4",
+			"id":"n_lYvBi",
+			"index":12,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -618,11 +775,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@5",
 			"id":"n_AtUPv@5",
-			"index":11,
+			"index":13,
 			"inputs":{
 				"name":"Branch 5",
 				"conditions":{
@@ -650,11 +807,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@5",
 			"id":"n_VBVOV",
-			"index":12,
+			"index":14,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -673,11 +830,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_AtUPv@6",
-			"index":13,
+			"index":15,
 			"inputs":{
 				"name":"Branch 6",
 				"conditions":{
@@ -710,11 +867,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_XWNsV",
-			"index":14,
+			"index":16,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -780,11 +937,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_vdWy7",
-			"index":15,
+			"index":17,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -834,7 +991,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_ODo2P",
-			"index":16,
+			"index":18,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -860,11 +1017,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Km2Dj",
-			"index":17,
+			"index":19,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -894,5 +1051,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
