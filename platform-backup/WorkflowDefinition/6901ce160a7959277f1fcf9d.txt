@@ -45,7 +45,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761742877685,
+	"modifiedTime":1761744176352,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -60,7 +60,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_JUbjR",
@@ -96,7 +96,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_ZMSaW",
@@ -132,7 +132,7 @@
 			"inputs":{
 				"fileDetails":"{{ n_ZMSaW.outputs.fileDetails }}",
 				"startFromRecord":1,
-				"batch":true,
+				"batch":false,
 				"encoding":"UTF-8",
 				"batchSize":100,
 				"fileType":"json"
@@ -153,7 +153,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_wdDn6@_QuCjn-1@l",
 			"id":"n_gTqHM",
@@ -202,7 +202,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_Wh4Hz",
@@ -235,5 +235,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":23
 }
