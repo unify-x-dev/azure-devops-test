@@ -4,13 +4,27 @@
 	],
 	"createdTime":1761723274997,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761723558933,
+		"deployedBy":4130,
+		"deployedDefinitionId":"6901c4a40a7959277f1f83c5",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
-		
+		{
+			"fromNodeId":"n_CPAWs",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_grnGx",
+			"type":"next"
+		}
 	],
 	"id":"6901c38a0a7959277f1f7d3b",
-	"lastModifiedBy":4130,
+	"lastModifiedBy":34802,
 	"lcName":"customhttp",
-	"modifiedTime":1761723554229,
+	"modifiedTime":1761723654147,
 	"name":"CustomHTTP",
 	"nodes":[
 		{
@@ -37,6 +51,76 @@
 				"type":"WEBHOOK"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":1119,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_T48st-1",
+			"id":"n_grnGx",
+			"index":2,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"courseName":"Training"
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/",
+				"baseUrl":"https://default7bbb8a4d7f1b4a589b3ac250fb8023.e3.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/53785345119c428fbf76b69e2f42967b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=QfTSqUVEiSEL3PcTIyDGMYfeQXZXeXiheTV6Z1775LM",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"courseName":{
+							"type":"string",
+							"title":"courseName"
+						},
+						"candidates":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"string",
+										"title":"id"
+									},
+									"email":{
+										"type":"string",
+										"title":"email"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"candidates"
+						},
+						"date":{
+							"type":"string",
+							"title":"date"
+						}
+					}
+				},
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"skip":false,
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":34802,
@@ -56,5 +140,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
