@@ -6,47 +6,169 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_x1ECB",
+			"fromNodeId":"n_Ue3T8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_3VtOH",
+			"toNodeId":"n_6m07a",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_6m07a",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_VIeOO",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_6m07a",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hOWYN",
 			"type":"next"
 		}
 	],
 	"id":"6902040f6f43533b05a1b3b2",
 	"lastModifiedBy":189756,
 	"lcName":"alt",
-	"modifiedTime":1761739791861,
+	"modifiedTime":1761739975339,
 	"name":"ALT",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1068,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_x1ECB-1",
-			"id":"_x1ECB",
-			"index":0,
+			"id":"n_Ue3T8",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"status":{
+							"type":"string",
+							"title":"Status"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"travelerDC":{
+							"type":"string",
+							"title":"Traveler DC"
+						},
+						"frequency":{
+							"type":"string",
+							"title":"Frequency"
+						},
+						"placementStartDate":{
+							"type":"string",
+							"title":"Placement Start Date"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_x1ECB-1",
-			"id":"_3VtOH",
-			"index":0,
+			"id":"n_6m07a",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"={{ n_Ue3T8.outputs.travelerDC }}+{{ n_Ue3T8.outputs.frequency }}",
+						"filter":{
+							"operator":"GTE",
+							"value":"{{ n_Ue3T8.outputs.placementStartDate }}"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_6m07a@_x1ECB-1@y",
+			"id":"n_VIeOO",
+			"index":3,
+			"inputs":{
+				"result":{
+					"status":"true"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_6m07a@_x1ECB-1@n",
+			"id":"n_hOWYN",
+			"index":4,
+			"inputs":{
+				"result":{
+					"status":"false"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":189756,
 	"projectId":2071,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +182,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
