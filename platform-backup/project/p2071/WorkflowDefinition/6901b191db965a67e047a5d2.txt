@@ -82,12 +82,33 @@
 			"skip":false,
 			"toNodeId":"n_6sKQZ",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_3Po0T",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aJCX5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9qtpk",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aJCX5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_6sKQZ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aJCX5",
+			"type":"next"
 		}
 	],
 	"id":"6901b191db965a67e047a5d2",
 	"lastModifiedBy":189756,
 	"lcName":"amn annual evaluation anne val",
-	"modifiedTime":1761741455464,
+	"modifiedTime":1761741473845,
 	"name":"AMN Annual evaluation ANNE VAL",
 	"nodes":[
 		{
@@ -402,6 +423,29 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1104,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZDT3b@_Uxlvr-1@n",
+			"id":"n_aJCX5",
+			"index":12,
+			"inputs":{
+				"result":{
+					"output":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":189756,
@@ -422,5 +466,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
