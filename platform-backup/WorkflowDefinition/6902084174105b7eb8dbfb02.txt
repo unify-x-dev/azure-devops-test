@@ -1,51 +1,105 @@
 {
 	"appsUsed":[
-		
+		"audienceful",
+		"callpage"
 	],
 	"createdTime":1761740865410,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_NfJk4",
+			"fromNodeId":"n_aoHZh",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_iaEvt",
+			"toNodeId":"n_4jwk0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4jwk0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_FGgun",
 			"type":"next"
 		}
 	],
 	"id":"6902084174105b7eb8dbfb02",
 	"lastModifiedBy":3546,
 	"lcName":"drd5ew",
-	"modifiedTime":1761740865410,
+	"modifiedTime":1761741240148,
 	"name":"drd5ew",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_NfJk4-1",
-			"id":"_NfJk4",
-			"index":0,
+			"id":"n_aoHZh",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callpage",
+				"resourceVersion":2052,
+				"connectionId":"68ee229c7cdd5f788e76ea50",
+				"resourceName":"callpage_get_all_user",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_NfJk4-1",
-			"id":"_iaEvt",
-			"index":0,
+			"id":"n_4jwk0",
+			"index":2,
+			"inputs":{
+				"offset":0,
+				"limit":100
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Callpage",
+			"title":"Get all user",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"audienceful",
+				"resourceVersion":2159,
+				"connectionId":"68ee1a28c6152564c53525c2",
+				"resourceName":"audienceful_delete_person",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_NfJk4-1",
+			"id":"n_FGgun",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Audienceful",
+			"title":"Delete person",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +113,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
