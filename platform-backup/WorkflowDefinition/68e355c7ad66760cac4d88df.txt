@@ -205,7 +205,7 @@
 	"id":"68e355c7ad66760cac4d88df",
 	"lastModifiedBy":46217,
 	"lcName":"test",
-	"modifiedTime":1761722886457,
+	"modifiedTime":1761726644716,
 	"name":"test",
 	"nodes":[
 		{
@@ -309,9 +309,9 @@
 		{
 			"context":{
 				"appName":"azure_blob",
-				"resourceVersion":5172,
+				"resourceVersion":3,
 				"connectionId":"68ee30f2af190e20d1cbcaa1",
-				"resourceName":"azure_blob_download_blob",
+				"resourceName":"azure_blob_read_n_lines",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -321,11 +321,12 @@
 			"id":"n_cLHag",
 			"index":5,
 			"inputs":{
-				"useDecompression":false
+				"useDecompression":false,
+				"lines":10
 			},
 			"skip":false,
 			"subTitle":"Azure Blob",
-			"title":"Download blob contents",
+			"title":"Read a blob",
 			"type":"ACTION"
 		},
 		{
@@ -962,5 +963,5 @@
 	"tags":[
 		
 	],
-	"version":98
+	"version":99
 }
