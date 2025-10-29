@@ -2,9 +2,29 @@
 	"createdTime":1761748097256,
 	"deleted":false,
 	"entityType":"e_interface",
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"E",
+					"V",
+					"M_L"
+				],
+				"principalIds":[
+					"43487"
+				],
+				"principalType":"USER"
+			}
+		]
+	},
 	"id":"photo-booth",
 	"lastModifiedBy":43487,
-	"modifiedTime":1761748097256,
+	"modifiedTime":1761748098817,
 	"ownerUserId":43487,
 	"properties":{
 		"standard":false,
@@ -20,7 +40,7 @@
 			"_counter":{
 				"_moduleCount":0,
 				"_mqttTopicCounter":0,
-				"_pageCount":0
+				"_pageCount":1
 			}
 		},
 		"navigation":{
@@ -31,10 +51,15 @@
 					"id":"userMenu"
 				}
 			],
-			"defaultPageId":"",
+			"defaultPageId":"e_69022482160cf95891ad3b47",
 			"appearance":{
 				"SM":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_3TxOv",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"none"
@@ -63,10 +88,21 @@
 						"padding":{
 							"all":"p-0"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				},
 				"LG":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_3TxOv",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"none"
@@ -101,10 +137,21 @@
 						"gapSecondary":{
 							"y":"gap-y-lg"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				},
 				"XL":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_3TxOv",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"expandable"
@@ -139,10 +186,21 @@
 						"gapSecondary":{
 							"y":"gap-y-lg"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				},
 				"MD":{
-					"primary":[],
+					"primary":[
+						{
+							"id":"nav_3TxOv",
+							"hiddenInOverflow":false
+						}
+					],
 					"navigationItem":{
 						"selectionVariant":"stroke",
 						"labelVariant":"none"
@@ -177,10 +235,29 @@
 						"gapSecondary":{
 							"y":"gap-y-lg"
 						}
-					}
+					},
+					"secondary":[
+						{
+							"id":"userMenu",
+							"hiddenInOverflow":false
+						}
+					]
 				}
 			},
-			"primary":[]
+			"primary":[
+				{
+					"name":"Homepage",
+					"icon":"Zap",
+					"id":"nav_3TxOv",
+					"type":"PAGE",
+					"pageId":"e_69022482160cf95891ad3b47",
+					"slug":"homepage"
+				}
+			]
+		},
+		"interfacePageIdVsSlugMap":{
+			"e_69022482160cf95891ad3b47":"homepage",
+			"e_global_photo-booth":"global-page-of-photo-booth"
 		},
 		"manifest":{
 			"type":"MOBILE"
@@ -195,5 +272,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":3
 }
