@@ -30,7 +30,7 @@
 	"id":"6903b2cc3aee35679d2da680",
 	"lastModifiedBy":48069,
 	"lcName":"test",
-	"modifiedTime":1761854786279,
+	"modifiedTime":1761854816644,
 	"name":"test",
 	"nodes":[
 		{
@@ -172,7 +172,7 @@
 						}
 					}
 				},
-				"code":"def transform(data) {\n    // Safely handle null or missing input\n    if (!data || !data.input) {\n        return [records: []]\n    }\n    \n    def input = data.input\n    \n    return [\n        records: input.collect { it?.columns }.findAll { it != null }\n    ]\n}\n\n// inputVar should be provided by your environment/framework\nreturn transform(inputVar)",
+				"code":"def transform(data) {\n    // Handle if data is already an array\n    if (data instanceof List) {\n        return [\n            records: data.collect { it?.columns }.findAll { it != null }\n        ]\n    }\n    \n    // Handle if data is a map with 'input' key\n    if (data?.input) {\n        return [\n            records: data.input.collect { it?.columns }.findAll { it != null }\n        ]\n    }\n    \n    // Handle if data is a map with 'inputVar' key\n    if (data?.inputVar) {\n        return [\n            records: data.inputVar.collect { it?.columns }.findAll { it != null }\n        ]\n    }\n    \n    // Default: empty records\n    return [records: []]\n}\n\n// inputVar should be provided by your environment/framework\nreturn transform(inputVar)",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -221,5 +221,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
