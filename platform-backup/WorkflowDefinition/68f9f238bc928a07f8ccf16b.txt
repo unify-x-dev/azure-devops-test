@@ -8,7 +8,7 @@
 		"deployedAt":1761219464639,
 		"deployedBy":45011,
 		"deployedDefinitionId":"68fa13882f9999274c82575a",
-		"status":"DEPLOYED",
+		"status":"PAUSED",
 		"version":2,
 		"workflowVersion":15
 	},
@@ -86,9 +86,9 @@
 		}
 	],
 	"id":"68f9f238bc928a07f8ccf16b",
-	"lastModifiedBy":45011,
+	"lastModifiedBy":178108,
 	"lcName":"[dnt] multi tenancy | fetch all identity providers",
-	"modifiedTime":1761219464701,
+	"modifiedTime":1761818446645,
 	"name":"[DNT] Multi Tenancy | Fetch All Identity Providers",
 	"nodes":[
 		{
@@ -186,7 +186,6 @@
 				"limit":500
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"additionalProperties":false,
@@ -459,7 +458,6 @@
 				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
-				"type":"SCHEMA",
 				"dynamic":false,
 				"schema":{
 					"type":"object",
@@ -642,7 +640,7 @@
 					"ua:type":"mappedArray",
 					"source":"{{ n_NhvIv.outputs.result.idps }}",
 					"items":{
-						"assetClass":"MDM_MODEL",
+						"assetClass":"IDENTITY_PROVIDER",
 						"assetId":"{{ n_NhvIv.outputs.result.idps[0].id }}"
 					}
 				},
@@ -726,7 +724,17 @@
 			"id":"n_1rXuq",
 			"index":10,
 			"inputs":{
-				"result":{}
+				"result":{
+					"idpAssets":{
+						"source":"{{ n_uIfRr.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"assetId":"{{ n_uIfRr.outputs.items[0].assetId }}",
+							"assetClass":"{{ n_uIfRr.outputs.items[0].assetClass }}",
+							"assetVersion":"{{ n_uIfRr.outputs.items[0].assetVersion }}"
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -751,5 +759,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":16
 }
