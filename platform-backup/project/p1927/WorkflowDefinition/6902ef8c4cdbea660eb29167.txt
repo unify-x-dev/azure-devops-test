@@ -234,7 +234,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761817408424,
+	"modifiedTime":1761817468345,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -532,7 +532,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
 			"id":"n_jSiMz",
@@ -566,7 +566,7 @@
 						}
 					}
 				},
-				"code":"return [\"EmployeeNumber\" : payload[\"EmployeeNumber\"]]",
+				"code":"def result = [\n  \"EmployeeNumber\": payload.EmployeeNumber,\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -687,7 +687,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
 			"id":"n_uxkGl",
@@ -721,7 +721,7 @@
 						}
 					}
 				},
-				"code":"return [\"EmployeeId\" : payload[\"EmployeeId\"]]",
+				"code":"def result = [\n  \"EmployeeId\": payload.EmployeeId,\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -842,7 +842,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_c3vVw",
@@ -876,7 +876,7 @@
 						}
 					}
 				},
-				"code":"return [\"ReferenceNumber\" : payload[\"ReferenceNumber\"]]",
+				"code":"def result = [\n  \"ReferenceNumber\": payload.ReferenceNumber,\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1285,5 +1285,5 @@
 	"tags":[
 		
 	],
-	"version":45
+	"version":46
 }
