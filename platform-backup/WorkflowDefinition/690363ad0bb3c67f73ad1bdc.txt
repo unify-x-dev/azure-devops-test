@@ -23,7 +23,7 @@
 	"id":"690363ad0bb3c67f73ad1bdc",
 	"lastModifiedBy":308,
 	"lcName":"dszfxvcb gn,",
-	"modifiedTime":1761830130289,
+	"modifiedTime":1761830461708,
 	"name":"dszfxvcb gn,",
 	"nodes":[
 		{
@@ -95,6 +95,19 @@
 			"id":"n_cpIJp",
 			"index":2,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"result"
+					],
+					"properties":{
+						"result":{
+							"type":"string",
+							"title":"Result"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -114,7 +127,7 @@
 					}
 				},
 				"configurationMode":"DEFAULT",
-				"code":"a+b",
+				"code":"c = a+b\nprint(c)",
 				"isAsync":false,
 				"python_version":"3.12",
 				"captureStdOutput":false,
@@ -169,5 +182,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
