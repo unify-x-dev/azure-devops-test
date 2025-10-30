@@ -5,12 +5,12 @@
 	"createdTime":1761384803458,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761676939352,
-		"deployedBy":27,
-		"deployedDefinitionId":"69010e8bcb9893140daff5c8",
+		"deployedAt":1761681886381,
+		"deployedBy":23949,
+		"deployedDefinitionId":"690121de2a483b60c43bebb0",
 		"status":"DEPLOYED",
-		"version":36,
-		"workflowVersion":114
+		"version":38,
+		"workflowVersion":120
 	},
 	"edges":[
 		{
@@ -216,9 +216,9 @@
 		]
 	},
 	"id":"68fc996304853878c428ae4b",
-	"lastModifiedBy":23949,
+	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761679826110,
+	"modifiedTime":1761821226774,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -233,7 +233,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_1ceQS",
@@ -242,7 +242,9 @@
 				"result":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
+					"required":[
+						"impactedEntityIconKey"
+					],
 					"properties":{
 						"results":{
 							"type":"array",
@@ -298,6 +300,10 @@
 								"required":[]
 							},
 							"title":"results"
+						},
+						"impactedEntityIconKey":{
+							"type":"string",
+							"title":"Impacted Entity Icon Key"
 						}
 					}
 				},
@@ -341,7 +347,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_BJWbh",
@@ -591,10 +597,16 @@
 										"impactedEntityType":{
 											"type":"string",
 											"title":"impactedEntityType"
+										},
+										"impactedEntityIconKey":{
+											"type":"string",
+											"title":"Impacted Entity Icon Key"
 										}
 									},
 									"additionalProperties":false,
-									"required":[]
+									"required":[
+										"impactedEntityIconKey"
+									]
 								}
 							}
 						}
@@ -663,9 +675,15 @@
 									"impactedEntityType":{
 										"type":"string",
 										"title":"impactedEntityType"
+									},
+									"impactedEntityIconKey":{
+										"type":"string",
+										"title":"Impacted Entity Icon Key"
 									}
 								},
-								"required":[]
+								"required":[
+									"impactedEntityIconKey"
+								]
 							}
 						}
 					}
@@ -682,7 +700,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_25xfN",
@@ -743,7 +761,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_25xfN@1",
@@ -775,7 +793,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_nJ4Q8",
@@ -818,7 +836,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@1",
 			"id":"n_zpFkD",
@@ -842,7 +860,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"n_sD6lJ",
@@ -878,7 +896,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_zpFkD@n_25xfN@_vMiRK-1@1@l",
 			"id":"_wPsWL",
@@ -918,7 +936,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_wPsWL@n_zpFkD@n_25xfN@_vMiRK-1@1@l@l",
 			"id":"_WeDSA",
@@ -957,7 +975,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_25xfN@2",
@@ -989,7 +1007,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oh9u9",
@@ -1032,7 +1050,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_HKPw8",
@@ -1075,7 +1093,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_RvCMd",
@@ -1133,7 +1151,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_25xfN@_vMiRK-1@2",
 			"id":"n_oC2OU",
@@ -1178,6 +1196,13 @@
 							"operator":"GT",
 							"value":"0"
 						}
+					},
+					{
+						"property":"{{ __ENV__.outputs.GLOBAL_CHECK_REPORT_VERSION }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"{{ n_RvCMd.outputs.properties.globalReportVersion }}"
+						}
 					}
 				],
 				"operator":"AND"
@@ -1205,7 +1230,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_7RZds@n_25xfN@_vMiRK-1@2@y",
 			"id":"n_aqVAB",
@@ -1373,7 +1398,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_7RZds@n_25xfN@_vMiRK-1@2@y",
 			"id":"n_WeSaM",
@@ -1412,7 +1437,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_7RZds@n_25xfN@_vMiRK-1@2@n",
 			"id":"n_kmkER",
@@ -1439,7 +1464,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_7RZds@n_25xfN@_vMiRK-1@2@n",
 			"id":"_2DfTp",
@@ -1507,7 +1532,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_7RZds@n_25xfN@_vMiRK-1@2@n",
 			"id":"_hOc8A",
@@ -1675,7 +1700,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_7RZds@n_25xfN@_vMiRK-1@2@n",
 			"id":"_RTHV4",
@@ -1732,7 +1757,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"_e0xcO",
@@ -1903,7 +1928,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_vMiRK-1",
 			"id":"n_XUOp8",
@@ -1952,5 +1977,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":118
+	"version":121
 }
