@@ -444,7 +444,7 @@
 	"id":"69033f4ae673312cf3ee398a",
 	"lastModifiedBy":44105,
 	"lcName":"[rep-scheduler] designationobjectautomation",
-	"modifiedTime":1761820490593,
+	"modifiedTime":1761822923087,
 	"name":"[Rep-Scheduler] DesignationObjectAutomation",
 	"nodes":[
 		{
@@ -454,7 +454,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_b2pce",
@@ -544,7 +544,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_AtUPv",
@@ -677,7 +677,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_AtUPv@1",
@@ -709,7 +709,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_cbnsU",
@@ -719,12 +719,12 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"EmployeeNumber"
+						"ReferenceNumber"
 					],
 					"properties":{
-						"EmployeeNumber":{
+						"ReferenceNumber":{
 							"type":"string",
-							"title":"EmployeeNumber"
+							"title":"ReferenceNumber"
 						}
 					}
 				},
@@ -743,7 +743,7 @@
 						}
 					}
 				},
-				"code":"def res = [:]\nif (payload.containsKey(\"EmployeeNumber\")) {\n  res[\"EmployeeNumber\"] = payload[\"EmployeeNumber\"]\n}\nelse {\n  res[\"EmployeeNumber\"] = \"\"\n}\nreturn res;",
+				"code":"def res = [:]\nif (payload.containsKey(\"ReferenceNumber\")) {\n  res[\"ReferenceNumber\"] = payload[\"ReferenceNumber\"]\n}\nelse {\n  res[\"ReferenceNumber\"] = \"\"\n}\nreturn res;",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -763,7 +763,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_wjSo3",
@@ -772,16 +772,16 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_EmployeeNumber",
+							"property":"properties_ReferenceNumber",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_cbnsU.outputs.result.EmployeeNumber }}"
+								"value":"{{ n_cbnsU.outputs.result.ReferenceNumber }}"
 							}
 						}
 					],
 					"operator":"AND"
 				},
-				"object_type":"reps_employees"
+				"object_type":"reps_desgination"
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
@@ -796,7 +796,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_6XhsF",
@@ -822,7 +822,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_AtUPv@2",
@@ -852,7 +852,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_DdmpD",
@@ -913,7 +913,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"n_DdmpD@1",
@@ -945,7 +945,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"n_TLmGX",
@@ -997,7 +997,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"_qvmCx",
@@ -1040,7 +1040,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"_QwA51",
@@ -1066,7 +1066,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"n_DdmpD@2",
@@ -1098,7 +1098,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"_KT40T",
@@ -1150,7 +1150,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"_Sh0hg",
@@ -1193,7 +1193,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"_DI5pM",
@@ -1219,7 +1219,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_AtUPv@3",
@@ -1251,7 +1251,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"_b3pn9",
@@ -1334,7 +1334,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_xotUN",
@@ -1366,7 +1366,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_GBDGh",
@@ -1392,7 +1392,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_AtUPv@4",
@@ -1424,7 +1424,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_EBtW2",
@@ -1515,7 +1515,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_WQBQv",
@@ -1602,7 +1602,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_lYvBi",
@@ -1628,7 +1628,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_AtUPv@5",
@@ -1660,7 +1660,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_chvqD",
@@ -1690,7 +1690,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_chvqD@n_AtUPv@_JfTSF-1@5@y",
 			"id":"_QBhdP",
@@ -1742,7 +1742,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_chvqD@n_AtUPv@_JfTSF-1@5@y",
 			"id":"_QF5zc",
@@ -1781,7 +1781,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_chvqD@n_AtUPv@_JfTSF-1@5@y",
 			"id":"n_u71a1",
@@ -1807,7 +1807,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_VBVOV",
@@ -1830,7 +1830,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_AtUPv@6",
@@ -1860,7 +1860,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_8zs5I",
@@ -1939,7 +1939,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"n_8zs5I@1",
@@ -1971,7 +1971,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"_uRqEu",
@@ -2023,7 +2023,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"n_FfDqT",
@@ -2066,7 +2066,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"n_SgFtm",
@@ -2130,7 +2130,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"_qmq9w",
@@ -2160,7 +2160,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"n_8zs5I@2",
@@ -2192,7 +2192,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"_ZT3zy",
@@ -2244,7 +2244,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"n_WUvuh",
@@ -2287,7 +2287,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"_rQOpt",
@@ -2351,7 +2351,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"_sg3FX",
@@ -2381,7 +2381,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"n_8zs5I@3",
@@ -2413,7 +2413,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"_bO1xa",
@@ -2465,7 +2465,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"n_5BapD",
@@ -2508,7 +2508,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"_ON0iY",
@@ -2572,7 +2572,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"_E94BK",
@@ -2602,7 +2602,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_ODo2P",
@@ -2625,7 +2625,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
@@ -2659,5 +2659,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
