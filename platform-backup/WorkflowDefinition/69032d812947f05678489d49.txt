@@ -7,46 +7,82 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_XASOB",
+			"fromNodeId":"n_ZecXx",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_DK4F5",
+			"toNodeId":"n_bBdx5",
 			"type":"next"
 		}
 	],
 	"id":"69032d812947f05678489d49",
 	"lastModifiedBy":175325,
 	"lcName":"toggle_fields_on_off_and_refresh_117618146261710",
-	"modifiedTime":1761815937301,
+	"modifiedTime":1761815944740,
 	"name":"Toggle_fields_on_off_and_refresh_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1073,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XASOB-1",
-			"id":"_XASOB",
-			"index":0,
+			"id":"n_ZecXx",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output"
+					],
+					"properties":{
+						"output":{
+							"type":"string",
+							"title":"output"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1109,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_XASOB-1",
-			"id":"_DK4F5",
-			"index":0,
+			"id":"n_bBdx5",
+			"index":2,
+			"inputs":{
+				"result":{
+					"output":"cool"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +96,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
