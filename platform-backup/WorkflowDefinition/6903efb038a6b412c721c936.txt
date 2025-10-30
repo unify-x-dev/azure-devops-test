@@ -16,7 +16,7 @@
 	"id":"6903efb038a6b412c721c936",
 	"lastModifiedBy":47174,
 	"lcName":"test",
-	"modifiedTime":1761865955312,
+	"modifiedTime":1761865970609,
 	"name":"test",
 	"nodes":[
 		{
@@ -76,7 +76,7 @@
 				}
 			},
 			"inputs":{
-				"x":"=(NOW() - DATE(1970,1,1)) * 86400000\n"
+				"x":"=INT((NOW() - DATE(1970,1,1)) * 86400000)"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -117,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
