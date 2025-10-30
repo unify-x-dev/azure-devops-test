@@ -1,12 +1,12 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761826262397,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_iIhLn",
+			"fromNodeId":"n_cvuYR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_mqshq",
@@ -16,18 +16,33 @@
 	"id":"690355d661fee52e9dfd6df1",
 	"lastModifiedBy":39712,
 	"lcName":"test",
-	"modifiedTime":1761826262397,
+	"modifiedTime":1761826301263,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5637,
+				"connectionId":"6902338df9a88467aa367a7f",
+				"resourceName":"gmail_on_new_email_polling"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iIhLn-1",
-			"id":"_iIhLn",
-			"index":0,
+			"id":"n_cvuYR",
+			"index":1,
+			"inputs":{
+				"intervalType":"minutes",
+				"fetchAllMails":false,
+				"pageSize":1,
+				"interval":1,
+				"from":"2025-10-30",
+				"batchSize":1
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Gmail",
+			"title":"New email",
 			"trigger":{
 				"type":"EVENT"
 			},
@@ -39,13 +54,16 @@
 			"fallbackMode":"STOP",
 			"groupId":"_iIhLn-1",
 			"id":"_mqshq",
-			"index":0,
+			"index":2,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39712,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +77,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
