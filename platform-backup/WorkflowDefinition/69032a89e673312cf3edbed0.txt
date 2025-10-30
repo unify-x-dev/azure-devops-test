@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761815177059,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761815189780,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69032a9513085040561b12ef",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
@@ -17,7 +25,7 @@
 	"id":"69032a89e673312cf3edbed0",
 	"lastModifiedBy":175325,
 	"lcName":"comparedeployedversions_validatemodifiednode_117618146261270",
-	"modifiedTime":1761815187002,
+	"modifiedTime":1761815194527,
 	"name":"compareDeployedVersions_validateModifiedNode_117618146261270",
 	"nodes":[
 		{
@@ -41,11 +49,16 @@
 							"input":{
 								"type":"string",
 								"title":"input"
+							},
+							"variableName":{
+								"type":"string",
+								"title":"variableName"
 							}
 						},
 						"additionalProperties":false,
 						"required":[
-							"input"
+							"input",
+							"variableName"
 						]
 					}
 				}
@@ -129,5 +142,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
