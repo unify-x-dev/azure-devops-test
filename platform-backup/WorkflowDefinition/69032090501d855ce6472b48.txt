@@ -1,51 +1,107 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761812624161,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_pAL3l",
+			"fromNodeId":"n_4HNrZ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_K4rCf",
+			"toNodeId":"n_W5KLz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_W5KLz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_60tte",
 			"type":"next"
 		}
 	],
 	"id":"69032090501d855ce6472b48",
 	"lastModifiedBy":47174,
 	"lcName":"gmail nodes",
-	"modifiedTime":1761812624161,
+	"modifiedTime":1761812774770,
 	"name":"GMAIL Nodes",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pAL3l-1",
-			"id":"_pAL3l",
-			"index":0,
+			"id":"n_4HNrZ",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5660,
+				"connectionId":"68df9fb610e69732a26ad4f6",
+				"resourceName":"gmail_get_message",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pAL3l-1",
-			"id":"_K4rCf",
-			"index":0,
+			"id":"n_W5KLz",
+			"index":2,
+			"inputs":{
+				"format":"full",
+				"id":"19a2f7449469e02b"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"Get message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":394,
+				"resourceName":"utility_by_unifyapps_decode_base64_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_pAL3l-1",
+			"id":"n_60tte",
+			"index":3,
+			"inputs":{
+				"charset":"UTF-8",
+				"base64ContentFormat":"STANDARD",
+				"encodedText":"{{ n_W5KLz.outputs.payload.body.data }}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Decode base64 text",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":47174,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +115,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
