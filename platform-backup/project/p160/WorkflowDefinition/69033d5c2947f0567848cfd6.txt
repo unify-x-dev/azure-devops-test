@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761819996924,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_s9vJL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_MsmLG",
+			"type":"next"
+		}
+	],
+	"id":"69033d5c2947f0567848cfd6",
+	"lastModifiedBy":190409,
+	"lcName":"assignment worker",
+	"modifiedTime":1761819996924,
+	"name":"Assignment worker",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_s9vJL-1",
+			"id":"_s9vJL",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_s9vJL-1",
+			"id":"_MsmLG",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":190409,
+	"projectId":160,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
