@@ -102,7 +102,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761822091635,
+	"modifiedTime":1761822163086,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -450,7 +450,7 @@
 			},
 			"inputs":{
 				"date":"=TEXT(TODAY(), \"dd/mm/yyyy\") date",
-				"start_time":"=TEXT( NOW() + TIME(5,30,0), \"yyyy-mm-dd\\THH:MM:SS.000\\Z\" ) start",
+				"start_time":"=TEXT( NOW() + TIME(5,30,0), \"yyyy-mm-dd\\THH:MM:SS.000\\Z\" )",
 				"end_time":"=TEXT(TODAY(), \"yyyy-mm-dd\\T23:59:59.000\\Z\") end"
 			},
 			"outputSchema":{
@@ -783,5 +783,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":18
 }
