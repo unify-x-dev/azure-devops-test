@@ -23,7 +23,7 @@
 	"id":"69032090501d855ce6472b48",
 	"lastModifiedBy":47174,
 	"lcName":"gmail nodes",
-	"modifiedTime":1761812787952,
+	"modifiedTime":1761812874466,
 	"name":"GMAIL Nodes",
 	"nodes":[
 		{
@@ -90,7 +90,7 @@
 			"inputs":{
 				"charset":"UTF-8",
 				"base64ContentFormat":"URL_SAFE",
-				"encodedText":"{{ n_W5KLz.outputs.payload.body.data }}"
+				"encodedText":"{{ n_W5KLz.outputs.payload.parts[0].body.data }}"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -115,5 +115,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
