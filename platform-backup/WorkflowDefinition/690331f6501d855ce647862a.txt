@@ -7,46 +7,71 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_nP8co",
+			"fromNodeId":"n_vH6eJ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_H856s",
+			"toNodeId":"n_bdfOZ",
 			"type":"next"
 		}
 	],
 	"id":"690331f6501d855ce647862a",
 	"lastModifiedBy":175325,
 	"lcName":"delay_workflowwaiting-check-117618146261810",
-	"modifiedTime":1761817078614,
+	"modifiedTime":1761817084936,
 	"name":"delay_workflowWaiting-check-117618146261810",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_nP8co-1",
-			"id":"_nP8co",
-			"index":0,
+			"id":"n_vH6eJ",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_nP8co-1",
-			"id":"_H856s",
-			"index":0,
+			"id":"n_bdfOZ",
+			"index":2,
+			"inputs":{
+				"duration":1,
+				"unit":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +85,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
