@@ -267,7 +267,7 @@
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"rishabh automation_assignment1",
-	"modifiedTime":1761829114135,
+	"modifiedTime":1761829455326,
 	"name":"Rishabh Automation_Assignment1",
 	"nodes":[
 		{
@@ -277,7 +277,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_0Jwyj",
@@ -310,57 +310,70 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"Result":{
+								"List":{
 									"type":"array",
 									"items":{
 										"type":"object",
 										"properties":{
-											"employee_info":{
-												"type":"object",
-												"properties":{
-													"Bonus_amount":{
-														"type":"number",
-														"title":"Bonus Amount"
+											"result":{
+												"type":"array",
+												"items":{
+													"type":"object",
+													"properties":{
+														"employee_info":{
+															"type":"object",
+															"properties":{
+																"Bonus_amount":{
+																	"type":"number",
+																	"title":"Bonus Amount"
+																},
+																"LeavesTaken":{
+																	"type":"number",
+																	"title":"Leaves Taken"
+																},
+																"EmployeeID":{
+																	"type":"string",
+																	"title":"Employee ID"
+																},
+																"Department":{
+																	"type":"string",
+																	"title":"Department"
+																},
+																"name":{
+																	"type":"string",
+																	"title":"Name"
+																}
+															},
+															"additionalProperties":false,
+															"title":"Employee Info",
+															"required":[
+																"Bonus_amount",
+																"LeavesTaken",
+																"EmployeeID",
+																"Department",
+																"name"
+															]
+														}
 													},
-													"leaves_taken":{
-														"type":"number",
-														"title":"Leaves Taken"
-													},
-													"EmployeeID":{
-														"type":"string",
-														"title":"Employee ID"
-													},
-													"Department":{
-														"type":"string",
-														"title":"Department"
-													},
-													"name":{
-														"type":"string",
-														"title":"Name"
-													}
+													"additionalProperties":false,
+													"required":[
+														"employee_info"
+													]
 												},
-												"additionalProperties":false,
-												"title":"Employee Info",
-												"required":[
-													"Bonus_amount",
-													"leaves_taken",
-													"EmployeeID",
-													"Department",
-													"name"
-												]
+												"title":"Result"
 											}
 										},
 										"additionalProperties":false,
 										"required":[
-											"employee_info"
+											"result"
 										]
 									},
-									"title":"Result"
+									"title":"List"
 								}
 							},
 							"additionalProperties":false,
 							"required":[
-								"Result"
+								"List"
 							]
 						}
 					}
@@ -1067,7 +1080,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_KkyBx@_mzkHe-1@y",
 			"id":"_6lrYO",
@@ -1075,12 +1088,6 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
-				"body":{
-					"Result":[
-						{},
-						{}
-					]
-				},
 				"status":200
 			},
 			"skip":false,
@@ -1167,14 +1174,19 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"Result":[
+					"List":[
 						{
-							"employee_info":{
-								"Bonus_amount":"{{ _1e2JF.outputs.objects[0].Bonus_Amount__3 }}",
-								"leaves_taken":"{{ _1e2JF.outputs.objects[0].Leaves_Taken__4 }}",
-								"EmployeeID":"{{ _1e2JF.outputs.objects[0].Employee_ID__0 }}",
-								"Department":"{{ _1e2JF.outputs.objects[0].Department__2 }}",
-								"name":"{{ _1e2JF.outputs.objects[0].Name__1 }}"
+							"result":{
+								"items":{
+									"employee_info":{
+										"Bonus_amount":"{{ _1e2JF.outputs.objects[0].Bonus_Amount__3 }}",
+										"LeavesTaken":"{{ _1e2JF.outputs.objects[0].Leaves_Taken__4 }}",
+										"EmployeeID":"{{ _1e2JF.outputs.objects[0].Employee_ID__0 }}",
+										"Department":"{{ _1e2JF.outputs.objects[0].Department__2 }}",
+										"name":"{{ _1e2JF.outputs.objects[0].Name__1 }}"
+									}
+								},
+								"ua:type":"mappedArray"
 							}
 						}
 					]
@@ -1246,5 +1258,5 @@
 	"tags":[
 		
 	],
-	"version":50
+	"version":51
 }
