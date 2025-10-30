@@ -165,7 +165,7 @@
 	"id":"67ea73366e695008ebedcdcf",
 	"lastModifiedBy":602,
 	"lcName":"knowledge indexer | github all files",
-	"modifiedTime":1761819671073,
+	"modifiedTime":1761819699334,
 	"name":"Knowledge Indexer | Github all files",
 	"nodes":[
 		{
@@ -751,7 +751,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"CONTINUE",
 			"groupId":"tR7xc@ehpdI@tZhxk@I3g2c-1@l@n@y",
 			"id":"_StdWM",
@@ -762,6 +762,7 @@
 					"github":"{{ xDGrv.outputs.knowledge.applicationInfo.context.connectionId }}"
 				},
 				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"IN_MEMORY",
 				"version":"-1",
 				"parameters":{
 					"knowledgeId":"{{ xDGrv.outputs.knowledgeId }}",
@@ -933,5 +934,5 @@
 	"tags":[
 		
 	],
-	"version":76
+	"version":77
 }
