@@ -16,7 +16,7 @@
 	"id":"69013fb40d021a33e3d2674e",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerrepsschedulerfn] calculaterepssummarytimetrigger",
-	"modifiedTime":1761815143656,
+	"modifiedTime":1761815185446,
 	"name":"[virtu-emPowerRepsSchedulerFN] CalculateRepsSummaryTimeTrigger",
 	"nodes":[
 		{
@@ -37,6 +37,8 @@
 				"sequential":false,
 				"timezone":"Asia/Calcutta",
 				"interval":1,
+				"sequentialRunTimeUnit":"MINUTES",
+				"sequentialRunTimeDuration":30,
 				"frequency":"DAYS",
 				"triggerAt":"00:00:00"
 			},
@@ -89,5 +91,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
