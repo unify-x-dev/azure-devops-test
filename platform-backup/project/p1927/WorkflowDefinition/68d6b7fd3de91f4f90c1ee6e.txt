@@ -31,7 +31,7 @@
 	"id":"68d6b7fd3de91f4f90c1ee6e",
 	"lastModifiedBy":39713,
 	"lcName":"[virtu-empowerrepsschedulerfn]syncemployeehttptrigger",
-	"modifiedTime":1761806028861,
+	"modifiedTime":1761806050021,
 	"name":"[virtu-emPowerRepsSchedulerFN]SyncEmployeeHttpTrigger",
 	"nodes":[
 		{
@@ -118,7 +118,9 @@
 					"required":[],
 					"properties":{
 						"requestBody":{
-							"type":"string",
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
 							"title":"Request Body"
 						}
 					}
@@ -179,5 +181,5 @@
 	"tags":[
 		
 	],
-	"version":31
+	"version":32
 }
