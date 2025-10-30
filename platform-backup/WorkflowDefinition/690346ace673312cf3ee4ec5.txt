@@ -1,51 +1,144 @@
 {
 	"appsUsed":[
-		
+		"gsheets"
 	],
 	"createdTime":1761822380994,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_0zFb6",
+			"fromNodeId":"n_6lcHa",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_gDw82",
+			"toNodeId":"n_BFtHT",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_BFtHT",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_0fLTh",
 			"type":"next"
 		}
 	],
 	"id":"690346ace673312cf3ee4ec5",
 	"lastModifiedBy":190505,
 	"lcName":"sheet_extraction",
-	"modifiedTime":1761822380994,
+	"modifiedTime":1761824222655,
 	"name":"sheet_extraction",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1074,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0zFb6-1",
-			"id":"_0zFb6",
-			"index":0,
+			"id":"n_6lcHa",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Result"
+					],
+					"properties":{
+						"Result":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"Employee_ID":{
+										"type":"string",
+										"title":"Employee ID"
+									},
+									"Bonus_Amount":{
+										"type":"string",
+										"title":"Bonus Amount"
+									}
+								},
+								"additionalProperties":false,
+								"required":[
+									"Employee_ID",
+									"Bonus_Amount"
+								]
+							},
+							"title":"Result"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gsheets",
+				"resourceVersion":6238,
+				"connectionId":"69034b0d8eb2ca6a0e51f784",
+				"resourceName":"gsheets_get_rows_batch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0zFb6-1",
-			"id":"_gDw82",
-			"index":0,
+			"id":"n_BFtHT",
+			"index":2,
+			"inputs":{
+				"sheetName":"Sheet1",
+				"valueRenderOption":"FORMATTED_VALUE",
+				"objectSourceResourceName":"gsheets_fetch_columns",
+				"range":"1:10",
+				"spreadsheetId":"1T47HBlyZGh-PeDaL-yi-muuslIX5oRWs2hHxPS_GLNc__Q1"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Google Sheets",
+			"title":"Get rows",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_0zFb6-1",
+			"id":"n_0fLTh",
+			"index":3,
+			"inputs":{
+				"result":{
+					"Result":{
+						"items":{
+							"Employee_ID":"{{ n_BFtHT.outputs.rows[0].Employee_ID__0 }}",
+							"Bonus_Amount":"{{ n_BFtHT.outputs.rows[0].Bonus_Amount__3 }}"
+						},
+						"ua:type":"mappedArray"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":190505,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +152,5 @@
 	"tags":[
 		"practice"
 	],
-	"version":0
+	"version":1
 }
