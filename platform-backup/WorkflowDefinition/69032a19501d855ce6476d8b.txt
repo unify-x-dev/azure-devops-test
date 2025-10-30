@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761815065396,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761815077451,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69032a25501d855ce6476dda",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
@@ -17,7 +25,7 @@
 	"id":"69032a19501d855ce6476d8b",
 	"lastModifiedBy":175325,
 	"lcName":"automation-trigger condition with where group conditions 11761814627664",
-	"modifiedTime":1761815074878,
+	"modifiedTime":1761815095925,
 	"name":"Automation-trigger condition with Where group conditions 11761814627664",
 	"nodes":[
 		{
@@ -46,16 +54,45 @@
 						}
 					}
 				},
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"filters":[
+								{
+									"property":"{{ n_zJKGy.outputs.input_String }}",
+									"filter":{
+										"operator":"ENDS_WITH",
+										"value":"apps"
+									}
+								},
+								{
+									"property":"{{ n_zJKGy.outputs.input_Integer }}",
+									"filter":{
+										"operator":"EQUAL",
+										"value":"-22"
+									}
+								}
+							],
+							"operator":"AND"
+						}
+					],
+					"operator":"AND"
+				},
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"input_String"
+						"input_String",
+						"input_Integer"
 					],
 					"properties":{
 						"input_String":{
 							"type":"string",
 							"title":"input_String"
+						},
+						"input_Integer":{
+							"type":"number",
+							"title":"input_Integer"
 						}
 					}
 				}
@@ -109,5 +146,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
