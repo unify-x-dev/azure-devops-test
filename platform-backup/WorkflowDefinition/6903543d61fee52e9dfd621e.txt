@@ -1,51 +1,240 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761825853390,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_FawoM",
+			"fromNodeId":"n_hHTzI",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_CqNfK",
+			"toNodeId":"n_nbWbg",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_nbWbg",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_350Q0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_350Q0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nEo8b",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_nEo8b",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_q7Nbl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_q7Nbl",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_350Q0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_350Q0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IjMyV",
 			"type":"next"
 		}
 	],
 	"id":"6903543d61fee52e9dfd621e",
 	"lastModifiedBy":44108,
 	"lcName":"dnt ",
-	"modifiedTime":1761825853390,
+	"modifiedTime":1761826055900,
 	"name":"dnt ",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_FawoM-1",
-			"id":"_FawoM",
-			"index":0,
+			"id":"n_hHTzI",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4626,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_FawoM-1",
-			"id":"_CqNfK",
-			"index":0,
+			"id":"n_nbWbg",
+			"index":2,
+			"inputs":{
+				"object_type":"cms_correspondence",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":1000
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_FawoM-1",
+			"id":"n_350Q0",
+			"index":3,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_nbWbg.outputs.objects }}",
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1041,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_350Q0@_FawoM-1@l",
+			"id":"n_nEo8b",
+			"index":4,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"epoch":{
+							"type":"integer",
+							"title":"Epoch"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"date":{
+							"type":"string",
+							"title":"Date"
+						}
+					}
+				},
+				"code":"import java.time.Instant\nimport java.time.format.DateTimeParseException\n\nlong toEpochMillis(String dateTimeString) {\n    try {\n        return Instant.parse(dateTimeString).toEpochMilli()\n    } catch (DateTimeParseException e) {\n        throw new IllegalArgumentException(\"Invalid date format: ${dateTimeString}\", e)\n    }\n}\n\nreturn [epoch : toEpochMilli(date)]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"date":"{{ n_nbWbg.outputs.objects[0].properties.referenceDate }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2244,
+				"resourceName":"storage_by_unifyapps_upsert_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_350Q0@_FawoM-1@l",
+			"id":"n_q7Nbl",
+			"index":5,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"cms_correspondence",
+				"skipIfBlank":false,
+				"updateFields":{
+					"items":{
+						"fieldName":"properties.referenceDate",
+						"actionType":"SET",
+						"setValue":"{{ n_nEo8b.outputs.result.epoch }}"
+					},
+					"ua:type":"mappedArray"
+				},
+				"id":"{{ n_350Q0.outputs.item.id }}",
+				"unsetIfNull":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Upsert Record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_FawoM-1",
+			"id":"n_IjMyV",
+			"index":6,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":44108,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +248,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
