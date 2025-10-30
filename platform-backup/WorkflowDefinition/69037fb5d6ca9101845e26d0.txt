@@ -6,46 +6,140 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_x20OL",
+			"fromNodeId":"n_aFL5L",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_rOmJP",
+			"toNodeId":"n_QLwbV",
 			"type":"next"
 		}
 	],
 	"id":"69037fb5d6ca9101845e26d0",
 	"lastModifiedBy":161877,
 	"lcName":"test",
-	"modifiedTime":1761836981030,
+	"modifiedTime":1761837035230,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_x20OL-1",
-			"id":"_x20OL",
-			"index":0,
+			"id":"n_aFL5L",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":1125,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_x20OL-1",
-			"id":"_rOmJP",
-			"index":0,
+			"id":"n_QLwbV",
+			"index":2,
+			"inputs":{
+				"httpVersion":"HTTP_2",
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"certificateType":"CERT_STRING"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":true,
+					"metricConfigs":[
+						{
+							"eventType":"ALWAYS_END",
+							"tags":[
+								
+							]
+						}
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":161877,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +153,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
