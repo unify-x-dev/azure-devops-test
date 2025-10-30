@@ -4,10 +4,40 @@
 	],
 	"createdTime":1761814725962,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761814746112,
+		"deployedBy":175325,
+		"deployedDefinitionId":"690328dae673312cf3edaef2",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
 			"fromNodeId":"n_DRHdl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yJVPs",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yJVPs",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zt0NX",
+			"type":"scope"
+		},
+		{
+			"fromNodeId":"n_zt0NX",
+			"name":"scope-loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_yJVPs",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yJVPs",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_pRX55",
@@ -17,7 +47,7 @@
 	"id":"690328c5501d855ce64766ae",
 	"lastModifiedBy":175325,
 	"lcName":"scopewithratelimitpolicypasswithgroupofconditions_11761814626181",
-	"modifiedTime":1761814743653,
+	"modifiedTime":1761814757218,
 	"name":"ScopeWithRateLimitPolicyPassWithGroupOfConditions_11761814626181",
 	"nodes":[
 		{
@@ -50,12 +80,17 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"input_String"
+						"input_String",
+						"input_String2"
 					],
 					"properties":{
 						"input_String":{
 							"type":"string",
 							"title":"input_String"
+						},
+						"input_String2":{
+							"type":"string",
+							"title":"input_String2"
 						}
 					}
 				}
@@ -70,6 +105,62 @@
 		},
 		{
 			"context":{
+				"appName":"scope",
+				"resourceVersion":289,
+				"resourceName":"scope_trigger_scope",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ZDkns-1",
+			"id":"n_yJVPs",
+			"index":2,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"{{ n_DRHdl.outputs.input_String }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"Unifyapps"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"subTitle":"Scope",
+			"title":"Trigger Scope",
+			"type":"SCOPE"
+		},
+		{
+			"context":{
+				"appName":"test_http",
+				"resourceVersion":3689,
+				"connectionId":"66b0ee649c311126267a17b7",
+				"resourceName":"test_http_post_api",
+				"type":"APPLICATION",
+				"scopeNodeId":"n_yJVPs"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_yJVPs@_ZDkns-1@s",
+			"id":"n_zt0NX",
+			"index":3,
+			"inputs":{
+				"field1":"workflow continues",
+				"field2":false
+			},
+			"skip":false,
+			"subTitle":"Test HTTP API",
+			"title":"Test HTTP Post API",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1108,
 				"resourceName":"callables_return_to_automation",
@@ -80,7 +171,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ZDkns-1",
 			"id":"n_pRX55",
-			"index":2,
+			"index":4,
 			"inputs":{
 				"result":{
 					"output_String":"{{ n_DRHdl.outputs.input_String }}"
@@ -109,5 +200,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
