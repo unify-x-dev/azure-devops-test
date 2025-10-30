@@ -224,6 +224,13 @@
 			"fromNodeId":"_ZPnZN",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_P4XmI",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_P4XmI",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_6lrYO",
 			"type":"next"
 		},
@@ -239,6 +246,13 @@
 			"fromNodeId":"_1e2JF",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_KXcbH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_KXcbH",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_n2xOM",
 			"type":"next"
 		},
@@ -246,18 +260,11 @@
 			"fromNodeId":"_6lrYO",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_OMjuw",
+			"toNodeId":"n_piTEd",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_n2xOM",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_OMjuw",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_OMjuw",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_piTEd",
@@ -267,7 +274,7 @@
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"rishabh automation_assignment1",
-	"modifiedTime":1761829775198,
+	"modifiedTime":1761829807665,
 	"name":"Rishabh Automation_Assignment1",
 	"nodes":[
 		{
@@ -1074,6 +1081,33 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4602,
+				"resourceName":"storage_by_unifyapps_delete_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_KkyBx@_mzkHe-1@y",
+			"id":"_P4XmI",
+			"index":22,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"rishabh_assignment_automation_excel",
+				"numberOfRecordsToDelete":"MULTIPLE",
+				"page":{
+					"limit":200,
+					"offset":0
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Delete records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1105,
 				"resourceName":"callables_return_response_to_api",
@@ -1084,7 +1118,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_KkyBx@_mzkHe-1@y",
 			"id":"_6lrYO",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1128,7 +1162,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_KkyBx@_mzkHe-1@n",
 			"id":"_1e2JF",
-			"index":23,
+			"index":24,
 			"inputs":{
 				"outputSchema":{
 					"type":"object",
@@ -1175,6 +1209,33 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4602,
+				"resourceName":"storage_by_unifyapps_delete_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_KkyBx@_mzkHe-1@n",
+			"id":"_KXcbH",
+			"index":25,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"rishabh_assignment_automation_excel",
+				"numberOfRecordsToDelete":"MULTIPLE",
+				"page":{
+					"limit":200,
+					"offset":0
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Delete records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1105,
 				"resourceName":"callables_return_response_to_api",
@@ -1185,7 +1246,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_KkyBx@_mzkHe-1@n",
 			"id":"_n2xOM",
-			"index":24,
+			"index":26,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1208,33 +1269,6 @@
 		},
 		{
 			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4602,
-				"resourceName":"storage_by_unifyapps_delete_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_mzkHe-1",
-			"id":"n_OMjuw",
-			"index":25,
-			"inputs":{
-				"writeThroughSessionVariables":false,
-				"object_type":"rishabh_assignment_automation_excel",
-				"numberOfRecordsToDelete":"MULTIPLE",
-				"page":{
-					"limit":200,
-					"offset":0
-				}
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Delete records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -1242,7 +1276,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_piTEd",
-			"index":26,
+			"index":27,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -1266,5 +1300,5 @@
 	"tags":[
 		
 	],
-	"version":55
+	"version":56
 }
