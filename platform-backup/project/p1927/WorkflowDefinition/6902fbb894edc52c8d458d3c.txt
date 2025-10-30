@@ -51,6 +51,20 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_XKV4N",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_IF683",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_IF683",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fKm41",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_jwNDo",
 			"name":"2",
 			"priority":0,
@@ -172,7 +186,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761807444240,
+	"modifiedTime":1761807487774,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -493,6 +507,72 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4623,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_jwNDo@n_LJy4I@_cx1fg-1@1@1",
+			"id":"n_IF683",
+			"index":7,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_ReferenceNumber",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_XKV4N.outputs.result.ReferenceNumber }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"reps_locations_id",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1129,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_jwNDo@n_LJy4I@_cx1fg-1@1@1",
+			"id":"n_fKm41",
+			"index":8,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -503,7 +583,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_jwNDo@n_LJy4I@_cx1fg-1@1@2",
 			"id":"n_jwNDo@2",
-			"index":7,
+			"index":9,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -517,7 +597,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_jwNDo@n_LJy4I@_cx1fg-1@1@2",
 			"id":"n_6vFFC",
-			"index":8,
+			"index":10,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -534,7 +614,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"n_LJy4I@2",
-			"index":9,
+			"index":11,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -564,7 +644,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"n_Tfye2",
-			"index":10,
+			"index":12,
 			"inputs":{
 				"branches":[
 					{
@@ -613,7 +693,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@1",
 			"id":"n_Tfye2@1",
-			"index":11,
+			"index":13,
 			"inputs":{
 				"name":"Branch 1",
 				"conditions":{
@@ -645,7 +725,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@1",
 			"id":"n_DmEIM",
-			"index":12,
+			"index":14,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -699,7 +779,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@1",
 			"id":"n_Pyvr6",
-			"index":13,
+			"index":15,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -732,7 +812,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@1",
 			"id":"n_CRAiq",
-			"index":14,
+			"index":16,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -755,7 +835,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
 			"id":"n_Tfye2@2",
-			"index":15,
+			"index":17,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -775,7 +855,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
 			"id":"n_nfg5W",
-			"index":16,
+			"index":18,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -798,7 +878,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_LJy4I@3",
-			"index":17,
+			"index":19,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -830,7 +910,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_SP4DL",
-			"index":18,
+			"index":20,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -889,7 +969,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_1IUfs",
-			"index":19,
+			"index":21,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_locations_id",
@@ -916,7 +996,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_AkSAF",
-			"index":20,
+			"index":22,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -939,7 +1019,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_LJy4I@4",
-			"index":21,
+			"index":23,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -971,7 +1051,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_6r9Nr",
-			"index":22,
+			"index":24,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1001,5 +1081,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":23
 }
