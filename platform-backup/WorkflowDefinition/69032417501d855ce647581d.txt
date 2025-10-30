@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761813527328,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_PKkCf",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_pf2T7",
+			"type":"next"
+		}
+	],
+	"id":"69032417501d855ce647581d",
+	"lastModifiedBy":43498,
+	"lcName":"cvdscfv-dynamic",
+	"modifiedTime":1761813527328,
+	"name":"cvdscfv-dynamic",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_PKkCf-1",
+			"id":"_PKkCf",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_PKkCf-1",
+			"id":"_pf2T7",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":43498,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
