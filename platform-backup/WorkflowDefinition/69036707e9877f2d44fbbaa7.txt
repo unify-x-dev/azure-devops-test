@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761830663393,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_6E6JK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_z1JCb",
+			"type":"next"
+		}
+	],
+	"id":"69036707e9877f2d44fbbaa7",
+	"lastModifiedBy":186875,
+	"lcName":"virtu-approvalsfunctionappfn-get-health",
+	"modifiedTime":1761830663393,
+	"name":"virtu-ApprovalsFunctionAppFN-get-health",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_6E6JK-1",
+			"id":"_6E6JK",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_6E6JK-1",
+			"id":"_z1JCb",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":186875,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
