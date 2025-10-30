@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761819589290,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_WeM4V",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Y8bzx",
+			"type":"next"
+		}
+	],
+	"id":"69033bc5501d855ce647a41a",
+	"lastModifiedBy":89323,
+	"lcName":"leave mgmt",
+	"modifiedTime":1761819589290,
+	"name":"Leave mgmt",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_WeM4V-1",
+			"id":"_WeM4V",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_WeM4V-1",
+			"id":"_Y8bzx",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":89323,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
