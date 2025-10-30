@@ -1,51 +1,50 @@
 {
 	"appsUsed":[
-		
+		"microsoft_outlook"
 	],
 	"createdTime":1761845706036,
 	"deleted":false,
 	"edges":[
-		{
-			"fromNodeId":"_zBEXc",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_VXyId",
-			"type":"next"
-		}
+		
 	],
 	"id":"6903a1ca375e90227a684cee",
 	"lastModifiedBy":687,
 	"lcName":"testauto2",
-	"modifiedTime":1761845706036,
+	"modifiedTime":1761845720073,
 	"name":"testAuto2",
 	"nodes":[
 		{
+			"context":{
+				"appName":"microsoft_outlook",
+				"resourceVersion":4545,
+				"connectionId":"68fcb7caa8ce3f529707651b",
+				"resourceName":"microsoft_outlook_on_new_mail"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_zBEXc-1",
-			"id":"_zBEXc",
-			"index":0,
+			"id":"n_ytxiL",
+			"index":1,
+			"inputs":{
+				"changeType":[
+					"created"
+				],
+				"folderId":"AQMkAGM2ZDBiNzA3LWYxOWMtNDg4ADktYmVmZS1lNmU0MTNjNjI0OTcALgAAAyWWI-H9FqtGjakAm61rOoIBAGy7s_bOTNZPup_hg8RKPVIAAAIBDAAAAA=="
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Microsoft Outlook",
+			"title":"New mail",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_zBEXc-1",
-			"id":"_VXyId",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":687,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +58,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
