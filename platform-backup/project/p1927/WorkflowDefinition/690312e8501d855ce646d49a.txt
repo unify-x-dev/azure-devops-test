@@ -6,47 +6,129 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_VHgde",
+			"fromNodeId":"n_IyOaB",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_hnH7S",
+			"toNodeId":"n_xnr0g",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_xnr0g",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_rujD8",
 			"type":"next"
 		}
 	],
 	"id":"690312e8501d855ce646d49a",
 	"lastModifiedBy":44105,
 	"lcName":"[repsschedular] syncdesignationhttptrigger",
-	"modifiedTime":1761809128268,
+	"modifiedTime":1761815011594,
 	"name":"[RepsSchedular] SyncDesignationHttpTrigger",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1161,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
-			"id":"_VHgde",
-			"index":0,
+			"id":"n_IyOaB",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":230,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
-			"id":"_hnH7S",
-			"index":0,
+			"id":"n_xnr0g",
+			"index":2,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"requestBody":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Request Body"
+						}
+					}
+				},
+				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing System.Text.Json;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Linq.Expressions;\nusing System.Net.Http;\nusing System.Text;\n\npublic class EmployeeDesignation : BaseEntity<int>\n{\n    public long EmployeeId { get; set; }\n    public string EmployeeNumber { get; set; }\n    public Employee Employee { get; set; }\n    public int DesignationId { get; set; }\n    public Designation Designation { get; set; }\n    public string ReferenceNumber { get; set; }\n}\n\npublic class Designation : BaseEntity<int>\n{\n    public string Name { get; set; }\n    public string ReferenceNumber { get; set; }\n    public IReadOnlyCollection<EmployeeDesignation> EmployeeDesignations { get; set; }\n}\n\npublic async Task ProccessSyncDesignationHttpTrigger(String requestBody)\n{\n    try {\n          \n          log.LogInformation(\"C# HTTP trigger function processed a request.\");\n          using (var reader = new StreamReader(req.Body))\n          {\n              string requestBody = await reader.ReadToEndAsync().ConfigureAwait(false);\n              var designation = JsonConvert.DeserializeObject<Designation>(requestBody);\n              if (designation == null)\n              {\n                  return new BadRequestObjectResult(\"Invalid input values\");\n              }\n\n              await _designationService.AddOrUpdateAsync(designation).ConfigureAwait(false);\n              return new OkObjectResult($\"Successfully processed for {designation.Name}\");\n          }\n        }\n        catch (ArgumentException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult($\"Invalid designation - {ex.ParamName}\");\n        }\n        catch (JsonException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult(\"Please enter valid details\");\n        }\n        catch (IOException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new StatusCodeResult(StatusCodes.Status500InternalServerError);\n        }\n        catch (InvalidOperationException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult(\"Operation failed. Please check the input.\");\n        }\n}\n\nConsole.WriteLine($\"Processing ProccessSyncDesignationHttpTrigger started at: {DateTime.Now}\");\nstring requestBodyString = JsonSerializer.Serialize(requestBody);\n\nawait ProccessSyncDesignationHttpTrigger(requestBodyString);",
+				"isAsync":false,
+				"parameters":{
+					"requestBody":"{{ n_IyOaB.outputs.body }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1130,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_VHgde-1",
+			"id":"n_rujD8",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":44105,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +142,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
