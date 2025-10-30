@@ -23,10 +23,15 @@
 	"id":"690351146951ed3f0b09eaaf",
 	"lastModifiedBy":186875,
 	"lcName":"test520",
-	"modifiedTime":1761825769023,
+	"modifiedTime":1761825836970,
 	"name":"Test520",
 	"nodes":[
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1074,
@@ -66,10 +71,16 @@
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[
+						"array"
+					],
 					"properties":{
 						"array":{
 							"type":"array",
-							"title":"array"
+							"items":{
+								"type":"string"
+							},
+							"title":"Array"
 						}
 					}
 				}
@@ -102,7 +113,7 @@
 							"property":"properties_APPLICATION_NAME",
 							"filter":{
 								"operator":"IN",
-								"value":"{{ n_iz3U8.outputs.array }}"
+								"value":""
 							}
 						}
 					],
@@ -173,5 +184,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
