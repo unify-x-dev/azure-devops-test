@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761816516252,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_4U0eX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Ndch8",
+			"type":"next"
+		}
+	],
+	"id":"69032fc413085040561b20ec",
+	"lastModifiedBy":175325,
+	"lcName":"mapmaskcallableworkflow_117618146276640",
+	"modifiedTime":1761816516252,
+	"name":"MapMaskCallableWorkflow_117618146276640",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_4U0eX-1",
+			"id":"_4U0eX",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_4U0eX-1",
+			"id":"_Ndch8",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
