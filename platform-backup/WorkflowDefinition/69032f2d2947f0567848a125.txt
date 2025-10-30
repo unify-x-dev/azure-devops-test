@@ -82,7 +82,7 @@
 	"id":"69032f2d2947f0567848a125",
 	"lastModifiedBy":175325,
 	"lcName":"addmultipleschemaslogsworkflow_11761814627664",
-	"modifiedTime":1761816419728,
+	"modifiedTime":1761816438597,
 	"name":"AddMultipleSchemasLogsWorkflow_11761814627664",
 	"nodes":[
 		{
@@ -438,6 +438,67 @@
 				"text":"Test message",
 				"mrkdwn":true
 			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":true,
+					"logPolicies":[
+						{
+							"level":"INFO",
+							"maskedFields":[
+								
+							],
+							"message":"{{ n_si9Fa.inputs }}{{ n_8adkD.outputs }}{{ n_dvG5C.inputs }}",
+							"onlyOnFailure":false
+						}
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
 			"skip":false,
 			"subTitle":"Slack",
 			"title":"Post message",
@@ -484,5 +545,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
