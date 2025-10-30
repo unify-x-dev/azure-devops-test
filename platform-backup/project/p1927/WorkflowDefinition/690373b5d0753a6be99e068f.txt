@@ -6,47 +6,73 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_KGars",
+			"fromNodeId":"n_h5iqd",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_0HoVF",
+			"toNodeId":"n_ygDF8",
 			"type":"next"
 		}
 	],
 	"id":"690373b5d0753a6be99e068f",
 	"lastModifiedBy":308,
 	"lcName":"fetch_empower",
-	"modifiedTime":1761833909848,
+	"modifiedTime":1761833952265,
 	"name":"Fetch_emPower",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1163,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KGars-1",
-			"id":"_KGars",
-			"index":0,
+			"id":"n_h5iqd",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1132,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KGars-1",
-			"id":"_0HoVF",
-			"index":0,
+			"id":"n_ygDF8",
+			"index":2,
+			"inputs":{
+				"streamingCompleted":true
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":308,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +86,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
