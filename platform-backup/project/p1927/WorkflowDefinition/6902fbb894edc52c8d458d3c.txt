@@ -264,7 +264,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761819582410,
+	"modifiedTime":1761819591554,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -1081,8 +1081,8 @@
 				"object_type":"reps_locations_id",
 				"skipIfBlank":false,
 				"record":{
-					"ReferenceNumber":"{{ n_SP4DL.outputs.result.Name }}",
-					"Name":"{{ n_SP4DL.outputs.result.name }}"
+					"ReferenceNumber":"{{ n_SP4DL.outputs.result.ReferenceNumber }}",
+					"Name":"{{ n_SP4DL.outputs.result.Name }}"
 				}
 			},
 			"skip":false,
@@ -1300,5 +1300,5 @@
 	"tags":[
 		
 	],
-	"version":36
+	"version":37
 }
