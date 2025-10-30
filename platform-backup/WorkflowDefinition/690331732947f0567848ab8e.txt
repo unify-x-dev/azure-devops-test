@@ -6,47 +6,44 @@
 	"deleted":false,
 	"description":"description",
 	"edges":[
-		{
-			"fromNodeId":"_6czkk",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_I9k0j",
-			"type":"next"
-		}
+		
 	],
 	"id":"690331732947f0567848ab8e",
 	"lastModifiedBy":175325,
 	"lcName":"logcheckbox_117618146261710",
-	"modifiedTime":1761816947222,
+	"modifiedTime":1761816949951,
 	"name":"logCheckbox_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6czkk-1",
-			"id":"_6czkk",
-			"index":0,
+			"id":"n_LMxhp",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_6czkk-1",
-			"id":"_I9k0j",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +57,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
