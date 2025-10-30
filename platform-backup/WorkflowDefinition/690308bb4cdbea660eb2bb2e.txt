@@ -5,12 +5,12 @@
 	"createdTime":1761806523318,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761812703756,
+		"deployedAt":1761812870874,
 		"deployedBy":43498,
-		"deployedDefinitionId":"690320df501d855ce6472d3c",
+		"deployedDefinitionId":"69032186501d855ce64730a1",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":6
+		"version":3,
+		"workflowVersion":7
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"690308bb4cdbea660eb2bb2e",
 	"lastModifiedBy":43498,
 	"lcName":"bill",
-	"modifiedTime":1761812850952,
+	"modifiedTime":1761813170712,
 	"name":"bill",
 	"nodes":[
 		{
@@ -41,7 +41,18 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"queryParams":{
+						"type":"object",
+						"additionalProperties":false,
+						"required":[],
+						"properties":{
+							"year":{
+								"type":"string",
+								"title":"Year"
+							}
+						}
+					}
 				}
 			},
 			"skip":false,
@@ -71,7 +82,7 @@
 				"expression":"{{ __USER__.outputs.id }} 12 23 2 1",
 				"timezone":"Asia/Calcutta",
 				"cancel_existing":true,
-				"schedule_name":"asdf {{ __USER__.outputs.hello }}{{ __USER__.outputs.name }}",
+				"schedule_name":"asdf {{ n_auVaY.outputs.queryParams.year }}",
 				"version":"-1"
 			},
 			"skip":false,
@@ -97,5 +108,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
