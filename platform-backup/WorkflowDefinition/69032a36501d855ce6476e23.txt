@@ -10,6 +10,13 @@
 			"fromNodeId":"n_9JCim",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_WK1im",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_WK1im",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_11Cki",
 			"type":"next"
 		}
@@ -17,7 +24,7 @@
 	"id":"69032a36501d855ce6476e23",
 	"lastModifiedBy":175325,
 	"lcName":"parent_delay_async_11761814627664",
-	"modifiedTime":1761815103803,
+	"modifiedTime":1761815110355,
 	"name":"Parent_delay_async_11761814627664",
 	"nodes":[
 		{
@@ -71,6 +78,32 @@
 		{
 			"context":{
 				"appName":"callables",
+				"resourceVersion":1067,
+				"resourceName":"callables_call_automation_async",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_opsra-1",
+			"id":"n_WK1im",
+			"index":2,
+			"inputs":{
+				"automationId":"69032a1ae673312cf3edba30",
+				"runtimeConnections":{},
+				"version":"-1",
+				"parameters":{
+					"input_String":"{{ n_9JCim.outputs.input_String }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation async",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"callables",
 				"resourceVersion":1108,
 				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
@@ -80,7 +113,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_opsra-1",
 			"id":"n_11Cki",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"result":{
 					"output_String":"{{ n_9JCim.outputs.input_String }}"
@@ -109,5 +142,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
