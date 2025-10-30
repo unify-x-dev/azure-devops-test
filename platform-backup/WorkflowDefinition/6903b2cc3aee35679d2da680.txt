@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761850060531,
 	"deleted":false,
@@ -23,6 +23,13 @@
 			"fromNodeId":"n_dv9HF",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_4Ctcu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4Ctcu",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_uvRqw",
 			"type":"next"
 		}
@@ -30,7 +37,7 @@
 	"id":"6903b2cc3aee35679d2da680",
 	"lastModifiedBy":48069,
 	"lcName":"test",
-	"modifiedTime":1761854816644,
+	"modifiedTime":1761855170957,
 	"name":"test",
 	"nodes":[
 		{
@@ -172,20 +179,42 @@
 						}
 					}
 				},
-				"code":"def transform(data) {\n    // Handle if data is already an array\n    if (data instanceof List) {\n        return [\n            records: data.collect { it?.columns }.findAll { it != null }\n        ]\n    }\n    \n    // Handle if data is a map with 'input' key\n    if (data?.input) {\n        return [\n            records: data.input.collect { it?.columns }.findAll { it != null }\n        ]\n    }\n    \n    // Handle if data is a map with 'inputVar' key\n    if (data?.inputVar) {\n        return [\n            records: data.inputVar.collect { it?.columns }.findAll { it != null }\n        ]\n    }\n    \n    // Default: empty records\n    return [records: []]\n}\n\n// inputVar should be provided by your environment/framework\nreturn transform(inputVar)",
+				"code":"return [\"records\": inputVar]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"inputVar":{
 						"source":"{{ n_N0cfQ.outputs.result.objects }}",
 						"ua:type":"mappedArray",
-						"items":"{{ n_N0cfQ.outputs.result.objects[0] }}"
+						"items":"{{ n_N0cfQ.outputs.result.objects[0].columns }}"
 					}
 				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2562,
+				"resourceName":"storage_by_unifyapps_bulk_create_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_MwnQL-1",
+			"id":"n_4Ctcu",
+			"index":4,
+			"inputs":{
+				"object_type":"66d188017c203d4d9907a74c",
+				"skipIfBlank":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create or update records in bulk",
 			"type":"ACTION"
 		},
 		{
@@ -197,7 +226,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_MwnQL-1",
 			"id":"n_uvRqw",
-			"index":4,
+			"index":5,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -221,5 +250,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
