@@ -23,13 +23,6 @@
 			"fromNodeId":"n_qgnvt",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8Rsxj",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_8Rsxj",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_yZkGe",
 			"type":"next"
 		},
@@ -66,7 +59,7 @@
 	"id":"69035dfe023057775710ac01",
 	"lastModifiedBy":508,
 	"lcName":"test",
-	"modifiedTime":1761828428536,
+	"modifiedTime":1761828490109,
 	"name":"test",
 	"nodes":[
 		{
@@ -187,59 +180,6 @@
 		},
 		{
 			"context":{
-				"appName":"analytics_by_unifyapps",
-				"resourceVersion":13,
-				"resourceName":"analytics_by_unifyapps_query_reports",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_GFBpc-1",
-			"id":"n_8Rsxj",
-			"index":4,
-			"inputs":{
-				"projections":[
-					{
-						"name":"ENTITY_transcript_analysis_interview_analysis=::=interviewerFullName",
-						"aggregationFunction":"GROUP",
-						"includePercentageChange":false
-					},
-					{
-						"name":"ENTITY_transcript_analysis_interview_analysis=::=ID",
-						"aggregationFunction":"COUNT",
-						"includePercentageChange":false
-					}
-				],
-				"filter":{
-					"filters":[
-						{
-							"property":"ENTITY_transcript_analysis_interview_analysis=::=CREATED_TIME",
-							"filter":{
-								"operator":"GTE",
-								"value":"{{ n_qgnvt.outputs.last_job_time }}"
-							}
-						},
-						{
-							"property":"ENTITY_transcript_analysis_interview_analysis=::=CREATED_TIME",
-							"filter":{
-								"operator":"LT",
-								"value":"{{ n_YMRC8.outputs.result.millis }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"entityType":"ENTITY_transcript_analysis_interview_analysis",
-				"group":"ENTITY_REPORTING"
-			},
-			"skip":false,
-			"subTitle":"Analytics by UnifyApps",
-			"title":"Analytics Query",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"loop",
 				"resourceVersion":13,
 				"resourceName":"loop_for_each",
@@ -250,7 +190,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
 			"id":"n_yZkGe",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_8Rsxj.outputs.objects }}",
@@ -285,7 +225,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_yZkGe@_GFBpc-1@l",
 			"id":"_d2DoN",
-			"index":6,
+			"index":5,
 			"inputs":{
 				"payload":{
 					"contents":[
@@ -394,7 +334,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_yZkGe@_GFBpc-1@l",
 			"id":"n_516Eb",
-			"index":7,
+			"index":6,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -539,7 +479,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
 			"id":"_Jnf6o",
-			"index":8,
+			"index":7,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -563,5 +503,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":7
 }
