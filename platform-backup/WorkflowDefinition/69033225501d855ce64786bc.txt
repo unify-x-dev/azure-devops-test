@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761817125092,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_4Gnc3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_LNfqa",
+			"type":"next"
+		}
+	],
+	"id":"69033225501d855ce64786bc",
+	"lastModifiedBy":175325,
+	"lcName":"delayuntil_workflowwaiting- and verify the repeat run after cancelling a run in the waiting state-117618146261810",
+	"modifiedTime":1761817125092,
+	"name":"delayUntil_workflowWaiting- and Verify the repeat run after cancelling a run in the waiting state-117618146261810",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_4Gnc3-1",
+			"id":"_4Gnc3",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_4Gnc3-1",
+			"id":"_LNfqa",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
