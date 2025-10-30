@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761816029109,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_qVgR9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_1MBHO",
+			"type":"next"
+		}
+	],
+	"id":"69032dddaf3b295b77cbe146",
+	"lastModifiedBy":175325,
+	"lcName":"e2e_workflow_callable_loop_and_branch_basic_117618146276640",
+	"modifiedTime":1761816029109,
+	"name":"E2E_Workflow_Callable_Loop_And_Branch_Basic_117618146276640",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_qVgR9-1",
+			"id":"_qVgR9",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_qVgR9-1",
+			"id":"_1MBHO",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
