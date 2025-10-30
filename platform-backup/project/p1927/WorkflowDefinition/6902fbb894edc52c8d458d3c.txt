@@ -6,40 +6,230 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_cx1fg",
+			"fromNodeId":"n_UqZT0",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ySiBJ",
+			"toNodeId":"n_LJy4I",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LJy4I",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LJy4I@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_LJy4I@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YWgnl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LJy4I",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LJy4I@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_LJy4I@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KELdy",
 			"type":"next"
 		}
 	],
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761803192182,
+	"modifiedTime":1761803269140,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1159,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
-			"id":"_cx1fg",
-			"index":0,
+			"id":"n_UqZT0",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"payload":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false,
+								"title":"Payload"
+							},
+							"operationName":{
+								"type":"string",
+								"title":"Operation Name"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"payload",
+							"operationName"
+						]
+					}
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					},
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"count":{
+									"type":"integer",
+									"title":"Count"
+								},
+								"location":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Location"
+								},
+								"success":{
+									"type":"boolean",
+									"title":"Success"
+								}
+							},
+							"additionalProperties":false,
+							"required":[
+								"count",
+								"location",
+								"success"
+							]
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
-			"id":"_ySiBJ",
-			"index":0,
+			"id":"n_LJy4I",
+			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@1",
+			"id":"n_LJy4I@1",
+			"index":3,
+			"inputs":{
+				"name":"Branch 1"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@1",
+			"id":"n_YWgnl",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@2",
+			"id":"n_LJy4I@2",
+			"index":5,
+			"inputs":{
+				"name":"Branch 2"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@2",
+			"id":"n_KELdy",
+			"index":6,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -47,6 +237,9 @@
 	],
 	"ownerUserId":45010,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +253,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
