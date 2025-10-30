@@ -444,7 +444,7 @@
 	"id":"69033f4ae673312cf3ee398a",
 	"lastModifiedBy":44105,
 	"lcName":"[rep-scheduler] designationobjectautomation",
-	"modifiedTime":1761823361951,
+	"modifiedTime":1761823673880,
 	"name":"[Rep-Scheduler] DesignationObjectAutomation",
 	"nodes":[
 		{
@@ -1300,7 +1300,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        id         : payload.id ?: 0,\n\n]\nreturn result",
+				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        id         : payload.id ?: '',\n\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1401,6 +1401,11 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1036,
@@ -1417,50 +1422,23 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[
-						"Email",
-						"IsActive",
-						"FullName",
-						"EmployeeNumber",
-						"row_num",
-						"EmployeeId"
-					],
+					"required":[],
 					"properties":{
-						"UserName":{
+						"Name":{
 							"type":"string",
-							"title":"User Name"
+							"title":"Name"
 						},
-						"Email":{
+						"ReferenceNumber":{
 							"type":"string",
-							"title":"Email"
-						},
-						"IsActive":{
-							"type":"string",
-							"title":"Is Active"
-						},
-						"FullName":{
-							"type":"string",
-							"title":"Full Name"
-						},
-						"EmployeeNumber":{
-							"type":"string",
-							"title":"Employee Number"
+							"title":"Reference Number"
 						},
 						"row_num":{
 							"type":"integer",
 							"title":"Row Num"
 						},
-						"EmployeeId":{
+						"id":{
 							"type":"string",
-							"title":"Employee Id"
-						},
-						"ManagerEmployeeNumber":{
-							"type":"string",
-							"title":"ManagerEmployeeNumber"
-						},
-						"ManagerId":{
-							"type":"integer",
-							"title":"ManagerId"
+							"title":"Id"
 						}
 					}
 				},
@@ -1479,7 +1457,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    Email                : payload.Email ?: '',\n    EmployeeId           : payload.EmployeeId ?: 0,\n    EmployeeRepsActivities: payload.EmployeeRepsActivities ?: [],\n    FullName             : payload.FullName ?: '',\n    Id                   : payload.Id ?: 0,\n    IsActive             : payload.IsActive ?: false,\n    ManagerEmployeeNumber: payload.ManagerEmployeeNumber ?: '',\n    ManagerId            : payload.ManagerId ?: 0,\n    Status               : payload.Status ?: '',\n    UserName             : payload.UserName ?: ''\n]\n\nreturn result",
+				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        id         : payload.id ?: '',\n]\n\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1509,62 +1487,37 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_Email",
+							"property":"properties_ReferenceNumber",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ _EBtW2.outputs.result.Email }}"
+								"value":"{{ _EBtW2.outputs.result.ReferenceNumber }}"
 							}
 						}
 					],
 					"operator":"AND"
 				},
-				"object_type":"reps_employees",
+				"object_type":"reps_desgination",
 				"skipIfBlank":true,
 				"updateFields":[
 					{
-						"fieldName":"properties.UserName",
+						"fieldName":"properties.Name",
 						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.UserName }}"
+						"setValue":"{{ _EBtW2.outputs.result.Name }}"
 					},
 					{
-						"fieldName":"properties.EmployeeId",
+						"fieldName":"properties.ReferenceNumber",
 						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.EmployeeId }}"
+						"setValue":"{{ _EBtW2.outputs.result.ReferenceNumber }}"
 					},
 					{
-						"fieldName":"properties.Email",
+						"fieldName":"properties.Id",
 						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.Email }}"
-					},
-					{
-						"fieldName":"properties.IsActive",
-						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.IsActive }}"
-					},
-					{
-						"fieldName":"properties.FullName",
-						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.FullName }}"
-					},
-					{
-						"fieldName":"properties.EmployeeNumber",
-						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.EmployeeNumber }}"
+						"setValue":"{{ _EBtW2.outputs.result.id }}"
 					},
 					{
 						"fieldName":"properties.row_num",
 						"actionType":"SET",
 						"setValue":"{{ _EBtW2.outputs.result.row_num }}"
-					},
-					{
-						"fieldName":"properties.ManagerEmployeeNumber",
-						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.ManagerEmployeeNumber }}"
-					},
-					{
-						"fieldName":"properties.ManagerId",
-						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.ManagerId }}"
 					}
 				],
 				"page":{
@@ -1595,7 +1548,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
-					"success":"{{ n_WQBQv.outputs.success }}"
+					"success":"{{ n_WQBQv.outputs.result }}"
 				},
 				"status":200
 			},
@@ -2643,5 +2596,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
