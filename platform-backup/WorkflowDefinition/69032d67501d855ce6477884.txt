@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761815911625,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_AO4uj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_u6Dda",
+			"type":"next"
+		}
+	],
+	"id":"69032d67501d855ce6477884",
+	"lastModifiedBy":175325,
+	"lcName":"e2e_workflow_callable_auth_117618146276640",
+	"modifiedTime":1761815911625,
+	"name":"E2E_Workflow_Callable_Auth_117618146276640",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_AO4uj-1",
+			"id":"_AO4uj",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_AO4uj-1",
+			"id":"_u6Dda",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
