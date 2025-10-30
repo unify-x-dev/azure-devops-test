@@ -6,46 +6,83 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_6E6JK",
+			"fromNodeId":"n_Vu1tj",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_z1JCb",
+			"toNodeId":"n_U97B5",
 			"type":"next"
 		}
 	],
 	"id":"69036707e9877f2d44fbbaa7",
 	"lastModifiedBy":186875,
 	"lcName":"virtu-approvalsfunctionappfn-get-health",
-	"modifiedTime":1761830663393,
+	"modifiedTime":1761832777636,
 	"name":"virtu-ApprovalsFunctionAppFN-get-health",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1163,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6E6JK-1",
-			"id":"_6E6JK",
-			"index":0,
+			"id":"n_Vu1tj",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1132,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_6E6JK-1",
-			"id":"_z1JCb",
-			"index":0,
+			"id":"n_U97B5",
+			"index":2,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":186875,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +96,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
