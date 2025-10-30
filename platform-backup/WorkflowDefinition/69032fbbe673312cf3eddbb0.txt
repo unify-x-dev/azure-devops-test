@@ -31,7 +31,7 @@
 	"id":"69032fbbe673312cf3eddbb0",
 	"lastModifiedBy":175325,
 	"lcName":"mapdatamaskwebhookworkflow_117618146276640",
-	"modifiedTime":1761816540642,
+	"modifiedTime":1761816552949,
 	"name":"MapdataMaskWebhookWorkflow_117618146276640",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_I5Pc6-1",
 			"id":"n_soaQl",
@@ -109,7 +109,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_I5Pc6-1",
 			"id":"n_whATk",
@@ -197,7 +197,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_I5Pc6-1",
 			"id":"n_tBPDp",
@@ -253,7 +253,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_I5Pc6-1",
 			"id":"n_70NC8",
@@ -344,8 +344,10 @@
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
 		"enableVariableLogging":true,
+		"nodeLogLevel":"INFO",
 		"route":{
 			"default":false,
+			"headerValueTierMap":{},
 			"tierName":"global"
 		}
 	},
@@ -353,5 +355,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
