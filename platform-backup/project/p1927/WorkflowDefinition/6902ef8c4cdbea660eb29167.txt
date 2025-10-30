@@ -14,35 +14,6 @@
 		},
 		{
 			"fromNodeId":"n_AtUPv",
-			"name":"1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_AtUPv@1",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_AtUPv@1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_cbnsU",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_cbnsU",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_wjSo3",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_wjSo3",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_6XhsF",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_AtUPv",
 			"name":"2",
 			"priority":0,
 			"skip":false,
@@ -255,29 +226,6 @@
 		},
 		{
 			"fromNodeId":"n_AtUPv",
-			"name":"5",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_AtUPv@5",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_AtUPv",
-			"name":"6",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_AtUPv@6",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_AtUPv@6",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_ODo2P",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_AtUPv",
 			"name":"default",
 			"priority":0,
 			"skip":false,
@@ -288,7 +236,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761800403744,
+	"modifiedTime":1761800521059,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -386,24 +334,6 @@
 			"inputs":{
 				"branches":[
 					{
-						"id":"1",
-						"inputs":{
-							"name":"Branch 1",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_b2pce.outputs.body.operationName }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"CountAsync"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
 						"id":"2",
 						"inputs":{
 							"name":"Branch 2",
@@ -458,42 +388,6 @@
 						}
 					},
 					{
-						"id":"5",
-						"inputs":{
-							"name":"Branch 5",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_b2pce.outputs.body.operationName }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"DeleteAsync"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"6",
-						"inputs":{
-							"name":"Branch 6",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_b2pce.outputs.body.operationName }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"ListAsync"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
 						"id":"default"
 					}
 				]
@@ -513,148 +407,9 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"n_AtUPv@_9MF0g-1@1",
-			"id":"n_AtUPv@1",
-			"index":3,
-			"inputs":{
-				"name":"Branch 1",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_b2pce.outputs.body.operationName }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"CountAsync"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":1036,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_AtUPv@_9MF0g-1@1",
-			"id":"n_cbnsU",
-			"index":4,
-			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"EmployeeNumber"
-					],
-					"properties":{
-						"EmployeeNumber":{
-							"type":"string",
-							"title":"EmployeeNumber"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"payload"
-					],
-					"properties":{
-						"payload":{
-							"type":"object",
-							"properties":{},
-							"additionalProperties":false,
-							"title":"Payload"
-						}
-					}
-				},
-				"code":"def res = [:]\nif (payload.containsKey(\"EmployeeNumber\")) {\n  res[\"EmployeeNumber\"] = payload[\"EmployeeNumber\"]\n}\nelse {\n  res[\"EmployeeNumber\"] = \"\"\n}\n",
-				"compile_static":false,
-				"captureStdOutput":false
-			},
-			"skip":false,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4620,
-				"resourceName":"storage_by_unifyapps_count_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_AtUPv@_9MF0g-1@1",
-			"id":"n_wjSo3",
-			"index":5,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_EmployeeNumber",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_cbnsU.outputs.result.EmployeeNumber }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"reps_employees"
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Count records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1124,
-				"resourceName":"callables_return_response_to_api",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_AtUPv@_9MF0g-1@1",
-			"id":"n_6XhsF",
-			"index":6,
-			"inputs":{
-				"streamingCompleted":true,
-				"responseName":"200_undefined",
-				"status":200
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to API request",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@2",
 			"id":"n_AtUPv@2",
-			"index":7,
+			"index":3,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -684,7 +439,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@2",
 			"id":"n_DdmpD",
-			"index":35,
+			"index":28,
 			"inputs":{
 				"branches":[
 					{
@@ -745,7 +500,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@1",
 			"id":"n_DdmpD@1",
-			"index":36,
+			"index":29,
 			"inputs":{
 				"name":"Branch 1",
 				"conditions":{
@@ -777,7 +532,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@1",
 			"id":"n_TLmGX",
-			"index":37,
+			"index":30,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -826,7 +581,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@1",
 			"id":"_qvmCx",
-			"index":38,
+			"index":31,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -869,7 +624,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@1",
 			"id":"_QwA51",
-			"index":39,
+			"index":32,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -892,7 +647,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@2",
 			"id":"n_DdmpD@2",
-			"index":40,
+			"index":33,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -924,7 +679,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@2",
 			"id":"_KT40T",
-			"index":41,
+			"index":34,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -973,7 +728,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@2",
 			"id":"_Sh0hg",
-			"index":42,
+			"index":35,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1016,7 +771,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_9MF0g-1@2@2",
 			"id":"_DI5pM",
-			"index":43,
+			"index":36,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1038,7 +793,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@2",
 			"id":"n_5dQXk",
-			"index":44,
+			"index":37,
 			"inputs":{
 				"branches":[
 					{
@@ -1087,7 +842,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5dQXk@n_AtUPv@_9MF0g-1@2@1",
 			"id":"n_5dQXk@1",
-			"index":45,
+			"index":38,
 			"inputs":{
 				"name":"Branch 1",
 				"conditions":{
@@ -1119,7 +874,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5dQXk@n_AtUPv@_9MF0g-1@2@1",
 			"id":"_QBhdP",
-			"index":46,
+			"index":39,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1168,7 +923,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5dQXk@n_AtUPv@_9MF0g-1@2@1",
 			"id":"_QF5zc",
-			"index":47,
+			"index":40,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -1207,7 +962,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5dQXk@n_AtUPv@_9MF0g-1@2@2",
 			"id":"n_5dQXk@2",
-			"index":48,
+			"index":41,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -1221,7 +976,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5dQXk@n_AtUPv@_9MF0g-1@2@2",
 			"id":"n_9lNFg",
-			"index":49,
+			"index":42,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -1238,7 +993,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@2",
 			"id":"n_Km2Dj",
-			"index":50,
+			"index":43,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1261,7 +1016,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@3",
 			"id":"n_AtUPv@3",
-			"index":24,
+			"index":20,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -1293,7 +1048,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@3",
 			"id":"_b3pn9",
-			"index":25,
+			"index":21,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1376,7 +1131,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@3",
 			"id":"n_xotUN",
-			"index":26,
+			"index":22,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_employees",
@@ -1408,7 +1163,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@3",
 			"id":"n_GBDGh",
-			"index":27,
+			"index":23,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1432,7 +1187,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@4",
 			"id":"n_AtUPv@4",
-			"index":28,
+			"index":24,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -1464,7 +1219,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@4",
 			"id":"_EBtW2",
-			"index":29,
+			"index":25,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1547,7 +1302,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@4",
 			"id":"n_WQBQv",
-			"index":30,
+			"index":26,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_employees",
@@ -1580,98 +1335,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_9MF0g-1@4",
 			"id":"n_lYvBi",
-			"index":31,
+			"index":27,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"set_cookies":[],
-				"status":200
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to API request",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_AtUPv@_9MF0g-1@5",
-			"id":"n_AtUPv@5",
-			"index":32,
-			"inputs":{
-				"name":"Branch 5",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_b2pce.outputs.body.operationName }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"DeleteAsync"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_AtUPv@_9MF0g-1@6",
-			"id":"n_AtUPv@6",
-			"index":33,
-			"inputs":{
-				"name":"Branch 6",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_b2pce.outputs.body.operationName }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"ListAsync"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1124,
-				"resourceName":"callables_return_response_to_api",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_AtUPv@_9MF0g-1@6",
-			"id":"n_ODo2P",
-			"index":34,
-			"inputs":{
-				"streamingCompleted":true,
-				"responseName":"200_undefined",
 				"status":200
 			},
 			"skip":false,
@@ -1698,5 +1366,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
