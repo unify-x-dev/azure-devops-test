@@ -218,7 +218,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761821676750,
+	"modifiedTime":1761821762469,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1753,7 +1753,8 @@
 					"root.parameters.items.items.status",
 					"root.parameters.items.items.impactedEntityId",
 					"root.parameters.items.items.impactedEntityName",
-					"root.parameters.items.items.impactedEntityType"
+					"root.parameters.items.items.impactedEntityType",
+					"root.parameters.items.items.impactedEntityIconKey"
 				]
 			},
 			"context":{
@@ -1833,10 +1834,12 @@
 				},
 				"input":{
 					"type":"object",
-					"required":[],
+					"ua:__linkedVariable__":"n_BJWbh.outputs",
 					"properties":{
 						"items":{
 							"type":"array",
+							"title":"results",
+							"disableActions":true,
 							"items":{
 								"type":"object",
 								"properties":{
@@ -1883,12 +1886,14 @@
 									"impactedEntityType":{
 										"type":"string",
 										"title":"impactedEntityType"
+									},
+									"impactedEntityIconKey":{
+										"type":"string",
+										"title":"Impacted Entity Icon Key"
 									}
 								},
-								"additionalProperties":false,
 								"required":[]
-							},
-							"title":"items"
+							}
 						}
 					}
 				},
@@ -1910,7 +1915,8 @@
 							"status":"{{ n_BJWbh.outputs.items[0].status }}",
 							"impactedEntityId":"{{ n_BJWbh.outputs.items[0].impactedEntityId }}",
 							"impactedEntityName":"{{ n_BJWbh.outputs.items[0].impactedEntityName }}",
-							"impactedEntityType":"{{ n_BJWbh.outputs.items[0].impactedEntityType }}"
+							"impactedEntityType":"{{ n_BJWbh.outputs.items[0].impactedEntityType }}",
+							"impactedEntityIconKey":"{{ n_BJWbh.outputs.items[0].impactedEntityIconKey }}"
 						}
 					}
 				}
@@ -1983,5 +1989,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":130
+	"version":131
 }
