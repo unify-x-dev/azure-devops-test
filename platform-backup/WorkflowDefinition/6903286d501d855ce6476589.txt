@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761814637105,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_aaJge",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_nsVA3",
+			"type":"next"
+		}
+	],
+	"id":"6903286d501d855ce6476589",
+	"lastModifiedBy":175325,
+	"lcName":"child callable schedule recurring - 11761814627664",
+	"modifiedTime":1761814637105,
+	"name":"child callable schedule recurring - 11761814627664",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_aaJge-1",
+			"id":"_aaJge",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_aaJge-1",
+			"id":"_nsVA3",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
