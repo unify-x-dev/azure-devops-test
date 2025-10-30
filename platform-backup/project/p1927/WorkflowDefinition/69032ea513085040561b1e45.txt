@@ -39,50 +39,7 @@
 			"fromNodeId":"n_DiDi2@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_jSiMz",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_jSiMz",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_hpWZ0",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_hpWZ0",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_cKMS9",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_DiDi2",
-			"name":"3",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_DiDi2@3",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_DiDi2@3",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_uxkGl",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_uxkGl",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_iteue",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_iteue",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_D09dy",
+			"toNodeId":"n_fVAxc",
 			"type":"next"
 		},
 		{
@@ -173,14 +130,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_cKMS9",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_bcbd8",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_D09dy",
+			"fromNodeId":"n_fVAxc",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_bcbd8",
@@ -226,7 +176,7 @@
 	"id":"69032ea513085040561b1e45",
 	"lastModifiedBy":45010,
 	"lcName":"tierendpoint",
-	"modifiedTime":1761816229066,
+	"modifiedTime":1761816333816,
 	"name":"TierEndpoint",
 	"nodes":[
 		{
@@ -439,24 +389,6 @@
 						}
 					},
 					{
-						"id":"3",
-						"inputs":{
-							"name":"Branch 3",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_864tN.outputs.body.payload }}",
-										"filter":{
-											"operator":"CONTAINS",
-											"value":"EmployeeId"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
 						"id":"4",
 						"inputs":{
 							"name":"Branch 3",
@@ -518,275 +450,20 @@
 		},
 		{
 			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":1037,
-				"resourceName":"code_by_unifyapps_groovy",
+				"appName":"callables",
+				"resourceVersion":1131,
+				"resourceName":"callables_return_response_to_api",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
-			"id":"n_jSiMz",
+			"id":"n_fVAxc",
 			"index":6,
 			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"EmployeeNumber"
-					],
-					"properties":{
-						"EmployeeNumber":{
-							"type":"string",
-							"title":"Employee Number"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"payload"
-					],
-					"properties":{
-						"payload":{
-							"type":"object",
-							"properties":{},
-							"additionalProperties":false,
-							"title":"Payload"
-						}
-					}
-				},
-				"code":"return [\"EmployeeNumber\" : payload[\"EmployeeNumber\"]]",
-				"compile_static":false,
-				"captureStdOutput":false,
-				"parameters":{
-					"payload":"{{ n_864tN.outputs.body.payload }}"
-				}
-			},
-			"skip":false,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4622,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
-			"id":"n_hpWZ0",
-			"index":7,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_EmployeeNumber",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_jSiMz.outputs.result.EmployeeNumber }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"reps_employees",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1128,
-				"resourceName":"callables_return_response_to_api",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
-			"id":"n_cKMS9",
-			"index":8,
-			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
-				"body":{
-					"response":"{{ n_hpWZ0.outputs.properties }}"
-				},
-				"status":200
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to API request",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
-			"id":"n_DiDi2@3",
-			"index":9,
-			"inputs":{
-				"name":"Branch 3",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_864tN.outputs.body.payload }}",
-							"filter":{
-								"operator":"CONTAINS",
-								"value":"EmployeeId"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":1037,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
-			"id":"n_uxkGl",
-			"index":10,
-			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"EmployeeId"
-					],
-					"properties":{
-						"EmployeeId":{
-							"type":"string",
-							"title":"Employee Id"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"payload"
-					],
-					"properties":{
-						"payload":{
-							"type":"object",
-							"properties":{},
-							"additionalProperties":false,
-							"title":"Payload"
-						}
-					}
-				},
-				"code":"return [\"EmployeeId\" : payload[\"EmployeeId\"]]",
-				"compile_static":false,
-				"captureStdOutput":false,
-				"parameters":{
-					"payload":"{{ n_864tN.outputs.body.payload }}"
-				}
-			},
-			"skip":false,
-			"subTitle":"Code by UnifyApps",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4622,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
-			"id":"n_iteue",
-			"index":11,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_EmployeeId",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_uxkGl.outputs.result.EmployeeId }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"reps_employee_tiers",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1128,
-				"resourceName":"callables_return_response_to_api",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
-			"id":"n_D09dy",
-			"index":12,
-			"inputs":{
-				"streamingCompleted":true,
-				"responseName":"200_undefined",
-				"body":{
-					"response":"{{ n_iteue.outputs.properties }}"
-				},
 				"status":200
 			},
 			"skip":false,
@@ -806,7 +483,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_DiDi2@4",
-			"index":13,
+			"index":7,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -838,7 +515,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_c3vVw",
-			"index":14,
+			"index":8,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -892,7 +569,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_VRLzf",
-			"index":15,
+			"index":9,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -935,7 +612,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_HvAfE",
-			"index":16,
+			"index":10,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -961,7 +638,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_Fsqj1@2",
-			"index":17,
+			"index":11,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -993,7 +670,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_pawTn",
-			"index":18,
+			"index":12,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1052,7 +729,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_hw7UJ",
-			"index":19,
+			"index":13,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_employee_tiers",
@@ -1079,7 +756,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_l8j4d",
-			"index":20,
+			"index":14,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1105,7 +782,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_Fsqj1@3",
-			"index":21,
+			"index":15,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -1137,7 +814,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_hqSfX",
-			"index":22,
+			"index":16,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1196,7 +873,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_4m59q",
-			"index":23,
+			"index":17,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_employee_tiers",
@@ -1224,7 +901,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_NFG0A",
-			"index":24,
+			"index":18,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1247,7 +924,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_9MF0g-1",
 			"id":"n_bcbd8",
-			"index":25,
+			"index":19,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1277,5 +954,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
