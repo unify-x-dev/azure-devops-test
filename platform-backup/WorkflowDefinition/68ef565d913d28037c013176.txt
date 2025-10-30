@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"demo11111",
-	"modifiedTime":1761848752926,
+	"modifiedTime":1761848831524,
 	"name":"demo11111",
 	"nodes":[
 		{
@@ -479,7 +479,7 @@
 			"index":6,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"\n# Open and read PDF\nwith open(File_1, 'rb') as pdf_file:\n    pdf_reader = PyPDF2.PdfReader(pdf_file)\n    \n    # Get PDF info\n    num_pages = len(pdf_reader.pages)\n    \n    # Extract text from first page\n    first_page = pdf_reader.pages[0]\n    first_page_text = first_page.extract_text()\n    \n    result = {\n        \"total_pages\": num_pages,\n        \"first_page_text\": first_page_text[:500],  # First 500 characters\n        \"text_length\": len(first_page_text)\n    }",
+				"code":"",
 				"isAsync":false,
 				"python_version":"3.12",
 				"filesList":{
@@ -533,5 +533,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":16
 }
