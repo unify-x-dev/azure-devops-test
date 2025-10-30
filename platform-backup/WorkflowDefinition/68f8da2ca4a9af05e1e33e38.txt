@@ -17,6 +17,13 @@
 			"fromNodeId":"n_vNDmq",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_TkcQL",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_TkcQL",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_UNyrr",
 			"type":"next"
 		},
@@ -67,6 +74,13 @@
 			"fromNodeId":"n_aFkg9",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_tPrc3",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tPrc3",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_EtK0E",
 			"type":"next"
 		},
@@ -95,7 +109,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761820587956,
+	"modifiedTime":1761822056291,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -402,6 +416,83 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1092,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_TkcQL",
+			"index":3,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"start_time":{
+							"type":"string",
+							"title":"Start Time"
+						},
+						"end_time":{
+							"type":"string",
+							"title":"End Time"
+						},
+						"date":{
+							"type":"string",
+							"title":"Date"
+						}
+					},
+					"required":[
+						"start_time",
+						"end_time",
+						"date"
+					]
+				}
+			},
+			"inputs":{
+				"date":"=TEXT(TODAY(), \"dd/mm/yyyy\") date",
+				"start_time":"=TEXT( NOW() + TIME(5,30,0), \"yyyy-mm-dd\\THH:MM:SS.000\\Z\" ) start",
+				"end_time":"=TEXT(TODAY(), \"yyyy-mm-dd\\T23:59:59.000\\Z\") end"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"start_time":{
+							"type":"string",
+							"title":"Start Time"
+						},
+						"end_time":{
+							"type":"string",
+							"title":"End Time"
+						},
+						"date":{
+							"type":"string",
+							"title":"Date"
+						}
+					},
+					"required":[
+						"start_time",
+						"end_time",
+						"date"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable for time",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"gmail",
 				"resourceVersion":4411,
 				"connectionId":"68f8dab217a0e608e14193a2",
@@ -413,7 +504,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_UNyrr",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"labelIds":[
 					"INBOX"
@@ -437,7 +528,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_38ky2",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_UNyrr.outputs.messages }}",
@@ -461,7 +552,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_I8HGt",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"labelIds":[
 					"INBOX"
@@ -486,7 +577,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_soA6G",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"format":"full",
 				"id":"{{ n_38ky2.outputs.item.id }}"
@@ -508,7 +599,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_zINVv",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"itemToAdd":{
 					"result":"{{ n_soA6G.outputs.snippet }}"
@@ -533,40 +624,27 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_aFkg9",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"startTime",
-						"end_Time"
+						"startOfDay",
+						"endOfDay"
 					],
 					"properties":{
-						"startTime":{
+						"startOfDay":{
 							"type":"string",
 							"title":"Start Time"
 						},
-						"end_Time":{
+						"endOfDay":{
 							"type":"string",
 							"title":"End Time"
 						}
 					}
 				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"lastJobTime"
-					],
-					"properties":{
-						"lastJobTime":{
-							"type":"string",
-							"title":"Last Job Time"
-						}
-					}
-				},
-				"code":"import java.time.*\nimport java.time.format.DateTimeFormatter\n\n// Input: last job run time (can be null or empty if first run)\n// Example: \"2025-10-30 06:00:00\"\ndef lastJobTime = lastJobTime ?: null  // replace with actual variable from your flow\n\n// Define formatter for consistent output\ndef formatter = DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\")\n\n// Current time (workflow run time)\ndef startTime = LocalDateTime.now()\n\n// End time = start time + 10 hours\ndef endTime = startTime.plusHours(10)\n\n// Optional: parse last job time if you need it for comparison\ndef parsedLastJobTime = null\nif (lastJobTime) {\n    try {\n        parsedLastJobTime = LocalDateTime.parse(lastJobTime, formatter)\n    } catch (Exception e) {\n        println \"⚠️ Invalid lastJobTime format. Expected yyyy-MM-dd HH:mm:ss\"\n    }\n}\n\n// Print or return results\n[\n    start_time: startTime.format(formatter),\n    end_time: endTime.format(formatter),\n    last_job_time: parsedLastJobTime ? parsedLastJobTime.format(formatter) : \"N/A\"\n]\n",
+				"code":"import java.time.*\nimport java.time.format.DateTimeFormatter\n\n// Use UTC zone\ndef zone = ZoneOffset.UTC\n\n// Get today's date in UTC\ndef today = LocalDate.now(zone)\n\n// Start and end of the day in UTC\ndef startOfDay = today.atStartOfDay(zone)\ndef endOfDay = today.atTime(23, 59, 59, 999_000_000).atOffset(zone)\n\n// ISO 8601 formatter with 'Z'\ndef formatter = DateTimeFormatter.ofPattern(\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\")\n\n// Format timestamps\ndef startFormatted = startOfDay.format(formatter)\ndef endFormatted = endOfDay.format(formatter)\n\n// Print or return\nprintln \"Start of Day: $startFormatted\"\nprintln \"End of Day:   $endFormatted\"\n\nreturn ['startOfDay': startFormatted, 'endOfDay': endFormatted]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -576,6 +654,36 @@
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1011,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_tPrc3",
+			"index":10,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_TkcQL.outputs.start_time }}",
+						"value":"{{ n_aFkg9.outputs.result.startOfDay }}"
+					},
+					{
+						"source":"{{ n_TkcQL.outputs.end_time }}",
+						"value":"{{ n_aFkg9.outputs.result.endOfDay }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
 			"type":"ACTION"
 		},
 		{
@@ -591,11 +699,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_EtK0E",
-			"index":9,
+			"index":11,
 			"inputs":{
-				"start_time":"=TEXT(NOW(),\"dd/mm/yy hh:mm\")",
+				"start_time":"{{ n_TkcQL.outputs.start_time }}",
 				"calendarId":"primary",
-				"end_time":"",
+				"end_time":"{{ n_TkcQL.outputs.end_time }}",
 				"meetingType":"One-Time"
 			},
 			"skip":false,
@@ -615,7 +723,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_AjLCz",
-			"index":10,
+			"index":12,
 			"inputs":{
 				"input":{
 					"type":"object",
@@ -661,7 +769,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_7q78w",
-			"index":11,
+			"index":13,
 			"inputs":{
 				"fileName":"Your Morning Brief - {{ n_Qgt4O.outputs.lastJobTime }}"
 			},
@@ -679,7 +787,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":12,
+			"index":14,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -703,5 +811,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":15
 }
