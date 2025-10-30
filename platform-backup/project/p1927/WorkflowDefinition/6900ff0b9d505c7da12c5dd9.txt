@@ -31,7 +31,7 @@
 	"id":"6900ff0b9d505c7da12c5dd9",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeeactivitiesbulkhttptrigger",
-	"modifiedTime":1761826960829,
+	"modifiedTime":1761827034135,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeActivitiesBulkHttpTrigger",
 	"nodes":[
 		{
@@ -66,10 +66,6 @@
 							"requestBody":{
 								"type":"string",
 								"title":"Request Body"
-							},
-							"appid":{
-								"type":"string",
-								"title":"Appid"
 							}
 						},
 						"additionalProperties":false,
@@ -133,10 +129,6 @@
 							"type":"string",
 							"title":"Request Body"
 						},
-						"appid":{
-							"type":"string",
-							"title":"Appid"
-						},
 						"authorization":{
 							"type":"string",
 							"title":"Authorization"
@@ -147,7 +139,7 @@
 				"isAsync":false,
 				"parameters":{
 					"requestBody":"{{ n_xY82L.outputs.body.requestBody }}",
-					"appid":"{{ n_xY82L.outputs.body.appid }}",
+					"appid":"",
 					"authorization":"{{ n_xY82L.outputs.headers.authorization }}"
 				}
 			},
@@ -199,5 +191,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
