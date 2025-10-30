@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761817121649,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_mdVcL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_dQmEZ",
+			"type":"next"
+		}
+	],
+	"id":"6903322113085040561b2a00",
+	"lastModifiedBy":175325,
+	"lcName":"delayuntil_workflowwaiting--117618146261810",
+	"modifiedTime":1761817121649,
+	"name":"delayUntil_workflowWaiting--117618146261810",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mdVcL-1",
+			"id":"_mdVcL",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_mdVcL-1",
+			"id":"_dQmEZ",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
