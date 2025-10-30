@@ -7,46 +7,192 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_HhUFY",
+			"fromNodeId":"n_gjOdn",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_5lC0P",
+			"toNodeId":"n_Mxf4A",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Mxf4A",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Mxf4A@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_Mxf4A@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HXgqs",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Mxf4A",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Mxf4A@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_Mxf4A@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mSOME",
 			"type":"next"
 		}
 	],
 	"id":"69032c64af3b295b77cbddd7",
 	"lastModifiedBy":175325,
 	"lcName":"default_branch_has_no_response_step_117618146261710",
-	"modifiedTime":1761815652555,
+	"modifiedTime":1761815664197,
 	"name":"default_branch_has_no_response_step_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1073,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_HhUFY-1",
-			"id":"_HhUFY",
-			"index":0,
+			"id":"n_gjOdn",
+			"index":1,
+			"inputs":{},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_HhUFY-1",
-			"id":"_5lC0P",
-			"index":0,
+			"id":"n_Mxf4A",
+			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Mxf4A@_HhUFY-1@1",
+			"id":"n_Mxf4A@1",
+			"index":3,
+			"inputs":{
+				"name":"Branch 1"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1109,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Mxf4A@_HhUFY-1@1",
+			"id":"n_HXgqs",
+			"index":4,
+			"inputs":{
+				"result":"cool"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Mxf4A@_HhUFY-1@2",
+			"id":"n_Mxf4A@2",
+			"index":5,
+			"inputs":{
+				"name":"Branch 2"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1109,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Mxf4A@_HhUFY-1@2",
+			"id":"n_mSOME",
+			"index":6,
+			"inputs":{
+				"result":"test"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +206,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
