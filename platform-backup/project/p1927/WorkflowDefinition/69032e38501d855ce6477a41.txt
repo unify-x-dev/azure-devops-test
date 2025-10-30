@@ -6,47 +6,84 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_DUtfa",
+			"fromNodeId":"n_qfynk",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_yuP99",
+			"toNodeId":"n_ABw3Z",
 			"type":"next"
 		}
 	],
 	"id":"69032e38501d855ce6477a41",
 	"lastModifiedBy":45010,
 	"lcName":"tierendpoint",
-	"modifiedTime":1761816120906,
+	"modifiedTime":1761816149390,
 	"name":"TierEndpoint",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1162,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DUtfa-1",
-			"id":"_DUtfa",
-			"index":0,
+			"id":"n_qfynk",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1131,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DUtfa-1",
-			"id":"_yuP99",
-			"index":0,
+			"id":"n_ABw3Z",
+			"index":2,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":45010,
 	"projectId":1927,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +97,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
