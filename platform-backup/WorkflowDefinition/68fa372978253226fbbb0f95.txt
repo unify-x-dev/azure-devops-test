@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761844723589,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761844723875,
+		"deployedBy":97258,
+		"deployedDefinitionId":"69039df3fecca3409fb21590",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":11
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_Fu2Cw",
@@ -89,20 +97,6 @@
 			"fromNodeId":"n_0RZwN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"yLem9",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"yLem9",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"a9dKG",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"a9dKG",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_tEJgY",
 			"type":"next"
 		}
@@ -110,7 +104,7 @@
 	"id":"68fa372978253226fbbb0f95",
 	"lastModifiedBy":97258,
 	"lcName":"export daily mdr",
-	"modifiedTime":1761844723589,
+	"modifiedTime":1761844955328,
 	"name":"Export Daily MDR",
 	"nodes":[
 		{
@@ -656,58 +650,6 @@
 		},
 		{
 			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":64,
-				"resourceName":"utility_by_unifyapps_create_unifyapps_path_for_file",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_5GNgh-1",
-			"id":"yLem9",
-			"index":11,
-			"inputs":{
-				"file":"{{ n_0RZwN.outputs.fileDetails }}"
-			},
-			"skip":false,
-			"subTitle":"Utility ",
-			"title":"Create UnifyApps path for file",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":63,
-				"resourceName":"storage_by_unifyapps_update_record_by_id",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_5GNgh-1",
-			"id":"a9dKG",
-			"index":12,
-			"inputs":{
-				"recordId":"{{ n_0RZwN.outputs.fileDetails.name }}",
-				"writeThroughSessionVariables":false,
-				"object_type":"settlement_export_master",
-				"skipIfBlank":false,
-				"record":{
-					"fileName":"{{ n_0RZwN.outputs.fileDetails.name }}",
-					"fileSection":"Settlement",
-					"link":"{{ yLem9.outputs.path }}",
-					"date":"{{ n_Er8Ln.outputs.properties.rowLabels }}"
-				},
-				"upsert":true
-			},
-			"skip":false,
-			"subTitle":"Storage ",
-			"title":"Update an existing record",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"callables",
 				"resourceVersion":113,
 				"resourceName":"callables_return_to_automation",
@@ -718,7 +660,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_tEJgY",
-			"index":13,
+			"index":11,
 			"inputs":{
 				"result":{
 					"response":"200"
@@ -747,5 +689,5 @@
 	"tags":[
 		"Settlement"
 	],
-	"version":11
+	"version":12
 }
