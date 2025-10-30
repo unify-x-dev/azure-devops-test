@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761814270052,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_ZDaFB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Hvhf7",
+			"type":"next"
+		}
+	],
+	"id":"690326fe501d855ce647628f",
+	"lastModifiedBy":4130,
+	"lcName":"alert | unresponsive pods ",
+	"modifiedTime":1761814270052,
+	"name":"Alert | Unresponsive Pods ",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ZDaFB-1",
+			"id":"_ZDaFB",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ZDaFB-1",
+			"id":"_Hvhf7",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":4130,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
