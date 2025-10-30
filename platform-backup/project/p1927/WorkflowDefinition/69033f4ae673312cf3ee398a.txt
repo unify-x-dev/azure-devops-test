@@ -444,7 +444,7 @@
 	"id":"69033f4ae673312cf3ee398a",
 	"lastModifiedBy":44105,
 	"lcName":"[rep-scheduler] designationobjectautomation",
-	"modifiedTime":1761822923087,
+	"modifiedTime":1761823292059,
 	"name":"[Rep-Scheduler] DesignationObjectAutomation",
 	"nodes":[
 		{
@@ -1244,6 +1244,11 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1036,
@@ -1260,42 +1265,23 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[
-						"Email",
-						"IsActive",
-						"FullName",
-						"EmployeeNumber",
-						"row_num",
-						"EmployeeId"
-					],
+					"required":[],
 					"properties":{
-						"UserName":{
+						"ReferenceNumber":{
 							"type":"string",
-							"title":"User Name"
+							"title":"Reference Number"
 						},
-						"Email":{
+						"Name":{
 							"type":"string",
-							"title":"Email"
-						},
-						"IsActive":{
-							"type":"string",
-							"title":"Is Active"
-						},
-						"FullName":{
-							"type":"string",
-							"title":"Full Name"
-						},
-						"EmployeeNumber":{
-							"type":"string",
-							"title":"Employee Number"
+							"title":"Name"
 						},
 						"row_num":{
 							"type":"integer",
 							"title":"Row Num"
 						},
-						"EmployeeId":{
+						"id":{
 							"type":"string",
-							"title":"Employee Id"
+							"title":"Id"
 						}
 					}
 				},
@@ -1314,7 +1300,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n        UserName        : payload.UserName ?: '',\n        Email           : payload.Email ?: '',\n        IsActive        : payload.IsActive ?: false,\n        FullName        : payload.FullName ?: '',\n        EmployeeNumber  : payload.EmployeeNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        EmployeeId      : payload.EmployeeId ?: ''\n    ]\nreturn result",
+				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        id         : payload.id ?: 0,\n\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1341,16 +1327,13 @@
 			"index":19,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"reps_employees",
+				"object_type":"reps_desgination",
 				"skipIfBlank":false,
 				"record":{
-					"UserName":"{{ _b3pn9.outputs.result.UserName }}",
-					"Email":"{{ _b3pn9.outputs.result.Email }}",
-					"IsActive":"{{ _b3pn9.outputs.result.IsActive }}",
-					"FullName":"{{ _b3pn9.outputs.result.FullName }}",
-					"EmployeeNumber":"{{ _b3pn9.outputs.result.EmployeeNumber }}",
+					"ReferenceNumber":"{{ _b3pn9.outputs.result.ReferenceNumber }}",
+					"Id":"{{ _b3pn9.outputs.result.id }}",
 					"row_num":"{{ _b3pn9.outputs.result.row_num }}",
-					"EmployeeId":"{{ _b3pn9.outputs.result.EmployeeId }}"
+					"Name":"{{ _b3pn9.outputs.result.Name }}"
 				}
 			},
 			"skip":false,
@@ -2659,5 +2642,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
