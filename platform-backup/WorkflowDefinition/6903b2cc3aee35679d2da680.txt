@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_N0cfQ",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_N0cfQ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dv9HF",
+			"type":"next"
 		}
 	],
 	"id":"6903b2cc3aee35679d2da680",
 	"lastModifiedBy":48069,
 	"lcName":"test",
-	"modifiedTime":1761853597522,
+	"modifiedTime":1761854449526,
 	"name":"test",
 	"nodes":[
 		{
@@ -122,6 +129,57 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.input.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1042,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_MwnQL-1",
+			"id":"n_dv9HF",
+			"index":3,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"input":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Input"
+						}
+					}
+				},
+				"code":"def transform(data) {\n    // Extract the input array\n    def input = data.input\n    \n    // Transform: remove \"columns\" wrapper and rename \"input\" to \"records\"\n    def result = [\n        records: input.collect { item ->\n            item.columns  // Extract the fields schema from each columns object\n        }\n    ]\n    \n    return result\n}\n\n// Example usage:\ndef inputData = input\n\ndef output = transform(inputData)\n\nreturn output\n\n// Output will be:\n// [records:[[id:1, name:John, email:john@example.com], [id:2, name:Jane, email:jane@example.com]]]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"input":{
+						"source":"{{ n_N0cfQ.outputs.result.objects }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_N0cfQ.outputs.result.objects[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":508,
@@ -141,5 +199,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
