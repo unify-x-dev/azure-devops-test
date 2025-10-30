@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761817104868,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_NJRwQ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_KIqui",
+			"type":"next"
+		}
+	],
+	"id":"690332102947f0567848ad5a",
+	"lastModifiedBy":175325,
+	"lcName":"delay_workflowwaiting-cancel-117618146261810",
+	"modifiedTime":1761817104868,
+	"name":"delay_workflowWaiting-cancel-117618146261810",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_NJRwQ-1",
+			"id":"_NJRwQ",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_NJRwQ-1",
+			"id":"_KIqui",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
