@@ -1,52 +1,90 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761815962688,
 	"deleted":false,
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_ZWFx6",
+			"fromNodeId":"n_n8Jok",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_QExI8",
+			"toNodeId":"n_xVwZC",
 			"type":"next"
 		}
 	],
 	"id":"69032d9a501d855ce64778f7",
 	"lastModifiedBy":175325,
 	"lcName":"storage_by_updaterecordsbyquery_mandatory117618146261810",
-	"modifiedTime":1761815962688,
+	"modifiedTime":1761815970489,
 	"name":"Storage_by_UpdateRecordsByQuery_Mandatory117618146261810",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZWFx6-1",
-			"id":"_ZWFx6",
-			"index":0,
+			"id":"n_n8Jok",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4601,
+				"resourceName":"storage_by_unifyapps_update_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZWFx6-1",
-			"id":"_QExI8",
-			"index":0,
+			"id":"n_xVwZC",
+			"index":2,
+			"inputs":{
+				"numberOfRecordsToUpdate":"SINGLE",
+				"object_type":"a50j0pg",
+				"skipIfBlank":false,
+				"updateFields":[
+					{
+						"fieldName":"properties.number_field",
+						"actionType":"SET",
+						"setValue":"100"
+					}
+				],
+				"page":{
+					"offset":0,
+					"limit":20
+				},
+				"unsetIfNull":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Update records by query",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +98,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
