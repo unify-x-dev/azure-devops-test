@@ -7,46 +7,77 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_Nk9I2",
+			"fromNodeId":"n_V81VT",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_eqDSI",
+			"toNodeId":"n_U5Jxi",
 			"type":"next"
 		}
 	],
 	"id":"69032a59e673312cf3edbd49",
 	"lastModifiedBy":175325,
 	"lcName":"parent_callable_automation_false_in_memory_actual_117618146276640",
-	"modifiedTime":1761815129582,
+	"modifiedTime":1761815138667,
 	"name":"parent_callable_automation_False_IN_MEMORY_actual_117618146276640",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Nk9I2-1",
-			"id":"_Nk9I2",
-			"index":0,
+			"id":"n_V81VT",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1128,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Nk9I2-1",
-			"id":"_eqDSI",
-			"index":0,
+			"id":"n_U5Jxi",
+			"index":2,
+			"inputs":{
+				"automationId":"69032a45e673312cf3edbc4e",
+				"runtimeConnections":{},
+				"synchronous":false,
+				"triggerWorkflowWithRuntimeType":"IN_MEMORY",
+				"version":"-1",
+				"parameters":{
+					"Input_String":"test"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +91,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
