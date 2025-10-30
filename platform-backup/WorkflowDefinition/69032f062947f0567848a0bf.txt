@@ -82,7 +82,7 @@
 	"id":"69032f062947f0567848a0bf",
 	"lastModifiedBy":175325,
 	"lcName":"adddatapillsinlogsworkflow_11761814627664",
-	"modifiedTime":1761816380555,
+	"modifiedTime":1761816387055,
 	"name":"AddDataPillsInLogsWorkflow_11761814627664",
 	"nodes":[
 		{
@@ -438,6 +438,67 @@
 				"text":"Test message",
 				"mrkdwn":true
 			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":true,
+					"logPolicies":[
+						{
+							"level":"INFO",
+							"maskedFields":[
+								
+							],
+							"message":"{{ n_urkMP.outputs.designation }} {{ n_urkMP.outputs.city }} {{ n_urkMP.outputs.salary }} {{ n_HWUOV.outputs.input_number }} {{ n_HWUOV.outputs.input_string }} {{ n_ZehWJ.inputs.assetClass }} {{ n_kUKyd.outputs.result.ans }} {{ n_osU4N.inputs.messageType }} ",
+							"onlyOnFailure":false
+						}
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
 			"skip":false,
 			"subTitle":"Slack",
 			"title":"Post message",
@@ -484,5 +545,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
