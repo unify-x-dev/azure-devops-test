@@ -270,6 +270,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_FfDqT",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_SgFtm",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_8zs5I",
 			"name":"2",
 			"priority":0,
@@ -292,7 +299,29 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_FfDqT",
+			"fromNodeId":"n_8zs5I",
+			"name":"3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8zs5I@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_8zs5I@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_bO1xa",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_bO1xa",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5BapD",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_SgFtm",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_ODo2P",
@@ -300,6 +329,13 @@
 		},
 		{
 			"fromNodeId":"n_WUvuh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ODo2P",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5BapD",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_ODo2P",
@@ -381,7 +417,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761803509269,
+	"modifiedTime":1761804487262,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -391,7 +427,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_b2pce",
@@ -472,7 +508,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_AtUPv",
@@ -605,7 +641,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_AtUPv@1",
@@ -637,7 +673,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_cbnsU",
@@ -688,7 +724,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_wjSo3",
@@ -721,7 +757,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@1",
 			"id":"n_6XhsF",
@@ -747,7 +783,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_AtUPv@2",
@@ -777,7 +813,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_DdmpD",
@@ -838,7 +874,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"n_DdmpD@1",
@@ -870,7 +906,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"n_TLmGX",
@@ -919,7 +955,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"_qvmCx",
@@ -962,7 +998,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"_QwA51",
@@ -988,7 +1024,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"n_DdmpD@2",
@@ -1020,7 +1056,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"_KT40T",
@@ -1069,7 +1105,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"_Sh0hg",
@@ -1112,7 +1148,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"_DI5pM",
@@ -1138,7 +1174,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_AtUPv@3",
@@ -1170,7 +1206,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"_b3pn9",
@@ -1253,7 +1289,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_xotUN",
@@ -1285,7 +1321,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_GBDGh",
@@ -1311,7 +1347,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_AtUPv@4",
@@ -1343,7 +1379,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_EBtW2",
@@ -1426,7 +1462,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_WQBQv",
@@ -1459,7 +1495,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_lYvBi",
@@ -1485,7 +1521,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_AtUPv@5",
@@ -1517,7 +1553,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_chvqD",
@@ -1547,7 +1583,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_chvqD@n_AtUPv@_JfTSF-1@5@y",
 			"id":"_QBhdP",
@@ -1596,7 +1632,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_chvqD@n_AtUPv@_JfTSF-1@5@y",
 			"id":"_QF5zc",
@@ -1635,7 +1671,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_chvqD@n_AtUPv@_JfTSF-1@5@y",
 			"id":"n_u71a1",
@@ -1661,7 +1697,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"n_VBVOV",
@@ -1684,7 +1720,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_AtUPv@6",
@@ -1714,7 +1750,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_8zs5I",
@@ -1758,6 +1794,24 @@
 						}
 					},
 					{
+						"id":"3",
+						"inputs":{
+							"name":"Branch 3",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_b2pce.outputs.body.payload }}",
+										"filter":{
+											"operator":"CONTAINS",
+											"value":"UserName"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
 						"id":"default"
 					}
 				]
@@ -1775,7 +1829,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"n_8zs5I@1",
@@ -1807,7 +1861,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"_uRqEu",
@@ -1893,17 +1947,76 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
+			"id":"n_SgFtm",
+			"index":36,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"string",
+							"title":"Result"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"objects"
+					],
+					"properties":{
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Objects"
+						}
+					}
+				},
+				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn result\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"objects":{
+						"source":"{{ n_FfDqT.outputs.objects }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_FfDqT.outputs.objects[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"n_8zs5I@2",
-			"index":36,
+			"index":37,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -1931,11 +2044,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"_ZT3zy",
-			"index":37,
+			"index":38,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1980,11 +2093,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"n_WUvuh",
-			"index":38,
+			"index":39,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -2017,17 +2130,141 @@
 		},
 		{
 			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
+			"id":"n_8zs5I@3",
+			"index":40,
+			"inputs":{
+				"name":"Branch 3",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_b2pce.outputs.body.payload }}",
+							"filter":{
+								"operator":"CONTAINS",
+								"value":"UserName"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
+			"id":"_bO1xa",
+			"index":41,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"UserName"
+					],
+					"properties":{
+						"UserName":{
+							"type":"string",
+							"title":"UserName"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"string",
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"return [\"UserName\" : payload[\"UserName\"]]",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Fetch User Name",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4622,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
+			"id":"n_5BapD",
+			"index":42,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_UserName",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ _bO1xa.outputs.result.UserName }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"reps_employees",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1124,
 				"resourceName":"callables_return_response_to_api",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_ODo2P",
-			"index":39,
+			"index":43,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -2046,11 +2283,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
-			"index":40,
+			"index":44,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -2080,5 +2317,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":28
 }
