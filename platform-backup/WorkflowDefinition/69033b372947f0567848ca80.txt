@@ -6,46 +6,95 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_1AErh",
+			"fromNodeId":"n_uYReq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_8FgVt",
+			"toNodeId":"n_xyfE8",
 			"type":"next"
 		}
 	],
 	"id":"69033b372947f0567848ca80",
 	"lastModifiedBy":106,
 	"lcName":"notify",
-	"modifiedTime":1761819447737,
+	"modifiedTime":1761819566762,
 	"name":"notify",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1AErh-1",
-			"id":"_1AErh",
-			"index":0,
+			"id":"n_uYReq",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"notification_by_unifyapps",
+				"resourceVersion":948,
+				"resourceName":"notification_by_unifyapps_send_notification",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1AErh-1",
-			"id":"_8FgVt",
-			"index":0,
+			"id":"n_xyfE8",
+			"index":2,
+			"inputs":{
+				"cta":{
+					"name":"Testing",
+					"type":"page",
+					"page":"e_68ced98e30b0e041fad6605c",
+					"target":"page",
+					"width":{
+						"custom":"400px"
+					}
+				},
+				"receiver":[
+					"48091"
+				],
+				"receiverType":"USER",
+				"module":"pipeline",
+				"eventType":"pipeline_alert",
+				"applicationId":"tick-labels",
+				"notificationPreviewTime":5,
+				"content":{
+					"templateId":"failed_export_notification_template",
+					"input_schema":{
+						"errorMessage":"Test"
+					}
+				},
+				"tags":[
+					"ALL"
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Notification by UnifyApps",
+			"title":"Send notification",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":106,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +108,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
