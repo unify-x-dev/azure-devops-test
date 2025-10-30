@@ -52,7 +52,7 @@
 	"id":"69035a1e0230577757109dec",
 	"lastModifiedBy":59995,
 	"lcName":"test-excel-iterate",
-	"modifiedTime":1761827830730,
+	"modifiedTime":1761828108418,
 	"name":"test-excel-iterate",
 	"nodes":[
 		{
@@ -174,11 +174,11 @@
 			"id":"n_rURFB",
 			"index":4,
 			"inputs":{
-				"startFromRow":3,
+				"startFromRow":4,
 				"consumptionBehaviour":"string",
 				"file":"{{ n_bBBin.outputs.result.file }}",
 				"useStreaming":false,
-				"headerRow":true,
+				"headerRow":false,
 				"sheetName":"Foto diaria",
 				"columns":[
 					"Llave"
@@ -248,5 +248,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
