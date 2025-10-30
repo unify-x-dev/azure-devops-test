@@ -5,12 +5,12 @@
 	"createdTime":1743418166478,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761746385909,
+		"deployedAt":1761746548271,
 		"deployedBy":602,
-		"deployedDefinitionId":"69021dd1e868e5138268baa6",
+		"deployedDefinitionId":"69021e74e868e5138268c8ab",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":73
+		"version":3,
+		"workflowVersion":75
 	},
 	"edges":[
 		{
@@ -165,7 +165,7 @@
 	"id":"67ea73366e695008ebedcdcf",
 	"lastModifiedBy":602,
 	"lcName":"knowledge indexer | github all files",
-	"modifiedTime":1761746545840,
+	"modifiedTime":1761819671073,
 	"name":"Knowledge Indexer | Github all files",
 	"nodes":[
 		{
@@ -371,7 +371,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"I3g2c-1",
 			"id":"3ZRYI",
@@ -380,10 +380,11 @@
 				"automationId":"67e390229982b026deebbee1",
 				"runtimeConnections":{},
 				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"IN_MEMORY",
 				"version":"-1",
 				"parameters":{
-					"fileId":"{{ scIHn.outputs.email }}",
-					"userEmailAddress":"{{ scIHn.outputs.email }}"
+					"userEmailAddress":"{{ scIHn.outputs.email }}",
+					"fileId":"{{ scIHn.outputs.email }}"
 				}
 			},
 			"skip":false,
@@ -750,7 +751,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"CONTINUE",
 			"groupId":"tR7xc@ehpdI@tZhxk@I3g2c-1@l@n@y",
 			"id":"_StdWM",
@@ -932,5 +933,5 @@
 	"tags":[
 		
 	],
-	"version":75
+	"version":76
 }
