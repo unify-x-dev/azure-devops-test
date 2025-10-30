@@ -30,7 +30,7 @@
 	"id":"6903b2cc3aee35679d2da680",
 	"lastModifiedBy":48069,
 	"lcName":"test",
-	"modifiedTime":1761854454277,
+	"modifiedTime":1761854566736,
 	"name":"test",
 	"nodes":[
 		{
@@ -140,7 +140,7 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.parameters.input.items"
+					"root.parameters.inputVar.items"
 				]
 			},
 			"context":{
@@ -161,22 +161,22 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"input":{
+						"inputVar":{
 							"type":"array",
 							"items":{
 								"type":"object",
 								"properties":{},
 								"additionalProperties":false
 							},
-							"title":"Input"
+							"title":"Input Var"
 						}
 					}
 				},
-				"code":"def transform(data) {\n    // Extract the input array\n    def input = data.input\n    \n    // Transform: remove \"columns\" wrapper and rename \"input\" to \"records\"\n    def result = [\n        records: input.collect { item ->\n            item.columns  // Extract the fields schema from each columns object\n        }\n    ]\n    \n    return result\n}\n\n// Example usage:\ndef inputData = input\n\ndef output = transform(inputData)\n\nreturn output\n\n// Output will be:\n// [records:[[id:1, name:John, email:john@example.com], [id:2, name:Jane, email:jane@example.com]]]",
+				"code":"def transform(data) {\n    // Extract the input array\n    def input = data.input\n    \n    // Transform: remove \"columns\" wrapper and rename \"input\" to \"records\"\n    def result = [\n        records: input.collect { item ->\n            item.columns  // Extract the fields schema from each columns object\n        }\n    ]\n    \n    return result\n}\n\n// Example usage:\ndef inputData = inputVar\n\ndef output = transform(inputData)\n\nreturn output\n\n// Output will be:\n// [records:[[id:1, name:John, email:john@example.com], [id:2, name:Jane, email:jane@example.com]]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"input":{
+					"inputVar":{
 						"source":"{{ n_N0cfQ.outputs.result.objects }}",
 						"ua:type":"mappedArray",
 						"items":"{{ n_N0cfQ.outputs.result.objects[0] }}"
@@ -221,5 +221,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
