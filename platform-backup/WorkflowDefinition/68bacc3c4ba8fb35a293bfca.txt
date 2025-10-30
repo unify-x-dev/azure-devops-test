@@ -94,7 +94,7 @@
 	"id":"68bacc3c4ba8fb35a293bfca",
 	"lastModifiedBy":45771,
 	"lcName":"generate eval export url and import node",
-	"modifiedTime":1761807077581,
+	"modifiedTime":1761807227412,
 	"name":"generate eval export URL and import node",
 	"nodes":[
 		{
@@ -104,7 +104,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"n_TKMdx",
@@ -130,7 +130,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"n_cObHu",
@@ -227,8 +227,8 @@
 						"assetClassVsAssetDetails":{
 							"ENTITY_TYPE":[
 								{
-									"assetClass":"WORKFLOW_DEFINITION",
-									"assetId":"67e11334c800297e9db42dab"
+									"assetClass":"ENTITY_TYPE",
+									"assetId":"experiment"
 								}
 							]
 						}
@@ -359,7 +359,8 @@
 					"featureDependentAssets":{
 						"name":"Eval",
 						"assetClassVsAssetDetails":{
-							"ENTITY_TYPE":[
+							"ENTITY_TYPE":[],
+							"WORKFLOW_DEFINITION":[
 								{
 									"assetClass":"WORKFLOW_DEFINITION",
 									"assetId":"67e11334c800297e9db42dab"
@@ -439,10 +440,30 @@
 												"additionalProperties":false
 											},
 											"title":"ENTITY_TYPE"
+										},
+										"WORKFLOW_DEFINITION":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"assetClass":{
+														"type":"string",
+														"title":"assetClass"
+													},
+													"assetId":{
+														"type":"string",
+														"title":"assetId"
+													}
+												},
+												"additionalProperties":false,
+												"required":[]
+											},
+											"title":"WORKFLOW_DEFINITION"
 										}
 									},
 									"title":"assetClassVsAssetDetails",
-									"additionalProperties":false
+									"additionalProperties":false,
+									"required":[]
 								}
 							},
 							"title":"featureDependentAssets",
@@ -476,7 +497,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"n_cJ3p1",
@@ -561,7 +582,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_IWfvt",
@@ -624,7 +645,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_Lsx1W",
@@ -677,7 +698,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_le5t9",
@@ -730,7 +751,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_NXSuL",
@@ -820,7 +841,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_Hk0JQ",
@@ -905,7 +926,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_nW53K",
@@ -984,5 +1005,5 @@
 	"tags":[
 		
 	],
-	"version":21
+	"version":22
 }
