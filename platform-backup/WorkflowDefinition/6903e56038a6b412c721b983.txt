@@ -81,7 +81,7 @@
 	"id":"6903e56038a6b412c721b983",
 	"lastModifiedBy":308,
 	"lcName":"loopp(copy)qa2",
-	"modifiedTime":1761863033604,
+	"modifiedTime":1761863068645,
 	"name":"loopp(copy)QA2",
 	"nodes":[
 		{
@@ -98,7 +98,20 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"input1":{
+								"type":"string",
+								"title":"Input 1"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"input1"
+						]
+					}
 				}
 			},
 			"skip":false,
@@ -272,7 +285,7 @@
 							"property":"{{ n_aEysb.outputs.i }}",
 							"filter":{
 								"operator":"LTE",
-								"value":"{{ n_PC4cE.outputs.queryParams.input1 }}"
+								"value":"{{ n_rKWKH.outputs.body.input1 }}"
 							}
 						}
 					],
@@ -583,5 +596,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
