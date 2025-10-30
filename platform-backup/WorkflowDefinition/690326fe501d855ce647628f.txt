@@ -23,7 +23,7 @@
 	"id":"690326fe501d855ce647628f",
 	"lastModifiedBy":4130,
 	"lcName":"alert | unresponsive pods ",
-	"modifiedTime":1761849171492,
+	"modifiedTime":1761849187547,
 	"name":"Alert | Unresponsive Pods ",
 	"nodes":[
 		{
@@ -111,7 +111,8 @@
 				],
 				"entityType":"API_ENDPOINT",
 				"timeFilter":{
-					"since":"="
+					"since":"=({{ hLJWh.outputs.result.epochTime }}-90000)",
+					"until":"{{ hLJWh.outputs.result.epochTime }}"
 				},
 				"group":"PLATFORM"
 			},
@@ -138,5 +139,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
