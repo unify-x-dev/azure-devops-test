@@ -5,12 +5,12 @@
 	"createdTime":1761806523318,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761811479217,
+		"deployedAt":1761812703756,
 		"deployedBy":43498,
-		"deployedDefinitionId":"69031c17501d855ce6471124",
+		"deployedDefinitionId":"690320df501d855ce6472d3c",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":5
+		"version":2,
+		"workflowVersion":6
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"690308bb4cdbea660eb2bb2e",
 	"lastModifiedBy":43498,
 	"lcName":"bill",
-	"modifiedTime":1761812676647,
+	"modifiedTime":1761812850952,
 	"name":"bill",
 	"nodes":[
 		{
@@ -71,7 +71,7 @@
 				"expression":"{{ __USER__.outputs.id }} 12 23 2 1",
 				"timezone":"Asia/Calcutta",
 				"cancel_existing":true,
-				"schedule_name":"asdf {{ __USER__.outputs.id }}{{ __USER__.outputs.name }}",
+				"schedule_name":"asdf {{ __USER__.outputs.hello }}{{ __USER__.outputs.name }}",
 				"version":"-1"
 			},
 			"skip":false,
@@ -97,5 +97,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
