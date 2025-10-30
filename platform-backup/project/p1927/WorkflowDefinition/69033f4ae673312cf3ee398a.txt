@@ -444,7 +444,7 @@
 	"id":"69033f4ae673312cf3ee398a",
 	"lastModifiedBy":44105,
 	"lcName":"[rep-scheduler] designationobjectautomation",
-	"modifiedTime":1761823292059,
+	"modifiedTime":1761823361951,
 	"name":"[Rep-Scheduler] DesignationObjectAutomation",
 	"nodes":[
 		{
@@ -496,24 +496,24 @@
 									"type":"integer",
 									"title":"Count"
 								},
-								"employee":{
-									"type":"object",
-									"properties":{},
-									"additionalProperties":false,
-									"title":"Employee"
-								},
 								"success":{
 									"type":"boolean",
 									"title":"Success"
 								},
-								"Employees":{
+								"designation":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"designation"
+								},
+								"designations":{
 									"type":"array",
 									"items":{
 										"type":"object",
 										"properties":{},
 										"additionalProperties":false
 									},
-									"title":"Employees"
+									"title":"designations"
 								}
 							},
 							"additionalProperties":false,
@@ -1358,7 +1358,8 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
-					"employee":"{{ n_xotUN.outputs.properties }}"
+					"success":true,
+					"designation":"{{ n_xotUN.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -2642,5 +2643,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
