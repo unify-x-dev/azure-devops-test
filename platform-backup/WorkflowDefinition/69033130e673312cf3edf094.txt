@@ -7,46 +7,193 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_onFRW",
+			"fromNodeId":"n_xNZN6",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_7N4iN",
+			"toNodeId":"n_KsK7w",
 			"type":"next"
 		}
 	],
 	"id":"69033130e673312cf3edf094",
 	"lastModifiedBy":175325,
 	"lcName":"logconditionfortrue_12_11761814627664",
-	"modifiedTime":1761816880241,
+	"modifiedTime":1761816892747,
 	"name":"logConditionForTrue_12_11761814627664",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_onFRW-1",
-			"id":"_onFRW",
-			"index":0,
+			"id":"n_xNZN6",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"ArrayString":{
+								"type":"array",
+								"items":{
+									"type":"string"
+								},
+								"title":"ArrayString"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"ArrayString"
+						]
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1092,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_onFRW-1",
-			"id":"_7N4iN",
-			"index":0,
+			"id":"n_KsK7w",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"input12":{
+							"type":"string",
+							"title":"input12"
+						}
+					},
+					"required":[
+						"input12"
+					]
+				}
+			},
+			"inputs":{
+				"input12":"CheckOperators"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":true,
+					"logPolicies":[
+						{
+							"filter":{
+								"filters":[
+									{
+										"filter":{
+											"operator":"GT",
+											"value":"1"
+										},
+										"property":"2"
+									}
+								],
+								"operator":"AND"
+							},
+							"level":"INFO",
+							"maskedFields":[
+								
+							],
+							"message":"{{ n_KsK7w.outputs.input12 }} ",
+							"onlyOnFailure":false
+						}
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"input12":{
+							"type":"string",
+							"title":"input12"
+						}
+					},
+					"required":[
+						"input12"
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +207,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
