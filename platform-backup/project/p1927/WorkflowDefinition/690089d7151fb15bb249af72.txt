@@ -281,7 +281,14 @@
 			"fromNodeId":"n_8zs5I@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_WPoyj",
+			"toNodeId":"_ZT3zy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_ZT3zy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WUvuh",
 			"type":"next"
 		},
 		{
@@ -292,7 +299,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_WPoyj",
+			"fromNodeId":"n_WUvuh",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_ODo2P",
@@ -374,7 +381,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761803004551,
+	"modifiedTime":1761803214061,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -1735,7 +1742,19 @@
 					{
 						"id":"2",
 						"inputs":{
-							"name":"Branch 2"
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_b2pce.outputs.body.payload }}",
+										"filter":{
+											"operator":"CONTAINS",
+											"value":"EmployeeNumber"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
@@ -1874,21 +1893,114 @@
 			"id":"n_8zs5I@2",
 			"index":36,
 			"inputs":{
-				"name":"Branch 2"
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_b2pce.outputs.body.payload }}",
+							"filter":{
+								"operator":"CONTAINS",
+								"value":"EmployeeNumber"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
-			"id":"n_WPoyj",
+			"id":"_ZT3zy",
 			"index":37,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"EmployeeNumber"
+					],
+					"properties":{
+						"EmployeeNumber":{
+							"type":"string",
+							"title":"EmployeeNumber"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"string",
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"return [\"EmployeeNumber\" : payload[\"EmployeeNumber\"]]",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Fetch Manager Employee Number",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4622,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
+			"id":"n_WUvuh",
+			"index":38,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_EmployeeNumber",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ _ZT3zy.outputs.result.EmployeeNumber }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"reps_employees",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
 		},
 		{
@@ -1903,7 +2015,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_ODo2P",
-			"index":38,
+			"index":39,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -1926,7 +2038,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
-			"index":39,
+			"index":40,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -1956,5 +2068,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
