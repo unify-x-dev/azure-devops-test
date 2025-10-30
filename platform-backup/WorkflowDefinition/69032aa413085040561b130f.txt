@@ -1,52 +1,322 @@
 {
 	"appsUsed":[
-		
+		"slack"
 	],
 	"createdTime":1761815204023,
 	"deleted":false,
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_RJZ3f",
+			"fromNodeId":"n_CqNIF",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_jVLym",
+			"toNodeId":"n_d9baw",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_d9baw",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_d9baw@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_d9baw@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ah8Yd",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_d9baw",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_d9baw@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_d9baw@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Ot3eB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ah8Yd",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ADUfK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Ot3eB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ADUfK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_d9baw",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ADUfK",
+			"type":"branch"
 		}
 	],
 	"id":"69032aa413085040561b130f",
 	"lastModifiedBy":175325,
 	"lcName":"skipping_branchcondition-117618146261270",
-	"modifiedTime":1761815204023,
+	"modifiedTime":1761815226038,
 	"name":"skipping_branchcondition-117618146261270",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RJZ3f-1",
-			"id":"_RJZ3f",
-			"index":0,
+			"id":"n_CqNIF",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RJZ3f-1",
-			"id":"_jVLym",
-			"index":0,
+			"id":"n_d9baw",
+			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"1",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"1"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"1",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"1"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_d9baw@_RJZ3f-1@1",
+			"id":"n_d9baw@1",
+			"index":3,
+			"inputs":{
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1090,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_d9baw@_RJZ3f-1@1",
+			"id":"n_ah8Yd",
+			"index":4,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"inputField":{
+							"type":"integer",
+							"title":"inputField"
+						}
+					},
+					"required":[
+						"inputField"
+					]
+				}
+			},
+			"inputs":{},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"inputField":{
+							"type":"integer",
+							"title":"inputField"
+						}
+					},
+					"required":[
+						"inputField"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_d9baw@_RJZ3f-1@2",
+			"id":"n_d9baw@2",
+			"index":5,
+			"inputs":{
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"1",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"1"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":true,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6358,
+				"connectionId":"662f8ddb91d8ba4394d0cce6",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_d9baw@_RJZ3f-1@2",
+			"id":"n_Ot3eB",
+			"index":6,
+			"inputs":{
+				"link_names":true,
+				"channel":"customChannel",
+				"mrkdwn":true
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Post message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_RJZ3f-1",
+			"id":"n_ADUfK",
+			"index":7,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +330,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
