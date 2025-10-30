@@ -7,46 +7,82 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_oyRUY",
+			"fromNodeId":"n_DROyd",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_z8wa4",
+			"toNodeId":"n_NeGKY",
 			"type":"next"
 		}
 	],
 	"id":"69032d6e13085040561b1bc0",
 	"lastModifiedBy":175325,
 	"lcName":"side_panel_breaking_117618146261710",
-	"modifiedTime":1761815918920,
+	"modifiedTime":1761815926903,
 	"name":"side_panel_breaking_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1073,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oyRUY-1",
-			"id":"_oyRUY",
-			"index":0,
+			"id":"n_DROyd",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output"
+					],
+					"properties":{
+						"output":{
+							"type":"string",
+							"title":"output"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1109,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oyRUY-1",
-			"id":"_z8wa4",
-			"index":0,
+			"id":"n_NeGKY",
+			"index":2,
+			"inputs":{
+				"result":{
+					"output":"cool"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +96,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
