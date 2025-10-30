@@ -6,47 +6,39 @@
 	"deleted":false,
 	"description":"description",
 	"edges":[
-		{
-			"fromNodeId":"_00FPq",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_QynZS",
-			"type":"next"
-		}
+		
 	],
 	"id":"69032b5b13085040561b15ce",
 	"lastModifiedBy":175325,
 	"lcName":"hugespacetagname_117618146261270",
-	"modifiedTime":1761815387181,
+	"modifiedTime":1761815392978,
 	"name":"hugeSpaceTagName_117618146261270",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_00FPq-1",
-			"id":"_00FPq",
-			"index":0,
+			"id":"n_Buegu",
+			"index":1,
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_00FPq-1",
-			"id":"_QynZS",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +52,5 @@
 	"tags":[
 		"hi mann_117618146261270"
 	],
-	"version":0
+	"version":1
 }
