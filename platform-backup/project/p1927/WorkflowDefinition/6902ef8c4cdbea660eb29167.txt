@@ -112,7 +112,7 @@
 			"fromNodeId":"n_Fsqj1@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_2IXWv",
+			"toNodeId":"n_l8j4d",
 			"type":"next"
 		},
 		{
@@ -134,7 +134,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761801226529,
+	"modifiedTime":1761801242302,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -775,15 +775,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1128,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
-			"id":"n_2IXWv",
+			"id":"n_l8j4d",
 			"index":16,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -847,5 +859,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
