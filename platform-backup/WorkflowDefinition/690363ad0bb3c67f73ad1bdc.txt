@@ -6,46 +6,116 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_qNNKO",
+			"fromNodeId":"n_GvbmM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_LTQph",
+			"toNodeId":"n_cpIJp",
 			"type":"next"
 		}
 	],
 	"id":"690363ad0bb3c67f73ad1bdc",
 	"lastModifiedBy":308,
 	"lcName":"dszfxvcb gn,",
-	"modifiedTime":1761829805416,
+	"modifiedTime":1761829876230,
 	"name":"dszfxvcb gn,",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1163,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qNNKO-1",
-			"id":"_qNNKO",
-			"index":0,
+			"id":"n_GvbmM",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"a":{
+								"type":"integer",
+								"title":"A"
+							},
+							"b":{
+								"type":"integer",
+								"title":"B"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"a",
+							"b"
+						]
+					}
+				},
+				"endpointType":"REST",
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":987,
+				"resourceName":"code_by_unifyapps_python",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qNNKO-1",
-			"id":"_LTQph",
-			"index":0,
+			"id":"n_cpIJp",
+			"index":2,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"a",
+						"b"
+					],
+					"properties":{
+						"a":{
+							"type":"integer",
+							"title":"A"
+						},
+						"b":{
+							"type":"integer",
+							"title":"B"
+						}
+					}
+				},
+				"configurationMode":"DEFAULT",
+				"code":"a+b",
+				"isAsync":false,
+				"python_version":"3.12",
+				"captureStdOutput":false,
+				"parameters":{
+					"a":"{{ n_GvbmM.outputs.body.a }}",
+					"b":"{{ n_GvbmM.outputs.body.b }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Python script",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":308,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +129,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
