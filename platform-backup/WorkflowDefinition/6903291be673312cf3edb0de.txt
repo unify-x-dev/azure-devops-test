@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761814811874,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_quBDO",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_QoYbH",
+			"type":"next"
+		}
+	],
+	"id":"6903291be673312cf3edb0de",
+	"lastModifiedBy":175325,
+	"lcName":"condition box|string input - less than or equal to 11761814627664",
+	"modifiedTime":1761814811874,
+	"name":"Condition Box|String Input - Less than or equal to 11761814627664",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_quBDO-1",
+			"id":"_quBDO",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_quBDO-1",
+			"id":"_QoYbH",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
