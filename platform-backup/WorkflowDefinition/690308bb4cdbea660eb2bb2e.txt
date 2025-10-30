@@ -1,0 +1,101 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761806523318,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761811479217,
+		"deployedBy":43498,
+		"deployedDefinitionId":"69031c17501d855ce6471124",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":5
+	},
+	"edges":[
+		{
+			"fromNodeId":"n_auVaY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9de2w",
+			"type":"next"
+		}
+	],
+	"id":"690308bb4cdbea660eb2bb2e",
+	"lastModifiedBy":43498,
+	"lcName":"bill",
+	"modifiedTime":1761812676647,
+	"name":"bill",
+	"nodes":[
+		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mJBQP-1",
+			"id":"n_auVaY",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
+			"skip":false,
+			"subTitle":"Webhook",
+			"title":"New event",
+			"trigger":{
+				"type":"WEBHOOK"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1121,
+				"resourceName":"callables_schedule_a_callable",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mJBQP-1",
+			"id":"n_9de2w",
+			"index":2,
+			"inputs":{
+				"runtimeConnections":{},
+				"schedule_type":"CRON_EXPRESSION",
+				"expression":"{{ __USER__.outputs.id }} 12 23 2 1",
+				"timezone":"Asia/Calcutta",
+				"cancel_existing":true,
+				"schedule_name":"asdf {{ __USER__.outputs.id }}{{ __USER__.outputs.name }}",
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Schedule callable",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":124029,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":6
+}
