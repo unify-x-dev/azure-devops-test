@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761689524013,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761815324691,
+		"deployedBy":308,
+		"deployedDefinitionId":"69032b1c501d855ce64771f7",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":5
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_qNiwn",
@@ -16,7 +24,7 @@
 	"id":"69013fb40d021a33e3d2674e",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerrepsschedulerfn] calculaterepssummarytimetrigger",
-	"modifiedTime":1761815206897,
+	"modifiedTime":1761815764032,
 	"name":"[virtu-emPowerRepsSchedulerFN] CalculateRepsSummaryTimeTrigger",
 	"nodes":[
 		{
@@ -32,7 +40,7 @@
 			"id":"n_qNiwn",
 			"index":1,
 			"inputs":{
-				"cron":"INTERVAL",
+				"cron":"EXPRESSION",
 				"expression":"0 0 * * *",
 				"sequential":false,
 				"timezone":"Asia/Calcutta",
@@ -58,7 +66,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_WGkj7-1",
 			"id":"n_b25XZ",
@@ -91,5 +99,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
