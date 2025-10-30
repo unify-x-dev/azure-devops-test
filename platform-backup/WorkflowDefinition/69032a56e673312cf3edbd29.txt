@@ -1,9 +1,17 @@
 {
 	"appsUsed":[
-		
+		"slack"
 	],
 	"createdTime":1761815126754,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761815139720,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69032a63501d855ce6476efe",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
@@ -12,12 +20,19 @@
 			"skip":false,
 			"toNodeId":"n_CZzFu",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CZzFu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_RhSrE",
+			"type":"next"
 		}
 	],
 	"id":"69032a56e673312cf3edbd29",
 	"lastModifiedBy":175325,
 	"lcName":"comparedeployedversions_validatedeletednode_117618146261270",
-	"modifiedTime":1761815137219,
+	"modifiedTime":1761815148544,
 	"name":"compareDeployedVersions_validateDeletedNode_117618146261270",
 	"nodes":[
 		{
@@ -110,6 +125,29 @@
 			"subTitle":"Variable by UnifyApps",
 			"title":"Create variables",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6358,
+				"connectionId":"662f8ddb91d8ba4394d0cce6",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_TbtAY-1",
+			"id":"n_RhSrE",
+			"index":3,
+			"inputs":{
+				"link_names":true,
+				"mrkdwn":true
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Post message",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
@@ -129,5 +167,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
