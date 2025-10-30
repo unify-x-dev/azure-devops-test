@@ -171,14 +171,14 @@
 			"fromNodeId":"n_LJy4I@4",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_tkvaq",
+			"toNodeId":"n_6r9Nr",
 			"type":"next"
 		}
 	],
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761806607141,
+	"modifiedTime":1761806615452,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -1044,15 +1044,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1129,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
-			"id":"n_tkvaq",
+			"id":"n_6r9Nr",
 			"index":24,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":45010,
@@ -1073,5 +1085,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
