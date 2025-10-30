@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761814262125,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_1QeSY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_TZ40R",
+			"type":"next"
+		}
+	],
+	"id":"690326f6501d855ce6476280",
+	"lastModifiedBy":122909,
+	"lcName":"exploreretryonerror",
+	"modifiedTime":1761814262125,
+	"name":"ExploreRetryOnError",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1QeSY-1",
+			"id":"_1QeSY",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1QeSY-1",
+			"id":"_TZ40R",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":122909,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
