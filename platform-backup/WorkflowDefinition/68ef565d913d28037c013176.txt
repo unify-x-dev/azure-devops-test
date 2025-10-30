@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"demo11111",
-	"modifiedTime":1761848586993,
+	"modifiedTime":1761848703283,
 	"name":"demo11111",
 	"nodes":[
 		{
@@ -472,14 +472,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_kEFgb",
 			"index":6,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"import os\n\n# Test that files are accessible\n# File_1 and File_2 are automatically provided by the system\n# They contain the local file paths after download\n\nprint(\"Testing File List functionality...\")\nprint(\"-\" * 50)\n\n# Check if File_1 exists\nprint(f\"\\n1. File_1 path: {File_1}\")\nprint(f\"   File exists: {os.path.exists(File_1)}\")\nif os.path.exists(File_1):\n    print(f\"   File size: {os.path.getsize(File_1)} bytes\")\n    print(f\"   File name: {os.path.basename(File_1)}\")\n\n# Check if File_2 exists\nprint(f\"\\n2. File_2 path: {File_2}\")\nprint(f\"   File exists: {os.path.exists(File_2)}\")\nif os.path.exists(File_2):\n    print(f\"   File size: {os.path.getsize(File_2)} bytes\")\n    print(f\"   File name: {os.path.basename(File_2)}\")\n\n# Read and display first few bytes from each file\nprint(\"\\n3. Reading file contents...\")\ntry:\n    with open(File_1, 'rb') as f:\n        content1 = f.read(100)  # Read first 100 bytes\n        print(f\"   File_1 first 100 bytes: {content1[:50]}...\")\nexcept Exception as e:\n    print(f\"   Error reading File_1: {e}\")\n\ntry:\n    with open(File_2, 'rb') as f:\n        content2 = f.read(100)  # Read first 100 bytes\n        print(f\"   File_2 first 100 bytes: {content2[:50]}...\")\nexcept Exception as e:\n    print(f\"   Error reading File_2: {e}\")\n\n# Create result object (required by the executor)\nresult = {\n    \"status\": \"success\",\n    \"message\": \"Files processed successfully\",\n    \"files_processed\": 2,\n    \"file_details\": [\n        {\n            \"file\": \"File_1\",\n            \"path\": File_1,\n            \"exists\": os.path.exists(File_1),\n            \"size\": os.path.getsize(File_1) if os.path.exists(File_1) else 0,\n            \"name\": os.path.basename(File_1) if os.path.exists(File_1) else \"N/A\"\n        },\n        {\n            \"file\": \"File_2\",\n            \"path\": File_2,\n            \"exists\": os.path.exists(File_2),\n            \"size\": os.path.getsize(File_2) if os.path.exists(File_2) else 0,\n            \"name\": os.path.basename(File_2) if os.path.exists(File_2) else \"N/A\"\n        }\n    ]\n}\n\nprint(\"\\n\" + \"-\" * 50)\nprint(\"Test completed successfully!\")",
+				"code":"# Simple PDF reading\nimport PyPDF2\n\n# Open and read PDF\nwith open(File_1, 'rb') as pdf_file:\n    pdf_reader = PyPDF2.PdfReader(pdf_file)\n    \n    # Get PDF info\n    num_pages = len(pdf_reader.pages)\n    \n    # Extract text from first page\n    first_page = pdf_reader.pages[0]\n    first_page_text = first_page.extract_text()\n    \n    result = {\n        \"total_pages\": num_pages,\n        \"first_page_text\": first_page_text[:500],  # First 500 characters\n        \"text_length\": len(first_page_text)\n    }",
 				"isAsync":false,
 				"python_version":"3.12",
 				"filesList":{
@@ -533,5 +533,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
