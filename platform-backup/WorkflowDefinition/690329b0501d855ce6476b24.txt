@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761814960438,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_8r9F2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_x4qAb",
+			"type":"next"
+		}
+	],
+	"id":"690329b0501d855ce6476b24",
+	"lastModifiedBy":175325,
+	"lcName":"webhook-admin-workflow- 117618146261270",
+	"modifiedTime":1761814960438,
+	"name":"Webhook-admin-workflow- 117618146261270",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_8r9F2-1",
+			"id":"_8r9F2",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_8r9F2-1",
+			"id":"_x4qAb",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
