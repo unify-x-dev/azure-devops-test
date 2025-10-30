@@ -7,46 +7,106 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_eBeMd",
+			"fromNodeId":"n_FWuSk",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Kr7gz",
+			"toNodeId":"n_z13nj",
 			"type":"next"
 		}
 	],
 	"id":"69032968501d855ce64769f1",
 	"lastModifiedBy":175325,
 	"lcName":"condition box|number input - is present 11761814627664",
-	"modifiedTime":1761814888574,
+	"modifiedTime":1761814899959,
 	"name":"Condition Box|Number Input - Is present 11761814627664",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1072,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_eBeMd-1",
-			"id":"_eBeMd",
-			"index":0,
+			"id":"n_FWuSk",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output_Number"
+					],
+					"properties":{
+						"output_Number":{
+							"type":"number",
+							"title":"output_Number"
+						}
+					}
+				},
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"{{ n_FWuSk.outputs.input_Number }}",
+							"filter":{
+								"operator":"EXISTS"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"input_Number"
+					],
+					"properties":{
+						"input_Number":{
+							"type":"number",
+							"title":"input_Number"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1108,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_eBeMd-1",
-			"id":"_Kr7gz",
-			"index":0,
+			"id":"n_z13nj",
+			"index":2,
+			"inputs":{
+				"result":{
+					"output_Number":"{{ n_FWuSk.outputs.input_Number }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +120,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
