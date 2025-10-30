@@ -67,29 +67,6 @@
 			"fromNodeId":"_5sHPc",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_KQlTC",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_KQlTC",
-			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_XUluB",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_KQlTC",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_0RZwN",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"_XUluB",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_0RZwN",
 			"type":"next"
 		},
@@ -111,7 +88,7 @@
 	"id":"68fa372978253226fbbb0f95",
 	"lastModifiedBy":97258,
 	"lcName":"export daily mdr",
-	"modifiedTime":1761845699156,
+	"modifiedTime":1761845716974,
 	"name":"Export Daily MDR",
 	"nodes":[
 		{
@@ -577,58 +554,6 @@
 		},
 		{
 			"context":{
-				"appName":"if_else",
-				"resourceVersion":25,
-				"resourceName":"if_else_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_5GNgh-1",
-			"id":"n_KQlTC",
-			"index":8,
-			"inputs":{
-				"filters":[
-					{
-						"property":"{{ n_G7LXj.outputs.items[0].files }}",
-						"filter":{
-							"operator":"EXISTS"
-						}
-					}
-				],
-				"operator":"AND"
-			},
-			"skip":true,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":113,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_KQlTC@_5GNgh-1@n",
-			"id":"_XUluB",
-			"index":9,
-			"inputs":{
-				"result":{
-					"response":"200"
-				}
-			},
-			"skip":true,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
-			"context":{
 				"appName":"excel_by_unifyapps",
 				"resourceVersion":40,
 				"resourceName":"excel_by_unifyapps_merge_files",
@@ -639,7 +564,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_0RZwN",
-			"index":10,
+			"index":8,
 			"inputs":{
 				"fileName":"Merchant_MDR.xlsx",
 				"keepExactFileName":true,
@@ -667,7 +592,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_cmMg7",
-			"index":11,
+			"index":9,
 			"inputs":{
 				"maxRowsPerFile":1048576,
 				"fileName":"aa",
@@ -695,7 +620,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_tEJgY",
-			"index":12,
+			"index":10,
 			"inputs":{
 				"result":{
 					"response":"200"
@@ -724,5 +649,5 @@
 	"tags":[
 		"Settlement"
 	],
-	"version":18
+	"version":19
 }
