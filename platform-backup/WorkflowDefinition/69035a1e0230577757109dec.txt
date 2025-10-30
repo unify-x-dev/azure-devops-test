@@ -40,12 +40,19 @@
 			"skip":false,
 			"toNodeId":"n_rURFB",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rURFB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_3KCBz",
+			"type":"next"
 		}
 	],
 	"id":"69035a1e0230577757109dec",
 	"lastModifiedBy":59995,
 	"lcName":"test-excel-iterate",
-	"modifiedTime":1761827624542,
+	"modifiedTime":1761827630851,
 	"name":"test-excel-iterate",
 	"nodes":[
 		{
@@ -207,6 +214,21 @@
 			"subTitle":"Break",
 			"title":"Break",
 			"type":"BREAK"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_WvKAb-1",
+			"id":"n_3KCBz",
+			"index":6,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":59995,
@@ -226,5 +248,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
