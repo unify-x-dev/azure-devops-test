@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		"gmail"
+	],
+	"createdTime":1761824759547,
+	"deleted":false,
+	"edges":[
+		
+	],
+	"id":"69034ff7141058304ee2ca82",
+	"lastModifiedBy":39712,
+	"lcName":"test (copy)1",
+	"modifiedTime":1761824759547,
+	"name":"test (copy)1",
+	"nodes":[
+		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":2967,
+				"connectionId":"6902338df9a88467aa367a7f",
+				"resourceName":"gmail_on_new_email_matching_search"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_N6D8F-1",
+			"id":"n_Zfddl",
+			"index":1,
+			"inputs":{
+				"q":"subject:\"Review required for\" OR subject:\"Check completed for\"",
+				"pageSize":1,
+				"interval":1,
+				"from":"2025-10-30T11:36:19Z",
+				"batchSize":1
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"New Email Matching Search",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		}
+	],
+	"ownerUserId":39712,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
