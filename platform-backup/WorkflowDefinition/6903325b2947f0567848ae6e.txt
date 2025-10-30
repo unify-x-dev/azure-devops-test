@@ -7,46 +7,137 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_D27MQ",
+			"fromNodeId":"n_owa2h",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_8WuWD",
+			"toNodeId":"n_PGmQM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_PGmQM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fw3d8",
 			"type":"next"
 		}
 	],
 	"id":"6903325b2947f0567848ae6e",
 	"lastModifiedBy":175325,
 	"lcName":"newversionpopup-addedchangesintestruns-11761814626181",
-	"modifiedTime":1761817179704,
+	"modifiedTime":1761817200270,
 	"name":"newVersionPopUp-addedChangesInTestRuns-11761814626181",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_D27MQ-1",
-			"id":"_D27MQ",
-			"index":0,
+			"id":"n_owa2h",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"input":{
+								"type":"string",
+								"title":"input"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"input"
+						]
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1092,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_D27MQ-1",
-			"id":"_8WuWD",
-			"index":0,
+			"id":"n_PGmQM",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"inputField":{
+							"type":"string",
+							"title":"inputField"
+						}
+					},
+					"required":[
+						"inputField"
+					]
+				}
+			},
+			"inputs":{},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"inputField":{
+							"type":"string",
+							"title":"inputField"
+						}
+					},
+					"required":[
+						"inputField"
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_D27MQ-1",
+			"id":"n_fw3d8",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +151,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":2
 }
