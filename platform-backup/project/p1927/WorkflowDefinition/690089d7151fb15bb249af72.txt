@@ -309,11 +309,11 @@
 			"fromNodeId":"n_WUvuh",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_mFymC",
+			"toNodeId":"_rQOpt",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_mFymC",
+			"fromNodeId":"_rQOpt",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_sg3FX",
@@ -345,11 +345,11 @@
 			"fromNodeId":"n_5BapD",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Q21kB",
+			"toNodeId":"_ON0iY",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_Q21kB",
+			"fromNodeId":"_ON0iY",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_E94BK",
@@ -452,7 +452,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761804675457,
+	"modifiedTime":1761804704801,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -2069,6 +2069,13 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"Employees":{
+						"source":"{{ n_SgFtm.outputs.result.employees }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_SgFtm.outputs.result.employees[0] }}"
+					}
+				},
 				"status":200
 			},
 			"skip":false,
@@ -2211,7 +2218,7 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
-			"id":"_mFymC",
+			"id":"_rQOpt",
 			"index":41,
 			"inputs":{
 				"output":{
@@ -2219,9 +2226,14 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"result":{
-							"type":"string",
-							"title":"Result"
+						"employees":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"employees"
 						}
 					}
 				},
@@ -2243,7 +2255,7 @@
 						}
 					}
 				},
-				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn result\n",
+				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn [\"employees\": result]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -2417,7 +2429,7 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
-			"id":"_Q21kB",
+			"id":"_ON0iY",
 			"index":46,
 			"inputs":{
 				"output":{
@@ -2425,9 +2437,14 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"result":{
-							"type":"string",
-							"title":"Result"
+						"employees":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"employees"
 						}
 					}
 				},
@@ -2449,7 +2466,7 @@
 						}
 					}
 				},
-				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn result\n",
+				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn [\"employees\": result]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -2553,5 +2570,5 @@
 	"tags":[
 		
 	],
-	"version":29
+	"version":30
 }
