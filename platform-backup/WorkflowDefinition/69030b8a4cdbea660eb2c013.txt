@@ -1,51 +1,78 @@
 {
 	"appsUsed":[
-		
+		"slack"
 	],
 	"createdTime":1761807242063,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_84rEB",
+			"fromNodeId":"n_5E1gV",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_87dPZ",
+			"toNodeId":"n_nrCNp",
 			"type":"next"
 		}
 	],
 	"id":"69030b8a4cdbea660eb2c013",
 	"lastModifiedBy":426,
 	"lcName":"dnd",
-	"modifiedTime":1761807242063,
+	"modifiedTime":1761807269069,
 	"name":"dnd",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_84rEB-1",
-			"id":"_84rEB",
-			"index":0,
+			"id":"n_5E1gV",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":2907,
+				"connectionId":"6901e04d75b0c3591d0c17bb",
+				"resourceName":"slack_edit_message_in_channel",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_84rEB-1",
-			"id":"_87dPZ",
-			"index":0,
+			"id":"n_nrCNp",
+			"index":2,
+			"inputs":{
+				"link_names":true,
+				"channel":"asass",
+				"ts":"asaas"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Slack",
+			"title":"Edit message",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":426,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +86,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
