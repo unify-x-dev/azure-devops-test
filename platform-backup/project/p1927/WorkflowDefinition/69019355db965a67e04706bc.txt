@@ -213,7 +213,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761841512831,
+	"modifiedTime":1761841604434,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -232,7 +232,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Yq92w",
@@ -298,7 +298,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_AtUPv",
@@ -431,7 +431,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_AtUPv@1",
@@ -463,7 +463,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_6XhsF",
@@ -486,7 +486,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@2",
 			"id":"n_AtUPv@2",
@@ -518,7 +518,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@2",
 			"id":"n_8TAQ3",
@@ -541,7 +541,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_AtUPv@3",
@@ -566,6 +566,11 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1037,
@@ -587,13 +592,31 @@
 							"type":"integer",
 							"title":"Importance"
 						},
+						"Recipients":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"Status":{
+										"type":"integer",
+										"title":"Status"
+									},
+									"RecipientTypes":{
+										"type":"integer",
+										"title":"RecipientTypes"
+									},
+									"Email":{
+										"type":"string",
+										"title":"Email"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"Recipients"
+						},
 						"CreatedDate":{
 							"type":"string",
 							"title":"CreatedDate"
-						},
-						"Practice":{
-							"type":"string",
-							"title":"Practice"
 						},
 						"Id":{
 							"type":"integer",
@@ -641,6 +664,13 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.Recipients.items.Status",
+					"root.record.Recipients.items.Email",
+					"root.record.Recipients.items.RecipientTypes"
+				]
+			},
 			"context":{
 				"appName":"storage_by_unifyapps",
 				"resourceVersion":4619,
@@ -648,7 +678,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_7TjK9",
@@ -664,7 +694,15 @@
 					"Importance":"{{ _eJ7rD.outputs.result.Importance }}",
 					"CreatedDate":"{{ _eJ7rD.outputs.result.CreatedDate }}",
 					"FromEmail":"{{ _eJ7rD.outputs.result.FromEmail }}",
-					"Practice":"{{ _eJ7rD.outputs.result.Practice }}"
+					"Recipients":{
+						"source":"{{ _eJ7rD.outputs.result.Recipients }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"Status":"{{ _eJ7rD.outputs.result.Recipients[0].Status }}",
+							"Email":"{{ _eJ7rD.outputs.result.Recipients[0].Email }}",
+							"RecipientTypes":"{{ _eJ7rD.outputs.result.Recipients[0].RecipientTypes }}"
+						}
+					}
 				}
 			},
 			"skip":false,
@@ -680,7 +718,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_Th4Q2",
@@ -706,7 +744,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_AtUPv@4",
@@ -731,6 +769,11 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1037,
@@ -752,13 +795,31 @@
 							"type":"integer",
 							"title":"Importance"
 						},
+						"Recipients":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"Status":{
+										"type":"integer",
+										"title":"Status"
+									},
+									"RecipientTypes":{
+										"type":"integer",
+										"title":"RecipientTypes"
+									},
+									"Email":{
+										"type":"string",
+										"title":"Email"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"Recipients"
+						},
 						"CreatedDate":{
 							"type":"string",
 							"title":"CreatedDate"
-						},
-						"Practice":{
-							"type":"string",
-							"title":"Practice"
 						},
 						"Id":{
 							"type":"integer",
@@ -813,7 +874,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_OfBCn",
@@ -885,7 +946,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_lYvBi",
@@ -911,7 +972,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@5",
 			"id":"n_AtUPv@5",
@@ -943,7 +1004,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@5",
 			"id":"n_VBVOV",
@@ -966,7 +1027,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_AtUPv@6",
@@ -1003,7 +1064,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_XWNsV",
@@ -1017,24 +1078,47 @@
 							"type":"integer",
 							"title":"Importance"
 						},
-						"Include":{
+						"Recipients":{
 							"type":"array",
 							"items":{
-								"type":"string"
+								"type":"object",
+								"properties":{
+									"Status":{
+										"type":"integer",
+										"title":"Status"
+									},
+									"RecipientTypes":{
+										"type":"integer",
+										"title":"RecipientTypes"
+									},
+									"Email":{
+										"type":"string",
+										"title":"Email"
+									}
+								},
+								"additionalProperties":false
 							},
-							"title":"Include"
+							"title":"Recipients"
 						},
-						"OrderBy":{
+						"CreatedDate":{
 							"type":"string",
-							"title":"OrderBy"
+							"title":"CreatedDate"
 						},
-						"Skip":{
+						"Id":{
 							"type":"integer",
-							"title":"Skip"
+							"title":"Id"
 						},
-						"Take":{
-							"type":"integer",
-							"title":"Take"
+						"FromEmail":{
+							"type":"string",
+							"title":"FromEmail"
+						},
+						"Subject":{
+							"type":"string",
+							"title":"Subject"
+						},
+						"MessageBody":{
+							"type":"string",
+							"title":"MessageBody"
 						}
 					}
 				},
@@ -1073,7 +1157,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_vdWy7",
@@ -1123,7 +1207,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"_rQOpt",
@@ -1187,7 +1271,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_ODo2P",
@@ -1213,7 +1297,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Km2Dj",
@@ -1247,5 +1331,5 @@
 	"tags":[
 		
 	],
-	"version":20
+	"version":21
 }
