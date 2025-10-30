@@ -5,12 +5,12 @@
 	"createdTime":1761844723589,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761845316561,
+		"deployedAt":1761845431693,
 		"deployedBy":97258,
-		"deployedDefinitionId":"6903a044375e90227a684bba",
+		"deployedDefinitionId":"6903a0b7375e90227a684bfd",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":16
+		"version":5,
+		"workflowVersion":17
 	},
 	"edges":[
 		{
@@ -97,6 +97,13 @@
 			"fromNodeId":"n_0RZwN",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_cmMg7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_cmMg7",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_tEJgY",
 			"type":"next"
 		}
@@ -104,7 +111,7 @@
 	"id":"68fa372978253226fbbb0f95",
 	"lastModifiedBy":97258,
 	"lcName":"export daily mdr",
-	"modifiedTime":1761845429741,
+	"modifiedTime":1761845699156,
 	"name":"Export Daily MDR",
 	"nodes":[
 		{
@@ -114,7 +121,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_Fu2Cw",
@@ -148,7 +155,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_Er8Ln",
@@ -172,7 +179,7 @@
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
 			"type":"ACTION"
@@ -190,7 +197,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_3MSiP",
@@ -216,7 +223,7 @@
 				"query":"SELECT \n    _pr_partner_gl\nFROM \n    ENTITY_merchant_mdr\nWHERE _pr_rowLabels = '{{ n_Er8Ln.outputs.properties.rowLabels }}'\nGROUP BY \n    _pr_partner_gl;\n",
 				"group":"ENTITY_REPORTING"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Analytics ",
 			"title":"Execute Analytics SQL Query",
 			"type":"ACTION"
@@ -229,7 +236,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_G7LXj",
@@ -489,7 +496,7 @@
 					}
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable ",
 			"title":"Create list",
 			"type":"ACTION"
@@ -502,7 +509,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"_5sHPc",
@@ -512,7 +519,7 @@
 				"listSource":"{{ n_3MSiP.outputs.objects }}",
 				"captureIterations":true
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Loop",
 			"title":"For each loop",
 			"type":"LOOP"
@@ -525,7 +532,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5sHPc@_5GNgh-1@l",
 			"id":"n_XMOJq",
@@ -538,7 +545,7 @@
 				"fileType":"XLSX",
 				"group":"ENTITY_REPORTING"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Analytics ",
 			"title":"Export SQL Query Result",
 			"type":"ACTION"
@@ -551,7 +558,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5sHPc@_5GNgh-1@l",
 			"id":"n_fsTtn",
@@ -563,7 +570,7 @@
 				"insertLocation":"END",
 				"listName":"{{ n_G7LXj.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Variable ",
 			"title":"Add item to list",
 			"type":"ACTION"
@@ -576,7 +583,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_KQlTC",
@@ -592,7 +599,7 @@
 				],
 				"operator":"AND"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Condition",
 			"title":"Condition",
 			"type":"IF_ELSE"
@@ -605,7 +612,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_KQlTC@_5GNgh-1@n",
 			"id":"_XUluB",
@@ -615,7 +622,7 @@
 					"response":"200"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
@@ -628,7 +635,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_0RZwN",
@@ -643,9 +650,37 @@
 					"items":"{{ n_G7LXj.outputs.items[0].files }}"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Excel ",
 			"title":"Merge multiple excel files into one file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4642,
+				"resourceName":"storage_by_unifyapps_export_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_5GNgh-1",
+			"id":"n_cmMg7",
+			"index":11,
+			"inputs":{
+				"maxRowsPerFile":1048576,
+				"fileName":"aa",
+				"object_type":"merchant_mdr",
+				"format":"MM/dd/yyyy",
+				"recordsBatchSize":100,
+				"writeToMultipleFilesIfOverflow":false,
+				"keepExactFileName":false,
+				"fileType":"XLSX"
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Export records",
 			"type":"ACTION"
 		},
 		{
@@ -660,7 +695,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
 			"id":"n_tEJgY",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"result":{
 					"response":"200"
@@ -689,5 +724,5 @@
 	"tags":[
 		"Settlement"
 	],
-	"version":17
+	"version":18
 }
