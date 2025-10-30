@@ -1,52 +1,84 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761815787266,
 	"deleted":false,
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_DpQU9",
+			"fromNodeId":"n_VRcbu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_HG2JG",
+			"toNodeId":"n_Eg6SK",
 			"type":"next"
 		}
 	],
 	"id":"69032ceb13085040561b1a94",
 	"lastModifiedBy":175325,
 	"lcName":"storage_by_updaterecordbyidmandatoryfieldupsertfalse117618146261810",
-	"modifiedTime":1761815787266,
+	"modifiedTime":1761815794780,
 	"name":"Storage_by_UpdateRecordByIDMandatoryFieldUpsertFalse117618146261810",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DpQU9-1",
-			"id":"_DpQU9",
-			"index":0,
+			"id":"n_VRcbu",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4511,
+				"resourceName":"storage_by_unifyapps_update_record_by_id",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DpQU9-1",
-			"id":"_HG2JG",
-			"index":0,
+			"id":"n_Eg6SK",
+			"index":2,
+			"inputs":{
+				"recordId":"Field2",
+				"writeThroughSessionVariables":false,
+				"object_type":"agjt14f",
+				"skipIfBlank":false,
+				"record":{
+					"string_field":"Field2",
+					"number_field":111
+				},
+				"upsert":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Update an existing record",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +92,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
