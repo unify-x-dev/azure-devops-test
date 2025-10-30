@@ -37,7 +37,7 @@
 	"id":"6902e7624cdbea660eb287df",
 	"lastModifiedBy":155341,
 	"lcName":"test2",
-	"modifiedTime":1761803263818,
+	"modifiedTime":1761817982256,
 	"name":"test2",
 	"nodes":[
 		{
@@ -69,8 +69,8 @@
 		{
 			"context":{
 				"appName":"files_by_unifyapps",
-				"resourceVersion":970,
-				"resourceName":"files_by_unifyapps_upload_file",
+				"resourceVersion":906,
+				"resourceName":"files_by_unifyapps_get_file",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -80,13 +80,12 @@
 			"id":"n_kDCMC",
 			"index":2,
 			"inputs":{
-				"fileName":"File.pdf",
-				"url":"https://drive.google.com/uc?export=download&id=12whNJKABcs9GFOqVqz3qwX8L1dt9nvet",
-				"option":"url"
+				"getFromCloudStorage":true,
+				"localFilePath":"/1/workflow_uploads/temp.txt"
 			},
 			"skip":true,
 			"subTitle":"Files by UnifyApps",
-			"title":"Upload file",
+			"title":"Get File",
 			"type":"ACTION"
 		},
 		{
@@ -144,7 +143,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
 			"id":"n_UyLu3",
@@ -177,5 +176,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":9
 }
