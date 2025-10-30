@@ -163,6 +163,13 @@
 			"fromNodeId":"n_Fsqj1@3",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_hqSfX",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hqSfX",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_NFG0A",
 			"type":"next"
 		},
@@ -220,7 +227,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761815573124,
+	"modifiedTime":1761815624824,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -1121,6 +1128,65 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1039,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Fsqj1@_9MF0g-1@3",
+			"id":"n_hqSfX",
+			"index":22,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"tierId",
+						"employeeId"
+					],
+					"properties":{
+						"tierId":{
+							"type":"string",
+							"title":"Tier Id"
+						},
+						"employeeId":{
+							"type":"string",
+							"title":"Employee Id"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"def result = [\n  \"tierId\": payload.tierId,\n  \"employeeId\": payload.employeeId\n]\nreturn result",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_864tN.outputs.body.payload }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1128,
 				"resourceName":"callables_return_response_to_api",
@@ -1131,7 +1197,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_NFG0A",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1154,7 +1220,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_9MF0g-1",
 			"id":"n_bcbd8",
-			"index":23,
+			"index":24,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1184,5 +1250,5 @@
 	"tags":[
 		
 	],
-	"version":39
+	"version":40
 }
