@@ -14,9 +14,9 @@
 		}
 	],
 	"id":"690326f6501d855ce6476280",
-	"lastModifiedBy":122909,
+	"lastModifiedBy":161877,
 	"lcName":"exploreretryonerror",
-	"modifiedTime":1761814398526,
+	"modifiedTime":1761814807725,
 	"name":"ExploreRetryOnError",
 	"nodes":[
 		{
@@ -26,7 +26,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_1QeSY-1",
 			"id":"n_cPNL7",
@@ -114,7 +114,7 @@
 				},
 				"retryConfig":{
 					"backOffFactor":1.0,
-					"captureRetries":false,
+					"captureRetries":true,
 					"count":3,
 					"enabled":true,
 					"initialDelay":1000,
@@ -126,6 +126,9 @@
 					"metricConfigs":[
 						
 					]
+				},
+				"timeoutConfig":{
+					"enabled":false
 				}
 			},
 			"skip":false,
@@ -151,5 +154,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
