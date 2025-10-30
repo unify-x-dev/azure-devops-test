@@ -15,7 +15,7 @@
 	"description":"",
 	"edges":[
 		{
-			"fromNodeId":"n_0ygho",
+			"fromNodeId":"n_Te3hv",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_dKGmC",
@@ -83,7 +83,7 @@
 	"id":"667002049f30076b83e4e908",
 	"lastModifiedBy":504,
 	"lcName":"hatimtest-01",
-	"modifiedTime":1761815420050,
+	"modifiedTime":1761815440742,
 	"name":"hatimtest-01",
 	"nodes":[
 		{
@@ -96,13 +96,11 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"zUJsk-1",
-			"id":"n_0ygho",
+			"id":"n_Te3hv",
 			"index":1,
 			"inputs":{
-				"cron":"EXPRESSION",
-				"expression":"0 0 * * *",
+				"cron":"INTERVAL",
 				"sequential":false,
-				"timezone":"Asia/Calcutta",
 				"interval":15,
 				"frequency":"MINUTES"
 			},
@@ -295,5 +293,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":1043
+	"version":1044
 }
