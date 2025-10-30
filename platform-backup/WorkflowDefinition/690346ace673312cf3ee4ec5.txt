@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761822380994,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_0zFb6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_gDw82",
+			"type":"next"
+		}
+	],
+	"id":"690346ace673312cf3ee4ec5",
+	"lastModifiedBy":190505,
+	"lcName":"sheet_extraction",
+	"modifiedTime":1761822380994,
+	"name":"sheet_extraction",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_0zFb6-1",
+			"id":"_0zFb6",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_0zFb6-1",
+			"id":"_gDw82",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":190505,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		"practice"
+	],
+	"version":0
+}
