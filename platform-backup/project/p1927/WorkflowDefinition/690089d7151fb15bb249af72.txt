@@ -452,7 +452,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761804704801,
+	"modifiedTime":1761804721504,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -2287,6 +2287,13 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"Employees":{
+						"source":"{{ _rQOpt.outputs.result.employees }}",
+						"ua:type":"mappedArray",
+						"items":"{{ _rQOpt.outputs.result.employees[0] }}"
+					}
+				},
 				"status":200
 			},
 			"skip":false,
@@ -2498,6 +2505,13 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"Employees":{
+						"source":"{{ _ON0iY.outputs.result.employees }}",
+						"ua:type":"mappedArray",
+						"items":"{{ _ON0iY.outputs.result.employees[0] }}"
+					}
+				},
 				"status":200
 			},
 			"skip":false,
@@ -2570,5 +2584,5 @@
 	"tags":[
 		
 	],
-	"version":30
+	"version":31
 }
