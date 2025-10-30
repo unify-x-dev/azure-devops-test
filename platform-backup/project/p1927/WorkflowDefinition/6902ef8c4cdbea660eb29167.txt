@@ -5,12 +5,12 @@
 	"createdTime":1761800076974,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761817269950,
+		"deployedAt":1761817470455,
 		"deployedBy":45010,
-		"deployedDefinitionId":"690332b5501d855ce6478827",
+		"deployedDefinitionId":"6903337e13085040561b2e0e",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":44
+		"version":6,
+		"workflowVersion":46
 	},
 	"edges":[
 		{
@@ -234,7 +234,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761817468345,
+	"modifiedTime":1761817690673,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -566,7 +566,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n  \"EmployeeNumber\": payload.EmployeeNumber,\n]\nreturn result",
+				"code":"return [\"EmployeeNumber\" : payload[\"EmployeeNumber\"]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -721,7 +721,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n  \"EmployeeId\": payload.EmployeeId,\n]\nreturn result",
+				"code":"return [\"EmployeeId\": payload.EmployeeId]\n\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -876,7 +876,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n  \"ReferenceNumber\": payload.ReferenceNumber,\n]\nreturn result",
+				"code":"return [\"ReferenceNumber\": payload.ReferenceNumber]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1141,7 +1141,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_hqSfX",
@@ -1285,5 +1285,5 @@
 	"tags":[
 		
 	],
-	"version":46
+	"version":47
 }
