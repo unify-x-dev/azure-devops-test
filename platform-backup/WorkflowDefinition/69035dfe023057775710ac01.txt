@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		"google_vertex_ai"
+		
 	],
 	"createdTime":1761828350595,
 	"deleted":false,
@@ -23,33 +23,11 @@
 			"fromNodeId":"n_qgnvt",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_yZkGe",
+			"toNodeId":"n_8Rsxj",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_yZkGe",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_d2DoN",
-			"type":"loop"
-		},
-		{
-			"fromNodeId":"_d2DoN",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_516Eb",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_516Eb",
-			"name":"loopback",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_yZkGe",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_yZkGe",
+			"fromNodeId":"n_8Rsxj",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_Jnf6o",
@@ -59,7 +37,7 @@
 	"id":"69035dfe023057775710ac01",
 	"lastModifiedBy":508,
 	"lcName":"test",
-	"modifiedTime":1761828504586,
+	"modifiedTime":1761828522809,
 	"name":"test",
 	"nodes":[
 		{
@@ -69,7 +47,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
 			"id":"n_f23oE",
@@ -95,7 +73,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
 			"id":"n_YMRC8",
@@ -131,7 +109,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
 			"id":"n_qgnvt",
@@ -180,294 +158,55 @@
 		},
 		{
 			"context":{
-				"appName":"loop",
+				"appName":"analytics_by_unifyapps",
 				"resourceVersion":13,
-				"resourceName":"loop_for_each",
+				"resourceName":"analytics_by_unifyapps_query_reports",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
-			"id":"n_yZkGe",
+			"id":"n_8Rsxj",
 			"index":4,
 			"inputs":{
-				"repeatMode":"SINGLE",
-				"listSource":"{{ n_8Rsxj.outputs.objects }}",
-				"captureIterations":true
-			},
-			"skip":false,
-			"subTitle":"Loop",
-			"title":"For loop",
-			"type":"LOOP"
-		},
-		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.payload.generationConfig.temperature",
-					"root.payload.generationConfig.topP",
-					"root.payload.generationConfig.topK",
-					"root.payload.generationConfig.responseMimeType",
-					"root.payload.generationConfig.responseLogprobs",
-					"root.payload.labelsArray.items.key",
-					"root.payload.labelsArray.items.value"
-				]
-			},
-			"context":{
-				"appName":"google_vertex_ai",
-				"resourceVersion":139,
-				"connectionId":"68b83584e0932e54ca71ae50",
-				"resourceName":"google_vertex_ai_generate_content",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_yZkGe@_GFBpc-1@l",
-			"id":"_d2DoN",
-			"index":5,
-			"inputs":{
-				"payload":{
-					"contents":[
+				"projections":[
+					{
+						"name":"ENTITY_transcript_analysis_interview_analysis=::=interviewerFullName",
+						"aggregationFunction":"GROUP",
+						"includePercentageChange":false
+					},
+					{
+						"name":"ENTITY_transcript_analysis_interview_analysis=::=ID",
+						"aggregationFunction":"COUNT",
+						"includePercentageChange":false
+					}
+				],
+				"filter":{
+					"filters":[
 						{
-							"parts":[
-								{
-									"contentType":"text",
-									"text":"You are a Bar Raiser interview quality expert. Your task is to analyze interview data and generate a structured JSON object containing all calculated metrics and feedback text.\n\nHere is the necessary objects list : {{ n_sT3EH.outputs.items }}\nhere is the name of the interviewer{{ n_yZkGe.outputs.item }}\n\nRequired Output\n{<br> \"interviewer_name\": \"string\",<br> \"candidates\": [\"name1\", \"name2\", ...],<br> \"oldest_interview_date\": \"YYYY-MM-DD\",<br> \"newest_interview_date\": \"YYYY-MM-DD\", <br> \"date_range\": \"YYYY-MM-DD to YYYY-MM-DD\",<br> \"total_interviews\": number,<br> \"interviews_in_scope\": number,<br> \"pass_rate\": number,<br> \"pass_rate_vs_target\": \"X% -- Target: 50%\",<br> \"avg_talk_time_percent\": number,<br> \"talk_time_analysis\": \"string\",<br> \"probing_level_category\": \"Low|Moderate|High\",<br> \"avg_follow_ups\": number,<br> \"specialisation_analysis\": \"string\",<br> \"interview_outcomes\": [<br> {<br> \"candidate\": \"name\",<br> \"interviewer_result\": \"PASS|FAIL\",<br> \"llm_result\": \"PASS|FAIL\"<br> }<br> ],<br> \"outcome_comparisons\": \"formatted string\",<br> \"avg_playbook_adherence\": number,<br> \"who_section_adherence\": \"string\",<br> \"culture_section_adherence\": \"string\",<br> \"missed_questions\": \"string\",<br> \"outside_content\": \"string\",<br> \"playbook_feedback\": \"string\",<br> \"culture_feedback\": \"string\",<br> \"questioning_feedback\": \"string\",<br> \"talk_time_feedback\": \"string\"<br>}\n\nBar Raiser Interview Feedback JSON Generator\n\n\nCalculation Instructions\nBasic Metrics\ninterviewer_name: Extract from provided input\ncandidates: Array of all candidateFullName values from items\noldest_interview_date: Earliest scheduledDate from items\nnewest_interview_date: Latest scheduledDate from items\ndate_range: Format as \"oldest_date to newest_date\"\ntotal_interviews: Count of all items in array\ninterviews_in_scope: Count of interviews with overallTranscriptReliabilityScore >= 3\npass_rate: Calculate based on interviewer's pass/fail decisions (you'll need to infer from context)\npass_rate_vs_target: Format as \"X% -- Target: 50%\"\nTalk Time Analysis\navg_talk_time_percent: Extract interviewer percentage from talkTimeDistributionInterviewerCandidatePercent\nParse \"Interviewer X%\" format\nIf range given (e.g., \"20-30%\"), use midpoint\ntalk_time_analysis: Generate based on average:\n45%: \"The interviewer talks an average of X% of the time, which is on the higher side and may limit candidate expression.\"\n30-45%: \"The interviewer maintains an acceptable balance with X% talk time, though there's room for improvement.\"\n<30%: \"The interviewer effectively allows candidates to speak, with only X% interviewer talk time.\"\nProbing Analysis\navg_follow_ups: Average of numberOfActiveProbes across all interviews\nprobing_level_category:\nLow: avg < 3\nModerate: avg 3-5\nHigh: avg > 5\nSpecialisation Analysis\nspecialisation_analysis: Analyze depth patterns across interviews\nLook at getItDoneDepth, neverSettleDepth, deliverWowDepth\nExample: \"The interviewer demonstrates moderate depth in execution challenges ('get it done'), moderate depth in continuous improvement ('never settle'), and high depth in excellence evaluation ('deliver wow').\"\nInterview Outcomes\ninterview_outcomes: Array of objects for each interview\noutcome_comparisons: String format \"Interviewer:PASS -- LLM:FAIL,Interviewer:FAIL -- LLM:PASS,...\"\nNote: Since actual pass/fail isn't in data, infer from red_flags_percent and good_flags_percent:\nIf good_flags > 70% and red_flags < 30%: likely PASS\nOtherwise: likely FAIL\nPlaybook Adherence\navg_playbook_adherence: Average of playbook_adherence_percent across all interviews\nwho_section_adherence: Analyze who_questions_unasked patterns\nCount frequency of missed question types\nExample: \"The interviewer frequently missed 'How' questions (3 of 4 interviews) and 'What' questions (2 of 4 interviews), indicating gaps in behavioral evidence gathering.\"\nculture_section_adherence: Analyze culture_questions_unasked patterns\nExample: \"Culture fit questions were consistently missed across all interviews, particularly 'Get It Done' and 'Deliver Wow' assessments.\"\nContent Analysis\nmissed_questions: Aggregate most frequently unasked questions from who_questions_unasked and culture_questions_unasked\nExample: \"Commonly missed: peer rating questions, specific feedback received, impact measurement, career progression speed, and all culture value assessments.\"\noutside_content: Identify patterns from missedOpportunities and general interview focus\nExample: \"The interviewer tends to focus on technical details and project specifics rather than behavioral evidence and cultural alignment.\"\nFeedback Generation\nplaybook_feedback\nBased on adherence percentage:\n<60%: \"Critical improvement needed. The interviewer must thoroughly review and practice the Bar Raiser Playbook, focusing on covering all required question categories.\"\n60-79%: \"The interviewer should strengthen playbook adherence by ensuring all WHO and Culture sections are systematically covered.\"\n80%+: \"Good playbook adherence with room for minor improvements in consistency.\"\nculture_feedback\nBased on culture_questions_unasked patterns:\nIf consistently missed: \"The interviewer must prioritize culture fit evaluation by incorporating Get It Done, Deliver Wow, and Never Settle questions into every interview.\"\nIf partially missed: \"Focus on integrating more culture-specific questions, particularly around [specific missed areas].\"\nquestioning_feedback\nBased on avg_follow_ups and evidenceOfActiveProbingChallenge:\nLow probing: \"Develop deeper behavioral questioning skills. Use more follow-up questions like 'How specifically did you...?' and 'What was the measurable impact?'\"\nModerate probing: \"Good questioning foundation. Enhance by pushing for more specific examples and quantifiable outcomes.\"\nHigh probing: \"Excellent questioning depth. Continue challenging candidates while maintaining balance.\"\ntalk_time_feedback\nBased on avg_talk_time_percent:\n45%: \"Reduce interviewer talk time significantly. Use more open-ended questions and allow longer pauses for candidate responses.\"\n30-45%: \"Talk time is acceptable but could be optimized. Consider shorter question framing and more listening time.\"\n<30%: \"Excellent talk time balance. Continue allowing candidates ample space to elaborate.\"\nCritical Requirements\nOutput MUST be valid JSON only - no text before or after\nAll numbers must be numeric types (not strings)\nPercentages as numbers (85.5, not \"85.5%\") except in formatted strings\nDates in YYYY-MM-DD format\nGenerate specific, actionable feedback\nHandle missing data gracefully (use null or appropriate defaults)\nEnsure all arrays and strings are properly formatted\n\nDO NOT include any text outside the JSON structure"
-								}
-							],
-							"role":"user"
+							"property":"ENTITY_transcript_analysis_interview_analysis=::=CREATED_TIME",
+							"filter":{
+								"operator":"GTE",
+								"value":"{{ n_qgnvt.outputs.last_job_time }}"
+							}
+						},
+						{
+							"property":"ENTITY_transcript_analysis_interview_analysis=::=CREATED_TIME",
+							"filter":{
+								"operator":"LT",
+								"value":"{{ n_YMRC8.outputs.result.millis }}"
+							}
 						}
 					],
-					"systemInstruction":{
-						"parts":[]
-					},
-					"generationConfig":{
-						"responseMimeType":"application/json",
-						"temperature":0.5,
-						"topP":0.95,
-						"topK":40,
-						"responseLogprobs":false
-					},
-					"labelsArray":[
-						{
-							"value":"Services · Talent Acquisition · Operations Team",
-							"key":"revolut-team"
-						},
-						{
-							"value":"Talent Acquisition",
-							"key":"revolut-department"
-						}
-					]
+					"operator":"AND"
 				},
-				"project":"revolut-dev-apps",
-				"location":"us-central1",
-				"publisher_model":"google/models/gemini-2.5-pro"
-			},
-			"options":{
-				"bulkheadConfig":{
-					"enabled":false,
-					"maxLeaseTimeUnit":"SECONDS",
-					"maxWaitDurationUnit":"SECONDS"
-				},
-				"businessHoursConfig":{
-					"enabled":false,
-					"waitForNextWindow":false
-				},
-				"cacheConfig":{
-					"enabled":false,
-					"usagePolicy":"ALWAYS"
-				},
-				"circuitBreakerConfig":{
-					"enabled":false,
-					"slidingWindowType":"COUNT_BASED"
-				},
-				"disableLogging":false,
-				"enabledForReExecution":false,
-				"hookConfig":{
-					"enabled":false,
-					"postHooks":[
-						
-					],
-					"preHooks":[
-						
-					]
-				},
-				"logConfig":{
-					"enabled":false,
-					"logPolicies":[
-						
-					]
-				},
-				"rateLimitConfig":{
-					"enabled":false,
-					"unit":"MINUTES",
-					"waitForNextWindow":false
-				},
-				"retryConfig":{
-					"backOffFactor":null,
-					"captureRetries":false,
-					"enabled":false
-				},
-				"stepError":"STOP",
-				"telemetryConfig":{
-					"enableTelemetry":false,
-					"metricConfigs":[
-						
-					]
-				}
-			},
-			"skip":true,
-			"subTitle":"Google vertex AI",
-			"title":"Generate content",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":15,
-				"resourceName":"utility_by_unifyapps_to_json_object",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_yZkGe@_GFBpc-1@l",
-			"id":"n_516Eb",
-			"index":6,
-			"inputs":{
-				"jsonSchema":{
-					"type":"object",
-					"properties":{
-						"interviewer_name":{
-							"type":"string",
-							"title":"interviewer_name"
-						},
-						"candidates":{
-							"type":"array",
-							"items":{
-								"type":"string"
-							},
-							"title":"candidates"
-						},
-						"oldest_interview_date":{
-							"type":"string",
-							"title":"oldest_interview_date"
-						},
-						"newest_interview_date":{
-							"type":"string",
-							"title":"newest_interview_date"
-						},
-						"date_range":{
-							"type":"string",
-							"title":"date_range"
-						},
-						"total_interviews":{
-							"type":"integer",
-							"title":"total_interviews"
-						},
-						"interviews_in_scope":{
-							"type":"integer",
-							"title":"interviews_in_scope"
-						},
-						"pass_rate":{
-							"type":"integer",
-							"title":"pass_rate"
-						},
-						"pass_rate_vs_target":{
-							"type":"string",
-							"title":"pass_rate_vs_target"
-						},
-						"avg_talk_time_percent":{
-							"type":"integer",
-							"title":"avg_talk_time_percent"
-						},
-						"talk_time_analysis":{
-							"type":"string",
-							"title":"talk_time_analysis"
-						},
-						"probing_level_category":{
-							"type":"string",
-							"title":"probing_level_category"
-						},
-						"avg_follow_ups":{
-							"type":"integer",
-							"title":"avg_follow_ups"
-						},
-						"specialisation_analysis":{
-							"type":"string",
-							"title":"specialisation_analysis"
-						},
-						"interview_outcomes":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"candidate":{
-										"type":"string",
-										"title":"candidate"
-									},
-									"interviewer_result":{
-										"type":"string",
-										"title":"interviewer_result"
-									},
-									"llm_result":{
-										"type":"string",
-										"title":"llm_result"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"interview_outcomes"
-						},
-						"outcome_comparisons":{
-							"type":"string",
-							"title":"outcome_comparisons"
-						},
-						"avg_playbook_adherence":{
-							"type":"integer",
-							"title":"avg_playbook_adherence"
-						},
-						"who_section_adherence":{
-							"type":"string",
-							"title":"who_section_adherence"
-						},
-						"culture_section_adherence":{
-							"type":"string",
-							"title":"culture_section_adherence"
-						},
-						"missed_questions":{
-							"type":"string",
-							"title":"missed_questions"
-						},
-						"outside_content":{
-							"type":"string",
-							"title":"outside_content"
-						},
-						"playbook_feedback":{
-							"type":"string",
-							"title":"playbook_feedback"
-						},
-						"culture_feedback":{
-							"type":"string",
-							"title":"culture_feedback"
-						},
-						"questioning_feedback":{
-							"type":"string",
-							"title":"questioning_feedback"
-						},
-						"talk_time_feedback":{
-							"type":"string",
-							"title":"talk_time_feedback"
-						}
-					},
-					"additionalProperties":false
-				},
-				"jsonString":"{{ _d2DoN.outputs.candidates[0].content.parts[0].text }}"
+				"entityType":"ENTITY_transcript_analysis_interview_analysis",
+				"group":"ENTITY_REPORTING"
 			},
 			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Deserialise string to JSON object",
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Analytics Query",
 			"type":"ACTION"
 		},
 		{
@@ -475,11 +214,11 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
 			"id":"_Jnf6o",
-			"index":7,
+			"index":5,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -503,5 +242,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
