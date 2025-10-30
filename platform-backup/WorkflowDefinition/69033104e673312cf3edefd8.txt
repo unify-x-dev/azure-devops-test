@@ -7,46 +7,71 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_Eks3e",
+			"fromNodeId":"n_YaE7v",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Lbyzy",
+			"toNodeId":"n_VXPBk",
 			"type":"next"
 		}
 	],
 	"id":"69033104e673312cf3edefd8",
 	"lastModifiedBy":175325,
 	"lcName":"error_insteadof_output_117618146261710",
-	"modifiedTime":1761816836399,
+	"modifiedTime":1761816844218,
 	"name":"Error_InsteadOf_Output_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Eks3e-1",
-			"id":"_Eks3e",
-			"index":0,
+			"id":"n_YaE7v",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"test_http",
+				"resourceVersion":3691,
+				"connectionId":"66b0ee649c311126267a17b7",
+				"resourceName":"test_http_post_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Eks3e-1",
-			"id":"_Lbyzy",
-			"index":0,
+			"id":"n_VXPBk",
+			"index":2,
+			"inputs":{
+				"field2":true
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Test HTTP API",
+			"title":"Test HTTP Post API",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +85,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
