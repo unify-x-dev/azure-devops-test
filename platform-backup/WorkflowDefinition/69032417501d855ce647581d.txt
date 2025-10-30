@@ -24,7 +24,7 @@
 	"id":"69032417501d855ce647581d",
 	"lastModifiedBy":43498,
 	"lcName":"cvdscfv-dynamic",
-	"modifiedTime":1761817901134,
+	"modifiedTime":1761817928472,
 	"name":"cvdscfv-dynamic",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 			"index":1,
 			"inputs":{
 				"cron":"EXPRESSION",
-				"expression":"{{ __ENV__.outputs.2 }} 0 * * *",
+				"expression":"{{ __ENV__.outputs.2 }} 12 23 2 *",
 				"sequential":false,
 				"timezone":"Asia/Calcutta",
 				"interval":15,
@@ -63,7 +63,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_PKkCf-1",
 			"id":"n_9de2w",
@@ -101,5 +101,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
