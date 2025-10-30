@@ -23,7 +23,7 @@
 	"id":"69032090501d855ce6472b48",
 	"lastModifiedBy":47174,
 	"lcName":"gmail nodes",
-	"modifiedTime":1761812874466,
+	"modifiedTime":1761813515494,
 	"name":"GMAIL Nodes",
 	"nodes":[
 		{
@@ -66,7 +66,7 @@
 			"id":"n_W5KLz",
 			"index":2,
 			"inputs":{
-				"format":"full",
+				"format":"raw",
 				"id":"19a2f7449469e02b"
 			},
 			"skip":false,
@@ -77,8 +77,8 @@
 		{
 			"context":{
 				"appName":"utility_by_unifyapps",
-				"resourceVersion":394,
-				"resourceName":"utility_by_unifyapps_decode_base64_text",
+				"resourceVersion":1063,
+				"resourceName":"utility_by_unifyapps_parse_email",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -88,13 +88,11 @@
 			"id":"n_60tte",
 			"index":3,
 			"inputs":{
-				"charset":"UTF-8",
-				"base64ContentFormat":"URL_SAFE",
-				"encodedText":"{{ n_W5KLz.outputs.payload.parts[0].body.data }}"
+				"mimeContent":"{{ n_W5KLz.outputs.raw }}"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
-			"title":"Decode base64 text",
+			"title":"Parse email",
 			"type":"ACTION"
 		}
 	],
@@ -115,5 +113,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
