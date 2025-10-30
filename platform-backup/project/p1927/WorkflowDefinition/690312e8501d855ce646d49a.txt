@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761809128268,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_VHgde",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_hnH7S",
+			"type":"next"
+		}
+	],
+	"id":"690312e8501d855ce646d49a",
+	"lastModifiedBy":44105,
+	"lcName":"[repsschedular] syncdesignationhttptrigger",
+	"modifiedTime":1761809128268,
+	"name":"[RepsSchedular] SyncDesignationHttpTrigger",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_VHgde-1",
+			"id":"_VHgde",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_VHgde-1",
+			"id":"_hnH7S",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":44105,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
