@@ -218,7 +218,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761821603360,
+	"modifiedTime":1761821645272,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1720,19 +1720,20 @@
 				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
-					"source":"{{ _hOc8A.outputs.result.results }}",
+					"source":"{{ _hOc8A.outputs.result.items }}",
 					"items":{
-						"checkCategory":"{{ _hOc8A.outputs.result.results[0].checkCategory }}",
-						"checkDescription":"{{ _hOc8A.outputs.result.results[0].checkDescription }}",
-						"checkHeader":"{{ _hOc8A.outputs.result.results[0].checkHeader }}",
-						"checkId":"{{ _hOc8A.outputs.result.results[0].checkId }}",
-						"checkImpact":"{{ _hOc8A.outputs.result.results[0].checkImpact }}",
-						"checkTitle":"{{ _hOc8A.outputs.result.results[0].checkTitle }}",
+						"checkCategory":"{{ _hOc8A.outputs.result.items[0].checkCategory }}",
+						"checkDescription":"{{ _hOc8A.outputs.result.items[0].checkDescription }}",
+						"checkHeader":"{{ _hOc8A.outputs.result.items[0].checkHeader }}",
+						"checkId":"{{ _hOc8A.outputs.result.items[0].checkId }}",
+						"checkImpact":"{{ _hOc8A.outputs.result.items[0].checkImpact }}",
+						"checkTitle":"{{ _hOc8A.outputs.result.items[0].checkTitle }}",
 						"entityId":"{{ n_oh9u9.outputs.id }}",
-						"status":"{{ _hOc8A.outputs.result.results[0].status }}",
-						"impactedEntityId":"{{ _hOc8A.outputs.result.results[0].impactedEntityId }}",
-						"impactedEntityName":"{{ _hOc8A.outputs.result.results[0].impactedEntityName }}",
-						"impactedEntityType":"{{ _hOc8A.outputs.result.results[0].impactedEntityType }}"
+						"status":"{{ _hOc8A.outputs.result.items[0].status }}",
+						"impactedEntityId":"{{ _hOc8A.outputs.result.items[0].impactedEntityId }}",
+						"impactedEntityName":"{{ _hOc8A.outputs.result.items[0].impactedEntityName }}",
+						"impactedEntityType":"{{ _hOc8A.outputs.result.items[0].impactedEntityType }}",
+						"impactedEntityIconKey":"{{ _hOc8A.outputs.result.items[0].impactedEntityIconKey }}"
 					}
 				},
 				"listName":"{{ n_BJWbh.outputs.items[0] }}"
@@ -1988,5 +1989,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":127
+	"version":128
 }
