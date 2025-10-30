@@ -218,7 +218,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761821351714,
+	"modifiedTime":1761821398919,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1412,19 +1412,20 @@
 				"insertLocation":"END",
 				"itemsToAdd":{
 					"ua:type":"mappedArray",
-					"source":"{{ n_aqVAB.outputs.result.results }}",
+					"source":"{{ n_aqVAB.outputs.result.items }}",
 					"items":{
-						"checkCategory":"{{ n_aqVAB.outputs.result.results[0].checkCategory }}",
-						"checkDescription":"{{ n_aqVAB.outputs.result.results[0].checkDescription }}",
-						"checkHeader":"{{ n_aqVAB.outputs.result.results[0].checkHeader }}",
-						"checkId":"{{ n_aqVAB.outputs.result.results[0].checkId }}",
-						"checkImpact":"{{ n_aqVAB.outputs.result.results[0].checkImpact }}",
-						"checkTitle":"{{ n_aqVAB.outputs.result.results[0].checkTitle }}",
-						"entityId":"{{ n_oh9u9.outputs.id }}",
+						"checkCategory":"{{ n_aqVAB.outputs.result.items[0].checkCategory }}",
+						"checkDescription":"{{ n_aqVAB.outputs.result.items[0].checkDescription }}",
+						"checkHeader":"{{ n_aqVAB.outputs.result.items[0].checkHeader }}",
+						"checkId":"{{ n_aqVAB.outputs.result.items[0].checkId }}",
+						"checkImpact":"{{ n_aqVAB.outputs.result.items[0].checkImpact }}",
+						"checkTitle":"{{ n_aqVAB.outputs.result.items[0].checkTitle }}",
+						"entityId":"{{ n_aqVAB.outputs.result.items[0].entityId }}",
 						"status":"{{ n_aqVAB.outputs.result.results[0].status }}",
-						"impactedEntityId":"{{ n_aqVAB.outputs.result.results[0].impactedEntityId }}{{ n_aqVAB.outputs.result.items[0].impactedEntityId }}",
-						"impactedEntityName":"{{ n_aqVAB.outputs.result.results[0].impactedEntityName }}",
-						"impactedEntityType":"{{ n_aqVAB.outputs.result.results[0].impactedEntityType }}"
+						"impactedEntityId":"{{ n_aqVAB.outputs.result.items[0].impactedEntityId }}",
+						"impactedEntityName":"{{ n_aqVAB.outputs.result.items[0].impactedEntityName }}",
+						"impactedEntityType":"{{ n_aqVAB.outputs.result.items[0].impactedEntityType }}",
+						"impactedEntityIconKey":"{{ n_aqVAB.outputs.result.items[0].impactedEntityIconKey }}"
 					}
 				},
 				"listName":"{{ n_BJWbh.outputs.items[0] }}"
@@ -1982,5 +1983,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":123
+	"version":124
 }
