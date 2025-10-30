@@ -33,13 +33,6 @@
 			"fromNodeId":"n_P8Ixu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_lPhjY",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_lPhjY",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_ppwZC",
 			"type":"next"
 		},
@@ -54,7 +47,7 @@
 	"id":"6901db02960f455f6fcfd080",
 	"lastModifiedBy":190519,
 	"lcName":"testnischay",
-	"modifiedTime":1761841116204,
+	"modifiedTime":1761842544237,
 	"name":"TestNischay",
 	"nodes":[
 		{
@@ -96,7 +89,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_7wzCu-1",
 			"id":"n_Odudw",
@@ -119,7 +112,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_7wzCu-1",
 			"id":"n_P8Ixu",
@@ -138,28 +131,6 @@
 		},
 		{
 			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1116,
-				"resourceName":"utility_by_unifyapps_generate_public_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_7wzCu-1",
-			"id":"n_lPhjY",
-			"index":4,
-			"inputs":{
-				"file":"{{ n_Odudw.outputs.file }}",
-				"expiryTime":1
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Generate public file URL",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"slack",
 				"resourceVersion":3313,
 				"connectionId":"6901e04d75b0c3591d0c17bb",
@@ -171,12 +142,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_7wzCu-1",
 			"id":"n_ppwZC",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"filename":"{{ n_Odudw.outputs.file.name }}",
 				"select":"URL",
 				"channel_id":"C09PB5W8QUE",
-				"URL":"{{ n_lPhjY.outputs.url }}"
+				"URL":"{{ n_Odudw.outputs.file.link }}"
 			},
 			"skip":false,
 			"subTitle":"Slack",
@@ -192,7 +163,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_7wzCu-1",
 			"id":"n_aw8uD",
-			"index":6,
+			"index":5,
 			"inputs":{},
 			"skip":false,
 			"subTitle":"Stop",
@@ -216,5 +187,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
