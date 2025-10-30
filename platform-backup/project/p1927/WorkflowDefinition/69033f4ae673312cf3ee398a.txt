@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761820490593,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761825824217,
+		"deployedBy":44105,
+		"deployedDefinitionId":"6903542061fee52e9dfd617f",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":7
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_b2pce",
@@ -168,7 +176,7 @@
 	"id":"69033f4ae673312cf3ee398a",
 	"lastModifiedBy":44105,
 	"lcName":"[rep-scheduler] designationobjectautomation",
-	"modifiedTime":1761825822363,
+	"modifiedTime":1761834113862,
 	"name":"[Rep-Scheduler] DesignationObjectAutomation",
 	"nodes":[
 		{
@@ -580,7 +588,7 @@
 				}
 			},
 			"skip":false,
-			"subTitle":"Fetch User Name",
+			"subTitle":"Fetch ReferenceNumber",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
@@ -721,7 +729,7 @@
 							"type":"integer",
 							"title":"Row Num"
 						},
-						"id":{
+						"Id":{
 							"type":"string",
 							"title":"Id"
 						}
@@ -742,7 +750,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        id         : payload.id ?: '',\n\n]\nreturn result",
+				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        Id         : payload.Id ?: '',\n\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -775,7 +783,7 @@
 					"ReferenceNumber":"{{ _b3pn9.outputs.result.ReferenceNumber }}",
 					"Id":"{{ _b3pn9.outputs.result.id }}",
 					"row_num":"{{ _b3pn9.outputs.result.row_num }}",
-					"Name":"{{ _b3pn9.outputs.result.Name }}"
+					"Name":"{{ _b3pn9.outputs.result.Id }}"
 				}
 			},
 			"skip":false,
@@ -878,7 +886,7 @@
 							"type":"integer",
 							"title":"Row Num"
 						},
-						"id":{
+						"Id":{
 							"type":"string",
 							"title":"Id"
 						}
@@ -899,7 +907,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        id         : payload.id ?: '',\n]\n\nreturn result",
+				"code":"def result = [\n        Name        : payload.Name ?: '',\n        ReferenceNumber           : payload.ReferenceNumber ?: '',\n        row_num         : payload.row_num ?: 0,\n        Id         : payload.Id ?: '',\n]\n\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -944,7 +952,7 @@
 					{
 						"fieldName":"properties.Name",
 						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.Name }}"
+						"setValue":"{{ _EBtW2.outputs.result.Id }}"
 					},
 					{
 						"fieldName":"properties.ReferenceNumber",
@@ -1041,5 +1049,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
