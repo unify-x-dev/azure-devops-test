@@ -4,6 +4,15 @@
 	],
 	"createdTime":1761805817064,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761806071421,
+		"deployedBy":45518,
+		"deployedDefinitionId":"690306f794edc52c8d459fa3",
+		"deploymentTag":"v1",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":0
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_b2pce",
@@ -444,7 +453,7 @@
 	"id":"690305f994edc52c8d459c67",
 	"lastModifiedBy":45518,
 	"lcName":"accountobjectautomation ",
-	"modifiedTime":1761805817064,
+	"modifiedTime":1761806569379,
 	"name":"AccountObjectAutomation ",
 	"nodes":[
 		{
@@ -869,7 +878,7 @@
 										"property":"{{ n_b2pce.outputs.body.payload }}",
 										"filter":{
 											"operator":"CONTAINS",
-											"value":"UserName"
+											"value":"ReferenceNumber"
 										}
 									}
 								],
@@ -913,7 +922,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"n_DdmpD@1",
@@ -926,7 +935,7 @@
 							"property":"{{ n_b2pce.outputs.body.payload }}",
 							"filter":{
 								"operator":"CONTAINS",
-								"value":"UserName"
+								"value":"ReferenceNumber"
 							}
 						}
 					],
@@ -2597,5 +2606,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
