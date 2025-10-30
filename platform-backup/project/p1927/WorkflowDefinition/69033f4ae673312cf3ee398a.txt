@@ -176,7 +176,7 @@
 	"id":"69033f4ae673312cf3ee398a",
 	"lastModifiedBy":44105,
 	"lcName":"[rep-scheduler] designationobjectautomation",
-	"modifiedTime":1761834139614,
+	"modifiedTime":1761834172191,
 	"name":"[Rep-Scheduler] DesignationObjectAutomation",
 	"nodes":[
 		{
@@ -952,7 +952,7 @@
 					{
 						"fieldName":"properties.Name",
 						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.Id }}"
+						"setValue":"{{ _EBtW2.outputs.result.Name }}"
 					},
 					{
 						"fieldName":"properties.ReferenceNumber",
@@ -962,7 +962,7 @@
 					{
 						"fieldName":"properties.Id",
 						"actionType":"SET",
-						"setValue":"{{ _EBtW2.outputs.result.id }}"
+						"setValue":"{{ _EBtW2.outputs.result.Id }}"
 					},
 					{
 						"fieldName":"properties.row_num",
@@ -1049,5 +1049,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
