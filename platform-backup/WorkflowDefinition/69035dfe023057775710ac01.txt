@@ -9,6 +9,27 @@
 			"fromNodeId":"n_f23oE",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_YMRC8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_YMRC8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_qgnvt",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_qgnvt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8Rsxj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8Rsxj",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_yZkGe",
 			"type":"next"
 		},
@@ -38,14 +59,14 @@
 			"fromNodeId":"n_yZkGe",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_QIqgM",
+			"toNodeId":"_Jnf6o",
 			"type":"next"
 		}
 	],
 	"id":"69035dfe023057775710ac01",
 	"lastModifiedBy":508,
 	"lcName":"test",
-	"modifiedTime":1761828376610,
+	"modifiedTime":1761828428536,
 	"name":"test",
 	"nodes":[
 		{
@@ -75,6 +96,150 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":119,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_GFBpc-1",
+			"id":"n_YMRC8",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"millis"
+					],
+					"properties":{
+						"millis":{
+							"type":"string",
+							"title":"Millis"
+						}
+					}
+				},
+				"code":"return Map.of(\"millis\",System.currentTimeMillis())",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":13,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_GFBpc-1",
+			"id":"n_qgnvt",
+			"index":3,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"last_job_time":{
+							"type":"integer",
+							"title":"Last Job Time"
+						}
+					},
+					"required":[
+						"last_job_time"
+					]
+				}
+			},
+			"inputs":{
+				"last_job_time":"={{ n_YMRC8.outputs.result.millis }} - 3600*1000*24"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"last_job_time":{
+							"type":"integer",
+							"title":"Last Job Time"
+						}
+					},
+					"required":[
+						"last_job_time"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":13,
+				"resourceName":"analytics_by_unifyapps_query_reports",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_GFBpc-1",
+			"id":"n_8Rsxj",
+			"index":4,
+			"inputs":{
+				"projections":[
+					{
+						"name":"ENTITY_transcript_analysis_interview_analysis=::=interviewerFullName",
+						"aggregationFunction":"GROUP",
+						"includePercentageChange":false
+					},
+					{
+						"name":"ENTITY_transcript_analysis_interview_analysis=::=ID",
+						"aggregationFunction":"COUNT",
+						"includePercentageChange":false
+					}
+				],
+				"filter":{
+					"filters":[
+						{
+							"property":"ENTITY_transcript_analysis_interview_analysis=::=CREATED_TIME",
+							"filter":{
+								"operator":"GTE",
+								"value":"{{ n_qgnvt.outputs.last_job_time }}"
+							}
+						},
+						{
+							"property":"ENTITY_transcript_analysis_interview_analysis=::=CREATED_TIME",
+							"filter":{
+								"operator":"LT",
+								"value":"{{ n_YMRC8.outputs.result.millis }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"entityType":"ENTITY_transcript_analysis_interview_analysis",
+				"group":"ENTITY_REPORTING"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Analytics Query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"loop",
 				"resourceVersion":13,
 				"resourceName":"loop_for_each",
@@ -85,7 +250,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
 			"id":"n_yZkGe",
-			"index":2,
+			"index":5,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_8Rsxj.outputs.objects }}",
@@ -120,7 +285,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_yZkGe@_GFBpc-1@l",
 			"id":"_d2DoN",
-			"index":3,
+			"index":6,
 			"inputs":{
 				"payload":{
 					"contents":[
@@ -229,7 +394,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_yZkGe@_GFBpc-1@l",
 			"id":"n_516Eb",
-			"index":4,
+			"index":7,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -373,8 +538,8 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFBpc-1",
-			"id":"n_QIqgM",
-			"index":5,
+			"id":"_Jnf6o",
+			"index":8,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -398,5 +563,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
