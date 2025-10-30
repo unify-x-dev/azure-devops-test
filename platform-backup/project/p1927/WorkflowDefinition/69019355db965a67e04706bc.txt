@@ -5,12 +5,12 @@
 	"createdTime":1761710933207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761808932850,
+		"deployedAt":1761809364397,
 		"deployedBy":46209,
-		"deployedDefinitionId":"69031224501d855ce646d11d",
+		"deployedDefinitionId":"690313d4501d855ce646da04",
 		"status":"DEPLOYED",
-		"version":10,
-		"workflowVersion":15
+		"version":12,
+		"workflowVersion":17
 	},
 	"edges":[
 		{
@@ -213,7 +213,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761809143412,
+	"modifiedTime":1761830021915,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -1131,7 +1131,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"_rQOpt",
@@ -1171,7 +1171,7 @@
 						}
 					}
 				},
-				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn [\"MailNotifications\": result]\n",
+				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn [\"MailNotifications\": result]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1195,7 +1195,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_ODo2P",
@@ -1204,6 +1204,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
+					"MailNotification":"{{ _rQOpt.outputs.result.MailNotifications }}",
 					"MailNotifications":{
 						"ua:type":"mappedArray",
 						"source":"{{ _rQOpt.outputs.result.MailNotifications }}",
@@ -1259,5 +1260,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":18
 }
