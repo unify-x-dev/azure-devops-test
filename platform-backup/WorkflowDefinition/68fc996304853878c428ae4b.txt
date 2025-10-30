@@ -218,7 +218,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761821645272,
+	"modifiedTime":1761821670085,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -242,9 +242,7 @@
 				"result":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[
-						"impactedEntityIconKey"
-					],
+					"required":[],
 					"properties":{
 						"results":{
 							"type":"array",
@@ -294,16 +292,16 @@
 									"impactedEntityType":{
 										"type":"string",
 										"title":"impactedEntityType"
+									},
+									"impactedEntityIconKey":{
+										"type":"string",
+										"title":"Impacted Entity Icon Key"
 									}
 								},
 								"additionalProperties":false,
 								"required":[]
 							},
 							"title":"results"
-						},
-						"impactedEntityIconKey":{
-							"type":"string",
-							"title":"Impacted Entity Icon Key"
 						}
 					}
 				},
@@ -1989,5 +1987,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":128
+	"version":129
 }
