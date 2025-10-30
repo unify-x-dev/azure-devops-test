@@ -1,52 +1,80 @@
 {
 	"appsUsed":[
-		
+		"slack",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761816026067,
 	"deleted":false,
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_9CBzr",
+			"fromNodeId":"n_EFtKP",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Q0kN4",
+			"toNodeId":"n_kQLJc",
 			"type":"next"
 		}
 	],
 	"id":"69032dda2947f05678489e32",
 	"lastModifiedBy":175325,
 	"lcName":"triggerworkflow_117618146261810",
-	"modifiedTime":1761816026067,
+	"modifiedTime":1761816057740,
 	"name":"triggerWorkflow_117618146261810",
 	"nodes":[
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4615,
+				"resourceName":"storage_by_unifyapps_on_create_record"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9CBzr-1",
-			"id":"_9CBzr",
-			"index":0,
+			"id":"n_EFtKP",
+			"index":1,
+			"inputs":{
+				"object_type":"avn04t8"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Storage by UnifyApps",
+			"title":"New record",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6359,
+				"connectionId":"662f8ddb91d8ba4394d0cce6",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9CBzr-1",
-			"id":"_Q0kN4",
-			"index":0,
+			"id":"n_kQLJc",
+			"index":2,
+			"inputs":{
+				"link_names":true,
+				"messageType":"text",
+				"channel":"C07AKEPN1U3",
+				"text":"{{ n_EFtKP.outputs.id }}{{ n_EFtKP.outputs.properties }}",
+				"mrkdwn":true
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Slack",
+			"title":"Post message",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +88,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
