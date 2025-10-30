@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_GLLeS",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GLLeS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lzseB",
+			"type":"next"
 		}
 	],
 	"id":"6902ef2c4cdbea660eb2909d",
 	"lastModifiedBy":33167,
 	"lcName":"kjhg",
-	"modifiedTime":1761802894633,
+	"modifiedTime":1761803829658,
 	"name":"kjhg",
 	"nodes":[
 		{
@@ -26,7 +33,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mzwEh-1",
 			"id":"n_ez4z4",
@@ -53,7 +60,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_mzwEh-1",
 			"id":"n_GLLeS",
@@ -69,6 +76,29 @@
 			"skip":false,
 			"subTitle":"OpenAI",
 			"title":"Create image variation",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"openai",
+				"resourceVersion":5545,
+				"connectionId":"68ea9540a5e5253b2d030eea",
+				"resourceName":"openai_moderate_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mzwEh-1",
+			"id":"n_lzseB",
+			"index":3,
+			"inputs":{
+				"input":"hello",
+				"model":"text-moderation-stable"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Moderate text",
 			"type":"ACTION"
 		}
 	],
@@ -89,5 +119,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
