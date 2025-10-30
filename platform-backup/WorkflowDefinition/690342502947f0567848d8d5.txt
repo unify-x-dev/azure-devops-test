@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761821264308,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761821470553,
+		"deployedBy":49915,
+		"deployedDefinitionId":"6903431e501d855ce647b22e",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_uwCJR",
@@ -23,7 +31,7 @@
 	"id":"690342502947f0567848d8d5",
 	"lastModifiedBy":49915,
 	"lcName":"emit signal",
-	"modifiedTime":1761821467527,
+	"modifiedTime":1761821579851,
 	"name":"emit signal",
 	"nodes":[
 		{
@@ -33,7 +41,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_TfynQ-1",
 			"id":"n_uwCJR",
@@ -94,7 +102,7 @@
 				"waitingInstanceId":"{{ n_uwCJR.outputs.waitingInstance }}",
 				"nodeId":"n_mbbZL"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Signals by UnifyApps",
 			"title":"Emit signal",
 			"type":"ACTION"
@@ -107,7 +115,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_TfynQ-1",
 			"id":"n_u5K1t",
@@ -140,5 +148,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
