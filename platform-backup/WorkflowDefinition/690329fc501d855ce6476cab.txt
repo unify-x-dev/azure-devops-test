@@ -7,46 +7,107 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_67wtu",
+			"fromNodeId":"n_Soic6",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ZqBrs",
+			"toNodeId":"n_0k88u",
 			"type":"next"
 		}
 	],
 	"id":"690329fc501d855ce6476cab",
 	"lastModifiedBy":175325,
 	"lcName":"callablecondition_31_11761814627664",
-	"modifiedTime":1761815036132,
+	"modifiedTime":1761815047767,
 	"name":"CallableCondition_31_11761814627664",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":880,
+				"resourceName":"callables_from_automation_streaming"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_67wtu-1",
-			"id":"_67wtu",
-			"index":0,
+			"id":"n_Soic6",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output_Number"
+					],
+					"properties":{
+						"output_Number":{
+							"type":"number",
+							"title":"output_Number"
+						}
+					}
+				},
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"{{ n_Soic6.outputs.input_Number }}",
+							"filter":{
+								"operator":"MISSING"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"input_Number"
+					],
+					"properties":{
+						"input_Number":{
+							"type":"number",
+							"title":"input_Number"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation (Streaming responses)",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":860,
+				"resourceName":"callables_return_to_automation_streaming",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_67wtu-1",
-			"id":"_ZqBrs",
-			"index":0,
+			"id":"n_0k88u",
+			"index":2,
+			"inputs":{
+				"result":{
+					"output_Number":"{{ n_Soic6.outputs.input_Number }}"
+				},
+				"completed":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Callable",
+			"title":"Add response to automation stream",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +121,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
