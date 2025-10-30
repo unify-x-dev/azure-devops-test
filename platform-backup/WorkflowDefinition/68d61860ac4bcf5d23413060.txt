@@ -241,12 +241,19 @@
 			"skip":false,
 			"toNodeId":"n_rMERn",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rMERn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_OMjuw",
+			"type":"next"
 		}
 	],
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"test_rishabh",
-	"modifiedTime":1761817376598,
+	"modifiedTime":1761817514996,
 	"name":"test_rishabh",
 	"nodes":[
 		{
@@ -1001,6 +1008,33 @@
 			"subTitle":"Callable",
 			"title":"Respond to API request",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4602,
+				"resourceName":"storage_by_unifyapps_delete_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mzkHe-1",
+			"id":"n_OMjuw",
+			"index":24,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"rishabh_assignment_automation_excel",
+				"numberOfRecordsToDelete":"MULTIPLE",
+				"page":{
+					"limit":200,
+					"offset":0
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Delete records",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":177799,
@@ -1020,5 +1054,5 @@
 	"tags":[
 		
 	],
-	"version":35
+	"version":36
 }
