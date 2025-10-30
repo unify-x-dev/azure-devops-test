@@ -277,6 +277,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_SgFtm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_qmq9w",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_8zs5I",
 			"name":"2",
 			"priority":0,
@@ -296,6 +303,20 @@
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_WUvuh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_WUvuh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_mFymC",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_mFymC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_sg3FX",
 			"type":"next"
 		},
 		{
@@ -321,21 +342,35 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_SgFtm",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_ODo2P",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_WUvuh",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_ODo2P",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_5BapD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Q21kB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Q21kB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_E94BK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_qmq9w",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ODo2P",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_sg3FX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ODo2P",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_E94BK",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_ODo2P",
@@ -417,7 +452,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39715,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761804487262,
+	"modifiedTime":1761804675457,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -478,6 +513,15 @@
 								"success":{
 									"type":"boolean",
 									"title":"Success"
+								},
+								"Employees":{
+									"type":"array",
+									"items":{
+										"type":"object",
+										"properties":{},
+										"additionalProperties":false
+									},
+									"title":"Employees"
 								}
 							},
 							"additionalProperties":false,
@@ -1964,9 +2008,14 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"result":{
-							"type":"string",
-							"title":"Result"
+						"employees":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"employees"
 						}
 					}
 				},
@@ -1988,7 +2037,7 @@
 						}
 					}
 				},
-				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn result\n",
+				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn [\"employees\": result]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -2006,6 +2055,29 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
+			"id":"_qmq9w",
+			"index":37,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -2016,7 +2088,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"n_8zs5I@2",
-			"index":37,
+			"index":38,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -2048,7 +2120,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"_ZT3zy",
-			"index":38,
+			"index":39,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2097,7 +2169,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"n_WUvuh",
-			"index":39,
+			"index":40,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -2130,6 +2202,88 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
+			"id":"_mFymC",
+			"index":41,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"string",
+							"title":"Result"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"objects"
+					],
+					"properties":{
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Objects"
+						}
+					}
+				},
+				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn result\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"objects":{
+						"source":"{{ n_FfDqT.outputs.objects }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_FfDqT.outputs.objects[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
+			"id":"_sg3FX",
+			"index":42,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -2140,7 +2294,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"n_8zs5I@3",
-			"index":40,
+			"index":43,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -2172,7 +2326,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"_bO1xa",
-			"index":41,
+			"index":44,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -2221,7 +2375,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"n_5BapD",
-			"index":42,
+			"index":45,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -2254,6 +2408,88 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
+			"id":"_Q21kB",
+			"index":46,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"string",
+							"title":"Result"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"objects"
+					],
+					"properties":{
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Objects"
+						}
+					}
+				},
+				"code":"def extractProperties(List<Map> inputObjects) {\n    if (!inputObjects) {\n        return []\n    }\n\n    // Collect all Properties maps from each object\n    return inputObjects.collect { obj ->\n        obj?.Properties ?: [:]\n    }\n}\ndef result = extractProperties(objects)\nreturn result\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"objects":{
+						"source":"{{ n_FfDqT.outputs.objects }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_FfDqT.outputs.objects[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1124,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
+			"id":"_E94BK",
+			"index":47,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1124,
 				"resourceName":"callables_return_response_to_api",
@@ -2264,7 +2500,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@6",
 			"id":"n_ODo2P",
-			"index":43,
+			"index":48,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -2287,7 +2523,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
-			"index":44,
+			"index":49,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -2317,5 +2553,5 @@
 	"tags":[
 		
 	],
-	"version":28
+	"version":29
 }
