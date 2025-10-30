@@ -5,12 +5,12 @@
 	"createdTime":1761710933207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761830023631,
+		"deployedAt":1761832448223,
 		"deployedBy":46209,
-		"deployedDefinitionId":"69036487e9877f2d44fbb406",
+		"deployedDefinitionId":"69036e009ee7de11beb27851",
 		"status":"DEPLOYED",
-		"version":13,
-		"workflowVersion":18
+		"version":14,
+		"workflowVersion":19
 	},
 	"edges":[
 		{
@@ -213,7 +213,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761832446051,
+	"modifiedTime":1761841512831,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -232,7 +232,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Yq92w",
@@ -463,7 +463,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_6XhsF",
@@ -573,7 +573,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"_eJ7rD",
@@ -628,7 +628,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n        Importance      : payload.Importance ?: 1,\n        CreatedDate     : payload.CreatedDate ?: '',\n        Practice        : payload.Practice ?: '',\n        Id              : payload.Id ?: '',\n        FromEmail       : payload.FromEmail ?: '',\n        Subject         : payload.Subject ?: '',\n        MessageBody     : payload.MessageBody ?: ''\n    ]\nreturn result",
+				"code":"def result = [\n    Importance  : payload.containsKey('Importance')  ? payload.Importance  : null,\n    Recipients  : payload.containsKey('Recipients')  ? payload.Recipients.collect { r ->\n        [\n            Status         : r.containsKey('Status')         ? r.Status         : null,\n            RecipientTypes : r.containsKey('RecipientTypes') ? r.RecipientTypes : null,\n            Email          : r.containsKey('Email')          ? r.Email          : null\n        ]\n    } : null,\n    CreatedDate : payload.containsKey('CreatedDate') ? payload.CreatedDate : null,\n    Id          : payload.containsKey('Id')          ? payload.Id          : null,\n    FromEmail   : payload.containsKey('FromEmail')   ? payload.FromEmail   : null,\n    Subject     : payload.containsKey('Subject')     ? payload.Subject     : null,\n    MessageBody : payload.containsKey('MessageBody') ? payload.MessageBody : null\n]\n\nreturn result\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -680,7 +680,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_Th4Q2",
@@ -738,7 +738,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_sHZOw",
@@ -793,7 +793,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n        Importance      : payload.Importance ?: 1,\n        CreatedDate     : payload.CreatedDate ?: '',\n        Practice        : payload.Practice ?: '',\n        Id              : payload.Id ?: '',\n        FromEmail       : payload.FromEmail ?: '',\n        Subject         : payload.Subject ?: '',\n        MessageBody     : payload.MessageBody ?: ''\n    ]\nreturn result",
+				"code":"def result = [\n    Importance  : payload.containsKey('Importance')  ? payload.Importance  : null,\n    Recipients  : payload.containsKey('Recipients')  ? payload.Recipients.collect { r ->\n        [\n            Status         : r.containsKey('Status')         ? r.Status         : null,\n            RecipientTypes : r.containsKey('RecipientTypes') ? r.RecipientTypes : null,\n            Email          : r.containsKey('Email')          ? r.Email          : null\n        ]\n    } : null,\n    CreatedDate : payload.containsKey('CreatedDate') ? payload.CreatedDate : null,\n    Id          : payload.containsKey('Id')          ? payload.Id          : null,\n    FromEmail   : payload.containsKey('FromEmail')   ? payload.FromEmail   : null,\n    Subject     : payload.containsKey('Subject')     ? payload.Subject     : null,\n    MessageBody : payload.containsKey('MessageBody') ? payload.MessageBody : null\n]\n\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -885,7 +885,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_lYvBi",
@@ -1187,7 +1187,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@6",
 			"id":"n_ODo2P",
@@ -1247,5 +1247,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":20
 }
