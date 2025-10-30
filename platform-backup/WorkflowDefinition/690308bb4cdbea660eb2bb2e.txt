@@ -5,12 +5,12 @@
 	"createdTime":1761806523318,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761812870874,
+		"deployedAt":1761813211597,
 		"deployedBy":43498,
-		"deployedDefinitionId":"69032186501d855ce64730a1",
+		"deployedDefinitionId":"690322db501d855ce6474079",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":7
+		"version":4,
+		"workflowVersion":9
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"690308bb4cdbea660eb2bb2e",
 	"lastModifiedBy":43498,
 	"lcName":"bill",
-	"modifiedTime":1761813205709,
+	"modifiedTime":1761813253533,
 	"name":"bill",
 	"nodes":[
 		{
@@ -77,6 +77,7 @@
 			"id":"n_9de2w",
 			"index":2,
 			"inputs":{
+				"automation_id":"6901ee55dad3c27b954e8721",
 				"runtimeConnections":{},
 				"schedule_type":"CRON_EXPRESSION",
 				"expression":"{{ n_auVaY.outputs.queryParams.year }} 12 23 2 1",
@@ -108,5 +109,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
