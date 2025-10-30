@@ -1,52 +1,317 @@
 {
 	"appsUsed":[
-		
+		"slack"
 	],
 	"createdTime":1761816458996,
 	"deleted":false,
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_CuSLe",
+			"fromNodeId":"n_4AU7L",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_GkK3g",
+			"toNodeId":"n_OrOua",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_OrOua",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_L24cj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_L24cj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6fOuq",
 			"type":"next"
 		}
 	],
 	"id":"69032f8a501d855ce6477d0a",
 	"lastModifiedBy":175325,
 	"lcName":"complex_workflow_117618146276640",
-	"modifiedTime":1761816458996,
+	"modifiedTime":1761816495732,
 	"name":"complex_workflow_117618146276640",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1073,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_CuSLe-1",
-			"id":"_CuSLe",
-			"index":0,
+			"id":"n_4AU7L",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output"
+					],
+					"properties":{
+						"output":{
+							"type":"string",
+							"title":"output"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"id":{
+							"type":"string",
+							"title":"id"
+						},
+						"name":{
+							"type":"string",
+							"title":"name"
+						},
+						"username":{
+							"type":"string",
+							"title":"username"
+						},
+						"email":{
+							"type":"string",
+							"title":"email"
+						},
+						"lastLogin":{
+							"type":"string",
+							"title":"lastLogin"
+						},
+						"createdAt":{
+							"type":"string",
+							"title":"createdAt"
+						},
+						"profile":{
+							"type":"object",
+							"properties":{
+								"age":{
+									"type":"string",
+									"title":"age"
+								},
+								"gender":{
+									"type":"string",
+									"title":"gender"
+								},
+								"dob":{
+									"type":"string",
+									"title":"dob"
+								},
+								"contact":{
+									"type":"object",
+									"properties":{
+										"phone":{
+											"type":"string",
+											"title":"phone"
+										},
+										"address":{
+											"type":"object",
+											"properties":{
+												"street":{
+													"type":"string",
+													"title":"street"
+												},
+												"landmark":{
+													"type":"string",
+													"title":"landmark"
+												},
+												"city":{
+													"type":"string",
+													"title":"city"
+												},
+												"state":{
+													"type":"string",
+													"title":"state"
+												},
+												"zipcode":{
+													"type":"string",
+													"title":"zipcode"
+												},
+												"country":{
+													"type":"string",
+													"title":"country"
+												}
+											},
+											"title":"address",
+											"additionalProperties":false
+										}
+									},
+									"title":"contact",
+									"additionalProperties":false
+								},
+								"preferences":{
+									"type":"object",
+									"properties":{
+										"language":{
+											"type":"string",
+											"title":"language"
+										},
+										"theme":{
+											"type":"string",
+											"title":"theme"
+										}
+									},
+									"title":"preferences",
+									"additionalProperties":false
+								},
+								"projects":{
+									"type":"object",
+									"properties":{
+										"projectId":{
+											"type":"string",
+											"title":"projectId"
+										},
+										"name":{
+											"type":"string",
+											"title":"name"
+										},
+										"status":{
+											"type":"string",
+											"title":"status"
+										},
+										"description":{
+											"type":"string",
+											"title":"description"
+										},
+										"startDate":{
+											"type":"string",
+											"title":"startDate"
+										},
+										"member":{
+											"type":"string",
+											"title":"member"
+										}
+									},
+									"title":"projects",
+									"additionalProperties":false
+								},
+								"Companies":{
+									"type":"object",
+									"properties":{
+										"companyId":{
+											"type":"string",
+											"title":"companyId"
+										},
+										"name":{
+											"type":"string",
+											"title":"name"
+										},
+										"status":{
+											"type":"string",
+											"title":"status"
+										},
+										"location":{
+											"type":"string",
+											"title":"location"
+										},
+										"strength":{
+											"type":"string",
+											"title":"strength"
+										}
+									},
+									"title":"Companies",
+									"additionalProperties":false
+								}
+							},
+							"title":"profile",
+							"additionalProperties":false
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"comments_by_unifyapps",
+				"resourceVersion":937,
+				"resourceName":"comments_by_unifyapps_add_comment",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_CuSLe-1",
-			"id":"_GkK3g",
-			"index":0,
+			"id":"n_OrOua",
+			"index":2,
+			"inputs":{
+				"assetId":"7",
+				"synchronous":false,
+				"assetClass":"Demo",
+				"userId":948,
+				"content":"Text"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Comments by UnifyApps",
+			"title":"Add Comment",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":6360,
+				"connectionId":"662f8ddb91d8ba4394d0cce6",
+				"resourceName":"slack_post_message_in_channel",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_CuSLe-1",
+			"id":"n_L24cj",
+			"index":3,
+			"inputs":{
+				"link_names":true,
+				"messageType":"text",
+				"channel":"unify-apps",
+				"text":"Test message",
+				"mrkdwn":true
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Post message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_CuSLe-1",
+			"id":"n_6fOuq",
+			"index":4,
+			"inputs":{
+				"result":{
+					"output":"{{ n_L24cj.outputs.ok }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +325,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
