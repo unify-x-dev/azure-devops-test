@@ -24,7 +24,7 @@
 	"id":"690308bb4cdbea660eb2bb2e",
 	"lastModifiedBy":43498,
 	"lcName":"bill",
-	"modifiedTime":1761813170712,
+	"modifiedTime":1761813205709,
 	"name":"bill",
 	"nodes":[
 		{
@@ -79,7 +79,7 @@
 			"inputs":{
 				"runtimeConnections":{},
 				"schedule_type":"CRON_EXPRESSION",
-				"expression":"{{ __USER__.outputs.id }} 12 23 2 1",
+				"expression":"{{ n_auVaY.outputs.queryParams.year }} 12 23 2 1",
 				"timezone":"Asia/Calcutta",
 				"cancel_existing":true,
 				"schedule_name":"asdf {{ n_auVaY.outputs.queryParams.year }}",
@@ -108,5 +108,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
