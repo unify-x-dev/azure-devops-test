@@ -7,46 +7,113 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_CGDqj",
+			"fromNodeId":"n_6I7Fu",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Ya1vc",
+			"toNodeId":"n_U3mGL",
 			"type":"next"
 		}
 	],
 	"id":"69032b2ae673312cf3edc462",
 	"lastModifiedBy":175325,
 	"lcName":"callable_api_outputtabs11761814626127",
-	"modifiedTime":1761815338217,
+	"modifiedTime":1761815349226,
 	"name":"callable_api_outputtabs11761814626127",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1161,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_CGDqj-1",
-			"id":"_CGDqj",
-			"index":0,
+			"id":"n_6I7Fu",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"input_String":{
+								"type":"string",
+								"title":"input_String"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"input_String"
+						]
+					}
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"name":"success",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"output":{
+									"type":"string",
+									"title":"output"
+								}
+							},
+							"additionalProperties":false,
+							"required":[
+								"output"
+							]
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1130,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_CGDqj-1",
-			"id":"_Ya1vc",
-			"index":0,
+			"id":"n_U3mGL",
+			"index":2,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_success",
+				"body":{
+					"output":"{{ n_6I7Fu.outputs.body.input_String }}"
+				},
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +127,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
