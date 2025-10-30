@@ -5,12 +5,12 @@
 	"createdTime":1761710933207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761809364397,
+		"deployedAt":1761830023631,
 		"deployedBy":46209,
-		"deployedDefinitionId":"690313d4501d855ce646da04",
+		"deployedDefinitionId":"69036487e9877f2d44fbb406",
 		"status":"DEPLOYED",
-		"version":12,
-		"workflowVersion":17
+		"version":13,
+		"workflowVersion":18
 	},
 	"edges":[
 		{
@@ -213,17 +213,26 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761830021915,
+	"modifiedTime":1761832446051,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{
+						"response":[
+							{}
+						]
+					}
+				}
+			},
 			"context":{
 				"appName":"callables",
 				"resourceVersion":1155,
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_xChs4-1",
 			"id":"n_Yq92w",
@@ -261,28 +270,11 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"count":{
-									"type":"string",
-									"title":"Count"
-								},
-								"MailNotifications":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{},
-										"additionalProperties":false
-									},
-									"title":"MailNotifications"
-								},
-								"success":{
-									"type":"boolean",
-									"title":"Success"
-								},
-								"MailNotification":{
+								"response":{
 									"type":"object",
 									"properties":{},
 									"additionalProperties":false,
-									"title":"MailNotification"
+									"title":"response"
 								}
 							},
 							"additionalProperties":false,
@@ -471,7 +463,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@1",
 			"id":"n_6XhsF",
@@ -688,7 +680,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@3",
 			"id":"n_Th4Q2",
@@ -697,7 +689,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
-					"MailNotification":"{{ n_7TjK9.outputs.properties }}"
+					"response":"{{ n_7TjK9.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -893,7 +885,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_xChs4-1@4",
 			"id":"n_lYvBi",
@@ -902,7 +894,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
-					"success":"{{ n_OfBCn.outputs.result }}"
+					"response":"{{ n_OfBCn.outputs.result }}"
 				},
 				"status":200
 			},
@@ -1204,12 +1196,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_200",
 				"body":{
-					"MailNotification":"{{ _rQOpt.outputs.result.MailNotifications }}",
-					"MailNotifications":{
-						"ua:type":"mappedArray",
-						"source":"{{ _rQOpt.outputs.result.MailNotifications }}",
-						"items":"{{ _rQOpt.outputs.result.MailNotifications[0] }}"
-					}
+					"response":"{{ _rQOpt.outputs.result.MailNotifications }}"
 				},
 				"status":200
 			},
@@ -1260,5 +1247,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
