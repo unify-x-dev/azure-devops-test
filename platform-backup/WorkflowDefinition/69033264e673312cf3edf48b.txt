@@ -6,18 +6,12 @@
 	"deleted":false,
 	"description":"description",
 	"edges":[
-		{
-			"fromNodeId":"n_JvzHe",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Q9LIZ",
-			"type":"next"
-		}
+		
 	],
 	"id":"69033264e673312cf3edf48b",
 	"lastModifiedBy":175325,
 	"lcName":"newversionpopup-deletedchangesintestruns-11761814626181",
-	"modifiedTime":1761817197880,
+	"modifiedTime":1761817205663,
 	"name":"newVersionPopUp-deletedChangesInTestRuns-11761814626181",
 	"nodes":[
 		{
@@ -27,7 +21,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Ql0AB-1",
 			"id":"n_JvzHe",
@@ -57,59 +51,6 @@
 				"type":"WEBHOOK"
 			},
 			"type":"START"
-		},
-		{
-			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1092,
-				"resourceName":"variable_by_unifyapps_create_variables",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_Ql0AB-1",
-			"id":"n_Q9LIZ",
-			"index":2,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{},
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"inputField":{
-							"type":"string",
-							"title":"inputField"
-						}
-					},
-					"required":[
-						"inputField"
-					]
-				}
-			},
-			"inputs":{},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"additionalProperties":false,
-					"type":"object",
-					"properties":{
-						"inputField":{
-							"type":"string",
-							"title":"inputField"
-						}
-					},
-					"required":[
-						"inputField"
-					]
-				}
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create variables",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
@@ -129,5 +70,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
