@@ -1,52 +1,110 @@
 {
 	"appsUsed":[
-		
+		"ftp"
 	],
 	"createdTime":1761797986061,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_iAhKW",
+			"fromNodeId":"n_BMraz",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Log3m",
+			"toNodeId":"n_kDCMC",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_kDCMC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_W9GTv",
 			"type":"next"
 		}
 	],
 	"id":"6902e7624cdbea660eb287df",
-	"lastModifiedBy":190409,
+	"lastModifiedBy":155341,
 	"lcName":"test2",
-	"modifiedTime":1761797986061,
+	"modifiedTime":1761802900341,
 	"name":"test2",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
-			"id":"_iAhKW",
-			"index":0,
+			"id":"n_BMraz",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":970,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
-			"id":"_Log3m",
-			"index":0,
+			"id":"n_kDCMC",
+			"index":2,
+			"inputs":{
+				"fileName":"File.pdf",
+				"url":"https://drive.google.com/uc?export=download&id=12whNJKABcs9GFOqVqz3qwX8L1dt9nvet",
+				"option":"url"
+			},
+			"skip":true,
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"ftp",
+				"resourceVersion":3419,
+				"connectionId":"6902fa1b5e849b76eece2d17",
+				"resourceName":"ftp_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iAhKW-1",
+			"id":"n_W9GTv",
+			"index":3,
+			"inputs":{
+				"path":"/",
+				"input_type":"url",
+				"source_url":"https://drive.google.com/uc?export=download&id=12whNJKABcs9GFOqVqz3qwX8L1dt9nvet"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"FTP/FTPS",
+			"title":"Upload file",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190409,
 	"projectId":122,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +118,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
