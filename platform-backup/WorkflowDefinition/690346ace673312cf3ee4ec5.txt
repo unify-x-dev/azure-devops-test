@@ -23,7 +23,7 @@
 	"id":"690346ace673312cf3ee4ec5",
 	"lastModifiedBy":190505,
 	"lcName":"sheet_extraction",
-	"modifiedTime":1761824222655,
+	"modifiedTime":1761824380582,
 	"name":"sheet_extraction",
 	"nodes":[
 		{
@@ -33,7 +33,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0zFb6-1",
 			"id":"n_6lcHa",
@@ -88,7 +88,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_0zFb6-1",
 			"id":"n_BFtHT",
@@ -125,7 +125,8 @@
 							"Employee_ID":"{{ n_BFtHT.outputs.rows[0].Employee_ID__0 }}",
 							"Bonus_Amount":"{{ n_BFtHT.outputs.rows[0].Bonus_Amount__3 }}"
 						},
-						"ua:type":"mappedArray"
+						"ua:type":"mappedArray",
+						"source":"{{ n_BFtHT.outputs.rows }}"
 					}
 				}
 			},
@@ -152,5 +153,5 @@
 	"tags":[
 		"practice"
 	],
-	"version":1
+	"version":2
 }
