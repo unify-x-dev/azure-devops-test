@@ -6,17 +6,38 @@
 	"createdTime":1761729282427,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761731188735,
+		"deployedAt":1761731821313,
 		"deployedBy":190519,
-		"deployedDefinitionId":"6901e274960f455f6fcff454",
-		"deploymentTag":"v1",
+		"deployedDefinitionId":"6901e4ed960f455f6fd001de",
+		"deploymentTag":"v2",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":4
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_7wzCu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Odudw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Odudw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_P8Ixu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_P8Ixu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lPhjY",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lPhjY",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_ppwZC",
@@ -33,7 +54,7 @@
 	"id":"6901db02960f455f6fcfd080",
 	"lastModifiedBy":190519,
 	"lcName":"testnischay",
-	"modifiedTime":1761731813920,
+	"modifiedTime":1761841116204,
 	"name":"TestNischay",
 	"nodes":[
 		{
@@ -46,23 +67,15 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_saVcU-1",
+			"groupId":"n_7wzCu-1",
 			"id":"n_7wzCu",
 			"index":1,
 			"inputs":{
 				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"{{ n_7wzCu.outputs.batch[0].attachments[0].mime_type }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"application/pdf"
-							}
-						}
-					],
+					"filters":[],
 					"operator":"AND"
 				},
-				"pageSize":5,
+				"pageSize":500,
 				"interval":5,
 				"batchSize":5
 			},
@@ -76,8 +89,31 @@
 		},
 		{
 			"context":{
+				"appName":"gmail",
+				"resourceVersion":4999,
+				"connectionId":"6901df7975b0c3591d0c1453",
+				"resourceName":"gmail_download_attachment",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_7wzCu-1",
+			"id":"n_Odudw",
+			"index":2,
+			"inputs":{
+				"messageId":"{{ n_7wzCu.outputs.batch[0].id }}",
+				"attachmentId":"{{ n_7wzCu.outputs.batch[0].attachments[0].body.attachmentId }}"
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"Download attachment",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"slack",
-				"resourceVersion":6353,
+				"resourceVersion":6360,
 				"connectionId":"6901e04d75b0c3591d0c17bb",
 				"resourceName":"slack_post_message_in_channel",
 				"type":"APPLICATION"
@@ -85,14 +121,14 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_saVcU-1",
-			"id":"n_ppwZC",
-			"index":2,
+			"groupId":"n_7wzCu-1",
+			"id":"n_P8Ixu",
+			"index":3,
 			"inputs":{
 				"link_names":true,
 				"messageType":"text",
 				"channel":"C09PB5W8QUE",
-				"text":"{{ n_7wzCu.outputs.batch[0].attachments[0].file_name }} is a pdf document.",
+				"text":"Pdf file in mail",
 				"mrkdwn":true
 			},
 			"skip":false,
@@ -102,17 +138,64 @@
 		},
 		{
 			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1116,
+				"resourceName":"utility_by_unifyapps_generate_public_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_7wzCu-1",
+			"id":"n_lPhjY",
+			"index":4,
+			"inputs":{
+				"file":"{{ n_Odudw.outputs.file }}",
+				"expiryTime":1
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Generate public file URL",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"slack",
+				"resourceVersion":3313,
+				"connectionId":"6901e04d75b0c3591d0c17bb",
+				"resourceName":"slack_send_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_7wzCu-1",
+			"id":"n_ppwZC",
+			"index":5,
+			"inputs":{
+				"filename":"{{ n_Odudw.outputs.file.name }}",
+				"select":"URL",
+				"channel_id":"C09PB5W8QUE",
+				"URL":"{{ n_lPhjY.outputs.url }}"
+			},
+			"skip":false,
+			"subTitle":"Slack",
+			"title":"Send File in Channel",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"_saVcU-1",
+			"groupId":"n_7wzCu-1",
 			"id":"n_aw8uD",
-			"index":3,
+			"index":6,
+			"inputs":{},
 			"skip":false,
 			"subTitle":"Stop",
-			"title":"Stop",
 			"type":"STOP"
 		}
 	],
@@ -133,5 +216,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
