@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761815588575,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761815606828,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69032c362947f05678489a36",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
@@ -24,7 +32,7 @@
 	"id":"69032c242947f05678489a04",
 	"lastModifiedBy":175325,
 	"lcName":"customhttptestheaders_117618146276640",
-	"modifiedTime":1761815604197,
+	"modifiedTime":1761815618646,
 	"name":"customHTTPTestHeaders_117618146276640",
 	"nodes":[
 		{
@@ -34,7 +42,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_1H1Rr-1",
 			"id":"n_7gp6u",
@@ -100,12 +108,7 @@
 				"httpVersion":"HTTP_2",
 				"responseContentType":"application/json",
 				"followRedirects":"NORMAL",
-				"headersList":[
-					{
-						"key":"input_key",
-						"value":"input_value"
-					}
-				],
+				"headersList":[],
 				"authType":"CUSTOM",
 				"requestContentType":"application/json",
 				"ignoreTrailingSlashes":false,
@@ -124,7 +127,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_1H1Rr-1",
 			"id":"n_oBUuN",
@@ -157,5 +160,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
