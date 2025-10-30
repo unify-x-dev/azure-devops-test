@@ -1,6 +1,7 @@
 {
 	"appsUsed":[
-		"gsheets"
+		"gsheets",
+		"storage_by_unifyapps"
 	],
 	"createdTime":1758861408264,
 	"deleted":false,
@@ -15,13 +16,6 @@
 	"edges":[
 		{
 			"fromNodeId":"n_0Jwyj",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_BLMSm",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_BLMSm",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_5A1t8",
@@ -53,11 +47,11 @@
 			"fromNodeId":"_y0jEU",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_xMzEq",
+			"toNodeId":"n_I1XSp",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_xMzEq",
+			"fromNodeId":"n_I1XSp",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -90,11 +84,11 @@
 			"fromNodeId":"_DAn3d",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_sm1pN",
+			"toNodeId":"_tRELJ",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_sm1pN",
+			"fromNodeId":"_tRELJ",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -127,11 +121,11 @@
 			"fromNodeId":"_Bp1z0",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_zcP8o",
+			"toNodeId":"_RLleK",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_zcP8o",
+			"fromNodeId":"_RLleK",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -164,11 +158,11 @@
 			"fromNodeId":"_LQR8E",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ZLvTP",
+			"toNodeId":"_L1Qhh",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_ZLvTP",
+			"fromNodeId":"_L1Qhh",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -227,6 +221,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_q981K",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cO5C3",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_sAIka",
 			"name":"2",
 			"priority":0,
@@ -242,7 +243,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_q981K",
+			"fromNodeId":"n_cO5C3",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_rMERn",
@@ -267,7 +268,7 @@
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"test_rishabh",
-	"modifiedTime":1761545827728,
+	"modifiedTime":1761816538784,
 	"name":"test_rishabh",
 	"nodes":[
 		{
@@ -321,319 +322,6 @@
 		},
 		{
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1053,
-				"resourceName":"variable_by_unifyapps_create_list",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_mzkHe-1",
-			"id":"n_BLMSm",
-			"index":2,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{
-					"createList":{
-						"ui:title":"",
-						"ua:type":{
-							"ui:widget":"hidden"
-						},
-						"items":{
-							"ui:title":"Initial list items",
-							"ui:description":"Set the initial values of the list (defaults to empty)"
-						},
-						"ui:order":[
-							"*",
-							"items"
-						]
-					},
-					"ua:title":{
-						"ui:widget":"hidden"
-					},
-					"ua:list_type":{
-						"ui:widget":"hidden"
-					}
-				},
-				"schema":{
-					"allOf":[
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"OBJECT"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"items":{
-												"type":"object",
-												"properties":{}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"STRING"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of String"
-											},
-											"items":{
-												"type":"string"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"INTEGER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Integers"
-											},
-											"items":{
-												"type":"integer"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"NUMBER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Numbers"
-											},
-											"items":{
-												"type":"number"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"BOOLEAN"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Booleans"
-											},
-											"items":{
-												"type":"boolean"
-											}
-										}
-									}
-								}
-							}
-						}
-					],
-					"format":"ua:list",
-					"type":"object",
-					"properties":{
-						"ua:title":{
-							"type":"string"
-						},
-						"ua:list_type":{
-							"type":"string",
-							"title":"List Type",
-							"oneOf":[
-								{
-									"const":"OBJECT",
-									"title":"Object"
-								},
-								{
-									"const":"STRING",
-									"title":"String"
-								},
-								{
-									"const":"NUMBER",
-									"title":"Number"
-								},
-								{
-									"const":"INTEGER",
-									"title":"Integer"
-								},
-								{
-									"const":"BOOLEAN",
-									"title":"Boolean"
-								}
-							],
-							"default":"OBJECT"
-						},
-						"createList":{
-							"type":"object",
-							"properties":{
-								"ua:type":{
-									"type":"string",
-									"default":"mappedArray"
-								},
-								"source":{
-									"type":"string",
-									"format":"ua:source",
-									"title":"List Item Source"
-								},
-								"items":{
-									"additionalProperties":false,
-									"type":[
-										"object",
-										"string",
-										"number",
-										"boolean",
-										"integer"
-									],
-									"properties":{
-										"leaves_taken":{
-											"type":"string",
-											"title":"Leaves Taken"
-										},
-										"employee_id":{
-											"type":"string",
-											"title":"Employee Id"
-										},
-										"Department":{
-											"type":"string",
-											"title":"Department"
-										},
-										"Name":{
-											"type":"string",
-											"title":"Name"
-										},
-										"Bonus_amount":{
-											"type":"string",
-											"title":"Bonus Amount"
-										}
-									},
-									"required":[
-										"leaves_taken",
-										"employee_id",
-										"Department",
-										"Name",
-										"Bonus_amount"
-									]
-								}
-							}
-						}
-					}
-				}
-			},
-			"inputs":{
-				"createList":{
-					"ua:type":"mappedArray"
-				},
-				"ua:title":"List1",
-				"ua:list_type":"OBJECT"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"type":"object",
-					"properties":{
-						"items":{
-							"type":"array",
-							"title":"List1",
-							"disableActions":true,
-							"items":{
-								"type":"object",
-								"properties":{
-									"leaves_taken":{
-										"type":"string",
-										"title":"Leaves Taken"
-									},
-									"employee_id":{
-										"type":"string",
-										"title":"Employee Id"
-									},
-									"Department":{
-										"type":"string",
-										"title":"Department"
-									},
-									"Name":{
-										"type":"string",
-										"title":"Name"
-									},
-									"Bonus_amount":{
-										"type":"string",
-										"title":"Bonus Amount"
-									}
-								},
-								"required":[
-									"leaves_taken",
-									"employee_id",
-									"Department",
-									"Name",
-									"Bonus_amount"
-								]
-							}
-						}
-					}
-				}
-			},
-			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"branch",
 				"type":"APPLICATION"
 			},
@@ -642,7 +330,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_5A1t8",
-			"index":3,
+			"index":2,
 			"inputs":{
 				"branches":[
 					{
@@ -739,7 +427,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@1",
 			"id":"n_5A1t8@1",
-			"index":4,
+			"index":3,
 			"inputs":{
 				"name":"Branch 1",
 				"conditions":{
@@ -772,7 +460,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@1",
 			"id":"n_rJI1Y",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"sheetName":"Q1",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -797,7 +485,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@1",
 			"id":"_y0jEU",
-			"index":6,
+			"index":5,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ n_rJI1Y.outputs.rows }}",
@@ -809,32 +497,45 @@
 			"type":"LOOP"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items.LeavesTaken",
+					"root.records.items.Employeeid",
+					"root.records.items.Department",
+					"root.records.items.name",
+					"root.records.items.BonusAmount"
+				]
+			},
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1020,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2560,
+				"resourceName":"storage_by_unifyapps_bulk_create_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_y0jEU@n_5A1t8@_mzkHe-1@1@l",
-			"id":"_xMzEq",
-			"index":7,
+			"id":"n_I1XSp",
+			"index":6,
 			"inputs":{
-				"itemToAdd":{
-					"leaves_taken":"{{ _y0jEU.outputs.item.Leaves_Taken__4 }}",
-					"employee_id":"{{ _y0jEU.outputs.item.Employee_ID__0 }}",
-					"Department":"{{ _y0jEU.outputs.item.Department__2 }}",
-					"Name":"{{ _y0jEU.outputs.item.Name__1 }}",
-					"Bonus_amount":"{{ _y0jEU.outputs.item.Bonus_Amount__3 }}"
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_BLMSm.outputs.items[0] }}"
+				"object_type":"rishabh_assignment_automation_excel",
+				"skipIfBlank":false,
+				"records":{
+					"source":"{{ _y0jEU.outputs.item }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"LeavesTaken":"{{ _y0jEU.outputs.item.Leaves_Taken__4 }}",
+						"Employeeid":"{{ _y0jEU.outputs.item.Employee_ID__0 }}",
+						"Department":"{{ _y0jEU.outputs.item.Department__2 }}",
+						"name":"{{ _y0jEU.outputs.item.Name__1 }}",
+						"BonusAmount":"{{ _y0jEU.outputs.item.Bonus_Amount__3 }}"
+					}
+				}
 			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create or update records in bulk",
 			"type":"ACTION"
 		},
 		{
@@ -849,7 +550,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@2",
 			"id":"n_5A1t8@2",
-			"index":8,
+			"index":7,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -882,7 +583,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@2",
 			"id":"_8PtnU",
-			"index":9,
+			"index":8,
 			"inputs":{
 				"sheetName":"Q2",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -907,7 +608,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@2",
 			"id":"_DAn3d",
-			"index":10,
+			"index":9,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ _8PtnU.outputs.rows }}",
@@ -919,32 +620,45 @@
 			"type":"LOOP"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items.LeavesTaken",
+					"root.records.items.Employeeid",
+					"root.records.items.Department",
+					"root.records.items.name",
+					"root.records.items.BonusAmount"
+				]
+			},
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1020,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2560,
+				"resourceName":"storage_by_unifyapps_bulk_create_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DAn3d@n_5A1t8@_mzkHe-1@2@l",
-			"id":"_sm1pN",
-			"index":11,
+			"id":"_tRELJ",
+			"index":10,
 			"inputs":{
-				"itemToAdd":{
-					"leaves_taken":"{{ _DAn3d.outputs.item.Leaves_Taken__4 }}",
-					"employee_id":"{{ _DAn3d.outputs.item.Employee_ID__0 }}",
-					"Department":"{{ _DAn3d.outputs.item.Department__2 }}",
-					"Name":"{{ _DAn3d.outputs.item.Name__1 }}",
-					"Bonus_amount":"{{ _DAn3d.outputs.item.Bonus_Amount__3 }}"
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_BLMSm.outputs.items[0] }}"
+				"object_type":"rishabh_assignment_automation_excel",
+				"skipIfBlank":false,
+				"records":{
+					"source":"{{ _DAn3d.outputs.item }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"LeavesTaken":"{{ _DAn3d.outputs.item.Leaves_Taken__4 }}",
+						"Employeeid":"{{ _DAn3d.outputs.item.Employee_ID__0 }}",
+						"Department":"{{ _DAn3d.outputs.item.Department__2 }}",
+						"name":"{{ _DAn3d.outputs.item.Name__1 }}",
+						"BonusAmount":"{{ _DAn3d.outputs.item.Bonus_Amount__3 }}"
+					}
+				}
 			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create or update records in bulk",
 			"type":"ACTION"
 		},
 		{
@@ -959,7 +673,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@3",
 			"id":"n_5A1t8@3",
-			"index":12,
+			"index":11,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -992,7 +706,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@3",
 			"id":"_5BAQr",
-			"index":13,
+			"index":12,
 			"inputs":{
 				"sheetName":"Q3",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -1017,7 +731,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@3",
 			"id":"_Bp1z0",
-			"index":14,
+			"index":13,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ _5BAQr.outputs.rows }}",
@@ -1029,32 +743,45 @@
 			"type":"LOOP"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items.LeavesTaken",
+					"root.records.items.Employeeid",
+					"root.records.items.Department",
+					"root.records.items.name",
+					"root.records.items.BonusAmount"
+				]
+			},
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1020,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2560,
+				"resourceName":"storage_by_unifyapps_bulk_create_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Bp1z0@n_5A1t8@_mzkHe-1@3@l",
-			"id":"_zcP8o",
-			"index":15,
+			"id":"_RLleK",
+			"index":14,
 			"inputs":{
-				"itemToAdd":{
-					"leaves_taken":"{{ _Bp1z0.outputs.item.Leaves_Taken__4 }}",
-					"employee_id":"{{ _Bp1z0.outputs.item.Employee_ID__0 }}",
-					"Department":"{{ _Bp1z0.outputs.item.Department__2 }}",
-					"Name":"{{ _Bp1z0.outputs.item.Name__1 }}",
-					"Bonus_amount":"{{ _Bp1z0.outputs.item.Bonus_Amount__3 }}"
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_BLMSm.outputs.items[0] }}"
+				"object_type":"rishabh_assignment_automation_excel",
+				"skipIfBlank":false,
+				"records":{
+					"source":"{{ _Bp1z0.outputs.item }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"LeavesTaken":"{{ _Bp1z0.outputs.item.Leaves_Taken__4 }}",
+						"Employeeid":"{{ _Bp1z0.outputs.item.Employee_ID__0 }}",
+						"Department":"{{ _Bp1z0.outputs.item.Department__2 }}",
+						"name":"{{ _Bp1z0.outputs.item.Name__1 }}",
+						"BonusAmount":"{{ _Bp1z0.outputs.item.Bonus_Amount__3 }}"
+					}
+				}
 			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create or update records in bulk",
 			"type":"ACTION"
 		},
 		{
@@ -1069,7 +796,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@4",
 			"id":"n_5A1t8@4",
-			"index":16,
+			"index":15,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -1102,7 +829,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@4",
 			"id":"_jEx4r",
-			"index":17,
+			"index":16,
 			"inputs":{
 				"sheetName":"Q4",
 				"valueRenderOption":"FORMATTED_VALUE",
@@ -1127,7 +854,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_5A1t8@_mzkHe-1@4",
 			"id":"_LQR8E",
-			"index":18,
+			"index":17,
 			"inputs":{
 				"repeatMode":"SINGLE",
 				"listSource":"{{ _jEx4r.outputs.rows }}",
@@ -1139,32 +866,45 @@
 			"type":"LOOP"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items.LeavesTaken",
+					"root.records.items.Employeeid",
+					"root.records.items.Department",
+					"root.records.items.name",
+					"root.records.items.BonusAmount"
+				]
+			},
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1020,
-				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2560,
+				"resourceName":"storage_by_unifyapps_bulk_create_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LQR8E@n_5A1t8@_mzkHe-1@4@l",
-			"id":"_ZLvTP",
-			"index":19,
+			"id":"_L1Qhh",
+			"index":18,
 			"inputs":{
-				"itemToAdd":{
-					"leaves_taken":"{{ _LQR8E.outputs.item.Leaves_Taken__4 }}",
-					"employee_id":"{{ _LQR8E.outputs.item.Employee_ID__0 }}",
-					"Department":"{{ _LQR8E.outputs.item.Department__2 }}",
-					"Name":"{{ _LQR8E.outputs.item.Name__1 }}",
-					"Bonus_amount":"{{ _LQR8E.outputs.item.Bonus_Amount__3 }}"
-				},
-				"insertLocation":"END",
-				"listName":"{{ n_BLMSm.outputs.items[0] }}"
+				"object_type":"rishabh_assignment_automation_excel",
+				"skipIfBlank":false,
+				"records":{
+					"source":"{{ _LQR8E.outputs.item }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"LeavesTaken":"{{ _LQR8E.outputs.item.Leaves_Taken__4 }}",
+						"Employeeid":"{{ _LQR8E.outputs.item.Employee_ID__0 }}",
+						"Department":"{{ _LQR8E.outputs.item.Department__2 }}",
+						"name":"{{ _LQR8E.outputs.item.Name__1 }}",
+						"BonusAmount":"{{ _LQR8E.outputs.item.Bonus_Amount__3 }}"
+					}
+				}
 			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Add item to list",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create or update records in bulk",
 			"type":"ACTION"
 		},
 		{
@@ -1177,7 +917,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_sAIka",
-			"index":20,
+			"index":19,
 			"inputs":{
 				"branches":[
 					{
@@ -1226,7 +966,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_sAIka@_mzkHe-1@1",
 			"id":"n_sAIka@1",
-			"index":21,
+			"index":20,
 			"inputs":{
 				"name":"Branch 1",
 				"conditions":{
@@ -1247,6 +987,11 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"analytics_by_unifyapps",
 				"resourceVersion":930,
@@ -1258,47 +1003,31 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_sAIka@_mzkHe-1@1",
 			"id":"n_q981K",
+			"index":21,
+			"inputs":{
+				"query":" SELECT \n    _pr_Employeeid,\n    _pr_name,\n    _pr_Department,\n    SUM(_pr_BonusAmount) AS Total_Bonus,\n    SUM(_pr_LeavesTaken) AS Total_Leaves\n  FROM ENTITY_rishabh_assignment_automation_excel\n  GROUP BY _pr_Employeeid, _pr_name, _pr_Department\n  ORDER BY Total_Bonus DESC\n  LIMIT 5\n",
+				"group":"ENTITY_REPORTING"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Execute Analytics SQL Query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":943,
+				"resourceName":"analytics_by_unifyapps_execute_query",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_sAIka@_mzkHe-1@1",
+			"id":"n_cO5C3",
 			"index":22,
 			"inputs":{
-				"query":"select * from List1",
-				"params":{
-					"type":"array",
-					"title":"List1",
-					"disableActions":true,
-					"ua:__linkedVariable__":"n_BLMSm.outputs.items[0]",
-					"items":{
-						"type":"object",
-						"properties":{
-							"leaves_taken":{
-								"type":"string",
-								"title":"Leaves Taken"
-							},
-							"employee_id":{
-								"type":"string",
-								"title":"Employee Id"
-							},
-							"Department":{
-								"type":"string",
-								"title":"Department"
-							},
-							"Name":{
-								"type":"string",
-								"title":"Name"
-							},
-							"Bonus_amount":{
-								"type":"string",
-								"title":"Bonus Amount"
-							}
-						},
-						"required":[
-							"leaves_taken",
-							"employee_id",
-							"Department",
-							"Name",
-							"Bonus_amount"
-						]
-					}
-				},
+				"query":" SELECT \n    _pr_Employeeid,\n    _pr_name,\n    _pr_Department,\n    SUM(_pr_BonusAmount) AS Total_Bonus,\n    SUM(_pr_LeavesTaken) AS Total_Leaves\n  FROM ENTITY_rishabh_assignment_automation_excel\n  GROUP BY _pr_Employeeid, _pr_name, _pr_Department\n  ORDER BY Total_Leaves DESC\n  LIMIT 5\n",
 				"group":"ENTITY_REPORTING"
 			},
 			"skip":false,
@@ -1386,5 +1115,5 @@
 	"tags":[
 		
 	],
-	"version":29
+	"version":30
 }
