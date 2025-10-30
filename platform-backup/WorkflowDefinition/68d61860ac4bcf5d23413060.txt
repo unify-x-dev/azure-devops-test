@@ -173,28 +173,28 @@
 			"fromNodeId":"_y0jEU",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_sAIka",
+			"toNodeId":"n_KkyBx",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_DAn3d",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_sAIka",
+			"toNodeId":"n_KkyBx",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_Bp1z0",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_sAIka",
+			"toNodeId":"n_KkyBx",
 			"type":"next"
 		},
 		{
 			"fromNodeId":"_LQR8E",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_sAIka",
+			"toNodeId":"n_KkyBx",
 			"type":"next"
 		},
 		{
@@ -202,73 +202,51 @@
 			"name":"default",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_sAIka",
+			"toNodeId":"n_KkyBx",
 			"type":"branch"
 		},
 		{
-			"fromNodeId":"n_sAIka",
-			"name":"1",
+			"fromNodeId":"n_KkyBx",
+			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_sAIka@1",
-			"type":"branch"
+			"toNodeId":"_cerVc",
+			"type":"if"
 		},
 		{
-			"fromNodeId":"n_sAIka@1",
+			"fromNodeId":"_cerVc",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_q981K",
+			"toNodeId":"_ZPnZN",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_q981K",
+			"fromNodeId":"n_KkyBx",
+			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_cO5C3",
+			"toNodeId":"_1e2JF",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_sAIka",
-			"name":"2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_sAIka@2",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_sAIka@2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_0EGYC",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_cO5C3",
+			"fromNodeId":"_ZPnZN",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_rMERn",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_0EGYC",
+			"fromNodeId":"_1e2JF",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_rMERn",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_sAIka",
-			"name":"default",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_rMERn",
-			"type":"branch"
 		}
 	],
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"test_rishabh",
-	"modifiedTime":1761817278728,
+	"modifiedTime":1761817376598,
 	"name":"test_rishabh",
 	"nodes":[
 		{
@@ -897,82 +875,33 @@
 		},
 		{
 			"context":{
-				"appName":"branch",
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
-			"id":"n_sAIka",
+			"id":"n_KkyBx",
 			"index":19,
 			"inputs":{
-				"branches":[
+				"filters":[
 					{
-						"id":"1",
-						"inputs":{
-							"name":"Branch 1",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_0Jwyj.outputs.body.input }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"getTop5"
-										}
-									}
-								],
-								"operator":"AND"
-							}
+						"property":"{{ n_0Jwyj.outputs.body.input }}",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"getTop5"
 						}
-					},
-					{
-						"id":"2",
-						"inputs":{
-							"name":"Branch 2"
-						}
-					},
-					{
-						"id":"default"
 					}
-				]
+				],
+				"operator":"AND"
 			},
 			"skip":false,
-			"subTitle":"Branch",
-			"title":"",
-			"type":"BRANCH"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@1",
-			"id":"n_sAIka@1",
-			"index":20,
-			"inputs":{
-				"name":"Branch 1",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_0Jwyj.outputs.body.input }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"getTop5"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
 		},
 		{
 			"additional":{
@@ -989,9 +918,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@1",
-			"id":"n_q981K",
-			"index":21,
+			"groupId":"n_KkyBx@_mzkHe-1@y",
+			"id":"_cerVc",
+			"index":20,
 			"inputs":{
 				"query":" SELECT \n    _pr_Employeeid,\n    _pr_name,\n    _pr_Department,\n    SUM(_pr_BonusAmount) AS Total_Bonus,\n    SUM(_pr_LeavesTaken) AS Total_Leaves\n  FROM ENTITY_rishabh_assignment_automation_excel\n  GROUP BY _pr_Employeeid, _pr_name, _pr_Department\n  ORDER BY Total_Bonus DESC\n  LIMIT 5\n",
 				"group":"ENTITY_REPORTING"
@@ -1011,9 +940,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@1",
-			"id":"n_cO5C3",
-			"index":22,
+			"groupId":"n_KkyBx@_mzkHe-1@y",
+			"id":"_ZPnZN",
+			"index":21,
 			"inputs":{
 				"query":" SELECT \n    _pr_Employeeid,\n    _pr_name,\n    _pr_Department,\n    SUM(_pr_BonusAmount) AS Total_Bonus,\n    SUM(_pr_LeavesTaken) AS Total_Leaves\n  FROM ENTITY_rishabh_assignment_automation_excel\n  GROUP BY _pr_Employeeid, _pr_name, _pr_Department\n  ORDER BY Total_Leaves DESC\n  LIMIT 5\n",
 				"group":"ENTITY_REPORTING"
@@ -1022,26 +951,6 @@
 			"subTitle":"Analytics by UnifyApps",
 			"title":"Execute Analytics SQL Query",
 			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@2",
-			"id":"n_sAIka@2",
-			"index":23,
-			"inputs":{
-				"name":"Branch 2"
-			},
-			"skip":true,
-			"title":"",
-			"type":"BRANCH_CONDITION"
 		},
 		{
 			"additional":{
@@ -1058,9 +967,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_sAIka@_mzkHe-1@2",
-			"id":"_0EGYC",
-			"index":24,
+			"groupId":"n_KkyBx@_mzkHe-1@n",
+			"id":"_1e2JF",
+			"index":22,
 			"inputs":{
 				"query":" SELECT \n    _pr_Employeeid,\n    _pr_name,\n    _pr_Department,\n    SUM(_pr_BonusAmount) AS Total_Bonus,\n    SUM(_pr_LeavesTaken) AS Total_Leaves\n  FROM ENTITY_rishabh_assignment_automation_excel\n  where -pr_Employeeid = {{ n_0Jwyj.outputs.body.input }}\n",
 				"group":"ENTITY_REPORTING"
@@ -1082,7 +991,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_mzkHe-1",
 			"id":"n_rMERn",
-			"index":25,
+			"index":23,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1111,5 +1020,5 @@
 	"tags":[
 		
 	],
-	"version":34
+	"version":35
 }
