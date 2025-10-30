@@ -186,6 +186,13 @@
 			"fromNodeId":"n_Qe8TI",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_mWWmA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mWWmA",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_6r9Nr",
 			"type":"next"
 		},
@@ -257,7 +264,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761807589905,
+	"modifiedTime":1761807647316,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -1183,6 +1190,34 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4509,
+				"resourceName":"storage_by_unifyapps_update_record_by_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@4",
+			"id":"n_mWWmA",
+			"index":25,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"reps_locations_id",
+				"skipIfBlank":false,
+				"record":{
+					"ReferenceNumber":"{{ n_Qe8TI.outputs.result.ReferenceNumber }}",
+					"Name":"{{ n_Qe8TI.outputs.result.Name }}"
+				},
+				"upsert":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Update an existing record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1129,
 				"resourceName":"callables_return_response_to_api",
@@ -1193,7 +1228,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_6r9Nr",
-			"index":25,
+			"index":26,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1216,7 +1251,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_drs8E",
-			"index":26,
+			"index":27,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -1246,5 +1281,5 @@
 	"tags":[
 		
 	],
-	"version":26
+	"version":27
 }
