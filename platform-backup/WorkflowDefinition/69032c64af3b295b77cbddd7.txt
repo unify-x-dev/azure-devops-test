@@ -42,12 +42,20 @@
 			"skip":false,
 			"toNodeId":"n_mSOME",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Mxf4A",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WZUub",
+			"type":"branch"
 		}
 	],
 	"id":"69032c64af3b295b77cbddd7",
 	"lastModifiedBy":175325,
 	"lcName":"default_branch_has_no_response_step_117618146261710",
-	"modifiedTime":1761815664197,
+	"modifiedTime":1761815669152,
 	"name":"default_branch_has_no_response_step_117618146261710",
 	"nodes":[
 		{
@@ -187,6 +195,21 @@
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Mxf4A@_HhUFY-1@default",
+			"id":"n_WZUub",
+			"index":7,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
@@ -206,5 +229,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
