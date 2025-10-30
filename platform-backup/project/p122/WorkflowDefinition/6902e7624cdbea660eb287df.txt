@@ -25,12 +25,19 @@
 			"skip":false,
 			"toNodeId":"n_W9GTv",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_W9GTv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UyLu3",
+			"type":"next"
 		}
 	],
 	"id":"6902e7624cdbea660eb287df",
 	"lastModifiedBy":155341,
 	"lcName":"test2",
-	"modifiedTime":1761803212096,
+	"modifiedTime":1761803263818,
 	"name":"test2",
 	"nodes":[
 		{
@@ -97,9 +104,9 @@
 			"id":"n_8WfcS",
 			"index":3,
 			"inputs":{
-				"path":"/temp"
+				"path":"/temp/test.txt"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"FTP/FTPS",
 			"title":"Download file",
 			"type":"ACTION"
@@ -123,9 +130,32 @@
 				"input_type":"url",
 				"source_url":"https://drive.google.com/uc?export=download&id=1-h_Lrx_uw_llIOHTJdqLe7ayDWb5e797"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"FTP/FTPS",
 			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"ftp",
+				"resourceVersion":3393,
+				"connectionId":"6902fa1b5e849b76eece2d17",
+				"resourceName":"ftp_list_files_directories",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iAhKW-1",
+			"id":"n_UyLu3",
+			"index":5,
+			"inputs":{
+				"path":"/temp/test.txt",
+				"include_files":true
+			},
+			"skip":true,
+			"subTitle":"FTP/FTPS",
+			"title":"List files and directories",
 			"type":"ACTION"
 		}
 	],
@@ -147,5 +177,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":6
 }
