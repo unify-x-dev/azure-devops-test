@@ -142,7 +142,7 @@
 			"fromNodeId":"n_LJy4I@3",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_0r9Fh",
+			"toNodeId":"n_SP4DL",
 			"type":"next"
 		},
 		{
@@ -164,7 +164,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761805423715,
+	"modifiedTime":1761805577254,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -889,14 +889,58 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
-			"id":"n_0r9Fh",
+			"id":"n_SP4DL",
 			"index":20,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"name",
+						"ReferenceNumber"
+					],
+					"properties":{
+						"name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"ReferenceNumber":{
+							"type":"string",
+							"title":"Reference Number"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
 		{
@@ -961,5 +1005,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
