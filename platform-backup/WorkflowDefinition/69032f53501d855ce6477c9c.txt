@@ -7,46 +7,136 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_UbW60",
+			"fromNodeId":"n_dFlEM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_7O32s",
+			"toNodeId":"n_nKEVb",
 			"type":"next"
 		}
 	],
 	"id":"69032f53501d855ce6477c9c",
 	"lastModifiedBy":175325,
 	"lcName":"multiselectdropdown_customvalue_117618146261810",
-	"modifiedTime":1761816403175,
+	"modifiedTime":1761816411722,
 	"name":"multiSelectDropdown_customValue_117618146261810",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_UbW60-1",
-			"id":"_UbW60",
-			"index":0,
+			"id":"n_dFlEM",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1091,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_UbW60-1",
-			"id":"_7O32s",
-			"index":0,
+			"id":"n_nKEVb",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"input":{
+							"type":"array",
+							"items":{
+								"type":"string",
+								"oneOf":[
+									{
+										"const":"1",
+										"title":"First value"
+									},
+									{
+										"const":"2",
+										"title":"Second value"
+									}
+								]
+							},
+							"format":"multi-select",
+							"title":"input",
+							"minItems":1
+						}
+					},
+					"required":[
+						"input"
+					]
+				}
+			},
+			"inputs":{
+				"input":[
+					"123"
+				]
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"input":{
+							"type":"array",
+							"items":{
+								"type":"string",
+								"oneOf":[
+									{
+										"const":"1",
+										"title":"First value"
+									},
+									{
+										"const":"2",
+										"title":"Second value"
+									}
+								]
+							},
+							"format":"multi-select",
+							"title":"input",
+							"minItems":1
+						}
+					},
+					"required":[
+						"input"
+					]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +150,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
