@@ -1,51 +1,73 @@
 {
 	"appsUsed":[
-		
+		"gforms",
+		"whatsapp"
 	],
 	"createdTime":1761816923275,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_34dE5",
+			"fromNodeId":"n_IdaH9",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_KLmk1",
+			"toNodeId":"n_1nDyh",
 			"type":"next"
 		}
 	],
 	"id":"6903315b13085040561b27ec",
 	"lastModifiedBy":33444,
 	"lcName":"vikram test",
-	"modifiedTime":1761816923275,
+	"modifiedTime":1761816993179,
 	"name":"vikram test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"gforms",
+				"resourceVersion":3973,
+				"connectionId":"68c7ea6fffc1275f46862e1e",
+				"resourceName":"gforms_on_forms_responses_polling"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_34dE5-1",
-			"id":"_34dE5",
-			"index":0,
+			"id":"n_IdaH9",
+			"index":1,
+			"inputs":{
+				"interval":1,
+				"batchSize":100
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Google Forms",
+			"title":"On forms responses",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"whatsapp",
+				"resourceVersion":5411,
+				"resourceName":"whatsapp_send_simple_text_message",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_34dE5-1",
-			"id":"_KLmk1",
-			"index":0,
+			"id":"n_1nDyh",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"WhatsApp",
+			"title":"Send simple text message",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33444,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +81,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
