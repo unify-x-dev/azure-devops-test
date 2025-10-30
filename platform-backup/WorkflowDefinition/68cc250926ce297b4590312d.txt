@@ -23,7 +23,7 @@
 	"id":"68cc250926ce297b4590312d",
 	"lastModifiedBy":97258,
 	"lcName":"playwrighttest",
-	"modifiedTime":1761845496379,
+	"modifiedTime":1761845500900,
 	"name":"playwrighttest",
 	"nodes":[
 		{
@@ -60,7 +60,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_abCq6-1",
 			"id":"n_xG7Ni",
@@ -69,7 +69,7 @@
 				"usePlaywrightTestFramework":false,
 				"script":"import { test } from '@playwright/test';\ntest('NPCI Settlement File Download', async ({ page }) => {\nawait page.goto('https://www.google.com');\n});"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute playwright script",
 			"type":"ACTION"
@@ -117,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
