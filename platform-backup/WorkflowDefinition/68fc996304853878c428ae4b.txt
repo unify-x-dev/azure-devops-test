@@ -218,7 +218,7 @@
 	"id":"68fc996304853878c428ae4b",
 	"lastModifiedBy":27,
 	"lcName":"best practices | fetch issues",
-	"modifiedTime":1761821226774,
+	"modifiedTime":1761821289486,
 	"name":"Best Practices | Fetch Issues",
 	"nodes":[
 		{
@@ -1238,45 +1238,46 @@
 			"inputs":{
 				"output":{
 					"type":"object",
-					"additionalProperties":false,
-					"required":[],
+					"ua:__linkedVariable__":"n_BJWbh.outputs",
 					"properties":{
-						"results":{
+						"items":{
 							"type":"array",
+							"title":"results",
+							"disableActions":true,
 							"items":{
 								"type":"object",
 								"properties":{
-									"checkId":{
+									"checkCategory":{
 										"type":"string",
-										"title":"checkId"
-									},
-									"status":{
-										"type":"string",
-										"title":"status"
-									},
-									"entityId":{
-										"type":"string",
-										"title":"entityId"
-									},
-									"checkTitle":{
-										"type":"string",
-										"title":"checkTitle"
+										"title":"checkCategory"
 									},
 									"checkDescription":{
 										"type":"string",
 										"title":"checkDescription"
 									},
+									"checkHeader":{
+										"type":"string",
+										"title":"checkHeader"
+									},
+									"checkId":{
+										"type":"string",
+										"title":"checkId"
+									},
 									"checkImpact":{
 										"type":"string",
 										"title":"checkImpact"
 									},
-									"checkCategory":{
+									"checkTitle":{
 										"type":"string",
-										"title":"checkCategory"
+										"title":"checkTitle"
 									},
-									"checkHeader":{
+									"entityId":{
 										"type":"string",
-										"title":"Check Header"
+										"title":"entityId"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
 									},
 									"impactedEntityId":{
 										"type":"string",
@@ -1289,12 +1290,16 @@
 									"impactedEntityType":{
 										"type":"string",
 										"title":"impactedEntityType"
+									},
+									"impactedEntityIconKey":{
+										"type":"string",
+										"title":"Impacted Entity Icon Key"
 									}
 								},
-								"additionalProperties":false,
-								"required":[]
-							},
-							"title":"results"
+								"required":[
+									"impactedEntityIconKey"
+								]
+							}
 						}
 					}
 				},
@@ -1977,5 +1982,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":121
+	"version":122
 }
