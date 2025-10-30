@@ -1,51 +1,190 @@
 {
 	"appsUsed":[
-		
+		"bitly",
+		"filestage"
 	],
 	"createdTime":1761803467023,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_UgdR3",
+			"fromNodeId":"n_g5a14",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_HFR4V",
+			"toNodeId":"n_hSIT4",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hSIT4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GS0ta",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GS0ta",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HG34o",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HG34o",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_VyjAj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VyjAj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2ic1v",
 			"type":"next"
 		}
 	],
 	"id":"6902fccb94edc52c8d458ef8",
 	"lastModifiedBy":3546,
 	"lcName":"erge",
-	"modifiedTime":1761803467023,
+	"modifiedTime":1761805735155,
 	"name":"erge",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_UgdR3-1",
-			"id":"_UgdR3",
-			"index":0,
+			"id":"n_g5a14",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"bitly",
+				"resourceVersion":4942,
+				"connectionId":"6902fce15e849b76eece3bc9",
+				"resourceName":"bitly_create_bitlink",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_UgdR3-1",
-			"id":"_HFR4V",
-			"index":0,
+			"id":"n_hSIT4",
+			"index":2,
+			"inputs":{
+				"long_url":"https://myapp.dev/login"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Bitly",
+			"title":"Create bitlink",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"bitly",
+				"resourceVersion":4964,
+				"connectionId":"6902fce15e849b76eece3bc9",
+				"resourceName":"bitly_get_bitlink",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_UgdR3-1",
+			"id":"n_GS0ta",
+			"index":3,
+			"inputs":{
+				"bitlink":"bit.ly/4hxHpb7"
+			},
+			"skip":false,
+			"subTitle":"Bitly",
+			"title":"Get bitlink",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"filestage",
+				"resourceVersion":4803,
+				"connectionId":"690301205e849b76eece42b6",
+				"resourceName":"filestage_create_folder",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_UgdR3-1",
+			"id":"n_HG34o",
+			"index":4,
+			"inputs":{
+				"name":"Folder2"
+			},
+			"skip":false,
+			"subTitle":"Filestage",
+			"title":"Create folder",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"filestage",
+				"resourceVersion":4774,
+				"connectionId":"690301205e849b76eece42b6",
+				"resourceName":"filestage_get_folder",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_UgdR3-1",
+			"id":"n_VyjAj",
+			"index":5,
+			"inputs":{
+				"folderId":"b3fe23511dbc33ffa06b43fbffc246ed"
+			},
+			"skip":false,
+			"subTitle":"Filestage",
+			"title":"Get folder",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"filestage",
+				"resourceVersion":4743,
+				"connectionId":"690301205e849b76eece42b6",
+				"resourceName":"filestage_list_projects",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_UgdR3-1",
+			"id":"n_2ic1v",
+			"index":6,
+			"skip":false,
+			"subTitle":"Filestage",
+			"title":"List projects",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +198,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
