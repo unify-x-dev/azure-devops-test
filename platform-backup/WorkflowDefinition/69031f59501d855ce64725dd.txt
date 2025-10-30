@@ -18,12 +18,19 @@
 			"skip":false,
 			"toNodeId":"_kx6U2",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"_kx6U2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_IAfJF",
+			"type":"next"
 		}
 	],
 	"id":"69031f59501d855ce64725dd",
 	"lastModifiedBy":103171,
 	"lcName":"headout testing",
-	"modifiedTime":1761812675875,
+	"modifiedTime":1761814506374,
 	"name":"HeadOut Testing",
 	"nodes":[
 		{
@@ -99,6 +106,30 @@
 			"subTitle":"Headout",
 			"title":"List all products",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"headout",
+				"resourceVersion":181,
+				"connectionId":"68e80a3bc1fbcd6e64c01e11",
+				"resourceName":"headout_fetch_product_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_631Bc-1",
+			"id":"_IAfJF",
+			"index":4,
+			"inputs":{
+				"offset":"0",
+				"limit":20,
+				"languageCode":"EN"
+			},
+			"skip":false,
+			"subTitle":"Headout",
+			"title":"Fetch product by ID",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":103171,
@@ -118,5 +149,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
