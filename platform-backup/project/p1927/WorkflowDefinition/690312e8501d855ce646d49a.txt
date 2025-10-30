@@ -23,7 +23,7 @@
 	"id":"690312e8501d855ce646d49a",
 	"lastModifiedBy":44105,
 	"lcName":"[repsschedular] syncdesignationhttptrigger",
-	"modifiedTime":1761826114284,
+	"modifiedTime":1761826371036,
 	"name":"[RepsSchedular] SyncDesignationHttpTrigger",
 	"nodes":[
 		{
@@ -33,7 +33,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_IyOaB",
@@ -49,7 +49,11 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
-						}
+						},
+						"body":{
+							"type":"object"
+						},
+						"namespaces":[]
 					}
 				],
 				"streamingResponse":false
@@ -108,7 +112,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_rujD8",
@@ -116,6 +120,7 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":"{{ n_xnr0g.outputs.result }}",
 				"status":200
 			},
 			"skip":false,
@@ -142,5 +147,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
