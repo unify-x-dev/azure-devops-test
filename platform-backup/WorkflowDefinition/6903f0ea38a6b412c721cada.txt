@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761865962204,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_iJC8l",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_QWWfn",
+			"type":"next"
+		}
+	],
+	"id":"6903f0ea38a6b412c721cada",
+	"lastModifiedBy":46218,
+	"lcName":"test slack notification",
+	"modifiedTime":1761865962204,
+	"name":"test slack notification",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iJC8l-1",
+			"id":"_iJC8l",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_iJC8l-1",
+			"id":"_QWWfn",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":46218,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
