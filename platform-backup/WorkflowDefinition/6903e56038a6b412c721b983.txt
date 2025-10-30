@@ -81,7 +81,7 @@
 	"id":"6903e56038a6b412c721b983",
 	"lastModifiedBy":308,
 	"lcName":"loopp(copy)qa2",
-	"modifiedTime":1761863015805,
+	"modifiedTime":1761863033604,
 	"name":"loopp(copy)QA2",
 	"nodes":[
 		{
@@ -288,9 +288,9 @@
 		{
 			"context":{
 				"appName":"slack",
-				"resourceVersion":7515,
+				"resourceVersion":4742,
 				"connectionId":"66a7e9d5d9b2fb0ec5db29f3",
-				"resourceName":"slack_post_message_in_channel",
+				"resourceName":"slack_list_conversations",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -300,11 +300,7 @@
 			"id":"n_Bzfx2",
 			"index":6,
 			"inputs":{
-				"link_names":true,
-				"messageType":"text",
-				"channel":"C097QQY00P2",
-				"text":"slack - {{ n_SwMkp.outputs.index }}",
-				"mrkdwn":true
+				"limit":1
 			},
 			"options":{
 				"bulkheadConfig":{
@@ -377,7 +373,7 @@
 			},
 			"skip":false,
 			"subTitle":"Slack",
-			"title":"Post message",
+			"title":"List conversations",
 			"type":"ACTION"
 		},
 		{
@@ -587,5 +583,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
