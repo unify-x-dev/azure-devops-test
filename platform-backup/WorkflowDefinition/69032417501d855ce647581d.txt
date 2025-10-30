@@ -5,12 +5,12 @@
 	"createdTime":1761813527328,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761817755719,
+		"deployedAt":1761817797023,
 		"deployedBy":43498,
-		"deployedDefinitionId":"6903349be673312cf3edfd68",
+		"deployedDefinitionId":"690334c4501d855ce6478dd2",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":8
+		"version":2,
+		"workflowVersion":9
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"69032417501d855ce647581d",
 	"lastModifiedBy":43498,
 	"lcName":"cvdscfv-dynamic",
-	"modifiedTime":1761817787867,
+	"modifiedTime":1761817860570,
 	"name":"cvdscfv-dynamic",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 			"index":1,
 			"inputs":{
 				"cron":"EXPRESSION",
-				"expression":"0 0 * * *",
+				"expression":"{{ __ENV__.outputs.2 }} 0 * * *",
 				"sequential":false,
 				"timezone":"Asia/Calcutta",
 				"interval":15,
@@ -101,5 +101,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
