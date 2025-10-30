@@ -95,13 +95,6 @@
 			"fromNodeId":"n_AjLCz",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_7q78w",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_7q78w",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_tgSUT",
 			"type":"next"
 		}
@@ -109,7 +102,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761822056291,
+	"modifiedTime":1761822091635,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -759,27 +752,6 @@
 		},
 		{
 			"context":{
-				"appName":"files_by_unifyapps",
-				"resourceVersion":893,
-				"resourceName":"files_by_unifyapps_create_pdf_file",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_SFZNS-1",
-			"id":"n_7q78w",
-			"index":13,
-			"inputs":{
-				"fileName":"Your Morning Brief - {{ n_Qgt4O.outputs.lastJobTime }}"
-			},
-			"skip":true,
-			"subTitle":"Files by UnifyApps",
-			"title":"Create a PDF file",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -787,7 +759,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":14,
+			"index":13,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -811,5 +783,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":16
 }
