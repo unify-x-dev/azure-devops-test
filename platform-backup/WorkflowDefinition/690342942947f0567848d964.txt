@@ -5,16 +5,16 @@
 	"createdTime":1761821332335,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761821489054,
+		"deployedAt":1761821742653,
 		"deployedBy":49915,
-		"deployedDefinitionId":"6903432fe673312cf3ee43c6",
+		"deployedDefinitionId":"6903442d2947f0567848dc71",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_1w1pj",
+			"fromNodeId":"n_gDxdX",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_v6AT5",
@@ -26,36 +26,62 @@
 			"skip":false,
 			"toNodeId":"n_mbbZL",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mbbZL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LMV80",
+			"type":"next"
 		}
 	],
 	"id":"690342942947f0567848d964",
 	"lastModifiedBy":49915,
 	"lcName":"wait signal",
-	"modifiedTime":1761821739649,
+	"modifiedTime":1761837119830,
 	"name":"wait signal",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1074,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pk1xc-1",
-			"id":"n_1w1pj",
+			"id":"n_gDxdX",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json"
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"nothing":{
+							"type":"string",
+							"title":"Nothing"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"nothing":{
+							"type":"string",
+							"title":"Nothing"
+						}
+					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -67,7 +93,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pk1xc-1",
 			"id":"n_v6AT5",
@@ -96,7 +122,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pk1xc-1",
 			"id":"n_mbbZL",
@@ -109,6 +135,29 @@
 			"subTitle":"Signals by UnifyApps",
 			"title":"Wait for signal",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_pk1xc-1",
+			"id":"n_LMV80",
+			"index":4,
+			"inputs":{
+				"result":{
+					"nothing":"nothing"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":49915,
@@ -128,5 +177,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
