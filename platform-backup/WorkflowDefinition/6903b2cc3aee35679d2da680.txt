@@ -6,46 +6,128 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_MwnQL",
+			"fromNodeId":"n_KMopq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_bPTFX",
+			"toNodeId":"n_N0cfQ",
 			"type":"next"
 		}
 	],
 	"id":"6903b2cc3aee35679d2da680",
-	"lastModifiedBy":508,
+	"lastModifiedBy":48069,
 	"lcName":"test",
-	"modifiedTime":1761850060531,
+	"modifiedTime":1761853597522,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_MwnQL-1",
-			"id":"_MwnQL",
-			"index":0,
+			"id":"n_KMopq",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1042,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_MwnQL-1",
-			"id":"_bPTFX",
-			"index":0,
+			"id":"n_N0cfQ",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"columns":{
+										"type":"object",
+										"properties":{
+											"id":{
+												"type":"integer",
+												"title":"id"
+											},
+											"name":{
+												"type":"string",
+												"title":"name"
+											},
+											"email":{
+												"type":"string",
+												"title":"email"
+											},
+											"age":{
+												"type":"integer",
+												"title":"age"
+											},
+											"department":{
+												"type":"string",
+												"title":"department"
+											},
+											"salary":{
+												"type":"number",
+												"title":"salary"
+											},
+											"isActive":{
+												"type":"boolean",
+												"title":"isActive"
+											},
+											"joinDate":{
+												"type":"string",
+												"title":"joinDate"
+											}
+										},
+										"title":"columns",
+										"additionalProperties":false
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"objects"
+						}
+					}
+				},
+				"code":"// Sample data structure with schema: \"output\": [{\"columns\": {...}}]\ndef output = [\n    [\n        columns: [\n            id: 1,\n            name: \"John Doe\",\n            email: \"john.doe@example.com\",\n            age: 30,\n            department: \"Engineering\",\n            salary: 75000.00,\n            isActive: true,\n            joinDate: \"2020-01-15\"\n        ]\n    ],\n    [\n        columns: [\n            id: 2,\n            name: \"Jane Smith\",\n            email: \"jane.smith@example.com\",\n            age: 28,\n            department: \"Marketing\",\n            salary: 68000.00,\n            isActive: true,\n            joinDate: \"2021-03-22\"\n        ]\n    ],\n    [\n        columns: [\n            id: 3,\n            name: \"Bob Johnson\",\n            email: \"bob.johnson@example.com\",\n            age: 35,\n            department: \"Sales\",\n            salary: 82000.00,\n            isActive: false,\n            joinDate: \"2019-07-10\"\n        ]\n    ]\n]\n\nreturn [\"objects\": output]",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":508,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +141,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
