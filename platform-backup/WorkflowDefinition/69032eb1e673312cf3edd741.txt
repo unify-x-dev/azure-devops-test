@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761816241795,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_ZolBr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_DJkUl",
+			"type":"next"
+		}
+	],
+	"id":"69032eb1e673312cf3edd741",
+	"lastModifiedBy":175325,
+	"lcName":"telemetry_deletemetric_117618146261810",
+	"modifiedTime":1761816241795,
+	"name":"telemetry_deleteMetric_117618146261810",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ZolBr-1",
+			"id":"_ZolBr",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ZolBr-1",
+			"id":"_DJkUl",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
