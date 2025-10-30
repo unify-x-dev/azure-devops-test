@@ -268,7 +268,7 @@
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"test_rishabh",
-	"modifiedTime":1761817049011,
+	"modifiedTime":1761817215861,
 	"name":"test_rishabh",
 	"nodes":[
 		{
@@ -508,8 +508,8 @@
 			},
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":2560,
-				"resourceName":"storage_by_unifyapps_bulk_create_records",
+				"resourceVersion":4623,
+				"resourceName":"storage_by_unifyapps_create_record",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -519,23 +519,20 @@
 			"id":"_wQNFm",
 			"index":6,
 			"inputs":{
+				"writeThroughSessionVariables":false,
 				"object_type":"rishabh_assignment_automation_excel",
 				"skipIfBlank":false,
-				"records":{
-					"ua:type":"mappedArray",
-					"items":{
-						"LeavesTaken":"{{ _y0jEU.outputs.item.Leaves_Taken__4 }}",
-						"Employeeid":"{{ _y0jEU.outputs.item.Employee_ID__0 }}",
-						"Department":"{{ _y0jEU.outputs.item.Department__2 }}",
-						"name":"{{ _y0jEU.outputs.item.Name__1 }}",
-						"BonusAmount":"{{ _y0jEU.outputs.item.Bonus_Amount__3 }}"
-					},
-					"source":"{{ _y0jEU.outputs.item }}"
+				"record":{
+					"LeavesTaken":"{{ _y0jEU.outputs.item.Leaves_Taken__4 }}",
+					"Employeeid":"{{ _y0jEU.outputs.item.Employee_ID__0 }}",
+					"Department":"{{ _y0jEU.outputs.item.Department__2 }}",
+					"name":"{{ _y0jEU.outputs.item.Name__1 }}",
+					"BonusAmount":"{{ _y0jEU.outputs.item.Bonus_Amount__3 }}"
 				}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Create or update records in bulk",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -1123,5 +1120,5 @@
 	"tags":[
 		
 	],
-	"version":32
+	"version":33
 }
