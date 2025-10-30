@@ -16,7 +16,7 @@
 	"id":"690326f6501d855ce6476280",
 	"lastModifiedBy":122909,
 	"lcName":"exploreretryonerror",
-	"modifiedTime":1761814323048,
+	"modifiedTime":1761814381547,
 	"name":"ExploreRetryOnError",
 	"nodes":[
 		{
@@ -74,6 +74,60 @@
 				"ignoreTrailingSlashes":false,
 				"certificateType":"CERT_STRING"
 			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":1.0,
+					"captureRetries":false,
+					"count":3,
+					"enabled":true,
+					"initialDelay":1000,
+					"maxDelay":8000
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
 			"skip":false,
 			"subTitle":"Custom HTTP Endpoint",
 			"title":"Execute REST request",
@@ -97,5 +151,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
