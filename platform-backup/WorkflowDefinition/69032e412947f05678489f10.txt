@@ -7,46 +7,115 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_bEimc",
+			"fromNodeId":"n_p3tNS",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_f9JWX",
+			"toNodeId":"n_gRSbT",
 			"type":"next"
 		}
 	],
 	"id":"69032e412947f05678489f10",
 	"lastModifiedBy":175325,
 	"lcName":"customhttpworkflow_117618146276640",
-	"modifiedTime":1761816129287,
+	"modifiedTime":1761816139594,
 	"name":"customHTTPWorkflow_117618146276640",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_bEimc-1",
-			"id":"_bEimc",
-			"index":0,
+			"id":"n_p3tNS",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":1124,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_bEimc-1",
-			"id":"_f9JWX",
-			"index":0,
+			"id":"n_gRSbT",
+			"index":2,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"DELETE",
+				"body":{
+					"input":"cool"
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/acedboj/awygxqf",
+				"responseSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output"
+					],
+					"properties":{
+						"output":{
+							"type":"string",
+							"title":"output"
+						}
+					}
+				},
+				"baseUrl":"https://api.qa.unifyapps.com/api-endpoint",
+				"password":"UnifyAppsaerlif",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"input"
+					],
+					"properties":{
+						"input":{
+							"type":"string",
+							"title":"input"
+						}
+					}
+				},
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"BASIC_AUTH",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING",
+				"username":"unifyapps"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +129,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
