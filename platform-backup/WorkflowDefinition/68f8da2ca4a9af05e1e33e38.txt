@@ -60,6 +60,13 @@
 			"fromNodeId":"n_38ky2",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_aFkg9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_aFkg9",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_EtK0E",
 			"type":"next"
 		},
@@ -88,7 +95,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761378940593,
+	"modifiedTime":1761820587956,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -402,7 +409,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_UNyrr",
@@ -426,7 +433,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_38ky2",
@@ -450,7 +457,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_I8HGt",
@@ -475,7 +482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_soA6G",
@@ -497,7 +504,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_38ky2@_SFZNS-1@l",
 			"id":"n_zINVv",
@@ -516,6 +523,63 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_aFkg9",
+			"index":8,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"startTime",
+						"end_Time"
+					],
+					"properties":{
+						"startTime":{
+							"type":"string",
+							"title":"Start Time"
+						},
+						"end_Time":{
+							"type":"string",
+							"title":"End Time"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"lastJobTime"
+					],
+					"properties":{
+						"lastJobTime":{
+							"type":"string",
+							"title":"Last Job Time"
+						}
+					}
+				},
+				"code":"import java.time.*\nimport java.time.format.DateTimeFormatter\n\n// Input: last job run time (can be null or empty if first run)\n// Example: \"2025-10-30 06:00:00\"\ndef lastJobTime = lastJobTime ?: null  // replace with actual variable from your flow\n\n// Define formatter for consistent output\ndef formatter = DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\")\n\n// Current time (workflow run time)\ndef startTime = LocalDateTime.now()\n\n// End time = start time + 10 hours\ndef endTime = startTime.plusHours(10)\n\n// Optional: parse last job time if you need it for comparison\ndef parsedLastJobTime = null\nif (lastJobTime) {\n    try {\n        parsedLastJobTime = LocalDateTime.parse(lastJobTime, formatter)\n    } catch (Exception e) {\n        println \"⚠️ Invalid lastJobTime format. Expected yyyy-MM-dd HH:mm:ss\"\n    }\n}\n\n// Print or return results\n[\n    start_time: startTime.format(formatter),\n    end_time: endTime.format(formatter),\n    last_job_time: parsedLastJobTime ? parsedLastJobTime.format(formatter) : \"N/A\"\n]\n",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"lastJobTime":"{{ n_Qgt4O.outputs.lastJobTime }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"gcalendar",
 				"resourceVersion":2211,
 				"connectionId":"68f8dba117a0e608e14199c3",
@@ -527,7 +591,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_EtK0E",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"start_time":"=TEXT(NOW(),\"dd/mm/yy hh:mm\")",
 				"calendarId":"primary",
@@ -547,11 +611,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_AjLCz",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"input":{
 					"type":"object",
@@ -593,11 +657,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_7q78w",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"fileName":"Your Morning Brief - {{ n_Qgt4O.outputs.lastJobTime }}"
 			},
@@ -615,7 +679,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":11,
+			"index":12,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -639,5 +703,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
