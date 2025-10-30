@@ -6,46 +6,84 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_1QeSY",
+			"fromNodeId":"n_cPNL7",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_TZ40R",
+			"toNodeId":"n_3UBGu",
 			"type":"next"
 		}
 	],
 	"id":"690326f6501d855ce6476280",
 	"lastModifiedBy":122909,
 	"lcName":"exploreretryonerror",
-	"modifiedTime":1761814262125,
+	"modifiedTime":1761814323048,
 	"name":"ExploreRetryOnError",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1QeSY-1",
-			"id":"_1QeSY",
-			"index":0,
+			"id":"n_cPNL7",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":1123,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1QeSY-1",
-			"id":"_TZ40R",
-			"index":0,
+			"id":"n_3UBGu",
+			"index":2,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"GET",
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/api-endpoint/CUSTOM-HTTP-NODE-TESTING-DND/Dnt_Custom_Http_EndPoint_Configuration/true/1/kumar",
+				"baseUrl":"https://uat-automation.uat.unifyapps.com",
+				"httpVersion":"HTTP_2",
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":122909,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +97,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
