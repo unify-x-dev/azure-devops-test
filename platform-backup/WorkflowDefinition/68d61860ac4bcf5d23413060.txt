@@ -84,11 +84,11 @@
 			"fromNodeId":"_DAn3d",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_tRELJ",
+			"toNodeId":"_qogcC",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_tRELJ",
+			"fromNodeId":"_qogcC",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -121,11 +121,11 @@
 			"fromNodeId":"_Bp1z0",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_RLleK",
+			"toNodeId":"_cep30",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_RLleK",
+			"fromNodeId":"_cep30",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -158,11 +158,11 @@
 			"fromNodeId":"_LQR8E",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_L1Qhh",
+			"toNodeId":"_QjJH2",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_L1Qhh",
+			"fromNodeId":"_QjJH2",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -268,7 +268,7 @@
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"test_rishabh",
-	"modifiedTime":1761817215861,
+	"modifiedTime":1761817278728,
 	"name":"test_rishabh",
 	"nodes":[
 		{
@@ -628,34 +628,31 @@
 			},
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":2560,
-				"resourceName":"storage_by_unifyapps_bulk_create_records",
+				"resourceVersion":4623,
+				"resourceName":"storage_by_unifyapps_create_record",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DAn3d@n_5A1t8@_mzkHe-1@2@l",
-			"id":"_tRELJ",
+			"id":"_qogcC",
 			"index":10,
 			"inputs":{
+				"writeThroughSessionVariables":false,
 				"object_type":"rishabh_assignment_automation_excel",
 				"skipIfBlank":false,
-				"records":{
-					"source":"{{ _DAn3d.outputs.item }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"LeavesTaken":"{{ _DAn3d.outputs.item.Leaves_Taken__4 }}",
-						"Employeeid":"{{ _DAn3d.outputs.item.Employee_ID__0 }}",
-						"Department":"{{ _DAn3d.outputs.item.Department__2 }}",
-						"name":"{{ _DAn3d.outputs.item.Name__1 }}",
-						"BonusAmount":"{{ _DAn3d.outputs.item.Bonus_Amount__3 }}"
-					}
+				"record":{
+					"LeavesTaken":"{{ _DAn3d.outputs.item.Leaves_Taken__4 }}",
+					"Employeeid":"{{ _DAn3d.outputs.item.Employee_ID__0 }}",
+					"Department":"{{ _DAn3d.outputs.item.Department__2 }}",
+					"name":"{{ _DAn3d.outputs.item.Name__1 }}",
+					"BonusAmount":"{{ _DAn3d.outputs.item.Bonus_Amount__3 }}"
 				}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Create or update records in bulk",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -751,34 +748,31 @@
 			},
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":2560,
-				"resourceName":"storage_by_unifyapps_bulk_create_records",
+				"resourceVersion":4623,
+				"resourceName":"storage_by_unifyapps_create_record",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Bp1z0@n_5A1t8@_mzkHe-1@3@l",
-			"id":"_RLleK",
+			"id":"_cep30",
 			"index":14,
 			"inputs":{
+				"writeThroughSessionVariables":false,
 				"object_type":"rishabh_assignment_automation_excel",
 				"skipIfBlank":false,
-				"records":{
-					"source":"{{ _Bp1z0.outputs.item }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"LeavesTaken":"{{ _Bp1z0.outputs.item.Leaves_Taken__4 }}",
-						"Employeeid":"{{ _Bp1z0.outputs.item.Employee_ID__0 }}",
-						"Department":"{{ _Bp1z0.outputs.item.Department__2 }}",
-						"name":"{{ _Bp1z0.outputs.item.Name__1 }}",
-						"BonusAmount":"{{ _Bp1z0.outputs.item.Bonus_Amount__3 }}"
-					}
+				"record":{
+					"LeavesTaken":"{{ _Bp1z0.outputs.item.Leaves_Taken__4 }}",
+					"Employeeid":"{{ _Bp1z0.outputs.item.Employee_ID__0 }}",
+					"Department":"{{ _Bp1z0.outputs.item.Department__2 }}",
+					"name":"{{ _Bp1z0.outputs.item.Name__1 }}",
+					"BonusAmount":"{{ _Bp1z0.outputs.item.Bonus_Amount__3 }}"
 				}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Create or update records in bulk",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -874,34 +868,31 @@
 			},
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":2560,
-				"resourceName":"storage_by_unifyapps_bulk_create_records",
+				"resourceVersion":4623,
+				"resourceName":"storage_by_unifyapps_create_record",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LQR8E@n_5A1t8@_mzkHe-1@4@l",
-			"id":"_L1Qhh",
+			"id":"_QjJH2",
 			"index":18,
 			"inputs":{
+				"writeThroughSessionVariables":false,
 				"object_type":"rishabh_assignment_automation_excel",
 				"skipIfBlank":false,
-				"records":{
-					"source":"{{ _LQR8E.outputs.item }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"LeavesTaken":"{{ _LQR8E.outputs.item.Leaves_Taken__4 }}",
-						"Employeeid":"{{ _LQR8E.outputs.item.Employee_ID__0 }}",
-						"Department":"{{ _LQR8E.outputs.item.Department__2 }}",
-						"name":"{{ _LQR8E.outputs.item.Name__1 }}",
-						"BonusAmount":"{{ _LQR8E.outputs.item.Bonus_Amount__3 }}"
-					}
+				"record":{
+					"LeavesTaken":"{{ _LQR8E.outputs.item.Leaves_Taken__4 }}",
+					"Employeeid":"{{ _LQR8E.outputs.item.Employee_ID__0 }}",
+					"Department":"{{ _LQR8E.outputs.item.Department__2 }}",
+					"name":"{{ _LQR8E.outputs.item.Name__1 }}",
+					"BonusAmount":"{{ _LQR8E.outputs.item.Bonus_Amount__3 }}"
 				}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Create or update records in bulk",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -1120,5 +1111,5 @@
 	"tags":[
 		
 	],
-	"version":33
+	"version":34
 }
