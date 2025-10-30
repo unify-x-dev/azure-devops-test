@@ -6,46 +6,127 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_TfynQ",
+			"fromNodeId":"n_uwCJR",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_RAKDr",
+			"toNodeId":"n_cHVNR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_cHVNR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_u5K1t",
 			"type":"next"
 		}
 	],
 	"id":"690342502947f0567848d8d5",
 	"lastModifiedBy":49915,
 	"lcName":"emit signal",
-	"modifiedTime":1761821264308,
+	"modifiedTime":1761821467527,
 	"name":"emit signal",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1074,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TfynQ-1",
-			"id":"_TfynQ",
-			"index":0,
+			"id":"n_uwCJR",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"success":{
+							"type":"boolean",
+							"title":"Success"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"waitingInstance":{
+							"type":"string",
+							"title":"Waiting Instance"
+						},
+						"waitingRuntimeType":{
+							"type":"string",
+							"title":"Waiting Runtime Type"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":973,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TfynQ-1",
-			"id":"_RAKDr",
-			"index":0,
+			"id":"n_cHVNR",
+			"index":2,
+			"inputs":{
+				"automation_id":"690342942947f0567848d964",
+				"with_signal_id":false,
+				"waitingInstanceRuntimeType":"{{ n_uwCJR.outputs.waitingRuntimeType }}",
+				"waitingInstanceId":"{{ n_uwCJR.outputs.waitingInstance }}",
+				"nodeId":"n_mbbZL"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_TfynQ-1",
+			"id":"n_u5K1t",
+			"index":3,
+			"inputs":{
+				"result":{
+					"success":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":49915,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +140,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
