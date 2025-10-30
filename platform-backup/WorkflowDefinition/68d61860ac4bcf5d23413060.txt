@@ -267,7 +267,7 @@
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"rishabh automation_assignment1",
-	"modifiedTime":1761829455326,
+	"modifiedTime":1761829533072,
 	"name":"Rishabh Automation_Assignment1",
 	"nodes":[
 		{
@@ -1088,6 +1088,22 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"List":[
+						{
+							"result":{
+								"source":"{{ _cerVc.outputs.objects[0] }}",
+								"ua:type":"mappedArray"
+							}
+						},
+						{
+							"result":{
+								"source":"{{ _ZPnZN.outputs.objects[0] }}",
+								"ua:type":"mappedArray"
+							}
+						}
+					]
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1258,5 +1274,5 @@
 	"tags":[
 		
 	],
-	"version":51
+	"version":52
 }
