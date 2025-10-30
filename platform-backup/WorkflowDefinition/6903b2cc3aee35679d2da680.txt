@@ -30,7 +30,7 @@
 	"id":"6903b2cc3aee35679d2da680",
 	"lastModifiedBy":48069,
 	"lcName":"test",
-	"modifiedTime":1761854599804,
+	"modifiedTime":1761854649337,
 	"name":"test",
 	"nodes":[
 		{
@@ -172,7 +172,7 @@
 						}
 					}
 				},
-				"code":"def transform(data) {\n    def input = data.input\n    return [\n        records: input.collect { it.columns }\n    ]\n}\n\nreturn transform(input)\n\n// Example usage:\ndef inputData = inputVar\n\ndef output = transform(inputData)\n\nreturn output\n\n// Output will be:\n// [records:[[id:1, name:John, email:john@example.com], [id:2, name:Jane, email:jane@example.com]]]",
+				"code":"def transform(data) {\n    def input = data.input\n    return [\n        records: input.collect { it.columns }\n    ]\n}\n\nreturn transform(inputVar)\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -221,5 +221,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
