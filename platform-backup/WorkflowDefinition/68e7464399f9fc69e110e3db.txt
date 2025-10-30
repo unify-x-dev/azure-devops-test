@@ -5,12 +5,12 @@
 	"createdTime":1759987267245,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761402337703,
+		"deployedAt":1761657233696,
 		"deployedBy":178108,
-		"deployedDefinitionId":"68fcdde19e1ba9260c2aeab8",
+		"deployedDefinitionId":"6900c1911cd6437e88616b41",
 		"status":"DEPLOYED",
-		"version":25,
-		"workflowVersion":100
+		"version":26,
+		"workflowVersion":102
 	},
 	"edges":[
 		{
@@ -790,6 +790,13 @@
 			"fromNodeId":"n_CWKvD",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_wQ4iJ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wQ4iJ",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_U4Y4Z",
 			"type":"next"
 		},
@@ -840,7 +847,7 @@
 	"id":"68e7464399f9fc69e110e3db",
 	"lastModifiedBy":178108,
 	"lcName":"[dnt] multi tenancy | move all assets",
-	"modifiedTime":1761547875424,
+	"modifiedTime":1761818446740,
 	"name":"[DNT] Multi Tenancy | Move All assets",
 	"nodes":[
 		{
@@ -3561,7 +3568,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@2",
 			"id":"n_uIfRr",
@@ -3879,7 +3886,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_pVMhd@n_6tLoP@_WUbts-1@2@l",
 			"id":"n_feENT",
@@ -3897,6 +3904,12 @@
 				],
 				"filter":{
 					"filters":[
+						{
+							"property":"deployed",
+							"filter":{
+								"operator":"EXISTS"
+							}
+						},
 						{
 							"property":"id",
 							"filter":{
@@ -5303,7 +5316,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@11",
 			"id":"n_6tLoP@11",
@@ -5323,7 +5336,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_6tLoP@_WUbts-1@11",
 			"id":"n_SheCv",
@@ -5875,9 +5888,47 @@
 				},
 				"listName":"{{ n_T4baR.outputs.items[0] }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Add Unified Data Model to List",
 			"title":"Add items to list",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.itemsToAdd.items.assetId",
+					"root.itemsToAdd.items.assetClass",
+					"root.itemsToAdd.items.assetVersion"
+				]
+			},
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":100,
+				"resourceName":"variable_by_unifyapps_add_items_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_WUbts-1",
+			"id":"n_wQ4iJ",
+			"index":88,
+			"inputs":{
+				"insertLocation":"END",
+				"itemsToAdd":{
+					"ua:type":"mappedArray",
+					"source":"{{ n_9p4B0.outputs.mdmAssets }}",
+					"items":{
+						"assetId":"{{ n_9p4B0.outputs.mdmAssets[0].assetId }}",
+						"assetClass":"{{ n_9p4B0.outputs.mdmAssets[0].assetClass }}",
+						"assetVersion":"{{ n_9p4B0.outputs.mdmAssets[0].assetVersion }}"
+					}
+				},
+				"listName":"{{ n_T4baR.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by Sirion",
+			"title":"Add UDM to list",
 			"type":"ACTION"
 		},
 		{
@@ -5899,7 +5950,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WUbts-1",
 			"id":"_U4Y4Z",
-			"index":88,
+			"index":89,
 			"inputs":{
 				"insertLocation":"END",
 				"itemsToAdd":{
@@ -5938,7 +5989,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WUbts-1",
 			"id":"n_dbGfT",
-			"index":89,
+			"index":90,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -6030,7 +6081,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WUbts-1",
 			"id":"n_IaArG",
-			"index":90,
+			"index":91,
 			"inputs":{
 				"repeatMode":"BATCH",
 				"listSource":"{{ n_dbGfT.outputs.result.modifiedAssets }}",
@@ -6059,7 +6110,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_IaArG@_WUbts-1@l",
 			"id":"n_oMses",
-			"index":91,
+			"index":92,
 			"inputs":{
 				"assetDetails":{
 					"ua:type":"mappedArray",
@@ -6094,7 +6145,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_IaArG@_WUbts-1@l",
 			"id":"n_qZEAG",
-			"index":92,
+			"index":93,
 			"inputs":{
 				"itemToAdd":{
 					"changesetId":"{{ n_oMses.outputs.changesetId }}"
@@ -6119,7 +6170,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WUbts-1",
 			"id":"n_Kzv5a",
-			"index":93,
+			"index":94,
 			"inputs":{
 				"result":{
 					"result":"success"
@@ -6148,5 +6199,5 @@
 	"tags":[
 		
 	],
-	"version":101
+	"version":104
 }
