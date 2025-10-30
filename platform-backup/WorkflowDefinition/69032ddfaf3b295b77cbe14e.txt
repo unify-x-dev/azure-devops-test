@@ -7,46 +7,134 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_eTleH",
+			"fromNodeId":"n_2QLoy",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_10VGP",
+			"toNodeId":"n_kdG0J",
 			"type":"next"
 		}
 	],
 	"id":"69032ddfaf3b295b77cbe14e",
 	"lastModifiedBy":175325,
 	"lcName":"input_schema_117618146261710",
-	"modifiedTime":1761816031858,
+	"modifiedTime":1761816042888,
 	"name":"input_schema_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1073,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_eTleH-1",
-			"id":"_eTleH",
-			"index":0,
+			"id":"n_2QLoy",
+			"index":1,
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Name",
+						"Age",
+						"Height",
+						"IsMarried",
+						"DateOfBirth",
+						"Skills",
+						"Scores",
+						"Attempts",
+						"IsActiveList"
+					],
+					"properties":{
+						"Name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"Age":{
+							"type":"number",
+							"title":"Age"
+						},
+						"Height":{
+							"type":"integer",
+							"title":"Height"
+						},
+						"IsMarried":{
+							"type":"boolean",
+							"title":"IsMarried"
+						},
+						"DateOfBirth":{
+							"type":"string",
+							"format":"date",
+							"title":"DateOfBirth",
+							"disablePast":false
+						},
+						"Skills":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Skills"
+						},
+						"Scores":{
+							"type":"array",
+							"items":{
+								"type":"number"
+							},
+							"title":"Scores"
+						},
+						"Attempts":{
+							"type":"array",
+							"items":{
+								"type":"integer"
+							},
+							"title":"Attempts"
+						},
+						"IsActiveList":{
+							"type":"array",
+							"items":{
+								"type":"boolean"
+							},
+							"title":"IsActiveList"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1109,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_eTleH-1",
-			"id":"_10VGP",
-			"index":0,
+			"id":"n_kdG0J",
+			"index":2,
+			"inputs":{
+				"result":"cool"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +148,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
