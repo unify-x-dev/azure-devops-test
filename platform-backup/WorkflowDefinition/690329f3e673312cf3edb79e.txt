@@ -7,46 +7,108 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_BPqEX",
+			"fromNodeId":"n_KLXsV",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Xv8Fh",
+			"toNodeId":"n_ggNZx",
 			"type":"next"
 		}
 	],
 	"id":"690329f3e673312cf3edb79e",
 	"lastModifiedBy":175325,
 	"lcName":"callablecondition_23_11761814627664",
-	"modifiedTime":1761815027643,
+	"modifiedTime":1761815039834,
 	"name":"CallableCondition_23_11761814627664",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":880,
+				"resourceName":"callables_from_automation_streaming"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_BPqEX-1",
-			"id":"_BPqEX",
-			"index":0,
+			"id":"n_KLXsV",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output_Number"
+					],
+					"properties":{
+						"output_Number":{
+							"type":"number",
+							"title":"output_Number"
+						}
+					}
+				},
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"{{ n_KLXsV.outputs.input_Number }}",
+							"filter":{
+								"operator":"NOT_REGEX",
+								"value":"3"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"input_Number"
+					],
+					"properties":{
+						"input_Number":{
+							"type":"number",
+							"title":"input_Number"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation (Streaming responses)",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":860,
+				"resourceName":"callables_return_to_automation_streaming",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_BPqEX-1",
-			"id":"_Xv8Fh",
-			"index":0,
+			"id":"n_ggNZx",
+			"index":2,
+			"inputs":{
+				"result":{
+					"output_Number":"{{ n_KLXsV.outputs.input_Number }}"
+				},
+				"completed":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Callable",
+			"title":"Add response to automation stream",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +122,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
