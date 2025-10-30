@@ -31,6 +31,13 @@
 			"fromNodeId":"_jpFjP",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_Pciu7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Pciu7",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_cJ3p1",
 			"type":"next"
 		},
@@ -87,7 +94,7 @@
 	"id":"68bacc3c4ba8fb35a293bfca",
 	"lastModifiedBy":45771,
 	"lcName":"generate eval export url and import node",
-	"modifiedTime":1761575229433,
+	"modifiedTime":1761807077581,
 	"name":"generate eval export URL and import node",
 	"nodes":[
 		{
@@ -221,7 +228,7 @@
 							"ENTITY_TYPE":[
 								{
 									"assetClass":"WORKFLOW_DEFINITION",
-									"assetId":"68e8aabe2ea336186660e5c5"
+									"assetId":"67e11334c800297e9db42dab"
 								}
 							]
 						}
@@ -318,7 +325,141 @@
 				"certificateType":"CERT_STRING"
 			},
 			"skip":false,
-			"subTitle":"Export SPECIFIC",
+			"subTitle":"Export OBJECTS SPECIFIC",
+			"title":"EXPORT",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":874,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SLdEk-1",
+			"id":"_Pciu7",
+			"index":4,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"failOnMissing":false,
+					"customerId":148,
+					"forceSync":true,
+					"featureDependentAssets":{
+						"name":"Eval",
+						"assetClassVsAssetDetails":{
+							"ENTITY_TYPE":[
+								{
+									"assetClass":"WORKFLOW_DEFINITION",
+									"assetId":"67e11334c800297e9db42dab"
+								}
+							]
+						}
+					}
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/platform-feature/syncOptions",
+				"baseUrl":"http://internal-global-svc:80/internal",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"failOnMissing":{
+							"type":"boolean",
+							"title":"failOnMissing"
+						},
+						"customerId":{
+							"type":"integer",
+							"title":"customerId"
+						},
+						"forceSync":{
+							"type":"boolean",
+							"title":"forceSync"
+						},
+						"featureDependentAssets":{
+							"type":"object",
+							"properties":{
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"assetClassVsAssetDetails":{
+									"type":"object",
+									"properties":{
+										"ENTITY_TYPE":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"assetClass":{
+														"type":"string",
+														"title":"assetClass"
+													},
+													"assetId":{
+														"type":"string",
+														"title":"assetId"
+													},
+													"assetSetting":{
+														"type":"object",
+														"properties":{
+															"type":{
+																"type":"string",
+																"title":"type"
+															},
+															"recordsCount":{
+																"type":"integer",
+																"title":"recordsCount"
+															},
+															"recordsSelection":{
+																"type":"string",
+																"title":"recordsSelection"
+															}
+														},
+														"title":"assetSetting",
+														"additionalProperties":false
+													},
+													"deleted":{
+														"type":"boolean",
+														"title":"deleted"
+													}
+												},
+												"additionalProperties":false
+											},
+											"title":"ENTITY_TYPE"
+										}
+									},
+									"title":"assetClassVsAssetDetails",
+									"additionalProperties":false
+								}
+							},
+							"title":"featureDependentAssets",
+							"additionalProperties":false
+						}
+					}
+				},
+				"queryParamsList":[],
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"skip":false,
+			"subTitle":"Export Automations SPECIFIC",
 			"title":"EXPORT",
 			"type":"ACTION"
 		},
@@ -339,7 +480,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"n_cJ3p1",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -424,7 +565,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_IWfvt",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -487,7 +628,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_Lsx1W",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -540,7 +681,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_le5t9",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -593,7 +734,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_NXSuL",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -683,7 +824,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_Hk0JQ",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -768,7 +909,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"_nW53K",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
@@ -819,7 +960,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SLdEk-1",
 			"id":"n_xeE0G",
-			"index":11,
+			"index":12,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -843,5 +984,5 @@
 	"tags":[
 		
 	],
-	"version":20
+	"version":21
 }
