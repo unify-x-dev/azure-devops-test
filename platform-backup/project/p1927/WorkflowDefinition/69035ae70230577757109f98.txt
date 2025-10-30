@@ -1,0 +1,160 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761827559776,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_WmBtH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LpIth",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LpIth",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nXgwV",
+			"type":"next"
+		}
+	],
+	"id":"69035ae70230577757109f98",
+	"lastModifiedBy":39714,
+	"lcName":"[virtu-approvalsfunctionappfn]-> getcheckinapproval",
+	"modifiedTime":1761827559776,
+	"name":"[virtu-ApprovalsFunctionAppFN]-> GetCheckInApproval",
+	"nodes":[
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":965,
+				"resourceName":"callables_from_api"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_otcPG-1",
+			"id":"n_WmBtH",
+			"index":1,
+			"inputs":{
+				"request":{
+					"headers":{
+						"type":"object",
+						"additionalProperties":false,
+						"required":[],
+						"properties":{
+							"Authorization":{
+								"type":"string",
+								"title":"Authorization"
+							}
+						}
+					},
+					"queryParams":{
+						"type":"object",
+						"additionalProperties":false,
+						"required":[],
+						"properties":{
+							"employeeNumber":{
+								"type":"string",
+								"title":"Employee Number"
+							},
+							"startDate":{
+								"type":"string",
+								"title":"Start Date"
+							},
+							"endDate":{
+								"type":"string",
+								"title":"End Date"
+							}
+						}
+					},
+					"contentType":"application/json"
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via API",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":224,
+				"resourceName":"code_by_unifyapps_csharp",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_otcPG-1",
+			"id":"n_LpIth",
+			"index":2,
+			"inputs":{
+				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing System.Text.Json;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Net.Http;\nusing System.Text;\n\n// --- Base Models ---\n\npublic class Reportee\n{\n    public long personID { get; set; }\n    public long personNumber { get; set; }\n    public string firstName { get; set; }\n    public string lastName { get; set; }\n    public string middleNames { get; set; }\n    public string displayName { get; set; }\n    public string fullName { get; set; }\n    public string title { get; set; }\n    public EmailAddress[] emailAddresses { get; set; }\n    public string managerType { get; set; }\n    public DateTime effectiveStartDate { get; set; }\n    public DateTime effectiveEndDate { get; set; }\n\n    public string userName\n    {\n        get\n        {\n            var email = this?.emailAddresses?.Where(x => x.emailType == \"W1\").FirstOrDefault()?.emailAddress;\n            if (email != null)\n            {\n                return email.Split('@')[0];\n            }\n            return string.Empty;\n        }\n    }\n\n    public string employeeNumber => this.personNumber.ToString();\n}\n\npublic class EmailAddress\n{\n    public long emailAddressID { get; set; }\n    public long personID { get; set; }\n    public string emailAddress { get; set; }\n    public DateTime dateFrom { get; set; }\n    public DateTime? dateTo { get; set; }\n    public string emailType { get; set; }\n}\n\n// --- Logic Classes ---\n\npublic class AuthService\n{\n    private static readonly HttpClient httpClient = new HttpClient();\n    private const string AttendanceSummaryApiBaseUrl = \"https://api.yourcompany.com\";\n    private const string WorkerOcpKey = \"your-ocp-key\";\n\n    public bool IsUserEqualsToTokenUser(string userName, string authorizationHeader)\n    {\n        var empUserName = GetUserFromToken(authorizationHeader);\n\n        if (!string.IsNullOrEmpty(empUserName) && empUserName.Split('@')[0].ToLower() == userName.ToLower())\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    public async Task<bool> IsUserReportsToTokenUser(string userName, string personNumber, string authorizationHeader)\n    {\n        var empNumber = await GetEmployeeNumber(authorizationHeader);\n\n        if (string.IsNullOrEmpty(empNumber))\n        {\n            return false;\n        }\n\n        string apiUrl = $\"{AttendanceSummaryApiBaseUrl}/emplyoees-api/v1/employees/{empNumber}/reportees\";\n\n        httpClient.DefaultRequestHeaders.Clear();\n        httpClient.DefaultRequestHeaders.Add(\"Authorization\", authorizationHeader);\n        httpClient.DefaultRequestHeaders.Add(\"Ocp-Apim-Subscription-Key\", WorkerOcpKey);\n\n        HttpResponseMessage response = await httpClient.GetAsync(apiUrl);\n\n        if (response.IsSuccessStatusCode)\n        {\n            var responseContent = await response.Content.ReadAsStringAsync();\n            var reportees = JsonSerializer.Deserialize<List<Reportee>>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });\n\n            var mappedData = reportees?\n                .Where(obj => obj.managerType == \"LINE_MANAGER\" && obj.emailAddresses?.Any(itm => itm.emailType == \"W1\") == true)\n                .Select(obj => new\n                {\n                    personNumber = obj.employeeNumber,\n                    lineManager = obj.managerType,\n                    emailAddress = obj.emailAddresses?.FirstOrDefault(itm => itm.emailType == \"W1\")?.emailAddress\n                }).ToArray();\n\n            bool userExists = mappedData.Any(item =>\n                item.personNumber == personNumber || \n                (item?.emailAddress?.Split('@')[0].ToLower() == userName.ToLower())\n            );\n            return userExists;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    private string GetUserFromToken(string authorizationHeader)\n    {\n        if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith(\"Bearer \"))\n        {\n            return null;\n        }\n\n        string token = authorizationHeader.Substring(\"Bearer \".Length);\n\n        try\n        {\n            if (token.Contains(\"@\"))\n            {\n                return token;\n            }\n            \n            var tokenParts = token.Split('.');\n            if (tokenParts.Length >= 2)\n            {\n                return \"user@company.com\";\n            }\n            \n            return null;\n        }\n        catch (Exception)\n        {\n            return null;\n        }\n    }\n\n    public async Task<string> GetEmployeeNumber(string authorizationHeader)\n    {\n        var userEmail = GetUserFromToken(authorizationHeader);\n\n        if (string.IsNullOrEmpty(userEmail))\n        {\n            return null;\n        }\n\n        string apiUrl = $\"{AttendanceSummaryApiBaseUrl}/v5-workers-api/v1/workers?onlyData=true&limit=400&q=(UPPER(emails.EmailAddress)='{userEmail.ToUpper()}' and emails.EmailType='W1')\";\n\n        httpClient.DefaultRequestHeaders.Clear();\n        httpClient.DefaultRequestHeaders.Add(\"Authorization\", authorizationHeader);\n        httpClient.DefaultRequestHeaders.Add(\"Ocp-Apim-Subscription-Key\", WorkerOcpKey);\n        httpClient.DefaultRequestHeaders.Add(\"Accept\", \"application/json\");\n        httpClient.DefaultRequestHeaders.Add(\"REST-Framework-Version\", \"4\");\n\n        HttpResponseMessage response = await httpClient.GetAsync(apiUrl);\n        var responseContent = await response.Content.ReadAsStringAsync();\n\n        if (response.IsSuccessStatusCode)\n        {\n            using (JsonDocument document = JsonDocument.Parse(responseContent))\n            {\n                JsonElement root = document.RootElement;\n                if (root.TryGetProperty(\"items\", out JsonElement items) && items.ValueKind == JsonValueKind.Array && items.GetArrayLength() > 0)\n                {\n                    var firstItem = items.EnumerateArray().First();\n                    if (firstItem.TryGetProperty(\"PersonNumber\", out JsonElement personNumber))\n                    {\n                        return personNumber.GetString();\n                    }\n                }\n            }\n        }\n        return null;\n    }\n}\n\npublic class AttendanceSummaryService\n{\n    private readonly AuthService _authService;\n    private static readonly HttpClient httpClient = new HttpClient();\n    private const string AttendanceSummaryApiBaseUrl = \"https://api.yourcompany.com\";\n    private const string AttendanceSummaryOcpKey = \"your-attendance-ocp-key\";\n\n    public AttendanceSummaryService(AuthService authService)\n    {\n        _authService = authService;\n    }\n\n    public async Task<IDictionary<string, object>> GetEmployeeAttendanceSummaryData(string employeeNumber, string startDate, string endDate, string authorizationHeader)\n    {\n        string apiUrl = $\"{AttendanceSummaryApiBaseUrl}/attendance-service-api/v1/attendance-api/attendance-v1/{employeeNumber}?startDate={startDate}&endDate={endDate}\";\n\n        httpClient.DefaultRequestHeaders.Clear();\n        httpClient.DefaultRequestHeaders.Add(\"Authorization\", authorizationHeader);\n        httpClient.DefaultRequestHeaders.Add(\"Ocp-Apim-Subscription-Key\", AttendanceSummaryOcpKey);\n\n        HttpResponseMessage response = await httpClient.GetAsync(apiUrl);\n\n        if (response.IsSuccessStatusCode)\n        {\n            var responseContent = await response.Content.ReadAsStringAsync();\n            \n            return new Dictionary<string, object> {\n                { \"statusCode\", 200 },\n                { \"body\", new { \n                    message = \"Successfully retrieved attendance summary data\",\n                    data = responseContent,\n                    rawResponse = true\n                }}\n            };\n        }\n        else\n        {\n            return new Dictionary<string, object> {\n                { \"statusCode\", (int)response.StatusCode },\n                { \"body\", new { message = $\"Attendance API call failed with status code: {response.StatusCode}\" } }\n            };\n        }\n    }\n}\n\n// --- Main Processor Class ---\n\npublic class GetAttendanceSummaryProcessor\n{\n    private readonly AuthService _authService;\n    private readonly AttendanceSummaryService _attendanceSummaryService;\n\n    public GetAttendanceSummaryProcessor()\n    {\n        _authService = new AuthService();\n        _attendanceSummaryService = new AttendanceSummaryService(_authService);\n    }\n\n    // --- Main Script Function ---\n    public async Task<IDictionary<string, object>> mainFunction(string employeeNumber, string startDate, string endDate, string authorizationHeader)\n    {\n        try\n        {\n            if (string.IsNullOrEmpty(employeeNumber))\n            {\n                return new Dictionary<string, object> {\n                    { \"statusCode\", 400 },\n                    { \"body\", new { message = \"Invalid employeeNumber\" } }\n                };\n            }\n\n            if (string.IsNullOrEmpty(startDate))\n            {\n                return new Dictionary<string, object> {\n                    { \"statusCode\", 400 },\n                    { \"body\", new { message = \"Invalid startDate\" } }\n                };\n            }\n\n            if (string.IsNullOrEmpty(endDate))\n            {\n                return new Dictionary<string, object> {\n                    { \"statusCode\", 400 },\n                    { \"body\", new { message = \"Invalid endDate\" } }\n                };\n            }\n\n            if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith(\"Bearer \", StringComparison.OrdinalIgnoreCase))\n            {\n                return new Dictionary<string, object> {\n                    { \"statusCode\", 401 },\n                    { \"body\", new { message = \"Unauthorized. Access token is missing or invalid.\" } }\n                };\n            }\n\n            // Note: Following your pattern - empty userName and using employeeNumber for reportee validation\n            if (!(await _authService.IsUserReportsToTokenUser(\"\", employeeNumber, authorizationHeader)))\n            {\n                return new Dictionary<string, object> {\n                    { \"statusCode\", 401 },\n                    { \"body\", new { message = \"Unauthorized. Access Denied for Requested User.\" } }\n                };\n            }\n\n            return await _attendanceSummaryService.GetEmployeeAttendanceSummaryData(employeeNumber, startDate, endDate, authorizationHeader);\n        }\n        catch (JsonException e)\n        {\n            return new Dictionary<string, object> {\n                { \"statusCode\", 400 },\n                { \"body\", new { message = \"Invalid inputs\" } }\n            };\n        }\n        catch (Exception e)\n        {\n            return new Dictionary<string, object> {\n                { \"statusCode\", 500 },\n                { \"body\", new { message = \"Internal server error\" } }\n            };\n        }\n    }\n}\n\n// --- Script Execution ---\n\n// Example usage\nstring employeeNumber = \"12345\";\nstring startDate = \"2024-01-01\";\nstring endDate = \"2024-01-31\";\nstring authorizationHeader = \"Bearer your-token-here\";\n\nvar processor = new GetAttendanceSummaryProcessor();\nvar resultObject = await processor.mainFunction(employeeNumber, startDate, endDate, authorizationHeader);\n\n// Output the result\nresultObject",
+				"isAsync":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute CSharp script",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":916,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_otcPG-1",
+			"id":"n_nXgwV",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		}
+	],
+	"ownerUserId":39714,
+	"projectId":1927,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
