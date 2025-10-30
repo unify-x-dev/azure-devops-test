@@ -16,7 +16,7 @@
 	"id":"69032417501d855ce647581d",
 	"lastModifiedBy":43498,
 	"lcName":"cvdscfv-dynamic",
-	"modifiedTime":1761813557953,
+	"modifiedTime":1761813594844,
 	"name":"cvdscfv-dynamic",
 	"nodes":[
 		{
@@ -72,7 +72,7 @@
 				"automation_id":"6901ee55dad3c27b954e8721",
 				"runtimeConnections":{},
 				"schedule_type":"CRON_EXPRESSION",
-				"expression":"{{ n_auVaY.outputs.queryParams.year }} 12 23 2 1",
+				"expression":"25 12 23 2 1 2 1",
 				"timezone":"Asia/Calcutta",
 				"cancel_existing":true,
 				"schedule_name":"asdf {{ n_auVaY.outputs.queryParams.year }}",
@@ -101,5 +101,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
