@@ -1,7 +1,8 @@
 {
 	"appsUsed":[
 		"gcalendar",
-		"gmail"
+		"gmail",
+		"openai"
 	],
 	"createdTime":1761139244288,
 	"deleted":false,
@@ -95,6 +96,13 @@
 			"fromNodeId":"n_AjLCz",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_BBD7F",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_BBD7F",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_tgSUT",
 			"type":"next"
 		}
@@ -102,7 +110,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761822163086,
+	"modifiedTime":1761822387916,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -752,6 +760,30 @@
 		},
 		{
 			"context":{
+				"appName":"openai",
+				"resourceVersion":5493,
+				"connectionId":"68d39f2dd2b48567b3840df4",
+				"resourceName":"openai_analyze_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_BBD7F",
+			"index":13,
+			"inputs":{
+				"source_text":"{{ n_vNDmq.outputs.items }}{{ n_EtK0E.outputs.summary }}{{ n_EtK0E.outputs.description }}",
+				"instruction":"- parse the content and create a summary of top 5 emails and the daily meetings sechdule in a day.\nFirst write the 5 emails and their summary \nthen write all the events and meetings scheduled and their summary",
+				"model":"gpt-4o"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Analyze text",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -759,7 +791,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":13,
+			"index":14,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -783,5 +815,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
