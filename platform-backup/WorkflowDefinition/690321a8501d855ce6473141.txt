@@ -9,14 +9,14 @@
 			"fromNodeId":"_KmPrq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_70WyC",
+			"toNodeId":"n_vWwVV",
 			"type":"next"
 		}
 	],
 	"id":"690321a8501d855ce6473141",
 	"lastModifiedBy":679,
 	"lcName":"test",
-	"modifiedTime":1761812904738,
+	"modifiedTime":1761814106711,
 	"name":"test",
 	"nodes":[
 		{
@@ -25,7 +25,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_KmPrq-1",
 			"id":"_KmPrq",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +34,34 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":972,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KmPrq-1",
-			"id":"_70WyC",
-			"index":0,
+			"id":"n_vWwVV",
+			"index":2,
+			"inputs":{
+				"uploadPublic":true,
+				"base64Content":"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",
+				"fileName":"test.pdf",
+				"option":"base64Content"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":679,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +75,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
