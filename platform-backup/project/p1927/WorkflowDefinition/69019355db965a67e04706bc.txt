@@ -213,7 +213,7 @@
 	"id":"69019355db965a67e04706bc",
 	"lastModifiedBy":46209,
 	"lcName":"notificationsenderobjectautomation",
-	"modifiedTime":1761841604434,
+	"modifiedTime":1761841776458,
 	"name":"NotificationSenderObjectAutomation",
 	"nodes":[
 		{
@@ -907,9 +907,9 @@
 						"setValue":"{{ n_sHZOw.outputs.result.CreatedDate }}"
 					},
 					{
-						"fieldName":"properties.Practice",
-						"actionType":"SET",
-						"setValue":"{{ n_sHZOw.outputs.result.Practice }}"
+						"fieldName":"properties.Recipients",
+						"actionType":"ADD",
+						"setValue":"{{ n_sHZOw.outputs.result.Recipients[0] }}"
 					},
 					{
 						"fieldName":"properties.FromEmail",
@@ -1073,52 +1073,27 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"Importance":{
 							"type":"integer",
 							"title":"Importance"
 						},
-						"Recipients":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"Status":{
-										"type":"integer",
-										"title":"Status"
-									},
-									"RecipientTypes":{
-										"type":"integer",
-										"title":"RecipientTypes"
-									},
-									"Email":{
-										"type":"string",
-										"title":"Email"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"Recipients"
-						},
-						"CreatedDate":{
-							"type":"string",
-							"title":"CreatedDate"
-						},
-						"Id":{
+						"Skip":{
 							"type":"integer",
-							"title":"Id"
+							"title":"Skip"
 						},
-						"FromEmail":{
-							"type":"string",
-							"title":"FromEmail"
+						"Take":{
+							"type":"integer",
+							"title":"Take"
 						},
-						"Subject":{
+						"OrderBy":{
 							"type":"string",
-							"title":"Subject"
+							"title":"Order By"
 						},
-						"MessageBody":{
+						"Include":{
 							"type":"string",
-							"title":"MessageBody"
+							"title":"Include"
 						}
 					}
 				},
@@ -1331,5 +1306,5 @@
 	"tags":[
 		
 	],
-	"version":21
+	"version":22
 }
