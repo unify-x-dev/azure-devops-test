@@ -23,7 +23,7 @@
 	"id":"690342942947f0567848d964",
 	"lastModifiedBy":49915,
 	"lcName":"wait signal",
-	"modifiedTime":1761821383114,
+	"modifiedTime":1761821486004,
 	"name":"wait signal",
 	"nodes":[
 		{
@@ -70,7 +70,10 @@
 				"synchronous":true,
 				"triggerWorkflowWithRuntimeType":"IN_MEMORY",
 				"version":"-1",
-				"parameters":{}
+				"parameters":{
+					"waitingInstance":"{{ __RUN__.outputs.executionId }}",
+					"waitingRuntimeType":"{{ __RUN__.outputs.workflowRunTimeType }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -117,5 +120,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
