@@ -5,12 +5,12 @@
 	"createdTime":1761800076974,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761817470455,
+		"deployedAt":1761817711565,
 		"deployedBy":45010,
-		"deployedDefinitionId":"6903337e13085040561b2e0e",
+		"deployedDefinitionId":"6903346f13085040561b30b4",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":46
+		"version":7,
+		"workflowVersion":48
 	},
 	"edges":[
 		{
@@ -234,7 +234,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761817709765,
+	"modifiedTime":1761820047327,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -532,7 +532,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
 			"id":"n_jSiMz",
@@ -687,7 +687,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
 			"id":"n_uxkGl",
@@ -842,7 +842,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_c3vVw",
@@ -1200,12 +1200,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_4m59q",
 			"index":23,
 			"inputs":{
+				"recordId":"{{ n_hqSfX.outputs.result.tierId }}",
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_employee_tiers",
 				"skipIfBlank":false,
@@ -1285,5 +1286,5 @@
 	"tags":[
 		
 	],
-	"version":48
+	"version":49
 }
