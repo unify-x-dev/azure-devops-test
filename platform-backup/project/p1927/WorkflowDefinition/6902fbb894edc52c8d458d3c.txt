@@ -50,6 +50,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_NNJ9V",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cb2Ue",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_kJAaG",
 			"name":"2",
 			"priority":0,
@@ -113,7 +120,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761805218347,
+	"modifiedTime":1761805236072,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -509,6 +516,29 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1128,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_kJAaG@n_LJy4I@_cx1fg-1@1@1",
+			"id":"n_cb2Ue",
+			"index":8,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -519,7 +549,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_kJAaG@n_LJy4I@_cx1fg-1@1@2",
 			"id":"n_kJAaG@2",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -533,7 +563,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_kJAaG@n_LJy4I@_cx1fg-1@1@2",
 			"id":"n_2XIMA",
-			"index":9,
+			"index":10,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -550,7 +580,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"n_LJy4I@2",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -576,7 +606,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"n_KELdy",
-			"index":11,
+			"index":12,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -593,7 +623,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_LJy4I@3",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -619,7 +649,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_0r9Fh",
-			"index":13,
+			"index":14,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -636,7 +666,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_LJy4I@4",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -662,7 +692,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_tkvaq",
-			"index":15,
+			"index":16,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -686,5 +716,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
