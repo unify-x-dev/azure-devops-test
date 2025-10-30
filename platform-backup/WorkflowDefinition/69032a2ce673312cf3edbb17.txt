@@ -7,46 +7,87 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_57LNO",
+			"fromNodeId":"n_QSZrV",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_nqwIq",
+			"toNodeId":"n_aIHoU",
 			"type":"next"
 		}
 	],
 	"id":"69032a2ce673312cf3edbb17",
 	"lastModifiedBy":175325,
 	"lcName":"scopeworkflow_11761814626181",
-	"modifiedTime":1761815084646,
+	"modifiedTime":1761815093235,
 	"name":"scopeworkflow_11761814626181",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_57LNO-1",
-			"id":"_57LNO",
-			"index":0,
+			"id":"n_QSZrV",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"input_String":{
+								"type":"string",
+								"title":"input_String"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"input_String"
+						]
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1128,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_57LNO-1",
-			"id":"_nqwIq",
-			"index":0,
+			"id":"n_aIHoU",
+			"index":2,
+			"inputs":{
+				"automationId":"690329fe501d855ce6476ccc",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +101,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
