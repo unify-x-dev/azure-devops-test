@@ -16,7 +16,7 @@
 	"id":"690373b5d0753a6be99e068f",
 	"lastModifiedBy":308,
 	"lcName":"fetch_empower",
-	"modifiedTime":1761833952265,
+	"modifiedTime":1761833962256,
 	"name":"Fetch_emPower",
 	"nodes":[
 		{
@@ -36,6 +36,16 @@
 					"contentType":"application/json"
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"name":"ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -60,7 +70,9 @@
 			"id":"n_ygDF8",
 			"index":2,
 			"inputs":{
-				"streamingCompleted":true
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -86,5 +98,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
