@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_cpIJp",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_cpIJp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Td4yL",
+			"type":"next"
 		}
 	],
 	"id":"690363ad0bb3c67f73ad1bdc",
 	"lastModifiedBy":308,
 	"lcName":"dszfxvcb gn,",
-	"modifiedTime":1761829876230,
+	"modifiedTime":1761829913985,
 	"name":"dszfxvcb gn,",
 	"nodes":[
 		{
@@ -54,6 +61,16 @@
 					}
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"name":"ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -110,6 +127,29 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Python script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1132,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qNNKO-1",
+			"id":"n_Td4yL",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":308,
@@ -129,5 +169,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
