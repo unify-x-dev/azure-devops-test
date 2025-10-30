@@ -48,14 +48,14 @@
 			"name":"default",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_yhKjG",
+			"toNodeId":"n_tHWPj",
 			"type":"branch"
 		}
 	],
 	"id":"69032c64af3b295b77cbddd7",
 	"lastModifiedBy":175325,
 	"lcName":"default_branch_has_no_response_step_117618146261710",
-	"modifiedTime":1761815675250,
+	"modifiedTime":1761815681009,
 	"name":"default_branch_has_no_response_step_117618146261710",
 	"nodes":[
 		{
@@ -198,24 +198,24 @@
 		},
 		{
 			"context":{
-				"appName":"delay",
-				"resourceVersion":817,
-				"resourceName":"delay_until",
+				"appName":"callables",
+				"resourceVersion":1109,
+				"resourceName":"callables_return_to_automation",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Mxf4A@_HhUFY-1@default",
-			"id":"n_yhKjG",
+			"id":"n_tHWPj",
 			"index":7,
 			"inputs":{
-				"until":"2025-10-30T09:14:00.000Z"
+				"result":"test"
 			},
 			"skip":false,
-			"subTitle":"Delay",
-			"title":"Schedule delay until",
-			"type":"DELAY"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
@@ -235,5 +235,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
