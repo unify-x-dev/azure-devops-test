@@ -5,12 +5,12 @@
 	"createdTime":1761642967429,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761805052895,
-		"deployedBy":39715,
-		"deployedDefinitionId":"690302fc94edc52c8d459838",
+		"deployedAt":1761805504630,
+		"deployedBy":39713,
+		"deployedDefinitionId":"690304c04cdbea660eb2b4da",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":35
+		"version":4,
+		"workflowVersion":37
 	},
 	"edges":[
 		{
@@ -452,7 +452,7 @@
 	"id":"690089d7151fb15bb249af72",
 	"lastModifiedBy":39713,
 	"lcName":"employeeobjectautomation",
-	"modifiedTime":1761805503137,
+	"modifiedTime":1761805573106,
 	"name":"EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -751,7 +751,7 @@
 						}
 					}
 				},
-				"code":"def res = [:]\nif (payload.containsKey(\"EmployeeNumber\")) {\n  res[\"EmployeeNumber\"] = payload[\"EmployeeNumber\"]\n}\nelse {\n  res[\"EmployeeNumber\"] = \"\"\n}\n",
+				"code":"def res = [:]\nif (payload.containsKey(\"EmployeeNumber\")) {\n  res[\"EmployeeNumber\"] = payload[\"EmployeeNumber\"]\n}\nelse {\n  res[\"EmployeeNumber\"] = \"\"\n}\nreturn res;",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -953,7 +953,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@1",
 			"id":"n_TLmGX",
@@ -1106,7 +1106,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
 			"id":"_KT40T",
@@ -1636,7 +1636,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_chvqD@n_AtUPv@_JfTSF-1@5@y",
 			"id":"_QBhdP",
@@ -1917,7 +1917,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@1",
 			"id":"_uRqEu",
@@ -2138,7 +2138,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@2",
 			"id":"_ZT3zy",
@@ -2359,7 +2359,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_8zs5I@n_AtUPv@_JfTSF-1@6@3",
 			"id":"_bO1xa",
@@ -2605,5 +2605,5 @@
 	"tags":[
 		
 	],
-	"version":37
+	"version":38
 }
