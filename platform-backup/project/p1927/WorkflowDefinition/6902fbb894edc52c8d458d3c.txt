@@ -102,6 +102,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_DmEIM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Pyvr6",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_Tfye2",
 			"name":"2",
 			"priority":0,
@@ -150,7 +157,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761805347264,
+	"modifiedTime":1761805367557,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -765,6 +772,39 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4621,
+				"resourceName":"storage_by_unifyapps_count_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@1",
+			"id":"n_Pyvr6",
+			"index":15,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_ReferenceNumber",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_DmEIM.outputs.result.ReferenceNumber }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"reps_locations_id"
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Count records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -775,7 +815,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
 			"id":"n_Tfye2@2",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -789,7 +829,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
 			"id":"n_PWZnk",
-			"index":16,
+			"index":17,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -806,7 +846,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_LJy4I@3",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -832,7 +872,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_0r9Fh",
-			"index":18,
+			"index":19,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -849,7 +889,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_LJy4I@4",
-			"index":19,
+			"index":20,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -875,7 +915,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_tkvaq",
-			"index":20,
+			"index":21,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -899,5 +939,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
