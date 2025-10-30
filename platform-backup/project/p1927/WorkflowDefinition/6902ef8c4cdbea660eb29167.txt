@@ -206,7 +206,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761815189960,
+	"modifiedTime":1761815229705,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -216,7 +216,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9MF0g-1",
 			"id":"n_864tN",
@@ -256,27 +256,15 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"count":{
-									"type":"integer",
-									"title":"Count"
-								},
-								"employeeTier":{
+								"response":{
 									"type":"object",
 									"properties":{},
 									"additionalProperties":false,
-									"title":"Employee Tier"
-								},
-								"success":{
-									"type":"boolean",
-									"title":"Success"
+									"title":"Response"
 								}
 							},
 							"additionalProperties":false,
-							"required":[
-								"count",
-								"employeeTier",
-								"success"
-							]
+							"required":[]
 						}
 					}
 				],
@@ -613,7 +601,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
 			"id":"n_cKMS9",
@@ -622,7 +610,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"employeeTier":"{{ n_hpWZ0.outputs.properties }}"
+					"response":"{{ n_hpWZ0.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -1090,5 +1078,5 @@
 	"tags":[
 		
 	],
-	"version":33
+	"version":34
 }
