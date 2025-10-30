@@ -31,7 +31,7 @@
 	"id":"6900ff0b9d505c7da12c5dd9",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeeactivitiesbulkhttptrigger_nw",
-	"modifiedTime":1761849422427,
+	"modifiedTime":1761849431266,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeActivitiesBulkHttpTrigger_NW",
 	"nodes":[
 		{
@@ -138,7 +138,7 @@
 						}
 					}
 				},
-				"code":"",
+				"code":"using System;\n",
 				"isAsync":false,
 				"parameters":{
 					"authorization":"{{ n_ySIoa.outputs.headers.authorization }}",
@@ -193,5 +193,5 @@
 	"tags":[
 		
 	],
-	"version":72
+	"version":73
 }
