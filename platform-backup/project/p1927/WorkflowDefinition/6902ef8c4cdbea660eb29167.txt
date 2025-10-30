@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761800076974,
 	"deleted":false,
@@ -39,7 +39,14 @@
 			"fromNodeId":"n_DiDi2@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_tc6gK",
+			"toNodeId":"n_jSiMz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jSiMz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hpWZ0",
 			"type":"next"
 		},
 		{
@@ -106,7 +113,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761800877116,
+	"modifiedTime":1761801008769,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -409,14 +416,100 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1037,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
-			"id":"n_tc6gK",
+			"id":"n_jSiMz",
 			"index":6,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"EmployeeNumber"
+					],
+					"properties":{
+						"EmployeeNumber":{
+							"type":"string",
+							"title":"Employee Number"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"return [\"EmployeeNumber\" : payload[\"EmployeeNumber\"]]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_864tN.outputs.body.payload }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4622,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
+			"id":"n_hpWZ0",
+			"index":7,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_EmployeeNumber",
+							"filter":{
+								"operator":"EQUAL",
+								"value":""
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"object_type":"reps_employees",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
 		},
 		{
@@ -431,7 +524,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@2",
 			"id":"n_DiDi2@2",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -457,7 +550,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@2",
 			"id":"n_bN1TN",
-			"index":8,
+			"index":9,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -474,7 +567,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
 			"id":"n_DiDi2@3",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -500,7 +593,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
 			"id":"n_fh8P6",
-			"index":10,
+			"index":11,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -517,7 +610,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_Fsqj1@2",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -543,7 +636,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_2IXWv",
-			"index":12,
+			"index":13,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -560,7 +653,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_Fsqj1@3",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -586,7 +679,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_qTfol",
-			"index":14,
+			"index":15,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -610,5 +703,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
