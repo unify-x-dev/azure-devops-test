@@ -6,46 +6,211 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_WvKAb",
+			"fromNodeId":"n_XWLa1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_5I6We",
+			"toNodeId":"n_G0HFw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_G0HFw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bBBin",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_bBBin",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_rURFB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rURFB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6SMB5",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_6SMB5",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_rURFB",
 			"type":"next"
 		}
 	],
 	"id":"69035a1e0230577757109dec",
 	"lastModifiedBy":59995,
 	"lcName":"test-excel-iterate",
-	"modifiedTime":1761827358414,
+	"modifiedTime":1761827615711,
 	"name":"test-excel-iterate",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
-			"id":"_WvKAb",
-			"index":0,
+			"id":"n_XWLa1",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":908,
+				"resourceName":"files_by_unifyapps_get_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
-			"id":"_5I6We",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
+			"id":"n_G0HFw",
+			"index":2,
+			"inputs":{
+				"getFromCloudStorage":true,
+				"localFilePath":"user-uploads/1/1761827300068/cfcda69c-9240-4479-90ed-d7552cc0e027_Fechas+Hito+v3.0_(2).xlsx"
+			},
+			"skip":true,
+			"subTitle":"Files by UnifyApps",
+			"title":"Get File",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_WvKAb-1",
+			"id":"n_bBBin",
+			"index":3,
+			"inputs":{
+				"jsonSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"file":{
+							"type":"object",
+							"properties":{
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"size":{
+									"type":"integer",
+									"title":"size"
+								},
+								"source":{
+									"type":"string",
+									"title":"source"
+								},
+								"sourceType":{
+									"type":"string",
+									"title":"sourceType"
+								},
+								"type":{
+									"type":"string",
+									"title":"type"
+								},
+								"link":{
+									"type":"string",
+									"title":"link"
+								}
+							},
+							"title":"file",
+							"additionalProperties":false
+						}
+					}
+				},
+				"jsonString":"{\n\"file\": {\n\"name\": \"cfcda69c-9240-4479-90ed-d7552cc0e027_Fechas+Hito+v3.0_(2).xlsx\",\n\"size\": 0,\n\"source\": \"user-uploads/1/1761827300068/cfcda69c-9240-4479-90ed-d7552cc0e027_Fechas+Hito+v3.0_(2).xlsx\",\n\"sourceType\": \"CLOUD_STORAGE\",\n\"type\": \"FILE\",\n\"link\": \"https://qa.unifyapps.com//api/file/download/__UNIFY_ENCR_UNIFYAPPS__V3__eUyHSsActGkfSGnoeZIdT9aepAMU6JcE54hNX9jXaEH0Vrnk%2FyWdobQkUtl%2Bk1gQNmejtn1D7Q2MPJmpzv%2FypffPTe%2BpqgoVP2qpGkZWAxOMmkdaAWgnx3RrzWhUW%2Fyk%2FJ60w%2BwH%2FcDk%2Bkw%3D\"\n}\n}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":983,
+				"resourceName":"excel_by_unifyapps_for_each_row_or_rows",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_WvKAb-1",
+			"id":"n_rURFB",
+			"index":4,
+			"inputs":{
+				"startFromRow":7,
+				"consumptionBehaviour":"string",
+				"file":"{{ n_bBBin.outputs.result.file }}",
+				"useStreaming":false,
+				"headerRow":true,
+				"sheetName":"Foto diaria",
+				"columns":[
+					"Llave"
+				],
+				"batch":false,
+				"evaluateFormulae":true,
+				"batchSize":100,
+				"fileType":"xlsx",
+				"skipEmptyRows":true
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Consume data from Excel file",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"break",
+				"resourceVersion":817,
+				"resourceName":"break",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_rURFB@_WvKAb-1@l",
+			"id":"n_6SMB5",
+			"index":5,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Break",
+			"title":"Break",
+			"type":"BREAK"
 		}
 	],
 	"ownerUserId":59995,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +224,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
