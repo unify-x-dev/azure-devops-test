@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761817058316,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_13DI2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Iin30",
+			"type":"next"
+		}
+	],
+	"id":"690331e2501d855ce64785ec",
+	"lastModifiedBy":190505,
+	"lcName":"new_automations",
+	"modifiedTime":1761817058316,
+	"name":"new_automations",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_13DI2-1",
+			"id":"_13DI2",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_13DI2-1",
+			"id":"_Iin30",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":190505,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		"practice"
+	],
+	"version":0
+}
