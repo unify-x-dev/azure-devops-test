@@ -7,46 +7,209 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_l2NUL",
+			"fromNodeId":"n_mcS0K",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_M78S1",
+			"toNodeId":"n_r4PBm",
 			"type":"next"
 		}
 	],
 	"id":"69032df2501d855ce6477996",
 	"lastModifiedBy":175325,
 	"lcName":"input_schema_all_types_117618146261710",
-	"modifiedTime":1761816050677,
+	"modifiedTime":1761816069713,
 	"name":"input_schema_all_types_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1073,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_l2NUL-1",
-			"id":"_l2NUL",
-			"index":0,
+			"id":"n_mcS0K",
+			"index":1,
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"Name",
+						"Age",
+						"Height",
+						"IsMarried",
+						"DateOfBirth",
+						"Skills",
+						"Scores",
+						"Attempts",
+						"IsActiveList",
+						"Profile",
+						"Addresses"
+					],
+					"properties":{
+						"Name":{
+							"type":"string",
+							"title":"Name"
+						},
+						"Age":{
+							"type":"number",
+							"title":"Age"
+						},
+						"Height":{
+							"type":"integer",
+							"title":"Height"
+						},
+						"IsMarried":{
+							"type":"boolean",
+							"title":"IsMarried"
+						},
+						"DateOfBirth":{
+							"type":"string",
+							"format":"date",
+							"title":"DateOfBirth",
+							"disablePast":false
+						},
+						"Skills":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Skills"
+						},
+						"Scores":{
+							"type":"array",
+							"items":{
+								"type":"number"
+							},
+							"title":"Scores"
+						},
+						"Attempts":{
+							"type":"array",
+							"items":{
+								"type":"integer"
+							},
+							"title":"Attempts"
+						},
+						"IsActiveList":{
+							"type":"array",
+							"items":{
+								"type":"boolean"
+							},
+							"title":"IsActiveList"
+						},
+						"Profile":{
+							"type":"object",
+							"properties":{
+								"StrField":{
+									"type":"string",
+									"title":"StrField"
+								},
+								"NumField":{
+									"type":"number",
+									"title":"NumField"
+								},
+								"ArrIntField":{
+									"type":"array",
+									"items":{
+										"type":"integer"
+									},
+									"title":"ArrIntField"
+								},
+								"ArrBoolField":{
+									"type":"array",
+									"items":{
+										"type":"boolean"
+									},
+									"title":"ArrBoolField"
+								}
+							},
+							"additionalProperties":false,
+							"title":"Profile",
+							"required":[
+								"StrField",
+								"NumField",
+								"ArrIntField",
+								"ArrBoolField"
+							]
+						},
+						"Addresses":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"IntField":{
+										"type":"integer",
+										"title":"IntField"
+									},
+									"BoolField":{
+										"type":"boolean",
+										"title":"BoolField"
+									},
+									"ArrStrField":{
+										"type":"array",
+										"items":{
+											"type":"string"
+										},
+										"title":"ArrStrField"
+									},
+									"ArrNumField":{
+										"type":"array",
+										"items":{
+											"type":"number"
+										},
+										"title":"ArrNumField"
+									}
+								},
+								"additionalProperties":false,
+								"required":[
+									"IntField",
+									"BoolField",
+									"ArrStrField",
+									"ArrNumField"
+								]
+							},
+							"title":"Addresses"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1109,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_l2NUL-1",
-			"id":"_M78S1",
-			"index":0,
+			"id":"n_r4PBm",
+			"index":2,
+			"inputs":{
+				"result":"cool"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +223,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
