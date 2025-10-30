@@ -5,12 +5,12 @@
 	"createdTime":1761810419272,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761811896419,
+		"deployedAt":1761831413707,
 		"deployedBy":39715,
-		"deployedDefinitionId":"69031db8501d855ce6471c12",
+		"deployedDefinitionId":"690369f50bb3c67f73ad2c2e",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":9
+		"version":3,
+		"workflowVersion":10
 	},
 	"edges":[
 		{
@@ -452,7 +452,7 @@
 	"id":"690317f3501d855ce646ef6f",
 	"lastModifiedBy":39715,
 	"lcName":"[rave-scheduler] employeeobjectautomation",
-	"modifiedTime":1761831411325,
+	"modifiedTime":1761831543986,
 	"name":"[Rave-Scheduler] EmployeeObjectAutomation",
 	"nodes":[
 		{
@@ -490,44 +490,6 @@
 				},
 				"endpointType":"REST",
 				"response":[
-					{
-						"name":"200",
-						"status":200,
-						"contentType":"application/json",
-						"textBody":{
-							"type":"string"
-						},
-						"body":{
-							"type":"object",
-							"properties":{
-								"count":{
-									"type":"integer",
-									"title":"Count"
-								},
-								"employee":{
-									"type":"object",
-									"properties":{},
-									"additionalProperties":false,
-									"title":"Employee"
-								},
-								"success":{
-									"type":"boolean",
-									"title":"Success"
-								},
-								"Employees":{
-									"type":"array",
-									"items":{
-										"type":"object",
-										"properties":{},
-										"additionalProperties":false
-									},
-									"title":"Employees"
-								}
-							},
-							"additionalProperties":false,
-							"required":[]
-						}
-					},
 					{
 						"status":500,
 						"contentType":"application/json",
@@ -2686,5 +2648,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
