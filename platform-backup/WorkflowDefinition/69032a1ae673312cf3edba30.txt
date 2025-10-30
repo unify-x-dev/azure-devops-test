@@ -4,10 +4,25 @@
 	],
 	"createdTime":1761815066122,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761815078346,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69032a26501d855ce6476de2",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
 			"fromNodeId":"n_6C0wz",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5gYrH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5gYrH",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_4Wokg",
@@ -17,7 +32,7 @@
 	"id":"69032a1ae673312cf3edba30",
 	"lastModifiedBy":175325,
 	"lcName":"child automation with delay 11761814627664",
-	"modifiedTime":1761815075764,
+	"modifiedTime":1761815085430,
 	"name":"Child automation with delay 11761814627664",
 	"nodes":[
 		{
@@ -70,6 +85,28 @@
 		},
 		{
 			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_XO1sA-1",
+			"id":"n_5gYrH",
+			"index":2,
+			"inputs":{
+				"duration":5,
+				"unit":"MINUTES"
+			},
+			"skip":false,
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1108,
 				"resourceName":"callables_return_to_automation",
@@ -80,7 +117,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_XO1sA-1",
 			"id":"n_4Wokg",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"result":{
 					"output_String":"{{ n_6C0wz.outputs.input_String }}"
@@ -109,5 +146,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
