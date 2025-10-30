@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761815981457,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_5GSSE",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_OxTHA",
+			"type":"next"
+		}
+	],
+	"id":"69032dad13085040561b1c35",
+	"lastModifiedBy":175325,
+	"lcName":"storage_by_updaterecordsbyquery_invalid_filters117618146261810",
+	"modifiedTime":1761815981457,
+	"name":"Storage_by_UpdateRecordsByQuery_invalid_filters117618146261810",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_5GSSE-1",
+			"id":"_5GSSE",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_5GSSE-1",
+			"id":"_OxTHA",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
