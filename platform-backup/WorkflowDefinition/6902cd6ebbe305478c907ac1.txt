@@ -6,46 +6,200 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_cUQTy",
+			"fromNodeId":"n_5nZhe",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_tt3dH",
+			"toNodeId":"n_HhvTJ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HhvTJ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GZoyt",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GZoyt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_m790u",
 			"type":"next"
 		}
 	],
 	"id":"6902cd6ebbe305478c907ac1",
 	"lastModifiedBy":59995,
 	"lcName":"test-verifyfile",
-	"modifiedTime":1761791342615,
+	"modifiedTime":1761791614440,
 	"name":"test-verifyFile",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cUQTy-1",
-			"id":"_cUQTy",
-			"index":0,
+			"id":"n_5nZhe",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cUQTy-1",
-			"id":"_tt3dH",
-			"index":0,
+			"id":"n_HhvTJ",
+			"index":2,
+			"inputs":{
+				"jsonSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"headers":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"headers"
+						},
+						"data":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"id":{
+										"type":"integer",
+										"title":"id"
+									},
+									"name":{
+										"type":"string",
+										"title":"name"
+									},
+									"price":{
+										"type":"number",
+										"title":"price"
+									},
+									"quantity":{
+										"type":"integer",
+										"title":"quantity"
+									},
+									"category":{
+										"type":"string",
+										"title":"category"
+									},
+									"inStock":{
+										"type":"boolean",
+										"title":"inStock"
+									},
+									"status":{
+										"type":"string",
+										"title":"status"
+									},
+									"color":{
+										"type":"string",
+										"title":"color"
+									},
+									"createdDate":{
+										"type":"string",
+										"title":"createdDate"
+									},
+									"updatedDate":{
+										"type":"string",
+										"title":"updatedDate"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"data"
+						}
+					}
+				},
+				"jsonString":"{\n  \"headers\": [\n    \"id\",\n    \"name\",\n    \"price\",\n    \"quantity\",\n    \"category\",\n    \"inStock\",\n    \"status\",\n    \"color\",\n    \"createdDate\",\n    \"updatedDate\"\n  ],\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Item 1\",\n      \"price\": 794.6,\n      \"quantity\": 14,\n      \"category\": \"Books\",\n      \"inStock\": false,\n      \"status\": \"Completed\",\n      \"color\": \"Red\",\n      \"createdDate\": \"2024-12-21T07:13:47.388373\",\n      \"updatedDate\": \"2025-01-13T07:13:47.388373\"\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Item 2\",\n      \"price\": 985.47,\n      \"quantity\": 55,\n      \"category\": \"Electronics\",\n      \"inStock\": false,\n      \"status\": \"Pending\",\n      \"color\": \"Green\",\n      \"createdDate\": \"2024-08-03T07:13:47.388395\",\n      \"updatedDate\": \"2024-08-30T07:13:47.388395\"\n    },\n    {\n      \"id\": 3,\n      \"name\": \"Item 3\",\n      \"price\": 451.46,\n      \"quantity\": 45,\n      \"category\": \"Home\",\n      \"inStock\": false,\n      \"status\": \"Completed\",\n      \"color\": \"Green\",\n      \"createdDate\": \"2024-11-27T07:13:47.388402\",\n      \"updatedDate\": \"2024-12-14T07:13:47.388402\"\n    },\n    {\n      \"id\": 4,\n      \"name\": \"Item 4\",\n      \"price\": 379.82,\n      \"quantity\": 99,\n      \"category\": \"Home\",\n      \"inStock\": true,\n      \"status\": \"Cancelled\",\n      \"color\": \"Red\",\n      \"createdDate\": \"2024-09-10T07:13:47.388408\",\n      \"updatedDate\": \"2024-09-28T07:13:47.388408\"\n    },\n    {\n      \"id\": 5,\n      \"name\": \"Item 5\",\n      \"price\": 377.41,\n      \"quantity\": 68,\n      \"category\": \"Electronics\",\n      \"inStock\": true,\n      \"status\": \"Pending\",\n      \"color\": \"Black\",\n      \"createdDate\": \"2024-11-09T07:13:47.388413\",\n      \"updatedDate\": \"2024-11-18T07:13:47.388413\"\n    },\n    {\n      \"id\": 6,\n      \"name\": \"Item 6\",\n      \"price\": 221.9,\n      \"quantity\": 51,\n      \"category\": \"Books\",\n      \"inStock\": false,\n      \"status\": \"Completed\",\n      \"color\": \"Blue\",\n      \"createdDate\": \"2024-07-08T07:13:47.388419\",\n      \"updatedDate\": \"2024-07-12T07:13:47.388419\"\n    },\n    {\n      \"id\": 7,\n      \"name\": \"Item 7\",\n      \"price\": 16.83,\n      \"quantity\": 87,\n      \"category\": \"Electronics\",\n      \"inStock\": false,\n      \"status\": \"Inactive\",\n      \"color\": \"Yellow\",\n      \"createdDate\": \"2024-12-09T07:13:47.388424\",\n      \"updatedDate\": \"2025-01-07T07:13:47.388424\"\n    },\n    {\n      \"id\": 8,\n      \"name\": \"Item 8\",\n      \"price\": 256.65,\n      \"quantity\": 39,\n      \"category\": \"Electronics\",\n      \"inStock\": false,\n      \"status\": \"Cancelled\",\n      \"color\": \"Yellow\",\n      \"createdDate\": \"2024-08-31T07:13:47.388429\",\n      \"updatedDate\": \"2024-09-27T07:13:47.388429\"\n    },\n    {\n      \"id\": 9,\n      \"name\": \"Item 9\",\n      \"price\": 839.51,\n      \"quantity\": 77,\n      \"category\": \"Clothing\",\n      \"inStock\": false,\n      \"status\": \"Pending\",\n      \"color\": \"Green\",\n      \"createdDate\": \"2025-03-16T07:13:47.388434\",\n      \"updatedDate\": \"2025-03-28T07:13:47.388434\"\n    },\n    {\n      \"id\": 10,\n      \"name\": \"Item 10\",\n      \"price\": 771.82,\n      \"quantity\": 43,\n      \"category\": \"Electronics\",\n      \"inStock\": true,\n      \"status\": \"Inactive\",\n      \"color\": \"Green\",\n      \"createdDate\": \"2024-09-09T07:13:47.388438\",\n      \"updatedDate\": \"2024-09-24T07:13:47.388438\"\n    },\n    {\n      \"id\": 11,\n      \"name\": \"Item 11\",\n      \"price\": 461.26,\n      \"quantity\": 87,\n      \"category\": \"Books\",\n      \"inStock\": true,\n      \"status\": \"Pending\",\n      \"color\": \"Blue\",\n      \"createdDate\": \"2024-10-09T07:13:47.388443\",\n      \"updatedDate\": \"2024-10-15T07:13:47.388443\"\n    }\n  ]\n}"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"excel_by_unifyapps",
+				"resourceVersion":939,
+				"resourceName":"excel_by_unifyapps_list_to_excel_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_cUQTy-1",
+			"id":"n_GZoyt",
+			"index":3,
+			"inputs":{
+				"fileName":"test_xlsx.xlsx",
+				"skipHeaderRow":false,
+				"headerType":"DYNAMIC",
+				"dataSource":"{{ n_HhvTJ.outputs.result.data }}",
+				"fileType":"xlsx",
+				"append":false,
+				"dynamicHeaders":{
+					"source":"{{ n_HhvTJ.outputs.result.headers }}",
+					"ua:type":"mappedArray",
+					"items":"{{ n_HhvTJ.outputs.result.headers }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Excel by UnifyApps",
+			"title":"Write data to Excel file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"files_by_unifyapps_verify_file_type",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_cUQTy-1",
+			"id":"n_m790u",
+			"index":4,
+			"inputs":{
+				"fileDetails":"{{ n_GZoyt.outputs.fileDetails }}",
+				"fileType":"XLSX"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Verify File Type",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":59995,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +213,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
