@@ -267,7 +267,7 @@
 	"id":"68d61860ac4bcf5d23413060",
 	"lastModifiedBy":177799,
 	"lcName":"rishabh automation_assignment1",
-	"modifiedTime":1761828825182,
+	"modifiedTime":1761828932916,
 	"name":"Rishabh Automation_Assignment1",
 	"nodes":[
 		{
@@ -1101,7 +1101,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_KkyBx@_mzkHe-1@n",
 			"id":"_1e2JF",
@@ -1137,7 +1137,7 @@
 						}
 					}
 				},
-				"query":"SELECT \n    _pr_Employeeid,\n    _pr_name,\n    _pr_Department,\n    SUM(_pr_BonusAmount) AS Total_Bonus,\n    SUM(_pr_LeavesTaken) AS Total_Leaves\n  FROM ENTITY_rishabh_assignment_automation_excel\n  GROUP BY _pr_Employeeid, _pr_name, _pr_Department\n  having _pr_Employeeid= {{ n_0Jwyj.outputs.body.input }}\n\n",
+				"query":"SELECT \n    _pr_Employeeid,\n    _pr_name,\n    _pr_Department,\n    SUM(_pr_BonusAmount) AS Total_Bonus,\n    SUM(_pr_LeavesTaken) AS Total_Leaves\n  FROM ENTITY_rishabh_assignment_automation_excel\n  GROUP BY _pr_Employeeid, _pr_name, _pr_Department\n  having _pr_Employeeid= ({{ n_0Jwyj.outputs.body.input }})\n\n",
 				"params":{
 					"type":"string",
 					"title":"Input",
@@ -1246,5 +1246,5 @@
 	"tags":[
 		
 	],
-	"version":46
+	"version":47
 }
