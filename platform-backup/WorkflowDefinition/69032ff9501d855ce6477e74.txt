@@ -7,46 +7,110 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_5LvLp",
+			"fromNodeId":"n_2FaRU",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_hssdy",
+			"toNodeId":"n_Hp8Gl",
 			"type":"next"
 		}
 	],
 	"id":"69032ff9501d855ce6477e74",
 	"lastModifiedBy":175325,
 	"lcName":"child automation_117618146261710",
-	"modifiedTime":1761816569540,
+	"modifiedTime":1761816578552,
 	"name":"Child automation_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1074,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5LvLp-1",
-			"id":"_5LvLp",
-			"index":0,
+			"id":"n_2FaRU",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output_String"
+					],
+					"properties":{
+						"output_String":{
+							"type":"string",
+							"title":"output_String"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"StringBody",
+						"NumberBody",
+						"IntegerBody",
+						"BooleanBody"
+					],
+					"properties":{
+						"StringBody":{
+							"type":"string",
+							"title":"StringBody"
+						},
+						"NumberBody":{
+							"type":"number",
+							"title":"NumberBody"
+						},
+						"IntegerBody":{
+							"type":"integer",
+							"title":"IntegerBody"
+						},
+						"BooleanBody":{
+							"type":"boolean",
+							"title":"BooleanBody"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5LvLp-1",
-			"id":"_hssdy",
-			"index":0,
+			"id":"n_Hp8Gl",
+			"index":2,
+			"inputs":{
+				"result":{
+					"output_String":"cool"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +124,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
