@@ -1,52 +1,93 @@
 {
 	"appsUsed":[
-		
+		"gmail"
 	],
 	"createdTime":1761819996924,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_s9vJL",
+			"fromNodeId":"n_VsJgi",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_MsmLG",
+			"toNodeId":"n_Ntk5l",
 			"type":"next"
 		}
 	],
 	"id":"69033d5c2947f0567848cfd6",
 	"lastModifiedBy":190409,
 	"lcName":"assignment worker",
-	"modifiedTime":1761819996924,
+	"modifiedTime":1761820243931,
 	"name":"Assignment worker",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1074,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_s9vJL-1",
-			"id":"_s9vJL",
-			"index":0,
+			"id":"n_VsJgi",
+			"index":1,
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"UserID",
+						"UserEmail"
+					],
+					"properties":{
+						"UserID":{
+							"type":"string",
+							"title":"User ID"
+						},
+						"UserEmail":{
+							"type":"string",
+							"title":"User Email"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":5662,
+				"connectionId":"69033dd95896364f623ab641",
+				"resourceName":"gmail_get_message",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_s9vJL-1",
-			"id":"_MsmLG",
-			"index":0,
+			"id":"n_Ntk5l",
+			"index":2,
+			"inputs":{
+				"format":"full",
+				"id":"{{ n_VsJgi.outputs.UserID }}"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Gmail",
+			"title":"Get message",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190409,
 	"projectId":160,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +101,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
