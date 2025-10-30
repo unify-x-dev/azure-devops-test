@@ -5,16 +5,16 @@
 	"createdTime":1761844723589,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761845131224,
+		"deployedAt":1761845316561,
 		"deployedBy":97258,
-		"deployedDefinitionId":"69039f8b375e90227a684972",
+		"deployedDefinitionId":"6903a044375e90227a684bba",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":15
+		"version":4,
+		"workflowVersion":16
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_LXdZR",
+			"fromNodeId":"n_Fu2Cw",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Er8Ln",
@@ -104,34 +104,39 @@
 	"id":"68fa372978253226fbbb0f95",
 	"lastModifiedBy":97258,
 	"lcName":"export daily mdr",
-	"modifiedTime":1761845314875,
+	"modifiedTime":1761845429741,
 	"name":"Export Daily MDR",
 	"nodes":[
 		{
 			"context":{
-				"appName":"schedule",
-				"resourceVersion":836,
-				"resourceName":"schedule_default"
+				"appName":"callables",
+				"resourceVersion":113,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_5GNgh-1",
-			"id":"n_LXdZR",
+			"id":"n_Fu2Cw",
 			"index":1,
 			"inputs":{
-				"cron":"EXPRESSION",
-				"expression":"59 22 * * *",
-				"sequential":false,
-				"timezone":"Asia/Calcutta",
-				"interval":15,
-				"frequency":"MINUTES"
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"response":{
+							"type":"string",
+							"title":"Response"
+						}
+					}
+				}
 			},
 			"skip":false,
-			"subTitle":"Schedule",
-			"title":"New recurring event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"SCHEDULED"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -684,5 +689,5 @@
 	"tags":[
 		"Settlement"
 	],
-	"version":16
+	"version":17
 }
