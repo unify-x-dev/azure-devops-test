@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761816120906,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_DUtfa",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_yuP99",
+			"type":"next"
+		}
+	],
+	"id":"69032e38501d855ce6477a41",
+	"lastModifiedBy":45010,
+	"lcName":"tierendpoint",
+	"modifiedTime":1761816120906,
+	"name":"TierEndpoint",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_DUtfa-1",
+			"id":"_DUtfa",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_DUtfa-1",
+			"id":"_yuP99",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":45010,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
