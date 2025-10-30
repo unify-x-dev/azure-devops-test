@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761816243458,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761816253712,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69032ebd2947f0567848a027",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
@@ -17,7 +25,7 @@
 	"id":"69032eb32947f0567848a00a",
 	"lastModifiedBy":175325,
 	"lcName":"telemetry_createtwometrics_117618146261810",
-	"modifiedTime":1761816251182,
+	"modifiedTime":1761816259877,
 	"name":"telemetry_createTwoMetrics_117618146261810",
 	"nodes":[
 		{
@@ -27,7 +35,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_In9KX-1",
 			"id":"n_I3ABg",
@@ -76,7 +84,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_In9KX-1",
 			"id":"n_RV74j",
@@ -102,12 +110,40 @@
 		"enableVariableLogging":true,
 		"route":{
 			"default":false,
+			"headerValueTierMap":{},
 			"tierName":"global"
+		},
+		"telemetryConfig":{
+			"enableTelemetry":true,
+			"metricConfigs":[
+				{
+					"buckets":[
+						
+					],
+					"eventType":"ALWAYS_END",
+					"metricType":"WORKFLOW_EXECUTION_DURATION",
+					"name":"metric1",
+					"tags":[
+						
+					]
+				},
+				{
+					"buckets":[
+						
+					],
+					"eventType":"SUCCESS_END",
+					"metricType":"WORKFLOW_EXECUTION_DURATION",
+					"name":"metric1",
+					"tags":[
+						
+					]
+				}
+			]
 		}
 	},
 	"standard":false,
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
