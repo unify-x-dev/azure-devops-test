@@ -7,46 +7,82 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_QfZjj",
+			"fromNodeId":"n_qetpy",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_1GKIs",
+			"toNodeId":"n_F6xdd",
 			"type":"next"
 		}
 	],
 	"id":"690330be501d855ce647825c",
 	"lastModifiedBy":175325,
 	"lcName":"validate_hidden_columns_icon_117618146261710",
-	"modifiedTime":1761816766185,
+	"modifiedTime":1761816773752,
 	"name":"validate_hidden_columns_icon_117618146261710",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1074,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QfZjj-1",
-			"id":"_QfZjj",
-			"index":0,
+			"id":"n_qetpy",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output"
+					],
+					"properties":{
+						"output":{
+							"type":"string",
+							"title":"output"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QfZjj-1",
-			"id":"_1GKIs",
-			"index":0,
+			"id":"n_F6xdd",
+			"index":2,
+			"inputs":{
+				"result":{
+					"output":"cool"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +96,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
