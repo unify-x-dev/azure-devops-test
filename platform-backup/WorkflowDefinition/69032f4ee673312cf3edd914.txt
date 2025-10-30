@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761816398353,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_HPUNt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_SKSMP",
+			"type":"next"
+		}
+	],
+	"id":"69032f4ee673312cf3edd914",
+	"lastModifiedBy":175325,
+	"lcName":"upload_wsdl_file_soap_117618146261710",
+	"modifiedTime":1761816398353,
+	"name":"upload_wsdl_file_soap_117618146261710",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_HPUNt-1",
+			"id":"_HPUNt",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_HPUNt-1",
+			"id":"_SKSMP",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
