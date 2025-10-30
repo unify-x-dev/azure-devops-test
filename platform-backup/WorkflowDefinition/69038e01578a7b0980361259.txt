@@ -23,7 +23,7 @@
 	"id":"69038e01578a7b0980361259",
 	"lastModifiedBy":44108,
 	"lcName":"testing",
-	"modifiedTime":1761845255446,
+	"modifiedTime":1761845331080,
 	"name":"testing",
 	"nodes":[
 		{
@@ -335,6 +335,23 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.fileName",
+					"root.fileType",
+					"root.sheetName",
+					"root.timezone",
+					"root.recordsPathKey",
+					"root.fieldMappings.source",
+					"root.fieldMappings.ua:type",
+					"root.fieldMappings.items.label",
+					"root.fieldMappings.items.type",
+					"root.paginateBy",
+					"root.limitKeyReference",
+					"root.datasource.id",
+					"root.batchSize"
+				]
+			},
 			"context":{
 				"appName":"utility_by_unifyapps",
 				"resourceVersion":1103,
@@ -348,12 +365,26 @@
 			"id":"n_Y9WYj",
 			"index":3,
 			"inputs":{
-				"timezone":"UTC",
-				"paginateBy":"OFFSET",
+				"fileName":"{{ n_b0F1B.outputs.result.fileName }}",
+				"sheetName":"{{ n_b0F1B.outputs.result.sheetName }}",
+				"cursorValueReference":"cursor.next",
+				"timezone":"{{ n_b0F1B.outputs.result.timezone }}",
+				"fieldMappings":{
+					"source":"{{ n_b0F1B.outputs.result.fieldMappings }}",
+					"ua:type":"mappedArray"
+				},
+				"recordsPathKey":"{{ n_b0F1B.outputs.result.recordsPathKey }}",
+				"limitKeyReference":"{{ n_b0F1B.outputs.result.limitKeyReference }}",
+				"datasource":{
+					"id":"{{ n_b0F1B.outputs.result.datasource.id }}",
+					"context":"{{ n_b0F1B.outputs.result.datasource.context }}",
+					"inputs":"{{ n_b0F1B.outputs.result.datasource.inputs }}"
+				},
+				"paginateBy":"{{ n_b0F1B.outputs.result.paginateBy }}",
 				"offsetKeyReference":"page.offset",
-				"batchSize":100,
-				"limitKeyReference":"page.limit",
-				"fileType":"CSV"
+				"batchSize":"{{ n_b0F1B.outputs.result.batchSize }}",
+				"cursorKeyReference":"page.cursor",
+				"fileType":"{{ n_b0F1B.outputs.result.fileType }}"
 			},
 			"skip":false,
 			"subTitle":"Utility by UnifyApps",
@@ -378,5 +409,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
