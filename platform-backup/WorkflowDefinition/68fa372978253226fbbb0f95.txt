@@ -5,12 +5,12 @@
 	"createdTime":1761844723589,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761845080535,
+		"deployedAt":1761845131224,
 		"deployedBy":97258,
-		"deployedDefinitionId":"69039f58fecca3409fb216b8",
+		"deployedDefinitionId":"69039f8b375e90227a684972",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":14
+		"version":3,
+		"workflowVersion":15
 	},
 	"edges":[
 		{
@@ -104,7 +104,7 @@
 	"id":"68fa372978253226fbbb0f95",
 	"lastModifiedBy":97258,
 	"lcName":"export daily mdr",
-	"modifiedTime":1761845128978,
+	"modifiedTime":1761845314875,
 	"name":"Export Daily MDR",
 	"nodes":[
 		{
@@ -121,19 +121,7 @@
 			"index":1,
 			"inputs":{
 				"cron":"EXPRESSION",
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"1",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"1"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"expression":"57 22 * * *",
+				"expression":"59 22 * * *",
 				"sequential":false,
 				"timezone":"Asia/Calcutta",
 				"interval":15,
@@ -696,5 +684,5 @@
 	"tags":[
 		"Settlement"
 	],
-	"version":15
+	"version":16
 }
