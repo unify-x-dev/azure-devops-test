@@ -9,14 +9,21 @@
 			"fromNodeId":"_pkEif",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_KMyhV",
+			"toNodeId":"n_b0F1B",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_b0F1B",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Y9WYj",
 			"type":"next"
 		}
 	],
 	"id":"69038e01578a7b0980361259",
-	"lastModifiedBy":39714,
+	"lastModifiedBy":44108,
 	"lcName":"testing",
-	"modifiedTime":1761840641961,
+	"modifiedTime":1761845245225,
 	"name":"testing",
 	"nodes":[
 		{
@@ -25,7 +32,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_pkEif-1",
 			"id":"_pkEif",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +41,59 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1041,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pkEif-1",
-			"id":"_KMyhV",
-			"index":0,
+			"id":"n_b0F1B",
+			"index":2,
+			"inputs":{
+				"code":"def getCorrespondenceConfig() {\n    return [\n        batchSize: 10000,\n        cursorKeyReference: \"page.cursor\",\n        cursorValueReference: \"cursor.next\",\n        datasource: [\n            context: [\n                appName: \"storage_by_unifyapps\",\n                resourceName: \"storage_by_unifyapps_fetch_records\",\n                resourceVersion: 6\n            ],\n            id: \"e_68d05971a5466e2462ceb64a\",\n            inputs: [\n                includeCurrentUserPermissions: false,\n                includeRoleMappings: false,\n                includeTotalCount: false,\n                numberOfRecordsToFetch: \"MULTIPLE\",\n                object_type: \"cms_correspondence\",\n                page: [\n                    limit: 200000,\n                    paginateBy: \"OFFSET\"\n                ],\n                readThroughSessionVariables: false,\n                searchField: [\n                    fields: [\n                        \"properties_referenceNumber\",\n                        \"properties_status\",\n                        \"properties_LetterReferenceNumber\",\n                        \"properties_ReceiverType\",\n                        \"properties_ThirdParty\",\n                        \"properties_subject\",\n                        \"properties_currentAssignees\",\n                        \"properties_referenceDate\",\n                        \"properties_dueDate\",\n                        \"properties_fromEntity\",\n                        \"properties_toEntity\",\n                        \"properties_fromUser\",\n                        \"properties_documentType\",\n                        \"properties_type\",\n                        \"properties_projectName\",\n                        \"properties_contractName\",\n                        \"properties_personInCharge\",\n                        \"properties_updatedToPersonInCharge\"\n                    ]\n                ],\n                sortBy: [\n                    [ field: \"properties_referenceDate\", order: \"DESC\" ]\n                ],\n                triggerInputCondition: [\n                    filters: [\n                        [\n                            filters: [\n                                [ filter: [ operator: \"EQUAL\", value: \"Aldar Projects\" ], property: \"properties_fromEntity\" ],\n                                [ filter: [ operator: \"EQUAL\", value: \"Aldpj_Test\" ], property: \"properties_personInCharge\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_aclRecipients\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_mdlSelected\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_externalMailRecipients\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_individualUsers\" ]\n                            ],\n                            operator: \"OR\"\n                        ]\n                    ],\n                    operator: \"AND\"\n                ]\n            ]\n        ],\n        fieldMappings: [\n            [\n                fieldKey: [ path: \"properties.referenceNumber\", type: \"TEXT\" ],\n                label: \"Reference Number\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.subject\", type: \"TEXT\" ],\n                label: \"Subject\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.status\", type: \"TEXT\" ],\n                label: \"Status\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ originalKey: \"currentAssignees\", path: \"properties.currentAssignees\", type: \"TAG\" ],\n                label: \"Current Owner\",\n                type: \"TAG\"\n            ],\n            [\n                fieldKey: [ path: \"properties.referenceDate\", type: \"DATE\" ],\n                label: \"Reference Date\",\n                type: \"DATE\",\n                valueTransformer: [ format: \"yyyy-MM-dd'T'HH:mm:ss.SSSX\" ]\n            ],\n            [\n                fieldKey: [ path: \"properties.dueDate\", type: \"DATE\" ],\n                label: \"Due Date\",\n                type: \"DATE\",\n                valueTransformer: [ format: \"yyyy-MM-dd'T'HH:mm:ss.SSSX\" ]\n            ],\n            [\n                fieldKey: [ path: \"properties.fromEntity\", type: \"TEXT\" ],\n                label: \"Sender\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.toEntity\", type: \"TEXT\" ],\n                label: \"Recepient\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.fromUser\", type: \"TEXT\" ],\n                label: \"Initiator\",\n                type: \"TEXT\"\n            ]\n        ],\n        fileName: \"Correspondencess\",\n        fileType: \"CSV\",\n        limitKeyReference: \"page.limit\",\n        offsetKeyReference: \"page.offset\",\n        paginateBy: \"OFFSET\",\n        recordsPathKey: \"objects\",\n        sheetName: \"Sheet1\",\n        timezone: \"Asia/Calcutta\"\n    ]\n}\n\n// Example usage:\ndef config = getCorrespondenceConfig()\nreturn config;",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1103,
+				"resourceName":"utility_by_unifyapps_export_datasource",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_pkEif-1",
+			"id":"n_Y9WYj",
+			"index":3,
+			"inputs":{
+				"timezone":"UTC",
+				"paginateBy":"OFFSET",
+				"offsetKeyReference":"page.offset",
+				"batchSize":100,
+				"limitKeyReference":"page.limit",
+				"fileType":"CSV"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Export Application Datasource",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39714,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +107,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
