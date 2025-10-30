@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761815447703,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_u6ihy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_XTZ9v",
+			"type":"next"
+		}
+	],
+	"id":"69032b9713085040561b1738",
+	"lastModifiedBy":175325,
+	"lcName":"renameworkflowpolicy_117618146261710",
+	"modifiedTime":1761815447703,
+	"name":"renameWorkflowPolicy_117618146261710",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_u6ihy-1",
+			"id":"_u6ihy",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_u6ihy-1",
+			"id":"_XTZ9v",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
