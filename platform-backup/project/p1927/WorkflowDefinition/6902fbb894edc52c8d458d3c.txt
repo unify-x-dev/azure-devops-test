@@ -41,12 +41,42 @@
 			"skip":false,
 			"toNodeId":"n_KELdy",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LJy4I",
+			"name":"3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LJy4I@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_LJy4I@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_0r9Fh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_LJy4I",
+			"name":"4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_LJy4I@4",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_LJy4I@4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tkvaq",
+			"type":"next"
 		}
 	],
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761803269140,
+	"modifiedTime":1761803333710,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -153,13 +183,73 @@
 					{
 						"id":"1",
 						"inputs":{
-							"name":"Branch 1"
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_UqZT0.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"FirstOrDefaultAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
 						"id":"2",
 						"inputs":{
-							"name":"Branch 2"
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_UqZT0.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"CountSync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"3",
+						"inputs":{
+							"name":"Branch 3",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_UqZT0.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"AddAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"4",
+						"inputs":{
+							"name":"Branch 4",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_UqZT0.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"UpdateAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
@@ -186,7 +276,19 @@
 			"id":"n_LJy4I@1",
 			"index":3,
 			"inputs":{
-				"name":"Branch 1"
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_UqZT0.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"FirstOrDefaultAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
@@ -217,7 +319,19 @@
 			"id":"n_LJy4I@2",
 			"index":5,
 			"inputs":{
-				"name":"Branch 2"
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_UqZT0.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"CountSync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
@@ -230,6 +344,92 @@
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"n_KELdy",
 			"index":6,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@3",
+			"id":"n_LJy4I@3",
+			"index":7,
+			"inputs":{
+				"name":"Branch 3",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_UqZT0.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"AddAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@3",
+			"id":"n_0r9Fh",
+			"index":8,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@4",
+			"id":"n_LJy4I@4",
+			"index":9,
+			"inputs":{
+				"name":"Branch 4",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_UqZT0.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"UpdateAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_LJy4I@_cx1fg-1@4",
+			"id":"n_tkvaq",
+			"index":10,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -253,5 +453,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
