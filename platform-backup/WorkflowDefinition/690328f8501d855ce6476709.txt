@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761814776549,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_1lnfA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_4shFS",
+			"type":"next"
+		}
+	],
+	"id":"690328f8501d855ce6476709",
+	"lastModifiedBy":175325,
+	"lcName":"condition box|string input - does not match regex 11761814627664",
+	"modifiedTime":1761814776549,
+	"name":"Condition Box|String Input - Does not match regex 11761814627664",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1lnfA-1",
+			"id":"_1lnfA",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_1lnfA-1",
+			"id":"_4shFS",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
