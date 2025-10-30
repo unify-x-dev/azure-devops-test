@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761816405752,
+	"deleted":false,
+	"description":"description",
+	"edges":[
+		{
+			"fromNodeId":"_m4X5i",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ZyA5d",
+			"type":"next"
+		}
+	],
+	"id":"69032f55501d855ce6477ca8",
+	"lastModifiedBy":175325,
+	"lcName":"toggle_webhook_hidden_columns_117618146261710",
+	"modifiedTime":1761816405752,
+	"name":"toggle_webhook_hidden_columns_117618146261710",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_m4X5i-1",
+			"id":"_m4X5i",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_m4X5i-1",
+			"id":"_ZyA5d",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":175325,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
