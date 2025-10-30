@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761816948151,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761816960635,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69033180501d855ce64784c6",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
@@ -17,7 +25,7 @@
 	"id":"69033174e673312cf3edf173",
 	"lastModifiedBy":175325,
 	"lcName":"webhookeditschema_117618146261810",
-	"modifiedTime":1761816958161,
+	"modifiedTime":1761816977060,
 	"name":"webhookEditSchema_117618146261810",
 	"nodes":[
 		{
@@ -40,9 +48,9 @@
 						"additionalProperties":false,
 						"required":[],
 						"properties":{
-							"query_string":{
-								"type":"string",
-								"title":"query_string"
+							"editQuery":{
+								"type":"integer",
+								"title":"editQuery"
 							}
 						}
 					},
@@ -51,9 +59,9 @@
 						"additionalProperties":false,
 						"required":[],
 						"properties":{
-							"path_params":{
-								"type":"string",
-								"title":"path_params"
+							"editPath":{
+								"type":"number",
+								"title":"editPath"
 							}
 						}
 					},
@@ -62,23 +70,26 @@
 						"additionalProperties":false,
 						"required":[],
 						"properties":{
-							"header_string":{
-								"type":"string",
-								"title":"header_string"
+							"editHeader":{
+								"type":"array",
+								"items":{
+									"type":"string"
+								},
+								"title":"editHeader"
 							}
 						}
 					},
 					"body":{
 						"type":"object",
 						"properties":{
-							"input_string":{
-								"type":"string",
-								"title":"input_string"
+							"editSchema":{
+								"type":"number",
+								"title":"editSchema"
 							}
 						},
 						"additionalProperties":false,
 						"required":[
-							"input_string"
+							"editSchema"
 						]
 					}
 				}
@@ -162,5 +173,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
