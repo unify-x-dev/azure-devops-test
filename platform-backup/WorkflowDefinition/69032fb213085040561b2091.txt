@@ -7,46 +7,140 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_qbVmF",
+			"fromNodeId":"n_ADc1q",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Si2nW",
+			"toNodeId":"n_k3Qss",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_k3Qss",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oRJzw",
 			"type":"next"
 		}
 	],
 	"id":"69032fb213085040561b2091",
 	"lastModifiedBy":175325,
 	"lcName":"setsessionvariable_mathsoperations_117618146261810",
-	"modifiedTime":1761816498023,
+	"modifiedTime":1761816509188,
 	"name":"setsessionvariable_mathsOperations_117618146261810",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1074,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qbVmF-1",
-			"id":"_qbVmF",
-			"index":0,
+			"id":"n_ADc1q",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"output_String"
+					],
+					"properties":{
+						"output_String":{
+							"type":"string",
+							"title":"output_String"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":935,
+				"resourceName":"variable_by_unifyapps_set_session_variable",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qbVmF-1",
-			"id":"_Si2nW",
-			"index":0,
+			"id":"n_k3Qss",
+			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"Integerinput":{
+							"type":"number",
+							"title":"Integerinput"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"Integerinput":1
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"Integerinput":{
+							"type":"number",
+							"title":"Integerinput"
+						}
+					},
+					"required":[]
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Set Session Variables",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qbVmF-1",
+			"id":"n_oRJzw",
+			"index":3,
+			"inputs":{
+				"result":{
+					"output_String":"=({{ n_k3Qss.outputs.Integerinput }}+1)"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +154,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
