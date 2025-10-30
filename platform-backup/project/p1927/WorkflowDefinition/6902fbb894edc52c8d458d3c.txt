@@ -127,7 +127,7 @@
 			"fromNodeId":"n_Tfye2@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_PWZnk",
+			"toNodeId":"n_nfg5W",
 			"type":"next"
 		},
 		{
@@ -164,7 +164,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761805377605,
+	"modifiedTime":1761805388777,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -854,15 +854,27 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1128,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
-			"id":"n_PWZnk",
+			"id":"n_nfg5W",
 			"index":18,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		},
 		{
 			"context":{
@@ -969,5 +981,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
