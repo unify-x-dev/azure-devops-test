@@ -6,46 +6,125 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_ZDaFB",
+			"fromNodeId":"n_6oUGY",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Hvhf7",
+			"toNodeId":"hLJWh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"hLJWh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_M1fBA",
 			"type":"next"
 		}
 	],
 	"id":"690326fe501d855ce647628f",
 	"lastModifiedBy":4130,
 	"lcName":"alert | unresponsive pods ",
-	"modifiedTime":1761814270052,
+	"modifiedTime":1761814838324,
 	"name":"Alert | Unresponsive Pods ",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZDaFB-1",
-			"id":"_ZDaFB",
-			"index":0,
+			"id":"n_6oUGY",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":5,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":43,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ZDaFB-1",
-			"id":"_Hvhf7",
-			"index":0,
+			"id":"hLJWh",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"epochTime":{
+							"type":"string",
+							"title":"Epoch Time"
+						}
+					}
+				},
+				"code":"def getCurrentEpochTime() {\n    return System.currentTimeMillis()\n}\ndef epochTime = getCurrentEpochTime()\nreturn [\"epochTime\" : epochTime]\n",
+				"compile_static":false,
+				"isAsync":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code By UnifyApps",
+			"title":"Execute groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":1025,
+				"resourceName":"analytics_by_unifyapps_query_reports",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ZDaFB-1",
+			"id":"n_M1fBA",
+			"index":3,
+			"inputs":{
+				"projections":[
+					{
+						"name":"HOST_NAME",
+						"aggregationFunction":"GROUP",
+						"includePercentageChange":false
+					}
+				],
+				"entityType":"API_ENDPOINT",
+				"timeFilter":{
+					"since":"{{ hLJWh.outputs.result.epochTime }}-90000",
+					"until":"{{ hLJWh.outputs.result.epochTime }}"
+				},
+				"group":"PLATFORM"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Analytics Query",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":4130,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +138,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
