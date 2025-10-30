@@ -109,6 +109,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_Pyvr6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CRAiq",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_Tfye2",
 			"name":"2",
 			"priority":0,
@@ -157,7 +164,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761805367557,
+	"modifiedTime":1761805377605,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -805,6 +812,29 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1128,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@1",
+			"id":"n_CRAiq",
+			"index":16,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_undefined",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -815,7 +845,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
 			"id":"n_Tfye2@2",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -829,7 +859,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
 			"id":"n_PWZnk",
-			"index":17,
+			"index":18,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -846,7 +876,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_LJy4I@3",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -872,7 +902,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_0r9Fh",
-			"index":19,
+			"index":20,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -889,7 +919,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_LJy4I@4",
-			"index":20,
+			"index":21,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -915,7 +945,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_tkvaq",
-			"index":21,
+			"index":22,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -939,5 +969,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
