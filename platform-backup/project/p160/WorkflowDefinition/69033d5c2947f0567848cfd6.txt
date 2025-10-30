@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_Ntk5l",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Ntk5l",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_XtSOI",
+			"type":"next"
 		}
 	],
 	"id":"69033d5c2947f0567848cfd6",
 	"lastModifiedBy":190409,
 	"lcName":"assignment worker",
-	"modifiedTime":1761823576505,
+	"modifiedTime":1761823678254,
 	"name":"Assignment worker",
 	"nodes":[
 		{
@@ -81,6 +88,27 @@
 			"subTitle":"Gmail",
 			"title":"Get message",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1110,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_s9vJL-1",
+			"id":"n_XtSOI",
+			"index":3,
+			"inputs":{
+				"result":"{{ n_Ntk5l.outputs.payload.parts[0].headers[0].name }}{{ n_Ntk5l.outputs.payload.parts[0].headers[0].value }}{{ n_Ntk5l.outputs.payload.parts[0].body.data }}{{ n_Ntk5l.outputs.payload.parts[0].body.attachmentId }}"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":190409,
@@ -105,5 +133,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
