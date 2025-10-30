@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_VRkmw",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VRkmw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_iqGOP",
+			"type":"next"
 		}
 	],
 	"id":"69035c6d0bb3c67f73ad062a",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeeactivitiesbulkhttptrigger",
-	"modifiedTime":1761828018922,
+	"modifiedTime":1761828045490,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeActivitiesBulkHttpTrigger",
 	"nodes":[
 		{
@@ -58,6 +65,16 @@
 					}
 				},
 				"endpointType":"REST",
+				"response":[
+					{
+						"name":"ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
 				"streamingResponse":false
 			},
 			"skip":false,
@@ -123,6 +140,29 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute CSharp script",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1132,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_o6ItL-1",
+			"id":"n_iqGOP",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":308,
@@ -143,5 +183,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
