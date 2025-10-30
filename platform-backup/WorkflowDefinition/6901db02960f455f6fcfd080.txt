@@ -47,7 +47,7 @@
 	"id":"6901db02960f455f6fcfd080",
 	"lastModifiedBy":190519,
 	"lcName":"testnischay",
-	"modifiedTime":1761842544237,
+	"modifiedTime":1761843484250,
 	"name":"TestNischay",
 	"nodes":[
 		{
@@ -112,7 +112,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_7wzCu-1",
 			"id":"n_P8Ixu",
@@ -124,7 +124,7 @@
 				"text":"Pdf file in mail",
 				"mrkdwn":true
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Slack",
 			"title":"Post message",
 			"type":"ACTION"
@@ -146,6 +146,7 @@
 			"inputs":{
 				"filename":"{{ n_Odudw.outputs.file.name }}",
 				"select":"URL",
+				"length":"{{ n_7wzCu.outputs.batch[0].attachments[0].body.size }}",
 				"channel_id":"C09PB5W8QUE",
 				"URL":"{{ n_Odudw.outputs.file.link }}"
 			},
@@ -187,5 +188,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
