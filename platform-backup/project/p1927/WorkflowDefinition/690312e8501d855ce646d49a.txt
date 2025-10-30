@@ -23,7 +23,7 @@
 	"id":"690312e8501d855ce646d49a",
 	"lastModifiedBy":44105,
 	"lcName":"[repsschedular] syncdesignationhttptrigger",
-	"modifiedTime":1761815011594,
+	"modifiedTime":1761815446052,
 	"name":"[RepsSchedular] SyncDesignationHttpTrigger",
 	"nodes":[
 		{
@@ -33,7 +33,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_IyOaB",
@@ -89,7 +89,7 @@
 						}
 					}
 				},
-				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing System.Text.Json;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Linq.Expressions;\nusing System.Net.Http;\nusing System.Text;\n\npublic class EmployeeDesignation : BaseEntity<int>\n{\n    public long EmployeeId { get; set; }\n    public string EmployeeNumber { get; set; }\n    public Employee Employee { get; set; }\n    public int DesignationId { get; set; }\n    public Designation Designation { get; set; }\n    public string ReferenceNumber { get; set; }\n}\n\npublic class Designation : BaseEntity<int>\n{\n    public string Name { get; set; }\n    public string ReferenceNumber { get; set; }\n    public IReadOnlyCollection<EmployeeDesignation> EmployeeDesignations { get; set; }\n}\n\npublic async Task ProccessSyncDesignationHttpTrigger(String requestBody)\n{\n    try {\n          \n          log.LogInformation(\"C# HTTP trigger function processed a request.\");\n          using (var reader = new StreamReader(req.Body))\n          {\n              string requestBody = await reader.ReadToEndAsync().ConfigureAwait(false);\n              var designation = JsonConvert.DeserializeObject<Designation>(requestBody);\n              if (designation == null)\n              {\n                  return new BadRequestObjectResult(\"Invalid input values\");\n              }\n\n              await _designationService.AddOrUpdateAsync(designation).ConfigureAwait(false);\n              return new OkObjectResult($\"Successfully processed for {designation.Name}\");\n          }\n        }\n        catch (ArgumentException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult($\"Invalid designation - {ex.ParamName}\");\n        }\n        catch (JsonException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult(\"Please enter valid details\");\n        }\n        catch (IOException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new StatusCodeResult(StatusCodes.Status500InternalServerError);\n        }\n        catch (InvalidOperationException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult(\"Operation failed. Please check the input.\");\n        }\n}\n\nConsole.WriteLine($\"Processing ProccessSyncDesignationHttpTrigger started at: {DateTime.Now}\");\nstring requestBodyString = JsonSerializer.Serialize(requestBody);\n\nawait ProccessSyncDesignationHttpTrigger(requestBodyString);",
+				"code":"using System;\nusing System.IO;\nusing System.Threading.Tasks;\nusing System.Text.Json;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Linq.Expressions;\nusing System.Net.Http;\nusing System.Text;\n\n\npublic class Designation : BaseEntity<int>\n{\n    public string Name { get; set; }\n    public string ReferenceNumber { get; set; }\n    public IReadOnlyCollection<EmployeeDesignation> EmployeeDesignations { get; set; }\n}\n\npublic class EmployeeDesignation : BaseEntity<int>\n{\n    public long EmployeeId { get; set; }\n    public string EmployeeNumber { get; set; }\n    public Employee Employee { get; set; }\n    public int DesignationId { get; set; }\n    public Designation Designation { get; set; }\n    public string ReferenceNumber { get; set; }\n}\n\n\npublic async Task ProccessSyncDesignationHttpTrigger(String requestBody)\n{\n    try {\n          \n          log.LogInformation(\"C# HTTP trigger function processed a request.\");\n          using (var reader = new StreamReader(req.Body))\n          {\n              string requestBody = await reader.ReadToEndAsync().ConfigureAwait(false);\n              var designation = JsonConvert.DeserializeObject<Designation>(requestBody);\n              if (designation == null)\n              {\n                  return new BadRequestObjectResult(\"Invalid input values\");\n              }\n\n              await _designationService.AddOrUpdateAsync(designation).ConfigureAwait(false);\n              return new OkObjectResult($\"Successfully processed for {designation.Name}\");\n          }\n        }\n        catch (ArgumentException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult($\"Invalid designation - {ex.ParamName}\");\n        }\n        catch (JsonException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult(\"Please enter valid details\");\n        }\n        catch (IOException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new StatusCodeResult(StatusCodes.Status500InternalServerError);\n        }\n        catch (InvalidOperationException ex)\n        {\n            log.LogError(ex, $\"Error: {ex.Message}\");\n            return new BadRequestObjectResult(\"Operation failed. Please check the input.\");\n        }\n}\n\nConsole.WriteLine($\"Processing ProccessSyncDesignationHttpTrigger started at: {DateTime.Now}\");\nstring requestBodyString = JsonSerializer.Serialize(requestBody);\n\nawait ProccessSyncDesignationHttpTrigger(requestBodyString);",
 				"isAsync":false,
 				"parameters":{
 					"requestBody":"{{ n_IyOaB.outputs.body }}"
@@ -108,7 +108,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_rujD8",
@@ -142,5 +142,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
