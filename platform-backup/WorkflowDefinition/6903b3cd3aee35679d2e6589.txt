@@ -50,12 +50,19 @@
 			"skip":false,
 			"toNodeId":"n_JOpcX",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_JOpcX",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cI4te",
+			"type":"next"
 		}
 	],
 	"id":"6903b3cd3aee35679d2e6589",
 	"lastModifiedBy":308,
 	"lcName":"temp",
-	"modifiedTime":1761850383178,
+	"modifiedTime":1761850388304,
 	"name":"temp",
 	"nodes":[
 		{
@@ -180,6 +187,21 @@
 			"subTitle":"Slack",
 			"title":"List conversations",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SL2qS-1",
+			"id":"n_cI4te",
+			"index":6,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":308,
@@ -199,5 +221,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
