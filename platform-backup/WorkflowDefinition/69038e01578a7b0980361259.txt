@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_pkEif",
+			"fromNodeId":"n_F8A2S",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_b0F1B",
@@ -23,20 +23,31 @@
 	"id":"69038e01578a7b0980361259",
 	"lastModifiedBy":44108,
 	"lcName":"testing",
-	"modifiedTime":1761845245225,
+	"modifiedTime":1761845255446,
 	"name":"testing",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_pkEif-1",
-			"id":"_pkEif",
+			"id":"n_F8A2S",
 			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -54,6 +65,266 @@
 			"id":"n_b0F1B",
 			"index":2,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"batchSize":{
+							"type":"integer",
+							"title":"batchSize"
+						},
+						"cursorKeyReference":{
+							"type":"string",
+							"title":"cursorKeyReference"
+						},
+						"cursorValueReference":{
+							"type":"string",
+							"title":"cursorValueReference"
+						},
+						"datasource":{
+							"type":"object",
+							"properties":{
+								"context":{
+									"type":"object",
+									"properties":{
+										"appName":{
+											"type":"string",
+											"title":"appName"
+										},
+										"resourceName":{
+											"type":"string",
+											"title":"resourceName"
+										},
+										"resourceVersion":{
+											"type":"integer",
+											"title":"resourceVersion"
+										}
+									},
+									"title":"context",
+									"additionalProperties":false
+								},
+								"id":{
+									"type":"string",
+									"title":"id"
+								},
+								"inputs":{
+									"type":"object",
+									"properties":{
+										"includeCurrentUserPermissions":{
+											"type":"boolean",
+											"title":"includeCurrentUserPermissions"
+										},
+										"includeRoleMappings":{
+											"type":"boolean",
+											"title":"includeRoleMappings"
+										},
+										"includeTotalCount":{
+											"type":"boolean",
+											"title":"includeTotalCount"
+										},
+										"numberOfRecordsToFetch":{
+											"type":"string",
+											"title":"numberOfRecordsToFetch"
+										},
+										"object_type":{
+											"type":"string",
+											"title":"object_type"
+										},
+										"page":{
+											"type":"object",
+											"properties":{
+												"limit":{
+													"type":"integer",
+													"title":"limit"
+												},
+												"paginateBy":{
+													"type":"string",
+													"title":"paginateBy"
+												}
+											},
+											"title":"page",
+											"additionalProperties":false
+										},
+										"readThroughSessionVariables":{
+											"type":"boolean",
+											"title":"readThroughSessionVariables"
+										},
+										"searchField":{
+											"type":"object",
+											"properties":{
+												"fields":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"fields"
+												}
+											},
+											"title":"searchField",
+											"additionalProperties":false
+										},
+										"sortBy":{
+											"type":"array",
+											"items":{
+												"type":"object",
+												"properties":{
+													"field":{
+														"type":"string",
+														"title":"field"
+													},
+													"order":{
+														"type":"string",
+														"title":"order"
+													}
+												},
+												"additionalProperties":false
+											},
+											"title":"sortBy"
+										},
+										"triggerInputCondition":{
+											"type":"object",
+											"properties":{
+												"filters":{
+													"type":"array",
+													"items":{
+														"type":"object",
+														"properties":{
+															"filters":{
+																"type":"array",
+																"items":{
+																	"type":"object",
+																	"properties":{
+																		"filter":{
+																			"type":"object",
+																			"properties":{
+																				"operator":{
+																					"type":"string",
+																					"title":"operator"
+																				},
+																				"value":{
+																					"type":"string",
+																					"title":"value"
+																				}
+																			},
+																			"title":"filter",
+																			"additionalProperties":false
+																		},
+																		"property":{
+																			"type":"string",
+																			"title":"property"
+																		}
+																	},
+																	"additionalProperties":false
+																},
+																"title":"filters"
+															},
+															"operator":{
+																"type":"string",
+																"title":"operator"
+															}
+														},
+														"additionalProperties":false
+													},
+													"title":"filters"
+												},
+												"operator":{
+													"type":"string",
+													"title":"operator"
+												}
+											},
+											"title":"triggerInputCondition",
+											"additionalProperties":false
+										}
+									},
+									"title":"inputs",
+									"additionalProperties":false
+								}
+							},
+							"title":"datasource",
+							"additionalProperties":false
+						},
+						"fieldMappings":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"fieldKey":{
+										"type":"object",
+										"properties":{
+											"path":{
+												"type":"string",
+												"title":"path"
+											},
+											"type":{
+												"type":"string",
+												"title":"type"
+											},
+											"originalKey":{
+												"type":"string",
+												"title":"originalKey"
+											}
+										},
+										"title":"fieldKey",
+										"additionalProperties":false
+									},
+									"label":{
+										"type":"string",
+										"title":"label"
+									},
+									"type":{
+										"type":"string",
+										"title":"type"
+									},
+									"valueTransformer":{
+										"type":"object",
+										"properties":{
+											"format":{
+												"type":"string",
+												"title":"format"
+											}
+										},
+										"title":"valueTransformer",
+										"additionalProperties":false
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"fieldMappings"
+						},
+						"fileName":{
+							"type":"string",
+							"title":"fileName"
+						},
+						"fileType":{
+							"type":"string",
+							"title":"fileType"
+						},
+						"limitKeyReference":{
+							"type":"string",
+							"title":"limitKeyReference"
+						},
+						"offsetKeyReference":{
+							"type":"string",
+							"title":"offsetKeyReference"
+						},
+						"paginateBy":{
+							"type":"string",
+							"title":"paginateBy"
+						},
+						"recordsPathKey":{
+							"type":"string",
+							"title":"recordsPathKey"
+						},
+						"sheetName":{
+							"type":"string",
+							"title":"sheetName"
+						},
+						"timezone":{
+							"type":"string",
+							"title":"timezone"
+						}
+					}
+				},
 				"code":"def getCorrespondenceConfig() {\n    return [\n        batchSize: 10000,\n        cursorKeyReference: \"page.cursor\",\n        cursorValueReference: \"cursor.next\",\n        datasource: [\n            context: [\n                appName: \"storage_by_unifyapps\",\n                resourceName: \"storage_by_unifyapps_fetch_records\",\n                resourceVersion: 6\n            ],\n            id: \"e_68d05971a5466e2462ceb64a\",\n            inputs: [\n                includeCurrentUserPermissions: false,\n                includeRoleMappings: false,\n                includeTotalCount: false,\n                numberOfRecordsToFetch: \"MULTIPLE\",\n                object_type: \"cms_correspondence\",\n                page: [\n                    limit: 200000,\n                    paginateBy: \"OFFSET\"\n                ],\n                readThroughSessionVariables: false,\n                searchField: [\n                    fields: [\n                        \"properties_referenceNumber\",\n                        \"properties_status\",\n                        \"properties_LetterReferenceNumber\",\n                        \"properties_ReceiverType\",\n                        \"properties_ThirdParty\",\n                        \"properties_subject\",\n                        \"properties_currentAssignees\",\n                        \"properties_referenceDate\",\n                        \"properties_dueDate\",\n                        \"properties_fromEntity\",\n                        \"properties_toEntity\",\n                        \"properties_fromUser\",\n                        \"properties_documentType\",\n                        \"properties_type\",\n                        \"properties_projectName\",\n                        \"properties_contractName\",\n                        \"properties_personInCharge\",\n                        \"properties_updatedToPersonInCharge\"\n                    ]\n                ],\n                sortBy: [\n                    [ field: \"properties_referenceDate\", order: \"DESC\" ]\n                ],\n                triggerInputCondition: [\n                    filters: [\n                        [\n                            filters: [\n                                [ filter: [ operator: \"EQUAL\", value: \"Aldar Projects\" ], property: \"properties_fromEntity\" ],\n                                [ filter: [ operator: \"EQUAL\", value: \"Aldpj_Test\" ], property: \"properties_personInCharge\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_aclRecipients\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_mdlSelected\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_externalMailRecipients\" ],\n                                [ filter: [ operator: \"IN\", value: \"Aldpj_Test\" ], property: \"properties_individualUsers\" ]\n                            ],\n                            operator: \"OR\"\n                        ]\n                    ],\n                    operator: \"AND\"\n                ]\n            ]\n        ],\n        fieldMappings: [\n            [\n                fieldKey: [ path: \"properties.referenceNumber\", type: \"TEXT\" ],\n                label: \"Reference Number\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.subject\", type: \"TEXT\" ],\n                label: \"Subject\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.status\", type: \"TEXT\" ],\n                label: \"Status\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ originalKey: \"currentAssignees\", path: \"properties.currentAssignees\", type: \"TAG\" ],\n                label: \"Current Owner\",\n                type: \"TAG\"\n            ],\n            [\n                fieldKey: [ path: \"properties.referenceDate\", type: \"DATE\" ],\n                label: \"Reference Date\",\n                type: \"DATE\",\n                valueTransformer: [ format: \"yyyy-MM-dd'T'HH:mm:ss.SSSX\" ]\n            ],\n            [\n                fieldKey: [ path: \"properties.dueDate\", type: \"DATE\" ],\n                label: \"Due Date\",\n                type: \"DATE\",\n                valueTransformer: [ format: \"yyyy-MM-dd'T'HH:mm:ss.SSSX\" ]\n            ],\n            [\n                fieldKey: [ path: \"properties.fromEntity\", type: \"TEXT\" ],\n                label: \"Sender\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.toEntity\", type: \"TEXT\" ],\n                label: \"Recepient\",\n                type: \"TEXT\"\n            ],\n            [\n                fieldKey: [ path: \"properties.fromUser\", type: \"TEXT\" ],\n                label: \"Initiator\",\n                type: \"TEXT\"\n            ]\n        ],\n        fileName: \"Correspondencess\",\n        fileType: \"CSV\",\n        limitKeyReference: \"page.limit\",\n        offsetKeyReference: \"page.offset\",\n        paginateBy: \"OFFSET\",\n        recordsPathKey: \"objects\",\n        sheetName: \"Sheet1\",\n        timezone: \"Asia/Calcutta\"\n    ]\n}\n\n// Example usage:\ndef config = getCorrespondenceConfig()\nreturn config;",
 				"compile_static":false,
 				"captureStdOutput":false
@@ -107,5 +378,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
