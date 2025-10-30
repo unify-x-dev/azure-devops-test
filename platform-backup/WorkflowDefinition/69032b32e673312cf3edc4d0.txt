@@ -7,46 +7,76 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_E5yTH",
+			"fromNodeId":"n_PsZlE",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_uNAUY",
+			"toNodeId":"n_TNJXn",
 			"type":"next"
 		}
 	],
 	"id":"69032b32e673312cf3edc4d0",
 	"lastModifiedBy":175325,
 	"lcName":"childviaautomation_outputtabs117618146261270",
-	"modifiedTime":1761815346359,
+	"modifiedTime":1761815351988,
 	"name":"childviaautomation_outputtabs117618146261270",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_E5yTH-1",
-			"id":"_E5yTH",
-			"index":0,
+			"id":"n_PsZlE",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1128,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_E5yTH-1",
-			"id":"_uNAUY",
-			"index":0,
+			"id":"n_TNJXn",
+			"index":2,
+			"inputs":{
+				"automationId":"69032b1e501d855ce64771fc",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"input_String":"Unifyapps"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +90,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
