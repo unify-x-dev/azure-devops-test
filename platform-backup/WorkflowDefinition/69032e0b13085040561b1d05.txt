@@ -7,46 +7,71 @@
 	"description":"description",
 	"edges":[
 		{
-			"fromNodeId":"_JhZL7",
+			"fromNodeId":"n_JZ3Ya",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_aoFfh",
+			"toNodeId":"n_Ynt8h",
 			"type":"next"
 		}
 	],
 	"id":"69032e0b13085040561b1d05",
 	"lastModifiedBy":175325,
 	"lcName":"audit_enable117618146261810",
-	"modifiedTime":1761816075854,
+	"modifiedTime":1761816082852,
 	"name":"Audit_enable117618146261810",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JhZL7-1",
-			"id":"_JhZL7",
-			"index":0,
+			"id":"n_JZ3Ya",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"audit_by_unifyapps",
+				"resourceVersion":917,
+				"resourceName":"audit_by_unifyapps_get_audit_records_for_asset",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JhZL7-1",
-			"id":"_aoFfh",
-			"index":0,
+			"id":"n_Ynt8h",
+			"index":2,
+			"inputs":{
+				"sortOrder":"DESC",
+				"assetClass":"aczrbpa"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Audit by UnifyApps",
+			"title":"Get audit records",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +85,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
