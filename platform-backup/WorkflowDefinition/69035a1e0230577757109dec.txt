@@ -23,6 +23,13 @@
 			"fromNodeId":"n_bBBin",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_rGczn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rGczn",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_rURFB",
 			"type":"next"
 		},
@@ -30,8 +37,15 @@
 			"fromNodeId":"n_rURFB",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_6SMB5",
+			"toNodeId":"n_hk0Mb",
 			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_hk0Mb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6SMB5",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"n_6SMB5",
@@ -52,7 +66,7 @@
 	"id":"69035a1e0230577757109dec",
 	"lastModifiedBy":59995,
 	"lcName":"test-excel-iterate",
-	"modifiedTime":1761953765357,
+	"modifiedTime":1761953855865,
 	"name":"test-excel-iterate",
 	"nodes":[
 		{
@@ -162,6 +176,256 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1082,
+				"resourceName":"variable_by_unifyapps_create_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_WvKAb-1",
+			"id":"n_rGczn",
+			"index":4,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{
+					"createList":{
+						"ui:title":"",
+						"ua:type":{
+							"ui:widget":"hidden"
+						},
+						"items":{
+							"ui:title":"Initial list items",
+							"ui:description":"Set the initial values of the list (defaults to empty)"
+						},
+						"ui:order":[
+							"*",
+							"items"
+						]
+					},
+					"ua:title":{
+						"ui:widget":"hidden"
+					},
+					"ua:list_type":{
+						"ui:widget":"hidden"
+					}
+				},
+				"schema":{
+					"allOf":[
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"OBJECT"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"items":{
+												"type":"object",
+												"properties":{}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"STRING"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of String"
+											},
+											"items":{
+												"type":"string"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"INTEGER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Integers"
+											},
+											"items":{
+												"type":"integer"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"NUMBER"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Numbers"
+											},
+											"items":{
+												"type":"number"
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"if":{
+								"properties":{
+									"ua:list_type":{
+										"const":"BOOLEAN"
+									}
+								}
+							},
+							"then":{
+								"properties":{
+									"createList":{
+										"type":"object",
+										"properties":{
+											"source":{
+												"type":"string",
+												"format":"ua:source",
+												"title":"List of Booleans"
+											},
+											"items":{
+												"type":"boolean"
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"format":"ua:list",
+					"type":"object",
+					"properties":{
+						"ua:title":{
+							"type":"string"
+						},
+						"ua:list_type":{
+							"type":"string",
+							"title":"List Type",
+							"oneOf":[
+								{
+									"const":"OBJECT",
+									"title":"Object"
+								},
+								{
+									"const":"STRING",
+									"title":"String"
+								},
+								{
+									"const":"NUMBER",
+									"title":"Number"
+								},
+								{
+									"const":"INTEGER",
+									"title":"Integer"
+								},
+								{
+									"const":"BOOLEAN",
+									"title":"Boolean"
+								}
+							],
+							"default":"OBJECT"
+						},
+						"createList":{
+							"type":"object",
+							"properties":{
+								"ua:type":{
+									"type":"string",
+									"default":"mappedArray"
+								},
+								"source":{
+									"type":"string",
+									"format":"ua:source",
+									"title":"List Item Source"
+								},
+								"items":{
+									"additionalProperties":false,
+									"type":[
+										"object",
+										"string",
+										"number",
+										"boolean",
+										"integer"
+									],
+									"properties":{}
+								}
+							}
+						}
+					}
+				}
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"type":"object",
+					"properties":{
+						"items":{
+							"type":"array",
+							"title":"List",
+							"disableActions":true,
+							"items":{
+								"type":"object",
+								"properties":{}
+							}
+						}
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"excel_by_unifyapps",
 				"resourceVersion":983,
 				"resourceName":"excel_by_unifyapps_for_each_row_or_rows",
@@ -172,7 +436,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
 			"id":"n_rURFB",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"startFromRow":7,
 				"consumptionBehaviour":"string",
@@ -196,6 +460,29 @@
 		},
 		{
 			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1049,
+				"resourceName":"variable_by_unifyapps_add_item_to_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_rURFB@_WvKAb-1@l",
+			"id":"n_hk0Mb",
+			"index":6,
+			"inputs":{
+				"itemToAdd":"{{ n_rURFB.outputs.item }}",
+				"insertLocation":"END",
+				"listName":"{{ n_rGczn.outputs.items[0] }}"
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Add item to list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"break",
 				"resourceVersion":817,
 				"resourceName":"break",
@@ -206,7 +493,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_rURFB@_WvKAb-1@l",
 			"id":"n_6SMB5",
-			"index":5,
+			"index":7,
 			"inputs":{
 				"loop":"n_rURFB"
 			},
@@ -224,7 +511,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
 			"id":"n_3KCBz",
-			"index":6,
+			"index":8,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -248,5 +535,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
