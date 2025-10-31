@@ -155,7 +155,7 @@
 	"id":"6904b1d0ac67042c905e88d2",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] businessobjectautomation",
-	"modifiedTime":1761915344296,
+	"modifiedTime":1761915445788,
 	"name":"[virtu-reps] BusinessObjectAutomation",
 	"nodes":[
 		{
@@ -165,7 +165,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_b2pce",
@@ -238,7 +238,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_AtUPv",
@@ -248,7 +248,7 @@
 					{
 						"id":"2",
 						"inputs":{
-							"name":"Branch 2",
+							"name":"Branch 1",
 							"conditions":{
 								"filters":[
 									{
@@ -317,13 +317,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_AtUPv@2",
 			"index":3,
 			"inputs":{
-				"name":"Branch 2",
+				"name":"Branch 1",
 				"conditions":{
 					"filters":[
 						{
@@ -349,7 +349,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_xnGtk",
@@ -360,7 +360,7 @@
 						"property":"{{ n_b2pce.outputs.body.payload }}",
 						"filter":{
 							"operator":"CONTAINS",
-							"value":"EmployeeId"
+							"value":"ReferenceNumber"
 						}
 					}
 				],
@@ -379,7 +379,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"_jz8cl",
@@ -389,12 +389,12 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"EmployeeId"
+						"ReferenceNumber"
 					],
 					"properties":{
-						"EmployeeId":{
-							"type":"integer",
-							"title":"EmployeeId"
+						"ReferenceNumber":{
+							"type":"string",
+							"title":"ReferenceNumber"
 						}
 					}
 				},
@@ -411,7 +411,7 @@
 						}
 					}
 				},
-				"code":"return [\"EmployeeId\" : payload[\"EmployeeId\"]]",
+				"code":"return [\"ReferenceNumber\" : payload[\"ReferenceNumber\"]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -431,7 +431,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"n_Ray96",
@@ -440,16 +440,16 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_EmployeeId",
+							"property":"properties_ReferenceNumber",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ _jz8cl.outputs.result.EmployeeId }}"
+								"value":"{{ _jz8cl.outputs.result.ReferenceNumber }}"
 							}
 						}
 					],
 					"operator":"AND"
 				},
-				"object_type":"reps_employee_locations",
+				"object_type":"reps_business_unit",
 				"includeRoleMappings":false,
 				"includeCurrentUserPermissions":false,
 				"translationsOption":"DEFAULT",
@@ -462,7 +462,7 @@
 				"includeTotalCount":false
 			},
 			"skip":false,
-			"subTitle":"Employee Location",
+			"subTitle":"Business Repo",
 			"title":"Fetch records",
 			"type":"ACTION"
 		},
@@ -474,7 +474,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"n_AKcU1",
@@ -500,7 +500,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_AtUPv@3",
@@ -537,7 +537,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"_EhUzU",
@@ -606,7 +606,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_xotUN",
@@ -635,7 +635,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_GBDGh",
@@ -661,7 +661,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_AtUPv@4",
@@ -693,7 +693,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_xUJc3",
@@ -750,7 +750,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_cyH7x",
@@ -819,7 +819,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_aVWT3",
@@ -881,7 +881,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_lYvBi",
@@ -904,7 +904,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
@@ -938,5 +938,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
