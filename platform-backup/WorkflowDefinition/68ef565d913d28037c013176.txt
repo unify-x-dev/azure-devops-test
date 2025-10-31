@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761910849924,
+	"modifiedTime":1761938988720,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -91,14 +91,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"_wAt1k",
 			"index":2,
 			"inputs":{
 				"fileName":"test",
-				"url":"https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf",
+				"url":"https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
 				"option":"url"
 			},
 			"skip":false,
@@ -479,14 +479,16 @@
 			"index":6,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"import base64\n\n# Read file as binary and encode as base64 for safe transmission\nwith open(File_2, \"rb\") as f:\n    binary_content = f.read()\n\nresult = {\n    \"file_size\": len(binary_content),\n    \"base64_content\": base64.b64encode(binary_content).decode('ascii'),\n    \"is_text_file\": False  # You can add logic to detect if it's text\n}",
+				"code":"import base64\n\n# Read file as binary and encode as base64 for safe transmission\nwith open(test1, \"rb\") as f:\n    binary_content = f.read()\n\nresult = {\n    \"file_size\": len(binary_content),\n    \"base64_content\": base64.b64encode(binary_content).decode('ascii'),\n    \"is_text_file\": False  # You can add logic to detect if it's text\n}",
+				"filesList":[
+					{
+						"fileName":"test1",
+						"fileDetails":"{{ _wAt1k.outputs.fileDetails }}"
+					}
+				],
 				"isAsync":false,
-				"python_version":"3.12",
-				"filesList":{
-					"source":"{{ n_u3z18.outputs.items }}",
-					"ua:type":"mappedArray",
-					"items":"{{ n_u3z18.outputs.items[0] }}"
-				},
+				"python_version":"3.13",
+				"outputFilesGlob":"*",
 				"captureStdOutput":false
 			},
 			"skip":false,
@@ -533,5 +535,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":31
 }
