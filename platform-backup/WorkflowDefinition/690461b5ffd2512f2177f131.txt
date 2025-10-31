@@ -14,7 +14,7 @@
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_55als",
+			"fromNodeId":"n_rPTuR",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_9pK9o",
@@ -38,31 +38,43 @@
 	"id":"690461b5ffd2512f2177f131",
 	"lastModifiedBy":39713,
 	"lcName":"waitforsignaltest",
-	"modifiedTime":1761904478962,
+	"modifiedTime":1761906143565,
 	"name":"WaitForSignalTest",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1166,
+				"resourceName":"callables_from_api"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
-			"id":"n_55als",
+			"id":"n_rPTuR",
 			"index":1,
 			"inputs":{
 				"request":{
 					"contentType":"application/json"
-				}
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"name":"200",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -90,7 +102,7 @@
 					"runtimeType":"{{ __RUN__.outputs.workflowRunTimeType }}"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Callable",
 			"title":"Call automation",
 			"type":"CALL_WORKFLOW"
@@ -169,5 +181,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
