@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761909243729,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761921590474,
+		"deployedBy":44108,
+		"deployedDefinitionId":"6904ca369a78cb574c7cdde3",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":37
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_EfPSS",
@@ -63,6 +71,13 @@
 		},
 		{
 			"fromNodeId":"_flqY9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_7Ar8v",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_7Ar8v",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_CVGVn",
@@ -140,7 +155,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761921588809,
+	"modifiedTime":1761922987576,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -150,7 +165,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_EfPSS",
@@ -718,6 +733,165 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":10,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Sr2A1@_ErVLa-1@l",
+			"id":"_7Ar8v",
+			"index":10,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"sql":"select * from information_schema.partitions_meta"
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/internal/sql-report/executeQueryForServer/{{ n_Sr2A1.outputs.item }}",
+				"responseSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"hasMore"
+						},
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"Database":{
+										"type":"string",
+										"title":"Database"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"objects"
+						},
+						"rowMetadata":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"columnName":{
+										"type":"string",
+										"title":"columnName"
+									},
+									"dataType":{
+										"type":"string",
+										"title":"dataType"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"rowMetadata"
+						},
+						"type":{
+							"type":"string",
+							"title":"type"
+						}
+					}
+				},
+				"baseUrl":"{{ n_96ZBq.outputs.baseInternalUrl }}",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"sql":{
+							"type":"string",
+							"title":"sql"
+						}
+					}
+				},
+				"queryParamsList":[
+					{
+						"key":"sqlResourceType",
+						"value":"PLATFORM"
+					}
+				],
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"headersList":[],
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Fetch Tables",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1049,
@@ -729,7 +903,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_CVGVn",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -830,7 +1004,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_fCpLx",
-			"index":11,
+			"index":12,
 			"inputs":{
 				"branches":[
 					{
@@ -867,7 +1041,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_fCpLx@1",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"name":"Branch 1"
 			},
@@ -887,7 +1061,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_jc6AN",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"automationId":"6904a84af80f564e784ba959",
 				"runtimeConnections":{},
@@ -938,7 +1112,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_fCpLx@2",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"name":"Branch 2"
 			},
@@ -958,7 +1132,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_e8Z02",
-			"index":15,
+			"index":16,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -1008,7 +1182,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_sytyX",
-			"index":16,
+			"index":17,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -1032,5 +1206,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":37
+	"version":38
 }
