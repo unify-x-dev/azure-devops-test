@@ -124,7 +124,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761913386594,
+	"modifiedTime":1761913496690,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -164,7 +164,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_vNDmq",
@@ -437,7 +437,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_TkcQL",
@@ -746,7 +746,7 @@
 				"type":"SINGLE",
 				"fileType":"txt"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Files by UnifyApps",
 			"title":"Create a file",
 			"type":"ACTION"
@@ -768,7 +768,7 @@
 				"fileName":"{{ n_8LiAg.outputs.fileDetails.name }}",
 				"content":"{{ n_8LiAg.outputs.fileDetails }}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Files by UnifyApps",
 			"title":"Create a PDF file",
 			"type":"ACTION"
@@ -840,7 +840,7 @@
 					]
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -862,7 +862,7 @@
 			"inputs":{
 				"model":"gpt-4o"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"OpenAI",
 			"title":"Analyze text",
 			"type":"ACTION"
@@ -900,5 +900,5 @@
 	"tags":[
 		
 	],
-	"version":29
+	"version":30
 }
