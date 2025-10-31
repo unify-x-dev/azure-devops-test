@@ -26,12 +26,19 @@
 			"skip":false,
 			"toNodeId":"n_lWU4c",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lWU4c",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6Fmet",
+			"type":"next"
 		}
 	],
 	"id":"6904e369ff2ee030c76e24d6",
 	"lastModifiedBy":43523,
 	"lcName":"test browser use",
-	"modifiedTime":1761928089722,
+	"modifiedTime":1761928098899,
 	"name":"test browser use",
 	"nodes":[
 		{
@@ -121,6 +128,21 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_60uPf-1",
+			"id":"n_6Fmet",
+			"index":4,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":43523,
@@ -140,5 +162,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
