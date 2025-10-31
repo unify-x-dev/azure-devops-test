@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761910579346,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761910622653,
+		"deployedBy":4130,
+		"deployedDefinitionId":"69049f5ef80f564e784b7eb1",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_0L28P",
@@ -23,7 +31,7 @@
 	"id":"69049f33f80f564e784b7dd1",
 	"lastModifiedBy":4130,
 	"lcName":"newsubscriber",
-	"modifiedTime":1761910620250,
+	"modifiedTime":1761910652137,
 	"name":"newSubscriber",
 	"nodes":[
 		{
@@ -39,7 +47,7 @@
 			"id":"n_0L28P",
 			"index":1,
 			"inputs":{
-				"triggerAfterCompletion":false,
+				"triggerAfterCompletion":true,
 				"messageLimit":1,
 				"streamId":"e_68f34eba0e135e412acff3b7"
 			},
@@ -59,7 +67,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_WmvwB-1",
 			"id":"n_iLVw7",
@@ -78,7 +86,7 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_WmvwB-1",
 			"id":"n_Z8OCl",
@@ -106,5 +114,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
