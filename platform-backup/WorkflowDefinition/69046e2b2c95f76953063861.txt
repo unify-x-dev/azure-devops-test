@@ -30,7 +30,7 @@
 	"id":"69046e2b2c95f76953063861",
 	"lastModifiedBy":46030,
 	"lcName":"groovysample1204",
-	"modifiedTime":1761899067558,
+	"modifiedTime":1761899700579,
 	"name":"groovySample1204",
 	"nodes":[
 		{
@@ -40,7 +40,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFe1z-1",
 			"id":"n_RrJoe",
@@ -102,13 +102,29 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
 					"properties":{
 						"content":{
 							"type":"object",
-							"properties":{},
-							"additionalProperties":false,
-							"title":"Content"
+							"properties":{
+								"highlights":{
+									"type":"array",
+									"title":"highlights"
+								},
+								"inclusions":{
+									"type":"array",
+									"title":"inclusions"
+								},
+								"exclusions":{
+									"type":"array",
+									"title":"exclusions"
+								},
+								"shortSummary":{
+									"type":"string",
+									"title":"shortSummary"
+								}
+							},
+							"title":"content",
+							"additionalProperties":false
 						}
 					}
 				},
@@ -196,7 +212,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFe1z-1",
 			"id":"n_46qsq",
@@ -229,5 +245,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
