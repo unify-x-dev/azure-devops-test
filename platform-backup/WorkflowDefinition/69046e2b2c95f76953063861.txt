@@ -23,7 +23,7 @@
 	"id":"69046e2b2c95f76953063861",
 	"lastModifiedBy":46030,
 	"lcName":"groovysample1204",
-	"modifiedTime":1761898638057,
+	"modifiedTime":1761898675954,
 	"name":"groovySample1204",
 	"nodes":[
 		{
@@ -33,7 +33,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_GFe1z-1",
 			"id":"n_RrJoe",
@@ -120,7 +120,10 @@
 				},
 				"code":"if (!binding.hasVariable('content')) return [:];\n\ndef transformContent(content) {\n    if (content == null) return;\n    \n    def splitFields = ['highlights', 'inclusions', 'exclusions']\n    def result = [:]\n    \n    content.each { key, value ->\n        if (splitFields.contains(key) && value instanceof String) {\n            result[key] = value.split(/\\r\\n/).findAll { it.trim() }\n        } else {\n            result[key] = value\n        }\n    }\n    \n    return result\n}\n\nreturn [\n  \"content\": transformContent(content)\n]",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"content":"{{ n_RrJoe.outputs.content }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -135,7 +138,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_GFe1z-1",
 			"id":"n_46qsq",
@@ -168,5 +171,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
