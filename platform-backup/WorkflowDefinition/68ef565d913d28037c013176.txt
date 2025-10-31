@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761901262813,
+	"modifiedTime":1761901846895,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -472,14 +472,27 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_kEFgb",
 			"index":6,
 			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"text"
+					],
+					"properties":{
+						"text":{
+							"type":"string",
+							"title":"Text"
+						}
+					}
+				},
 				"configurationMode":"DEFAULT",
-				"code":"print(\"Hello, World!\")\n",
+				"code":"result = {\"res\": text}",
 				"isAsync":false,
 				"python_version":"3.12",
 				"filesList":{
@@ -487,7 +500,10 @@
 					"ua:type":"mappedArray",
 					"items":"{{ n_u3z18.outputs.items[0] }}"
 				},
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"text":"Hi"
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -523,15 +539,8 @@
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true,
-		"route":{
-			"default":false,
-			"tierName":"global"
-		}
+		"enableVariableLogging":true
 	},
 	"standard":false,
-	"tags":[
-		
-	],
-	"version":19
+	"version":20
 }
