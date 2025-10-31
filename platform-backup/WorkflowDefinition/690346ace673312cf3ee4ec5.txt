@@ -5,13 +5,13 @@
 	"createdTime":1761822380994,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761824428159,
+		"deployedAt":1761825250610,
 		"deployedBy":190505,
-		"deployedDefinitionId":"69034eac6951ed3f0b09de89",
-		"deploymentTag":"V1",
+		"deployedDefinitionId":"690351e19076d547d40fe132",
+		"deploymentTag":"V2_range_dynamic_inputpill",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
@@ -32,7 +32,7 @@
 	"id":"690346ace673312cf3ee4ec5",
 	"lastModifiedBy":190505,
 	"lcName":"sheet_extraction",
-	"modifiedTime":1761825162900,
+	"modifiedTime":1761889494191,
 	"name":"sheet_extraction",
 	"nodes":[
 		{
@@ -122,6 +122,62 @@
 				"range":"{{ n_6lcHa.outputs.range }}",
 				"spreadsheetId":"1T47HBlyZGh-PeDaL-yi-muuslIX5oRWs2hHxPS_GLNc__Q1"
 			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"cacheKey":"{{ n_6lcHa.outputs.range }}",
+					"enabled":true,
+					"timeToLive":"86400",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
 			"skip":false,
 			"subTitle":"Google Sheets",
 			"title":"Get rows",
@@ -175,5 +231,5 @@
 	"tags":[
 		"practice"
 	],
-	"version":3
+	"version":4
 }
