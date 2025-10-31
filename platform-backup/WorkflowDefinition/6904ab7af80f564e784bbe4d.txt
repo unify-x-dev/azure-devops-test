@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761913722612,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_Kqg6w",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_rOBk1",
+			"type":"next"
+		}
+	],
+	"id":"6904ab7af80f564e784bbe4d",
+	"lastModifiedBy":3546,
+	"lcName":"kekea-get",
+	"modifiedTime":1761913722612,
+	"name":"kekea-Get",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"_Kqg6w",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"_rOBk1",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":3546,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
