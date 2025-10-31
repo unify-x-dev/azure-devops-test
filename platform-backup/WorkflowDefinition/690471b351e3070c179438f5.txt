@@ -4,9 +4,24 @@
 	],
 	"createdTime":1761898931148,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761898960371,
+		"deployedBy":43523,
+		"deployedDefinitionId":"690471d051e3070c179439aa",
+		"status":"DEPLOYED",
+		"version":2,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_Asezc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_K2YXZ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_K2YXZ",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_3e9aG",
@@ -23,7 +38,7 @@
 	"id":"690471b351e3070c179438f5",
 	"lastModifiedBy":43523,
 	"lcName":"wait for signal",
-	"modifiedTime":1761898954407,
+	"modifiedTime":1761899037542,
 	"name":"wait for signal",
 	"nodes":[
 		{
@@ -53,6 +68,30 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1133,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_4Oy0o-1",
+			"id":"n_K2YXZ",
+			"index":2,
+			"inputs":{
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
 				"appName":"signals_by_unifyapps",
 				"resourceVersion":962,
 				"resourceName":"signals_by_unifyapps_wait_for_signal",
@@ -63,10 +102,21 @@
 			"fallbackMode":"STOP",
 			"groupId":"_4Oy0o-1",
 			"id":"n_3e9aG",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"duration":10,
-				"unit":"MINUTES"
+				"unit":"MINUTES",
+				"signal_payload":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"userName":{
+							"type":"string",
+							"title":"User Name"
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Signals by UnifyApps",
@@ -78,11 +128,11 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_4Oy0o-1",
 			"id":"n_6Rqki",
-			"index":3,
+			"index":4,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -106,5 +156,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
