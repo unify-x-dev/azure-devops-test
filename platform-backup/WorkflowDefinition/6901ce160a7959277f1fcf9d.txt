@@ -9,6 +9,13 @@
 			"fromNodeId":"n_JUbjR",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_UG0uI",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UG0uI",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_ZMSaW",
 			"type":"next"
 		},
@@ -45,7 +52,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761916635645,
+	"modifiedTime":1761916877532,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -91,6 +98,28 @@
 		{
 			"context":{
 				"appName":"files_by_unifyapps",
+				"resourceVersion":976,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_QuCjn-1",
+			"id":"n_UG0uI",
+			"index":2,
+			"inputs":{
+				"url":"https://qa-uploads.unifyapps.com/user-uploads/1/1761916823455/invalid_jsonl_Sample_Record.jsonl",
+				"option":"url"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
 				"resourceVersion":967,
 				"resourceName":"files_by_unifyapps_upload_file",
 				"type":"APPLICATION"
@@ -100,7 +129,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_ZMSaW",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"fileName":"abcd.json",
 				"url":"https://qa-uploads.unifyapps.com/user-uploads/1/1761916481740/invalidJsonsampleRecord.json",
@@ -128,7 +157,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_wdDn6",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"fileDetails":"{{ n_ZMSaW.outputs.fileDetails }}",
 				"startFromRecord":1,
@@ -157,7 +186,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_wdDn6@_QuCjn-1@l",
 			"id":"n_gTqHM",
-			"index":4,
+			"index":5,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -206,7 +235,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_Wh4Hz",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"result":{
 					"r":"{{ n_wdDn6.outputs }}"
@@ -235,5 +264,5 @@
 	"tags":[
 		
 	],
-	"version":115
+	"version":116
 }
