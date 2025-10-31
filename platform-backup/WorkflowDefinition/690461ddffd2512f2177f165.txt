@@ -38,7 +38,7 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761903265733,
+	"modifiedTime":1761903282972,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
@@ -48,12 +48,23 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_J9wmD",
 			"index":1,
 			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"string",
+							"title":"Result"
+						}
+					}
+				},
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
@@ -86,7 +97,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_YXgtv",
@@ -113,7 +124,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_MNMi1",
@@ -150,7 +161,11 @@
 			"groupId":"_oYAuK-1",
 			"id":"n_oQuMW",
 			"index":4,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"result":"124"
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -174,5 +189,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
