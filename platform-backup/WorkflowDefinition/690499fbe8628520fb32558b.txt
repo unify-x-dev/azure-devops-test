@@ -5,12 +5,12 @@
 	"createdTime":1761909243729,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761921590474,
+		"deployedAt":1761923255478,
 		"deployedBy":44108,
-		"deployedDefinitionId":"6904ca369a78cb574c7cdde3",
+		"deployedDefinitionId":"6904d0b79a78cb574c7d02e8",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":37
+		"version":2,
+		"workflowVersion":41
 	},
 	"edges":[
 		{
@@ -155,7 +155,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761923248610,
+	"modifiedTime":1761923338318,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -165,7 +165,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_EfPSS",
@@ -173,7 +173,7 @@
 			"inputs":{
 				"cron":"INTERVAL",
 				"sequential":false,
-				"interval":1,
+				"interval":5,
 				"frequency":"MINUTES"
 			},
 			"skip":false,
@@ -745,7 +745,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_7Ar8v",
@@ -1206,5 +1206,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":41
+	"version":42
 }
