@@ -155,7 +155,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761922997520,
+	"modifiedTime":1761923048375,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -756,7 +756,7 @@
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
-					"sql":"select * from information_schema.partitions_meta"
+					"sql":"select * from information_schema.partitions_meta limit 2"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
@@ -1057,7 +1057,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_jc6AN",
@@ -1206,5 +1206,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":39
+	"version":40
 }
