@@ -5,12 +5,12 @@
 	"createdTime":1760866763538,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761910066887,
+		"deployedAt":1761910149667,
 		"deployedBy":4130,
-		"deployedDefinitionId":"69049d328be749653dead767",
+		"deployedDefinitionId":"69049d858be749653dead918",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":3
+		"version":3,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
@@ -78,7 +78,7 @@
 	"id":"68f34faada500e2c5268f7f3",
 	"lastModifiedBy":4130,
 	"lcName":"subscriber1",
-	"modifiedTime":1761910147667,
+	"modifiedTime":1761910275915,
 	"name":"subscriber1",
 	"nodes":[
 		{
@@ -88,7 +88,7 @@
 				"resourceName":"streams_by_unifyapps_on_event"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_DktkU-1",
 			"id":"n_pAocr",
@@ -121,7 +121,7 @@
 			"index":2,
 			"inputs":{
 				"duration":10,
-				"unit":"MILLISECONDS"
+				"unit":"SECONDS"
 			},
 			"skip":false,
 			"subTitle":"Delay",
@@ -225,5 +225,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
