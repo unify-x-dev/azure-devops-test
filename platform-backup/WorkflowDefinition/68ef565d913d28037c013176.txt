@@ -66,7 +66,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761941189731,
+	"modifiedTime":1761941232781,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -508,8 +508,12 @@
 			"id":"n_kEFgb",
 			"index":7,
 			"inputs":{
-				"configurationMode":"DEFAULT",
+				"configurationMode":"MANUAL",
 				"code":"import base64\n\n# Read input file\nwith open(test1, \"rb\") as f:\n    binary_content = f.read()\n\n# Create output file - ye automatically upload hogi\nwith open(\"output_report.txt\", \"w\") as f:\n    f.write(f\"Processed file: test1\\n\")\n    f.write(f\"File size: {len(binary_content)} bytes\\n\")\n    f.write(f\"Base64 length: {len(base64.b64encode(binary_content))} chars\\n\")\n\nresult = {\n    \"file_size\": len(binary_content),\n    \"base64_content\": base64.b64encode(binary_content).decode('ascii')[:100],  # First 100 chars only\n    \"is_text_file\": False\n}",
+				"imports":{
+					"items":"pypdf",
+					"ua:type":"mappedArray"
+				},
 				"filesList":[
 					{
 						"fileName":"test1",
@@ -569,5 +573,5 @@
 	"tags":[
 		
 	],
-	"version":38
+	"version":39
 }
