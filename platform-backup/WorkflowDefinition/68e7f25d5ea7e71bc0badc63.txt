@@ -24,6 +24,13 @@
 			"fromNodeId":"n_lrZGi",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_mRKn1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mRKn1",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_spQZe",
 			"type":"next"
 		},
@@ -67,7 +74,7 @@
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":190503,
 	"lcName":"test",
-	"modifiedTime":1761915376957,
+	"modifiedTime":1761915919821,
 	"name":"test",
 	"nodes":[
 		{
@@ -117,13 +124,29 @@
 					"paginateBy":"OFFSET",
 					"limit":20
 				},
-				"numberOfRecordsToFetch":"MULTIPLE",
+				"numberOfRecordsToFetch":"SINGLE",
 				"readThroughSessionVariables":false,
 				"includeTotalCount":false
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2qSYX-1",
+			"id":"n_mRKn1",
+			"index":3,
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Select an action",
 			"type":"ACTION"
 		},
 		{
@@ -138,12 +161,12 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_spQZe",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"appendData":false,
 				"fileName":"dwedew",
 				"encoding":"UTF-8",
-				"dataSource":"{{ n_lrZGi.outputs.objects }}",
+				"dataSource":"{{ n_lrZGi.outputs.properties }}",
 				"keepExactFileName":false,
 				"fileType":"json"
 			},
@@ -169,7 +192,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_1t8GK",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -223,7 +246,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_oaiAH",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -314,7 +337,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_oaiAH@_2qSYX-1@l",
 			"id":"n_2LrlQ",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"loop":"n_oaiAH"
 			},
@@ -332,7 +355,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_1PLO6",
-			"index":7,
+			"index":8,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -356,5 +379,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":23
 }
