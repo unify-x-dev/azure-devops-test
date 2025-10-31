@@ -1,12 +1,40 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761909243729,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_ErVLa",
+			"fromNodeId":"n_t4hxB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_96ZBq",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_96ZBq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cd79r",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_cd79r",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_auxBn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_auxBn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_A4kqi",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_A4kqi",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_4Kb5O",
@@ -16,22 +44,330 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761909243729,
+	"modifiedTime":1761909737762,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
-			"id":"_ErVLa",
-			"index":0,
+			"id":"n_t4hxB",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":3,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"n_96ZBq",
+			"index":2,
+			"inputs":{
+				"automationId":"68b932d26607f33c4d7f0988",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":true,
+					"timeToLive":"3600",
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":1031,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"n_cd79r",
+			"index":3,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"starrocks_table_health_alert"
+							}
+						}
+					],
+					"operator":"OR"
+				},
+				"object_type":"infra_configs",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				},
+				"visibleOptionalFields":[
+					"root.parameters.objects.items"
+				]
+			},
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":118,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"_auxBn",
+			"index":4,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"compactionMin":{
+							"type":"integer",
+							"title":"compactionMin"
+						},
+						"lagThreshold":{
+							"type":"integer",
+							"title":"lagThreshold"
+						},
+						"minimumBucketCount":{
+							"type":"integer",
+							"title":"minimumBucketCount"
+						},
+						"minimumStorageSizeGB":{
+							"type":"integer",
+							"title":"minimumStorageSizeGB"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Objects"
+						}
+					}
+				},
+				"code":"if(!binding.hasVariable('objects')) return [:];\n\ndef starrocksConfig = objects?.find { it.id == \"starrocks_table_health_alert\" }?.properties?.config\n\ndef compactionMin = Double.parseDouble(\n    (starrocksConfig?.minimumCompactionScore ?: \"100\").toString()\n)\n\ndef routineLoadLagThreshold = Double.parseDouble(\n    (starrocksConfig?.routineLoadLagThreshold ?: \"100000\").toString()\n)\n\ndef minimumBucketCount = Integer.parseInt(\n    (starrocksConfig?.minimumBucketCount ?: \"10\").toString()\n)\n\ndef minimumStorageSizeGB = Double.parseDouble(\n    (starrocksConfig?.minimumStorageSizeGB ?: \"55\").toString()\n)\n\nreturn [\n    \"compactionMin\": compactionMin, \n    \"lagThreshold\": routineLoadLagThreshold, \n    \"minimumBucketCount\": minimumBucketCount, \n    \"minimumStorageSizeGB\": minimumStorageSizeGB\n]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"objects":{
+						"source":"{{ n_cd79r.outputs.objects }}",
+						"ua:type":"mappedArray",
+						"items":"{{ n_cd79r.outputs.objects[0] }}"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"n_A4kqi",
+			"index":5,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"currentPartitionThresholdGB":{
+							"type":"number",
+							"title":"Current Partition Threshold GB"
+						},
+						"executionTime":{
+							"type":"number",
+							"title":"Execution Time"
+						},
+						"customerId":{
+							"type":"string",
+							"title":"Customer Id"
+						},
+						"rootAutomationId":{
+							"type":"string",
+							"title":"Root Automation Id"
+						},
+						"rootExecutionId":{
+							"type":"string",
+							"title":"Root Execution Id"
+						}
+					},
+					"required":[
+						"currentPartitionThresholdGB",
+						"executionTime",
+						"customerId",
+						"rootAutomationId",
+						"rootExecutionId"
+					]
+				}
+			},
+			"inputs":{
+				"executionTime":"=(NOW() - DATE(1970,1,1)) * 86400000",
+				"customerId":"{{ __RUN__.outputs.customerId }}",
+				"rootAutomationId":"{{ __RUN__.outputs.workflowId }}",
+				"rootExecutionId":"{{ __RUN__.outputs.executionId }}",
+				"currentPartitionThresholdGB":"{{ _auxBn.outputs.result.minimumStorageSizeGB }}"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"currentPartitionThresholdGB":{
+							"type":"number",
+							"title":"Current Partition Threshold GB"
+						},
+						"executionTime":{
+							"type":"number",
+							"title":"Execution Time"
+						},
+						"customerId":{
+							"type":"string",
+							"title":"Customer Id"
+						},
+						"rootAutomationId":{
+							"type":"string",
+							"title":"Root Automation Id"
+						},
+						"rootExecutionId":{
+							"type":"string",
+							"title":"Root Execution Id"
+						}
+					},
+					"required":[
+						"currentPartitionThresholdGB",
+						"executionTime",
+						"customerId",
+						"rootAutomationId",
+						"rootExecutionId"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
 		},
 		{
 			"debug":false,
@@ -39,13 +375,16 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"_4Kb5O",
-			"index":0,
+			"index":6,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":44108,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +398,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":0
+	"version":1
 }
