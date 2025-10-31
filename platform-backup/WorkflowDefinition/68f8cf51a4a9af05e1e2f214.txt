@@ -1,26 +1,12 @@
 {
 	"appsUsed":[
-		"storage_by_unifyapps"
+		
 	],
 	"createdTime":1761136465463,
 	"deleted":false,
 	"edges":[
 		{
 			"fromNodeId":"n_THYIb",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_7wWOg",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_7wWOg",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_2QA6J",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_2QA6J",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_uMej7",
@@ -44,34 +30,6 @@
 			"fromNodeId":"_k9SU8",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_AV7NF",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_AV7NF",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_7kyJZ",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_7kyJZ",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_2kWOB",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_2kWOB",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_MKmIq",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_MKmIq",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_Iyzj1",
 			"type":"next"
 		}
@@ -79,7 +37,7 @@
 	"id":"68f8cf51a4a9af05e1e2f214",
 	"lastModifiedBy":31268,
 	"lcName":"web_jobs_testing",
-	"modifiedTime":1761907761883,
+	"modifiedTime":1761909359199,
 	"name":"web_jobs_testing",
 	"nodes":[
 		{
@@ -104,69 +62,17 @@
 		},
 		{
 			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":1780,
-				"resourceName":"storage_by_unifyapps_get_record_by_id",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_jiMLz-1",
-			"id":"n_7wWOg",
-			"index":2,
-			"inputs":{
-				"object_type":"e_tcc",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"id":"e_68e11f81dc9ad92b3167b3b7",
-				"readThroughSessionVariables":false
-			},
-			"skip":true,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch record by ID",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":1780,
-				"resourceName":"storage_by_unifyapps_get_record_by_id",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_jiMLz-1",
-			"id":"_2QA6J",
-			"index":3,
-			"inputs":{
-				"object_type":"e_tcc",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"id":"e_68e1154b5d0a377446828243",
-				"readThroughSessionVariables":false
-			},
-			"skip":true,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch record by ID",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"utility_by_unifyapps",
 				"resourceVersion":1029,
 				"resourceName":"utility_by_unifyapps_to_json_object",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"n_uMej7",
-			"index":4,
+			"index":2,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -204,7 +110,7 @@
 				},
 				"jsonString":"{\n  \"fileDetails\": {\n\"name\": \"TCC.zip\",\n\"source\": \"user-uploads/1/1759860229976/TCC.zip\",\n\"size\": 109502274,\n\"sourceType\": \"CLOUD_STORAGE\",\n\"fileType\": \"zip\"\n  }\n}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise TCC",
 			"type":"ACTION"
@@ -222,11 +128,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"_B4pG8",
-			"index":5,
+			"index":3,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -264,7 +170,7 @@
 				},
 				"jsonString":"{\n  \"fileDetails\": {\n\"name\": \"virtu-TaleoToTydyRequisitionWJ-dev3.zip\",\n\"source\": \"user-uploads/1/1759860295851/virtu-TaleoToTydyRequisitionWJ-dev3.zip\",\n\"size\": 4188178,\n\"sourceType\": \"CLOUD_STORAGE\",\n\"fileType\": \"zip\"\n  }\n}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise Web Job",
 			"type":"ACTION"
@@ -286,7 +192,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"_k9SU8",
-			"index":6,
+			"index":4,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -330,132 +236,6 @@
 			"type":"ACTION"
 		},
 		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1117,
-				"resourceName":"utility_by_unifyapps_generate_public_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_jiMLz-1",
-			"id":"_AV7NF",
-			"index":7,
-			"inputs":{
-				"file":"{{ n_uMej7.outputs.result.fileDetails }}",
-				"expiryTime":1
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Generate public file URL",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1117,
-				"resourceName":"utility_by_unifyapps_generate_public_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_jiMLz-1",
-			"id":"_7kyJZ",
-			"index":8,
-			"inputs":{
-				"file":"{{ _B4pG8.outputs.result.fileDetails }}",
-				"expiryTime":1
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Generate public file URL",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1117,
-				"resourceName":"utility_by_unifyapps_generate_public_url",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_jiMLz-1",
-			"id":"n_2kWOB",
-			"index":9,
-			"inputs":{
-				"file":"{{ _k9SU8.outputs.result.fileDetails }}",
-				"expiryTime":1
-			},
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Generate public file URL",
-			"type":"ACTION"
-		},
-		{
-			"additional":{
-				"xsdSchemaConfig":{
-					"root":{}
-				}
-			},
-			"context":{
-				"appName":"utility_by_unifyapps",
-				"resourceVersion":1029,
-				"resourceName":"utility_by_unifyapps_to_json_object",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_jiMLz-1",
-			"id":"_MKmIq",
-			"index":10,
-			"inputs":{
-				"jsonSchema":{
-					"type":"object",
-					"additionalProperties":false,
-					"properties":{
-						"fileDetails":{
-							"type":"object",
-							"properties":{
-								"name":{
-									"type":"string",
-									"title":"name"
-								},
-								"source":{
-									"type":"string",
-									"title":"source"
-								},
-								"sourceType":{
-									"type":"string",
-									"title":"sourceType"
-								},
-								"fileType":{
-									"type":"string",
-									"title":"fileType"
-								},
-								"size":{
-									"type":"number",
-									"title":"size"
-								}
-							},
-							"title":"fileDetails",
-							"additionalProperties":false,
-							"required":[]
-						}
-					}
-				},
-				"jsonString":"{\n  \"fileDetails\": {\n\"name\": \"tempfolder.zip\",\n\"source\": \"user-uploads/1/1759928082373/tempfolder.zip\",\n\"size\": 4239,\n\"sourceType\": \"CLOUD_STORAGE\",\n\"fileType\": \"zip\"\n  }\n}"
-			},
-			"skip":true,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Deserialise string to JSON object",
-			"type":"ACTION"
-		},
-		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.metadata.replaceValues.items.key",
@@ -470,19 +250,18 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"n_Iyzj1",
-			"index":11,
+			"index":5,
 			"inputs":{
-				"webJobFile":"e_69007668789e022c9a44e10b",
+				"webJobFile":"e_69048c784d2a0f4652bf779e",
 				"metadata":{
 					"replaceValues":[],
 					"scriptArguments":[]
 				},
-				"setupFile":"e_690076d8789e022c9a44e10d",
-				"javaFile":"e_6900769b789e022c9a44e10c"
+				"setupFile":"e_690496086f280a77f37d8125"
 			},
 			"options":{
 				"bulkheadConfig":{
@@ -558,5 +337,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
