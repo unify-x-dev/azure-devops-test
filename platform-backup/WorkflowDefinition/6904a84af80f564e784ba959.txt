@@ -5,16 +5,38 @@
 	"createdTime":1761912906500,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761917623903,
+		"deployedAt":1761917641180,
 		"deployedBy":44108,
-		"deployedDefinitionId":"6904bab7b7d9901293564b3e",
+		"deployedDefinitionId":"6904bac9b7d9901293564b58",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_9fJx6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_qQQ47",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_qQQ47",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dnmQQ",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_dnmQQ",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_qQQ47",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_qQQ47",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_zByDB",
@@ -24,7 +46,7 @@
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761917639457,
+	"modifiedTime":1761917907459,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
@@ -34,7 +56,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"n_9fJx6",
@@ -130,17 +152,63 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1114,
-				"resourceName":"callables_return_to_automation",
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
-			"id":"n_zByDB",
+			"id":"n_qQQ47",
 			"index":2,
+			"inputs":{
+				"repeatMode":"BATCH",
+				"listSource":"{{ n_9fJx6.outputs.tables }}",
+				"captureIterations":true,
+				"batchSize":100
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1049,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_qQQ47@_gEpbz-1@l",
+			"id":"n_dnmQQ",
+			"index":3,
+			"inputs":{
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1114,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_gEpbz-1",
+			"id":"n_zByDB",
+			"index":4,
 			"inputs":{
 				"result":"{{ n_9fJx6.outputs }}"
 			},
@@ -167,5 +235,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
