@@ -23,7 +23,7 @@
 	"id":"690471d851e3070c17943a1b",
 	"lastModifiedBy":43523,
 	"lcName":"emit signal",
-	"modifiedTime":1761899182952,
+	"modifiedTime":1761899193728,
 	"name":"emit signal",
 	"nodes":[
 		{
@@ -87,6 +87,13 @@
 			"inputs":{
 				"automation_id":"690471b351e3070c179438f5",
 				"with_signal_id":false,
+				"waitingInstanceRuntimeType":"{{ n_NsF8w.outputs.body.runtimeType }}",
+				"waitingInstanceId":"{{ n_NsF8w.outputs.body.executionId }}",
+				"signal_payload":{
+					"signal_payload":{
+						"userName":"Aditya"
+					}
+				},
 				"nodeId":"n_3e9aG"
 			},
 			"skip":false,
@@ -127,5 +134,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
