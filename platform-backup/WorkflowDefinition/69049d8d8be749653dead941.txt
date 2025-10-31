@@ -6,46 +6,148 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_4V1bg",
+			"fromNodeId":"n_GbD26",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_6k6z9",
+			"toNodeId":"n_87dJd",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_87dJd",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZEgag",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_ZEgag",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_87dJd",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_87dJd",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_MaDO3",
 			"type":"next"
 		}
 	],
 	"id":"69049d8d8be749653dead941",
 	"lastModifiedBy":4130,
 	"lcName":"pubslisher12",
-	"modifiedTime":1761910157535,
+	"modifiedTime":1761910352155,
 	"name":"pubslisher12",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_4V1bg-1",
-			"id":"_4V1bg",
-			"index":0,
+			"id":"n_GbD26",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":36,
+				"resourceName":"loop_for",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_4V1bg-1",
-			"id":"_6k6z9",
-			"index":0,
+			"id":"n_87dJd",
+			"index":2,
+			"inputs":{
+				"start":0,
+				"limit":10,
+				"step":1,
+				"captureIterations":true
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Loop",
+			"title":"For loop",
+			"type":"LOOP"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.headers.items.key",
+					"root.headers.items.value",
+					"root.event.f2.f3",
+					"root.event.f2.f4"
+				]
+			},
+			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":1689,
+				"resourceName":"streams_by_unifyapps_publish_event",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_87dJd@_4V1bg-1@l",
+			"id":"n_ZEgag",
+			"index":3,
+			"inputs":{
+				"streamId":"e_68f34eba0e135e412acff3b7",
+				"skipInputValidation":true,
+				"event":{
+					"f1":"asfdvfabd",
+					"f2":{
+						"f3":"asfdsvabf",
+						"f4":"asfdvsfb"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Streams by UnifyApps",
+			"title":"Publish event to stream",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_4V1bg-1",
+			"id":"n_MaDO3",
+			"index":4,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":4130,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +161,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
