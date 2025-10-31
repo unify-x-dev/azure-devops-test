@@ -6,46 +6,102 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Bholl",
+			"fromNodeId":"n_xJGy3",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_cVNvz",
+			"toNodeId":"n_U3j1H",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_U3j1H",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PlfRv",
 			"type":"next"
 		}
 	],
 	"id":"69045f2da40ee515d1d60208",
 	"lastModifiedBy":155341,
 	"lcName":"sfsdf",
-	"modifiedTime":1761894189638,
+	"modifiedTime":1761894221501,
 	"name":"sfsdf",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Bholl-1",
-			"id":"_Bholl",
-			"index":0,
+			"id":"n_xJGy3",
+			"index":1,
+			"inputs":{
+				"cron":"INTERVAL",
+				"sequential":false,
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":974,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Bholl-1",
-			"id":"_cVNvz",
-			"index":0,
+			"id":"n_U3j1H",
+			"index":2,
+			"inputs":{
+				"fileName":"test",
+				"url":"https://drive.google.com/uc?export=download&id=1RCuvr8Tvvc9dCRY7vvyX2jRHoM-k6r0h",
+				"option":"url"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1117,
+				"resourceName":"utility_by_unifyapps_convert_to_pdf",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Bholl-1",
+			"id":"n_PlfRv",
+			"index":3,
+			"inputs":{
+				"fileDetails":"{{ n_U3j1H.outputs.fileDetails }}",
+				"fileType":"DOCX"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Convert to PDF",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":155341,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +115,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
