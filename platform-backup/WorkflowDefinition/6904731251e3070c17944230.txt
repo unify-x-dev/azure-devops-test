@@ -30,7 +30,7 @@
 	"id":"6904731251e3070c17944230",
 	"lastModifiedBy":178107,
 	"lcName":"demo_csharp",
-	"modifiedTime":1761925358848,
+	"modifiedTime":1761926297368,
 	"name":"demo_csharp",
 	"nodes":[
 		{
@@ -120,175 +120,20 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
-						"firstName":{
-							"type":"string",
-							"title":"firstName"
-						},
-						"middleName":{
-							"type":"string",
-							"title":"middleName"
-						},
-						"lastName":{
-							"type":"string",
-							"title":"lastName"
-						},
-						"bankLeadId":{
-							"type":"string",
-							"title":"bankLeadId"
-						},
-						"proposerDOB":{
-							"type":"string",
-							"title":"proposerDOB"
-						},
-						"accountNumber":{
-							"type":"string",
-							"title":"accountNumber"
-						},
-						"customerId":{
-							"type":"string",
-							"title":"customerId"
-						},
-						"channel":{
-							"type":"string",
-							"title":"channel"
-						},
-						"subChannel":{
-							"type":"string",
-							"title":"subChannel"
-						},
-						"productType":{
-							"type":"string",
-							"title":"productType"
-						},
-						"productName":{
-							"type":"string",
-							"title":"productName"
-						},
-						"lgCode":{
-							"type":"string",
-							"title":"lgCode"
-						},
-						"spCode":{
-							"type":"string",
-							"title":"spCode"
-						},
-						"proposerGender":{
-							"type":"string",
-							"title":"proposerGender"
-						},
-						"salutationid":{
-							"type":"string",
-							"title":"salutationid"
-						},
-						"isNri":{
-							"type":"string",
-							"title":"isNri"
-						},
-						"addressLine1":{
-							"type":"string",
-							"title":"addressLine1"
-						},
-						"addressLine2":{
-							"type":"string",
-							"title":"addressLine2"
-						},
-						"addressLine3":{
-							"type":"string",
-							"title":"addressLine3"
-						},
-						"proposerPinCode":{
-							"type":"string",
-							"title":"proposerPinCode"
-						},
-						"stateName":{
-							"type":"string",
-							"title":"stateName"
-						},
-						"proposerEmailID":{
-							"type":"string",
-							"title":"proposerEmailID"
-						},
-						"proposerMobileNumber":{
-							"type":"string",
-							"title":"proposerMobileNumber"
-						},
-						"cityName":{
-							"type":"string",
-							"title":"cityName"
-						},
-						"leadownerid":{
-							"type":"string",
-							"title":"leadownerid"
-						},
-						"panNumber":{
-							"type":"string",
-							"title":"panNumber"
-						},
-						"ifscCode":{
-							"type":"string",
-							"title":"ifscCode"
-						},
-						"branch_SOLID":{
-							"type":"string",
-							"title":"branch_SOLID"
-						},
-						"branch_NAME":{
-							"type":"string",
-							"title":"branch_NAME"
-						},
-						"CKYC":{
-							"type":"string",
-							"title":"CKYC"
-						},
-						"EBCC":{
-							"type":"string",
-							"title":"EBCC"
-						},
-						"ApplicationIdentifier":{
-							"type":"string",
-							"title":"ApplicationIdentifier"
-						},
-						"OfferId":{
-							"type":"string",
-							"title":"OfferId"
-						},
-						"campaignName":{
-							"type":"string",
-							"title":"campaignName"
-						},
-						"ValidityDate":{
-							"type":"string",
-							"title":"ValidityDate"
-						},
-						"CustomerSegment":{
-							"type":"string",
-							"title":"CustomerSegment"
-						},
-						"CustomerVintage":{
-							"type":"string",
-							"title":"CustomerVintage"
-						},
-						"AccountType":{
-							"type":"string",
-							"title":"AccountType"
-						},
-						"ChannelName":{
-							"type":"string",
-							"title":"ChannelName"
-						},
-						"OfferName":{
-							"type":"string",
-							"title":"OfferName"
+						"body":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Body"
 						}
 					}
 				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[
-						"payload"
-					],
+					"required":[],
 					"properties":{
 						"payload":{
 							"type":"string",
@@ -296,7 +141,7 @@
 						}
 					}
 				},
-				"code":"#r \"nuget: BouncyCastle\"\n\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Text.RegularExpressions;\nusing System.Linq;\nusing System.Security.Cryptography;\nusing System.Text;\nusing System.Text.Json;\nusing System.Threading.Tasks;\nusing Org.BouncyCastle.Crypto;\nusing Org.BouncyCastle.Crypto.Engines;\nusing Org.BouncyCastle.Crypto.Generators;\nusing Org.BouncyCastle.Crypto.Modes;\nusing Org.BouncyCastle.Crypto.Parameters;\nusing Org.BouncyCastle.Security;\nusing Org.BouncyCastle.Utilities.Encoders;\n\nstatic class AxisThanosAESGCM\n{\n    private static readonly SecureRandom Random = new SecureRandom();\n\n    public static readonly int NonceBitSize = 96;\n    public static readonly int MacBitSize = 128;\n    public static readonly int KeyBitSize = 256;\n\n    public static readonly int SaltBitSize = 128;\n    public static readonly int Iterations = 10000;\n    public static readonly int MinPasswordLength = 12;\n\n    public static byte[] NewKey()\n    {\n        var key = new byte[KeyBitSize / 8];\n        Random.NextBytes(key);\n        return key;\n    }\n\n    public static string SimpleEncrypt(string secretMessage, byte[] key, byte[] nonSecretPayload = null)\n    {\n        if (string.IsNullOrEmpty(secretMessage))\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        var plainText = Encoding.UTF8.GetBytes(secretMessage);\n        var cipherText = SimpleEncrypt(plainText, key, nonSecretPayload);\n        return Convert.ToBase64String(cipherText);\n    }\n\n    public static string SimpleDecrypt(string encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)\n    {\n        if (string.IsNullOrEmpty(encryptedMessage))\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        var cipherText = Convert.FromBase64String(encryptedMessage);\n        var plainText = SimpleDecrypt(cipherText, key, nonSecretPayloadLength);\n        return plainText == null ? null : Encoding.UTF8.GetString(plainText);\n    }\n\n    public static string SimpleEncryptWithPassword(string secretMessage, string password,\n                                                   byte[] nonSecretPayload = null)\n    {\n        if (string.IsNullOrEmpty(secretMessage))\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        var plainText = Encoding.UTF8.GetBytes(secretMessage);\n        var cipherText = SimpleEncryptWithPassword(plainText, password, nonSecretPayload);\n        return Convert.ToBase64String(cipherText);\n    }\n\n    public static string SimpleDecryptWithPassword(string encryptedMessage, string password,\n                                                   int nonSecretPayloadLength = 0)\n    {\n        if (string.IsNullOrWhiteSpace(encryptedMessage))\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        var cipherText = Convert.FromBase64String(encryptedMessage);\n        var plainText = SimpleDecryptWithPassword(cipherText, password, nonSecretPayloadLength);\n        return plainText == null ? null : Encoding.UTF8.GetString(plainText);\n    }\n\n    public static byte[] SimpleEncrypt(byte[] secretMessage, byte[] key, byte[] nonSecretPayload = null)\n    {\n        //User Error Checks\n        if (key == null || key.Length != KeyBitSize / 8)\n            throw new ArgumentException(String.Format(\"Key needs to be {0} bit!\", KeyBitSize), \"key\");\n\n        if (secretMessage == null || secretMessage.Length == 0)\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        //Non-secret Payload Optional\n        nonSecretPayload = nonSecretPayload ?? new byte[] { };\n\n        //Using random nonce large enough not to repeat\n        var nonce = new byte[NonceBitSize / 8];\n        Random.NextBytes(nonce, 0, nonce.Length);\n\n        var cipher = new GcmBlockCipher(new AesFastEngine());\n        var parameters = new AeadParameters(new KeyParameter(key), MacBitSize, nonce, nonSecretPayload);\n        cipher.Init(true, parameters);\n\n        //Generate Cipher Text With Auth Tag\n        var cipherText = new byte[cipher.GetOutputSize(secretMessage.Length)];\n        var len = cipher.ProcessBytes(secretMessage, 0, secretMessage.Length, cipherText, 0);\n        cipher.DoFinal(cipherText, len);\n\n        //Assemble Message\n        using (var combinedStream = new MemoryStream())\n        {\n            using (var binaryWriter = new BinaryWriter(combinedStream))\n            {\n                //Prepend Authenticated Payload\n                binaryWriter.Write(nonSecretPayload);\n                //Prepend Nonce\n                binaryWriter.Write(nonce);\n                //Write Cipher Text\n                binaryWriter.Write(cipherText);\n            }\n            return combinedStream.ToArray();\n        }\n    }\n\n    public static byte[] SimpleDecrypt(byte[] encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)\n    {\n        //User Error Checks\n        if (key == null || key.Length != KeyBitSize / 8)\n            throw new ArgumentException(String.Format(\"Key needs to be {0} bit!\", KeyBitSize), \"key\");\n\n        if (encryptedMessage == null || encryptedMessage.Length == 0)\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        using (var cipherStream = new MemoryStream(encryptedMessage))\n        using (var cipherReader = new BinaryReader(cipherStream))\n        {\n            //Grab Payload\n            var nonSecretPayload = cipherReader.ReadBytes(nonSecretPayloadLength);\n\n            //Grab Nonce\n            var nonce = cipherReader.ReadBytes(NonceBitSize / 8);\n\n            var cipher = new GcmBlockCipher(new AesFastEngine());\n            var parameters = new AeadParameters(new KeyParameter(key), MacBitSize, nonce, nonSecretPayload);\n            cipher.Init(false, parameters);\n\n            //Decrypt Cipher Text\n            var cipherText = cipherReader.ReadBytes(encryptedMessage.Length - nonSecretPayloadLength - nonce.Length);\n            var plainText = new byte[cipher.GetOutputSize(cipherText.Length)];\n\n            try\n            {\n                var len = cipher.ProcessBytes(cipherText, 0, cipherText.Length, plainText, 0);\n                cipher.DoFinal(plainText, len);\n\n            }\n            catch (InvalidCipherTextException)\n            {\n                //Return null if it doesn't authenticate\n                return null;\n            }\n\n            return plainText;\n        }\n\n    }\n    public static byte[] SimpleEncryptWithPassword(byte[] secretMessage, string password, byte[] nonSecretPayload = null)\n    {\n        nonSecretPayload = nonSecretPayload ?? new byte[] { };\n\n        //User Error Checks\n        if (string.IsNullOrWhiteSpace(password) || password.Length < MinPasswordLength)\n            throw new ArgumentException(String.Format(\"Must have a password of at least {0} characters!\", MinPasswordLength), \"password\");\n\n        if (secretMessage == null || secretMessage.Length == 0)\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        var generator = new Pkcs5S2ParametersGenerator();\n\n        //Use Random Salt to minimize pre-generated weak password attacks.\n        var salt = new byte[SaltBitSize / 8];\n        Random.NextBytes(salt);\n\n        generator.Init(\n            PbeParametersGenerator.Pkcs5PasswordToBytes(password.ToCharArray()),\n            salt,\n            Iterations);\n\n        //Generate Key\n        var key = (KeyParameter)generator.GenerateDerivedMacParameters(KeyBitSize);\n\n        //Create Full Non Secret Payload\n        var payload = new byte[salt.Length + nonSecretPayload.Length];\n        Array.Copy(nonSecretPayload, payload, nonSecretPayload.Length);\n        Array.Copy(salt, 0, payload, nonSecretPayload.Length, salt.Length);\n\n        return SimpleEncrypt(secretMessage, key.GetKey(), payload);\n    }\n    public static byte[] SimpleDecryptWithPassword(byte[] encryptedMessage, string password, int nonSecretPayloadLength = 0)\n    {\n        //User Error Checks\n        if (string.IsNullOrWhiteSpace(password) || password.Length < MinPasswordLength)\n            throw new ArgumentException(String.Format(\"Must have a password of at least {0} characters!\", MinPasswordLength), \"password\");\n\n        if (encryptedMessage == null || encryptedMessage.Length == 0)\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        var generator = new Pkcs5S2ParametersGenerator();\n\n        //Grab Salt from Payload\n        var salt = new byte[SaltBitSize / 8];\n        Array.Copy(encryptedMessage, nonSecretPayloadLength, salt, 0, salt.Length);\n\n        generator.Init(\n            PbeParametersGenerator.Pkcs5PasswordToBytes(password.ToCharArray()),\n            salt,\n            Iterations);\n\n        //Generate Key\n        var key = (KeyParameter)generator.GenerateDerivedMacParameters(KeyBitSize);\n\n        return SimpleDecrypt(encryptedMessage, key.GetKey(), salt.Length + nonSecretPayloadLength);\n    }\n\n}\n\nasync Task<IDictionary<string, object>> mainFunction(string payload)\n{\n    try\n    {\n        // 🔐 Hardcoded base64 key value here\n        string keyBase64 = \"/RYCmDsESbRELxMv1vMB8VUmaDuALIdOcSTMUqRcsy8=\";\n        byte[] key = Convert.FromBase64String(keyBase64);\n\n        string decrypted = AxisThanosAESGCM.SimpleDecrypt(payload, key, 0);\n\n        if (decrypted == null)\n        {\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 400 },\n                { \"body\", \"Decryption failed (Invalid key or corrupted data)\" }\n            };\n        }\n\n        return new Dictionary<string, object>\n        {\n            { \"statusCode\", 200 },\n            { \"body\", new { decryptedMessage = decrypted } }\n        };\n    }\n    catch (Exception ex)\n    {\n        return new Dictionary<string, object>\n        {\n            { \"statusCode\", 500 },\n            { \"body\", $\"Failed to decrypt: {ex.Message}\" }\n        };\n    }\n}\n\n// Example usage\nvar resultObject = await mainFunction(payload);\nresultObject\n",
+				"code":"#r \"nuget: BouncyCastle\"\n\nusing System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Text.RegularExpressions;\nusing System.Linq;\nusing System.Security.Cryptography;\nusing System.Text;\nusing System.Text.Json;\nusing System.Threading.Tasks;\nusing Org.BouncyCastle.Crypto;\nusing Org.BouncyCastle.Crypto.Engines;\nusing Org.BouncyCastle.Crypto.Generators;\nusing Org.BouncyCastle.Crypto.Modes;\nusing Org.BouncyCastle.Crypto.Parameters;\nusing Org.BouncyCastle.Security;\nusing Org.BouncyCastle.Utilities.Encoders;\n\nstatic class AxisThanosAESGCM\n{\n    private static readonly SecureRandom Random = new SecureRandom();\n\n    public static readonly int NonceBitSize = 96;\n    public static readonly int MacBitSize = 128;\n    public static readonly int KeyBitSize = 256;\n\n    public static readonly int SaltBitSize = 128;\n    public static readonly int Iterations = 10000;\n    public static readonly int MinPasswordLength = 12;\n\n    public static byte[] NewKey()\n    {\n        var key = new byte[KeyBitSize / 8];\n        Random.NextBytes(key);\n        return key;\n    }\n\n    public static string SimpleEncrypt(string secretMessage, byte[] key, byte[] nonSecretPayload = null)\n    {\n        if (string.IsNullOrEmpty(secretMessage))\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        var plainText = Encoding.UTF8.GetBytes(secretMessage);\n        var cipherText = SimpleEncrypt(plainText, key, nonSecretPayload);\n        return Convert.ToBase64String(cipherText);\n    }\n\n    public static string SimpleDecrypt(string encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)\n    {\n        if (string.IsNullOrEmpty(encryptedMessage))\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        var cipherText = Convert.FromBase64String(encryptedMessage);\n        var plainText = SimpleDecrypt(cipherText, key, nonSecretPayloadLength);\n        return plainText == null ? null : Encoding.UTF8.GetString(plainText);\n    }\n\n    public static string SimpleEncryptWithPassword(string secretMessage, string password,\n                                                   byte[] nonSecretPayload = null)\n    {\n        if (string.IsNullOrEmpty(secretMessage))\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        var plainText = Encoding.UTF8.GetBytes(secretMessage);\n        var cipherText = SimpleEncryptWithPassword(plainText, password, nonSecretPayload);\n        return Convert.ToBase64String(cipherText);\n    }\n\n    public static string SimpleDecryptWithPassword(string encryptedMessage, string password,\n                                                   int nonSecretPayloadLength = 0)\n    {\n        if (string.IsNullOrWhiteSpace(encryptedMessage))\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        var cipherText = Convert.FromBase64String(encryptedMessage);\n        var plainText = SimpleDecryptWithPassword(cipherText, password, nonSecretPayloadLength);\n        return plainText == null ? null : Encoding.UTF8.GetString(plainText);\n    }\n\n    public static byte[] SimpleEncrypt(byte[] secretMessage, byte[] key, byte[] nonSecretPayload = null)\n    {\n        //User Error Checks\n        if (key == null || key.Length != KeyBitSize / 8)\n            throw new ArgumentException(String.Format(\"Key needs to be {0} bit!\", KeyBitSize), \"key\");\n\n        if (secretMessage == null || secretMessage.Length == 0)\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        //Non-secret Payload Optional\n        nonSecretPayload = nonSecretPayload ?? new byte[] { };\n\n        //Using random nonce large enough not to repeat\n        var nonce = new byte[NonceBitSize / 8];\n        Random.NextBytes(nonce, 0, nonce.Length);\n\n        var cipher = new GcmBlockCipher(new AesFastEngine());\n        var parameters = new AeadParameters(new KeyParameter(key), MacBitSize, nonce, nonSecretPayload);\n        cipher.Init(true, parameters);\n\n        //Generate Cipher Text With Auth Tag\n        var cipherText = new byte[cipher.GetOutputSize(secretMessage.Length)];\n        var len = cipher.ProcessBytes(secretMessage, 0, secretMessage.Length, cipherText, 0);\n        cipher.DoFinal(cipherText, len);\n\n        //Assemble Message\n        using (var combinedStream = new MemoryStream())\n        {\n            using (var binaryWriter = new BinaryWriter(combinedStream))\n            {\n                //Prepend Authenticated Payload\n                binaryWriter.Write(nonSecretPayload);\n                //Prepend Nonce\n                binaryWriter.Write(nonce);\n                //Write Cipher Text\n                binaryWriter.Write(cipherText);\n            }\n            return combinedStream.ToArray();\n        }\n    }\n\n    public static byte[] SimpleDecrypt(byte[] encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)\n    {\n        //User Error Checks\n        if (key == null || key.Length != KeyBitSize / 8)\n            throw new ArgumentException(String.Format(\"Key needs to be {0} bit!\", KeyBitSize), \"key\");\n\n        if (encryptedMessage == null || encryptedMessage.Length == 0)\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        using (var cipherStream = new MemoryStream(encryptedMessage))\n        using (var cipherReader = new BinaryReader(cipherStream))\n        {\n            //Grab Payload\n            var nonSecretPayload = cipherReader.ReadBytes(nonSecretPayloadLength);\n\n            //Grab Nonce\n            var nonce = cipherReader.ReadBytes(NonceBitSize / 8);\n\n            var cipher = new GcmBlockCipher(new AesFastEngine());\n            var parameters = new AeadParameters(new KeyParameter(key), MacBitSize, nonce, nonSecretPayload);\n            cipher.Init(false, parameters);\n\n            //Decrypt Cipher Text\n            var cipherText = cipherReader.ReadBytes(encryptedMessage.Length - nonSecretPayloadLength - nonce.Length);\n            var plainText = new byte[cipher.GetOutputSize(cipherText.Length)];\n\n            try\n            {\n                var len = cipher.ProcessBytes(cipherText, 0, cipherText.Length, plainText, 0);\n                cipher.DoFinal(plainText, len);\n\n            }\n            catch (InvalidCipherTextException)\n            {\n                //Return null if it doesn't authenticate\n                return null;\n            }\n\n            return plainText;\n        }\n\n    }\n    public static byte[] SimpleEncryptWithPassword(byte[] secretMessage, string password, byte[] nonSecretPayload = null)\n    {\n        nonSecretPayload = nonSecretPayload ?? new byte[] { };\n\n        //User Error Checks\n        if (string.IsNullOrWhiteSpace(password) || password.Length < MinPasswordLength)\n            throw new ArgumentException(String.Format(\"Must have a password of at least {0} characters!\", MinPasswordLength), \"password\");\n\n        if (secretMessage == null || secretMessage.Length == 0)\n            throw new ArgumentException(\"Secret Message Required!\", \"secretMessage\");\n\n        var generator = new Pkcs5S2ParametersGenerator();\n\n        //Use Random Salt to minimize pre-generated weak password attacks.\n        var salt = new byte[SaltBitSize / 8];\n        Random.NextBytes(salt);\n\n        generator.Init(\n            PbeParametersGenerator.Pkcs5PasswordToBytes(password.ToCharArray()),\n            salt,\n            Iterations);\n\n        //Generate Key\n        var key = (KeyParameter)generator.GenerateDerivedMacParameters(KeyBitSize);\n\n        //Create Full Non Secret Payload\n        var payload = new byte[salt.Length + nonSecretPayload.Length];\n        Array.Copy(nonSecretPayload, payload, nonSecretPayload.Length);\n        Array.Copy(salt, 0, payload, nonSecretPayload.Length, salt.Length);\n\n        return SimpleEncrypt(secretMessage, key.GetKey(), payload);\n    }\n    public static byte[] SimpleDecryptWithPassword(byte[] encryptedMessage, string password, int nonSecretPayloadLength = 0)\n    {\n        //User Error Checks\n        if (string.IsNullOrWhiteSpace(password) || password.Length < MinPasswordLength)\n            throw new ArgumentException(String.Format(\"Must have a password of at least {0} characters!\", MinPasswordLength), \"password\");\n\n        if (encryptedMessage == null || encryptedMessage.Length == 0)\n            throw new ArgumentException(\"Encrypted Message Required!\", \"encryptedMessage\");\n\n        var generator = new Pkcs5S2ParametersGenerator();\n\n        //Grab Salt from Payload\n        var salt = new byte[SaltBitSize / 8];\n        Array.Copy(encryptedMessage, nonSecretPayloadLength, salt, 0, salt.Length);\n\n        generator.Init(\n            PbeParametersGenerator.Pkcs5PasswordToBytes(password.ToCharArray()),\n            salt,\n            Iterations);\n\n        //Generate Key\n        var key = (KeyParameter)generator.GenerateDerivedMacParameters(KeyBitSize);\n\n        return SimpleDecrypt(encryptedMessage, key.GetKey(), salt.Length + nonSecretPayloadLength);\n    }\n\n}\n\nasync Task<IDictionary<string, object>> mainFunction(string payload)\n{\n    try\n    {\n        // 🔐 Hardcoded base64 key value here\n        string keyBase64 = \"/RYCmDsESbRELxMv1vMB8VUmaDuALIdOcSTMUqRcsy8=\";\n        byte[] key = Convert.FromBase64String(keyBase64);\n\n        string decrypted = AxisThanosAESGCM.SimpleDecrypt(payload, key, 0);\n\n        if (decrypted == null)\n        {\n            return new Dictionary<string, object>\n            {\n                { \"statusCode\", 400 },\n                { \"body\", \"Decryption failed (Invalid key or corrupted data)\" }\n            };\n        }\n\n        return new Dictionary<string, object>\n        {\n            { \"statusCode\", 200 },\n            { \"body\", new { decryptedMessage = decrypted } }\n        };\n    }\n    catch (Exception ex)\n    {\n        return new Dictionary<string, object>\n        {\n            { \"statusCode\", 500 },\n            { \"body\", $\"Failed to decrypt: {ex.Message}\" }\n        };\n    }\n}\n\n// Example usage\nvar resultObject = await mainFunction(payload);\nresultObject",
 				"isAsync":false,
 				"parameters":{
 					"payload":"j4MyHgSUGBvtI4dTbPRxfPkGFU0vDSsrXWi7hilxGsMojLGUFPOCMSyv42GUMz26R6ZnZ1sAq3mhiGo9DSW7wjvn+Y67seZtuNs1i7pfDBACJV+bMo7t9y0/+jQd8uzclYMtXt7YT70Ss0DuyjgOboLK2uYCl+2WPhdUGzmQ/KF2SFZOC47BlcMWZjK7bPHAl102vvMcG/YFeCi4hs08gZwvMDygJ5bx2bDZq2oCg6bYpqkYYX6k/Jr8Nly5r73LYAXa6RsxhYM7NDzLeejrJOPWYWsUWo7/4FZtpZgwp9pEgKC7aILsM4JFv2lGHPqDNrTtHj1y0mnf8XDjp2XJa/HV1xdSbXwDrDL76laka8/dRnV4tjcYOH6aa2kvBrGHO0ydghmwOU639pQ6fjj/YWi6Z4J1zJjFHk+d8ya6Z3DUFcFv8wPw4kqDNU7qBLWMGRjr/5ZwN9ID6zknfxHU0ODc/gC2RvLACXB0YbbrQ1lK3aX3Br+bBKTWR+orkhBk6RE1SwNysz9tTJxsDtnJC3k9Fn45OmEVZjF7S7yg7zjDcJBg+U62UcxR2aad2jsYfPPH3mgL4SHDyyd9KtdD1WqXMJIWcxSQbcpk2mgG1ZBoG74BfCi9VbkdFtD7AfItScOKfRK5gOBdsSSYFs2/y+lRGBHOwMWN+e2dm4mQqaT0Q40T1MKXIaA+kqNuE6FkWyiErirLOomJybsWxrNConOEfBAKCwNJaSpgTWuBER2dYxOHWEbb7qPMM3QGt8LrzEVqPHAQd8SYGhPHFd5THZSs5QuTAPIDCq4sFRk10fNZA/Cd1Xglb4xqbnJQi3qHyXgCtjXSgD4+3TMY7jMn+AURg2fQO+1r1pWYxEa41pEB85mYnkSxeKzLpc8I4M5WERus+8Gp1EvvOXY9cakcYj7KBCMceA0OCQTV45vz5HS8V4ItCMWQsT4+8sMgOhVr0+0i6TRma3qEUo+GBQh+pH3m6Svgu9h03d8P4UGbr7Zve3Q/ceU06bLe1swUUcUDWvo1Mm7Db5u8Hiqb/bNgYwoi+uKjTVoxZA8daZYG07KXXb0kTbTGHKasKRPsIq9i1eTn11u8xJX2u4FoN7UHxn3btyW970Tc7dCHoQy288UrDKU6l1c1fVX1kFfg332T82c5eBuYhKAVvhfPEqJ5D4O+P5woauuuKA0ghi/4HzEo3sxXyIiTds+SRtPF18ZwNRhzeDBK7+8GyrNtCUEy5azHGbJzN7PuTv1ix+eYF3FXi+Z8S8kLAV+dUU5t0e7zAbNOn7lVAs5JGtoEDwYD2ZFCyzDqMMGIna1FzYzcbWS0ubb+aLpcHli7c7RIEicd+fUaF6or0yTDuwrFM4I="
@@ -558,5 +403,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
