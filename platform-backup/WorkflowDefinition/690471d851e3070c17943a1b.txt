@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_iIh7l",
+			"fromNodeId":"n_NsF8w",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_DBQeN",
@@ -16,34 +16,38 @@
 			"fromNodeId":"n_DBQeN",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_dH27p",
+			"toNodeId":"n_DyMB1",
 			"type":"next"
 		}
 	],
 	"id":"690471d851e3070c17943a1b",
 	"lastModifiedBy":43523,
 	"lcName":"emit signal",
-	"modifiedTime":1761899118898,
+	"modifiedTime":1761899168735,
 	"name":"emit signal",
 	"nodes":[
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1077,
-				"resourceName":"callables_from_automation"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1aXLf-1",
-			"id":"n_iIh7l",
+			"id":"n_NsF8w",
 			"index":1,
-			"inputs":{},
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger via automation",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"CALLABLE"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -77,21 +81,17 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1113,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
+				"appName":"stop"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1aXLf-1",
-			"id":"n_dH27p",
+			"id":"n_DyMB1",
 			"index":3,
-			"inputs":{},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
+			"subTitle":"Stop",
+			"title":"Stop",
 			"type":"STOP"
 		}
 	],
@@ -112,5 +112,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
