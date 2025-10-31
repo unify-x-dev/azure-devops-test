@@ -155,7 +155,7 @@
 	"id":"6904b4bfac67042c905e9600",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeebusinessobjectautomation ",
-	"modifiedTime":1761916251170,
+	"modifiedTime":1761916263033,
 	"name":"[virtu-reps] EmployeeBusinessObjectAutomation ",
 	"nodes":[
 		{
@@ -613,10 +613,10 @@
 			"index":10,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"reps_employee_locations",
+				"object_type":"reps_employee_business_units",
 				"skipIfBlank":true,
 				"record":{
-					"LocationId":"{{ _EhUzU.outputs.result.LocationId }}",
+					"BusinessUnitId":"{{ _EhUzU.outputs.result.BusinessUnitId }}",
 					"Id":"{{ _EhUzU.outputs.result.Id }}",
 					"row_num":"{{ _EhUzU.outputs.result.row_num }}",
 					"EmployeeId":"{{ _EhUzU.outputs.result.BusinessUnitId }}"
@@ -938,5 +938,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
