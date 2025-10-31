@@ -13,10 +13,15 @@
 			"type":"next"
 		}
 	],
+	"grants":{
+		"configs":[
+			
+		]
+	},
 	"id":"69044a72a40ee515d1d5d6c4",
 	"lastModifiedBy":43498,
 	"lcName":"test",
-	"modifiedTime":1761891255183,
+	"modifiedTime":1761891321218,
 	"name":"test",
 	"nodes":[
 		{
@@ -69,6 +74,7 @@
 			"id":"n_1DPIP",
 			"index":2,
 			"inputs":{
+				"automation_id":"69032d98af3b295b77cbe09c",
 				"runtimeConnections":{},
 				"schedule_type":"CRON_EXPRESSION",
 				"expression":"{{ n_xodeO.outputs.queryParams.cron }}",
@@ -100,5 +106,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":4
 }
