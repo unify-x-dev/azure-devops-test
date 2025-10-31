@@ -38,7 +38,7 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761904619050,
+	"modifiedTime":1761904643122,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
@@ -124,7 +124,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_MNMi1",
@@ -135,10 +135,10 @@
 				"waitingInstanceRuntimeType":"{{ n_J9wmD.outputs.runtimeType }}",
 				"waitingInstanceId":"{{ n_J9wmD.outputs.instanceId }}",
 				"signal_payload":{
-					"signal_time_out":false,
 					"signal_payload":{
-						"userName":"Aryam-{{ n_YXgtv.outputs.resumedAt }}-{{ n_YXgtv.outputs.interrupted }}-{{ n_J9wmD.outputs.instanceId }}"
+						"userName":"Aryam-{{ n_J9wmD.outputs.instanceId }}-{{ n_J9wmD.outputs.runtimeType }}"
 					},
+					"signal_time_out":false,
 					"signal_timeout":false
 				},
 				"nodeId":"n_wQ9yv"
@@ -189,5 +189,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
