@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761909243729,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_ErVLa",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_4Kb5O",
+			"type":"next"
+		}
+	],
+	"id":"690499fbe8628520fb32558b",
+	"lastModifiedBy":44108,
+	"lcName":"infra | starrocks | alert | table health v2.0",
+	"modifiedTime":1761909243729,
+	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"_ErVLa",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"_4Kb5O",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":44108,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		"ua-infra"
+	],
+	"version":0
+}
