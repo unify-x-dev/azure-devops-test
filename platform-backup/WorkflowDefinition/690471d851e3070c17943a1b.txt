@@ -6,46 +6,99 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_1aXLf",
+			"fromNodeId":"n_iIh7l",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_cNfa9",
+			"toNodeId":"n_DBQeN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_DBQeN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dH27p",
 			"type":"next"
 		}
 	],
 	"id":"690471d851e3070c17943a1b",
 	"lastModifiedBy":43523,
 	"lcName":"emit signal",
-	"modifiedTime":1761898968422,
+	"modifiedTime":1761899118898,
 	"name":"emit signal",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1077,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1aXLf-1",
-			"id":"_1aXLf",
-			"index":0,
+			"id":"n_iIh7l",
+			"index":1,
+			"inputs":{},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.signal_payload.userName"
+				]
+			},
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":976,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1aXLf-1",
-			"id":"_cNfa9",
-			"index":0,
+			"id":"n_DBQeN",
+			"index":2,
+			"inputs":{
+				"automation_id":"690471b351e3070c179438f5",
+				"with_signal_id":false,
+				"nodeId":"n_3e9aG"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1113,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_1aXLf-1",
+			"id":"n_dH27p",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":43523,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +112,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
