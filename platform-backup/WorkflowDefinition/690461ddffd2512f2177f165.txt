@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761894877207,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761900773765,
+		"deployedBy":39713,
+		"deployedDefinitionId":"690478e5031f260487a16f1c",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":2
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_DlRtC",
@@ -16,7 +24,7 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761900770578,
+	"modifiedTime":1761900818228,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
@@ -26,14 +34,29 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_DlRtC",
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"instanceId":{
+								"type":"string",
+								"title":"Instance Id"
+							},
+							"runtimeType":{
+								"type":"string",
+								"title":"Runtime Type"
+							}
+						},
+						"additionalProperties":false,
+						"required":[]
+					}
 				}
 			},
 			"skip":false,
@@ -52,7 +75,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_MNMi1",
@@ -60,6 +83,8 @@
 			"inputs":{
 				"automation_id":"690461b5ffd2512f2177f131",
 				"with_signal_id":false,
+				"waitingInstanceRuntimeType":"{{ n_DlRtC.outputs.body.runtimeType }}",
+				"waitingInstanceId":"{{ n_DlRtC.outputs.body.instanceId }}",
 				"signal_payload":{
 					"signal_timeout":false
 				},
@@ -88,5 +113,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
