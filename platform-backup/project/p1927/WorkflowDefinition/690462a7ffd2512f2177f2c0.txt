@@ -32,52 +32,16 @@
 			"fromNodeId":"n_AtUPv@2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DdmpD",
+			"toNodeId":"n_xnGtk",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_DdmpD",
-			"name":"2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_DdmpD@2",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_DdmpD@2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_KT40T",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_KT40T",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_Sh0hg",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_Sh0hg",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_DI5pM",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_DdmpD",
-			"name":"4",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_DdmpD@4",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_DdmpD@4",
+			"fromNodeId":"n_xnGtk",
+			"name":"yes",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_jz8cl",
-			"type":"next"
+			"type":"if"
 		},
 		{
 			"fromNodeId":"_jz8cl",
@@ -159,13 +123,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_DI5pM",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Km2Dj",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_AKcU1",
 			"priority":0,
 			"skip":false,
@@ -173,7 +130,8 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_DdmpD",
+			"fromNodeId":"n_xnGtk",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Km2Dj",
@@ -205,7 +163,7 @@
 	"id":"690462a7ffd2512f2177f2c0",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeelocationobjectautomation",
-	"modifiedTime":1761897125370,
+	"modifiedTime":1761897316777,
 	"name":"[virtu-reps] EmployeeLocationObjectAutomation",
 	"nodes":[
 		{
@@ -393,94 +351,33 @@
 		},
 		{
 			"context":{
-				"appName":"branch",
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
-			"id":"n_DdmpD",
+			"id":"n_xnGtk",
 			"index":4,
 			"inputs":{
-				"branches":[
+				"filters":[
 					{
-						"id":"2",
-						"inputs":{
-							"name":"Branch 2",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_b2pce.outputs.body.payload }}",
-										"filter":{
-											"operator":"CONTAINS",
-											"value":"EmployeeNumber"
-										}
-									}
-								],
-								"operator":"AND"
-							}
+						"property":"{{ n_b2pce.outputs.body.payload }}",
+						"filter":{
+							"operator":"CONTAINS",
+							"value":"EmployeeId"
 						}
-					},
-					{
-						"id":"4",
-						"inputs":{
-							"name":"Branch 1",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_b2pce.outputs.body.payload }}",
-										"filter":{
-											"operator":"CONTAINS",
-											"value":"EmployeeId"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"default"
 					}
-				]
+				],
+				"operator":"AND"
 			},
 			"skip":false,
-			"subTitle":"Branch",
-			"title":"",
-			"type":"BRANCH"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
-			"id":"n_DdmpD@2",
-			"index":5,
-			"inputs":{
-				"name":"Branch 2",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_b2pce.outputs.body.payload }}",
-							"filter":{
-								"operator":"CONTAINS",
-								"value":"EmployeeNumber"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
 		},
 		{
 			"context":{
@@ -492,162 +389,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
-			"id":"_KT40T",
-			"index":6,
-			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"EmployeeNumber"
-					],
-					"properties":{
-						"EmployeeNumber":{
-							"type":"string",
-							"title":"EmployeeNumber"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"payload"
-					],
-					"properties":{
-						"payload":{
-							"type":"string",
-							"title":"Payload"
-						}
-					}
-				},
-				"code":"return [\"EmployeeNumber\" : payload[\"EmployeeNumber\"]]",
-				"compile_static":false,
-				"captureStdOutput":false,
-				"parameters":{
-					"payload":"{{ n_b2pce.outputs.body.payload }}"
-				}
-			},
-			"skip":false,
-			"subTitle":"Fetch Employee Number",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4622,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
-			"id":"_Sh0hg",
-			"index":7,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_EmployeeNumber",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ _KT40T.outputs.result.EmployeeNumber }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"rave_employees_id",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Employees",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1124,
-				"resourceName":"callables_return_response_to_api",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@2",
-			"id":"_DI5pM",
-			"index":8,
-			"inputs":{
-				"streamingCompleted":true,
-				"responseName":"200_response",
-				"body":{
-					"response":"{{ _Sh0hg.outputs.properties }}"
-				},
-				"status":200
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to API request",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@4",
-			"id":"n_DdmpD@4",
-			"index":9,
-			"inputs":{
-				"name":"Branch 1",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_b2pce.outputs.body.payload }}",
-							"filter":{
-								"operator":"CONTAINS",
-								"value":"EmployeeId"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":1037,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@4",
+			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"_jz8cl",
-			"index":10,
+			"index":5,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -697,9 +441,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@4",
+			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"n_Ray96",
-			"index":11,
+			"index":6,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -740,9 +484,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_DdmpD@n_AtUPv@_JfTSF-1@2@4",
+			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"n_AKcU1",
-			"index":12,
+			"index":7,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
@@ -768,7 +512,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_AtUPv@3",
-			"index":13,
+			"index":8,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -805,7 +549,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"_EhUzU",
-			"index":14,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -874,7 +618,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_xotUN",
-			"index":15,
+			"index":10,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_employee_locations",
@@ -903,7 +647,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_GBDGh",
-			"index":16,
+			"index":11,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
@@ -929,7 +673,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_AtUPv@4",
-			"index":17,
+			"index":12,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -961,7 +705,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_xUJc3",
-			"index":18,
+			"index":13,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1018,7 +762,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_cyH7x",
-			"index":19,
+			"index":14,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1087,7 +831,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_aVWT3",
-			"index":20,
+			"index":15,
 			"inputs":{
 				"numberOfRecordsToUpdate":"MULTIPLE",
 				"triggerInputCondition":{
@@ -1149,7 +893,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_lYvBi",
-			"index":21,
+			"index":16,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
@@ -1172,7 +916,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
-			"index":22,
+			"index":17,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_undefined",
@@ -1202,5 +946,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
