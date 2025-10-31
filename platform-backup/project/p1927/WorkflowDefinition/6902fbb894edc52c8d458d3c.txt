@@ -174,9 +174,9 @@
 		}
 	],
 	"id":"6902fbb894edc52c8d458d3c",
-	"lastModifiedBy":39715,
+	"lastModifiedBy":45010,
 	"lcName":"[virtu-reps] locationobjectautomation",
-	"modifiedTime":1761897896487,
+	"modifiedTime":1761898616344,
 	"name":"[virtu-reps] LocationObjectAutomation",
 	"nodes":[
 		{
@@ -851,7 +851,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_Qe8TI",
@@ -900,7 +900,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    \"Name\": payload.location.Name,\n    \"ReferenceNumber\": payload.location.ReferenceNumber,\n    \"row_num\" : payload.location.row_num,\n    \"Id\" : payload.location.Id,\n]\nreturn result",
+				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber,\n    \"row_num\" : payload.row_num,\n    \"Id\" : payload.Id,\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1042,5 +1042,5 @@
 	"tags":[
 		
 	],
-	"version":59
+	"version":60
 }
