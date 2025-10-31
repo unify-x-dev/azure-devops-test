@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761904457293,
+	"modifiedTime":1761904542762,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -479,7 +479,7 @@
 			"index":6,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"with open(File_1, \"r\", encoding=\"utf-8\") as f:\n    text = f.read()\n\nresult = {\"res\": text}",
+				"code":"import base64\n\n# Read file as binary and encode as base64 for safe transmission\nwith open(File_1, \"rb\") as f:\n    binary_content = f.read()\n\nresult = {\n    \"file_size\": len(binary_content),\n    \"base64_content\": base64.b64encode(binary_content).decode('ascii'),\n    \"is_text_file\": False  # You can add logic to detect if it's text\n}",
 				"isAsync":false,
 				"python_version":"3.12",
 				"filesList":{
@@ -533,5 +533,5 @@
 	"tags":[
 		
 	],
-	"version":23
+	"version":24
 }
