@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_t4hxB",
+			"fromNodeId":"n_XX10c",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_96ZBq",
@@ -162,32 +162,31 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761914719149,
+	"modifiedTime":1761914741288,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
 			"context":{
-				"appName":"schedule",
-				"resourceVersion":836,
-				"resourceName":"schedule_default"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
-			"id":"n_t4hxB",
+			"id":"n_XX10c",
 			"index":1,
 			"inputs":{
-				"cron":"INTERVAL",
-				"sequential":false,
-				"interval":15,
-				"frequency":"MINUTES"
+				"request":{
+					"contentType":"application/json"
+				}
 			},
 			"skip":false,
-			"subTitle":"Schedule",
-			"title":"New recurring event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"SCHEDULED"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -1166,5 +1165,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":22
+	"version":23
 }
