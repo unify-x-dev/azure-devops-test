@@ -155,7 +155,7 @@
 	"id":"6904b4bfac67042c905e9600",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeebusinessobjectautomation ",
-	"modifiedTime":1761916493898,
+	"modifiedTime":1761916527703,
 	"name":"[virtu-reps] EmployeeBusinessObjectAutomation ",
 	"nodes":[
 		{
@@ -761,18 +761,14 @@
 					"additionalProperties":false,
 					"required":[
 						"EmployeeId",
-						"LocationId",
 						"Id",
-						"row_num"
+						"row_num",
+						"BusinessUnitId"
 					],
 					"properties":{
 						"EmployeeId":{
 							"type":"integer",
 							"title":"EmployeeId"
-						},
-						"LocationId":{
-							"type":"integer",
-							"title":"LocationId"
 						},
 						"Id":{
 							"type":"integer",
@@ -781,6 +777,10 @@
 						"row_num":{
 							"type":"integer",
 							"title":"row_num"
+						},
+						"BusinessUnitId":{
+							"type":"integer",
+							"title":"BusinessUnitId"
 						}
 					}
 				},
@@ -799,7 +799,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    EmployeeId           : payload.EmployeeId ?: 0,\n    Id                   : payload.Id ?: 0,\n    LocationId           : payload.LocationId ?: 0,\n    row_num              : payload.row_num ?: 0\n]\n\nreturn result",
+				"code":"def result = [\n    EmployeeId           : payload.EmployeeId ?: 0,\n    Id                   : payload.Id ?: 0,\n    BusinessUnitId       : payload.BusinessUnitId ?: 0,\n    row_num              : payload.row_num ?: 0\n]\n\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -844,7 +844,7 @@
 					{
 						"fieldName":"properties.EmployeeId",
 						"actionType":"SET",
-						"setValue":"{{ _cyH7x.outputs.result.EmployeeId }}"
+						"setValue":"{{ _cyH7x.outputs.result.BusinessUnitId }}"
 					},
 					{
 						"fieldName":"properties.Id",
@@ -938,5 +938,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
