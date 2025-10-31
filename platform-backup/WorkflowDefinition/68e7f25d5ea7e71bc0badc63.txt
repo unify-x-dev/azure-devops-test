@@ -24,13 +24,6 @@
 			"fromNodeId":"n_lrZGi",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_mRKn1",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_mRKn1",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_spQZe",
 			"type":"next"
 		},
@@ -74,7 +67,7 @@
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":190503,
 	"lcName":"test",
-	"modifiedTime":1761915919821,
+	"modifiedTime":1761915936214,
 	"name":"test",
 	"nodes":[
 		{
@@ -135,22 +128,6 @@
 		},
 		{
 			"context":{
-				"appName":"utility_by_unifyapps",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_2qSYX-1",
-			"id":"n_mRKn1",
-			"index":3,
-			"skip":false,
-			"subTitle":"Utility by UnifyApps",
-			"title":"Select an action",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"json_by_unifyapps",
 				"resourceVersion":175,
 				"resourceName":"json_by_unifyapps_write_data_to_json_file",
@@ -161,7 +138,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_spQZe",
-			"index":4,
+			"index":3,
 			"inputs":{
 				"appendData":false,
 				"fileName":"dwedew",
@@ -192,7 +169,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_1t8GK",
-			"index":5,
+			"index":4,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -246,7 +223,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_oaiAH",
-			"index":6,
+			"index":5,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -337,7 +314,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_oaiAH@_2qSYX-1@l",
 			"id":"n_2LrlQ",
-			"index":7,
+			"index":6,
 			"inputs":{
 				"loop":"n_oaiAH"
 			},
@@ -355,7 +332,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_1PLO6",
-			"index":8,
+			"index":7,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -379,5 +356,5 @@
 	"tags":[
 		
 	],
-	"version":23
+	"version":24
 }
