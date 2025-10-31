@@ -5,12 +5,12 @@
 	"createdTime":1761915344296,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761919129880,
+		"deployedAt":1761919655084,
 		"deployedBy":39715,
-		"deployedDefinitionId":"6904c099b7d99012935668d4",
+		"deployedDefinitionId":"6904c2a7b7d9901293567372",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":7
+		"version":3,
+		"workflowVersion":8
 	},
 	"edges":[
 		{
@@ -127,11 +127,11 @@
 			"fromNodeId":"n_tvbJT@4",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_HseyQ",
+			"toNodeId":"_Gs9EY",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_HseyQ",
+			"fromNodeId":"_Gs9EY",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_owbfX",
@@ -199,7 +199,7 @@
 	"id":"6904b1d0ac67042c905e88d2",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] businessobjectautomation",
-	"modifiedTime":1761919650811,
+	"modifiedTime":1761919998848,
 	"name":"[virtu-reps] BusinessObjectAutomation",
 	"nodes":[
 		{
@@ -898,22 +898,22 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
-			"id":"_HseyQ",
+			"id":"_Gs9EY",
 			"index":17,
 			"inputs":{
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"Name"
+						"ReferenceNumber"
 					],
 					"properties":{
-						"Name":{
+						"ReferenceNumber":{
 							"type":"string",
-							"title":"Name"
+							"title":"ReferenceNumber"
 						}
 					}
 				},
@@ -930,7 +930,7 @@
 						}
 					}
 				},
-				"code":"return [\"Name\" : payload[\"Name\"]]",
+				"code":"return [\"ReferenceNumber\" : payload[\"ReferenceNumber\"]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -938,7 +938,7 @@
 				}
 			},
 			"skip":false,
-			"subTitle":"Fetch Name",
+			"subTitle":"Fetch ReferenceNumber",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
@@ -1024,7 +1024,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
 			"id":"n_iinWr",
@@ -1034,10 +1034,10 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_Name",
+							"property":"properties_ReferenceNumber",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ _HseyQ.outputs.result.Name }}"
+								"value":"{{ _Gs9EY.outputs.result.ReferenceNumber }}"
 							}
 						}
 					],
@@ -1146,5 +1146,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
