@@ -5,16 +5,23 @@
 	"createdTime":1761894837205,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761900610516,
+		"deployedAt":1761902193645,
 		"deployedBy":39713,
-		"deployedDefinitionId":"69047840031f260487a16ba3",
+		"deployedDefinitionId":"69047e71dc45de2559845442",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_R8WT9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9pK9o",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9pK9o",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_wQ9yv",
@@ -31,7 +38,7 @@
 	"id":"690461b5ffd2512f2177f131",
 	"lastModifiedBy":39713,
 	"lcName":"waitforsignaltest",
-	"modifiedTime":1761902191362,
+	"modifiedTime":1761902774031,
 	"name":"WaitForSignalTest",
 	"nodes":[
 		{
@@ -58,6 +65,17 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"userName":{
+									"type":"string",
+									"title":"User Name"
+								}
+							},
+							"additionalProperties":false,
+							"required":[]
 						}
 					}
 				],
@@ -73,6 +91,35 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1133,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_tS7zH-1",
+			"id":"n_9pK9o",
+			"index":2,
+			"inputs":{
+				"automationId":"690461ddffd2512f2177f165",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"IN_MEMORY",
+				"version":"-1",
+				"parameters":{
+					"instanceId":"{{ __RUN__.outputs.executionId }}",
+					"runtimeType":"{{ __RUN__.outputs.workflowRunTimeType }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
 				"appName":"signals_by_unifyapps",
 				"resourceVersion":0,
 				"resourceName":"signals_by_unifyapps_wait_for_signal",
@@ -83,7 +130,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
 			"id":"n_wQ9yv",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"duration":15,
 				"unit":"MINUTES",
@@ -116,10 +163,13 @@
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
 			"id":"n_OF621",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"userName":"{{ n_wQ9yv.outputs.signal_payload.userName }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -145,5 +195,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
