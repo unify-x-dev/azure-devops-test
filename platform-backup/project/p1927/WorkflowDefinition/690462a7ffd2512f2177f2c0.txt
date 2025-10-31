@@ -5,12 +5,12 @@
 	"createdTime":1761895079762,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761896863845,
+		"deployedAt":1761897318612,
 		"deployedBy":39715,
-		"deployedDefinitionId":"6904699f462ff4087b2f7b8e",
+		"deployedDefinitionId":"69046b662c95f76953062972",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":9
+		"version":3,
+		"workflowVersion":11
 	},
 	"edges":[
 		{
@@ -163,7 +163,7 @@
 	"id":"690462a7ffd2512f2177f2c0",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeelocationobjectautomation",
-	"modifiedTime":1761897316777,
+	"modifiedTime":1761916799855,
 	"name":"[virtu-reps] EmployeeLocationObjectAutomation",
 	"nodes":[
 		{
@@ -173,7 +173,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_b2pce",
@@ -246,7 +246,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_AtUPv",
@@ -325,7 +325,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_AtUPv@2",
@@ -357,7 +357,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@2",
 			"id":"n_xnGtk",
@@ -387,7 +387,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"_jz8cl",
@@ -439,7 +439,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"n_Ray96",
@@ -482,7 +482,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_xnGtk@n_AtUPv@_JfTSF-1@2@y",
 			"id":"n_AKcU1",
@@ -508,7 +508,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_AtUPv@3",
@@ -545,7 +545,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"_EhUzU",
@@ -614,7 +614,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@3",
 			"id":"n_xotUN",
@@ -669,7 +669,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"n_AtUPv@4",
@@ -701,7 +701,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_xUJc3",
@@ -758,7 +758,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_cyH7x",
@@ -827,7 +827,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@4",
 			"id":"_aVWT3",
@@ -897,6 +897,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
+				"body":{
+					"response":"{{ _aVWT3.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -912,7 +915,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
@@ -946,5 +949,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
