@@ -94,7 +94,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761916644418,
+	"modifiedTime":1761917526045,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -130,7 +130,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_96ZBq",
@@ -786,6 +786,70 @@
 			"id":"n_CVGVn",
 			"index":11,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"tables":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"PARTITION_KEY":{
+										"type":"string",
+										"title":"PARTITION_KEY"
+									},
+									"TABLE_NAME":{
+										"type":"string",
+										"title":"TABLE_NAME"
+									},
+									"TABLE_MODEL":{
+										"type":"string",
+										"title":"TABLE_MODEL"
+									},
+									"TABLE_SCHEMA":{
+										"type":"string",
+										"title":"TABLE_SCHEMA"
+									},
+									"PRIMARY_KEY":{
+										"type":"string",
+										"title":"PRIMARY_KEY"
+									},
+									"DISTRIBUTE_KEY":{
+										"type":"string",
+										"title":"DISTRIBUTE_KEY"
+									},
+									"TABLE_ENGINE":{
+										"type":"string",
+										"title":"TABLE_ENGINE"
+									},
+									"DISTRIBUTE_BUCKET":{
+										"type":"integer",
+										"title":"DISTRIBUTE_BUCKET"
+									},
+									"PROPERTIES":{
+										"type":"string",
+										"title":"PROPERTIES"
+									},
+									"SORT_KEY":{
+										"type":"string",
+										"title":"SORT_KEY"
+									},
+									"DISTRIBUTE_TYPE":{
+										"type":"string",
+										"title":"DISTRIBUTE_TYPE"
+									},
+									"TABLE_ID":{
+										"type":"integer",
+										"title":"TABLE_ID"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"tables"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -844,5 +908,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":29
+	"version":31
 }
