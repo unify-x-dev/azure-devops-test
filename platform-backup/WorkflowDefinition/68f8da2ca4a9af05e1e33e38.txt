@@ -131,7 +131,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761927451907,
+	"modifiedTime":1761927520172,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -171,7 +171,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_vNDmq",
@@ -741,7 +741,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_t5Pxu",
@@ -766,7 +766,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_8LiAg",
@@ -791,7 +791,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_Dq7Zv",
@@ -813,7 +813,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_AjLCz",
@@ -893,7 +893,7 @@
 			"index":16,
 			"inputs":{
 				"source_text":"{{ n_vNDmq.outputs.items }}",
-				"instruction":"summarise this list",
+				"instruction":"- summarise the source text \n- it has 5 different emails",
 				"model":"gpt-4o"
 			},
 			"skip":false,
@@ -934,5 +934,5 @@
 	"tags":[
 		
 	],
-	"version":35
+	"version":36
 }
