@@ -52,7 +52,7 @@
 	"id":"69035a1e0230577757109dec",
 	"lastModifiedBy":59995,
 	"lcName":"test-excel-iterate",
-	"modifiedTime":1761828512348,
+	"modifiedTime":1761953765357,
 	"name":"test-excel-iterate",
 	"nodes":[
 		{
@@ -62,7 +62,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
 			"id":"n_XWLa1",
@@ -88,7 +88,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
 			"id":"n_G0HFw",
@@ -110,7 +110,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
 			"id":"n_bBBin",
@@ -174,7 +174,7 @@
 			"id":"n_rURFB",
 			"index":4,
 			"inputs":{
-				"startFromRow":3,
+				"startFromRow":7,
 				"consumptionBehaviour":"string",
 				"file":"{{ n_bBBin.outputs.result.file }}",
 				"useStreaming":false,
@@ -202,7 +202,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_rURFB@_WvKAb-1@l",
 			"id":"n_6SMB5",
@@ -220,7 +220,7 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
 			"id":"n_3KCBz",
@@ -248,5 +248,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
