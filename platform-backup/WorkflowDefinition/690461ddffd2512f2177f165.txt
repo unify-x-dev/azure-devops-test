@@ -14,14 +14,7 @@
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_Loi1K",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_YXgtv",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_YXgtv",
+			"fromNodeId":"n_7A8mf",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_MNMi1",
@@ -38,70 +31,56 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761910925354,
+	"modifiedTime":1761916530122,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1078,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
-			"id":"n_Loi1K",
+			"id":"n_7A8mf",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json",
-					"body":{
-						"type":"object",
-						"properties":{
-							"instanceId":{
-								"type":"string",
-								"title":"Instance Id"
-							},
-							"runtimeType":{
-								"type":"string",
-								"title":"Runtime Type"
-							}
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"result":{
+							"type":"string",
+							"title":"Result"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"instanceId":{
+							"type":"string",
+							"title":"Instance Id"
 						},
-						"additionalProperties":false,
-						"required":[]
+						"runtimeType":{
+							"type":"string",
+							"title":"Runtime Type"
+						}
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
-		},
-		{
-			"context":{
-				"appName":"delay",
-				"resourceVersion":809,
-				"resourceName":"delay_for",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_oYAuK-1",
-			"id":"n_YXgtv",
-			"index":2,
-			"inputs":{
-				"duration":2,
-				"unit":"MINUTES"
-			},
-			"skip":true,
-			"subTitle":"Delay",
-			"title":"Set delay duration",
-			"type":"DELAY"
 		},
 		{
 			"additional":{
@@ -116,16 +95,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_MNMi1",
-			"index":3,
+			"index":2,
 			"inputs":{
 				"automation_id":"690461b5ffd2512f2177f131",
 				"with_signal_id":false,
-				"waitingInstanceRuntimeType":"{{ n_Loi1K.outputs.body.runtimeType }}",
-				"waitingInstanceId":"{{ n_Loi1K.outputs.body.instanceId }}",
+				"waitingInstanceRuntimeType":"{{ n_7A8mf.outputs.runtimeType }}",
+				"waitingInstanceId":"{{ n_7A8mf.outputs.instanceId }}",
 				"signal_payload":{
 					"signal_time_out":false,
 					"signal_payload":{
@@ -148,17 +127,17 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_oQuMW",
-			"index":4,
+			"index":3,
 			"inputs":{
 				"result":{
-					"result":"124"
+					"result":"success"
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
@@ -181,5 +160,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
