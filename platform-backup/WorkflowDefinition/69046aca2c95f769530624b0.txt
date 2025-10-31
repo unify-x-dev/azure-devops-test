@@ -6,46 +6,214 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_N7Koi",
+			"fromNodeId":"n_yEJSi",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_LrpR6",
+			"toNodeId":"G96wW",
 			"type":"next"
 		}
 	],
 	"id":"69046aca2c95f769530624b0",
-	"lastModifiedBy":678,
+	"lastModifiedBy":20249,
 	"lcName":"vsv",
-	"modifiedTime":1761897162752,
+	"modifiedTime":1761898352256,
 	"name":"vsv",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_N7Koi-1",
-			"id":"_N7Koi",
-			"index":0,
+			"id":"n_yEJSi",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":36,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_N7Koi-1",
-			"id":"_LrpR6",
-			"index":0,
+			"id":"G96wW",
+			"index":2,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"GET",
+				"connectionType":"ON_PREM",
+				"sslVerify":true,
+				"path":"/users/1",
+				"responseSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"id":{
+							"type":"integer",
+							"title":"id"
+						},
+						"name":{
+							"type":"string",
+							"title":"name"
+						},
+						"username":{
+							"type":"string",
+							"title":"username"
+						},
+						"email":{
+							"type":"string",
+							"title":"email"
+						},
+						"address":{
+							"type":"object",
+							"properties":{
+								"street":{
+									"type":"string",
+									"title":"street"
+								},
+								"suite":{
+									"type":"string",
+									"title":"suite"
+								},
+								"city":{
+									"type":"string",
+									"title":"city"
+								},
+								"zipcode":{
+									"type":"string",
+									"title":"zipcode"
+								},
+								"geo":{
+									"type":"object",
+									"properties":{
+										"lat":{
+											"type":"string",
+											"title":"lat"
+										},
+										"lng":{
+											"type":"string",
+											"title":"lng"
+										}
+									},
+									"title":"geo",
+									"additionalProperties":false
+								}
+							},
+							"title":"address",
+							"additionalProperties":false
+						},
+						"phone":{
+							"type":"string",
+							"title":"phone"
+						},
+						"website":{
+							"type":"string",
+							"title":"website"
+						},
+						"company":{
+							"type":"object",
+							"properties":{
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"catchPhrase":{
+									"type":"string",
+									"title":"catchPhrase"
+								},
+								"bs":{
+									"type":"string",
+									"title":"bs"
+								}
+							},
+							"title":"company",
+							"additionalProperties":false
+						}
+					}
+				},
+				"baseUrl":"https://jsonplaceholder.typicode.com",
+				"httpVersion":"HTTP_2",
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":true,
+					"logPolicies":[
+						{
+							"level":"INFO",
+							"maskedFields":[
+								
+							],
+							"message":"{{ G96wW.inputs.baseUrl }} : User Fetched Successfully from platform\n\nMasked inputs:{{ WJNQI.inputs }}\nmasked Outputs: {{ WJNQI.outputs }} ",
+							"onlyOnFailure":false
+						}
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Custom HTTP Endpoint",
+			"title":"Execute REST request",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":678,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +227,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
