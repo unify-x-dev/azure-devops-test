@@ -234,7 +234,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761896532349,
+	"modifiedTime":1761896543089,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -1091,7 +1091,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_l8j4d",
@@ -1100,7 +1100,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_hw7UJ.outputs.properties }}"
+					"employeeTier":"{{ n_hw7UJ.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -1237,7 +1237,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_NFG0A",
@@ -1245,6 +1245,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"employeeTier":"{{ n_4m59q.outputs.object.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1294,5 +1297,5 @@
 	"tags":[
 		
 	],
-	"version":50
+	"version":51
 }
