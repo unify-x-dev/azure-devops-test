@@ -17,13 +17,6 @@
 			"fromNodeId":"n_rPTuR",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_9pK9o",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_9pK9o",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_wQ9yv",
 			"type":"next"
 		},
@@ -38,7 +31,7 @@
 	"id":"690461b5ffd2512f2177f131",
 	"lastModifiedBy":39713,
 	"lcName":"waitforsignaltest",
-	"modifiedTime":1761908333666,
+	"modifiedTime":1761911876500,
 	"name":"WaitForSignalTest",
 	"nodes":[
 		{
@@ -91,35 +84,6 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1133,
-				"resourceName":"callables_call_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_tS7zH-1",
-			"id":"n_9pK9o",
-			"index":2,
-			"inputs":{
-				"automationId":"690461ddffd2512f2177f165",
-				"runtimeConnections":{},
-				"synchronous":false,
-				"triggerWorkflowWithRuntimeType":"IN_MEMORY",
-				"version":"-1",
-				"parameters":{
-					"instanceId":"{{ __RUN__.outputs.executionId }}",
-					"runtimeType":"{{ __RUN__.outputs.workflowRunTimeType }}"
-				}
-			},
-			"skip":true,
-			"subTitle":"Callable",
-			"title":"Call automation",
-			"type":"CALL_WORKFLOW"
-		},
-		{
-			"context":{
 				"appName":"signals_by_unifyapps",
 				"resourceVersion":0,
 				"resourceName":"signals_by_unifyapps_wait_for_signal",
@@ -130,7 +94,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
 			"id":"n_wQ9yv",
-			"index":3,
+			"index":2,
 			"inputs":{
 				"duration":15,
 				"unit":"MINUTES",
@@ -163,7 +127,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
 			"id":"n_OF621",
-			"index":4,
+			"index":3,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
@@ -195,5 +159,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
