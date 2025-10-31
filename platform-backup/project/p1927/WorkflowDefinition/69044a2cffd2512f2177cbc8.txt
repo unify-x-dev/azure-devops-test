@@ -31,7 +31,7 @@
 	"id":"69044a2cffd2512f2177cbc8",
 	"lastModifiedBy":39713,
 	"lcName":"[virtu-empowerrepsschedulerfn]syncbusinessunithttptrigger",
-	"modifiedTime":1761920314204,
+	"modifiedTime":1761920327449,
 	"name":"[virtu-emPowerRepsSchedulerFN]SyncBusinessUnitHttpTrigger",
 	"nodes":[
 		{
@@ -58,6 +58,19 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"response":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Response"
+								}
+							},
+							"additionalProperties":false,
+							"required":[]
 						}
 					}
 				],
@@ -139,6 +152,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"response":"{{ n_uiCF2.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -165,5 +181,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
