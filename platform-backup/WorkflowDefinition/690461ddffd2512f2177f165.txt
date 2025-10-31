@@ -5,12 +5,12 @@
 	"createdTime":1761894877207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761900773765,
+		"deployedAt":1761900819695,
 		"deployedBy":39713,
-		"deployedDefinitionId":"690478e5031f260487a16f1c",
+		"deployedDefinitionId":"69047913031f260487a171bc",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
@@ -24,7 +24,7 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761900818228,
+	"modifiedTime":1761901356903,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
@@ -34,7 +34,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_DlRtC",
@@ -86,9 +86,10 @@
 				"waitingInstanceRuntimeType":"{{ n_DlRtC.outputs.body.runtimeType }}",
 				"waitingInstanceId":"{{ n_DlRtC.outputs.body.instanceId }}",
 				"signal_payload":{
+					"signal_time_out":false,
 					"signal_timeout":false
 				},
-				"nodeId":"n_AYwG2"
+				"nodeId":"n_wQ9yv"
 			},
 			"skip":false,
 			"subTitle":"Signals by UnifyApps",
@@ -113,5 +114,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
