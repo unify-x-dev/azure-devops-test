@@ -32,12 +32,19 @@
 			"skip":false,
 			"toNodeId":"n_UyLu3",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UyLu3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_uaPZr",
+			"type":"next"
 		}
 	],
 	"id":"6902e7624cdbea660eb287df",
 	"lastModifiedBy":155341,
 	"lcName":"test2",
-	"modifiedTime":1761827388312,
+	"modifiedTime":1761931861589,
 	"name":"test2",
 	"nodes":[
 		{
@@ -97,7 +104,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
 			"id":"n_8WfcS",
@@ -105,7 +112,7 @@
 			"inputs":{
 				"path":"/temp/test.txt"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"FTP/FTPS",
 			"title":"Download file",
 			"type":"ACTION"
@@ -119,7 +126,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
 			"id":"n_W9GTv",
@@ -156,6 +163,57 @@
 			"subTitle":"FTP/FTPS",
 			"title":"List files and directories",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1094,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iAhKW-1",
+			"id":"n_uaPZr",
+			"index":6,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"limit":{
+							"type":"number",
+							"title":"Limit"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"limit":"=CEILING(2/3)"
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"limit":{
+							"type":"number",
+							"title":"Limit"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190409,
@@ -176,5 +234,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
