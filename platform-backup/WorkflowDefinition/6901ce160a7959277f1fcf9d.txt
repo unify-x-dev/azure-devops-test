@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		"storage_by_unifyapps"
+		
 	],
 	"createdTime":1761725974705,
 	"deleted":false,
@@ -38,20 +38,6 @@
 			"fromNodeId":"n_ZMSaW",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_QpoVl",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_QpoVl",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_dNJyG",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_dNJyG",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_wdDn6",
 			"type":"next"
 		},
@@ -81,7 +67,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":44567,
 	"lcName":"xyzzz",
-	"modifiedTime":1761919662810,
+	"modifiedTime":1761919718250,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -193,75 +179,6 @@
 			"type":"ACTION"
 		},
 		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4633,
-				"resourceName":"storage_by_unifyapps_fetch_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_QuCjn-1",
-			"id":"n_QpoVl",
-			"index":5,
-			"inputs":{
-				"object_type":"agentic_ai_connections",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"MULTIPLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"csv_by_unifyapps",
-				"resourceVersion":922,
-				"resourceName":"csv_by_unifyapps_list_to_csv_file",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_QuCjn-1",
-			"id":"n_dNJyG",
-			"index":6,
-			"inputs":{
-				"fileName":"cwewe",
-				"delimiter":",",
-				"staticHeaders":[
-					{
-						"key":"cwwec",
-						"value":"{{ n_QpoVl.outputs.objects[0].properties.connectionID }}"
-					},
-					{
-						"key":"cwewewew",
-						"value":"{{ n_QpoVl.outputs.objects[0].properties.connectionName }}"
-					}
-				],
-				"skipHeaderRow":false,
-				"headerType":"STATIC",
-				"encoding":"UTF-8",
-				"keepExactFileName":false,
-				"dataSource":"{{ n_QpoVl.outputs.objects }}",
-				"fileType":"csv"
-			},
-			"skip":false,
-			"subTitle":"CSV by UnifyApps",
-			"title":"Write data to CSV file",
-			"type":"ACTION"
-		},
-		{
 			"additional":{
 				"xsdSchemaConfig":{
 					"root":{}
@@ -278,14 +195,14 @@
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_wdDn6",
-			"index":7,
+			"index":5,
 			"inputs":{
-				"fileDetails":"{{ n_dNJyG.outputs.fileDetails }}",
+				"fileDetails":"{{ n_ZMSaW.outputs.fileDetails }}",
 				"startFromRecord":1,
 				"batch":false,
 				"encoding":"UTF-8",
 				"batchSize":3,
-				"fileType":"json"
+				"fileType":"jsonl"
 			},
 			"skip":false,
 			"subTitle":"JSON by UnifyApps",
@@ -307,7 +224,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_wdDn6@_QuCjn-1@l",
 			"id":"n_gTqHM",
-			"index":8,
+			"index":6,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -356,7 +273,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_Wh4Hz",
-			"index":9,
+			"index":7,
 			"inputs":{
 				"result":{
 					"r":"{{ n_wdDn6.outputs }}"
@@ -385,5 +302,5 @@
 	"tags":[
 		
 	],
-	"version":120
+	"version":121
 }
