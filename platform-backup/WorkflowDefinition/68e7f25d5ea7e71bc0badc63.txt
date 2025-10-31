@@ -1,44 +1,73 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1760031325209,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761653730347,
+		"deployedBy":190503,
+		"deployedDefinitionId":"6900b3e01cd6437e8861014b",
+		"status":"DEPLOYED",
+		"version":2,
+		"workflowVersion":20
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_eummV",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8xxPp",
+			"toNodeId":"n_lrZGi",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_8xxPp",
+			"fromNodeId":"n_lrZGi",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_u7Sbs",
+			"toNodeId":"n_spQZe",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_spQZe",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1t8GK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1t8GK",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oaiAH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oaiAH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2LrlQ",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_u7Sbs",
+			"fromNodeId":"n_2LrlQ",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_8xxPp",
+			"toNodeId":"n_oaiAH",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_8xxPp",
+			"fromNodeId":"n_oaiAH",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_NQTz4",
+			"toNodeId":"n_1PLO6",
 			"type":"next"
 		}
 	],
 	"id":"68e7f25d5ea7e71bc0badc63",
 	"lastModifiedBy":190503,
 	"lcName":"test",
-	"modifiedTime":1761645421054,
+	"modifiedTime":1761915376957,
 	"name":"test",
 	"nodes":[
 		{
@@ -55,28 +84,7 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json",
-					"body":{
-						"type":"object",
-						"properties":{
-							"fileDetails":{
-								"type":"object",
-								"properties":{
-									"fileName":{
-										"type":"string",
-										"title":"fileName"
-									},
-									"url":{
-										"type":"string",
-										"title":"url"
-									}
-								},
-								"title":"fileDetails",
-								"additionalProperties":false
-							}
-						},
-						"additionalProperties":false
-					}
+					"contentType":"application/json"
 				}
 			},
 			"skip":false,
@@ -89,26 +97,207 @@
 		},
 		{
 			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4616,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2qSYX-1",
+			"id":"n_lrZGi",
+			"index":2,
+			"inputs":{
+				"object_type":"agentic_ai_connections",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"MULTIPLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"json_by_unifyapps",
-				"resourceVersion":162,
+				"resourceVersion":175,
+				"resourceName":"json_by_unifyapps_write_data_to_json_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2qSYX-1",
+			"id":"n_spQZe",
+			"index":3,
+			"inputs":{
+				"appendData":false,
+				"fileName":"dwedew",
+				"encoding":"UTF-8",
+				"dataSource":"{{ n_lrZGi.outputs.objects }}",
+				"keepExactFileName":false,
+				"fileType":"json"
+			},
+			"skip":false,
+			"subTitle":"JSON by UnifyApps",
+			"title":"Write data to JSON file",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1099,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2qSYX-1",
+			"id":"n_1t8GK",
+			"index":4,
+			"inputs":{
+				"jsonSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"fileDetails":{
+							"type":"object",
+							"properties":{
+								"fileType":{
+									"type":"string",
+									"title":"fileType"
+								},
+								"name":{
+									"type":"string",
+									"title":"name"
+								},
+								"size":{
+									"type":"integer",
+									"title":"size"
+								},
+								"source":{
+									"type":"string",
+									"title":"source"
+								},
+								"sourceType":{
+									"type":"string",
+									"title":"sourceType"
+								}
+							},
+							"title":"fileDetails",
+							"additionalProperties":false
+						}
+					}
+				},
+				"jsonString":"{\n  \"fileDetails\": {\n\"fileType\": \"application/json\",\n\"name\": \"dwedew_1761582617509.json\",\n\"size\": 6039,\n\"source\": \"workflow_uploads/export/1/dwedew_1761582617509.json\",\n\"sourceType\": \"CLOUD_STORAGE\"\n  }\n}"
+			},
+			"skip":true,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"json_by_unifyapps",
+				"resourceVersion":160,
 				"resourceName":"json_by_unifyapps_for_each_record_or_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
-			"id":"n_8xxPp",
-			"index":2,
+			"id":"n_oaiAH",
+			"index":5,
 			"inputs":{
-				"fileDetails":"{{ n_eummV.outputs.body.fileDetails }}",
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"createdTime":{
+							"type":"integer",
+							"title":"createdTime"
+						},
+						"deleted":{
+							"type":"boolean",
+							"title":"deleted"
+						},
+						"entityType":{
+							"type":"string",
+							"title":"entityType"
+						},
+						"id":{
+							"type":"string",
+							"title":"id"
+						},
+						"lastModifiedBy":{
+							"type":"integer",
+							"title":"lastModifiedBy"
+						},
+						"modifiedTime":{
+							"type":"integer",
+							"title":"modifiedTime"
+						},
+						"ownerUserId":{
+							"type":"integer",
+							"title":"ownerUserId"
+						},
+						"properties":{
+							"type":"object",
+							"properties":{
+								"connectionID":{
+									"type":"string",
+									"title":"connectionID"
+								},
+								"description":{
+									"type":"string",
+									"title":"description"
+								},
+								"connectionName":{
+									"type":"string",
+									"title":"connectionName"
+								},
+								"iconURL":{
+									"type":"string",
+									"title":"iconURL"
+								}
+							},
+							"title":"properties",
+							"additionalProperties":false
+						},
+						"standard":{
+							"type":"boolean",
+							"title":"standard"
+						},
+						"version":{
+							"type":"integer",
+							"title":"version"
+						}
+					}
+				},
+				"fileDetails":"{{ n_1t8GK.outputs.result.fileDetails }}",
 				"startFromRecord":1,
 				"batch":false,
 				"encoding":"UTF-8",
-				"batchSize":100,
+				"batchSize":10,
 				"fileType":"json"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"JSON by UnifyApps",
 			"title":"Consume data from JSON file",
 			"type":"LOOP"
@@ -123,11 +312,11 @@
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
-			"groupId":"n_8xxPp@_2qSYX-1@l",
-			"id":"n_u7Sbs",
-			"index":3,
+			"groupId":"n_oaiAH@_2qSYX-1@l",
+			"id":"n_2LrlQ",
+			"index":6,
 			"inputs":{
-				"loop":"n_8xxPp"
+				"loop":"n_oaiAH"
 			},
 			"skip":false,
 			"subTitle":"Continue",
@@ -142,8 +331,8 @@
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
-			"id":"n_NQTz4",
-			"index":4,
+			"id":"n_1PLO6",
+			"index":7,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -167,5 +356,5 @@
 	"tags":[
 		
 	],
-	"version":19
+	"version":22
 }
