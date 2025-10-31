@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761949586425,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761949586586,
+		"deployedBy":175325,
+		"deployedDefinitionId":"6905379236d6cd252920cc32",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"tXkEy",
@@ -16,7 +24,7 @@
 	"id":"6905379236d6cd252920cc31",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2g4ijesazxewp",
-	"modifiedTime":1761949586502,
+	"modifiedTime":1761949586626,
 	"name":"changeSetQA2g4ijesAZxeWP",
 	"nodes":[
 		{
@@ -99,7 +107,7 @@
 				"responseName":"200_undefined",
 				"set_cookies":[],
 				"body":{
-					"c":"= SUM({{ tXkEy.outputs.body.a }},{{ tXkEy.outputs.body.b }})"
+					"c":"= PRODUCT({{ tXkEy.outputs.body.a }},{{ tXkEy.outputs.body.b }})"
 				},
 				"status":200
 			},
@@ -122,5 +130,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
