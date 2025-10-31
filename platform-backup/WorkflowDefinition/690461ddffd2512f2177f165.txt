@@ -31,7 +31,7 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761918837831,
+	"modifiedTime":1761918856632,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
@@ -107,12 +107,12 @@
 			"inputs":{
 				"automation_id":"690461b5ffd2512f2177f131",
 				"with_signal_id":false,
-				"waitingInstanceRuntimeType":"{{ n_7A8mf.outputs.runtimeType }}",
-				"waitingInstanceId":"{{ n_7A8mf.outputs.instanceId }}",
+				"waitingInstanceRuntimeType":"{{ n_7A8mf.outputs.body.runtimeType }}",
+				"waitingInstanceId":"{{ n_7A8mf.outputs.body.instanceId }}",
 				"signal_payload":{
 					"signal_time_out":false,
 					"signal_payload":{
-						"userName":"Aryam-{{ n_7A8mf.outputs.instanceId }}-{{ n_7A8mf.outputs.runtimeType }}"
+						"userName":"Aryam-{{ n_7A8mf.outputs.body.instanceId }}-{{ n_7A8mf.outputs.body.runtimeType }}"
 					},
 					"signal_timeout":false
 				},
@@ -164,5 +164,5 @@
 	"tags":[
 		
 	],
-	"version":17
+	"version":18
 }
