@@ -72,7 +72,7 @@
 	"id":"69047ad4520d5f186ca663c6",
 	"lastModifiedBy":6701,
 	"lcName":"keka hr actions",
-	"modifiedTime":1761908673656,
+	"modifiedTime":1761909428291,
 	"name":"keka hr actions",
 	"nodes":[
 		{
@@ -248,7 +248,20 @@
 			"groupId":"_KKUKg-1",
 			"id":"n_GJ6pv",
 			"index":8,
-			"inputs":{},
+			"inputs":{
+				"firstName":"Kuren",
+				"lastName":"Man",
+				"gender":1,
+				"displayName":"John",
+				"mobileNumber":"6789877891",
+				"dateJoined":"2025-10-31T11:05:21.779Z",
+				"jobTitle":"2b5c294a-cfa4-432f-89ed-7e2ce3fb0032",
+				"dateOfBirth":"2025-10-31T11:05:21.779Z",
+				"location":"29d02178-a233-45b8-abda-596b2aecf05a",
+				"department":"077826d4-f552-4088-8035-b856d9867374",
+				"email":"john@example.com",
+				"employeeNumber":"ad24f286-4dfe-459e-8f42-bc572aa31516"
+			},
 			"skip":false,
 			"subTitle":"Keka",
 			"title":"Update employee job details",
@@ -268,7 +281,12 @@
 			"groupId":"_KKUKg-1",
 			"id":"n_HOUXj",
 			"index":9,
-			"inputs":{},
+			"inputs":{
+				"payload":{
+					"displayName":"Thanu"
+				},
+				"id":"ad24f286-4dfe-459e-8f42-bc572aa31516"
+			},
 			"skip":false,
 			"subTitle":"Keka",
 			"title":"Update employee personal details",
@@ -307,5 +325,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
