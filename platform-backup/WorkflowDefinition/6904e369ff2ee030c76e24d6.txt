@@ -6,46 +6,99 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_60uPf",
+			"fromNodeId":"n_WWiX2",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_22TFd",
+			"toNodeId":"n_lWU4c",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_lWU4c",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_A5XQU",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_A5XQU",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_lWU4c",
 			"type":"next"
 		}
 	],
 	"id":"6904e369ff2ee030c76e24d6",
 	"lastModifiedBy":43523,
 	"lcName":"test browser use",
-	"modifiedTime":1761928041780,
+	"modifiedTime":1761928068252,
 	"name":"test browser use",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_60uPf-1",
-			"id":"_60uPf",
-			"index":0,
+			"id":"n_WWiX2",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"browser_use_by_unifyapps",
+				"resourceVersion":639,
+				"resourceName":"browser_use_by_unifyapps_execute_instructions",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_60uPf-1",
-			"id":"_22TFd",
-			"index":0,
+			"id":"n_lWU4c",
+			"index":2,
+			"inputs":{
+				"instructions":"Go to unifyapps.com and summarise the page",
+				"modelId":"e_ai_agent_openai_gpt_4.1_mini",
+				"capture_workflow_use":false,
+				"return_playwright_script":false
+			},
+			"skip":false,
+			"subTitle":"Browser Use by UnifyApps",
+			"title":"Execute Instructions",
+			"type":"LOOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_lWU4c@_60uPf-1@l",
+			"id":"n_A5XQU",
+			"index":3,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":43523,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +112,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
