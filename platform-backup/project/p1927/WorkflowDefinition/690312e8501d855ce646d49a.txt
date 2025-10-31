@@ -5,16 +5,39 @@
 	"createdTime":1761809128268,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761885915696,
+		"deployedAt":1761886200349,
 		"deployedBy":44105,
-		"deployedDefinitionId":"69043edbffd2512f2177beb5",
+		"deployedDefinitionId":"69043ff8ffd2512f2177c09b",
 		"status":"DEPLOYED",
-		"version":19,
-		"workflowVersion":47
+		"version":20,
+		"workflowVersion":50
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_IyOaB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zj1J9",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_zj1J9",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WrrB3",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_WrrB3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_xnr0g",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_zj1J9",
+			"name":"no",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_xnr0g",
@@ -90,7 +113,7 @@
 	"id":"690312e8501d855ce646d49a",
 	"lastModifiedBy":44105,
 	"lcName":"[repsschedular] syncdesignationhttptrigger",
-	"modifiedTime":1761886198719,
+	"modifiedTime":1761886684959,
 	"name":"[RepsSchedular] SyncDesignationHttpTrigger",
 	"nodes":[
 		{
@@ -157,6 +180,59 @@
 		},
 		{
 			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_VHgde-1",
+			"id":"n_zj1J9",
+			"index":2,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_IyOaB.outputs.body }}",
+						"filter":{
+							"operator":"MISSING"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1132,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_zj1J9@_VHgde-1@y",
+			"id":"n_WrrB3",
+			"index":3,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"400_undefined",
+				"body":"{\"message\":\"Invalid input values\",\"statusCode\":400}",
+				"status":400
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":230,
 				"resourceName":"code_by_unifyapps_csharp",
@@ -167,7 +243,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_xnr0g",
-			"index":2,
+			"index":4,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -216,11 +292,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_6PhrQ",
-			"index":3,
+			"index":5,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -272,7 +348,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_h7Yud",
-			"index":4,
+			"index":6,
 			"inputs":{
 				"branches":[
 					{
@@ -333,7 +409,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@1",
 			"id":"n_h7Yud@1",
-			"index":5,
+			"index":7,
 			"inputs":{
 				"name":"Branch 1",
 				"conditions":{
@@ -365,7 +441,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@1",
 			"id":"n_Haqom",
-			"index":6,
+			"index":8,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -389,7 +465,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@2",
 			"id":"n_h7Yud@2",
-			"index":7,
+			"index":9,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -421,7 +497,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@2",
 			"id":"n_YGFhv",
-			"index":8,
+			"index":10,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"400_undefined",
@@ -445,7 +521,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_rujD8",
-			"index":9,
+			"index":11,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_undefined",
@@ -476,5 +552,5 @@
 	"tags":[
 		
 	],
-	"version":50
+	"version":51
 }
