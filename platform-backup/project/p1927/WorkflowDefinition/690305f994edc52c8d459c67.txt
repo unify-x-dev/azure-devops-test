@@ -453,7 +453,7 @@
 	"id":"690305f994edc52c8d459c67",
 	"lastModifiedBy":45518,
 	"lcName":"accountobjectautomation ",
-	"modifiedTime":1761895129238,
+	"modifiedTime":1761895142269,
 	"name":"AccountObjectAutomation ",
 	"nodes":[
 		{
@@ -1350,15 +1350,10 @@
 			"index":19,
 			"inputs":{
 				"writeThroughSessionVariables":false,
+				"object_type":"reps_account",
 				"skipIfBlank":false,
 				"record":{
-					"UserName":"{{ _b3pn9.outputs.result.UserName }}",
-					"Email":"{{ _b3pn9.outputs.result.Email }}",
-					"IsActive":"{{ _b3pn9.outputs.result.IsActive }}",
-					"FullName":"{{ _b3pn9.outputs.result.FullName }}",
-					"EmployeeNumber":"{{ _b3pn9.outputs.result.EmployeeNumber }}",
-					"row_num":"{{ _b3pn9.outputs.result.row_num }}",
-					"EmployeeId":"{{ _b3pn9.outputs.result.EmployeeId }}"
+					"row_num":"{{ _b3pn9.outputs.result.row_num }}"
 				}
 			},
 			"skip":false,
@@ -2605,5 +2600,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
