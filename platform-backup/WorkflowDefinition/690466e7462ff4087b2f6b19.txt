@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761896167740,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761908606826,
+		"deployedBy":33453,
+		"deployedDefinitionId":"6904977d29fed40a30fc3b1d",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":9
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_9DoqF",
@@ -30,7 +38,7 @@
 	"id":"690466e7462ff4087b2f6b19",
 	"lastModifiedBy":33453,
 	"lcName":"vreds",
-	"modifiedTime":1761908603679,
+	"modifiedTime":1761908697947,
 	"name":"vreds",
 	"nodes":[
 		{
@@ -108,12 +116,20 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1qdXx-1",
 			"id":"n_jyKVO",
 			"index":3,
 			"inputs":{
+				"projections":[
+					{
+						"name":"ENTITY_analytics_node_testcases_imp=::=name",
+						"aggregationFunction":"GROUP",
+						"alias":"Name",
+						"includePercentageChange":false
+					}
+				],
 				"entityType":"ENTITY_analytics_node_testcases_imp",
 				"group":"ENTITY_REPORTING"
 			},
@@ -162,5 +178,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
