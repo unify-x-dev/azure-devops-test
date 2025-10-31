@@ -39,11 +39,11 @@
 			"fromNodeId":"n_4te7Y",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_PejFL",
+			"toNodeId":"n_dDxjZ",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_PejFL",
+			"fromNodeId":"n_dDxjZ",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -54,7 +54,7 @@
 	"id":"69033eb32947f0567848d39f",
 	"lastModifiedBy":190409,
 	"lcName":"manager assignment 2",
-	"modifiedTime":1761888071273,
+	"modifiedTime":1761888384834,
 	"name":"manager assignment 2",
 	"nodes":[
 		{
@@ -170,6 +170,8 @@
 			"id":"n_4te7Y",
 			"index":5,
 			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_TfetN.outputs.messages }}",
 				"captureIterations":false
 			},
 			"skip":false,
@@ -179,29 +181,25 @@
 		},
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1130,
-				"resourceName":"callables_call_automation",
+				"appName":"gmail",
+				"resourceVersion":4064,
+				"connectionId":"69033dd95896364f623ab641",
+				"resourceName":"gmail_get_message_specifics",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_4te7Y@_QO3u1-1@l",
-			"id":"n_PejFL",
+			"id":"n_dDxjZ",
 			"index":6,
 			"inputs":{
-				"automationId":"69033d5c2947f0567848cfd6",
-				"runtimeConnections":{},
-				"synchronous":true,
-				"runInUserContext":"190409",
-				"version":"-1",
-				"parameters":{}
+				"id":"{{ n_4te7Y.outputs.item.id }}"
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Call automation",
-			"type":"CALL_WORKFLOW"
+			"subTitle":"Gmail",
+			"title":"Get message specifics",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190409,
@@ -222,5 +220,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
