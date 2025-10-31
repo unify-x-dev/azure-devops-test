@@ -155,7 +155,7 @@
 	"id":"6904b4bfac67042c905e9600",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeebusinessobjectautomation ",
-	"modifiedTime":1761916663853,
+	"modifiedTime":1761916846549,
 	"name":"[virtu-reps] EmployeeBusinessObjectAutomation ",
 	"nodes":[
 		{
@@ -889,6 +889,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
+				"body":{
+					"response":"{{ _aVWT3.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -938,5 +941,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":10
 }
