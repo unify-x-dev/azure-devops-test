@@ -109,7 +109,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761912564751,
+	"modifiedTime":1761912601353,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -795,7 +795,7 @@
 				"listSource":"{{ _Eq6mb.outputs.result.objects }}",
 				"captureIterations":true
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Loop",
 			"title":"For each loop",
 			"type":"LOOP"
@@ -808,7 +808,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_CI9E1@n_Sr2A1@_ErVLa-1@l@l",
 			"id":"_Eq6mb",
@@ -943,7 +943,7 @@
 					]
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Fetch Tables",
 			"title":"Execute REST request",
 			"type":"ACTION"
@@ -981,5 +981,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":12
+	"version":13
 }
