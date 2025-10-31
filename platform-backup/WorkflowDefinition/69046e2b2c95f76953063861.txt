@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_0CziH",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0CziH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_46qsq",
+			"type":"next"
 		}
 	],
 	"id":"69046e2b2c95f76953063861",
 	"lastModifiedBy":46030,
 	"lcName":"groovysample1204",
-	"modifiedTime":1761898622085,
+	"modifiedTime":1761898638057,
 	"name":"groovySample1204",
 	"nodes":[
 		{
@@ -32,6 +39,19 @@
 			"id":"n_RrJoe",
 			"index":1,
 			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"ok"
+					],
+					"properties":{
+						"ok":{
+							"type":"string",
+							"title":"Ok"
+						}
+					}
+				},
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
@@ -106,6 +126,29 @@
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1113,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_GFe1z-1",
+			"id":"n_46qsq",
+			"index":3,
+			"inputs":{
+				"result":{
+					"ok":"200"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":46030,
@@ -125,5 +168,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
