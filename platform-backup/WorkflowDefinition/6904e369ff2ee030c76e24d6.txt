@@ -16,11 +16,11 @@
 			"fromNodeId":"n_lWU4c",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_A5XQU",
+			"toNodeId":"n_NlUpt",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"n_A5XQU",
+			"fromNodeId":"n_NlUpt",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -31,7 +31,7 @@
 	"id":"6904e369ff2ee030c76e24d6",
 	"lastModifiedBy":43523,
 	"lcName":"test browser use",
-	"modifiedTime":1761928068252,
+	"modifiedTime":1761928089722,
 	"name":"test browser use",
 	"nodes":[
 		{
@@ -84,14 +84,42 @@
 			"type":"LOOP"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1049,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_lWU4c@_60uPf-1@l",
-			"id":"n_A5XQU",
+			"id":"n_NlUpt",
 			"index":3,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"input":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Input"
+						}
+					}
+				},
+				"code":"//",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"input":"{{ n_lWU4c.outputs }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		}
 	],
@@ -112,5 +140,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
