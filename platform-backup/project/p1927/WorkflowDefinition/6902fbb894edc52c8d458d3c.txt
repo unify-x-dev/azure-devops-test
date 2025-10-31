@@ -5,12 +5,12 @@
 	"createdTime":1761803192182,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761892063354,
+		"deployedAt":1761892434720,
 		"deployedBy":45010,
-		"deployedDefinitionId":"690456dfffd2512f2177dbe7",
+		"deployedDefinitionId":"69045852ffd2512f2177dd4d",
 		"status":"DEPLOYED",
-		"version":12,
-		"workflowVersion":43
+		"version":13,
+		"workflowVersion":45
 	},
 	"edges":[
 		{
@@ -176,7 +176,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761892433031,
+	"modifiedTime":1761893643491,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -186,7 +186,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_UqZT0",
@@ -239,6 +239,10 @@
 									"properties":{},
 									"additionalProperties":false,
 									"title":"Location"
+								},
+								"id":{
+									"type":"string",
+									"title":"Id"
 								}
 							},
 							"additionalProperties":false,
@@ -391,7 +395,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"_RkGuU",
@@ -445,7 +449,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"_QiGjl",
@@ -497,7 +501,8 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"location":"{{ _QiGjl.outputs.properties }}"
+					"location":"{{ _QiGjl.outputs.properties }}",
+					"id":"{{ _QiGjl.outputs.id }}"
 				},
 				"status":200
 			},
@@ -983,5 +988,5 @@
 	"tags":[
 		
 	],
-	"version":45
+	"version":46
 }
