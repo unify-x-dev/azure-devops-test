@@ -1,52 +1,214 @@
 {
 	"appsUsed":[
-		
+		"gcalendar",
+		"gmail",
+		"gsheets"
 	],
 	"createdTime":1761820339839,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_QO3u1",
+			"fromNodeId":"n_JaeMd",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_bYMX7",
+			"toNodeId":"n_UFcso",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UFcso",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_iKh7v",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_iKh7v",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_TfetN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_TfetN",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_4te7Y",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4te7Y",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PejFL",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_PejFL",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_4te7Y",
 			"type":"next"
 		}
 	],
 	"id":"69033eb32947f0567848d39f",
 	"lastModifiedBy":190409,
 	"lcName":"manager assignment 2",
-	"modifiedTime":1761820339839,
+	"modifiedTime":1761888071273,
 	"name":"manager assignment 2",
 	"nodes":[
 		{
+			"context":{
+				"appName":"schedule",
+				"resourceVersion":836,
+				"resourceName":"schedule_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QO3u1-1",
-			"id":"_QO3u1",
-			"index":0,
+			"id":"n_JaeMd",
+			"index":1,
+			"inputs":{
+				"cron":"EXPRESSION",
+				"expression":"0 8 * * *",
+				"sequential":false,
+				"timezone":"Asia/Calcutta",
+				"interval":15,
+				"frequency":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Schedule",
+			"title":"New recurring event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"SCHEDULED"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"gsheets",
+				"resourceVersion":6238,
+				"connectionId":"69033ef05896364f623abefa",
+				"resourceName":"gsheets_get_rows_batch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QO3u1-1",
-			"id":"_bYMX7",
-			"index":0,
+			"id":"n_UFcso",
+			"index":2,
+			"inputs":{
+				"valueRenderOption":"FORMATTED_VALUE",
+				"objectSourceResourceName":"gsheets_fetch_columns"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Google Sheets",
+			"title":"Get rows",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gcalendar",
+				"resourceVersion":2318,
+				"connectionId":"69033e005896364f623ab6b3",
+				"resourceName":"gcalendar_list_events",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_QO3u1-1",
+			"id":"n_iKh7v",
+			"index":3,
+			"inputs":{
+				"singleEvents":true,
+				"calendarId":"primary",
+				"orderBy":"startTime",
+				"timeZone":"{{ n_JaeMd.outputs.timezone }}"
+			},
+			"skip":false,
+			"subTitle":"Google Calendar",
+			"title":"List events",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gmail",
+				"resourceVersion":4435,
+				"connectionId":"69033dd95896364f623ab641",
+				"resourceName":"gmail_list_emails",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_QO3u1-1",
+			"id":"n_TfetN",
+			"index":4,
+			"inputs":{
+				"count":5,
+				"includeSpamTrash":false
+			},
+			"skip":false,
+			"subTitle":"Gmail",
+			"title":"List Emails",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_QO3u1-1",
+			"id":"n_4te7Y",
+			"index":5,
+			"inputs":{
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1130,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_4te7Y@_QO3u1-1@l",
+			"id":"n_PejFL",
+			"index":6,
+			"inputs":{
+				"automationId":"69033d5c2947f0567848cfd6",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"runInUserContext":"190409",
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":190409,
 	"projectId":160,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -60,5 +222,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
