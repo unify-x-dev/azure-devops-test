@@ -1,51 +1,85 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761896167740,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_1qdXx",
+			"fromNodeId":"n_9DoqF",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_xvyqy",
+			"toNodeId":"n_8Us21",
 			"type":"next"
 		}
 	],
 	"id":"690466e7462ff4087b2f6b19",
 	"lastModifiedBy":33453,
 	"lcName":"vreds",
-	"modifiedTime":1761896167740,
+	"modifiedTime":1761896261294,
 	"name":"vreds",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1qdXx-1",
-			"id":"_1qdXx",
-			"index":0,
+			"id":"n_9DoqF",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4626,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1qdXx-1",
-			"id":"_xvyqy",
-			"index":0,
+			"id":"n_8Us21",
+			"index":2,
+			"inputs":{
+				"object_type":"analytics_node_testcases_imp",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":33453,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +93,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
