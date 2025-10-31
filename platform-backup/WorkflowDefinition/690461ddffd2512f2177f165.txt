@@ -5,69 +5,107 @@
 	"createdTime":1761894877207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761900819695,
+		"deployedAt":1761901358788,
 		"deployedBy":39713,
-		"deployedDefinitionId":"69047913031f260487a171bc",
+		"deployedDefinitionId":"69047b2e1cc49f2bd2c6f285",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":3
+		"version":3,
+		"workflowVersion":4
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_DlRtC",
+			"fromNodeId":"n_J9wmD",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YXgtv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_YXgtv",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_MNMi1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_MNMi1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_oQuMW",
 			"type":"next"
 		}
 	],
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761901356903,
+	"modifiedTime":1761902614711,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1077,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
-			"id":"n_DlRtC",
+			"id":"n_J9wmD",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json",
-					"body":{
-						"type":"object",
-						"properties":{
-							"instanceId":{
-								"type":"string",
-								"title":"Instance Id"
-							},
-							"runtimeType":{
-								"type":"string",
-								"title":"Runtime Type"
-							}
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"instanceId":{
+							"type":"string",
+							"title":"Instance Id"
 						},
-						"additionalProperties":false,
-						"required":[]
+						"runtimeType":{
+							"type":"string",
+							"title":"Runtime Type"
+						}
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oYAuK-1",
+			"id":"n_YXgtv",
+			"index":2,
+			"inputs":{
+				"duration":2,
+				"unit":"MINUTES"
+			},
+			"skip":false,
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.signal_payload.signal_payload.userName"
+				]
+			},
 			"context":{
 				"appName":"signals_by_unifyapps",
 				"resourceVersion":0,
@@ -79,14 +117,17 @@
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_MNMi1",
-			"index":2,
+			"index":3,
 			"inputs":{
 				"automation_id":"690461b5ffd2512f2177f131",
 				"with_signal_id":false,
-				"waitingInstanceRuntimeType":"{{ n_DlRtC.outputs.body.runtimeType }}",
-				"waitingInstanceId":"{{ n_DlRtC.outputs.body.instanceId }}",
+				"waitingInstanceRuntimeType":"{{ n_J9wmD.outputs.runtimeType }}",
+				"waitingInstanceId":"{{ n_J9wmD.outputs.instanceId }}",
 				"signal_payload":{
 					"signal_time_out":false,
+					"signal_payload":{
+						"userName":"Aryam-{{ n_YXgtv.outputs.resumedAt }}-{{ n_YXgtv.outputs.interrupted }}-{{ n_J9wmD.outputs.instanceId }}"
+					},
 					"signal_timeout":false
 				},
 				"nodeId":"n_wQ9yv"
@@ -95,6 +136,27 @@
 			"subTitle":"Signals by UnifyApps",
 			"title":"Emit signal",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1113,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_oYAuK-1",
+			"id":"n_oQuMW",
+			"index":4,
+			"inputs":{
+				"result":"123"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":39713,
@@ -114,5 +176,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
