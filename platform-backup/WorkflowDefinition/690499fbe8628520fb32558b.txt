@@ -77,7 +77,60 @@
 		},
 		{
 			"fromNodeId":"n_CVGVn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fCpLx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fCpLx",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fCpLx@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_fCpLx@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jc6AN",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fCpLx",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fCpLx@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_fCpLx@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_e8Z02",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jc6AN",
 			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Sr2A1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_e8Z02",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Sr2A1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_fCpLx",
+			"name":"default",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Sr2A1",
@@ -94,7 +147,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761917526045,
+	"modifiedTime":1761917605663,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -877,6 +930,167 @@
 		},
 		{
 			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Sr2A1@_ErVLa-1@l",
+			"id":"n_fCpLx",
+			"index":12,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
+			"id":"n_fCpLx@1",
+			"index":13,
+			"inputs":{
+				"name":"Branch 1"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1134,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
+			"id":"n_jc6AN",
+			"index":14,
+			"inputs":{
+				"automationId":"6904a84af80f564e784ba959",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{
+					"baseInternalUrl":"{{ n_96ZBq.outputs.baseInternalUrl }}",
+					"env":"{{ n_96ZBq.outputs.env }}",
+					"heartbeatEnvUrl":"{{ n_96ZBq.outputs.heartbeatEnvUrl }}",
+					"tables":{
+						"source":"{{ n_CVGVn.outputs.result.tables }}",
+						"ua:type":"mappedArray"
+					}
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
+			"id":"n_fCpLx@2",
+			"index":15,
+			"inputs":{
+				"name":"Branch 2"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1094,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
+			"id":"n_e8Z02",
+			"index":16,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"ds":{
+							"type":"string",
+							"title":"Ds"
+						}
+					},
+					"required":[
+						"ds"
+					]
+				}
+			},
+			"inputs":{},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"ds":{
+							"type":"string",
+							"title":"Ds"
+						}
+					},
+					"required":[
+						"ds"
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -884,7 +1098,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_sytyX",
-			"index":12,
+			"index":17,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -908,5 +1122,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":31
+	"version":32
 }
