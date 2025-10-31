@@ -16,6 +16,13 @@
 			"fromNodeId":"n_0CziH",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_arfzA",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_arfzA",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_46qsq",
 			"type":"next"
 		}
@@ -23,7 +30,7 @@
 	"id":"69046e2b2c95f76953063861",
 	"lastModifiedBy":46030,
 	"lcName":"groovysample1204",
-	"modifiedTime":1761898883135,
+	"modifiedTime":1761899067558,
 	"name":"groovySample1204",
 	"nodes":[
 		{
@@ -132,6 +139,57 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1043,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_GFe1z-1",
+			"id":"n_arfzA",
+			"index":3,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"description":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Description"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"description":{
+							"type":"string",
+							"title":"Description"
+						}
+					}
+				},
+				"code":"if (!binding.hasVariable(\"description\")) return null\n\nreturn [\n  \"description\": description?.split(/[\\r\\n]+/)?.findAll { it?.trim() }\n]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"description":"{{ n_RrJoe.outputs.description }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1113,
 				"resourceName":"callables_return_to_automation",
@@ -142,7 +200,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_GFe1z-1",
 			"id":"n_46qsq",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"result":{
 					"ok":"200"
@@ -171,5 +229,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":6
 }
