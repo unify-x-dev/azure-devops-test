@@ -162,7 +162,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761931806971,
+	"modifiedTime":1761931996038,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -172,7 +172,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_EfPSS",
@@ -199,7 +199,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_96ZBq",
@@ -276,7 +276,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_cd79r",
@@ -334,7 +334,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"_auxBn",
@@ -393,7 +393,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_PHNUD",
@@ -429,7 +429,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_6eKH8",
@@ -512,7 +512,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Uk5gQ",
@@ -565,7 +565,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Sr2A1",
@@ -781,9 +781,129 @@
 							"items":{
 								"type":"object",
 								"properties":{
-									"Database":{
+									"COOLDOWN_TIME":{
 										"type":"string",
-										"title":"Database"
+										"title":"COOLDOWN_TIME"
+									},
+									"P50_CS":{
+										"type":"integer",
+										"title":"P50_CS"
+									},
+									"TABLE_NAME":{
+										"type":"string",
+										"title":"TABLE_NAME"
+									},
+									"PARTITION_NAME":{
+										"type":"string",
+										"title":"PARTITION_NAME"
+									},
+									"DATA_SIZE":{
+										"type":"integer",
+										"title":"DATA_SIZE"
+									},
+									"DISTRIBUTION_KEY":{
+										"type":"string",
+										"title":"DISTRIBUTION_KEY"
+									},
+									"VERSION_EPOCH":{
+										"type":"integer",
+										"title":"VERSION_EPOCH"
+									},
+									"DB_NAME":{
+										"type":"string",
+										"title":"DB_NAME"
+									},
+									"PARTITION_VALUE":{
+										"type":"string",
+										"title":"PARTITION_VALUE"
+									},
+									"REPLICATION_NUM":{
+										"type":"integer",
+										"title":"REPLICATION_NUM"
+									},
+									"PARTITION_ID":{
+										"type":"integer",
+										"title":"PARTITION_ID"
+									},
+									"BUCKETS":{
+										"type":"integer",
+										"title":"BUCKETS"
+									},
+									"STORAGE_MEDIUM":{
+										"type":"string",
+										"title":"STORAGE_MEDIUM"
+									},
+									"AVG_CS":{
+										"type":"integer",
+										"title":"AVG_CS"
+									},
+									"VISIBLE_VERSION":{
+										"type":"integer",
+										"title":"VISIBLE_VERSION"
+									},
+									"STORAGE_PATH":{
+										"type":"string",
+										"title":"STORAGE_PATH"
+									},
+									"VERSION_TXN_TYPE":{
+										"type":"string",
+										"title":"VERSION_TXN_TYPE"
+									},
+									"METADATA_SWITCH_VERSION":{
+										"type":"integer",
+										"title":"METADATA_SWITCH_VERSION"
+									},
+									"VISIBLE_VERSION_TIME":{
+										"type":"string",
+										"title":"VISIBLE_VERSION_TIME"
+									},
+									"TABLET_BALANCED":{
+										"type":"boolean",
+										"title":"TABLET_BALANCED"
+									},
+									"IS_TEMP":{
+										"type":"boolean",
+										"title":"IS_TEMP"
+									},
+									"NEXT_VERSION":{
+										"type":"integer",
+										"title":"NEXT_VERSION"
+									},
+									"COMPACT_VERSION":{
+										"type":"integer",
+										"title":"COMPACT_VERSION"
+									},
+									"DATA_VERSION":{
+										"type":"integer",
+										"title":"DATA_VERSION"
+									},
+									"MAX_CS":{
+										"type":"integer",
+										"title":"MAX_CS"
+									},
+									"PATH_ID":{
+										"type":"integer",
+										"title":"PATH_ID"
+									},
+									"PARTITION_KEY":{
+										"type":"string",
+										"title":"PARTITION_KEY"
+									},
+									"IS_IN_MEMORY":{
+										"type":"boolean",
+										"title":"IS_IN_MEMORY"
+									},
+									"ROW_COUNT":{
+										"type":"integer",
+										"title":"ROW_COUNT"
+									},
+									"ENABLE_DATACACHE":{
+										"type":"boolean",
+										"title":"ENABLE_DATACACHE"
+									},
+									"STORAGE_SIZE":{
+										"type":"integer",
+										"title":"STORAGE_SIZE"
 									}
 								},
 								"additionalProperties":false
@@ -1002,6 +1122,11 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1049,
@@ -1020,9 +1145,139 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"partitions":{
-							"type":"string",
-							"title":"Partitions"
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"COOLDOWN_TIME":{
+										"type":"string",
+										"title":"COOLDOWN_TIME"
+									},
+									"P50_CS":{
+										"type":"integer",
+										"title":"P50_CS"
+									},
+									"TABLE_NAME":{
+										"type":"string",
+										"title":"TABLE_NAME"
+									},
+									"PARTITION_NAME":{
+										"type":"string",
+										"title":"PARTITION_NAME"
+									},
+									"DATA_SIZE":{
+										"type":"integer",
+										"title":"DATA_SIZE"
+									},
+									"DISTRIBUTION_KEY":{
+										"type":"string",
+										"title":"DISTRIBUTION_KEY"
+									},
+									"VERSION_EPOCH":{
+										"type":"integer",
+										"title":"VERSION_EPOCH"
+									},
+									"DB_NAME":{
+										"type":"string",
+										"title":"DB_NAME"
+									},
+									"PARTITION_VALUE":{
+										"type":"string",
+										"title":"PARTITION_VALUE"
+									},
+									"REPLICATION_NUM":{
+										"type":"integer",
+										"title":"REPLICATION_NUM"
+									},
+									"PARTITION_ID":{
+										"type":"integer",
+										"title":"PARTITION_ID"
+									},
+									"BUCKETS":{
+										"type":"integer",
+										"title":"BUCKETS"
+									},
+									"STORAGE_MEDIUM":{
+										"type":"string",
+										"title":"STORAGE_MEDIUM"
+									},
+									"AVG_CS":{
+										"type":"integer",
+										"title":"AVG_CS"
+									},
+									"VISIBLE_VERSION":{
+										"type":"integer",
+										"title":"VISIBLE_VERSION"
+									},
+									"STORAGE_PATH":{
+										"type":"string",
+										"title":"STORAGE_PATH"
+									},
+									"VERSION_TXN_TYPE":{
+										"type":"string",
+										"title":"VERSION_TXN_TYPE"
+									},
+									"METADATA_SWITCH_VERSION":{
+										"type":"integer",
+										"title":"METADATA_SWITCH_VERSION"
+									},
+									"VISIBLE_VERSION_TIME":{
+										"type":"string",
+										"title":"VISIBLE_VERSION_TIME"
+									},
+									"TABLET_BALANCED":{
+										"type":"boolean",
+										"title":"TABLET_BALANCED"
+									},
+									"IS_TEMP":{
+										"type":"boolean",
+										"title":"IS_TEMP"
+									},
+									"NEXT_VERSION":{
+										"type":"integer",
+										"title":"NEXT_VERSION"
+									},
+									"COMPACT_VERSION":{
+										"type":"integer",
+										"title":"COMPACT_VERSION"
+									},
+									"DATA_VERSION":{
+										"type":"integer",
+										"title":"DATA_VERSION"
+									},
+									"MAX_CS":{
+										"type":"integer",
+										"title":"MAX_CS"
+									},
+									"PATH_ID":{
+										"type":"integer",
+										"title":"PATH_ID"
+									},
+									"PARTITION_KEY":{
+										"type":"string",
+										"title":"PARTITION_KEY"
+									},
+									"IS_IN_MEMORY":{
+										"type":"boolean",
+										"title":"IS_IN_MEMORY"
+									},
+									"ROW_COUNT":{
+										"type":"integer",
+										"title":"ROW_COUNT"
+									},
+									"ENABLE_DATACACHE":{
+										"type":"boolean",
+										"title":"ENABLE_DATACACHE"
+									},
+									"STORAGE_SIZE":{
+										"type":"integer",
+										"title":"STORAGE_SIZE"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"objects"
 						}
 					}
 				},
@@ -1057,7 +1312,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_fCpLx",
@@ -1166,7 +1421,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_fCpLx@2",
@@ -1196,7 +1451,51 @@
 				"runtimeConnections":{},
 				"synchronous":true,
 				"version":"-1",
-				"parameters":{}
+				"parameters":{
+					"env":"{{ n_96ZBq.outputs.env }}",
+					"baseInternalUrl":"{{ n_96ZBq.outputs.baseInternalUrl }}",
+					"heartbeatEnvUrl":"{{ n_96ZBq.outputs.heartbeatEnvUrl }}",
+					"rootAutomationId":"{{ __RUN__.outputs.workflowId }}",
+					"rootExecutionId":"{{ __RUN__.outputs.executionId }}",
+					"executionTime":"{{ n_EfPSS.outputs.scheduleTime }}",
+					"partitions":{
+						"source":"{{ _7Ar8v.outputs.result.objects }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"COOLDOWN_TIME":"{{ _7Ar8v.outputs.result.objects[0].COOLDOWN_TIME }}",
+							"P50_CS":"{{ _7Ar8v.outputs.result.objects[0].P50_CS }}",
+							"TABLE_NAME":"{{ _7Ar8v.outputs.result.objects[0].TABLE_NAME }}",
+							"PARTITION_NAME":"{{ _7Ar8v.outputs.result.objects[0].PARTITION_NAME }}",
+							"DATA_SIZE":"{{ _7Ar8v.outputs.result.objects[0].DATA_SIZE }}",
+							"DISTRIBUTION_KEY":"{{ _7Ar8v.outputs.result.objects[0].DISTRIBUTION_KEY }}",
+							"VERSION_EPOCH":"{{ _7Ar8v.outputs.result.objects[0].VERSION_EPOCH }}",
+							"DB_NAME":"{{ _7Ar8v.outputs.result.objects[0].DB_NAME }}",
+							"PARTITION_VALUE":"{{ _7Ar8v.outputs.result.objects[0].PARTITION_VALUE }}",
+							"REPLICATION_NUM":"{{ _7Ar8v.outputs.result.objects[0].REPLICATION_NUM }}",
+							"PARTITION_ID":"{{ _7Ar8v.outputs.result.objects[0].PARTITION_ID }}",
+							"BUCKETS":"{{ _7Ar8v.outputs.result.objects[0].BUCKETS }}",
+							"STORAGE_MEDIUM":"{{ _7Ar8v.outputs.result.objects[0].STORAGE_MEDIUM }}",
+							"AVG_CS":"{{ _7Ar8v.outputs.result.objects[0].AVG_CS }}",
+							"VISIBLE_VERSION":"{{ _7Ar8v.outputs.result.objects[0].VISIBLE_VERSION }}",
+							"STORAGE_PATH":"{{ _7Ar8v.outputs.result.objects[0].STORAGE_PATH }}",
+							"VERSION_TXN_TYPE":"{{ _7Ar8v.outputs.result.objects[0].VERSION_TXN_TYPE }}",
+							"METADATA_SWITCH_VERSION":"{{ _7Ar8v.outputs.result.objects[0].METADATA_SWITCH_VERSION }}",
+							"VISIBLE_VERSION_TIME":"{{ _7Ar8v.outputs.result.objects[0].VISIBLE_VERSION_TIME }}",
+							"TABLET_BALANCED":"{{ _7Ar8v.outputs.result.objects[0].TABLET_BALANCED }}",
+							"IS_TEMP":"{{ _7Ar8v.outputs.result.objects[0].IS_TEMP }}",
+							"NEXT_VERSION":"{{ _7Ar8v.outputs.result.objects[0].NEXT_VERSION }}",
+							"COMPACT_VERSION":"{{ _7Ar8v.outputs.result.objects[0].COMPACT_VERSION }}",
+							"DATA_VERSION":"{{ _7Ar8v.outputs.result.objects[0].DATA_VERSION }}",
+							"MAX_CS":"{{ _7Ar8v.outputs.result.objects[0].MAX_CS }}",
+							"PATH_ID":"{{ _7Ar8v.outputs.result.objects[0].PATH_ID }}",
+							"PARTITION_KEY":"{{ _7Ar8v.outputs.result.objects[0].PARTITION_KEY }}",
+							"IS_IN_MEMORY":"{{ _7Ar8v.outputs.result.objects[0].IS_IN_MEMORY }}",
+							"ROW_COUNT":"{{ _7Ar8v.outputs.result.objects[0].ROW_COUNT }}",
+							"ENABLE_DATACACHE":"{{ _7Ar8v.outputs.result.objects[0].ENABLE_DATACACHE }}",
+							"STORAGE_SIZE":"{{ _7Ar8v.outputs.result.objects[0].STORAGE_SIZE }}"
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -1236,5 +1535,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":50
+	"version":51
 }
