@@ -5,12 +5,12 @@
 	"createdTime":1761803192182,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761819602656,
+		"deployedAt":1761887013860,
 		"deployedBy":45010,
-		"deployedDefinitionId":"69033bd2501d855ce647a43c",
+		"deployedDefinitionId":"69044325ffd2512f2177c6fa",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":38
+		"version":8,
+		"workflowVersion":39
 	},
 	"edges":[
 		{
@@ -264,7 +264,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761887011460,
+	"modifiedTime":1761887897916,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -911,7 +911,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@1",
 			"id":"n_CRAiq",
@@ -1098,7 +1098,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_AkSAF",
@@ -1215,7 +1215,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_mWWmA",
@@ -1244,7 +1244,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_6r9Nr",
@@ -1252,6 +1252,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"response":"{{ n_mWWmA.outputs.object.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1301,5 +1304,5 @@
 	"tags":[
 		
 	],
-	"version":39
+	"version":40
 }
