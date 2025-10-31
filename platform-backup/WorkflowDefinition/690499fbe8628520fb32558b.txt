@@ -58,14 +58,36 @@
 			"fromNodeId":"n_Uk5gQ",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_Sr2A1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Sr2A1",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_fimnV",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"_fimnV",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Sr2A1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Sr2A1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_sytyX",
 			"type":"next"
 		}
 	],
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761911566979,
+	"modifiedTime":1761911653404,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -523,6 +545,20 @@
 			"id":"n_Uk5gQ",
 			"index":8,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"sqlServers":{
+							"type":"array",
+							"items":{
+								"type":"string"
+							},
+							"title":"Sql Servers"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -550,28 +586,51 @@
 		},
 		{
 			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"n_Sr2A1",
+			"index":9,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ n_Uk5gQ.outputs.result.sqlServers }}",
+				"captureIterations":true
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
 				"appName":"custom_http_endpoint",
 				"resourceVersion":10,
 				"resourceName":"custom_http_endpoint_execute",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_ErVLa-1",
+			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_fimnV",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
-					"sql":"show"
+					"sql":"show tables;"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
-				"path":"/internal/sql-report/runSQL/query/{{ n_A4kqi.outputs.customerId }}",
+				"path":"/internal/sql-report/executeQueryForServer/{{ n_Sr2A1.outputs.item }}",
 				"responseSchema":{
 					"type":"object",
 					"additionalProperties":false,
@@ -773,10 +832,25 @@
 					]
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Fetch Tables",
 			"title":"Execute REST request",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_ErVLa-1",
+			"id":"n_sytyX",
+			"index":11,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":44108,
@@ -796,5 +870,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":4
+	"version":5
 }
