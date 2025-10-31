@@ -6,46 +6,93 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_WmvwB",
+			"fromNodeId":"n_0L28P",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_kjkqO",
+			"toNodeId":"n_iLVw7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_iLVw7",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Z8OCl",
 			"type":"next"
 		}
 	],
 	"id":"69049f33f80f564e784b7dd1",
 	"lastModifiedBy":4130,
 	"lcName":"newsubscriber",
-	"modifiedTime":1761910579346,
+	"modifiedTime":1761910620250,
 	"name":"newSubscriber",
 	"nodes":[
 		{
+			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":1711,
+				"resourceName":"streams_by_unifyapps_on_event"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_WmvwB-1",
-			"id":"_WmvwB",
-			"index":0,
+			"id":"n_0L28P",
+			"index":1,
+			"inputs":{
+				"triggerAfterCompletion":false,
+				"messageLimit":1,
+				"streamId":"e_68f34eba0e135e412acff3b7"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Streams by UnifyApps",
+			"title":"Triggers on new event from stream",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"delay",
+				"resourceVersion":809,
+				"resourceName":"delay_for",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_WmvwB-1",
-			"id":"_kjkqO",
-			"index":0,
+			"id":"n_iLVw7",
+			"index":2,
+			"inputs":{
+				"duration":10,
+				"unit":"SECONDS"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Delay",
+			"title":"Set delay duration",
+			"type":"DELAY"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_WmvwB-1",
+			"id":"n_Z8OCl",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":4130,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +106,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
