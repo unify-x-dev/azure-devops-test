@@ -5,47 +5,44 @@
 	"createdTime":1761906211595,
 	"deleted":false,
 	"edges":[
-		{
-			"fromNodeId":"_br5jP",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_10B9N",
-			"type":"next"
-		}
+		
 	],
 	"id":"69048e238a681e00f75aa72e",
 	"lastModifiedBy":31268,
 	"lcName":"employee subscriber",
-	"modifiedTime":1761909877858,
+	"modifiedTime":1761909913109,
 	"name":"employee subscriber",
 	"nodes":[
 		{
+			"context":{
+				"appName":"streams_by_unifyapps",
+				"resourceVersion":1711,
+				"resourceName":"streams_by_unifyapps_on_event"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_br5jP-1",
-			"id":"_br5jP",
-			"index":0,
+			"id":"n_uz9Mk",
+			"index":1,
+			"inputs":{
+				"triggerAfterCompletion":false,
+				"messageLimit":1,
+				"streamId":"e_68ed64ece59f99321f3f9dba"
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Streams by UnifyApps",
+			"title":"Triggers on new event from stream",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
-		},
-		{
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"_br5jP-1",
-			"id":"_10B9N",
-			"index":0,
-			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":2621,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +56,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
