@@ -162,7 +162,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761933211266,
+	"modifiedTime":1761933232577,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -776,7 +776,7 @@
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
-					"sql":"select * from information_schema.partitions_meta where TABLE_SCHEMA like \"%REPORT%\" order by DATA_SIZE limit 100;"
+					"sql":"select * from information_schema.partitions_meta where DB_NAME like \"%REPORT%\" order by DATA_SIZE limit 100;"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
@@ -1549,5 +1549,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":56
+	"version":57
 }
