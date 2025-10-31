@@ -1,51 +1,102 @@
 {
 	"appsUsed":[
-		
+		"microsoft_outlook"
 	],
 	"createdTime":1761916991216,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_0Yead",
+			"fromNodeId":"n_zmjou",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_w6sAU",
+			"toNodeId":"n_5seUo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5seUo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mlhmv",
 			"type":"next"
 		}
 	],
 	"id":"6904b83f7cc2cc6b35d92812",
 	"lastModifiedBy":33452,
 	"lcName":"outlookmailbox",
-	"modifiedTime":1761916991216,
+	"modifiedTime":1761917164980,
 	"name":"outlookMailbox",
 	"nodes":[
 		{
+			"context":{
+				"appName":"microsoft_outlook",
+				"resourceVersion":9,
+				"connectionId":"68cbf78314d01c7009919c0e",
+				"resourceName":"microsoft_outlook_on_new_mail_shared_mailbox_polling"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0Yead-1",
-			"id":"_0Yead",
-			"index":0,
+			"id":"n_zmjou",
+			"index":1,
+			"inputs":{
+				"interval":5,
+				"mailBoxId":"UnifyAppsCommentary@lowes.com",
+				"batchSize":5
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Microsoft Outlook",
+			"title":"New email in shared mailbox",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"microsoft_outlook",
+				"resourceVersion":3636,
+				"connectionId":"68cbf78314d01c7009919c0e",
+				"resourceName":"microsoft_outlook_send_email",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_0Yead-1",
-			"id":"_w6sAU",
-			"index":0,
+			"id":"n_5seUo",
+			"index":2,
+			"inputs":{
+				"toRecipients":"arsh.malik@unifyapps.com",
+				"emailType":"text",
+				"subject":"Test",
+				"from":"UnifyAppsCommentary@lowes.com"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Microsoft Outlook",
+			"title":"Send email",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_0Yead-1",
+			"id":"n_mlhmv",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":33452,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +110,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
