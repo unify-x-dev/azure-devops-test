@@ -6,46 +6,89 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_LAT0U",
+			"fromNodeId":"n_qWOCq",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_wWqTL",
+			"toNodeId":"n_bVekx",
 			"type":"next"
 		}
 	],
 	"id":"6904be42b7d9901293565be2",
 	"lastModifiedBy":21,
 	"lcName":"temp",
-	"modifiedTime":1761918530609,
+	"modifiedTime":1761918573225,
 	"name":"temp",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LAT0U-1",
-			"id":"_LAT0U",
-			"index":0,
+			"id":"n_qWOCq",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"notification_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"notification_by_unifyapps_send_notification",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LAT0U-1",
-			"id":"_wWqTL",
-			"index":0,
+			"id":"n_bVekx",
+			"index":2,
+			"inputs":{
+				"cta":{
+					"type":"url",
+					"width":{
+						"custom":"400px"
+					}
+				},
+				"receiver":[
+					"21"
+				],
+				"receiverType":"USER",
+				"module":"application",
+				"eventType":"e_68a9ec1299679644792ee05a",
+				"applicationId":"",
+				"notificationPreviewTime":5,
+				"content":{
+					"templateId":"failed_export_notification_template"
+				},
+				"tags":[
+					"alerts"
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Notification by UnifyApps",
+			"title":"Send notification",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":21,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +102,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
