@@ -6,46 +6,71 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_tS7zH",
+			"fromNodeId":"n_x7zxy",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ScCsY",
+			"toNodeId":"n_AYwG2",
 			"type":"next"
 		}
 	],
 	"id":"690461b5ffd2512f2177f131",
 	"lastModifiedBy":39713,
 	"lcName":"waitforsignaltest",
-	"modifiedTime":1761894837205,
+	"modifiedTime":1761895373994,
 	"name":"WaitForSignalTest",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
-			"id":"_tS7zH",
-			"index":0,
+			"id":"n_x7zxy",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":961,
+				"resourceName":"signals_by_unifyapps_wait_for_signal",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
-			"id":"_ScCsY",
-			"index":0,
+			"id":"n_AYwG2",
+			"index":2,
+			"inputs":{
+				"duration":1,
+				"unit":"MINUTES"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Signals by UnifyApps",
+			"title":"Wait for signal",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39713,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +84,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
