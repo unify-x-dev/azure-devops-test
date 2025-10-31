@@ -5,12 +5,12 @@
 	"createdTime":1761816229066,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761896713401,
+		"deployedAt":1761897786497,
 		"deployedBy":45010,
-		"deployedDefinitionId":"69046909462ff4087b2f77fe",
+		"deployedDefinitionId":"69046d3a2c95f769530631e3",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":8
+		"version":4,
+		"workflowVersion":10
 	},
 	"edges":[
 		{
@@ -140,7 +140,7 @@
 	"id":"69032ea513085040561b1e45",
 	"lastModifiedBy":45010,
 	"lcName":"tierobjectautomation",
-	"modifiedTime":1761897784836,
+	"modifiedTime":1761897922455,
 	"name":"TierObjectAutomation",
 	"nodes":[
 		{
@@ -190,23 +190,17 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"count":{
-									"type":"integer",
-									"title":"Count"
-								},
-								"tier":{
+								"response":{
 									"type":"object",
 									"properties":{},
 									"additionalProperties":false,
-									"title":"Tier"
-								},
-								"success":{
-									"type":"boolean",
-									"title":"Success"
+									"title":"Response"
 								}
 							},
 							"additionalProperties":false,
-							"required":[]
+							"required":[
+								"response"
+							]
 						}
 					},
 					{
@@ -441,7 +435,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@1",
 			"id":"_h14Zu",
@@ -450,7 +444,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"tier":"{{ _0N4lw.outputs.properties }}"
+					"response":"{{ _0N4lw.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -582,7 +576,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_l8j4d",
@@ -591,7 +585,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"tier":"{{ n_hw7UJ.outputs.properties }}"
+					"response":"{{ n_hw7UJ.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -739,7 +733,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_NFG0A",
@@ -747,6 +741,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"response":"{{ n_4m59q.outputs.count }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -796,5 +793,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
