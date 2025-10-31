@@ -65,7 +65,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761911447366,
+	"modifiedTime":1761911566979,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -434,7 +434,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_6eKH8",
@@ -449,7 +449,7 @@
 					"collectionName":"ResourceConfig",
 					"query":"{{ n_PHNUD.outputs.result.query }}",
 					"skip":0,
-					"limit":50
+					"limit":500
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":true,
@@ -796,5 +796,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":3
+	"version":4
 }
