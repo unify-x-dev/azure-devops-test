@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"67fb87dfa0c4b4035ace09b6"
 	],
 	"createdTime":1761732572227,
 	"deleted":false,
@@ -26,12 +26,19 @@
 			"skip":false,
 			"toNodeId":"n_tq5aF",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tq5aF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DdLk0",
+			"type":"next"
 		}
 	],
 	"id":"6901e7dc960f455f6fd01388",
 	"lastModifiedBy":132116,
 	"lcName":"dependencyworkflow",
-	"modifiedTime":1761919256635,
+	"modifiedTime":1761919728369,
 	"name":"dependencyWorkflow",
 	"nodes":[
 		{
@@ -103,6 +110,25 @@
 			"subTitle":"Encryption Tools by UnifyApps",
 			"title":"Encrypt data",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"67fb87dfa0c4b4035ace09b6",
+				"resourceVersion":2249,
+				"resourceName":"67fb87dfa0c4b4035ace09b6:67fb887fa0c4b4035ace09d4",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2cGpO-1",
+			"id":"n_DdLk0",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"testing",
+			"title":"apiOperation",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":122909,
@@ -122,5 +148,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
