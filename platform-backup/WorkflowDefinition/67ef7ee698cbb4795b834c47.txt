@@ -40,7 +40,7 @@
 			"name":"no",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Q7fzm",
+			"toNodeId":"n_qtDc1",
 			"type":"next"
 		},
 		{
@@ -52,7 +52,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_Q7fzm",
+			"fromNodeId":"n_qtDc1",
 			"name":"scope-loopback",
 			"priority":0,
 			"skip":false,
@@ -63,7 +63,7 @@
 	"id":"67ef7ee698cbb4795b834c47",
 	"lastModifiedBy":504,
 	"lcName":"hs-test-scope",
-	"modifiedTime":1761896414718,
+	"modifiedTime":1761896430838,
 	"name":"hs-test-scope",
 	"nodes":[
 		{
@@ -155,16 +155,25 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":968,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION",
 				"scopeNodeId":"n_jLNzG"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_UjELH@n_jLNzG@JWtXm-1@s@n",
-			"id":"n_Q7fzm",
+			"id":"n_qtDc1",
 			"index":5,
+			"inputs":{
+				"code":"console.log(\"world\")",
+				"isAsync":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Javascript",
 			"type":"ACTION"
 		}
 	],
@@ -181,5 +190,5 @@
 	"tags":[
 		
 	],
-	"version":156
+	"version":157
 }
