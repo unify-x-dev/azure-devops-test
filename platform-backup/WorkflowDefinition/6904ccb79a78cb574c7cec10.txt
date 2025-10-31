@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"keka"
 	],
 	"createdTime":1761922231592,
 	"deleted":false,
@@ -9,14 +9,21 @@
 			"fromNodeId":"_WhCAs",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_sR68U",
+			"toNodeId":"n_H2NUI",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_H2NUI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_0FFOa",
 			"type":"next"
 		}
 	],
 	"id":"6904ccb79a78cb574c7cec10",
 	"lastModifiedBy":2621,
 	"lcName":"test",
-	"modifiedTime":1761922231592,
+	"modifiedTime":1761923106562,
 	"name":"test",
 	"nodes":[
 		{
@@ -25,7 +32,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WhCAs-1",
 			"id":"_WhCAs",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +41,63 @@
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.salaryComponents.items.componentId",
+					"root.salaryComponents.items.declaredAmount"
+				]
+			},
+			"context":{
+				"appName":"keka",
+				"resourceVersion":157,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_employees",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_WhCAs-1",
-			"id":"_sR68U",
-			"index":0,
+			"id":"n_H2NUI",
+			"index":2,
+			"inputs":{
+				"inNoticePeriod":false,
+				"pageSize":100,
+				"inProbation":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Keka",
+			"title":"List all employees",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":92,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_adhoc_transaction",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_WhCAs-1",
+			"id":"n_0FFOa",
+			"index":3,
+			"inputs":{
+				"payGroupId":"0b453f7d-e032-4547-9ec6-b84a7b6e306c",
+				"payCycleId":"0b453f7d-e032-4547-9ec6-b84a7b6e306c"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update the adhoc transaction",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":2621,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +111,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
