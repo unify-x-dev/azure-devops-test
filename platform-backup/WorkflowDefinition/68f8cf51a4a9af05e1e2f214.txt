@@ -44,6 +44,27 @@
 			"fromNodeId":"_k9SU8",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_AV7NF",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_AV7NF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_7kyJZ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_7kyJZ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2kWOB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2kWOB",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"_MKmIq",
 			"type":"next"
 		},
@@ -56,9 +77,9 @@
 		}
 	],
 	"id":"68f8cf51a4a9af05e1e2f214",
-	"lastModifiedBy":44567,
+	"lastModifiedBy":31268,
 	"lcName":"web_jobs_testing",
-	"modifiedTime":1761641475505,
+	"modifiedTime":1761907761883,
 	"name":"web_jobs_testing",
 	"nodes":[
 		{
@@ -309,6 +330,72 @@
 			"type":"ACTION"
 		},
 		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1117,
+				"resourceName":"utility_by_unifyapps_generate_public_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_jiMLz-1",
+			"id":"_AV7NF",
+			"index":7,
+			"inputs":{
+				"file":"{{ n_uMej7.outputs.result.fileDetails }}",
+				"expiryTime":1
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Generate public file URL",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1117,
+				"resourceName":"utility_by_unifyapps_generate_public_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_jiMLz-1",
+			"id":"_7kyJZ",
+			"index":8,
+			"inputs":{
+				"file":"{{ _B4pG8.outputs.result.fileDetails }}",
+				"expiryTime":1
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Generate public file URL",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1117,
+				"resourceName":"utility_by_unifyapps_generate_public_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_jiMLz-1",
+			"id":"n_2kWOB",
+			"index":9,
+			"inputs":{
+				"file":"{{ _k9SU8.outputs.result.fileDetails }}",
+				"expiryTime":1
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Generate public file URL",
+			"type":"ACTION"
+		},
+		{
 			"additional":{
 				"xsdSchemaConfig":{
 					"root":{}
@@ -325,7 +412,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"_MKmIq",
-			"index":7,
+			"index":10,
 			"inputs":{
 				"jsonSchema":{
 					"type":"object",
@@ -383,11 +470,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_jiMLz-1",
 			"id":"n_Iyzj1",
-			"index":8,
+			"index":11,
 			"inputs":{
 				"webJobFile":"e_69007668789e022c9a44e10b",
 				"metadata":{
@@ -471,5 +558,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
