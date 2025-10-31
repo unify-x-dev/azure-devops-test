@@ -6,46 +6,112 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_GFe1z",
+			"fromNodeId":"n_RrJoe",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ulDlb",
+			"toNodeId":"n_0CziH",
 			"type":"next"
 		}
 	],
 	"id":"69046e2b2c95f76953063861",
 	"lastModifiedBy":46030,
 	"lcName":"groovysample1204",
-	"modifiedTime":1761898027059,
+	"modifiedTime":1761898622085,
 	"name":"groovySample1204",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1077,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFe1z-1",
-			"id":"_GFe1z",
-			"index":0,
+			"id":"n_RrJoe",
+			"index":1,
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"content":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Content"
+						},
+						"description":{
+							"type":"string",
+							"title":"Description"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1043,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_GFe1z-1",
-			"id":"_ulDlb",
-			"index":0,
+			"id":"n_0CziH",
+			"index":2,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"content":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Content"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"content":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Content"
+						}
+					}
+				},
+				"code":"if (!binding.hasVariable('content')) return [:];\n\ndef transformContent(content) {\n    if (content == null) return;\n    \n    def splitFields = ['highlights', 'inclusions', 'exclusions']\n    def result = [:]\n    \n    content.each { key, value ->\n        if (splitFields.contains(key) && value instanceof String) {\n            result[key] = value.split(/\\r\\n/).findAll { it.trim() }\n        } else {\n            result[key] = value\n        }\n    }\n    \n    return result\n}\n\nreturn [\n  \"content\": transformContent(content)\n]",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":46030,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +125,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
