@@ -5,12 +5,12 @@
 	"createdTime":1761816229066,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761816456670,
+		"deployedAt":1761817736208,
 		"deployedBy":45010,
-		"deployedDefinitionId":"69032f882947f0567848a1da",
+		"deployedDefinitionId":"69033488501d855ce6478d19",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":4
+		"version":2,
+		"workflowVersion":6
 	},
 	"edges":[
 		{
@@ -32,51 +32,21 @@
 			"fromNodeId":"n_Fsqj1@1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DiDi2",
+			"toNodeId":"_azmrm",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_DiDi2",
-			"name":"1",
+			"fromNodeId":"_azmrm",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DiDi2@1",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_DiDi2@1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_fVAxc",
+			"toNodeId":"_0N4lw",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_DiDi2",
-			"name":"4",
+			"fromNodeId":"_0N4lw",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_DiDi2@4",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_DiDi2@4",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_c3vVw",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_c3vVw",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_VRLzf",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_VRLzf",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_HvAfE",
+			"toNodeId":"_h14Zu",
 			"type":"next"
 		},
 		{
@@ -138,21 +108,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_fVAxc",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_bcbd8",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_HvAfE",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_bcbd8",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_DiDi2",
+			"fromNodeId":"_h14Zu",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_bcbd8",
@@ -184,7 +140,7 @@
 	"id":"69032ea513085040561b1e45",
 	"lastModifiedBy":45010,
 	"lcName":"tierobjectautomation",
-	"modifiedTime":1761817734423,
+	"modifiedTime":1761896696539,
 	"name":"TierObjectAutomation",
 	"nodes":[
 		{
@@ -194,7 +150,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9MF0g-1",
 			"id":"n_864tN",
@@ -234,11 +190,19 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"response":{
+								"count":{
+									"type":"integer",
+									"title":"Count"
+								},
+								"tier":{
 									"type":"object",
 									"properties":{},
 									"additionalProperties":false,
-									"title":"Response"
+									"title":"Tier"
+								},
+								"success":{
+									"type":"boolean",
+									"title":"Success"
 								}
 							},
 							"additionalProperties":false,
@@ -262,7 +226,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9MF0g-1",
 			"id":"n_Fsqj1",
@@ -341,7 +305,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@1",
 			"id":"n_Fsqj1@1",
@@ -367,163 +331,17 @@
 		},
 		{
 			"context":{
-				"appName":"branch",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_Fsqj1@_9MF0g-1@1",
-			"id":"n_DiDi2",
-			"index":4,
-			"inputs":{
-				"branches":[
-					{
-						"id":"1",
-						"inputs":{
-							"name":"Branch 1",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_864tN.outputs.body.payload }}",
-										"filter":{
-											"operator":"CONTAINS",
-											"value":"EmployeeNumber"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"4",
-						"inputs":{
-							"name":"Branch 3",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_864tN.outputs.body.payload }}",
-										"filter":{
-											"operator":"CONTAINS",
-											"value":"ReferenceNumber"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
-						"id":"default"
-					}
-				]
-			},
-			"skip":false,
-			"subTitle":"Branch",
-			"title":"",
-			"type":"BRANCH"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
-			"id":"n_DiDi2@1",
-			"index":5,
-			"inputs":{
-				"name":"Branch 1",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_864tN.outputs.body.payload }}",
-							"filter":{
-								"operator":"CONTAINS",
-								"value":"EmployeeNumber"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1131,
-				"resourceName":"callables_return_response_to_api",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
-			"id":"n_fVAxc",
-			"index":6,
-			"inputs":{
-				"streamingCompleted":true,
-				"responseName":"200_undefined",
-				"status":200
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to API request",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
-			"id":"n_DiDi2@4",
-			"index":7,
-			"inputs":{
-				"name":"Branch 3",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_864tN.outputs.body.payload }}",
-							"filter":{
-								"operator":"CONTAINS",
-								"value":"ReferenceNumber"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1037,
 				"resourceName":"code_by_unifyapps_groovy",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
-			"id":"n_c3vVw",
-			"index":8,
+			"groupId":"n_Fsqj1@_9MF0g-1@1",
+			"id":"_azmrm",
+			"index":4,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -573,11 +391,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
-			"id":"n_VRLzf",
-			"index":9,
+			"groupId":"n_Fsqj1@_9MF0g-1@1",
+			"id":"_0N4lw",
+			"index":5,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -585,7 +403,7 @@
 							"property":"properties_ReferenceNumber",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_c3vVw.outputs.result.ReferenceNumber }}"
+								"value":"{{ _azmrm.outputs.result.ReferenceNumber }}"
 							}
 						}
 					],
@@ -616,16 +434,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
-			"id":"n_HvAfE",
-			"index":10,
+			"groupId":"n_Fsqj1@_9MF0g-1@1",
+			"id":"_h14Zu",
+			"index":6,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_VRLzf.outputs.properties }}"
+					"tier":"{{ _0N4lw.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -642,11 +460,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_Fsqj1@2",
-			"index":11,
+			"index":7,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -678,7 +496,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_pawTn",
-			"index":12,
+			"index":8,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -733,11 +551,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_hw7UJ",
-			"index":13,
+			"index":9,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_tiers",
@@ -757,16 +575,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_l8j4d",
-			"index":14,
+			"index":10,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_hw7UJ.outputs.properties }}"
+					"tier":"{{ n_hw7UJ.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -783,11 +601,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_Fsqj1@3",
-			"index":15,
+			"index":11,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -819,23 +637,23 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_hqSfX",
-			"index":16,
+			"index":12,
 			"inputs":{
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"tierId",
-						"employeeId"
+						"name",
+						"ReferenceNumber"
 					],
 					"properties":{
-						"tierId":{
+						"name":{
 							"type":"string",
-							"title":"Tier Id"
+							"title":"Name"
 						},
-						"employeeId":{
+						"ReferenceNumber":{
 							"type":"string",
-							"title":"Employee Id"
+							"title":"Reference Number"
 						}
 					}
 				},
@@ -854,7 +672,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n  \"tierId\": payload.TierId,\n  \"employeeId\": payload.EmployeeId\n]\nreturn result",
+				"code":"def result = [\n  \"Name\": payload.name,\n  \"ReferenceNumber\": payload.ReferenceNumber\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -869,26 +687,37 @@
 		{
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":4511,
-				"resourceName":"storage_by_unifyapps_update_record_by_id",
+				"resourceVersion":4602,
+				"resourceName":"storage_by_unifyapps_update_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_4m59q",
-			"index":17,
+			"index":13,
 			"inputs":{
-				"writeThroughSessionVariables":false,
+				"numberOfRecordsToUpdate":"SINGLE",
 				"object_type":"reps_tiers",
 				"skipIfBlank":false,
-				"record":{},
-				"upsert":false
+				"updateFields":[
+					{
+						"fieldName":"properties.Id",
+						"actionType":"SET",
+						"setValue":"{{ n_hqSfX.outputs.result.name }}"
+					},
+					{}
+				],
+				"page":{
+					"offset":0,
+					"limit":20
+				},
+				"unsetIfNull":false
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Update an existing record",
+			"title":"Update records by query",
 			"type":"ACTION"
 		},
 		{
@@ -899,11 +728,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_NFG0A",
-			"index":18,
+			"index":14,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -922,11 +751,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9MF0g-1",
 			"id":"n_bcbd8",
-			"index":19,
+			"index":15,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
@@ -956,5 +785,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
