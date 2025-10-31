@@ -16,7 +16,7 @@
 	"id":"6904755051e3070c17944e93",
 	"lastModifiedBy":2621,
 	"lcName":"test",
-	"modifiedTime":1761900070943,
+	"modifiedTime":1761901530104,
 	"name":"test",
 	"nodes":[
 		{
@@ -26,7 +26,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_q24CF-1",
 			"id":"n_OYso0",
@@ -45,11 +45,36 @@
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.payload.relations.items.relationType",
+					"root.payload.relations.items.gender",
+					"root.payload.relations.items.firstName",
+					"root.payload.relations.items.lastName",
+					"root.payload.relations.items.displayName",
+					"root.payload.relations.items.email",
+					"root.payload.relations.items.dateOfBirth",
+					"root.payload.relations.items.profession",
+					"root.payload.relations.items.mobile",
+					"root.payload.currentAddress.addressLine1",
+					"root.payload.currentAddress.addressLine2",
+					"root.payload.currentAddress.countryCode",
+					"root.payload.currentAddress.city",
+					"root.payload.currentAddress.state",
+					"root.payload.currentAddress.zip",
+					"root.payload.permanentAddress.addressLine1",
+					"root.payload.permanentAddress.addressLine2",
+					"root.payload.permanentAddress.countryCode",
+					"root.payload.permanentAddress.city",
+					"root.payload.permanentAddress.state",
+					"root.payload.permanentAddress.zip"
+				]
+			},
 			"context":{
 				"appName":"keka",
 				"resourceVersion":2,
 				"connectionId":"690475a3e45b9336f8e9c858",
-				"resourceName":"keka_get_all_tracking_policies",
+				"resourceName":"keka_update_employee_personal_details",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -59,11 +84,19 @@
 			"id":"n_ef5ow",
 			"index":2,
 			"inputs":{
-				"pageSize":100
+				"payload":{
+					"displayName":"Yash Ahlawat",
+					"firstName":"Yash",
+					"lastName":"Ahlawat",
+					"gender":1,
+					"personalEmail":"yash.ahlawat@unifyapps.com",
+					"maritalStatus":0
+				},
+				"id":"e97942a0-77f1-48c5-84d1-b8aaff3b29c6"
 			},
 			"skip":false,
 			"subTitle":"Keka",
-			"title":"Get all tracking policies",
+			"title":"Update employee personal details",
 			"type":"ACTION"
 		}
 	],
@@ -84,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
