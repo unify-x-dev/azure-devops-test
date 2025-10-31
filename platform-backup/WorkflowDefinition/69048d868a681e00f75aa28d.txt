@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761906054892,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_ATLEC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_blECk",
+			"type":"next"
+		}
+	],
+	"id":"69048d868a681e00f75aa28d",
+	"lastModifiedBy":45011,
+	"lcName":"idp webhook",
+	"modifiedTime":1761906054892,
+	"name":"idp webhook",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ATLEC-1",
+			"id":"_ATLEC",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_ATLEC-1",
+			"id":"_blECk",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":45011,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
