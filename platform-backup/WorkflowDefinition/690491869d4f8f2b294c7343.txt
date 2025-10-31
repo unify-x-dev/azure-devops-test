@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"sap_rfc"
 	],
 	"createdTime":1761907078771,
 	"deleted":false,
@@ -9,43 +9,237 @@
 			"fromNodeId":"_LIq8K",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_HVJQ0",
+			"toNodeId":"n_d3d0d",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_d3d0d",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_482e0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_482e0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_dd898",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_dd898",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_04945",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_04945",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_04988",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_04988",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1ded8",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1ded8",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_84e6d",
 			"type":"next"
 		}
 	],
 	"id":"690491869d4f8f2b294c7343",
 	"lastModifiedBy":190505,
 	"lcName":"first",
-	"modifiedTime":1761907078771,
+	"modifiedTime":1761907291667,
 	"name":"first",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_LIq8K-1",
 			"id":"_LIq8K",
-			"index":0,
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"properties":{
+						"top5Employees":{
+							"type":"array",
+							"items":{
+								"type":"object"
+							},
+							"title":"Top 5 Employees"
+						},
+						"employeeData":{
+							"type":"object",
+							"title":"Employee Data"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				},
+				"setup":{
+					"type":"object",
+					"properties":{
+						"getTop5":{
+							"type":"boolean",
+							"title":"Get Top 5 Employees"
+						},
+						"userId":{
+							"type":"string",
+							"title":"User ID"
+						}
+					},
+					"additionalProperties":false,
+					"required":[]
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"sap_rfc",
+				"resourceName":"sap_rfc_call_bapi"
+			},
 			"debug":false,
 			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_LIq8K-1",
-			"id":"_HVJQ0",
-			"index":0,
+			"id":"n_d3d0d",
+			"index":2,
+			"inputs":{},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"SAP RFC",
+			"title":"Call BAPI",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"csv_writer_by_unifyapps",
+				"resourceName":"csv_writer_by_unifyapps_list_to_csv_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_LIq8K-1",
+			"id":"n_482e0",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"CSV Writer by UnifyApps",
+			"title":"Write data to CSV file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"test101",
+				"resourceName":"files_info"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_LIq8K-1",
+			"id":"n_dd898",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"test101",
+			"title":"files_info",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"sap_rfc",
+				"resourceName":"sap_rfc_call_bapi"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_LIq8K-1",
+			"id":"n_04945",
+			"index":5,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"SAP RFC",
+			"title":"Call BAPI",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceName":"callables_return_to_automation"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_LIq8K-1",
+			"id":"n_04988",
+			"index":6,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"platform_by_unifyapps",
+				"resourceName":"platform_by_unifyapps_repeat_run"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_LIq8K-1",
+			"id":"n_1ded8",
+			"index":7,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Platform by UnifyApps",
+			"title":"Repeat run",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"platform_by_unifyapps",
+				"resourceName":"platform_by_unifyapps_repeat_run"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_LIq8K-1",
+			"id":"n_84e6d",
+			"index":8,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Platform by UnifyApps",
+			"title":"Repeat run",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":190505,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +253,5 @@
 	"tags":[
 		"practice"
 	],
-	"version":0
+	"version":1
 }
