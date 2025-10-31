@@ -49,13 +49,6 @@
 		},
 		{
 			"fromNodeId":"n_hk0Mb",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_6SMB5",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_6SMB5",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -73,7 +66,7 @@
 	"id":"69035a1e0230577757109dec",
 	"lastModifiedBy":59995,
 	"lcName":"test-excel-iterate",
-	"modifiedTime":1761954041876,
+	"modifiedTime":1761954148034,
 	"name":"test-excel-iterate",
 	"nodes":[
 		{
@@ -520,9 +513,7 @@
 				"useStreaming":false,
 				"headerRow":true,
 				"sheetName":"Foto diaria",
-				"columns":[
-					"Llave"
-				],
+				"columns":[],
 				"batch":false,
 				"evaluateFormulae":true,
 				"batchSize":100,
@@ -559,27 +550,6 @@
 		},
 		{
 			"context":{
-				"appName":"break",
-				"resourceVersion":817,
-				"resourceName":"break",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_rURFB@_WvKAb-1@l",
-			"id":"n_6SMB5",
-			"index":8,
-			"inputs":{
-				"loop":"n_rURFB"
-			},
-			"skip":false,
-			"subTitle":"Break",
-			"title":"Break",
-			"type":"BREAK"
-		},
-		{
-			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -587,7 +557,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_WvKAb-1",
 			"id":"n_3KCBz",
-			"index":9,
+			"index":8,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -611,5 +581,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
