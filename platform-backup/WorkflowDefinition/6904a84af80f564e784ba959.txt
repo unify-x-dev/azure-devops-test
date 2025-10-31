@@ -9,14 +9,14 @@
 			"fromNodeId":"n_9fJx6",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_9VRTS",
+			"toNodeId":"n_zByDB",
 			"type":"next"
 		}
 	],
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761916732114,
+	"modifiedTime":1761917553351,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
@@ -121,15 +121,25 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1114,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
-			"id":"_9VRTS",
+			"id":"n_zByDB",
 			"index":2,
+			"inputs":{
+				"result":"{{ n_9fJx6.outputs }}"
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":44108,
@@ -149,5 +159,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
