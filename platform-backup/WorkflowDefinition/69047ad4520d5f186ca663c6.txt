@@ -1,51 +1,299 @@
 {
 	"appsUsed":[
-		
+		"keka"
 	],
 	"createdTime":1761901268366,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_KKUKg",
+			"fromNodeId":"n_MJ94U",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_qUcpf",
+			"toNodeId":"n_VLZRM",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VLZRM",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hlIgx",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hlIgx",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mB2rP",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mB2rP",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YSSBE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_YSSBE",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8ToLp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8ToLp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HguWm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HguWm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GJ6pv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GJ6pv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HOUXj",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HOUXj",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fcxRN",
 			"type":"next"
 		}
 	],
 	"id":"69047ad4520d5f186ca663c6",
 	"lastModifiedBy":6701,
 	"lcName":"keka hr actions",
-	"modifiedTime":1761901268366,
+	"modifiedTime":1761908673656,
 	"name":"keka hr actions",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
-			"id":"_KKUKg",
-			"index":0,
+			"id":"n_MJ94U",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":74,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
-			"id":"_qUcpf",
-			"index":0,
+			"id":"n_VLZRM",
+			"index":2,
+			"inputs":{
+				"employeeId":"ad24f286-4dfe-459e-8f42-bc572aa31516"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Keka",
+			"title":"Get an employee details",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":72,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_employees",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_hlIgx",
+			"index":3,
+			"inputs":{
+				"inNoticePeriod":false,
+				"pageSize":100,
+				"inProbation":false,
+				"lastModified":"2025-10-01T16:28:00.000+05:30"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List all employees",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":74,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_group_types",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_mB2rP",
+			"index":4,
+			"inputs":{
+				"pageNumber":1,
+				"pageSize":1
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List group types",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":74,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_update_fields",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_YSSBE",
+			"index":5,
+			"inputs":{
+				"pageSize":1
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee update fields",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":71,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_groups",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_8ToLp",
+			"index":6,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List groups",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":70,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_search_employees",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_HguWm",
+			"index":7,
+			"inputs":{
+				"workPhone":"9822134561"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Search for an employee",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":87,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_create_employee",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_GJ6pv",
+			"index":8,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update employee job details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":66,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_employee_personal_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_HOUXj",
+			"index":9,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update employee personal details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_fcxRN",
+			"index":10,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":6701,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +307,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
