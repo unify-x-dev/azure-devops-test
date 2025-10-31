@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761898931148,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_4Oy0o",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_S409L",
+			"type":"next"
+		}
+	],
+	"id":"690471b351e3070c179438f5",
+	"lastModifiedBy":43523,
+	"lcName":"wait for signal",
+	"modifiedTime":1761898931148,
+	"name":"wait for signal",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_4Oy0o-1",
+			"id":"_4Oy0o",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_4Oy0o-1",
+			"id":"_S409L",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":43523,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
