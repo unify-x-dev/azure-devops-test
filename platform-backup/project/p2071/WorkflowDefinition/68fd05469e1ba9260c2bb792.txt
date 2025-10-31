@@ -127,7 +127,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761888485900,
+	"modifiedTime":1761888584017,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -856,7 +856,7 @@
 			"id":"n_wADXG",
 			"index":12,
 			"inputs":{
-				"start_time":"=TODAY()",
+				"start_time":"=text(TODAY(),\"dd-mm-yyyy\")",
 				"calendarId":"primary"
 			},
 			"skip":false,
@@ -1080,5 +1080,5 @@
 		}
 	},
 	"standard":false,
-	"version":91
+	"version":92
 }
