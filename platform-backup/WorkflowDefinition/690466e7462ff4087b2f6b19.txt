@@ -38,7 +38,7 @@
 	"id":"690466e7462ff4087b2f6b19",
 	"lastModifiedBy":33453,
 	"lcName":"vreds",
-	"modifiedTime":1761909860719,
+	"modifiedTime":1761909905372,
 	"name":"vreds",
 	"nodes":[
 		{
@@ -116,20 +116,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_1qdXx-1",
 			"id":"n_jyKVO",
 			"index":3,
 			"inputs":{
-				"projections":[
-					{
-						"name":"ENTITY_analytics_node_testcases_imp=::=name",
-						"aggregationFunction":"GROUP",
-						"alias":"Name",
-						"includePercentageChange":false
-					}
-				],
+				"projections":[],
 				"entityType":"ENTITY_analytics_node_testcases_imp",
 				"group":"ENTITY_REPORTING"
 			},
@@ -178,5 +171,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
