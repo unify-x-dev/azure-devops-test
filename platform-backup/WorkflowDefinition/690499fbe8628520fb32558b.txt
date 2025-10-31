@@ -162,7 +162,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761931996038,
+	"modifiedTime":1761932856648,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -172,7 +172,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_EfPSS",
@@ -199,7 +199,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_96ZBq",
@@ -297,6 +297,13 @@
 								"operator":"EQUAL",
 								"value":"starrocks_table_properties_checker"
 							}
+						},
+						{
+							"property":"id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"starrocks_table_partition_checker"
+							}
 						}
 					],
 					"operator":"OR"
@@ -334,7 +341,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"_auxBn",
@@ -393,7 +400,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_PHNUD",
@@ -429,7 +436,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_6eKH8",
@@ -512,7 +519,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Uk5gQ",
@@ -565,7 +572,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Sr2A1",
@@ -593,7 +600,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_flqY9",
@@ -752,7 +759,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_7Ar8v",
@@ -1026,7 +1033,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_CVGVn",
@@ -1134,7 +1141,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_6LMPK",
@@ -1312,7 +1319,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_fCpLx",
@@ -1349,7 +1356,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_fCpLx@1",
@@ -1369,7 +1376,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_jc6AN",
@@ -1421,7 +1428,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_fCpLx@2",
@@ -1535,5 +1542,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":51
+	"version":52
 }
