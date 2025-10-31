@@ -5,12 +5,12 @@
 	"createdTime":1761894837205,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761906985070,
+		"deployedAt":1761926592570,
 		"deployedBy":39713,
-		"deployedDefinitionId":"690491299d4f8f2b294c708c",
+		"deployedDefinitionId":"6904ddc072b41f152088802d",
 		"status":"DEPLOYED",
-		"version":6,
-		"workflowVersion":9
+		"version":7,
+		"workflowVersion":12
 	},
 	"edges":[
 		{
@@ -31,7 +31,7 @@
 	"id":"690461b5ffd2512f2177f131",
 	"lastModifiedBy":39713,
 	"lcName":"waitforsignaltest",
-	"modifiedTime":1761926590393,
+	"modifiedTime":1761926800294,
 	"name":"WaitForSignalTest",
 	"nodes":[
 		{
@@ -90,13 +90,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
 			"id":"n_wQ9yv",
 			"index":2,
 			"inputs":{
-				"duration":15,
+				"duration":30,
 				"unit":"MINUTES",
 				"signal_payload":{
 					"type":"object",
@@ -159,5 +159,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
