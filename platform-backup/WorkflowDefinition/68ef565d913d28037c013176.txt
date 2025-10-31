@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761938988720,
+	"modifiedTime":1761939490767,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -91,7 +91,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"_wAt1k",
@@ -479,7 +479,7 @@
 			"index":6,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"import base64\n\n# Read file as binary and encode as base64 for safe transmission\nwith open(test1, \"rb\") as f:\n    binary_content = f.read()\n\nresult = {\n    \"file_size\": len(binary_content),\n    \"base64_content\": base64.b64encode(binary_content).decode('ascii'),\n    \"is_text_file\": False  # You can add logic to detect if it's text\n}",
+				"code":"import base64\n\n# Read input file\nwith open(test1, \"rb\") as f:\n    binary_content = f.read()\n\n# Create output file - ye automatically upload hogi\nwith open(\"output_report.txt\", \"w\") as f:\n    f.write(f\"Processed file: test1\\n\")\n    f.write(f\"File size: {len(binary_content)} bytes\\n\")\n    f.write(f\"Base64 length: {len(base64.b64encode(binary_content))} chars\\n\")\n\nresult = {\n    \"file_size\": len(binary_content),\n    \"base64_content\": base64.b64encode(binary_content).decode('ascii')[:100],  # First 100 chars only\n    \"is_text_file\": False\n}",
 				"filesList":[
 					{
 						"fileName":"test1",
@@ -535,5 +535,5 @@
 	"tags":[
 		
 	],
-	"version":31
+	"version":32
 }
