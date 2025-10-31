@@ -9,14 +9,14 @@
 			"fromNodeId":"n_x7zxy",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_AYwG2",
+			"toNodeId":"n_wQ9yv",
 			"type":"next"
 		}
 	],
 	"id":"690461b5ffd2512f2177f131",
 	"lastModifiedBy":39713,
 	"lcName":"waitforsignaltest",
-	"modifiedTime":1761895373994,
+	"modifiedTime":1761900606260,
 	"name":"WaitForSignalTest",
 	"nodes":[
 		{
@@ -47,7 +47,7 @@
 		{
 			"context":{
 				"appName":"signals_by_unifyapps",
-				"resourceVersion":961,
+				"resourceVersion":0,
 				"resourceName":"signals_by_unifyapps_wait_for_signal",
 				"type":"APPLICATION"
 			},
@@ -55,11 +55,22 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
-			"id":"n_AYwG2",
+			"id":"n_wQ9yv",
 			"index":2,
 			"inputs":{
-				"duration":1,
-				"unit":"MINUTES"
+				"duration":15,
+				"unit":"MINUTES",
+				"signal_payload":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"userName":{
+							"type":"string",
+							"title":"User Name"
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Signals by UnifyApps",
@@ -84,5 +95,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
