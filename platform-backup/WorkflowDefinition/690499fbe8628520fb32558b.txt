@@ -5,12 +5,12 @@
 	"createdTime":1761909243729,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761923759969,
+		"deployedAt":1761923853846,
 		"deployedBy":44108,
-		"deployedDefinitionId":"6904d2af9a78cb574c7d158a",
-		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":44
+		"deployedDefinitionId":"6904d30d9a78cb574c7d1ddf",
+		"status":"PAUSED",
+		"version":6,
+		"workflowVersion":45
 	},
 	"edges":[
 		{
@@ -155,7 +155,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761923851137,
+	"modifiedTime":1761931376981,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -745,7 +745,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_7Ar8v",
@@ -756,7 +756,7 @@
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
-					"sql":"select * from information_schema.partitions_meta order by DATA_SIZE "
+					"sql":"select * from information_schema.partitions_meta order by DATA_SIZE limit 10;"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
@@ -1207,5 +1207,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":45
+	"version":46
 }
