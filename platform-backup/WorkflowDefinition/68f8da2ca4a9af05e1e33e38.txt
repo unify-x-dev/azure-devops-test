@@ -102,7 +102,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761912331184,
+	"modifiedTime":1761912748583,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -142,7 +142,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_vNDmq",
@@ -451,7 +451,7 @@
 			"inputs":{
 				"date":"=TEXT(TODAY(), \"dd/mm/yyyy\") ",
 				"start_time":"=TEXT( NOW() + TIME(5,30,0), \"yyyy-mm-dd\\THH:MM:SS.000\\Z\" )",
-				"end_time":"=TEXT(TODAY(), \"yyyy-mm-dd\\T23:59:59.000\\Z\") end"
+				"end_time":"=TEXT(TODAY(), \"yyyy-mm-dd\\T23:59:59.000\\Z\") "
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -712,7 +712,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_AjLCz",
@@ -722,7 +722,8 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"list_emails"
+						"list_emails",
+						"events"
 					],
 					"properties":{
 						"list_emails":{
@@ -733,19 +734,31 @@
 								"additionalProperties":false
 							},
 							"title":"List Emails"
+						},
+						"events":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Events"
 						}
 					}
 				},
-				"code":"def emails = input.get(\"list_emails\")\n\ndef summarizeEmail = { emailText ->\n    // --- Simple heuristic summarizer ---\n    def sentences = emailText.split(/(?<=[.!?])\\s+/)   // Split into sentences\n    def top5 = sentences.take(5)                       // Pick first 5 sentences or points\n    // Clean and format\n    return top5.collect { \"- ${it.trim()}\" }.join(\"\\n\")\n}\n\ndef outputSummary = emails.collectWithIndex { emailObj, idx ->\n    def subject = emailObj.subject ?: \"Email ${idx+1}\"\n    def body = emailObj.body ?: \"\"\n    def summary = summarizeEmail(body)\n    return [\n        email_subject: subject,\n        summary_points: summary\n    ]\n}\n\nreturn outputSummary\n",
+				"code":"import java.io.FileOutputStream\nimport com.itextpdf.text.*\nimport com.itextpdf.text.pdf.*\n\n// ----------------------------------------------------\n// Input Parameters\n// ----------------------------------------------------\ndef list_emails = list_emails ?: []\ndef events = events ?: []\n\n// ----------------------------------------------------\n// Basic Validations\n// ----------------------------------------------------\nif (!(list_emails instanceof List) || !(events instanceof List)) {\n    throw new Exception(\"Invalid input format. 'list_emails' and 'events' must be arrays.\")\n}\n\n// ----------------------------------------------------\n// PDF Creation Setup\n// ----------------------------------------------------\ndef fileName = \"Morning_Brief_${new Date().format('yyyyMMdd_HHmmss')}.pdf\"\ndef filePath = \"/tmp/${fileName}\"\ndef document = new Document(PageSize.A4)\nPdfWriter.getInstance(document, new FileOutputStream(filePath))\ndocument.open()\n\n// ----------------------------------------------------\n// Fonts and Styling\n// ----------------------------------------------------\ndef titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD)\ndef sectionFont = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)\ndef normalFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL)\n\n// ----------------------------------------------------\n// Document Title\n// ----------------------------------------------------\ndocument.add(new Paragraph(\"Morning Brief\", titleFont))\ndocument.add(Chunk.NEWLINE)\n\n// ----------------------------------------------------\n// Section: Top 5 Emails\n// ----------------------------------------------------\ndocument.add(new Paragraph(\"Top 5 Emails\", sectionFont))\ndocument.add(Chunk.NEWLINE)\n\nlist_emails.take(5).eachWithIndex { email, i ->\n    def subject = email?.subject ?: \"No Subject\"\n    def sender = email?.from ?: \"Unknown Sender\"\n    def summary = email?.summary ?: email?.body ?: \"No Co\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
 					"list_emails":[
-						"{{ n_82umO.outputs.items[0] }}"
+						"{{ n_vNDmq.outputs.items }}"
+					],
+					"events":[
+						"{{ n_EtK0E.outputs.items }}"
 					]
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -783,5 +796,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":24
 }
