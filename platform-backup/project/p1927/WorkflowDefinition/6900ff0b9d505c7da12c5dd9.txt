@@ -31,11 +31,11 @@
 			"fromNodeId":"n_8ulwF",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_0M4Sl",
+			"toNodeId":"n_EZMwD",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_0M4Sl",
+			"fromNodeId":"n_EZMwD",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_2G9Iq",
@@ -52,7 +52,7 @@
 	"id":"6900ff0b9d505c7da12c5dd9",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeeactivitiesbulkhttptrigger_nw",
-	"modifiedTime":1761936500886,
+	"modifiedTime":1761936707392,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeActivitiesBulkHttpTrigger_NW",
 	"nodes":[
 		{
@@ -249,10 +249,25 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
-			"id":"n_0M4Sl",
+			"id":"n_EZMwD",
 			"index":4,
 			"inputs":{
-				"code":"payload.appid",
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"payload.appid ?: payload.aud ?: null",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -364,5 +379,5 @@
 	"tags":[
 		
 	],
-	"version":90
+	"version":91
 }
