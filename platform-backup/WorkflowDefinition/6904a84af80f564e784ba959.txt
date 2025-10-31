@@ -46,7 +46,7 @@
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761917907459,
+	"modifiedTime":1761917978669,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
@@ -175,6 +175,22 @@
 			"type":"LOOP"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.parameters.tables.items.PARTITION_KEY",
+					"root.parameters.tables.items.TABLE_NAME",
+					"root.parameters.tables.items.TABLE_MODEL",
+					"root.parameters.tables.items.TABLE_SCHEMA",
+					"root.parameters.tables.items.PRIMARY_KEY",
+					"root.parameters.tables.items.DISTRIBUTE_KEY",
+					"root.parameters.tables.items.TABLE_ENGINE",
+					"root.parameters.tables.items.DISTRIBUTE_BUCKET",
+					"root.parameters.tables.items.PROPERTIES",
+					"root.parameters.tables.items.SORT_KEY",
+					"root.parameters.tables.items.DISTRIBUTE_TYPE",
+					"root.parameters.tables.items.TABLE_ID"
+				]
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1049,
@@ -188,8 +204,92 @@
 			"id":"n_dnmQQ",
 			"index":3,
 			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"tables":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"PARTITION_KEY":{
+										"type":"string",
+										"title":"PARTITION_KEY"
+									},
+									"TABLE_NAME":{
+										"type":"string",
+										"title":"TABLE_NAME"
+									},
+									"TABLE_MODEL":{
+										"type":"string",
+										"title":"TABLE_MODEL"
+									},
+									"TABLE_SCHEMA":{
+										"type":"string",
+										"title":"TABLE_SCHEMA"
+									},
+									"PRIMARY_KEY":{
+										"type":"string",
+										"title":"PRIMARY_KEY"
+									},
+									"DISTRIBUTE_KEY":{
+										"type":"string",
+										"title":"DISTRIBUTE_KEY"
+									},
+									"TABLE_ENGINE":{
+										"type":"string",
+										"title":"TABLE_ENGINE"
+									},
+									"DISTRIBUTE_BUCKET":{
+										"type":"integer",
+										"title":"DISTRIBUTE_BUCKET"
+									},
+									"PROPERTIES":{
+										"type":"string",
+										"title":"PROPERTIES"
+									},
+									"SORT_KEY":{
+										"type":"string",
+										"title":"SORT_KEY"
+									},
+									"DISTRIBUTE_TYPE":{
+										"type":"string",
+										"title":"DISTRIBUTE_TYPE"
+									},
+									"TABLE_ID":{
+										"type":"integer",
+										"title":"TABLE_ID"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"tables"
+						}
+					}
+				},
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"tables":{
+						"source":"{{ n_qQQ47.outputs.item }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"PARTITION_KEY":"{{ n_qQQ47.outputs.item[0].PARTITION_KEY }}",
+							"TABLE_NAME":"{{ n_qQQ47.outputs.item[0].TABLE_NAME }}",
+							"TABLE_MODEL":"{{ n_qQQ47.outputs.item[0].TABLE_MODEL }}",
+							"TABLE_SCHEMA":"{{ n_qQQ47.outputs.item[0].TABLE_SCHEMA }}",
+							"PRIMARY_KEY":"{{ n_qQQ47.outputs.item[0].PRIMARY_KEY }}",
+							"DISTRIBUTE_KEY":"{{ n_qQQ47.outputs.item[0].DISTRIBUTE_KEY }}",
+							"TABLE_ENGINE":"{{ n_qQQ47.outputs.item[0].TABLE_ENGINE }}",
+							"DISTRIBUTE_BUCKET":"{{ n_qQQ47.outputs.item[0].DISTRIBUTE_BUCKET }}",
+							"PROPERTIES":"{{ n_qQQ47.outputs.item[0].PROPERTIES }}",
+							"SORT_KEY":"{{ n_qQQ47.outputs.item[0].SORT_KEY }}",
+							"DISTRIBUTE_TYPE":"{{ n_qQQ47.outputs.item[0].DISTRIBUTE_TYPE }}",
+							"TABLE_ID":"{{ n_qQQ47.outputs.item[0].TABLE_ID }}"
+						}
+					}
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -235,5 +335,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
