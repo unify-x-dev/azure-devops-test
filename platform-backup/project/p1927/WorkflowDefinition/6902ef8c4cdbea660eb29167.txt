@@ -5,12 +5,12 @@
 	"createdTime":1761800076974,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761817711565,
+		"deployedAt":1761820050730,
 		"deployedBy":45010,
-		"deployedDefinitionId":"6903346f13085040561b30b4",
+		"deployedDefinitionId":"69033d922947f0567848d053",
 		"status":"DEPLOYED",
-		"version":7,
-		"workflowVersion":48
+		"version":8,
+		"workflowVersion":49
 	},
 	"edges":[
 		{
@@ -234,7 +234,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761820047327,
+	"modifiedTime":1761896532349,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -244,7 +244,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_9MF0g-1",
 			"id":"n_864tN",
@@ -284,11 +284,19 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"response":{
+								"count":{
+									"type":"integer",
+									"title":"Count"
+								},
+								"employeeTier":{
 									"type":"object",
 									"properties":{},
 									"additionalProperties":false,
-									"title":"Response"
+									"title":"Employee Tier"
+								},
+								"success":{
+									"type":"boolean",
+									"title":"Success"
 								}
 							},
 							"additionalProperties":false,
@@ -629,7 +637,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
 			"id":"n_cKMS9",
@@ -638,7 +646,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_hpWZ0.outputs.properties }}"
+					"employeeTier":"{{ n_hpWZ0.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -784,7 +792,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
 			"id":"n_D09dy",
@@ -793,7 +801,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_iteue.outputs.properties }}"
+					"employeeTier":"{{ n_iteue.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -939,7 +947,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_HvAfE",
@@ -948,7 +956,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_VRLzf.outputs.properties }}"
+					"employeeTier":"{{ n_VRLzf.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -1200,7 +1208,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_4m59q",
@@ -1286,5 +1294,5 @@
 	"tags":[
 		
 	],
-	"version":49
+	"version":50
 }
