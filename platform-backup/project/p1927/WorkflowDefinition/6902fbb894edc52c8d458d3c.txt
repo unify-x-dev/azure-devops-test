@@ -176,7 +176,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761895145344,
+	"modifiedTime":1761895303041,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -850,7 +850,9 @@
 					"additionalProperties":false,
 					"required":[
 						"Name",
-						"ReferenceNumber"
+						"ReferenceNumber",
+						"row_num",
+						"Id"
 					],
 					"properties":{
 						"ReferenceNumber":{
@@ -860,6 +862,14 @@
 						"Name":{
 							"type":"string",
 							"title":"Name"
+						},
+						"row_num":{
+							"type":"integer",
+							"title":"Row Num"
+						},
+						"Id":{
+							"type":"string",
+							"title":"Id"
 						}
 					}
 				},
@@ -878,7 +888,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber\n]\nreturn result",
+				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber,\n    \"row_num\"         : payload.row_num ?: 0,\n        \"Id\"         : payload.Id ?: '',\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -929,6 +939,16 @@
 						"fieldName":"properties.ReferenceNumber",
 						"actionType":"SET",
 						"setValue":"{{ n_Qe8TI.outputs.result.ReferenceNumber }}"
+					},
+					{
+						"fieldName":"properties.row_num",
+						"actionType":"SET",
+						"setValue":"{{ n_Qe8TI.outputs.result.row_num }}"
+					},
+					{
+						"fieldName":"properties.Id",
+						"actionType":"SET",
+						"setValue":"{{ n_Qe8TI.outputs.result.Id }}"
 					}
 				],
 				"page":{
@@ -1010,5 +1030,5 @@
 	"tags":[
 		
 	],
-	"version":48
+	"version":49
 }
