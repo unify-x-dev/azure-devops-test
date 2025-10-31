@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761896272716,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_R4vV0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_hBiku",
+			"type":"next"
+		}
+	],
+	"id":"69046750462ff4087b2f6dad",
+	"lastModifiedBy":190505,
+	"lcName":"fetch_users",
+	"modifiedTime":1761896272716,
+	"name":"Fetch_Users",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_R4vV0-1",
+			"id":"_R4vV0",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_R4vV0-1",
+			"id":"_hBiku",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":190505,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		"practice"
+	],
+	"version":0
+}
