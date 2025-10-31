@@ -1,371 +1,52 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761903300866,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_J3yg2",
+			"fromNodeId":"_JMUeV",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_jt9Ri",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_jt9Ri",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_ynEsH",
+			"toNodeId":"n_6qDzk",
 			"type":"next"
 		}
 	],
 	"id":"690482c4f9e3d9536814ff54",
-	"lastModifiedBy":43498,
+	"lastModifiedBy":155543,
 	"lcName":"dawdwad",
-	"modifiedTime":1761904945158,
+	"modifiedTime":1761905909818,
 	"name":"dawdwad",
 	"nodes":[
 		{
-			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
-			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JMUeV-1",
-			"id":"n_J3yg2",
+			"id":"_JMUeV",
 			"index":1,
-			"inputs":{
-				"request":{
-					"contentType":"application/json"
-				}
-			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"title":"Select a trigger event",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
 			"context":{
-				"appName":"variable_by_unifyapps",
-				"resourceVersion":1081,
-				"resourceName":"variable_by_unifyapps_create_list",
+				"appName":"storage_by_unifyapps",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JMUeV-1",
-			"id":"n_jt9Ri",
+			"id":"n_6qDzk",
 			"index":2,
-			"inputSchema":{
-				"type":"SCHEMA_AND_LAYOUT",
-				"dynamic":false,
-				"layout":{
-					"createList":{
-						"ui:title":"",
-						"ua:type":{
-							"ui:widget":"hidden"
-						},
-						"items":{
-							"ui:title":"Initial list items",
-							"ui:description":"Set the initial values of the list (defaults to empty)"
-						},
-						"ui:order":[
-							"*",
-							"items"
-						]
-					},
-					"ua:title":{
-						"ui:widget":"hidden"
-					},
-					"ua:list_type":{
-						"ui:widget":"hidden"
-					}
-				},
-				"schema":{
-					"allOf":[
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"OBJECT"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"items":{
-												"type":"object",
-												"properties":{}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"STRING"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of String"
-											},
-											"items":{
-												"type":"string"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"INTEGER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Integers"
-											},
-											"items":{
-												"type":"integer"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"NUMBER"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Numbers"
-											},
-											"items":{
-												"type":"number"
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							"if":{
-								"properties":{
-									"ua:list_type":{
-										"const":"BOOLEAN"
-									}
-								}
-							},
-							"then":{
-								"properties":{
-									"createList":{
-										"type":"object",
-										"properties":{
-											"source":{
-												"type":"string",
-												"format":"ua:source",
-												"title":"List of Booleans"
-											},
-											"items":{
-												"type":"boolean"
-											}
-										}
-									}
-								}
-							}
-						}
-					],
-					"format":"ua:list",
-					"type":"object",
-					"properties":{
-						"ua:title":{
-							"type":"string"
-						},
-						"ua:list_type":{
-							"type":"string",
-							"title":"List Type",
-							"oneOf":[
-								{
-									"const":"OBJECT",
-									"title":"Object"
-								},
-								{
-									"const":"STRING",
-									"title":"String"
-								},
-								{
-									"const":"NUMBER",
-									"title":"Number"
-								},
-								{
-									"const":"INTEGER",
-									"title":"Integer"
-								},
-								{
-									"const":"BOOLEAN",
-									"title":"Boolean"
-								}
-							],
-							"default":"OBJECT"
-						},
-						"createList":{
-							"type":"object",
-							"properties":{
-								"ua:type":{
-									"type":"string",
-									"default":"mappedArray"
-								},
-								"source":{
-									"type":"string",
-									"format":"ua:source",
-									"title":"List Item Source"
-								},
-								"items":{
-									"type":"object",
-									"properties":{
-										"id":{
-											"type":"integer",
-											"title":"id"
-										},
-										"name":{
-											"type":"string",
-											"title":"name"
-										},
-										"email":{
-											"type":"string",
-											"title":"email"
-										},
-										"age":{
-											"type":"integer",
-											"title":"age"
-										}
-									},
-									"additionalProperties":false
-								}
-							}
-						}
-					}
-				}
-			},
-			"inputs":{
-				"createList":{
-					"ua:type":"mappedArray",
-					"items":{
-						"id":"esdfg",
-						"name":"dfsvgb",
-						"email":"dsfg",
-						"age":"dsfg"
-					}
-				},
-				"ua:title":"List",
-				"ua:list_type":"OBJECT"
-			},
-			"outputSchema":{
-				"dynamic":false,
-				"schema":{
-					"type":"object",
-					"properties":{
-						"items":{
-							"type":"array",
-							"title":"List",
-							"disableActions":true,
-							"items":{
-								"type":"object",
-								"properties":{
-									"id":{
-										"type":"integer",
-										"title":"id"
-									},
-									"name":{
-										"type":"string",
-										"title":"name"
-									},
-									"email":{
-										"type":"string",
-										"title":"email"
-									},
-									"age":{
-										"type":"integer",
-										"title":"age"
-									}
-								}
-							}
-						}
-					}
-				}
-			},
 			"skip":false,
-			"subTitle":"Variable by UnifyApps",
-			"title":"Create list",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"json_by_unifyapps",
-				"resourceVersion":186,
-				"resourceName":"json_by_unifyapps_write_data_to_json_file",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_JMUeV-1",
-			"id":"n_ynEsH",
-			"index":3,
-			"inputs":{
-				"appendData":false,
-				"fileName":"dsfvgbh",
-				"encoding":"UTF-8",
-				"dataSource":"{{ n_jt9Ri.outputs.items }}",
-				"keepExactFileName":false,
-				"fileType":"json"
-			},
-			"skip":false,
-			"subTitle":"JSON by UnifyApps",
-			"title":"Write data to JSON file",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Select an action",
 			"type":"ACTION"
 		}
 	],
@@ -386,5 +67,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
