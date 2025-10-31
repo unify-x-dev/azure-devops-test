@@ -5,12 +5,12 @@
 	"createdTime":1761803192182,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761895333672,
+		"deployedAt":1761895656783,
 		"deployedBy":45010,
-		"deployedDefinitionId":"690463a5462ff4087b2f58cf",
+		"deployedDefinitionId":"690464e8462ff4087b2f6081",
 		"status":"DEPLOYED",
-		"version":16,
-		"workflowVersion":50
+		"version":18,
+		"workflowVersion":52
 	},
 	"edges":[
 		{
@@ -176,7 +176,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761895544438,
+	"modifiedTime":1761896024794,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -186,7 +186,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_UqZT0",
@@ -266,7 +266,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_LJy4I",
@@ -363,7 +363,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"n_LJy4I@1",
@@ -395,7 +395,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"_RkGuU",
@@ -449,7 +449,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"_QiGjl",
@@ -492,7 +492,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"_TeDJg",
@@ -518,7 +518,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"n_LJy4I@2",
@@ -550,7 +550,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"_5j9Tn",
@@ -604,7 +604,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"_hDu25",
@@ -637,7 +637,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"_q3Nsb",
@@ -663,7 +663,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_LJy4I@3",
@@ -695,7 +695,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_SP4DL",
@@ -706,7 +706,9 @@
 					"additionalProperties":false,
 					"required":[
 						"ReferenceNumber",
-						"Name"
+						"Name",
+						"Id",
+						"row_num"
 					],
 					"properties":{
 						"ReferenceNumber":{
@@ -716,6 +718,14 @@
 						"Name":{
 							"type":"string",
 							"title":"Name"
+						},
+						"Id":{
+							"type":"string",
+							"title":"Id"
+						},
+						"row_num":{
+							"type":"integer",
+							"title":"Row Num"
 						}
 					}
 				},
@@ -734,7 +744,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber\n]\nreturn result",
+				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber,\n    \"row_num\": payload.row_num,\n    \"Id\": payload.Id\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -754,7 +764,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_1IUfs",
@@ -765,6 +775,8 @@
 				"skipIfBlank":false,
 				"record":{
 					"ReferenceNumber":"{{ n_SP4DL.outputs.result.ReferenceNumber }}",
+					"Id":"{{ n_SP4DL.outputs.result.Id }}",
+					"row_num":"{{ n_SP4DL.outputs.result.row_num }}",
 					"Name":"{{ n_SP4DL.outputs.result.Name }}"
 				}
 			},
@@ -781,7 +793,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_AkSAF",
@@ -807,7 +819,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_LJy4I@4",
@@ -888,7 +900,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber,\n    \"row_num\" : payload.row_num ?: 0,\n    \"Id\" : payload.Id ?: '',\n]\nreturn result",
+				"code":"def result = [\n    \"Name\": payload.location.Name,\n    \"ReferenceNumber\": payload.location.ReferenceNumber,\n    \"row_num\" : payload.location.row_num ?: 0,\n    \"Id\" : payload.location.Id ?: '',\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -908,7 +920,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_mWWmA",
@@ -970,7 +982,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_6r9Nr",
@@ -996,7 +1008,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_drs8E",
@@ -1030,5 +1042,5 @@
 	"tags":[
 		
 	],
-	"version":51
+	"version":53
 }
