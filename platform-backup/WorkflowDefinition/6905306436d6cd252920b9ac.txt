@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761947748511,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761947748653,
+		"deployedBy":175325,
+		"deployedDefinitionId":"690530649ee4604e3cee99ef",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"xF4b9",
@@ -16,7 +24,7 @@
 	"id":"6905306436d6cd252920b9ac",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2z1zsin1oh123",
-	"modifiedTime":1761947748569,
+	"modifiedTime":1761947818720,
 	"name":"changeSetQA2Z1ZSIN1Oh123",
 	"nodes":[
 		{
@@ -87,7 +95,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=SUM({{ xF4b9.outputs.a }},{{ xF4b9.outputs.b }})"
+					"c":"=PRODUCT({{ xF4b9.outputs.a }},{{ xF4b9.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -109,5 +117,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
