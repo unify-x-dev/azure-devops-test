@@ -6,46 +6,75 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_oYAuK",
+			"fromNodeId":"n_DlRtC",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_0Sem7",
+			"toNodeId":"n_MNMi1",
 			"type":"next"
 		}
 	],
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761894877207,
+	"modifiedTime":1761895948416,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
-			"id":"_oYAuK",
-			"index":0,
+			"id":"n_DlRtC",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"signals_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"signals_by_unifyapps_emit_signal",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
-			"id":"_0Sem7",
-			"index":0,
+			"id":"n_MNMi1",
+			"index":2,
+			"inputs":{
+				"automation_id":"690461b5ffd2512f2177f131",
+				"with_signal_id":false,
+				"signal_payload":{
+					"signal_timeout":false
+				},
+				"nodeId":"n_AYwG2"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Signals by UnifyApps",
+			"title":"Emit signal",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39713,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +88,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
