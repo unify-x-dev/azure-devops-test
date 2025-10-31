@@ -65,9 +65,9 @@
 		}
 	],
 	"id":"68e7f25d5ea7e71bc0badc63",
-	"lastModifiedBy":190503,
+	"lastModifiedBy":44567,
 	"lcName":"test",
-	"modifiedTime":1761915936214,
+	"modifiedTime":1761939632617,
 	"name":"test",
 	"nodes":[
 		{
@@ -103,7 +103,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_lrZGi",
@@ -134,7 +134,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_2qSYX-1",
 			"id":"n_spQZe",
@@ -206,7 +206,7 @@
 				},
 				"jsonString":"{\n  \"fileDetails\": {\n\"fileType\": \"application/json\",\n\"name\": \"dwedew_1761582617509.json\",\n\"size\": 6039,\n\"source\": \"workflow_uploads/export/1/dwedew_1761582617509.json\",\n\"sourceType\": \"CLOUD_STORAGE\"\n  }\n}"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise string to JSON object",
 			"type":"ACTION"
@@ -297,7 +297,7 @@
 				"batchSize":10,
 				"fileType":"json"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"JSON by UnifyApps",
 			"title":"Consume data from JSON file",
 			"type":"LOOP"
@@ -356,5 +356,5 @@
 	"tags":[
 		
 	],
-	"version":24
+	"version":25
 }
