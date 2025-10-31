@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1743748838614,
+	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1759582166146,
+		"deployedBy":504,
+		"deployedDefinitionId":"68e117d6fb0d68036d56feda",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":154
+	},
+	"edges":[
+		
+	],
+	"id":"67ef7ee698cbb4795b834c47",
+	"lastModifiedBy":504,
+	"lcName":"hs-test-scope",
+	"modifiedTime":1761896373306,
+	"name":"hs-test-scope",
+	"nodes":[
+		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"JWtXm-1",
+			"id":"n_Hkhfu",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
+			"skip":false,
+			"subTitle":"Webhook",
+			"title":"New event",
+			"trigger":{
+				"type":"WEBHOOK"
+			},
+			"type":"START"
+		}
+	],
+	"ownerUserId":22764,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":155
+}
