@@ -11,12 +11,19 @@
 			"skip":false,
 			"toNodeId":"n_mhIsA",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mhIsA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nMQVF",
+			"type":"next"
 		}
 	],
 	"id":"6904a18af80f564e784b8a43",
 	"lastModifiedBy":517,
 	"lcName":"download from internal s3",
-	"modifiedTime":1761911745957,
+	"modifiedTime":1761913937152,
 	"name":"Download from internal S3",
 	"nodes":[
 		{
@@ -59,12 +66,27 @@
 			"index":2,
 			"inputs":{
 				"getFromCloudStorage":true,
-				"localFilePath":"change-set-rollback/1/asfasdf"
+				"localFilePath":"change-set-rollback/1/6902b50496026b049246319d"
 			},
 			"skip":false,
 			"subTitle":"Files by UnifyApps",
 			"title":"Get File",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_yaoFT-1",
+			"id":"n_nMQVF",
+			"index":3,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":517,
@@ -84,5 +106,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
