@@ -1,51 +1,464 @@
 {
 	"appsUsed":[
-		
+		"keka"
 	],
 	"createdTime":1761913722612,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Kqg6w",
+			"fromNodeId":"n_s8EEl",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_rOBk1",
+			"toNodeId":"n_wmTvp",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wmTvp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_RFbmy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RFbmy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_hOFVh",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_hOFVh",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_A7m19",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_A7m19",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bqRSG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_bqRSG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_sGts1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_sGts1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_0zHv4",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0zHv4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8MosG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8MosG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ctaE6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ctaE6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_DBJsR",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_DBJsR",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HjYck",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HjYck",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6IXRg",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_6IXRg",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Yh24d",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Yh24d",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_iz0Kf",
 			"type":"next"
 		}
 	],
 	"id":"6904ab7af80f564e784bbe4d",
 	"lastModifiedBy":3546,
 	"lcName":"kekea-get",
-	"modifiedTime":1761913722612,
+	"modifiedTime":1761916933708,
 	"name":"kekea-Get",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Kqg6w-1",
-			"id":"_Kqg6w",
-			"index":0,
+			"id":"n_s8EEl",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":86,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_employees",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Kqg6w-1",
-			"id":"_rOBk1",
-			"index":0,
+			"id":"n_wmTvp",
+			"index":2,
+			"inputs":{
+				"inNoticePeriod":false,
+				"pageSize":100,
+				"inProbation":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Keka",
+			"title":"List all employees",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":49,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee_component_claims",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_RFbmy",
+			"index":3,
+			"inputs":{
+				"LastModified":"2025-10-30T12:31:00.000Z",
+				"pageNumber":2,
+				"ClaimStatus":0,
+				"pageSize":100,
+				"EmployeeId":"f81a2bfb-77da-4541-8421-3dce0130488f"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee component claims",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":48,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee_financial_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_hOFVh",
+			"index":4,
+			"inputs":{
+				"employeeIds":"f81a2bfb-77da-4541-8421-3dce0130488f",
+				"pageSize":100
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee financial details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":47,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee_fnf_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_A7m19",
+			"index":5,
+			"inputs":{
+				"pageNumber":1,
+				"pageSize":1
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee fnf details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":46,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee_tax_declaration",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_bqRSG",
+			"index":6,
+			"inputs":{
+				"financialYear":2024,
+				"employeeId":"495572d0-608d-4b86-a9d0-f37eed275cfb"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee tax declaration",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":45,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_flexi_benefits",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_sGts1",
+			"index":7,
+			"inputs":{
+				"employeeId":"495572d0-608d-4b86-a9d0-f37eed275cfb"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get flexi benefits",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":89,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_group_types",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_0zHv4",
+			"index":8,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List group types",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":90,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_holidays_list",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_8MosG",
+			"index":9,
+			"inputs":{
+				"pageNumber":1,
+				"calendarId":"85cc10f8-a38e-4c2c-a1f3-c6c4bb46059c",
+				"calendarYear":2025,
+				"pageSize":1
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get holidays list",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":63,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_all_holidays_calendar",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_ctaE6",
+			"index":10,
+			"inputs":{
+				"pageSize":100
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get all holidays calendar",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":42,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_pay_register",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_DBJsR",
+			"index":11,
+			"inputs":{
+				"payGroupId":"4c792db2-b6ff-49a0-9207-87951602e6ae",
+				"pageNumber":2,
+				"includeOutSideCTCPayables":false,
+				"payCycleId":"0fbb9836-f304-451d-ba38-599cbb96c5c7",
+				"pageSize":3
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get pay register",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":89,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_HjYck",
+			"index":12,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get an employee details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":89,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_update_fields",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_6IXRg",
+			"index":13,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee update fields",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":54,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_all_pay_groups",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_Yh24d",
+			"index":14,
+			"inputs":{
+				"pageNumber":1,
+				"pageSize":100
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get all pay groups",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":57,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_all_pay_cycles",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Kqg6w-1",
+			"id":"n_iz0Kf",
+			"index":15,
+			"inputs":{
+				"pageSize":100
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get all pay cycles",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +472,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
