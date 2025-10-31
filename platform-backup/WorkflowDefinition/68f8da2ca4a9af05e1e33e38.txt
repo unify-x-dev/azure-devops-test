@@ -89,6 +89,13 @@
 			"fromNodeId":"n_EtK0E",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_8LiAg",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8LiAg",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_AjLCz",
 			"type":"next"
 		},
@@ -110,7 +117,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761912969380,
+	"modifiedTime":1761913297643,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -714,6 +721,31 @@
 		},
 		{
 			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":1001,
+				"resourceName":"files_by_unifyapps_create_temp_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_8LiAg",
+			"index":12,
+			"inputs":{
+				"isTmp":true,
+				"initialContentType":"plainText",
+				"initialContent":"{{ n_EtK0E.outputs.items[0].summary }}",
+				"type":"SINGLE",
+				"fileType":"txt"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Create a file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1010,
 				"resourceName":"code_by_unifyapps_groovy",
@@ -724,7 +756,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_AjLCz",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -797,7 +829,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_ja6dl",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"model":"gpt-4o"
 			},
@@ -815,7 +847,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":14,
+			"index":15,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -839,5 +871,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":28
 }
