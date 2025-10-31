@@ -96,6 +96,13 @@
 			"fromNodeId":"n_8LiAg",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_Dq7Zv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Dq7Zv",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_AjLCz",
 			"type":"next"
 		},
@@ -117,7 +124,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761913297643,
+	"modifiedTime":1761913386594,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -746,6 +753,28 @@
 		},
 		{
 			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":922,
+				"resourceName":"files_by_unifyapps_create_pdf_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_Dq7Zv",
+			"index":13,
+			"inputs":{
+				"fileName":"{{ n_8LiAg.outputs.fileDetails.name }}",
+				"content":"{{ n_8LiAg.outputs.fileDetails }}"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Create a PDF file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1010,
 				"resourceName":"code_by_unifyapps_groovy",
@@ -756,7 +785,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_AjLCz",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -829,7 +858,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_ja6dl",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"model":"gpt-4o"
 			},
@@ -847,7 +876,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":15,
+			"index":16,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -871,5 +900,5 @@
 	"tags":[
 		
 	],
-	"version":28
+	"version":29
 }
