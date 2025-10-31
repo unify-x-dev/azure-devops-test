@@ -131,7 +131,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761927625750,
+	"modifiedTime":1761927849168,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -893,7 +893,7 @@
 			"index":16,
 			"inputs":{
 				"source_text":"\"{{ n_vNDmq.outputs.items }}\"",
-				"instruction":"summarise the text",
+				"instruction":"You are given a list of emails as input (array of objects or plain text). \nEach email may contain any of the following fields:\n- subject\n- from (sender)\n- body or summary\n- timestamp (optional)\n\nYour task:\n1. Parse all emails carefully — handle both structured (JSON/array) and unstructured text.\n2. Summarize the top 5 emails in clear, concise bullet points.\n3. Each bullet should include:\n   - The subject or main topic (use sender if subject missing)\n   - The key takeaway or main content summary (1 line only)\n   - Optionally include the sender name if available\n4. Remove greetings, signatures, or repetitive phrases.\n5. Keep the tone professional, short, and readable.\n6. If any email is missing a field (like subject or body), infer a short summary from the available text.\n7. Output format:\n   - Title: “📧 Morning Brief — Top 5 Emails”\n   - Then 5 numbered bullet points (max 2 lines each)\n8. Ensure the final summary looks polished and ready to share as a daily digest.\n\nExample output format:\n📧 Morning Brief — Top 5 Emails\n\n1. **Product Update:** New release planned for next week; testing starts tomorrow. — *from Priya Sharma*  \n2. **Client Feedback:** Positive response from HDFC team on dashboard revamp.  \n3. **Meeting Reminder:** Q4 roadmap sync at 3 PM today.  \n4. **Policy Notice:** HR shared new leave policy updates.  \n5. **Reminder:** Submit weekly status reports before 6 PM.\n",
 				"model":"gpt-4o"
 			},
 			"skip":false,
@@ -934,5 +934,5 @@
 	"tags":[
 		
 	],
-	"version":38
+	"version":39
 }
