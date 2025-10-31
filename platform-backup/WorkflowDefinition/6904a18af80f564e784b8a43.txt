@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761911178939,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_yaoFT",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_IWq5e",
+			"type":"next"
+		}
+	],
+	"id":"6904a18af80f564e784b8a43",
+	"lastModifiedBy":517,
+	"lcName":"download from internal s3",
+	"modifiedTime":1761911178939,
+	"name":"Download from internal S3",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_yaoFT-1",
+			"id":"_yaoFT",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_yaoFT-1",
+			"id":"_IWq5e",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":517,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
