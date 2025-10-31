@@ -4,6 +4,15 @@
 	],
 	"createdTime":1761948619959,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761948620018,
+		"deployedBy":175325,
+		"deployedDefinitionId":"690533cc36d6cd252920c283",
+		"deploymentTag":"Changeset_tag_1",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":2
+	},
 	"edges":[
 		{
 			"fromNodeId":"7pKsG",
@@ -16,7 +25,7 @@
 	"id":"6905338963c0081ef7d7cbc6",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2vtuh7lastnbr",
-	"modifiedTime":1761948619959,
+	"modifiedTime":1761948620043,
 	"name":"changeSetQA2VTuh7laStnBr",
 	"nodes":[
 		{
@@ -87,7 +96,7 @@
 			"index":0,
 			"inputs":{
 				"result":{
-					"c":"=PRODUCT({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
+					"c":"= MIN({{ 7pKsG.outputs.a }},{{ 7pKsG.outputs.b }})"
 				}
 			},
 			"skip":false,
@@ -113,5 +122,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
