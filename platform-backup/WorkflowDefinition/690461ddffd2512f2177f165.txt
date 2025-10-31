@@ -5,16 +5,16 @@
 	"createdTime":1761894877207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761903284293,
+		"deployedAt":1761904648613,
 		"deployedBy":39713,
-		"deployedDefinitionId":"690482b4f9e3d9536814fef9",
+		"deployedDefinitionId":"690488081858283bbd586603",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":7
+		"version":6,
+		"workflowVersion":9
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_J9wmD",
+			"fromNodeId":"n_Loi1K",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_YXgtv",
@@ -38,54 +38,46 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761904643122,
+	"modifiedTime":1761906205485,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1077,
-				"resourceName":"callables_from_automation"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
-			"id":"n_J9wmD",
+			"id":"n_Loi1K",
 			"index":1,
 			"inputs":{
-				"result":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"result":{
-							"type":"string",
-							"title":"Result"
-						}
-					}
-				},
-				"setup":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"instanceId":{
-							"type":"string",
-							"title":"Instance Id"
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"instanceId":{
+								"type":"string",
+								"title":"Instance Id"
+							},
+							"runtimeType":{
+								"type":"string",
+								"title":"Runtime Type"
+							}
 						},
-						"runtimeType":{
-							"type":"string",
-							"title":"Runtime Type"
-						}
+						"additionalProperties":false,
+						"required":[]
 					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger via automation",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"CALLABLE"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -132,13 +124,13 @@
 			"inputs":{
 				"automation_id":"690461b5ffd2512f2177f131",
 				"with_signal_id":false,
-				"waitingInstanceRuntimeType":"{{ n_J9wmD.outputs.runtimeType }}",
-				"waitingInstanceId":"{{ n_J9wmD.outputs.instanceId }}",
+				"waitingInstanceRuntimeType":"{{ n_Loi1K.outputs.body.runtimeType }}",
+				"waitingInstanceId":"{{ n_Loi1K.outputs.body.instanceId }}",
 				"signal_payload":{
-					"signal_payload":{
-						"userName":"Aryam-{{ n_J9wmD.outputs.instanceId }}-{{ n_J9wmD.outputs.runtimeType }}"
-					},
 					"signal_time_out":false,
+					"signal_payload":{
+						"userName":"Aryam-{{ n_Loi1K.outputs.body.instanceId }}-{{ n_Loi1K.outputs.body.runtimeType }}"
+					},
 					"signal_timeout":false
 				},
 				"nodeId":"n_wQ9yv"
@@ -156,7 +148,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_oYAuK-1",
 			"id":"n_oQuMW",
@@ -166,7 +158,7 @@
 					"result":"124"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
@@ -189,5 +181,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
