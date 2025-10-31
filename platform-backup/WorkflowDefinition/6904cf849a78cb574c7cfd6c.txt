@@ -5,12 +5,12 @@
 	"createdTime":1761922948737,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761932344288,
+		"deployedAt":1761932468188,
 		"deployedBy":44108,
-		"deployedDefinitionId":"6904f4388ed1e92bae999c0f",
+		"deployedDefinitionId":"6904f4b4956fc24de1983ae0",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":2
+		"version":2,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
@@ -97,7 +97,7 @@
 	"id":"6904cf849a78cb574c7cfd6c",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index  (copy)",
-	"modifiedTime":1761932466285,
+	"modifiedTime":1761932793694,
 	"name":"STARROCKS | ALERT | Persistent Index  (copy)",
 	"nodes":[
 		{
@@ -645,6 +645,7 @@
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"partitions":{
 							"type":"array",
@@ -779,10 +780,14 @@
 								"additionalProperties":false
 							},
 							"title":"partitions"
+						},
+						"partition_size_threshold_inGBs":{
+							"type":"string",
+							"title":"Partition Size Threshold In GBs"
 						}
 					}
 				},
-				"code":"def getLargePartitions(List<Map> partitions) {\n    def toBytes = { value ->\n        if (value == null) return 0L\n\n        if (value instanceof Number) {\n            def num = value as double\n            // Heuristic conversion if unit not specified\n            if (num < 1e6) {\n                return num as long // bytes\n            } else if (num < 1e9) {\n                return (num * 1024) as long // likely KB\n            } else if (num < 1e12) {\n                return num as long // assume bytes\n            } else {\n                return num as long\n            }\n        }\n\n        def str = value.toString().trim().toUpperCase()\n        if (str.endsWith(\"KB\")) {\n            return (str[0..-3] as double) * 1024\n        } else if (str.endsWith(\"MB\")) {\n            return (str[0..-3] as double) * 1024 * 1024\n        } else if (str.endsWith(\"GB\")) {\n            return (str[0..-3] as double) * 1024 * 1024 * 1024\n        } else if (str.endsWith(\"TB\")) {\n            return (str[0..-3] as double) * 1024 * 1024 * 1024 * 1024\n        } else {\n            return (str as double) as long // assume bytes\n        }\n    }\n\n    def threshold = 50L * 1024 * 1024 * 1024 // 50 GB\n    return partitions.findAll { p ->\n        def sizeInBytes = toBytes(p.DATA_SIZE)\n        sizeInBytes > threshold\n    }\n}\n\n\nreturn getLargePartitions(partitions);\n",
+				"code":"def getLargePartitions(List<Map> partitions, String thresholdGb) {\n    def toBytes = { value ->\n        if (value == null) return 0L\n\n        if (value instanceof Number) {\n            def num = value as double\n            // Heuristic conversion if unit not specified\n            if (num < 1e6) {\n                return num as long // bytes\n            } else if (num < 1e9) {\n                return (num * 1024) as long // likely KB\n            } else if (num < 1e12) {\n                return num as long // assume bytes\n            } else {\n                return num as long\n            }\n        }\n\n        def str = value.toString().trim().toUpperCase()\n        if (str.endsWith(\"KB\")) {\n            return (str[0..-3] as double) * 1024\n        } else if (str.endsWith(\"MB\")) {\n            return (str[0..-3] as double) * 1024 * 1024\n        } else if (str.endsWith(\"GB\")) {\n            return (str[0..-3] as double) * 1024 * 1024 * 1024\n        } else if (str.endsWith(\"TB\")) {\n            return (str[0..-3] as double) * 1024 * 1024 * 1024 * 1024\n        } else {\n            return (str as double) as long // assume bytes\n        }\n    }\n\n    def threshold = (thresholdGb as double) * 1024 * 1024 * 1024\n    return partitions.findAll { p ->\n        def sizeInBytes = toBytes(p.DATA_SIZE)\n        sizeInBytes > threshold\n    }\n}\n\nString threshold = config?.partition_size_threshold_inGBs\n\nreturn getLargePartitions(partitions, threshold);\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1060,5 +1065,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
