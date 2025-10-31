@@ -70,6 +70,13 @@
 		},
 		{
 			"fromNodeId":"_flqY9",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CVGVn",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CVGVn",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -87,7 +94,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761915259740,
+	"modifiedTime":1761916644418,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -767,6 +774,45 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":1049,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Sr2A1@_ErVLa-1@l",
+			"id":"n_CVGVn",
+			"index":11,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"tables":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Tables"
+						}
+					}
+				},
+				"code":"return [\"tables\" : tables]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"tables":"{{ _flqY9.outputs.result.objects }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -774,7 +820,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_sytyX",
-			"index":11,
+			"index":12,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -798,5 +844,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":28
+	"version":29
 }
