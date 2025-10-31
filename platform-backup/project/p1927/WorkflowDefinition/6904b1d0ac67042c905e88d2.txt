@@ -4,53 +4,83 @@
 	],
 	"createdTime":1761915344296,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761915565021,
+		"deployedBy":39715,
+		"deployedDefinitionId":"6904b2acac67042c905e8d72",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":2
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_b2pce",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_C74h7",
+			"toNodeId":"n_tvbJT",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_C74h7",
+			"fromNodeId":"n_tvbJT",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tvbJT@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_tvbJT@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_RF2Uu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_RF2Uu",
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_oZBSU",
+			"toNodeId":"_NQ71p",
 			"type":"if"
 		},
 		{
-			"fromNodeId":"_oZBSU",
-			"name":"yes",
+			"fromNodeId":"_NQ71p",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_3jIPx",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"_3jIPx",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_ZvQAo",
+			"toNodeId":"_YrWVH",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_ZvQAo",
+			"fromNodeId":"_YrWVH",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_viL6k",
+			"toNodeId":"_MhFJu",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_viL6k",
+			"fromNodeId":"n_tvbJT",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tvbJT@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_tvbJT@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_fojTu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_MhFJu",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Km2Dj",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_oZBSU",
+			"fromNodeId":"_RF2Uu",
 			"name":"no",
 			"priority":0,
 			"skip":false,
@@ -58,18 +88,25 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_C74h7",
-			"name":"no",
+			"fromNodeId":"n_fojTu",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Km2Dj",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_tvbJT",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Km2Dj",
+			"type":"branch"
 		}
 	],
 	"id":"6904b1d0ac67042c905e88d2",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] businessobjectautomation",
-	"modifiedTime":1761915563000,
+	"modifiedTime":1761918492661,
 	"name":"[virtu-reps] BusinessObjectAutomation",
 	"nodes":[
 		{
@@ -79,7 +116,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_b2pce",
@@ -148,33 +185,94 @@
 		},
 		{
 			"context":{
-				"appName":"if_else",
-				"resourceVersion":791,
-				"resourceName":"if_else_condition",
+				"appName":"branch",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
-			"id":"n_C74h7",
+			"id":"n_tvbJT",
 			"index":2,
 			"inputs":{
-				"filters":[
+				"branches":[
 					{
-						"property":"{{ n_b2pce.outputs.body.operationName }}",
-						"filter":{
-							"operator":"EQUAL",
-							"value":"FirstOrDefaultAsync"
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"FirstOrDefaultAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_b2pce.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"CountAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
 					}
-				],
-				"operator":"AND"
+				]
 			},
 			"skip":false,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_tvbJT@_JfTSF-1@1",
+			"id":"n_tvbJT@1",
+			"index":3,
+			"inputs":{
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"FirstOrDefaultAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
 		},
 		{
 			"context":{
@@ -186,9 +284,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"n_C74h7@_JfTSF-1@y",
-			"id":"_oZBSU",
-			"index":3,
+			"groupId":"n_tvbJT@_JfTSF-1@1",
+			"id":"_RF2Uu",
+			"index":4,
 			"inputs":{
 				"filters":[
 					{
@@ -216,9 +314,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_oZBSU@n_C74h7@_JfTSF-1@y@y",
-			"id":"_3jIPx",
-			"index":4,
+			"groupId":"_RF2Uu@n_tvbJT@_JfTSF-1@1@y",
+			"id":"_NQ71p",
+			"index":5,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -268,9 +366,9 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_oZBSU@n_C74h7@_JfTSF-1@y@y",
-			"id":"_ZvQAo",
-			"index":5,
+			"groupId":"_RF2Uu@n_tvbJT@_JfTSF-1@1@y",
+			"id":"_YrWVH",
+			"index":6,
 			"inputs":{
 				"triggerInputCondition":{
 					"filters":[
@@ -278,7 +376,7 @@
 							"property":"properties_ReferenceNumber",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ _3jIPx.outputs.result.ReferenceNumber }}"
+								"value":"{{ _NQ71p.outputs.result.ReferenceNumber }}"
 							}
 						}
 					],
@@ -311,14 +409,14 @@
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
-			"groupId":"_oZBSU@n_C74h7@_JfTSF-1@y@y",
-			"id":"_viL6k",
-			"index":6,
+			"groupId":"_RF2Uu@n_tvbJT@_JfTSF-1@1@y",
+			"id":"_MhFJu",
+			"index":7,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
 				"body":{
-					"response":"{{ _ZvQAo.outputs.properties }}"
+					"response":"{{ _YrWVH.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -329,17 +427,60 @@
 		},
 		{
 			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_tvbJT@_JfTSF-1@2",
+			"id":"n_tvbJT@2",
+			"index":8,
+			"inputs":{
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_b2pce.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"CountAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_tvbJT@_JfTSF-1@2",
+			"id":"n_fojTu",
+			"index":9,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1124,
 				"resourceName":"callables_return_response_to_api",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
-			"index":7,
+			"index":10,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_undefined",
@@ -369,5 +510,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
