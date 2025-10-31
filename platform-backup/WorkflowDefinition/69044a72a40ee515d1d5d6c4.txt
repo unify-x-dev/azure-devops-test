@@ -6,46 +6,86 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_d2JqK",
+			"fromNodeId":"n_xodeO",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_NhcV8",
+			"toNodeId":"n_1DPIP",
 			"type":"next"
 		}
 	],
 	"id":"69044a72a40ee515d1d5d6c4",
-	"lastModifiedBy":161877,
+	"lastModifiedBy":43498,
 	"lcName":"test",
-	"modifiedTime":1761888882890,
+	"modifiedTime":1761891248011,
 	"name":"test",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_d2JqK-1",
-			"id":"_d2JqK",
-			"index":0,
+			"id":"n_xodeO",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"queryParams":{
+						"type":"object",
+						"additionalProperties":false,
+						"required":[],
+						"properties":{
+							"cron":{
+								"type":"string",
+								"title":"Cron"
+							}
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1127,
+				"resourceName":"callables_schedule_a_callable",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_d2JqK-1",
-			"id":"_NhcV8",
-			"index":0,
+			"id":"n_1DPIP",
+			"index":2,
+			"inputs":{
+				"runtimeConnections":{},
+				"schedule_type":"CRON_EXPRESSION",
+				"expression":"{{ n_xodeO.outputs.queryParams.cron }}",
+				"timezone":"Asia/Calcutta",
+				"cancel_existing":true,
+				"version":"-1"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Callable",
+			"title":"Schedule callable",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":161877,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +99,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
