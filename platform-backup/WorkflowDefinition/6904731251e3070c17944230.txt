@@ -30,7 +30,7 @@
 	"id":"6904731251e3070c17944230",
 	"lastModifiedBy":178107,
 	"lcName":"demo_csharp",
-	"modifiedTime":1761925245708,
+	"modifiedTime":1761925358848,
 	"name":"demo_csharp",
 	"nodes":[
 		{
@@ -54,7 +54,18 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"payload":{
+								"type":"string",
+								"title":"Payload"
+							}
+						},
+						"additionalProperties":false,
+						"required":[]
+					}
 				},
 				"endpointType":"REST",
 				"response":[
@@ -106,6 +117,172 @@
 			"id":"n_pBlkZ",
 			"index":2,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"firstName":{
+							"type":"string",
+							"title":"firstName"
+						},
+						"middleName":{
+							"type":"string",
+							"title":"middleName"
+						},
+						"lastName":{
+							"type":"string",
+							"title":"lastName"
+						},
+						"bankLeadId":{
+							"type":"string",
+							"title":"bankLeadId"
+						},
+						"proposerDOB":{
+							"type":"string",
+							"title":"proposerDOB"
+						},
+						"accountNumber":{
+							"type":"string",
+							"title":"accountNumber"
+						},
+						"customerId":{
+							"type":"string",
+							"title":"customerId"
+						},
+						"channel":{
+							"type":"string",
+							"title":"channel"
+						},
+						"subChannel":{
+							"type":"string",
+							"title":"subChannel"
+						},
+						"productType":{
+							"type":"string",
+							"title":"productType"
+						},
+						"productName":{
+							"type":"string",
+							"title":"productName"
+						},
+						"lgCode":{
+							"type":"string",
+							"title":"lgCode"
+						},
+						"spCode":{
+							"type":"string",
+							"title":"spCode"
+						},
+						"proposerGender":{
+							"type":"string",
+							"title":"proposerGender"
+						},
+						"salutationid":{
+							"type":"string",
+							"title":"salutationid"
+						},
+						"isNri":{
+							"type":"string",
+							"title":"isNri"
+						},
+						"addressLine1":{
+							"type":"string",
+							"title":"addressLine1"
+						},
+						"addressLine2":{
+							"type":"string",
+							"title":"addressLine2"
+						},
+						"addressLine3":{
+							"type":"string",
+							"title":"addressLine3"
+						},
+						"proposerPinCode":{
+							"type":"string",
+							"title":"proposerPinCode"
+						},
+						"stateName":{
+							"type":"string",
+							"title":"stateName"
+						},
+						"proposerEmailID":{
+							"type":"string",
+							"title":"proposerEmailID"
+						},
+						"proposerMobileNumber":{
+							"type":"string",
+							"title":"proposerMobileNumber"
+						},
+						"cityName":{
+							"type":"string",
+							"title":"cityName"
+						},
+						"leadownerid":{
+							"type":"string",
+							"title":"leadownerid"
+						},
+						"panNumber":{
+							"type":"string",
+							"title":"panNumber"
+						},
+						"ifscCode":{
+							"type":"string",
+							"title":"ifscCode"
+						},
+						"branch_SOLID":{
+							"type":"string",
+							"title":"branch_SOLID"
+						},
+						"branch_NAME":{
+							"type":"string",
+							"title":"branch_NAME"
+						},
+						"CKYC":{
+							"type":"string",
+							"title":"CKYC"
+						},
+						"EBCC":{
+							"type":"string",
+							"title":"EBCC"
+						},
+						"ApplicationIdentifier":{
+							"type":"string",
+							"title":"ApplicationIdentifier"
+						},
+						"OfferId":{
+							"type":"string",
+							"title":"OfferId"
+						},
+						"campaignName":{
+							"type":"string",
+							"title":"campaignName"
+						},
+						"ValidityDate":{
+							"type":"string",
+							"title":"ValidityDate"
+						},
+						"CustomerSegment":{
+							"type":"string",
+							"title":"CustomerSegment"
+						},
+						"CustomerVintage":{
+							"type":"string",
+							"title":"CustomerVintage"
+						},
+						"AccountType":{
+							"type":"string",
+							"title":"AccountType"
+						},
+						"ChannelName":{
+							"type":"string",
+							"title":"ChannelName"
+						},
+						"OfferName":{
+							"type":"string",
+							"title":"OfferName"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -332,7 +509,7 @@
 					"payload":"{{ n_WhEez.outputs.body.payload }}"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -353,6 +530,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"payload_return":"{{ n_pBlkZ.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -378,5 +558,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
