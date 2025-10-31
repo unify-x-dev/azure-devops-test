@@ -131,7 +131,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761927554762,
+	"modifiedTime":1761927625750,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -892,8 +892,8 @@
 			"id":"n_ja6dl",
 			"index":16,
 			"inputs":{
-				"source_text":"hi",
-				"instruction":"- summarise the source text \n- it has 5 different emails",
+				"source_text":"\"{{ n_vNDmq.outputs.items }}\"",
+				"instruction":"summarise the text",
 				"model":"gpt-4o"
 			},
 			"skip":false,
@@ -934,5 +934,5 @@
 	"tags":[
 		
 	],
-	"version":37
+	"version":38
 }
