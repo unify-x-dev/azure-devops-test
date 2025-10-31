@@ -128,6 +128,14 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_sluqa",
+			"name":"error",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2KvHG",
+			"type":"error"
+		},
+		{
 			"fromNodeId":"n_Ot4rQ",
 			"name":"no",
 			"priority":0,
@@ -159,6 +167,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_2KvHG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Cuw9m",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_99aAL",
 			"priority":0,
 			"skip":false,
@@ -183,7 +198,7 @@
 	"id":"67ef7ee698cbb4795b834c47",
 	"lastModifiedBy":504,
 	"lcName":"hs-test-scope",
-	"modifiedTime":1761912663151,
+	"modifiedTime":1761912856315,
 	"name":"hs-test-scope",
 	"nodes":[
 		{
@@ -442,11 +457,65 @@
 			},
 			"debug":false,
 			"dirty":true,
-			"fallbackMode":"STOP",
+			"fallbackMode":"MANUAL",
 			"groupId":"n_Ot4rQ@n_qNoEn@n_dbVQb@JWtXm-1@y@y@y",
 			"id":"n_sluqa",
 			"index":10,
 			"inputs":{},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"MANUAL",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				},
+				"timeoutConfig":{
+					"enabled":false
+				}
+			},
 			"skip":false,
 			"subTitle":"Scope",
 			"title":"Trigger Scope",
@@ -471,6 +540,22 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_sluqa@n_Ot4rQ@n_qNoEn@n_dbVQb@JWtXm-1@y@y@y@error",
+			"id":"n_2KvHG",
+			"index":12,
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Select an action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -478,7 +563,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Ot4rQ@n_qNoEn@n_dbVQb@JWtXm-1@y@y@n",
 			"id":"n_99aAL",
-			"index":12,
+			"index":13,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -493,7 +578,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_qNoEn@n_dbVQb@JWtXm-1@y@n",
 			"id":"n_GQ5ss",
-			"index":13,
+			"index":14,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -508,7 +593,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_dbVQb@JWtXm-1@n",
 			"id":"n_m7pqs",
-			"index":14,
+			"index":15,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -523,7 +608,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"JWtXm-1",
 			"id":"n_Cuw9m",
-			"index":15,
+			"index":16,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -541,7 +626,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_jLNzG@JWtXm-1@error",
 			"id":"n_xam5j",
-			"index":16,
+			"index":17,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -598,5 +683,5 @@
 	"tags":[
 		
 	],
-	"version":163
+	"version":164
 }
