@@ -147,7 +147,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761917605663,
+	"modifiedTime":1761917814530,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -183,7 +183,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_96ZBq",
@@ -833,7 +833,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_CVGVn",
@@ -934,7 +934,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_fCpLx",
@@ -971,7 +971,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_fCpLx@1",
@@ -1007,7 +1007,21 @@
 					"heartbeatEnvUrl":"{{ n_96ZBq.outputs.heartbeatEnvUrl }}",
 					"tables":{
 						"source":"{{ n_CVGVn.outputs.result.tables }}",
-						"ua:type":"mappedArray"
+						"ua:type":"mappedArray",
+						"items":{
+							"PARTITION_KEY":"{{ n_CVGVn.outputs.result.tables[0].PARTITION_KEY }}",
+							"TABLE_NAME":"{{ n_CVGVn.outputs.result.tables[0].TABLE_NAME }}",
+							"TABLE_MODEL":"{{ n_CVGVn.outputs.result.tables[0].TABLE_MODEL }}",
+							"TABLE_SCHEMA":"{{ n_CVGVn.outputs.result.tables[0].TABLE_SCHEMA }}",
+							"PRIMARY_KEY":"{{ n_CVGVn.outputs.result.tables[0].PRIMARY_KEY }}",
+							"DISTRIBUTE_KEY":"{{ n_CVGVn.outputs.result.tables[0].DISTRIBUTE_KEY }}",
+							"TABLE_ENGINE":"{{ n_CVGVn.outputs.result.tables[0].TABLE_ENGINE }}",
+							"DISTRIBUTE_BUCKET":"{{ n_CVGVn.outputs.result.tables[0].DISTRIBUTE_BUCKET }}",
+							"PROPERTIES":"{{ n_CVGVn.outputs.result.tables[0].PROPERTIES }}",
+							"SORT_KEY":"{{ n_CVGVn.outputs.result.tables[0].SORT_KEY }}",
+							"DISTRIBUTE_TYPE":"{{ n_CVGVn.outputs.result.tables[0].DISTRIBUTE_TYPE }}",
+							"TABLE_ID":"{{ n_CVGVn.outputs.result.tables[0].TABLE_ID }}"
+						}
 					}
 				}
 			},
@@ -1024,7 +1038,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_fCpLx@2",
@@ -1044,7 +1058,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_e8Z02",
@@ -1122,5 +1136,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":32
+	"version":33
 }
