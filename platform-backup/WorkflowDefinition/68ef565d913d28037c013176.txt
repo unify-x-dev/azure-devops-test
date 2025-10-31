@@ -16,6 +16,13 @@
 			"fromNodeId":"_wAt1k",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_G4ZXQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_G4ZXQ",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_u3z18",
 			"type":"next"
 		},
@@ -59,7 +66,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761939660250,
+	"modifiedTime":1761941008450,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -108,6 +115,27 @@
 		},
 		{
 			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":976,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Ekzdv-1",
+			"id":"n_G4ZXQ",
+			"index":3,
+			"inputs":{
+				"option":"url"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1044,
 				"resourceName":"variable_by_unifyapps_create_list",
@@ -118,7 +146,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_u3z18",
-			"index":3,
+			"index":4,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -378,7 +406,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_jAviR",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"start":0,
 				"limit":2,
@@ -402,7 +430,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_jAviR@_Ekzdv-1@l",
 			"id":"n_ti5JR",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"itemToAdd":"{{ _wAt1k.outputs.fileDetails }}",
 				"insertLocation":"END",
@@ -476,7 +504,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_kEFgb",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"configurationMode":"DEFAULT",
 				"code":"import base64\n\n# Read input file\nwith open(test1, \"rb\") as f:\n    binary_content = f.read()\n\n# Create output file - ye automatically upload hogi\nwith open(\"output_report.txt\", \"w\") as f:\n    f.write(f\"Processed file: test1\\n\")\n    f.write(f\"File size: {len(binary_content)} bytes\\n\")\n    f.write(f\"Base64 length: {len(base64.b64encode(binary_content))} chars\\n\")\n\nresult = {\n    \"file_size\": len(binary_content),\n    \"base64_content\": base64.b64encode(binary_content).decode('ascii')[:100],  # First 100 chars only\n    \"is_text_file\": False\n}",
@@ -508,7 +536,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_Am7AV",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"result":"{{ n_188Pp.outputs.success }}"
 			},
@@ -535,5 +563,5 @@
 	"tags":[
 		
 	],
-	"version":35
+	"version":36
 }
