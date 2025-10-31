@@ -97,7 +97,7 @@
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761920049955,
+	"modifiedTime":1761920190348,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
@@ -736,7 +736,7 @@
 			"inputs":{
 				"filters":[
 					{
-						"property":"{{ _aXMZM.outputs.result.inputs.mismatchCount }}",
+						"property":"=LEN({{ n_PZnd7.outputs.items }})",
 						"filter":{
 							"operator":"GT",
 							"value":"0"
@@ -912,5 +912,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
