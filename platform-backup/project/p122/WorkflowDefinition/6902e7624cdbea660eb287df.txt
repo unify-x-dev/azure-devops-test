@@ -37,14 +37,28 @@
 			"fromNodeId":"n_UyLu3",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_Ab8Iz",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Ab8Iz",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_uaPZr",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uaPZr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_X9vwF",
 			"type":"next"
 		}
 	],
 	"id":"6902e7624cdbea660eb287df",
 	"lastModifiedBy":155341,
 	"lcName":"test2",
-	"modifiedTime":1761931861589,
+	"modifiedTime":1761932432600,
 	"name":"test2",
 	"nodes":[
 		{
@@ -54,7 +68,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
 			"id":"n_BMraz",
@@ -81,7 +95,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
 			"id":"n_kDCMC",
@@ -126,7 +140,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
 			"id":"n_W9GTv",
@@ -150,7 +164,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
 			"id":"n_UyLu3",
@@ -175,8 +189,77 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_iAhKW-1",
-			"id":"n_uaPZr",
+			"id":"n_Ab8Iz",
 			"index":6,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"page":{
+							"type":"number",
+							"title":"Page"
+						},
+						"stop":{
+							"type":"boolean",
+							"title":"Stop"
+						},
+						"total":{
+							"type":"number",
+							"title":"Total"
+						}
+					},
+					"required":[]
+				}
+			},
+			"inputs":{
+				"total":87,
+				"stop":false,
+				"page":1
+			},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"page":{
+							"type":"number",
+							"title":"Page"
+						},
+						"stop":{
+							"type":"boolean",
+							"title":"Stop"
+						},
+						"total":{
+							"type":"number",
+							"title":"Total"
+						}
+					},
+					"required":[]
+				}
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1094,
+				"resourceName":"variable_by_unifyapps_create_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iAhKW-1",
+			"id":"n_uaPZr",
+			"index":7,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -194,7 +277,7 @@
 				}
 			},
 			"inputs":{
-				"limit":"=CEILING(2/3)"
+				"limit":"=CEILING(17/3,1)<"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -213,6 +296,42 @@
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Create variables",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"resourceVersion":1013,
+				"resourceName":"variable_by_unifyapps_update_variables",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_iAhKW-1",
+			"id":"n_X9vwF",
+			"index":8,
+			"inputs":{
+				"variables":[
+					{
+						"source":"{{ n_uaPZr.outputs.limit }}",
+						"value":"=CEILING({{ n_Ab8Iz.outputs.total }}/20,1)"
+					},
+					{
+						"source":"{{ n_Ab8Iz.outputs.page }}"
+					},
+					{
+						"source":"{{ n_Ab8Iz.outputs.stop }}",
+						"value":"={{ n_Ab8Iz.outputs.page }}<CEILING({{ n_Ab8Iz.outputs.total }}/20,1)"
+					},
+					{
+						"source":"{{ n_Ab8Iz.outputs.total }}"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Variable by UnifyApps",
+			"title":"Update variables",
 			"type":"ACTION"
 		}
 	],
@@ -234,5 +353,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
