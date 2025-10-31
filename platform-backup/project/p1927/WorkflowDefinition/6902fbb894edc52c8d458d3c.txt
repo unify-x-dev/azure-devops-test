@@ -176,7 +176,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761893643491,
+	"modifiedTime":1761893739519,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -206,6 +206,10 @@
 							"operationName":{
 								"type":"string",
 								"title":"Operation Name"
+							},
+							"id":{
+								"type":"string",
+								"title":"Id"
 							}
 						},
 						"additionalProperties":false,
@@ -266,7 +270,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_LJy4I",
@@ -363,7 +367,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"n_LJy4I@1",
@@ -395,7 +399,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"_RkGuU",
@@ -449,7 +453,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@1",
 			"id":"_QiGjl",
@@ -519,7 +523,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"n_LJy4I@2",
@@ -551,7 +555,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"_5j9Tn",
@@ -605,7 +609,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"_hDu25",
@@ -638,7 +642,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@2",
 			"id":"_q3Nsb",
@@ -664,7 +668,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_LJy4I@3",
@@ -696,7 +700,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_SP4DL",
@@ -755,7 +759,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_1IUfs",
@@ -782,7 +786,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@3",
 			"id":"n_AkSAF",
@@ -791,7 +795,8 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"location":"{{ n_1IUfs.outputs.properties }}"
+					"location":"{{ n_1IUfs.outputs.properties }}",
+					"id":"{{ n_1IUfs.outputs.id }}"
 				},
 				"status":200
 			},
@@ -808,7 +813,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_LJy4I@4",
@@ -840,7 +845,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_Qe8TI",
@@ -851,7 +856,8 @@
 					"additionalProperties":false,
 					"required":[
 						"Name",
-						"ReferenceNumber"
+						"ReferenceNumber",
+						"id"
 					],
 					"properties":{
 						"ReferenceNumber":{
@@ -861,6 +867,10 @@
 						"Name":{
 							"type":"string",
 							"title":"Name"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
 						}
 					}
 				},
@@ -868,7 +878,8 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"payload"
+						"payload",
+						"id"
 					],
 					"properties":{
 						"payload":{
@@ -876,14 +887,19 @@
 							"properties":{},
 							"additionalProperties":false,
 							"title":"Payload"
+						},
+						"id":{
+							"type":"string",
+							"title":"Id"
 						}
 					}
 				},
-				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber\n]\nreturn result",
+				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber,\n    \"id\": id\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"payload":"{{ n_UqZT0.outputs.body.payload }}"
+					"payload":"{{ n_UqZT0.outputs.body.payload }}",
+					"id":"{{ n_UqZT0.outputs.body.id }}"
 				}
 			},
 			"skip":false,
@@ -899,13 +915,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_mWWmA",
 			"index":17,
 			"inputs":{
-				"recordId":"{{ n_Qe8TI.outputs.result.ReferenceNumber }}",
+				"recordId":"{{ n_Qe8TI.outputs.result.id }}",
 				"writeThroughSessionVariables":false,
 				"object_type":"reps_locations_id",
 				"skipIfBlank":false,
@@ -928,7 +944,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_6r9Nr",
@@ -937,7 +953,8 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"location":"{{ n_mWWmA.outputs.object.properties }}"
+					"location":"{{ n_mWWmA.outputs.object.properties }}",
+					"id":"{{ n_mWWmA.outputs.object.id }}"
 				},
 				"status":200
 			},
@@ -954,7 +971,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_drs8E",
@@ -988,5 +1005,5 @@
 	"tags":[
 		
 	],
-	"version":46
+	"version":47
 }
