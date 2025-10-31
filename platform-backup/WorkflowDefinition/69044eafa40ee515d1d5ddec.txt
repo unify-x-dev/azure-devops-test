@@ -6,46 +6,87 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_R2waT",
+			"fromNodeId":"n_nw3DG",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_LeRuh",
+			"toNodeId":"n_Cpeio",
 			"type":"next"
 		}
 	],
 	"id":"69044eafa40ee515d1d5ddec",
 	"lastModifiedBy":175325,
 	"lcName":"dependencylocalyasfsoukwz",
-	"modifiedTime":1761889967266,
+	"modifiedTime":1761889973743,
 	"name":"dependencyLocalyasfsouKwZ",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_R2waT-1",
-			"id":"_R2waT",
-			"index":0,
+			"id":"n_nw3DG",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"input":{
+								"type":"array",
+								"items":{
+									"type":"integer"
+								},
+								"title":"input"
+							}
+						},
+						"additionalProperties":false
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1131,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_R2waT-1",
-			"id":"_LeRuh",
-			"index":0,
+			"id":"n_Cpeio",
+			"index":2,
+			"inputs":{
+				"automationId":"69044ea2a40ee515d1d5ddc4",
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +100,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
