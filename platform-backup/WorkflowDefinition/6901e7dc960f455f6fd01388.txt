@@ -5,12 +5,12 @@
 	"createdTime":1761732572227,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761732601719,
+		"deployedAt":1761732893278,
 		"deployedBy":122909,
-		"deployedDefinitionId":"6901e7f9c41bc371691c8fce",
+		"deployedDefinitionId":"6901e91cc41bc371691c98a0",
 		"status":"DEPLOYED",
-		"version":1,
-		"workflowVersion":1
+		"version":2,
+		"workflowVersion":2
 	},
 	"edges":[
 		{
@@ -19,12 +19,19 @@
 			"skip":false,
 			"toNodeId":"n_UTFkn",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UTFkn",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_tq5aF",
+			"type":"next"
 		}
 	],
 	"id":"6901e7dc960f455f6fd01388",
-	"lastModifiedBy":122909,
+	"lastModifiedBy":132116,
 	"lcName":"dependencyworkflow",
-	"modifiedTime":1761732891536,
+	"modifiedTime":1761919196181,
 	"name":"dependencyWorkflow",
 	"nodes":[
 		{
@@ -34,7 +41,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_2cGpO-1",
 			"id":"n_rDZEL",
@@ -61,13 +68,35 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_2cGpO-1",
 			"id":"n_UTFkn",
 			"index":2,
 			"inputs":{
 				"data":"Kumar",
+				"dataType":"STRING"
+			},
+			"skip":false,
+			"subTitle":"Encryption Tools by UnifyApps",
+			"title":"Encrypt data",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"encryption_tools_by_unifyapps",
+				"resourceVersion":869,
+				"connectionId":"68f866b15be7140f8d0ee1a1",
+				"resourceName":"encryption_tools_by_unifyapps_encrypt_data",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_2cGpO-1",
+			"id":"n_tq5aF",
+			"index":3,
+			"inputs":{
 				"dataType":"STRING"
 			},
 			"skip":false,
@@ -93,5 +122,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
