@@ -5,23 +5,23 @@
 	"createdTime":1761898931148,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761898960371,
+		"deployedAt":1761899208856,
 		"deployedBy":43523,
-		"deployedDefinitionId":"690471d051e3070c179439aa",
+		"deployedDefinitionId":"690472c851e3070c179440ba",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":1
+		"version":3,
+		"workflowVersion":3
 	},
 	"edges":[
 		{
 			"fromNodeId":"n_Asezc",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_3e9aG",
+			"toNodeId":"n_1txDY",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_3e9aG",
+			"fromNodeId":"n_1txDY",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_6Rqki",
@@ -31,7 +31,7 @@
 	"id":"690471b351e3070c179438f5",
 	"lastModifiedBy":43523,
 	"lcName":"wait for signal",
-	"modifiedTime":1761899207640,
+	"modifiedTime":1761899669025,
 	"name":"wait for signal",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_4Oy0o-1",
 			"id":"n_Asezc",
@@ -62,34 +62,22 @@
 		{
 			"context":{
 				"appName":"signals_by_unifyapps",
-				"resourceVersion":962,
-				"resourceName":"signals_by_unifyapps_wait_for_signal",
+				"resourceVersion":0,
+				"resourceName":"signals_by_unifyapps_wait_for_signals",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_4Oy0o-1",
-			"id":"n_3e9aG",
+			"id":"n_1txDY",
 			"index":2,
 			"inputs":{
-				"duration":10,
-				"unit":"MINUTES",
-				"signal_payload":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"userName":{
-							"type":"string",
-							"title":"User Name"
-						}
-					}
-				}
+				"unit":"MINUTES"
 			},
 			"skip":false,
 			"subTitle":"Signals by UnifyApps",
-			"title":"Wait for signal",
+			"title":"Wait for signals",
 			"type":"ACTION"
 		},
 		{
@@ -125,5 +113,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
