@@ -87,7 +87,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761911653404,
+	"modifiedTime":1761911675174,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -464,7 +464,7 @@
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
-				"requestTimeoutInSecs":5,
+				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
 					"resourceType":"INFRA",
@@ -539,7 +539,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Uk5gQ",
@@ -592,7 +592,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Sr2A1",
@@ -615,7 +615,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_fimnV",
@@ -842,7 +842,7 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_sytyX",
@@ -870,5 +870,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":5
+	"version":6
 }
