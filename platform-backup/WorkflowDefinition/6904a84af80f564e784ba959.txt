@@ -46,7 +46,7 @@
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761919319161,
+	"modifiedTime":1761919479721,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
@@ -139,7 +139,7 @@
 							"type":"string",
 							"title":"Heartbeat Env Url"
 						},
-						"valid_properties":{
+						"standard_properties":{
 							"type":"object",
 							"properties":{},
 							"additionalProperties":false,
@@ -273,9 +273,11 @@
 							},
 							"title":"tables"
 						},
-						"properties":{
-							"type":"string",
-							"title":"Properties"
+						"standard_properties":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Standard Properties"
 						}
 					}
 				},
@@ -283,6 +285,7 @@
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
+					"standard_properties":"{{ n_9fJx6.outputs.standard_properties }}",
 					"tables":{
 						"source":"{{ n_qQQ47.outputs.item }}",
 						"ua:type":"mappedArray",
@@ -347,5 +350,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
