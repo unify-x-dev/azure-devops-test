@@ -23,7 +23,7 @@
 	"id":"69046e2b2c95f76953063861",
 	"lastModifiedBy":46030,
 	"lcName":"groovysample1204",
-	"modifiedTime":1761898675954,
+	"modifiedTime":1761898883135,
 	"name":"groovySample1204",
 	"nodes":[
 		{
@@ -118,7 +118,7 @@
 						}
 					}
 				},
-				"code":"if (!binding.hasVariable('content')) return [:];\n\ndef transformContent(content) {\n    if (content == null) return;\n    \n    def splitFields = ['highlights', 'inclusions', 'exclusions']\n    def result = [:]\n    \n    content.each { key, value ->\n        if (splitFields.contains(key) && value instanceof String) {\n            result[key] = value.split(/\\r\\n/).findAll { it.trim() }\n        } else {\n            result[key] = value\n        }\n    }\n    \n    return result\n}\n\nreturn [\n  \"content\": transformContent(content)\n]",
+				"code":"if (!binding.hasVariable('content')) return [:];\n\ndef transformContent(content) {\n    if (!(content instanceof Map)) return null\n    \n    def splitFields = ['highlights', 'inclusions', 'exclusions']\n    def result = [:]\n    \n    content.each { key, value ->\n        if (splitFields.contains(key) && value instanceof String) {\n            result[key] = value.split(/[\\r\\n]+/).findAll { it.trim() }\n        } else {\n            result[key] = value\n        }\n    }\n    return result\n}\n\nreturn [\n  \"content\": transformContent(content)\n]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -171,5 +171,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
