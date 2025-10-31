@@ -46,7 +46,7 @@
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761919537974,
+	"modifiedTime":1761919574608,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
@@ -281,7 +281,7 @@
 						}
 					}
 				},
-				"code":"if(!binding.hasVariable('tables')) {\n  tables = []\n}\n\ndef invalidTables = tables.collect { table ->\n    def properties = com.unifyapps.infra.utils.JsonUtils.fromJson(table.PROPERTIES, Map)\n\n    // Only validate keys that exist in standard_properties\n    def invalidProps = properties.findAll { k, v ->\n        standard_properties.containsKey(k) && standard_properties[k] != v\n    }\n\n    if (!invalidProps.isEmpty()) {\n        return [\n            TABLE_NAME         : table.TABLE_NAME,\n            TABLE_SCHEMA       : table.TABLE_SCHEMA,\n            INVALID_PROPERTIES : invalidProps\n        ]\n    }\n    return null\n}\n\nreturn invalidTables\n\n// return ",
+				"code":"if(!binding.hasVariable('tables')) {\n  tables = []\n}\n\ndef invalidTables = tables.collect { table ->\n    def properties = com.unifyapps.infra.utils.JsonUtils.fromJson(table.PROPERTIES, Map)\n\n    // Only validate keys that exist in standard_properties\n    def invalidProps = properties.findAll { k, v ->\n        standard_properties.containsKey(k) && standard_properties[k] != v\n    }\n\n    if (!invalidProps.isEmpty()) {\n        return [\n            TABLE_NAME         : table.TABLE_NAME,\n            TABLE_SCHEMA       : table.TABLE_SCHEMA,\n            INVALID_PROPERTIES : invalidProps\n        ]\n    }\n    return null\n}\n\nreturn [\"invalidTables\" : invalidTables]\n\n// return ",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -350,5 +350,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
