@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_gEpbz",
+			"fromNodeId":"n_9fJx6",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"_9VRTS",
@@ -16,20 +16,107 @@
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761912906500,
+	"modifiedTime":1761916732114,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1077,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
-			"id":"_gEpbz",
-			"index":0,
+			"id":"n_9fJx6",
+			"index":1,
+			"inputs":{
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"baseInternalUrl"
+					],
+					"properties":{
+						"tables":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{
+									"PARTITION_KEY":{
+										"type":"string",
+										"title":"PARTITION_KEY"
+									},
+									"TABLE_NAME":{
+										"type":"string",
+										"title":"TABLE_NAME"
+									},
+									"TABLE_MODEL":{
+										"type":"string",
+										"title":"TABLE_MODEL"
+									},
+									"TABLE_SCHEMA":{
+										"type":"string",
+										"title":"TABLE_SCHEMA"
+									},
+									"PRIMARY_KEY":{
+										"type":"string",
+										"title":"PRIMARY_KEY"
+									},
+									"DISTRIBUTE_KEY":{
+										"type":"string",
+										"title":"DISTRIBUTE_KEY"
+									},
+									"TABLE_ENGINE":{
+										"type":"string",
+										"title":"TABLE_ENGINE"
+									},
+									"DISTRIBUTE_BUCKET":{
+										"type":"integer",
+										"title":"DISTRIBUTE_BUCKET"
+									},
+									"PROPERTIES":{
+										"type":"string",
+										"title":"PROPERTIES"
+									},
+									"SORT_KEY":{
+										"type":"string",
+										"title":"SORT_KEY"
+									},
+									"DISTRIBUTE_TYPE":{
+										"type":"string",
+										"title":"DISTRIBUTE_TYPE"
+									},
+									"TABLE_ID":{
+										"type":"integer",
+										"title":"TABLE_ID"
+									}
+								},
+								"additionalProperties":false
+							},
+							"title":"tables"
+						},
+						"baseInternalUrl":{
+							"type":"string",
+							"title":"Base Internal Url"
+						},
+						"env":{
+							"type":"string",
+							"title":"Env"
+						},
+						"heartbeatEnvUrl":{
+							"type":"string",
+							"title":"Heartbeat Env Url"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -39,13 +126,16 @@
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"_9VRTS",
-			"index":0,
+			"index":2,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":44108,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +149,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
