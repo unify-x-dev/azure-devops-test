@@ -23,7 +23,7 @@
 	"id":"690471d851e3070c17943a1b",
 	"lastModifiedBy":43523,
 	"lcName":"emit signal",
-	"modifiedTime":1761899168735,
+	"modifiedTime":1761899182952,
 	"name":"emit signal",
 	"nodes":[
 		{
@@ -40,7 +40,22 @@
 			"index":1,
 			"inputs":{
 				"request":{
-					"contentType":"application/json"
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"executionId":{
+								"type":"string",
+								"title":"Execution Id"
+							},
+							"runtimeType":{
+								"type":"string",
+								"title":"Runtime Type"
+							}
+						},
+						"additionalProperties":false,
+						"required":[]
+					}
 				}
 			},
 			"skip":false,
@@ -112,5 +127,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
