@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761901883514,
+	"modifiedTime":1761903901762,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -479,7 +479,7 @@
 			"index":6,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"with open(\"FILE_1\", \"r\", encoding=\"utf-8\") as f:\n    text = f.read()\n\nresult = {\"res\": text}",
+				"code":"with open(FILE_1, \"r\", encoding=\"utf-8\") as f:\n    text = f.read()\n\nresult = {\"res\": text}",
 				"isAsync":false,
 				"python_version":"3.12",
 				"filesList":{
@@ -533,5 +533,5 @@
 	"tags":[
 		
 	],
-	"version":21
+	"version":22
 }
