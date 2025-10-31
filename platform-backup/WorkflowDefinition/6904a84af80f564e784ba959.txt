@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761912906500,
 	"deleted":false,
@@ -53,6 +53,43 @@
 			"fromNodeId":"n_qQQ47",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_RG5N7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_RG5N7",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_WBvio",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"_WBvio",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Ed4F0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_RG5N7",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_zQc9D",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_Ed4F0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zByDB",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_zQc9D",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_zByDB",
 			"type":"next"
 		}
@@ -60,7 +97,7 @@
 	"id":"6904a84af80f564e784ba959",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index ",
-	"modifiedTime":1761919708503,
+	"modifiedTime":1761920049955,
 	"name":"STARROCKS | ALERT | Persistent Index ",
 	"nodes":[
 		{
@@ -158,6 +195,18 @@
 							"properties":{},
 							"additionalProperties":false,
 							"title":"Valid Properties"
+						},
+						"rootAutomationId":{
+							"type":"string",
+							"title":"Root Automation Id"
+						},
+						"rootExecutionId":{
+							"type":"string",
+							"title":"Root Execution Id"
+						},
+						"executionTime":{
+							"type":"string",
+							"title":"Execution Time"
 						}
 					}
 				}
@@ -673,6 +722,159 @@
 		},
 		{
 			"context":{
+				"appName":"if_else",
+				"resourceVersion":767,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_gEpbz-1",
+			"id":"_RG5N7",
+			"index":6,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ _aXMZM.outputs.result.inputs.mismatchCount }}",
+						"filter":{
+							"operator":"GT",
+							"value":"0"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.steps.inputs",
+					"root.record.steps.outputs"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":3226,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_RG5N7@_gEpbz-1@y",
+			"id":"_WBvio",
+			"index":7,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"infra_alert_steps",
+				"skipIfBlank":false,
+				"record":{
+					"alertType":"starrocks_table_health",
+					"rootAutomationId":"{{ n_9fJx6.outputs.rootAutomationId }}",
+					"rootExecutionId":"{{ n_9fJx6.outputs.rootExecutionId }}",
+					"executedAt":"{{ n_9fJx6.outputs.executionTime }}",
+					"alertCategory":"starrocks",
+					"alertSubType":"table_properties",
+					"stepsOrder":1,
+					"summary":"Check for table properties against the standard values",
+					"steps":{
+						"inputs":"{{ n_9fJx6.outputs.standard_properties }}",
+						"outputs":"{{ n_PZnd7.outputs }}"
+					},
+					"status":"CRITICAL",
+					"stepDescription":"Check for table properties against the standard values",
+					"resolved":false
+				}
+			},
+			"skip":false,
+			"subTitle":"Create Alert Step",
+			"title":"Create record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":3,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_RG5N7@_gEpbz-1@y",
+			"id":"_Ed4F0",
+			"index":8,
+			"inputs":{
+				"automationId":"68721bd4feea003f6a9cb688",
+				"runtimeConnections":{},
+				"synchronous":false,
+				"version":"-1",
+				"parameters":{
+					"env":"{{ n_9fJx6.outputs.env }}",
+					"alertCategory":"starrocks",
+					"alertType":"starrocks_table_health",
+					"alertTitle":"Alert | Starrocks Table Properties",
+					"alertDescription":"Following tables contains invalid properties : {{ n_PZnd7.outputs }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.record.steps.inputs",
+					"root.record.steps.outputs"
+				]
+			},
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":3226,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_RG5N7@_gEpbz-1@n",
+			"id":"_zQc9D",
+			"index":9,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"infra_alert_steps",
+				"skipIfBlank":false,
+				"record":{
+					"alertType":"starrocks_table_health",
+					"rootAutomationId":"{{ n_9fJx6.outputs.rootAutomationId }}",
+					"rootExecutionId":"{{ n_9fJx6.outputs.rootExecutionId }}",
+					"executedAt":"{{ n_9fJx6.outputs.executionTime }}",
+					"alertCategory":"starrocks",
+					"alertSubType":"table_properties",
+					"stepsOrder":1,
+					"summary":"Check for table properties against the standard values",
+					"steps":{
+						"inputs":"{{ n_9fJx6.outputs.standard_properties }}",
+						"outputs":"{{ n_PZnd7.outputs }}"
+					},
+					"status":"OK",
+					"stepDescription":"Check for table properties against the standard values",
+					"resolved":true
+				}
+			},
+			"skip":false,
+			"subTitle":"Create Alert Step",
+			"title":"Create record",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1114,
 				"resourceName":"callables_return_to_automation",
@@ -683,7 +885,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"n_zByDB",
-			"index":6,
+			"index":10,
 			"inputs":{
 				"result":"{{ n_9fJx6.outputs }}"
 			},
@@ -710,5 +912,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
