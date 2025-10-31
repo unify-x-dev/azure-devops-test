@@ -5,12 +5,12 @@
 	"createdTime":1761909243729,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761923504393,
+		"deployedAt":1761923759969,
 		"deployedBy":44108,
-		"deployedDefinitionId":"6904d1af9a78cb574c7d0919",
-		"status":"PAUSED",
-		"version":4,
-		"workflowVersion":43
+		"deployedDefinitionId":"6904d2af9a78cb574c7d158a",
+		"status":"DEPLOYED",
+		"version":5,
+		"workflowVersion":44
 	},
 	"edges":[
 		{
@@ -155,7 +155,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761923758307,
+	"modifiedTime":1761923851137,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -1065,7 +1065,7 @@
 			"inputs":{
 				"automationId":"6904a84af80f564e784ba959",
 				"runtimeConnections":{},
-				"synchronous":true,
+				"synchronous":false,
 				"triggerWorkflowWithRuntimeType":"DEFAULT",
 				"version":"-1",
 				"parameters":{
@@ -1207,5 +1207,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":44
+	"version":45
 }
