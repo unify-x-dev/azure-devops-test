@@ -516,7 +516,7 @@
 	"id":"690462a7ffd2512f2177f2c0",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeelocationobjectautomation",
-	"modifiedTime":1761896323849,
+	"modifiedTime":1761896366660,
 	"name":"[virtu-reps] EmployeeLocationObjectAutomation",
 	"nodes":[
 		{
@@ -1705,22 +1705,17 @@
 			"index":27,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"rave_employees_id",
-				"skipIfBlank":false,
+				"object_type":"reps_employee_locations",
+				"skipIfBlank":true,
 				"record":{
-					"UserName":"{{ _EhUzU.outputs.result.UserName }}",
-					"Email":"{{ _EhUzU.outputs.result.Email }}",
-					"IsActive":"{{ _EhUzU.outputs.result.IsActive }}",
-					"FullName":"{{ _EhUzU.outputs.result.FullName }}",
-					"EmployeeNumber":"{{ _EhUzU.outputs.result.EmployeeNumber }}",
+					"LocationId":"{{ _EhUzU.outputs.result.LocationId }}",
+					"Id":"{{ _EhUzU.outputs.result.Id }}",
 					"row_num":"{{ _EhUzU.outputs.result.row_num }}",
-					"EmployeeId":"{{ _EhUzU.outputs.result.EmployeeId }}",
-					"ManagerId":"{{ _EhUzU.outputs.result.ManagerId }}",
-					"ManagerEmployeeNumber":"{{ _EhUzU.outputs.result.ManagerEmployeeNumber }}"
+					"EmployeeId":"{{ _EhUzU.outputs.result.EmployeeId }}"
 				}
 			},
 			"skip":false,
-			"subTitle":"Storage by UnifyApps",
+			"subTitle":"Employee Location",
 			"title":"Create record",
 			"type":"ACTION"
 		},
@@ -3013,5 +3008,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
