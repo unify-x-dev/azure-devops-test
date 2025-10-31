@@ -13,12 +13,57 @@
 		"workflowVersion":154
 	},
 	"edges":[
-		
+		{
+			"fromNodeId":"n_Hkhfu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jLNzG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jLNzG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UjELH",
+			"type":"scope"
+		},
+		{
+			"fromNodeId":"n_UjELH",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZapF2",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_UjELH",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Q7fzm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZapF2",
+			"name":"scope-loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jLNzG",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Q7fzm",
+			"name":"scope-loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jLNzG",
+			"type":"next"
+		}
 	],
 	"id":"67ef7ee698cbb4795b834c47",
 	"lastModifiedBy":504,
 	"lcName":"hs-test-scope",
-	"modifiedTime":1761896373306,
+	"modifiedTime":1761896414718,
 	"name":"hs-test-scope",
 	"nodes":[
 		{
@@ -28,7 +73,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"JWtXm-1",
 			"id":"n_Hkhfu",
@@ -45,6 +90,82 @@
 				"type":"WEBHOOK"
 			},
 			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"scope",
+				"resourceVersion":289,
+				"resourceName":"scope_trigger_scope",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"JWtXm-1",
+			"id":"n_jLNzG",
+			"index":2,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Scope",
+			"title":"Trigger Scope",
+			"type":"SCOPE"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION",
+				"scopeNodeId":"n_jLNzG"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_jLNzG@JWtXm-1@s",
+			"id":"n_UjELH",
+			"index":3,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":968,
+				"resourceName":"code_by_unifyapps_javascript",
+				"type":"APPLICATION",
+				"scopeNodeId":"n_jLNzG"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_UjELH@n_jLNzG@JWtXm-1@s@y",
+			"id":"n_ZapF2",
+			"index":4,
+			"inputs":{
+				"code":"console.log(\"hello\")",
+				"isAsync":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Javascript",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"scopeNodeId":"n_jLNzG"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_UjELH@n_jLNzG@JWtXm-1@s@n",
+			"id":"n_Q7fzm",
+			"index":5,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":22764,
@@ -60,5 +181,5 @@
 	"tags":[
 		
 	],
-	"version":155
+	"version":156
 }
