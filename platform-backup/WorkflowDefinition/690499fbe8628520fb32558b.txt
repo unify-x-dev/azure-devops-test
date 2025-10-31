@@ -170,7 +170,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761914918114,
+	"modifiedTime":1761914922992,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -1361,12 +1361,27 @@
 										"boolean",
 										"integer"
 									],
-									"properties":{}
+									"properties":{
+										"dsad":{
+											"type":"string",
+											"title":"Dsad"
+										}
+									},
+									"required":[
+										"dsad"
+									]
 								}
 							}
 						}
 					}
 				}
+			},
+			"inputs":{
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"List",
+				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -1379,7 +1394,15 @@
 							"disableActions":true,
 							"items":{
 								"type":"object",
-								"properties":{}
+								"properties":{
+									"dsad":{
+										"type":"string",
+										"title":"Dsad"
+									}
+								},
+								"required":[
+									"dsad"
+								]
 							}
 						}
 					}
@@ -1423,5 +1446,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":25
+	"version":26
 }
