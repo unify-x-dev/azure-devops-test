@@ -1,51 +1,230 @@
 {
 	"appsUsed":[
-		
+		"keka"
 	],
 	"createdTime":1761924288096,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_SSoEQ",
+			"fromNodeId":"n_NnlSG",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_KyynK",
+			"toNodeId":"n_rE6Rv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_rE6Rv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_iJ6DS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_iJ6DS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_87V8M",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_87V8M",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KVctE",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_KVctE",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_e9iwi",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_e9iwi",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_4FqmB",
 			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":3546,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761924288096,
+	"modifiedTime":1761925618729,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SSoEQ-1",
-			"id":"_SSoEQ",
-			"index":0,
+			"id":"n_NnlSG",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":188,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_employees",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SSoEQ-1",
-			"id":"_KyynK",
-			"index":0,
+			"id":"n_rE6Rv",
+			"index":2,
+			"inputs":{
+				"inNoticePeriod":false,
+				"pageSize":100,
+				"inProbation":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Keka",
+			"title":"List all employees",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":143,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_gets_employee_form",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_iJ6DS",
+			"index":3,
+			"inputs":{
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee form 16",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":158,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_all_pay_groups",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_87V8M",
+			"index":4,
+			"inputs":{
+				"pageSize":100
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get all pay groups",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":142,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_all_pay_cycles",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_KVctE",
+			"index":5,
+			"inputs":{
+				"payGroupId":"4c792db2-b6ff-49a0-9207-87951602e6ae",
+				"pageNumber":1,
+				"month":11,
+				"year":2023,
+				"pageSize":1,
+				"runStatus":"Finalized"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List all pay cycles",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":135,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_pay_batches",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_e9iwi",
+			"index":6,
+			"inputs":{
+				"payGroupId":"5f1a5bba-b240-4b8a-870c-b46072076d9a",
+				"payCycleId":"9be84764-fa8d-4ca3-b563-e61a00a01846",
+				"pageSize":100
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List pay batches",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":142,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_batch_payments",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_4FqmB",
+			"index":7,
+			"inputs":{
+				"pageSize":100
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List batch payments",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +238,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
