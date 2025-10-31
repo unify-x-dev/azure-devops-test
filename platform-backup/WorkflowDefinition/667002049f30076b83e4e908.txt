@@ -34,6 +34,13 @@
 			"skip":false,
 			"toNodeId":"n_RdW2Z",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_RdW2Z",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_SsslN",
+			"type":"next"
 		}
 	],
 	"grants":{
@@ -83,7 +90,7 @@
 	"id":"667002049f30076b83e4e908",
 	"lastModifiedBy":504,
 	"lcName":"hatimtest-01",
-	"modifiedTime":1761815440742,
+	"modifiedTime":1761896322218,
 	"name":"hatimtest-01",
 	"nodes":[
 		{
@@ -93,7 +100,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"zUJsk-1",
 			"id":"n_Te3hv",
@@ -281,6 +288,32 @@
 			"subTitle":"Utility by UnifyApps",
 			"title":"Filter List of Data",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":0,
+				"resourceName":"callables_schedule_a_callable",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"zUJsk-1",
+			"id":"n_SsslN",
+			"index":5,
+			"inputs":{
+				"runtimeConnections":{},
+				"schedule_type":"CRON_EXPRESSION",
+				"expression":"0 0 * * *",
+				"timezone":"Asia/Calcutta",
+				"cancel_existing":true,
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Schedule callable",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":520,
@@ -293,5 +326,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":1044
+	"version":1045
 }
