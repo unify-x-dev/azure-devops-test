@@ -84,7 +84,60 @@
 		},
 		{
 			"fromNodeId":"_Eq6mb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PQvqv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_PQvqv",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PQvqv@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_PQvqv@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_bixYK",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_PQvqv",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PQvqv@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_PQvqv@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AjdZL",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_bixYK",
 			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CI9E1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_AjdZL",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CI9E1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_PQvqv",
+			"name":"default",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_CI9E1",
@@ -109,7 +162,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761912669864,
+	"modifiedTime":1761913234624,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -119,7 +172,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_t4hxB",
@@ -146,7 +199,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_96ZBq",
@@ -223,7 +276,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_cd79r",
@@ -274,7 +327,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"_auxBn",
@@ -343,7 +396,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_A4kqi",
@@ -442,7 +495,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_PHNUD",
@@ -478,7 +531,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_6eKH8",
@@ -561,7 +614,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Uk5gQ",
@@ -614,7 +667,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Sr2A1",
@@ -642,7 +695,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_flqY9",
@@ -796,7 +849,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_CI9E1",
@@ -819,7 +872,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_CI9E1@n_Sr2A1@_ErVLa-1@l@l",
 			"id":"_Eq6mb",
@@ -961,6 +1014,116 @@
 		},
 		{
 			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CI9E1@n_Sr2A1@_ErVLa-1@l@l",
+			"id":"n_PQvqv",
+			"index":13,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1"
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2"
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_PQvqv@n_CI9E1@n_Sr2A1@_ErVLa-1@l@l@1",
+			"id":"n_PQvqv@1",
+			"index":14,
+			"inputs":{
+				"name":"Branch 1"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1133,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_PQvqv@n_CI9E1@n_Sr2A1@_ErVLa-1@l@l@1",
+			"id":"n_bixYK",
+			"index":15,
+			"inputs":{
+				"runtimeConnections":{},
+				"synchronous":true,
+				"version":"-1",
+				"parameters":{}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_PQvqv@n_CI9E1@n_Sr2A1@_ErVLa-1@l@l@2",
+			"id":"n_PQvqv@2",
+			"index":16,
+			"inputs":{
+				"name":"Branch 2"
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_PQvqv@n_CI9E1@n_Sr2A1@_ErVLa-1@l@l@2",
+			"id":"n_AjdZL",
+			"index":17,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -968,7 +1131,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_sytyX",
-			"index":13,
+			"index":18,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -992,5 +1155,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":15
+	"version":16
 }
