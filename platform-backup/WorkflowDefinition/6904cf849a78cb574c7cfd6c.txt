@@ -5,12 +5,12 @@
 	"createdTime":1761922948737,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761932468188,
+		"deployedAt":1761932816080,
 		"deployedBy":44108,
-		"deployedDefinitionId":"6904f4b4956fc24de1983ae0",
+		"deployedDefinitionId":"6904f60f956fc24de1984714",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":3
+		"version":3,
+		"workflowVersion":5
 	},
 	"edges":[
 		{
@@ -97,7 +97,7 @@
 	"id":"6904cf849a78cb574c7cfd6c",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index  (copy)",
-	"modifiedTime":1761932814702,
+	"modifiedTime":1761932985545,
 	"name":"STARROCKS | ALERT | Persistent Index  (copy)",
 	"nodes":[
 		{
@@ -112,7 +112,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"n_9fJx6",
@@ -280,6 +280,12 @@
 						"executionTime":{
 							"type":"string",
 							"title":"Execution Time"
+						},
+						"config":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Config"
 						}
 					}
 				}
@@ -300,7 +306,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"n_PZnd7",
@@ -577,7 +583,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"n_qQQ47",
@@ -781,9 +787,11 @@
 							},
 							"title":"partitions"
 						},
-						"partition_size_threshold_inGBs":{
-							"type":"string",
-							"title":"Partition Size Threshold In GBs"
+						"config":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Config"
 						}
 					}
 				},
@@ -791,6 +799,7 @@
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
+					"config":"{{ n_9fJx6.outputs.config }}",
 					"partitions":{
 						"source":"{{ n_9fJx6.outputs.partitions }}",
 						"ua:type":"mappedArray",
@@ -850,7 +859,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_qQQ47@_gEpbz-1@l",
 			"id":"n_8DtMJ",
@@ -881,7 +890,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"_RG5N7",
@@ -917,7 +926,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RG5N7@_gEpbz-1@y",
 			"id":"_WBvio",
@@ -957,7 +966,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RG5N7@_gEpbz-1@y",
 			"id":"_Ed4F0",
@@ -994,7 +1003,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RG5N7@_gEpbz-1@n",
 			"id":"_zQc9D",
@@ -1034,7 +1043,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gEpbz-1",
 			"id":"n_zByDB",
@@ -1065,5 +1074,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
