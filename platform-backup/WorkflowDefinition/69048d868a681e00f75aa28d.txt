@@ -6,46 +6,65 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_ATLEC",
+			"fromNodeId":"n_B5dDh",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_blECk",
+			"toNodeId":"n_JvZKS",
 			"type":"next"
 		}
 	],
 	"id":"69048d868a681e00f75aa28d",
 	"lastModifiedBy":45011,
 	"lcName":"idp webhook",
-	"modifiedTime":1761906054892,
+	"modifiedTime":1761906093045,
 	"name":"idp webhook",
 	"nodes":[
 		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":546,
+				"resourceName":"standard_entities_on_platform_event"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ATLEC-1",
-			"id":"_ATLEC",
-			"index":0,
+			"id":"n_B5dDh",
+			"index":1,
+			"inputs":{
+				"changeType":"ANY",
+				"entityTypes":[
+					"IDENTITY_PROVIDER"
+				]
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"On platform event",
 			"trigger":{
 				"type":"EVENT"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"stop"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ATLEC-1",
-			"id":"_blECk",
-			"index":0,
+			"id":"n_JvZKS",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":45011,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +78,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
