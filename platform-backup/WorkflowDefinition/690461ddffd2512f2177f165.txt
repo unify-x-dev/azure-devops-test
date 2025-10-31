@@ -5,12 +5,12 @@
 	"createdTime":1761894877207,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761906712718,
+		"deployedAt":1761916571967,
 		"deployedBy":39713,
-		"deployedDefinitionId":"690490189d4f8f2b294c6d68",
+		"deployedDefinitionId":"6904b69aac67042c905e9c01",
 		"status":"DEPLOYED",
-		"version":8,
-		"workflowVersion":12
+		"version":9,
+		"workflowVersion":16
 	},
 	"edges":[
 		{
@@ -31,14 +31,14 @@
 	"id":"690461ddffd2512f2177f165",
 	"lastModifiedBy":39713,
 	"lcName":"emitsignaltest",
-	"modifiedTime":1761916567636,
+	"modifiedTime":1761918837831,
 	"name":"EmitSignalTest",
 	"nodes":[
 		{
 			"context":{
 				"appName":"callables",
-				"resourceVersion":1078,
-				"resourceName":"callables_from_automation"
+				"resourceVersion":1167,
+				"resourceName":"callables_from_api"
 			},
 			"debug":false,
 			"dirty":true,
@@ -47,36 +47,40 @@
 			"id":"n_7A8mf",
 			"index":1,
 			"inputs":{
-				"result":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"result":{
-							"type":"string",
-							"title":"Result"
-						}
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"instanceId":{
+								"type":"string",
+								"title":"Instance Id"
+							},
+							"runtimeType":{
+								"type":"string",
+								"title":"Runtime Type"
+							}
+						},
+						"additionalProperties":false,
+						"required":[]
 					}
 				},
-				"setup":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"instanceId":{
-							"type":"string",
-							"title":"Instance Id"
-						},
-						"runtimeType":{
-							"type":"string",
-							"title":"Runtime Type"
+				"endpointType":"REST",
+				"response":[
+					{
+						"name":"200",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
 						}
 					}
-				}
+				],
+				"streamingResponse":false
 			},
 			"skip":false,
 			"subTitle":"Callable",
-			"title":"Trigger via automation",
+			"title":"Trigger via API",
 			"trigger":{
 				"type":"CALLABLE"
 			},
@@ -122,8 +126,8 @@
 		{
 			"context":{
 				"appName":"callables",
-				"resourceVersion":1113,
-				"resourceName":"callables_return_to_automation",
+				"resourceVersion":1136,
+				"resourceName":"callables_return_response_to_api",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -133,13 +137,13 @@
 			"id":"n_oQuMW",
 			"index":3,
 			"inputs":{
-				"result":{
-					"result":"success"
-				}
+				"streamingCompleted":true,
+				"responseName":"200_200",
+				"status":200
 			},
 			"skip":false,
 			"subTitle":"Callable",
-			"title":"Respond to automation",
+			"title":"Respond to API request",
 			"type":"STOP"
 		}
 	],
@@ -160,5 +164,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":17
 }
