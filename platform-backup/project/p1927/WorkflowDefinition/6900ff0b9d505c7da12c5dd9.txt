@@ -31,6 +31,13 @@
 			"fromNodeId":"n_8ulwF",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_0M4Sl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0M4Sl",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_2G9Iq",
 			"type":"next"
 		},
@@ -45,7 +52,7 @@
 	"id":"6900ff0b9d505c7da12c5dd9",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeeactivitiesbulkhttptrigger_nw",
-	"modifiedTime":1761935253974,
+	"modifiedTime":1761936225611,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeActivitiesBulkHttpTrigger_NW",
 	"nodes":[
 		{
@@ -234,6 +241,47 @@
 		{
 			"context":{
 				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_C52UY-1",
+			"id":"n_0M4Sl",
+			"index":4,
+			"inputs":{
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"payload"
+					],
+					"properties":{
+						"payload":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"payload.appid",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_8ulwF.outputs.payload }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"code_by_unifyapps",
 				"resourceVersion":219,
 				"resourceName":"code_by_unifyapps_csharp",
 				"type":"APPLICATION"
@@ -243,7 +291,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
 			"id":"n_2G9Iq",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -300,7 +348,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
 			"id":"n_GVBx1",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_ok",
@@ -331,5 +379,5 @@
 	"tags":[
 		
 	],
-	"version":87
+	"version":88
 }
