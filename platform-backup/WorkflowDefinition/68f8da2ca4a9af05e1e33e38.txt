@@ -131,7 +131,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761927143215,
+	"modifiedTime":1761927451907,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -881,7 +881,7 @@
 			"context":{
 				"appName":"openai",
 				"resourceVersion":5494,
-				"connectionId":"68d39f2dd2b48567b3840df4",
+				"connectionId":"68ea9540a5e5253b2d030eea",
 				"resourceName":"openai_analyze_text",
 				"type":"APPLICATION"
 			},
@@ -892,9 +892,11 @@
 			"id":"n_ja6dl",
 			"index":16,
 			"inputs":{
+				"source_text":"{{ n_vNDmq.outputs.items }}",
+				"instruction":"summarise this list",
 				"model":"gpt-4o"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"OpenAI",
 			"title":"Analyze text",
 			"type":"ACTION"
@@ -932,5 +934,5 @@
 	"tags":[
 		
 	],
-	"version":34
+	"version":35
 }
