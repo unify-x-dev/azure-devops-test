@@ -5,12 +5,12 @@
 	"createdTime":1761909243729,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761923255478,
+		"deployedAt":1761923340141,
 		"deployedBy":44108,
-		"deployedDefinitionId":"6904d0b79a78cb574c7d02e8",
+		"deployedDefinitionId":"6904d10c9a78cb574c7d054c",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":41
+		"version":3,
+		"workflowVersion":42
 	},
 	"edges":[
 		{
@@ -155,7 +155,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761923338318,
+	"modifiedTime":1761923498416,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -165,7 +165,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_EfPSS",
@@ -1057,7 +1057,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_jc6AN",
@@ -1066,6 +1066,7 @@
 				"automationId":"6904a84af80f564e784ba959",
 				"runtimeConnections":{},
 				"synchronous":true,
+				"triggerWorkflowWithRuntimeType":"IN_MEMORY",
 				"version":"-1",
 				"parameters":{
 					"baseInternalUrl":"{{ n_96ZBq.outputs.baseInternalUrl }}",
@@ -1206,5 +1207,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":42
+	"version":43
 }
