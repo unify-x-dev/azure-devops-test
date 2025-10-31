@@ -5,12 +5,12 @@
 	"createdTime":1761803192182,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761887013860,
+		"deployedAt":1761887901996,
 		"deployedBy":45010,
-		"deployedDefinitionId":"69044325ffd2512f2177c6fa",
+		"deployedDefinitionId":"6904469da40ee515d1d5d19e",
 		"status":"DEPLOYED",
-		"version":8,
-		"workflowVersion":39
+		"version":9,
+		"workflowVersion":40
 	},
 	"edges":[
 		{
@@ -264,7 +264,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761887897916,
+	"modifiedTime":1761888852791,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -274,7 +274,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_cx1fg-1",
 			"id":"n_UqZT0",
@@ -314,11 +314,19 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"response":{
+								"count":{
+									"type":"integer",
+									"title":"Count"
+								},
+								"success":{
+									"type":"boolean",
+									"title":"Success"
+								},
+								"location":{
 									"type":"object",
 									"properties":{},
 									"additionalProperties":false,
-									"title":"Response"
+									"title":"Location"
 								}
 							},
 							"additionalProperties":false,
@@ -647,7 +655,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_jwNDo@n_LJy4I@_cx1fg-1@1@1",
 			"id":"n_fKm41",
@@ -655,6 +663,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"location":"{{ n_IF683.outputs.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -690,7 +701,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_jwNDo@n_LJy4I@_cx1fg-1@1@2",
 			"id":"n_7neSJ",
@@ -920,7 +931,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_Pyvr6.outputs.count }}"
+					"count":"{{ n_Pyvr6.outputs.count }}"
 				},
 				"status":200
 			},
@@ -957,7 +968,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Tfye2@n_LJy4I@_cx1fg-1@2@2",
 			"id":"n_nfg5W",
@@ -1107,7 +1118,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_1IUfs.outputs.properties }}"
+					"location":"{{ n_1IUfs.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -1253,7 +1264,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"response":"{{ n_mWWmA.outputs.object.properties }}"
+					"location":"{{ n_mWWmA.outputs.object.properties }}"
 				},
 				"status":200
 			},
@@ -1304,5 +1315,5 @@
 	"tags":[
 		
 	],
-	"version":40
+	"version":41
 }
