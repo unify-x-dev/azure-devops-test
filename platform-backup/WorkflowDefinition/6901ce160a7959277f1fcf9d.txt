@@ -45,7 +45,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":190503,
 	"lcName":"xyzzz",
-	"modifiedTime":1761847345122,
+	"modifiedTime":1761889268819,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -60,7 +60,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_JUbjR",
@@ -76,6 +76,19 @@
 						"r":{
 							"type":"string",
 							"title":"R"
+						}
+					}
+				},
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"FileUrl"
+					],
+					"properties":{
+						"FileUrl":{
+							"type":"string",
+							"title":"File Url"
 						}
 					}
 				}
@@ -103,7 +116,7 @@
 			"index":2,
 			"inputs":{
 				"fileName":"abcd.json",
-				"url":"https://uat-uploads.unifyapps.com/user-uploads/101/1761830351341/JsonLargeDataSetSampleRecord.json",
+				"url":"{{ n_JUbjR.outputs.FileUrl }}",
 				"option":"url"
 			},
 			"skip":false,
@@ -124,7 +137,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_wdDn6",
@@ -202,7 +215,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_QuCjn-1",
 			"id":"n_Wh4Hz",
@@ -235,5 +248,5 @@
 	"tags":[
 		
 	],
-	"version":85
+	"version":86
 }
