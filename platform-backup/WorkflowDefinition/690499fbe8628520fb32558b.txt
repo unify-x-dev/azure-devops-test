@@ -155,7 +155,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761931387173,
+	"modifiedTime":1761931393674,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -899,7 +899,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_CVGVn",
@@ -989,7 +989,7 @@
 					"tables":"{{ _flqY9.outputs.result.objects }}"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -1207,5 +1207,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":47
+	"version":48
 }
