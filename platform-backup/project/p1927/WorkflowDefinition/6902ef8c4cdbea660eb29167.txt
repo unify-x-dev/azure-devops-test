@@ -5,12 +5,12 @@
 	"createdTime":1761800076974,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761896588750,
+		"deployedAt":1761897759127,
 		"deployedBy":45010,
-		"deployedDefinitionId":"6904688c462ff4087b2f7517",
+		"deployedDefinitionId":"69046d1f2c95f76953063177",
 		"status":"DEPLOYED",
-		"version":10,
-		"workflowVersion":52
+		"version":11,
+		"workflowVersion":53
 	},
 	"edges":[
 		{
@@ -234,7 +234,7 @@
 	"id":"6902ef8c4cdbea660eb29167",
 	"lastModifiedBy":45010,
 	"lcName":"employeetierobjectautomation",
-	"modifiedTime":1761897757082,
+	"modifiedTime":1761897879165,
 	"name":"EmployeeTierObjectAutomation",
 	"nodes":[
 		{
@@ -284,23 +284,17 @@
 						"body":{
 							"type":"object",
 							"properties":{
-								"count":{
-									"type":"integer",
-									"title":"Count"
-								},
-								"employeeTier":{
+								"response":{
 									"type":"object",
 									"properties":{},
 									"additionalProperties":false,
-									"title":"Employee Tier"
-								},
-								"success":{
-									"type":"boolean",
-									"title":"Success"
+									"title":"Response"
 								}
 							},
 							"additionalProperties":false,
-							"required":[]
+							"required":[
+								"response"
+							]
 						}
 					},
 					{
@@ -644,7 +638,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@1",
 			"id":"n_cKMS9",
@@ -653,7 +647,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"employeeTier":"{{ n_hpWZ0.outputs.properties }}"
+					"response":"{{ n_hpWZ0.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -799,7 +793,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@3",
 			"id":"n_D09dy",
@@ -808,7 +802,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"employeeTier":"{{ n_iteue.outputs.properties }}"
+					"response":"{{ n_iteue.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -954,7 +948,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_DiDi2@n_Fsqj1@_9MF0g-1@1@4",
 			"id":"n_HvAfE",
@@ -963,7 +957,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"employeeTier":"{{ n_VRLzf.outputs.properties }}"
+					"response":"{{ n_VRLzf.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -1098,7 +1092,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@2",
 			"id":"n_l8j4d",
@@ -1107,7 +1101,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"employeeTier":"{{ n_hw7UJ.outputs.properties }}"
+					"response":"{{ n_hw7UJ.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -1215,7 +1209,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_4m59q",
@@ -1223,7 +1217,7 @@
 			"inputs":{
 				"numberOfRecordsToUpdate":"SINGLE",
 				"object_type":"reps_employee_tiers",
-				"skipIfBlank":false,
+				"skipIfBlank":true,
 				"updateFields":[
 					{
 						"fieldName":"properties.TierId",
@@ -1255,7 +1249,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Fsqj1@_9MF0g-1@3",
 			"id":"n_NFG0A",
@@ -1264,7 +1258,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"employeeTier":"{{ n_4m59q.outputs.object.properties }}"
+					"response":"{{ n_4m59q.outputs.count }}"
 				},
 				"status":200
 			},
@@ -1315,5 +1309,5 @@
 	"tags":[
 		
 	],
-	"version":53
+	"version":54
 }
