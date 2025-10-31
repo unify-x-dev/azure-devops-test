@@ -147,7 +147,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761917814530,
+	"modifiedTime":1761920945620,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -157,7 +157,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_XX10c",
@@ -183,7 +183,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_96ZBq",
@@ -260,7 +260,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_cd79r",
@@ -273,6 +273,13 @@
 							"filter":{
 								"operator":"EQUAL",
 								"value":"starrocks_table_health_alert"
+							}
+						},
+						{
+							"property":"id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"starrocks_table_properties_checker"
 							}
 						}
 					],
@@ -311,7 +318,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"_auxBn",
@@ -322,21 +329,11 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"compactionMin":{
-							"type":"integer",
-							"title":"compactionMin"
-						},
-						"lagThreshold":{
-							"type":"integer",
-							"title":"lagThreshold"
-						},
-						"minimumBucketCount":{
-							"type":"integer",
-							"title":"minimumBucketCount"
-						},
-						"minimumStorageSizeGB":{
-							"type":"integer",
-							"title":"minimumStorageSizeGB"
+						"standard_properties":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Standard Properties"
 						}
 					}
 				},
@@ -356,7 +353,7 @@
 						}
 					}
 				},
-				"code":"if(!binding.hasVariable('objects')) return [:];\n\ndef starrocksConfig = objects?.find { it.id == \"starrocks_table_health_alert\" }?.properties?.config\n\ndef compactionMin = Double.parseDouble(\n    (starrocksConfig?.minimumCompactionScore ?: \"100\").toString()\n)\n\ndef routineLoadLagThreshold = Double.parseDouble(\n    (starrocksConfig?.routineLoadLagThreshold ?: \"100000\").toString()\n)\n\ndef minimumBucketCount = Integer.parseInt(\n    (starrocksConfig?.minimumBucketCount ?: \"10\").toString()\n)\n\ndef minimumStorageSizeGB = Double.parseDouble(\n    (starrocksConfig?.minimumStorageSizeGB ?: \"55\").toString()\n)\n\nreturn [\n    \"compactionMin\": compactionMin, \n    \"lagThreshold\": routineLoadLagThreshold, \n    \"minimumBucketCount\": minimumBucketCount, \n    \"minimumStorageSizeGB\": minimumStorageSizeGB\n]",
+				"code":"def getConfigById = { list, id ->\n    def item = list.find { it.id == id }\n    return item?.properties?.config\n}\n\n\nreturn [\"standard_properties\" : getConfigById(\"starrocks_table_properties_checker\")]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -380,7 +377,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_A4kqi",
@@ -479,7 +476,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_PHNUD",
@@ -515,7 +512,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_6eKH8",
@@ -598,7 +595,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Uk5gQ",
@@ -651,7 +648,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Sr2A1",
@@ -679,7 +676,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_flqY9",
@@ -833,7 +830,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_CVGVn",
@@ -934,7 +931,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_fCpLx",
@@ -971,7 +968,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_fCpLx@1",
@@ -1038,7 +1035,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_fCpLx@2",
@@ -1058,7 +1055,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_e8Z02",
@@ -1136,5 +1133,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":33
+	"version":34
 }
