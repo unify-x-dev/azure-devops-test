@@ -162,7 +162,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761932893950,
+	"modifiedTime":1761933001188,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -1471,6 +1471,7 @@
 					"rootAutomationId":"{{ __RUN__.outputs.workflowId }}",
 					"rootExecutionId":"{{ __RUN__.outputs.executionId }}",
 					"executionTime":"{{ n_EfPSS.outputs.scheduleTime }}",
+					"config":"{{ _auxBn.outputs.result.partition_config }}",
 					"partitions":{
 						"source":"{{ _7Ar8v.outputs.result.objects }}",
 						"ua:type":"mappedArray",
@@ -1548,5 +1549,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":53
+	"version":54
 }
