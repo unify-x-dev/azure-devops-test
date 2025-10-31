@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761895079762,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761896768435,
+		"deployedBy":39715,
+		"deployedDefinitionId":"69046940462ff4087b2f7913",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":8
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_b2pce",
@@ -233,7 +241,7 @@
 	"id":"690462a7ffd2512f2177f2c0",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeelocationobjectautomation",
-	"modifiedTime":1761896766089,
+	"modifiedTime":1761896860255,
 	"name":"[virtu-reps] EmployeeLocationObjectAutomation",
 	"nodes":[
 		{
@@ -471,7 +479,19 @@
 					{
 						"id":"4",
 						"inputs":{
-							"name":"Branch 4"
+							"name":"Branch 4",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_b2pce.outputs.body.payload }}",
+										"filter":{
+											"operator":"CONTAINS",
+											"value":"EmployeeId"
+										}
+									}
+								],
+								"operator":"AND"
+							}
 						}
 					},
 					{
@@ -804,7 +824,19 @@
 			"id":"n_DdmpD@4",
 			"index":13,
 			"inputs":{
-				"name":"Branch 4"
+				"name":"Branch 4",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_b2pce.outputs.body.payload }}",
+							"filter":{
+								"operator":"CONTAINS",
+								"value":"EmployeeId"
+							}
+						}
+					],
+					"operator":"AND"
+				}
 			},
 			"skip":false,
 			"title":"",
@@ -1377,5 +1409,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
