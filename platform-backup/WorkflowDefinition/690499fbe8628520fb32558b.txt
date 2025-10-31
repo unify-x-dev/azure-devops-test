@@ -65,11 +65,11 @@
 			"fromNodeId":"n_Sr2A1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_fimnV",
+			"toNodeId":"_flqY9",
 			"type":"loop"
 		},
 		{
-			"fromNodeId":"_fimnV",
+			"fromNodeId":"_flqY9",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_CI9E1",
@@ -109,7 +109,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761912465188,
+	"modifiedTime":1761912551667,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -630,11 +630,6 @@
 			"type":"LOOP"
 		},
 		{
-			"additional":{
-				"xsdSchemaConfig":{
-					"root":{}
-				}
-			},
 			"context":{
 				"appName":"custom_http_endpoint",
 				"resourceVersion":10,
@@ -645,20 +640,23 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
-			"id":"_fimnV",
+			"id":"_flqY9",
 			"index":10,
 			"inputs":{
 				"isAsync":false,
 				"enableProxy":false,
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
-				"body":{},
+				"body":{
+					"sql":"show databases"
+				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
 				"path":"/internal/sql-report/executeQueryForServer/{{ n_Sr2A1.outputs.item }}",
 				"responseSchema":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"hasMore":{
 							"type":"boolean",
@@ -667,14 +665,7 @@
 						"objects":{
 							"type":"array",
 							"items":{
-								"type":"object",
-								"properties":{
-									"Database":{
-										"type":"string",
-										"title":"Database"
-									}
-								},
-								"additionalProperties":false
+								"type":"string"
 							},
 							"title":"objects"
 						},
@@ -708,45 +699,9 @@
 					"type":"object",
 					"additionalProperties":false,
 					"properties":{
-						"hasMore":{
-							"type":"boolean",
-							"title":"hasMore"
-						},
-						"objects":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"Database":{
-										"type":"string",
-										"title":"Database"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"objects"
-						},
-						"rowMetadata":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"columnName":{
-										"type":"string",
-										"title":"columnName"
-									},
-									"dataType":{
-										"type":"string",
-										"title":"dataType"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"rowMetadata"
-						},
-						"type":{
+						"sql":{
 							"type":"string",
-							"title":"type"
+							"title":"sql"
 						}
 					}
 				},
@@ -1026,5 +981,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":10
+	"version":11
 }
