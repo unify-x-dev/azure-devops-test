@@ -516,7 +516,7 @@
 	"id":"690462a7ffd2512f2177f2c0",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeelocationobjectautomation",
-	"modifiedTime":1761896029237,
+	"modifiedTime":1761896323849,
 	"name":"[virtu-reps] EmployeeLocationObjectAutomation",
 	"nodes":[
 		{
@@ -1617,6 +1617,11 @@
 			"type":"BRANCH_CONDITION"
 		},
 		{
+			"additional":{
+				"xsdSchemaConfig":{
+					"root":{}
+				}
+			},
 			"context":{
 				"appName":"code_by_unifyapps",
 				"resourceVersion":1036,
@@ -1634,49 +1639,27 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"Email",
-						"IsActive",
-						"FullName",
-						"EmployeeNumber",
-						"row_num",
-						"EmployeeId"
+						"EmployeeId",
+						"LocationId",
+						"Id",
+						"row_num"
 					],
 					"properties":{
-						"UserName":{
-							"type":"string",
-							"title":"User Name"
+						"EmployeeId":{
+							"type":"integer",
+							"title":"EmployeeId"
 						},
-						"Email":{
-							"type":"string",
-							"title":"Email"
+						"LocationId":{
+							"type":"integer",
+							"title":"LocationId"
 						},
-						"IsActive":{
-							"type":"string",
-							"title":"Is Active"
-						},
-						"FullName":{
-							"type":"string",
-							"title":"Full Name"
-						},
-						"EmployeeNumber":{
-							"type":"string",
-							"title":"Employee Number"
+						"Id":{
+							"type":"integer",
+							"title":"Id"
 						},
 						"row_num":{
 							"type":"integer",
-							"title":"Row Num"
-						},
-						"EmployeeId":{
-							"type":"string",
-							"title":"Employee Id"
-						},
-						"ManagerEmployeeNumber":{
-							"type":"string",
-							"title":"ManagerEmployeeNumber"
-						},
-						"ManagerId":{
-							"type":"integer",
-							"title":"ManagerId"
+							"title":"row_num"
 						}
 					}
 				},
@@ -1695,7 +1678,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    Email                : payload.Email ?: '',\n    EmployeeId           : payload.EmployeeId ?: 0,\n    EmployeeRepsActivities: payload.EmployeeRepsActivities ?: [],\n    FullName             : payload.FullName ?: '',\n    Id                   : payload.Id ?: 0,\n    IsActive             : payload.IsActive ?: false,\n    ManagerEmployeeNumber: payload.ManagerEmployeeNumber ?: '',\n    ManagerId            : payload.ManagerId ?: 0,\n    Status               : payload.Status ?: '',\n    UserName             : payload.UserName ?: '',\n    EmployeeNumber        : payload.EmployeeNumber ?: ''\n]\n\nreturn result",
+				"code":"def result = [\n    EmployeeId           : payload.EmployeeId ?: 0,\n    Id                   : payload.Id ?: 0,\n    LocationId           : payload.LocationId ?: 0,\n    row_num              : payload.row_num ?: 0\n]\n\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -3030,5 +3013,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
