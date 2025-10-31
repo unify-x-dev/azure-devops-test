@@ -5,12 +5,12 @@
 	"createdTime":1761803192182,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761895656783,
+		"deployedAt":1761896031064,
 		"deployedBy":45010,
-		"deployedDefinitionId":"690464e8462ff4087b2f6081",
+		"deployedDefinitionId":"6904665a462ff4087b2f67a8",
 		"status":"DEPLOYED",
-		"version":18,
-		"workflowVersion":52
+		"version":19,
+		"workflowVersion":53
 	},
 	"edges":[
 		{
@@ -176,7 +176,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761896024794,
+	"modifiedTime":1761896088620,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -900,7 +900,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    \"Name\": payload.location.Name,\n    \"ReferenceNumber\": payload.location.ReferenceNumber,\n    \"row_num\" : payload.location.row_num ?: 0,\n    \"Id\" : payload.location.Id ?: '',\n]\nreturn result",
+				"code":"def result = [\n    \"Name\": payload.location.Name,\n    \"ReferenceNumber\": payload.location.ReferenceNumber,\n    \"row_num\" : payload.location.row_num,\n    \"Id\" : payload.location.Id,\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1042,5 +1042,5 @@
 	"tags":[
 		
 	],
-	"version":53
+	"version":54
 }
