@@ -140,7 +140,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761921011104,
+	"modifiedTime":1761921055260,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -347,7 +347,7 @@
 						}
 					}
 				},
-				"code":"def getConfigById = { list, id ->\n    def item = list.find { it.id == id }\n    return item?.properties?.config\n}\n\n\nreturn [\"standard_properties\" : getConfigById(\"starrocks_table_properties_checker\")]",
+				"code":"def getConfigById = { list, id ->\n    def item = list.find { it.id == id }\n    return item?.properties?.config\n}\n\n\nreturn [\"standard_properties\" : getConfigById(objects, \"starrocks_table_properties_checker\")]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1032,5 +1032,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":35
+	"version":36
 }
