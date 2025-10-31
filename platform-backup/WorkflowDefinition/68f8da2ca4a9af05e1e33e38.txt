@@ -1,7 +1,8 @@
 {
 	"appsUsed":[
 		"gcalendar",
-		"gmail"
+		"gmail",
+		"openai"
 	],
 	"createdTime":1761139244288,
 	"deleted":false,
@@ -95,6 +96,13 @@
 			"fromNodeId":"n_AjLCz",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_ja6dl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ja6dl",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_tgSUT",
 			"type":"next"
 		}
@@ -102,7 +110,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761912853517,
+	"modifiedTime":1761912969380,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -778,6 +786,28 @@
 		},
 		{
 			"context":{
+				"appName":"openai",
+				"resourceVersion":5494,
+				"connectionId":"68d39f2dd2b48567b3840df4",
+				"resourceName":"openai_analyze_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_ja6dl",
+			"index":13,
+			"inputs":{
+				"model":"gpt-4o"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Analyze text",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -785,7 +815,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":13,
+			"index":14,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -809,5 +839,5 @@
 	"tags":[
 		
 	],
-	"version":26
+	"version":27
 }
