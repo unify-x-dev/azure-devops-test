@@ -89,6 +89,13 @@
 			"fromNodeId":"n_EtK0E",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_t5Pxu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_t5Pxu",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_8LiAg",
 			"type":"next"
 		},
@@ -124,7 +131,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761913554413,
+	"modifiedTime":1761927107201,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -164,7 +171,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_vNDmq",
@@ -729,6 +736,31 @@
 		{
 			"context":{
 				"appName":"files_by_unifyapps",
+				"resourceVersion":944,
+				"resourceName":"files_by_unifyapps_append_line_to_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SFZNS-1",
+			"id":"n_t5Pxu",
+			"index":12,
+			"inputs":{
+				"type":"MULTIPLE",
+				"contentType":"plainText",
+				"content":[
+					null
+				]
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Append line(s) to file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"files_by_unifyapps",
 				"resourceVersion":1001,
 				"resourceName":"files_by_unifyapps_create_temp_file",
 				"type":"APPLICATION"
@@ -738,7 +770,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_8LiAg",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"isTmp":true,
 				"initialContentType":"plainText",
@@ -763,7 +795,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_Dq7Zv",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"fileName":"{{ n_8LiAg.outputs.fileDetails.name }}",
 				"content":"{{ n_8LiAg.outputs.fileDetails }}"
@@ -785,7 +817,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_AjLCz",
-			"index":14,
+			"index":15,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -858,7 +890,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_ja6dl",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"model":"gpt-4o"
 			},
@@ -876,7 +908,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SFZNS-1",
 			"id":"n_tgSUT",
-			"index":16,
+			"index":17,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -900,5 +932,5 @@
 	"tags":[
 		
 	],
-	"version":31
+	"version":32
 }
