@@ -5,6 +5,14 @@
 	],
 	"createdTime":1761816026067,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761816060895,
+		"deployedBy":175325,
+		"deployedDefinitionId":"69032dfcaf3b295b77cbe191",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"description":"description",
 	"edges":[
 		{
@@ -13,12 +21,34 @@
 			"skip":false,
 			"toNodeId":"n_kQLJc",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_kQLJc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UX2z2",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_UX2z2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aSqvl",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_aSqvl",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_UX2z2",
+			"type":"next"
 		}
 	],
 	"id":"69032dda2947f05678489e32",
-	"lastModifiedBy":175325,
+	"lastModifiedBy":643,
 	"lcName":"triggerworkflow_117618146261810",
-	"modifiedTime":1761816057740,
+	"modifiedTime":1761893318871,
 	"name":"triggerWorkflow_117618146261810",
 	"nodes":[
 		{
@@ -28,7 +58,7 @@
 				"resourceName":"storage_by_unifyapps_on_create_record"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_9CBzr-1",
 			"id":"n_EFtKP",
@@ -53,7 +83,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_9CBzr-1",
 			"id":"n_kQLJc",
@@ -68,6 +98,40 @@
 			"skip":false,
 			"subTitle":"Slack",
 			"title":"Post message",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":36,
+				"resourceName":"loop_for",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_9CBzr-1",
+			"id":"n_UX2z2",
+			"index":3,
+			"inputs":{
+				"start":0,
+				"step":1,
+				"captureIterations":false
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For loop",
+			"type":"LOOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_UX2z2@_9CBzr-1@l",
+			"id":"n_aSqvl",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
 			"type":"ACTION"
 		}
 	],
@@ -88,5 +152,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
