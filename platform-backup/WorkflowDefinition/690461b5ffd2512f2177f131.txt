@@ -5,12 +5,12 @@
 	"createdTime":1761894837205,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761903982189,
+		"deployedAt":1761906151102,
 		"deployedBy":39713,
-		"deployedDefinitionId":"6904856e1858283bbd585c5b",
+		"deployedDefinitionId":"69048de78a681e00f75aa522",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":5
+		"version":5,
+		"workflowVersion":8
 	},
 	"edges":[
 		{
@@ -38,7 +38,7 @@
 	"id":"690461b5ffd2512f2177f131",
 	"lastModifiedBy":39713,
 	"lcName":"waitforsignaltest",
-	"modifiedTime":1761906149223,
+	"modifiedTime":1761906983328,
 	"name":"WaitForSignalTest",
 	"nodes":[
 		{
@@ -65,6 +65,17 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"username":{
+									"type":"string",
+									"title":"Username"
+								}
+							},
+							"additionalProperties":false,
+							"required":[]
 						}
 					}
 				],
@@ -86,7 +97,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_tS7zH-1",
 			"id":"n_9pK9o",
@@ -156,6 +167,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200",
+				"body":{
+					"username":"{{ n_wQ9yv.outputs.signal_payload.userName }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -181,5 +195,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
