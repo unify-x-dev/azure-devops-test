@@ -5,12 +5,12 @@
 	"createdTime":1761922058354,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761923878200,
+		"deployedAt":1761924050690,
 		"deployedBy":44105,
-		"deployedDefinitionId":"6904d3269a78cb574c7d20c4",
+		"deployedDefinitionId":"6904d3d29a78cb574c7d3574",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":6
+		"version":3,
+		"workflowVersion":7
 	},
 	"edges":[
 		{
@@ -111,7 +111,7 @@
 	"id":"6904cc0a9a78cb574c7ce8f6",
 	"lastModifiedBy":44105,
 	"lcName":"[rep-scheduler] clientrepsactivityobjectautomation",
-	"modifiedTime":1761924048530,
+	"modifiedTime":1761924226164,
 	"name":"[Rep-Scheduler] ClientRepsActivityObjectAutomation",
 	"nodes":[
 		{
@@ -590,7 +590,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_AtUPv@_JfTSF-1@5",
 			"id":"_tI8XJ",
@@ -634,11 +634,9 @@
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"objects":{
-						"ua:type":"mappedArray",
-						"source":"{{ _gd867.outputs.objects }}",
-						"items":"{{ _gd867.outputs.objects[0] }}"
-					}
+					"objects":[
+						"{{ _gd867.outputs.objects }}"
+					]
 				}
 			},
 			"skip":false,
@@ -718,5 +716,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
