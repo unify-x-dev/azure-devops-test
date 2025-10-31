@@ -4,18 +4,129 @@
 	],
 	"createdTime":1761950088294,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761950088586,
+		"deployedBy":175325,
+		"deployedDefinitionId":"6905398836d6cd252920cf8c",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
-		
+		{
+			"fromNodeId":"Ew0OA",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"S1FDY",
+			"type":"next"
+		}
 	],
 	"id":"6905398836d6cd252920cf8b",
 	"lastModifiedBy":175325,
 	"lcName":"changesetqa2lcla8qsap4t0",
-	"modifiedTime":1761950088294,
+	"modifiedTime":1761950334983,
 	"name":"changeSetQA2LClA8Qsap4t0",
 	"nodes":[
-		
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":178,
+				"resourceName":"callables_from_api"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"oVNXT-1",
+			"id":"Ew0OA",
+			"index":0,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"a":{
+								"type":"integer",
+								"title":"A"
+							},
+							"b":{
+								"type":"integer",
+								"title":"B"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"a",
+							"b"
+						]
+					}
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						},
+						"name":"Response",
+						"body":{
+							"type":"object",
+							"properties":{
+								"c":{
+									"type":"integer",
+									"title":"C"
+								}
+							},
+							"additionalProperties":false,
+							"required":[
+								"c"
+							]
+						}
+					}
+				],
+				"streamingResponse":false
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Trigger via API",
+			"trigger":{
+				"type":"CALLABLE"
+			},
+			"type":"START"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":132,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"oVNXT-1",
+			"id":"S1FDY",
+			"index":0,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_Response",
+				"set_cookies":[],
+				"body":{
+					"c":"= SUM({{ Ew0OA.outputs.body.a }},{{ Ew0OA.outputs.body.b }})"
+				},
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		}
 	],
 	"ownerUserId":175325,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -26,5 +137,8 @@
 		}
 	},
 	"standard":false,
-	"version":0
+	"tags":[
+		
+	],
+	"version":2
 }
