@@ -89,7 +89,7 @@
 	"id":"6904cf849a78cb574c7cfd6c",
 	"lastModifiedBy":44108,
 	"lcName":"starrocks | alert | persistent index  (copy)",
-	"modifiedTime":1761931706474,
+	"modifiedTime":1761932312751,
 	"name":"STARROCKS | ALERT | Persistent Index  (copy)",
 	"nodes":[
 		{
@@ -556,7 +556,7 @@
 					}
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Variable by UnifyApps",
 			"title":"Create list",
 			"type":"ACTION"
@@ -580,7 +580,7 @@
 				"captureIterations":true,
 				"batchSize":100
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Loop",
 			"title":"For each loop",
 			"type":"LOOP"
@@ -588,18 +588,37 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.parameters.tables.items.PARTITION_KEY",
-					"root.parameters.tables.items.TABLE_NAME",
-					"root.parameters.tables.items.TABLE_MODEL",
-					"root.parameters.tables.items.TABLE_SCHEMA",
-					"root.parameters.tables.items.PRIMARY_KEY",
-					"root.parameters.tables.items.DISTRIBUTE_KEY",
-					"root.parameters.tables.items.TABLE_ENGINE",
-					"root.parameters.tables.items.DISTRIBUTE_BUCKET",
-					"root.parameters.tables.items.PROPERTIES",
-					"root.parameters.tables.items.SORT_KEY",
-					"root.parameters.tables.items.DISTRIBUTE_TYPE",
-					"root.parameters.tables.items.TABLE_ID"
+					"root.parameters.partitions.items.COOLDOWN_TIME",
+					"root.parameters.partitions.items.P50_CS",
+					"root.parameters.partitions.items.TABLE_NAME",
+					"root.parameters.partitions.items.PARTITION_NAME",
+					"root.parameters.partitions.items.DATA_SIZE",
+					"root.parameters.partitions.items.DISTRIBUTION_KEY",
+					"root.parameters.partitions.items.VERSION_EPOCH",
+					"root.parameters.partitions.items.DB_NAME",
+					"root.parameters.partitions.items.PARTITION_VALUE",
+					"root.parameters.partitions.items.REPLICATION_NUM",
+					"root.parameters.partitions.items.PARTITION_ID",
+					"root.parameters.partitions.items.BUCKETS",
+					"root.parameters.partitions.items.STORAGE_MEDIUM",
+					"root.parameters.partitions.items.AVG_CS",
+					"root.parameters.partitions.items.VISIBLE_VERSION",
+					"root.parameters.partitions.items.STORAGE_PATH",
+					"root.parameters.partitions.items.VERSION_TXN_TYPE",
+					"root.parameters.partitions.items.METADATA_SWITCH_VERSION",
+					"root.parameters.partitions.items.VISIBLE_VERSION_TIME",
+					"root.parameters.partitions.items.TABLET_BALANCED",
+					"root.parameters.partitions.items.IS_TEMP",
+					"root.parameters.partitions.items.NEXT_VERSION",
+					"root.parameters.partitions.items.COMPACT_VERSION",
+					"root.parameters.partitions.items.DATA_VERSION",
+					"root.parameters.partitions.items.MAX_CS",
+					"root.parameters.partitions.items.PATH_ID",
+					"root.parameters.partitions.items.PARTITION_KEY",
+					"root.parameters.partitions.items.IS_IN_MEMORY",
+					"root.parameters.partitions.items.ROW_COUNT",
+					"root.parameters.partitions.items.ENABLE_DATACACHE",
+					"root.parameters.partitions.items.STORAGE_SIZE"
 				]
 			},
 			"context":{
@@ -615,63 +634,190 @@
 			"id":"n_dnmQQ",
 			"index":4,
 			"inputs":{
-				"output":{
+				"input":{
 					"type":"object",
 					"additionalProperties":false,
 					"properties":{
-						"invalidTables":{
+						"partitions":{
 							"type":"array",
 							"items":{
 								"type":"object",
 								"properties":{
+									"COOLDOWN_TIME":{
+										"type":"string",
+										"title":"COOLDOWN_TIME"
+									},
+									"P50_CS":{
+										"type":"integer",
+										"title":"P50_CS"
+									},
 									"TABLE_NAME":{
 										"type":"string",
 										"title":"TABLE_NAME"
 									},
-									"TABLE_SCHEMA":{
+									"PARTITION_NAME":{
 										"type":"string",
-										"title":"TABLE_SCHEMA"
+										"title":"PARTITION_NAME"
 									},
-									"INVALID_PROPERTIES":{
-										"type":"object",
-										"properties":{},
-										"title":"INVALID_PROPERTIES",
-										"additionalProperties":false,
-										"required":[]
+									"DATA_SIZE":{
+										"type":"integer",
+										"title":"DATA_SIZE"
+									},
+									"DISTRIBUTION_KEY":{
+										"type":"string",
+										"title":"DISTRIBUTION_KEY"
+									},
+									"VERSION_EPOCH":{
+										"type":"integer",
+										"title":"VERSION_EPOCH"
+									},
+									"DB_NAME":{
+										"type":"string",
+										"title":"DB_NAME"
+									},
+									"PARTITION_VALUE":{
+										"type":"string",
+										"title":"PARTITION_VALUE"
+									},
+									"REPLICATION_NUM":{
+										"type":"integer",
+										"title":"REPLICATION_NUM"
+									},
+									"PARTITION_ID":{
+										"type":"integer",
+										"title":"PARTITION_ID"
+									},
+									"BUCKETS":{
+										"type":"integer",
+										"title":"BUCKETS"
+									},
+									"STORAGE_MEDIUM":{
+										"type":"string",
+										"title":"STORAGE_MEDIUM"
+									},
+									"AVG_CS":{
+										"type":"integer",
+										"title":"AVG_CS"
+									},
+									"VISIBLE_VERSION":{
+										"type":"integer",
+										"title":"VISIBLE_VERSION"
+									},
+									"STORAGE_PATH":{
+										"type":"string",
+										"title":"STORAGE_PATH"
+									},
+									"VERSION_TXN_TYPE":{
+										"type":"string",
+										"title":"VERSION_TXN_TYPE"
+									},
+									"METADATA_SWITCH_VERSION":{
+										"type":"integer",
+										"title":"METADATA_SWITCH_VERSION"
+									},
+									"VISIBLE_VERSION_TIME":{
+										"type":"string",
+										"title":"VISIBLE_VERSION_TIME"
+									},
+									"TABLET_BALANCED":{
+										"type":"boolean",
+										"title":"TABLET_BALANCED"
+									},
+									"IS_TEMP":{
+										"type":"boolean",
+										"title":"IS_TEMP"
+									},
+									"NEXT_VERSION":{
+										"type":"integer",
+										"title":"NEXT_VERSION"
+									},
+									"COMPACT_VERSION":{
+										"type":"integer",
+										"title":"COMPACT_VERSION"
+									},
+									"DATA_VERSION":{
+										"type":"integer",
+										"title":"DATA_VERSION"
+									},
+									"MAX_CS":{
+										"type":"integer",
+										"title":"MAX_CS"
+									},
+									"PATH_ID":{
+										"type":"integer",
+										"title":"PATH_ID"
+									},
+									"PARTITION_KEY":{
+										"type":"string",
+										"title":"PARTITION_KEY"
+									},
+									"IS_IN_MEMORY":{
+										"type":"boolean",
+										"title":"IS_IN_MEMORY"
+									},
+									"ROW_COUNT":{
+										"type":"integer",
+										"title":"ROW_COUNT"
+									},
+									"ENABLE_DATACACHE":{
+										"type":"boolean",
+										"title":"ENABLE_DATACACHE"
+									},
+									"STORAGE_SIZE":{
+										"type":"integer",
+										"title":"STORAGE_SIZE"
 									}
 								},
 								"additionalProperties":false
 							},
-							"title":"invalidTables"
+							"title":"partitions"
 						}
 					}
 				},
-				"code":"if(!binding.hasVariable('tables')) {\n  tables = []\n}\n\ndef invalidTables = tables.collect { table ->\n    def properties = com.unifyapps.infra.utils.JsonUtils.fromJson(table.PROPERTIES, Map)\n\n    // Only validate keys that exist in standard_properties\n    def invalidProps = properties.findAll { k, v ->\n        standard_properties.containsKey(k) && standard_properties[k] != v\n    }\n\n    if (!invalidProps.isEmpty()) {\n        return [\n            TABLE_NAME         : table.TABLE_NAME,\n            TABLE_SCHEMA       : table.TABLE_SCHEMA,\n            INVALID_PROPERTIES : invalidProps\n        ]\n    }\n    return null\n}\n\nreturn [\"invalidTables\" : invalidTables]\n\n// return ",
+				"code":"def getLargePartitions(List<Map> partitions) {\n    def toBytes = { value ->\n        if (value == null) return 0L\n\n        if (value instanceof Number) {\n            def num = value as double\n            // Heuristic conversion if unit not specified\n            if (num < 1e6) {\n                return num as long // bytes\n            } else if (num < 1e9) {\n                return (num * 1024) as long // likely KB\n            } else if (num < 1e12) {\n                return num as long // assume bytes\n            } else {\n                return num as long\n            }\n        }\n\n        def str = value.toString().trim().toUpperCase()\n        if (str.endsWith(\"KB\")) {\n            return (str[0..-3] as double) * 1024\n        } else if (str.endsWith(\"MB\")) {\n            return (str[0..-3] as double) * 1024 * 1024\n        } else if (str.endsWith(\"GB\")) {\n            return (str[0..-3] as double) * 1024 * 1024 * 1024\n        } else if (str.endsWith(\"TB\")) {\n            return (str[0..-3] as double) * 1024 * 1024 * 1024 * 1024\n        } else {\n            return (str as double) as long // assume bytes\n        }\n    }\n\n    def threshold = 50L * 1024 * 1024 * 1024 // 50 GB\n    return partitions.findAll { p ->\n        def sizeInBytes = toBytes(p.DATA_SIZE)\n        sizeInBytes > threshold\n    }\n}\n\n\nreturn getLargePartitions;\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"standard_properties":"{{ n_9fJx6.outputs.standard_properties }}",
-					"tables":{
-						"source":"{{ n_qQQ47.outputs.item }}",
+					"partitions":{
+						"source":"{{ n_9fJx6.outputs.partitions }}",
 						"ua:type":"mappedArray",
 						"items":{
-							"PARTITION_KEY":"{{ n_qQQ47.outputs.item[0].PARTITION_KEY }}",
-							"TABLE_NAME":"{{ n_qQQ47.outputs.item[0].TABLE_NAME }}",
-							"TABLE_MODEL":"{{ n_qQQ47.outputs.item[0].TABLE_MODEL }}",
-							"TABLE_SCHEMA":"{{ n_qQQ47.outputs.item[0].TABLE_SCHEMA }}",
-							"PRIMARY_KEY":"{{ n_qQQ47.outputs.item[0].PRIMARY_KEY }}",
-							"DISTRIBUTE_KEY":"{{ n_qQQ47.outputs.item[0].DISTRIBUTE_KEY }}",
-							"TABLE_ENGINE":"{{ n_qQQ47.outputs.item[0].TABLE_ENGINE }}",
-							"DISTRIBUTE_BUCKET":"{{ n_qQQ47.outputs.item[0].DISTRIBUTE_BUCKET }}",
-							"PROPERTIES":"{{ n_qQQ47.outputs.item[0].PROPERTIES }}",
-							"SORT_KEY":"{{ n_qQQ47.outputs.item[0].SORT_KEY }}",
-							"DISTRIBUTE_TYPE":"{{ n_qQQ47.outputs.item[0].DISTRIBUTE_TYPE }}",
-							"TABLE_ID":"{{ n_qQQ47.outputs.item[0].TABLE_ID }}"
+							"COOLDOWN_TIME":"{{ n_9fJx6.outputs.partitions[0].COOLDOWN_TIME }}",
+							"P50_CS":"{{ n_9fJx6.outputs.partitions[0].P50_CS }}",
+							"TABLE_NAME":"{{ n_9fJx6.outputs.partitions[0].TABLE_NAME }}",
+							"PARTITION_NAME":"{{ n_9fJx6.outputs.partitions[0].PARTITION_NAME }}",
+							"DATA_SIZE":"{{ n_9fJx6.outputs.partitions[0].DATA_SIZE }}",
+							"DISTRIBUTION_KEY":"{{ n_9fJx6.outputs.partitions[0].DISTRIBUTION_KEY }}",
+							"VERSION_EPOCH":"{{ n_9fJx6.outputs.partitions[0].VERSION_EPOCH }}",
+							"DB_NAME":"{{ n_9fJx6.outputs.partitions[0].DB_NAME }}",
+							"PARTITION_VALUE":"{{ n_9fJx6.outputs.partitions[0].PARTITION_VALUE }}",
+							"REPLICATION_NUM":"{{ n_9fJx6.outputs.partitions[0].REPLICATION_NUM }}",
+							"PARTITION_ID":"{{ n_9fJx6.outputs.partitions[0].PARTITION_ID }}",
+							"BUCKETS":"{{ n_9fJx6.outputs.partitions[0].BUCKETS }}",
+							"STORAGE_MEDIUM":"{{ n_9fJx6.outputs.partitions[0].STORAGE_MEDIUM }}",
+							"AVG_CS":"{{ n_9fJx6.outputs.partitions[0].AVG_CS }}",
+							"VISIBLE_VERSION":"{{ n_9fJx6.outputs.partitions[0].VISIBLE_VERSION }}",
+							"STORAGE_PATH":"{{ n_9fJx6.outputs.partitions[0].STORAGE_PATH }}",
+							"VERSION_TXN_TYPE":"{{ n_9fJx6.outputs.partitions[0].VERSION_TXN_TYPE }}",
+							"METADATA_SWITCH_VERSION":"{{ n_9fJx6.outputs.partitions[0].METADATA_SWITCH_VERSION }}",
+							"VISIBLE_VERSION_TIME":"{{ n_9fJx6.outputs.partitions[0].VISIBLE_VERSION_TIME }}",
+							"TABLET_BALANCED":"{{ n_9fJx6.outputs.partitions[0].TABLET_BALANCED }}",
+							"IS_TEMP":"{{ n_9fJx6.outputs.partitions[0].IS_TEMP }}",
+							"NEXT_VERSION":"{{ n_9fJx6.outputs.partitions[0].NEXT_VERSION }}",
+							"COMPACT_VERSION":"{{ n_9fJx6.outputs.partitions[0].COMPACT_VERSION }}",
+							"DATA_VERSION":"{{ n_9fJx6.outputs.partitions[0].DATA_VERSION }}",
+							"MAX_CS":"{{ n_9fJx6.outputs.partitions[0].MAX_CS }}",
+							"PATH_ID":"{{ n_9fJx6.outputs.partitions[0].PATH_ID }}",
+							"PARTITION_KEY":"{{ n_9fJx6.outputs.partitions[0].PARTITION_KEY }}",
+							"IS_IN_MEMORY":"{{ n_9fJx6.outputs.partitions[0].IS_IN_MEMORY }}",
+							"ROW_COUNT":"{{ n_9fJx6.outputs.partitions[0].ROW_COUNT }}",
+							"ENABLE_DATACACHE":"{{ n_9fJx6.outputs.partitions[0].ENABLE_DATACACHE }}",
+							"STORAGE_SIZE":"{{ n_9fJx6.outputs.partitions[0].STORAGE_SIZE }}"
 						}
 					}
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -906,5 +1052,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
