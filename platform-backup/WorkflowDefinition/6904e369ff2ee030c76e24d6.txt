@@ -53,7 +53,7 @@
 	"id":"6904e369ff2ee030c76e24d6",
 	"lastModifiedBy":43523,
 	"lcName":"test browser use",
-	"modifiedTime":1761928247697,
+	"modifiedTime":1761928253176,
 	"name":"test browser use",
 	"nodes":[
 		{
@@ -310,7 +310,11 @@
 				}
 			},
 			"inputs":{
-				"ua:title":"updates"
+				"createList":{
+					"ua:type":"mappedArray"
+				},
+				"ua:title":"updates",
+				"ua:list_type":"OBJECT"
 			},
 			"outputSchema":{
 				"dynamic":false,
@@ -414,5 +418,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
