@@ -176,7 +176,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":39715,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761897750952,
+	"modifiedTime":1761897836521,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -499,9 +499,9 @@
 			"index":6,
 			"inputs":{
 				"streamingCompleted":true,
-				"responseName":"200_undefined",
+				"responseName":"200_respone",
 				"body":{
-					"location":"{{ _QiGjl.outputs.properties }}"
+					"response":"{{ _QiGjl.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -644,9 +644,9 @@
 			"index":10,
 			"inputs":{
 				"streamingCompleted":true,
-				"responseName":"200_undefined",
+				"responseName":"200_respone",
 				"body":{
-					"count":"{{ _hDu25.outputs.count }}"
+					"response":"{{ _hDu25.outputs.count }}"
 				},
 				"status":200
 			},
@@ -800,9 +800,9 @@
 			"index":14,
 			"inputs":{
 				"streamingCompleted":true,
-				"responseName":"200_undefined",
+				"responseName":"200_respone",
 				"body":{
-					"location":"{{ n_1IUfs.outputs.properties }}"
+					"response":"{{ n_1IUfs.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -920,7 +920,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_mWWmA",
@@ -940,7 +940,7 @@
 					"operator":"AND"
 				},
 				"object_type":"reps_locations_id",
-				"skipIfBlank":false,
+				"skipIfBlank":true,
 				"updateFields":[
 					{
 						"fieldName":"properties.Name",
@@ -982,16 +982,16 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_LJy4I@_cx1fg-1@4",
 			"id":"n_6r9Nr",
 			"index":18,
 			"inputs":{
 				"streamingCompleted":true,
-				"responseName":"200_undefined",
+				"responseName":"200_respone",
 				"body":{
-					"location":"{{ n_mWWmA.outputs.object.properties }}"
+					"response":"{{ n_mWWmA.outputs.result }}"
 				},
 				"status":200
 			},
@@ -1042,5 +1042,5 @@
 	"tags":[
 		
 	],
-	"version":56
+	"version":57
 }
