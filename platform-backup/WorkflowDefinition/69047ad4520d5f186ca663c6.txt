@@ -79,7 +79,7 @@
 	"id":"69047ad4520d5f186ca663c6",
 	"lastModifiedBy":6701,
 	"lcName":"keka hr actions",
-	"modifiedTime":1761912786591,
+	"modifiedTime":1761914029497,
 	"name":"keka hr actions",
 	"nodes":[
 		{
@@ -239,12 +239,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_8ToLp",
 			"index":7,
-			"inputs":{},
+			"inputs":{
+				"lastModified":"2025-10-01T12:13:00.000Z"
+			},
 			"skip":false,
 			"subTitle":"Keka",
 			"title":"List groups",
@@ -298,6 +300,31 @@
 			"type":"ACTION"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.payload.relations.items.relationType",
+					"root.payload.relations.items.gender",
+					"root.payload.relations.items.firstName",
+					"root.payload.relations.items.lastName",
+					"root.payload.relations.items.displayName",
+					"root.payload.relations.items.email",
+					"root.payload.relations.items.dateOfBirth",
+					"root.payload.relations.items.profession",
+					"root.payload.relations.items.mobile",
+					"root.payload.currentAddress.addressLine1",
+					"root.payload.currentAddress.addressLine2",
+					"root.payload.currentAddress.countryCode",
+					"root.payload.currentAddress.city",
+					"root.payload.currentAddress.state",
+					"root.payload.currentAddress.zip",
+					"root.payload.permanentAddress.addressLine1",
+					"root.payload.permanentAddress.addressLine2",
+					"root.payload.permanentAddress.countryCode",
+					"root.payload.permanentAddress.city",
+					"root.payload.permanentAddress.state",
+					"root.payload.permanentAddress.zip"
+				]
+			},
 			"context":{
 				"appName":"keka",
 				"resourceVersion":66,
@@ -306,14 +333,17 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_HOUXj",
 			"index":10,
 			"inputs":{
 				"payload":{
-					"displayName":"Thanu"
+					"displayName":"Thanu",
+					"gender":0,
+					"maritalStatus":0,
+					"nationality":"in"
 				},
 				"id":"ad24f286-4dfe-459e-8f42-bc572aa31516"
 			},
@@ -355,5 +385,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
