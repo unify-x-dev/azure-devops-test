@@ -9,6 +9,13 @@
 			"fromNodeId":"n_MJ94U",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_T1KG2",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_T1KG2",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_VLZRM",
 			"type":"next"
 		},
@@ -51,11 +58,11 @@
 			"fromNodeId":"n_HguWm",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_GJ6pv",
+			"toNodeId":"n_XPVv1",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_GJ6pv",
+			"fromNodeId":"n_XPVv1",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_HOUXj",
@@ -72,7 +79,7 @@
 	"id":"69047ad4520d5f186ca663c6",
 	"lastModifiedBy":6701,
 	"lcName":"keka hr actions",
-	"modifiedTime":1761910636430,
+	"modifiedTime":1761912664917,
 	"name":"keka hr actions",
 	"nodes":[
 		{
@@ -82,7 +89,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_MJ94U",
@@ -103,17 +110,48 @@
 		{
 			"context":{
 				"appName":"keka",
-				"resourceVersion":74,
+				"resourceVersion":92,
 				"connectionId":"690475a3e45b9336f8e9c858",
-				"resourceName":"keka_get_employee",
+				"resourceName":"keka_create_employee",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
-			"id":"n_VLZRM",
+			"id":"n_T1KG2",
 			"index":2,
+			"inputs":{
+				"firstName":"hjswhjgw",
+				"lastName":"qjwhjhwj",
+				"gender":2,
+				"displayName":"qwjnwh",
+				"dateJoined":"2025-10-30T12:08:00.000Z",
+				"jobTitle":"2b5c294a-cfa4-432f-89ed-7e2ce3fb0032",
+				"dateOfBirth":"2025-10-31T12:08:44.043Z",
+				"location":"29d02178-a233-45b8-abda-596b2aecf05a",
+				"department":"077826d4-f552-4088-8035-b856d9867374",
+				"email":"ewhjwy@gmail.com"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Create an employee",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":74,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_KKUKg-1",
+			"id":"n_VLZRM",
+			"index":3,
 			"inputs":{
 				"employeeId":"ad24f286-4dfe-459e-8f42-bc572aa31516"
 			},
@@ -131,11 +169,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_hlIgx",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"inNoticePeriod":false,
 				"pageSize":100,
@@ -156,11 +194,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_mB2rP",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"pageNumber":1,
 				"pageSize":1
@@ -179,11 +217,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_YSSBE",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"pageSize":1
 			},
@@ -201,11 +239,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_8ToLp",
-			"index":6,
+			"index":7,
 			"inputs":{},
 			"skip":false,
 			"subTitle":"Keka",
@@ -221,11 +259,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_HguWm",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"workPhone":"9822134561"
 			},
@@ -237,31 +275,18 @@
 		{
 			"context":{
 				"appName":"keka",
-				"resourceVersion":87,
+				"resourceVersion":3,
 				"connectionId":"690475a3e45b9336f8e9c858",
-				"resourceName":"keka_create_employee",
+				"resourceName":"keka_update_employee_job_details",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
-			"id":"n_GJ6pv",
-			"index":8,
-			"inputs":{
-				"firstName":"Kuren",
-				"lastName":"Man",
-				"gender":1,
-				"displayName":"John",
-				"mobileNumber":"6789877891",
-				"dateJoined":"2025-10-31T11:05:21.779Z",
-				"jobTitle":"2b5c294a-cfa4-432f-89ed-7e2ce3fb0032",
-				"dateOfBirth":"2025-10-31T11:05:21.779Z",
-				"location":"29d02178-a233-45b8-abda-596b2aecf05a",
-				"department":"077826d4-f552-4088-8035-b856d9867374",
-				"email":"john@example.com",
-				"employeeNumber":"ad24f286-4dfe-459e-8f42-bc572aa31516"
-			},
+			"id":"n_XPVv1",
+			"index":9,
+			"inputs":{},
 			"skip":false,
 			"subTitle":"Keka",
 			"title":"Update employee job details",
@@ -276,11 +301,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_HOUXj",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"payload":{
 					"displayName":"Thanu"
@@ -297,11 +322,11 @@
 				"appName":"stop"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_KKUKg-1",
 			"id":"n_fcxRN",
-			"index":10,
+			"index":11,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -325,5 +350,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
