@@ -70,28 +70,6 @@
 		},
 		{
 			"fromNodeId":"_flqY9",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_CI9E1",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_CI9E1",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_Eq6mb",
-			"type":"loop"
-		},
-		{
-			"fromNodeId":"_Eq6mb",
-			"name":"loopback",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_CI9E1",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_CI9E1",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -109,7 +87,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761915152096,
+	"modifiedTime":1761915259740,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -789,188 +767,6 @@
 		},
 		{
 			"context":{
-				"appName":"loop",
-				"resourceVersion":865,
-				"resourceName":"loop_for_each",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_Sr2A1@_ErVLa-1@l",
-			"id":"n_CI9E1",
-			"index":11,
-			"inputs":{
-				"repeatMode":"SINGLE",
-				"listSource":"{{ _flqY9.outputs.result.objects }}",
-				"captureIterations":true
-			},
-			"skip":false,
-			"subTitle":"Loop",
-			"title":"For each loop",
-			"type":"LOOP"
-		},
-		{
-			"additional":{
-				"xsdSchemaConfig":{
-					"root":{}
-				}
-			},
-			"context":{
-				"appName":"custom_http_endpoint",
-				"resourceVersion":10,
-				"resourceName":"custom_http_endpoint_execute",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_CI9E1@n_Sr2A1@_ErVLa-1@l@l",
-			"id":"_Eq6mb",
-			"index":12,
-			"inputs":{
-				"isAsync":false,
-				"enableProxy":false,
-				"requestTimeoutInSecs":-1,
-				"httpMethod":"POST",
-				"body":{
-					"sql":"show tables from {{ n_CI9E1.outputs.item.Database }}"
-				},
-				"connectionType":"DIRECT",
-				"sslVerify":false,
-				"path":"/internal/sql-report/executeQueryForServer/{{ n_Sr2A1.outputs.item }}",
-				"responseSchema":{
-					"type":"object",
-					"additionalProperties":false,
-					"properties":{
-						"hasMore":{
-							"type":"boolean",
-							"title":"hasMore"
-						},
-						"objects":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"Tables_in_REPORTING_1":{
-										"type":"string",
-										"title":"Tables_in_REPORTING_1"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"objects"
-						},
-						"rowMetadata":{
-							"type":"array",
-							"items":{
-								"type":"object",
-								"properties":{
-									"columnName":{
-										"type":"string",
-										"title":"columnName"
-									},
-									"dataType":{
-										"type":"string",
-										"title":"dataType"
-									}
-								},
-								"additionalProperties":false
-							},
-							"title":"rowMetadata"
-						},
-						"type":{
-							"type":"string",
-							"title":"type"
-						}
-					}
-				},
-				"baseUrl":"{{ n_96ZBq.outputs.baseInternalUrl }}",
-				"httpVersion":"HTTP_2",
-				"bodySchema":{
-					"type":"object",
-					"additionalProperties":false,
-					"properties":{
-						"sql":{
-							"type":"string",
-							"title":"sql"
-						}
-					}
-				},
-				"queryParamsList":[
-					{
-						"key":"sqlResourceType",
-						"value":"PLATFORM"
-					}
-				],
-				"responseContentType":"application/json",
-				"followRedirects":"NORMAL",
-				"headersList":[],
-				"authType":"CUSTOM",
-				"requestContentType":"application/json",
-				"ignoreTrailingSlashes":false,
-				"certificateType":"CERT_STRING"
-			},
-			"options":{
-				"bulkheadConfig":{
-					"enabled":false,
-					"maxLeaseTimeUnit":"SECONDS",
-					"maxWaitDurationUnit":"SECONDS"
-				},
-				"businessHoursConfig":{
-					"enabled":false,
-					"waitForNextWindow":false
-				},
-				"cacheConfig":{
-					"enabled":false,
-					"usagePolicy":"ALWAYS"
-				},
-				"circuitBreakerConfig":{
-					"enabled":false,
-					"slidingWindowType":"COUNT_BASED"
-				},
-				"disableLogging":false,
-				"enabledForReExecution":false,
-				"hookConfig":{
-					"enabled":false,
-					"postHooks":[
-						
-					],
-					"preHooks":[
-						
-					]
-				},
-				"logConfig":{
-					"enabled":false,
-					"logPolicies":[
-						
-					]
-				},
-				"rateLimitConfig":{
-					"enabled":false,
-					"unit":"MINUTES",
-					"waitForNextWindow":false
-				},
-				"retryConfig":{
-					"backOffFactor":null,
-					"captureRetries":false,
-					"enabled":false
-				},
-				"stepError":"STOP",
-				"telemetryConfig":{
-					"enableTelemetry":false,
-					"metricConfigs":[
-						
-					]
-				}
-			},
-			"skip":false,
-			"subTitle":"Fetch Tables",
-			"title":"Execute REST request",
-			"type":"ACTION"
-		},
-		{
-			"context":{
 				"appName":"stop"
 			},
 			"debug":false,
@@ -978,7 +774,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_sytyX",
-			"index":13,
+			"index":11,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -1002,5 +798,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":27
+	"version":28
 }
