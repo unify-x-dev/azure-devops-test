@@ -444,7 +444,7 @@
 	"id":"690494fb339ae95396d97990",
 	"lastModifiedBy":45518,
 	"lcName":"repstimerautomation  ",
-	"modifiedTime":1761908197482,
+	"modifiedTime":1761908347122,
 	"name":"RepsTImerAutomation  ",
 	"nodes":[
 		{
@@ -777,10 +777,10 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_EmployeeNumber",
+							"property":"cTm",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_cbnsU.outputs.result.EmployeeNumber }}"
+								"value":"{{ n_cbnsU.outputs.result.CycleStartDate }}"
 							}
 						}
 					],
@@ -2596,5 +2596,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":3
 }
