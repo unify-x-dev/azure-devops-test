@@ -23,7 +23,7 @@
 	"id":"6904731251e3070c17944230",
 	"lastModifiedBy":178107,
 	"lcName":"demo_csharp",
-	"modifiedTime":1761926429269,
+	"modifiedTime":1761926546385,
 	"name":"demo_csharp",
 	"nodes":[
 		{
@@ -110,6 +110,34 @@
 			"id":"n_pBlkZ",
 			"index":2,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"result":{
+							"type":"object",
+							"properties":{
+								"statusCode":{
+									"type":"integer",
+									"title":"statusCode"
+								},
+								"body":{
+									"type":"object",
+									"properties":{
+										"decryptedMessage":{
+											"type":"string",
+											"title":"decryptedMessage"
+										}
+									},
+									"title":"body",
+									"additionalProperties":false
+								}
+							},
+							"title":"result",
+							"additionalProperties":false
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -176,5 +204,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
