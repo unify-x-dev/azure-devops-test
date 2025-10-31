@@ -5,12 +5,12 @@
 	"createdTime":1761803192182,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761892434720,
+		"deployedAt":1761893741174,
 		"deployedBy":45010,
-		"deployedDefinitionId":"69045852ffd2512f2177dd4d",
+		"deployedDefinitionId":"69045d6da40ee515d1d5fc86",
 		"status":"DEPLOYED",
-		"version":13,
-		"workflowVersion":45
+		"version":14,
+		"workflowVersion":47
 	},
 	"edges":[
 		{
@@ -176,7 +176,7 @@
 	"id":"6902fbb894edc52c8d458d3c",
 	"lastModifiedBy":45010,
 	"lcName":"locationobjectautomation",
-	"modifiedTime":1761893739519,
+	"modifiedTime":1761895145344,
 	"name":"LocationObjectAutomation",
 	"nodes":[
 		{
@@ -243,10 +243,6 @@
 									"properties":{},
 									"additionalProperties":false,
 									"title":"Location"
-								},
-								"id":{
-									"type":"string",
-									"title":"Id"
 								}
 							},
 							"additionalProperties":false,
@@ -505,8 +501,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"location":"{{ _QiGjl.outputs.properties }}",
-					"id":"{{ _QiGjl.outputs.id }}"
+					"location":"{{ _QiGjl.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -795,8 +790,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"location":"{{ n_1IUfs.outputs.properties }}",
-					"id":"{{ n_1IUfs.outputs.id }}"
+					"location":"{{ n_1IUfs.outputs.properties }}"
 				},
 				"status":200
 			},
@@ -856,8 +850,7 @@
 					"additionalProperties":false,
 					"required":[
 						"Name",
-						"ReferenceNumber",
-						"id"
+						"ReferenceNumber"
 					],
 					"properties":{
 						"ReferenceNumber":{
@@ -867,10 +860,6 @@
 						"Name":{
 							"type":"string",
 							"title":"Name"
-						},
-						"id":{
-							"type":"string",
-							"title":"Id"
 						}
 					}
 				},
@@ -878,8 +867,7 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"payload",
-						"id"
+						"payload"
 					],
 					"properties":{
 						"payload":{
@@ -887,19 +875,14 @@
 							"properties":{},
 							"additionalProperties":false,
 							"title":"Payload"
-						},
-						"id":{
-							"type":"string",
-							"title":"Id"
 						}
 					}
 				},
-				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber,\n    \"id\": id\n]\nreturn result",
+				"code":"def result = [\n    \"Name\": payload.Name,\n    \"ReferenceNumber\": payload.ReferenceNumber\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
-					"payload":"{{ n_UqZT0.outputs.body.payload }}",
-					"id":"{{ n_UqZT0.outputs.body.id }}"
+					"payload":"{{ n_UqZT0.outputs.body.payload }}"
 				}
 			},
 			"skip":false,
@@ -910,8 +893,8 @@
 		{
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":4509,
-				"resourceName":"storage_by_unifyapps_update_record_by_id",
+				"resourceVersion":4602,
+				"resourceName":"storage_by_unifyapps_update_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -921,19 +904,42 @@
 			"id":"n_mWWmA",
 			"index":17,
 			"inputs":{
-				"recordId":"{{ n_Qe8TI.outputs.result.id }}",
-				"writeThroughSessionVariables":false,
+				"numberOfRecordsToUpdate":"SINGLE",
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"properties_ReferenceNumber",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_Qe8TI.outputs.result.ReferenceNumber }}"
+							}
+						}
+					],
+					"operator":"AND"
+				},
 				"object_type":"reps_locations_id",
 				"skipIfBlank":false,
-				"record":{
-					"ReferenceNumber":"{{ n_Qe8TI.outputs.result.ReferenceNumber }}",
-					"Name":"{{ n_Qe8TI.outputs.result.Name }}"
+				"updateFields":[
+					{
+						"fieldName":"properties.Name",
+						"actionType":"SET",
+						"setValue":"{{ n_Qe8TI.outputs.result.Name }}"
+					},
+					{
+						"fieldName":"properties.ReferenceNumber",
+						"actionType":"SET",
+						"setValue":"{{ n_Qe8TI.outputs.result.ReferenceNumber }}"
+					}
+				],
+				"page":{
+					"offset":0,
+					"limit":20
 				},
-				"upsert":false
+				"unsetIfNull":false
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Update an existing record",
+			"title":"Update records by query",
 			"type":"ACTION"
 		},
 		{
@@ -953,8 +959,7 @@
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
 				"body":{
-					"location":"{{ n_mWWmA.outputs.object.properties }}",
-					"id":"{{ n_mWWmA.outputs.object.id }}"
+					"location":"{{ n_mWWmA.outputs.object.properties }}"
 				},
 				"status":200
 			},
@@ -1005,5 +1010,5 @@
 	"tags":[
 		
 	],
-	"version":47
+	"version":48
 }
