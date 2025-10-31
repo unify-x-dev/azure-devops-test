@@ -5,12 +5,12 @@
 	"createdTime":1761809128268,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761885845560,
+		"deployedAt":1761885915696,
 		"deployedBy":44105,
-		"deployedDefinitionId":"69043e95ffd2512f2177bdaf",
+		"deployedDefinitionId":"69043edbffd2512f2177beb5",
 		"status":"DEPLOYED",
-		"version":18,
-		"workflowVersion":46
+		"version":19,
+		"workflowVersion":47
 	},
 	"edges":[
 		{
@@ -90,7 +90,7 @@
 	"id":"690312e8501d855ce646d49a",
 	"lastModifiedBy":44105,
 	"lcName":"[repsschedular] syncdesignationhttptrigger",
-	"modifiedTime":1761885913754,
+	"modifiedTime":1761886171694,
 	"name":"[RepsSchedular] SyncDesignationHttpTrigger",
 	"nodes":[
 		{
@@ -100,7 +100,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_IyOaB",
@@ -163,7 +163,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_xnr0g",
@@ -250,7 +250,7 @@
 						}
 					}
 				},
-				"code":"def response = [:]\n\nif(result?.statusCode)\n{\n  response[\"statusCode\"] = response.statusCode\n}\n\nif(result?.message)\n{\n  response[\"message\"] = response.message\n}\n\nreturn response",
+				"code":"return result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -268,7 +268,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_h7Yud",
@@ -329,7 +329,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@1",
 			"id":"n_h7Yud@1",
@@ -361,7 +361,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@1",
 			"id":"n_Haqom",
@@ -385,7 +385,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@2",
 			"id":"n_h7Yud@2",
@@ -417,7 +417,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Yud@_VHgde-1@2",
 			"id":"n_YGFhv",
@@ -441,7 +441,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_VHgde-1",
 			"id":"n_rujD8",
@@ -476,5 +476,5 @@
 	"tags":[
 		
 	],
-	"version":47
+	"version":48
 }
