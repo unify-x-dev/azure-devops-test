@@ -63,7 +63,7 @@
 	"id":"67ef7ee698cbb4795b834c47",
 	"lastModifiedBy":504,
 	"lcName":"hs-test-scope",
-	"modifiedTime":1761896430838,
+	"modifiedTime":1761896435740,
 	"name":"hs-test-scope",
 	"nodes":[
 		{
@@ -124,7 +124,18 @@
 			"groupId":"n_jLNzG@JWtXm-1@s",
 			"id":"n_UjELH",
 			"index":3,
-			"inputs":{},
+			"inputs":{
+				"filters":[
+					{
+						"property":"1",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"1"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
 			"subTitle":"Condition",
 			"title":"Condition",
@@ -190,5 +201,5 @@
 	"tags":[
 		
 	],
-	"version":157
+	"version":158
 }
