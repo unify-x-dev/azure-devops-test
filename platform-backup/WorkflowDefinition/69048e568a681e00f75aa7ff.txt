@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761906262575,
 	"deleted":false,
@@ -9,14 +9,14 @@
 			"fromNodeId":"_DGLOM",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Pbvrr",
+			"toNodeId":"n_XNhCx",
 			"type":"next"
 		}
 	],
 	"id":"69048e568a681e00f75aa7ff",
 	"lastModifiedBy":155543,
 	"lcName":"testset",
-	"modifiedTime":1761906262575,
+	"modifiedTime":1761906917500,
 	"name":"testset",
 	"nodes":[
 		{
@@ -25,7 +25,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DGLOM-1",
 			"id":"_DGLOM",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +34,31 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":2,
+				"resourceName":"storage_by_unifyapps_fetch_dependency_tree",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DGLOM-1",
-			"id":"_Pbvrr",
-			"index":0,
+			"id":"n_XNhCx",
+			"index":2,
+			"inputs":{
+				"object_type":"condition_tree_node"
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch Dependency Tree",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":155543,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +72,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
