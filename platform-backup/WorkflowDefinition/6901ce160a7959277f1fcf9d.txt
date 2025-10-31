@@ -60,7 +60,7 @@
 	"id":"6901ce160a7959277f1fcf9d",
 	"lastModifiedBy":44567,
 	"lcName":"xyzzz",
-	"modifiedTime":1761920165514,
+	"modifiedTime":1761920237557,
 	"name":"xyzzz",
 	"nodes":[
 		{
@@ -121,7 +121,7 @@
 				"url":"https://qa-uploads.unifyapps.com/user-uploads/1/1761916823455/invalid_jsonl_Sample_Record.jsonl",
 				"option":"url"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Files by UnifyApps",
 			"title":"Upload file",
 			"type":"ACTION"
@@ -144,7 +144,7 @@
 				"url":"https://qa-uploads.unifyapps.com/user-uploads/1/1761916481740/invalidJsonsampleRecord.json",
 				"option":"url"
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Files by UnifyApps",
 			"title":"Upload file",
 			"type":"ACTION"
@@ -168,12 +168,12 @@
 			"id":"n_wdDn6",
 			"index":4,
 			"inputs":{
-				"fileDetails":"{{ n_UG0uI.outputs.fileDetails }}",
+				"fileDetails":"{{ n_ZMSaW.outputs.fileDetails }}",
 				"startFromRecord":1,
 				"batch":false,
 				"encoding":"UTF-8",
 				"batchSize":3,
-				"fileType":"jsonl"
+				"fileType":"json"
 			},
 			"skip":false,
 			"subTitle":"JSON by UnifyApps",
@@ -273,5 +273,5 @@
 	"tags":[
 		
 	],
-	"version":123
+	"version":124
 }
