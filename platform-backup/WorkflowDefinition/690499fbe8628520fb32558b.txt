@@ -162,7 +162,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761933280096,
+	"modifiedTime":1761933637381,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -606,7 +606,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_flqY9",
@@ -747,7 +747,7 @@
 					]
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Fetch Tables",
 			"title":"Execute REST request",
 			"type":"ACTION"
@@ -765,7 +765,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_7Ar8v",
@@ -776,7 +776,7 @@
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
-					"sql":"select * from information_schema.partitions_meta where ROW_COUNT > 0 order by DATA_SIZE limit 100;"
+					"sql":"select * from information_schema.partitions_meta where ROW_COUNT > 0 ;"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
@@ -1039,7 +1039,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"n_CVGVn",
@@ -1129,7 +1129,7 @@
 					"tables":"{{ _flqY9.outputs.result.objects }}"
 				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -1362,7 +1362,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@1",
 			"id":"n_fCpLx@1",
@@ -1370,7 +1370,7 @@
 			"inputs":{
 				"name":"Branch 1"
 			},
-			"skip":true,
+			"skip":false,
 			"title":"",
 			"type":"BRANCH_CONDITION"
 		},
@@ -1454,7 +1454,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_fCpLx@n_Sr2A1@_ErVLa-1@l@2",
 			"id":"n_JaHEE",
@@ -1549,5 +1549,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":59
+	"version":60
 }
