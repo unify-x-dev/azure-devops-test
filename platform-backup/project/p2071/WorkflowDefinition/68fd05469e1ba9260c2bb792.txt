@@ -127,7 +127,7 @@
 	"id":"68fd05469e1ba9260c2bb792",
 	"lastModifiedBy":189756,
 	"lcName":"assignment_2",
-	"modifiedTime":1761585204035,
+	"modifiedTime":1761888485900,
 	"name":"Assignment_2",
 	"nodes":[
 		{
@@ -592,7 +592,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_cI12S",
@@ -631,7 +631,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_uHgvE",
@@ -773,7 +773,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_Jv9R1@n_TJ6jE@_JiodF-1@1@l",
 			"id":"n_Q5FUw",
@@ -801,12 +801,12 @@
 			"context":{
 				"appName":"openai",
 				"resourceVersion":5509,
-				"connectionId":"687f681cf0fed6021b5c6b04",
+				"connectionId":"68ea9540a5e5253b2d030eea",
 				"resourceName":"openai_summarize_text",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@1",
 			"id":"n_Zl8io",
@@ -850,12 +850,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_TJ6jE@_JiodF-1@2",
 			"id":"n_wADXG",
 			"index":12,
 			"inputs":{
+				"start_time":"=TODAY()",
 				"calendarId":"primary"
 			},
 			"skip":false,
@@ -1079,5 +1080,5 @@
 		}
 	},
 	"standard":false,
-	"version":89
+	"version":91
 }
