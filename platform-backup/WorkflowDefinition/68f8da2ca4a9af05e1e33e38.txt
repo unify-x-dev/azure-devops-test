@@ -102,7 +102,7 @@
 	"id":"68f8da2ca4a9af05e1e33e38",
 	"lastModifiedBy":161861,
 	"lcName":"assignment_vb_2",
-	"modifiedTime":1761912765173,
+	"modifiedTime":1761912853517,
 	"name":"assignment_vb_2",
 	"nodes":[
 		{
@@ -718,6 +718,19 @@
 			"id":"n_AjLCz",
 			"index":12,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"summary"
+					],
+					"properties":{
+						"summary":{
+							"type":"string",
+							"title":"Summary"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -746,7 +759,7 @@
 						}
 					}
 				},
-				"code":"import java.io.FileOutputStream\nimport com.itextpdf.text.*\nimport com.itextpdf.text.pdf.*\n\n// ----------------------------------------------------\n// Input Parameters\n// ----------------------------------------------------\ndef list_emails = list_emails ?: []\ndef events = events ?: []\n\n// ----------------------------------------------------\n// Basic Validations\n// ----------------------------------------------------\nif (!(list_emails instanceof List) || !(events instanceof List)) {\n    throw new Exception(\"Invalid input format. 'list_emails' and 'events' must be arrays.\")\n}\n\n// ----------------------------------------------------\n// PDF Creation Setup\n// ----------------------------------------------------\ndef fileName = \"Morning_Brief_${new Date().format('yyyyMMdd_HHmmss')}.pdf\"\ndef filePath = \"/tmp/${fileName}\"\ndef document = new Document(PageSize.A4)\nPdfWriter.getInstance(document, new FileOutputStream(filePath))\ndocument.open()\n\n// ----------------------------------------------------\n// Fonts and Styling\n// ----------------------------------------------------\ndef titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD)\ndef sectionFont = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)\ndef normalFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL)\n\n// ----------------------------------------------------\n// Document Title\n// ----------------------------------------------------\ndocument.add(new Paragraph(\"Morning Brief\", titleFont))\ndocument.add(Chunk.NEWLINE)\n\n// ----------------------------------------------------\n// Section: Top 5 Emails\n// ----------------------------------------------------\ndocument.add(new Paragraph(\"Top 5 Emails\", sectionFont))\ndocument.add(Chunk.NEWLINE)\n\nlist_emails.take(5).eachWithIndex { email, i ->\n    def subject = email?.subject ?: \"No Subject\"\n    def sender = email?.from ?: \"Unknown Sender\"\n    def summary = email?.summary ?: email?.body ?: \"No Co\n",
+				"code":"def summarizeMorningBrief(list_emails, events) {\n    // ----------------------------\n    // Basic Validation\n    // ----------------------------\n    if (!list_emails || !events) {\n        return [\n            status : \"FAILED\",\n            message: \"Missing required input: list_emails or events\",\n            summary: \"\"\n        ]\n    }\n\n    // ----------------------------\n    // Helper: Format text safely\n    // ----------------------------\n    def safeText = { val ->\n        (val ?: \"\").toString().trim()\n    }\n\n    // ----------------------------\n    // Build Summary Content\n    // ----------------------------\n    def summaryBuilder = new StringBuilder()\n    summaryBuilder.append(\"📰 Morning Brief\\n\\n\")\n\n    // ----------------------------\n    // Top 5 Emails\n    // ----------------------------\n    summaryBuilder.append(\"📧 Top 5 Emails:\\n\")\n    list_emails.take(5).eachWithIndex { email, i ->\n        def subject = safeText(email.subject)\n        def sender  = safeText(email.from)\n        def snippet = safeText(email.summary ?: email.body)\n        summaryBuilder.append(\"${i + 1}. ${subject}\\n   From: ${sender}\\n   Summary: ${snippet}\\n\\n\")\n    }\n\n    // ----------------------------\n    // Top 5 Events\n    // ----------------------------\n    summaryBuilder.append(\"📅 Top 5 Events:\\n\")\n    events.take(5).eachWithIndex { event, i ->\n        def title    = safeText(event.title)\n        def time     = safeText(event.time)\n        def location = safeText(event.location)\n        summaryBuilder.append(\"${i + 1}. ${title}\\n   Time: ${time}\\n   Location: ${location}\\n\\n\")\n    }\n\n    // ----------------------------\n    // Return Final Output\n    // ----------------------------\n    return [\n        status : \"SUCCESS\",\n        message: \"Morning Brief generated successfully\",\n        summary: summaryBuilder.toString()\n    ]\n}\n\n// Example call (if needed)\n// summarizeMorningBrief(list_emails, events)\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -796,5 +809,5 @@
 	"tags":[
 		
 	],
-	"version":25
+	"version":26
 }
