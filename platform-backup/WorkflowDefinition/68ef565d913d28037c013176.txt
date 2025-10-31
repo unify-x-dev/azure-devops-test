@@ -59,7 +59,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761901846895,
+	"modifiedTime":1761901883514,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -478,21 +478,8 @@
 			"id":"n_kEFgb",
 			"index":6,
 			"inputs":{
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"text"
-					],
-					"properties":{
-						"text":{
-							"type":"string",
-							"title":"Text"
-						}
-					}
-				},
 				"configurationMode":"DEFAULT",
-				"code":"result = {\"res\": text}",
+				"code":"with open(\"FILE_1\", \"r\", encoding=\"utf-8\") as f:\n    text = f.read()\n\nresult = {\"res\": text}",
 				"isAsync":false,
 				"python_version":"3.12",
 				"filesList":{
@@ -500,10 +487,7 @@
 					"ua:type":"mappedArray",
 					"items":"{{ n_u3z18.outputs.items[0] }}"
 				},
-				"captureStdOutput":false,
-				"parameters":{
-					"text":"Hi"
-				}
+				"captureStdOutput":false
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -539,8 +523,15 @@
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
-		"enableVariableLogging":true
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
 	},
 	"standard":false,
-	"version":20
+	"tags":[
+		
+	],
+	"version":21
 }
