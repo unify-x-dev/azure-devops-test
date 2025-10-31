@@ -70,6 +70,28 @@
 		},
 		{
 			"fromNodeId":"_fimnV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CI9E1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CI9E1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_Eq6mb",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"_Eq6mb",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_CI9E1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_CI9E1",
 			"name":"loopback",
 			"priority":0,
 			"skip":false,
@@ -87,7 +109,7 @@
 	"id":"690499fbe8628520fb32558b",
 	"lastModifiedBy":44108,
 	"lcName":"infra | starrocks | alert | table health v2.0",
-	"modifiedTime":1761911883589,
+	"modifiedTime":1761912346376,
 	"name":"INFRA | STARROCKS | ALERT | Table Health V2.0",
 	"nodes":[
 		{
@@ -97,7 +119,7 @@
 				"resourceName":"schedule_default"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_t4hxB",
@@ -124,7 +146,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_96ZBq",
@@ -201,7 +223,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_cd79r",
@@ -252,7 +274,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"_auxBn",
@@ -321,7 +343,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_A4kqi",
@@ -420,7 +442,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_PHNUD",
@@ -539,7 +561,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Uk5gQ",
@@ -592,7 +614,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_Sr2A1",
@@ -615,7 +637,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Sr2A1@_ErVLa-1@l",
 			"id":"_fimnV",
@@ -626,7 +648,7 @@
 				"requestTimeoutInSecs":-1,
 				"httpMethod":"POST",
 				"body":{
-					"sql":"show tables;"
+					"sql":"show databases"
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
@@ -634,6 +656,7 @@
 				"responseSchema":{
 					"type":"object",
 					"additionalProperties":false,
+					"required":[],
 					"properties":{
 						"hasMore":{
 							"type":"boolean",
@@ -642,90 +665,178 @@
 						"objects":{
 							"type":"array",
 							"items":{
+								"type":"string"
+							},
+							"title":"objects"
+						},
+						"rowMetadata":{
+							"type":"array",
+							"items":{
 								"type":"object",
 								"properties":{
-									"JobProperties":{
+									"columnName":{
 										"type":"string",
-										"title":"JobProperties"
+										"title":"columnName"
 									},
-									"Progress":{
+									"dataType":{
 										"type":"string",
-										"title":"Progress"
-									},
-									"ReasonOfStateChanged":{
-										"type":"string",
-										"title":"ReasonOfStateChanged"
-									},
-									"TimestampProgress":{
-										"type":"string",
-										"title":"TimestampProgress"
-									},
-									"CreateTime":{
-										"type":"string",
-										"title":"CreateTime"
-									},
-									"CurrentTaskNum":{
-										"type":"string",
-										"title":"CurrentTaskNum"
-									},
-									"LatestSourcePosition":{
-										"type":"string",
-										"title":"LatestSourcePosition"
-									},
-									"DataSourceProperties":{
-										"type":"string",
-										"title":"DataSourceProperties"
-									},
-									"Name":{
-										"type":"string",
-										"title":"Name"
-									},
-									"TrackingSQL":{
-										"type":"string",
-										"title":"TrackingSQL"
-									},
-									"TableName":{
-										"type":"string",
-										"title":"TableName"
-									},
-									"Statistic":{
-										"type":"string",
-										"title":"Statistic"
-									},
-									"State":{
-										"type":"string",
-										"title":"State"
-									},
-									"ErrorLogUrls":{
-										"type":"string",
-										"title":"ErrorLogUrls"
-									},
-									"DataSourceType":{
-										"type":"string",
-										"title":"DataSourceType"
-									},
-									"DbName":{
-										"type":"string",
-										"title":"DbName"
-									},
-									"OtherMsg":{
-										"type":"string",
-										"title":"OtherMsg"
-									},
-									"Id":{
-										"type":"string",
-										"title":"Id"
-									},
-									"CustomProperties":{
-										"type":"string",
-										"title":"CustomProperties"
-									},
-									"PauseTime":{
-										"type":"string",
-										"title":"PauseTime"
+										"title":"dataType"
 									}
 								},
 								"additionalProperties":false
+							},
+							"title":"rowMetadata"
+						},
+						"type":{
+							"type":"string",
+							"title":"type"
+						}
+					}
+				},
+				"baseUrl":"{{ n_96ZBq.outputs.baseInternalUrl }}",
+				"httpVersion":"HTTP_2",
+				"bodySchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"sql":{
+							"type":"string",
+							"title":"sql"
+						}
+					}
+				},
+				"queryParamsList":[
+					{
+						"key":"sqlResourceType",
+						"value":"PLATFORM"
+					}
+				],
+				"responseContentType":"application/json",
+				"followRedirects":"NORMAL",
+				"headersList":[],
+				"authType":"CUSTOM",
+				"requestContentType":"application/json",
+				"ignoreTrailingSlashes":false,
+				"certificateType":"CERT_STRING"
+			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false,
+					"slidingWindowType":"COUNT_BASED"
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"unit":"MINUTES",
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
+			"skip":false,
+			"subTitle":"Fetch Tables",
+			"title":"Execute REST request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"resourceVersion":865,
+				"resourceName":"loop_for_each",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Sr2A1@_ErVLa-1@l",
+			"id":"n_CI9E1",
+			"index":11,
+			"inputs":{
+				"repeatMode":"SINGLE",
+				"listSource":"{{ _fimnV.outputs.result.objects }}",
+				"captureIterations":true
+			},
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"For each loop",
+			"type":"LOOP"
+		},
+		{
+			"context":{
+				"appName":"custom_http_endpoint",
+				"resourceVersion":10,
+				"resourceName":"custom_http_endpoint_execute",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_CI9E1@n_Sr2A1@_ErVLa-1@l@l",
+			"id":"_Eq6mb",
+			"index":12,
+			"inputs":{
+				"isAsync":false,
+				"enableProxy":false,
+				"requestTimeoutInSecs":-1,
+				"httpMethod":"POST",
+				"body":{
+					"sql":"show tables from {{ n_CI9E1.outputs.item }}"
+				},
+				"connectionType":"DIRECT",
+				"sslVerify":false,
+				"path":"/internal/sql-report/executeQueryForServer/{{ n_Sr2A1.outputs.item }}",
+				"responseSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"hasMore":{
+							"type":"boolean",
+							"title":"hasMore"
+						},
+						"objects":{
+							"type":"array",
+							"items":{
+								"type":"string"
 							},
 							"title":"objects"
 						},
@@ -846,7 +957,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_ErVLa-1",
 			"id":"n_sytyX",
-			"index":11,
+			"index":13,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -870,5 +981,5 @@
 	"tags":[
 		"ua-infra"
 	],
-	"version":7
+	"version":9
 }
