@@ -140,7 +140,7 @@
 	"id":"69032ea513085040561b1e45",
 	"lastModifiedBy":45010,
 	"lcName":"tierobjectautomation",
-	"modifiedTime":1761896696539,
+	"modifiedTime":1761896711690,
 	"name":"TierObjectAutomation",
 	"nodes":[
 		{
@@ -703,11 +703,15 @@
 				"skipIfBlank":false,
 				"updateFields":[
 					{
-						"fieldName":"properties.Id",
+						"fieldName":"properties.Name",
 						"actionType":"SET",
 						"setValue":"{{ n_hqSfX.outputs.result.name }}"
 					},
-					{}
+					{
+						"fieldName":"properties.ReferenceNumber",
+						"actionType":"SET",
+						"setValue":"{{ n_hqSfX.outputs.result.ReferenceNumber }}"
+					}
 				],
 				"page":{
 					"offset":0,
@@ -785,5 +789,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
