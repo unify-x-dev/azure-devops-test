@@ -11,12 +11,26 @@
 			"skip":false,
 			"toNodeId":"n_8Us21",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8Us21",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_jyKVO",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_jyKVO",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KqDLg",
+			"type":"next"
 		}
 	],
 	"id":"690466e7462ff4087b2f6b19",
 	"lastModifiedBy":33453,
 	"lcName":"vreds",
-	"modifiedTime":1761907928506,
+	"modifiedTime":1761908177435,
 	"name":"vreds",
 	"nodes":[
 		{
@@ -26,7 +40,7 @@
 				"resourceName":"webhooks_default"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_1qdXx-1",
 			"id":"n_9DoqF",
@@ -69,7 +83,6 @@
 			"id":"n_8Us21",
 			"index":2,
 			"inputs":{
-				"object_type":"{{ n_9DoqF.outputs.queryParams.file }}",
 				"includeRoleMappings":false,
 				"includeCurrentUserPermissions":false,
 				"translationsOption":"DEFAULT",
@@ -84,6 +97,50 @@
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
 			"title":"Fetch records",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"analytics_by_unifyapps",
+				"resourceVersion":1028,
+				"resourceName":"analytics_by_unifyapps_query_reports",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_1qdXx-1",
+			"id":"n_jyKVO",
+			"index":3,
+			"inputs":{
+				"entityType":"ENTITY_analytics_node_testcases_imp",
+				"group":"ENTITY_REPORTING"
+			},
+			"skip":false,
+			"subTitle":"Analytics by UnifyApps",
+			"title":"Analytics Query",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"standard_entities",
+				"resourceVersion":628,
+				"resourceName":"standard_entities_update_tags",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_1qdXx-1",
+			"id":"n_KqDLg",
+			"index":4,
+			"inputs":{
+				"actionType":"SET",
+				"entityType":"analytics_node_testcases_imp"
+			},
+			"skip":false,
+			"subTitle":"Standard entities by UnifyApps",
+			"title":"Update tags",
 			"type":"ACTION"
 		}
 	],
@@ -104,5 +161,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
