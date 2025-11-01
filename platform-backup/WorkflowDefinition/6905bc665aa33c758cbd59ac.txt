@@ -154,6 +154,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"_P0zSB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_k8CWW",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_ZhAEo",
 			"name":"5",
 			"priority":0,
@@ -173,8 +180,15 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_Jft48",
+			"toNodeId":"n_u2Goq",
 			"type":"if"
+		},
+		{
+			"fromNodeId":"n_u2Goq",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AYhuf",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"n_Alywo",
@@ -222,7 +236,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_P0zSB",
+			"fromNodeId":"n_k8CWW",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_YZmY6",
@@ -237,7 +251,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_Jft48",
+			"fromNodeId":"n_AYhuf",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_YZmY6",
@@ -263,7 +277,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761988033890,
+	"modifiedTime":1761989375220,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -762,7 +776,7 @@
 					],
 					"operator":"AND"
 				},
-				"object_type":"badges_badges_employees",
+				"object_type":"badges_employees",
 				"includeRoleMappings":false,
 				"includeCurrentUserPermissions":false,
 				"translationsOption":"DEFAULT",
@@ -1131,19 +1145,13 @@
 							"property":"id",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ n_mwDFF.outputs.result.ActivityId }}"
-							}
-						},
-						{
-							"property":"properties_IsActive",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"true"
+								"value":"{{ _ZTjPu.outputs.result.ActivityId }}"
 							}
 						}
 					],
 					"operator":"AND"
 				},
+				"object_type":"badges_employee_badges",
 				"includeRoleMappings":false,
 				"includeCurrentUserPermissions":false,
 				"translationsOption":"DEFAULT",
@@ -1162,6 +1170,29 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":0,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_gNw8s@n_ZhAEo@_NyQKV-1@4@y",
+			"id":"n_k8CWW",
+			"index":22,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -1172,7 +1203,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@5",
 			"id":"n_ZhAEo@5",
-			"index":22,
+			"index":23,
 			"inputs":{
 				"name":"Branch 5",
 				"conditions":{
@@ -1204,7 +1235,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@5",
 			"id":"n_Cfp0Q",
-			"index":23,
+			"index":24,
 			"inputs":{
 				"filters":[
 					{
@@ -1230,14 +1261,95 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Cfp0Q@n_ZhAEo@_NyQKV-1@5@y",
-			"id":"n_Jft48",
-			"index":24,
+			"id":"n_u2Goq",
+			"index":25,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"result":{
+							"type":"object",
+							"properties":{
+								"UserName":{
+									"type":"string",
+									"title":"UserName"
+								},
+								"BadgeId":{
+									"type":"string",
+									"title":"BadgeId"
+								},
+								"Date":{
+									"type":"string",
+									"title":"Date"
+								},
+								"ExpireDate":{
+									"type":"string",
+									"title":"ExpireDate"
+								}
+							},
+							"title":"result",
+							"additionalProperties":false
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"payload":{
+							"type":"string",
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"def result = [\n  \"UserName\": payload[\"UserName\"] ?: \"\",\n  \"BadgeId\": payload[\"BadgeId\"] ?: 0,\n  \"Date\": payload[\"Date\"] ?: \"\",\n  \"ExpireDate\": payload[\"ExpireDate\"] ?: \"\"\n]\nreturn result",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4633,
+				"resourceName":"storage_by_unifyapps_create_record",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Cfp0Q@n_ZhAEo@_NyQKV-1@5@y",
+			"id":"n_AYhuf",
+			"index":26,
+			"inputs":{
+				"writeThroughSessionVariables":false,
+				"object_type":"badges_badges_employees",
+				"skipIfBlank":false,
+				"record":{
+					"UserName":"{{ n_u2Goq.outputs.result.result.UserName }}",
+					"BadgeId":"{{ n_u2Goq.outputs.result.result.BadgeId }}",
+					"Date":"{{ n_u2Goq.outputs.result.result.Date }}",
+					"ExpireDate":"{{ n_u2Goq.outputs.result.result.ExpireDate }}"
+				}
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -1252,7 +1364,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
 			"id":"n_YZmY6",
-			"index":25,
+			"index":27,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_not ok",
@@ -1281,5 +1393,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
