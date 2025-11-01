@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761983590696,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_NyQKV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_aDVRu",
+			"type":"next"
+		}
+	],
+	"id":"6905bc665aa33c758cbd59ac",
+	"lastModifiedBy":308,
+	"lcName":"empowerbadgesschedulerfn",
+	"modifiedTime":1761983590696,
+	"name":"emPowerBadgesSchedulerFN",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_NyQKV-1",
+			"id":"_NyQKV",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_NyQKV-1",
+			"id":"_aDVRu",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":308,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
