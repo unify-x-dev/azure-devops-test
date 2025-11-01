@@ -191,6 +191,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_AYhuf",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_aLQZi",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_Alywo",
 			"priority":0,
 			"skip":false,
@@ -251,7 +258,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_AYhuf",
+			"fromNodeId":"n_aLQZi",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_YZmY6",
@@ -277,7 +284,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761989375220,
+	"modifiedTime":1761989389508,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -1355,6 +1362,29 @@
 		{
 			"context":{
 				"appName":"callables",
+				"resourceVersion":1138,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_Cfp0Q@n_ZhAEo@_NyQKV-1@5@y",
+			"id":"n_aLQZi",
+			"index":27,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
+				"appName":"callables",
 				"resourceVersion":1137,
 				"resourceName":"callables_return_response_to_api",
 				"type":"APPLICATION"
@@ -1364,7 +1394,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
 			"id":"n_YZmY6",
-			"index":27,
+			"index":28,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_not ok",
@@ -1393,5 +1423,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
