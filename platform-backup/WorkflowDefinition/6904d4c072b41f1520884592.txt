@@ -121,6 +121,41 @@
 			"fromNodeId":"n_5oAeH",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_P2V2x",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_P2V2x",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_k13UU",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_k13UU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9jqJQ",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9jqJQ",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mufUv",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mufUv",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_w1EcH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_w1EcH",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_zepXl",
 			"type":"next"
 		}
@@ -128,7 +163,7 @@
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761994276297,
+	"modifiedTime":1761999164740,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -334,6 +369,7 @@
 			"id":"n_2xzgL",
 			"index":9,
 			"inputs":{
+				"structureId":"897435b0-676c-ef11-bdfd-6045bdcf1f95",
 				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8"
 			},
 			"skip":false,
@@ -356,11 +392,12 @@
 			"id":"n_ajhLl",
 			"index":10,
 			"inputs":{
-				"employeeIdentifier":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"employeeIdentifier":"aeca400-b75f-477a-8b31-509d51b273e8",
 				"punchStatus":0,
 				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8",
-				"attendanceLogSource":1,
+				"attendanceLogSource":3,
 				"manualClockinType":0,
+				"premiseName":"Head Office",
 				"timestamp":"2025-11-02T09:16:00.000Z"
 			},
 			"skip":false,
@@ -458,7 +495,8 @@
 			"id":"n_GSE0m",
 			"index":14,
 			"inputs":{
-				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8"
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"salaryPaymentMode":3
 			},
 			"skip":false,
 			"subTitle":"Keka",
@@ -529,10 +567,130 @@
 			"groupId":"_SSoEQ-1",
 			"id":"n_5oAeH",
 			"index":17,
-			"inputs":{},
+			"inputs":{
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"effectiveFrom":"2025-11-01T11:54:07.890Z"
+			},
 			"skip":false,
 			"subTitle":"Keka",
 			"title":"Revise employee salary",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":8,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_employee_tax_regime",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_P2V2x",
+			"index":18,
+			"inputs":{
+				"financialYear":2024,
+				"taxRegime":0,
+				"allowCutOffOverride":true,
+				"employeeId":"f81a2bfb-77da-4541-8421-3dce0130488f"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update employee tax regime",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":4,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_individual_tax_declaration",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_k13UU",
+			"index":19,
+			"inputs":{
+				"financialYear":2025,
+				"employeeId":"f81a2bfb-77da-4541-8421-3dce0130488f"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update individual tax declaration",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":3,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_payment_status",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_9jqJQ",
+			"index":20,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update the payment status",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":2,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_revise_employee_salary",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_mufUv",
+			"index":21,
+			"inputs":{
+				"amount":30,
+				"structureId":"897435b0-676c-ef11-bdfd-6045bdcf1f95",
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"effectiveFrom":"2025-11-01T12:07:26.250Z"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update revise employee salary",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":209,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_employees",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_w1EcH",
+			"index":22,
+			"inputs":{
+				"inNoticePeriod":false,
+				"pageSize":100,
+				"inProbation":false
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List all employees",
 			"type":"ACTION"
 		},
 		{
@@ -544,7 +702,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SSoEQ-1",
 			"id":"n_zepXl",
-			"index":18,
+			"index":23,
 			"skip":false,
 			"subTitle":"Stop",
 			"title":"Stop",
@@ -568,5 +726,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
