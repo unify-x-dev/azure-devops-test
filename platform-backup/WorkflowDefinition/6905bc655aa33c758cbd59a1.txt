@@ -6,46 +6,105 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_Yay0R",
+			"fromNodeId":"n_mtN9U",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_ZtAii",
+			"toNodeId":"n_d1ceI",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_d1ceI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HvwVa",
 			"type":"next"
 		}
 	],
 	"id":"6905bc655aa33c758cbd59a1",
 	"lastModifiedBy":76193,
 	"lcName":"virtusa | google chats approval flow",
-	"modifiedTime":1761983589842,
+	"modifiedTime":1761986649623,
 	"name":"virtusa | google chats approval flow",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1080,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Yay0R-1",
-			"id":"_Yay0R",
-			"index":0,
+			"id":"n_mtN9U",
+			"index":1,
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"status"
+					],
+					"properties":{
+						"status":{
+							"type":"string",
+							"title":"Status"
+						}
+					}
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"variable_by_unifyapps",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Yay0R-1",
-			"id":"_ZtAii",
-			"index":0,
+			"id":"n_d1ceI",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Variable by UnifyApps",
+			"title":"Select an action",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Yay0R-1",
+			"id":"n_HvwVa",
+			"index":3,
+			"inputs":{
+				"result":{
+					"status":"200"
+				}
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":76193,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +118,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
