@@ -88,12 +88,19 @@
 			"skip":false,
 			"toNodeId":"n_8VbuC",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_8VbuC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_GSE0m",
+			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761990599487,
+	"modifiedTime":1761991462516,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -407,6 +414,28 @@
 			"subTitle":"Keka",
 			"title":"Update deactivate an employee",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":136,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_employee_bank_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_GSE0m",
+			"index":14,
+			"inputs":{
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update employee bank details",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
@@ -426,5 +455,5 @@
 	"tags":[
 		
 	],
-	"version":11
+	"version":12
 }
