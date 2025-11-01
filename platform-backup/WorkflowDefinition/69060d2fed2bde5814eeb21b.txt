@@ -1,51 +1,169 @@
 {
 	"appsUsed":[
-		
+		"keka"
 	],
 	"createdTime":1762004271552,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_mJQI5",
+			"fromNodeId":"n_4AzuQ",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_5ympS",
+			"toNodeId":"n_0iTeL",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_0iTeL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_WLtCU",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_WLtCU",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cO5DG",
 			"type":"next"
 		}
 	],
 	"id":"69060d2fed2bde5814eeb21b",
 	"lastModifiedBy":3546,
 	"lcName":"jkewhierf",
-	"modifiedTime":1762004271552,
+	"modifiedTime":1762004872884,
 	"name":"jkewhierf",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mJQI5-1",
-			"id":"_mJQI5",
-			"index":0,
+			"id":"n_4AzuQ",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.apiBonusDto.items.bounsId",
+					"root.apiBonusDto.items.amount",
+					"root.apiBonusDto.items.dueDate",
+					"root.apiBonusDto.items.note"
+				]
+			},
+			"context":{
+				"appName":"keka",
+				"resourceVersion":206,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_add_employee_salary",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_mJQI5-1",
-			"id":"_5ympS",
-			"index":0,
+			"id":"n_0iTeL",
+			"index":2,
+			"inputs":{
+				"isBonusAmountIncludedInSalary":true,
+				"salaryStructureType":1,
+				"amount":10000,
+				"structureId":"897435b0-676c-ef11-bdfd-6045bdcf1f95",
+				"employeeId":"6c836f94-b68a-49ed-9e31-c0e0f1cf0fdc",
+				"effectiveFrom":"2025-10-31T18:30:00.000Z",
+				"apiBonusDto":[
+					{
+						"bounsId":"BCAE4489-4CFA-47B5-9281-7D242DDCF1C8",
+						"amount":2000,
+						"dueDate":"2025-11-06T18:30:00.000Z",
+						"note":"This is first bonus"
+					}
+				]
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Keka",
+			"title":"Add employee salary",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":2,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_adds_a_wfh_request",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mJQI5-1",
+			"id":"n_WLtCU",
+			"index":3,
+			"inputs":{
+				"fromDate":"2025-11-21T18:30:00.000Z",
+				"note":"This is my first whf request",
+				"fromSession":1,
+				"toSession":2,
+				"toDate":"2025-11-22T18:30:00.000Z",
+				"employeeId":"00e1e791-2b5d-47aa-be09-11f5f33116aa"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Add a WFH request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":208,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_add_adhoc_transaction",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_mJQI5-1",
+			"id":"n_cO5DG",
+			"index":4,
+			"inputs":{
+				"payGroupId":"4c792db2-b6ff-49a0-9207-87951602e6ae",
+				"payCycleId":"f61691ba-5b41-4377-b24e-b8fa92a80c29",
+				"transaction":[
+					{
+						"employeeId":"bb1a1ef5-493f-4281-a8f2-cd9e73dc4cb5",
+						"amount":2000,
+						"typeId":"3a0933d5-36eb-4bdd-8b98-df802dec94e8",
+						"comment":"This is first adhoc transaction raised"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Add the adhoc transaction",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +177,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":2
 }
