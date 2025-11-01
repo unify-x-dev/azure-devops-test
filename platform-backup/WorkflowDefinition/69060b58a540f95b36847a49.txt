@@ -128,7 +128,7 @@
 	"id":"69060b58a540f95b36847a49",
 	"lastModifiedBy":308,
 	"lcName":"[empowerbadgesschedulerfn] employeesyncendpointhttp",
-	"modifiedTime":1762008417286,
+	"modifiedTime":1762008752985,
 	"name":"[emPowerBadgesSchedulerFN] EmployeeSyncEndpointHTTP",
 	"nodes":[
 		{
@@ -138,7 +138,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
 			"id":"n_RObK4",
@@ -214,7 +214,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
 			"id":"n_ZhAEo",
@@ -346,11 +346,30 @@
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[],
 					"properties":{
-						"ActivityId":{
+						"UserName":{
 							"type":"string",
-							"title":"Activity Id"
+							"title":"UserName"
+						},
+						"Email":{
+							"type":"string",
+							"title":"Email"
+						},
+						"FullName":{
+							"type":"string",
+							"title":"FullName"
+						},
+						"ManagerUserName":{
+							"type":"string",
+							"title":"ManagerUserName"
+						},
+						"EmployeeNumber":{
+							"type":"string",
+							"title":"EmployeeNumber"
+						},
+						"IsActive":{
+							"type":"string",
+							"title":"IsActive"
 						}
 					}
 				},
@@ -393,7 +412,15 @@
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"object_type":"badges_employees",
-				"skipIfBlank":false
+				"skipIfBlank":false,
+				"record":{
+					"ManagerUserName":"{{ n_mwDFF.outputs.result.ManagerUserName }}",
+					"UserName":"{{ n_mwDFF.outputs.result.UserName }}",
+					"Email":"{{ n_mwDFF.outputs.result.Email }}",
+					"IsActive":"{{ n_mwDFF.outputs.result.IsActive }}",
+					"FullName":"{{ n_mwDFF.outputs.result.FullName }}",
+					"EmployeeNumber":"{{ n_mwDFF.outputs.result.EmployeeNumber }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
@@ -408,7 +435,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Pue@n_ZhAEo@_NyQKV-1@1@y",
 			"id":"n_Alywo",
@@ -466,7 +493,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@2",
 			"id":"n_v2xEl",
@@ -496,7 +523,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_v2xEl@n_ZhAEo@_NyQKV-1@2@y",
 			"id":"n_32NwD",
@@ -539,12 +566,12 @@
 		{
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":0,
-				"resourceName":"storage_by_unifyapps_fetch_records",
+				"resourceVersion":4613,
+				"resourceName":"storage_by_unifyapps_delete_records",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_v2xEl@n_ZhAEo@_NyQKV-1@2@y",
 			"id":"n_j16xu",
@@ -562,21 +589,17 @@
 					],
 					"operator":"AND"
 				},
+				"writeThroughSessionVariables":false,
 				"object_type":"badges_employees",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
+				"numberOfRecordsToDelete":"SINGLE",
 				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
+					"limit":20,
+					"offset":0
+				}
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
+			"title":"Delete records",
 			"type":"ACTION"
 		},
 		{
@@ -587,7 +610,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_v2xEl@n_ZhAEo@_NyQKV-1@2@y",
 			"id":"n_sGvuz",
@@ -613,7 +636,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
 			"id":"n_YZmY6",
@@ -643,5 +666,5 @@
 		}
 	},
 	"standard":false,
-	"version":2
+	"version":4
 }
