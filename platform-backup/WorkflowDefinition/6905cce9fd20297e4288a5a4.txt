@@ -18,7 +18,7 @@
 	"id":"6905cce9fd20297e4288a5a4",
 	"lastModifiedBy":155341,
 	"lcName":"gdgdrgd",
-	"modifiedTime":1761987932996,
+	"modifiedTime":1761987945241,
 	"name":"gdgdrgd",
 	"nodes":[
 		{
@@ -29,12 +29,13 @@
 				"resourceName":"jira_on_new_or_updated_issue"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_ht5Vu-1",
 			"id":"n_E6Oi5",
 			"index":1,
 			"inputs":{
+				"jql":"Project = DP",
 				"objectSourceResourceName":"jira_fetch_issue_schema"
 			},
 			"skip":false,
@@ -63,5 +64,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
