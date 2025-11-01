@@ -79,6 +79,13 @@
 			"fromNodeId":"n_iK5sb",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_XhtFV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_XhtFV",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_8VbuC",
 			"type":"next"
 		}
@@ -86,7 +93,7 @@
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761990107655,
+	"modifiedTime":1761990599487,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -354,6 +361,35 @@
 		{
 			"context":{
 				"appName":"keka",
+				"resourceVersion":14,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_deactivate_employee",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_XhtFV",
+			"index":12,
+			"inputs":{
+				"exitType":1,
+				"comments":"ww",
+				"exitReason":"4ce57402-db60-418e-a0b5-69c4a5fecfd0",
+				"id":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"resignationDate":"2025-11-01T09:42:19.109Z"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Deactivate an employee",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":4,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_deactivate_employee",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -361,10 +397,15 @@
 			"fallbackMode":"STOP",
 			"groupId":"_SSoEQ-1",
 			"id":"n_8VbuC",
-			"index":12,
+			"index":13,
+			"inputs":{
+				"exitType":1,
+				"exitReason":"4ce57402-db60-418e-a0b5-69c4a5fecfd0",
+				"id":"0aeca400-b75f-477a-8b31-509d51b273e8"
+			},
 			"skip":false,
 			"subTitle":"Keka",
-			"title":"Select an action",
+			"title":"Update deactivate an employee",
 			"type":"ACTION"
 		}
 	],
@@ -385,5 +426,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
