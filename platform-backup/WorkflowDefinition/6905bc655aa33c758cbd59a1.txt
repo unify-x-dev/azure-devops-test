@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761983589842,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_Yay0R",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_ZtAii",
+			"type":"next"
+		}
+	],
+	"id":"6905bc655aa33c758cbd59a1",
+	"lastModifiedBy":76193,
+	"lcName":"virtusa | google chats approval flow",
+	"modifiedTime":1761983589842,
+	"name":"virtusa | google chats approval flow",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Yay0R-1",
+			"id":"_Yay0R",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_Yay0R-1",
+			"id":"_ZtAii",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":76193,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
