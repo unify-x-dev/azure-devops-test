@@ -44,7 +44,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761988838186,
+	"modifiedTime":1761988845114,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -294,7 +294,10 @@
 				},
 				"code":"return [\"id_output\": id]",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"id":"{{ n_7wuTc.outputs.responseAutomationId }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -367,5 +370,5 @@
 	"tags":[
 		
 	],
-	"version":16
+	"version":17
 }
