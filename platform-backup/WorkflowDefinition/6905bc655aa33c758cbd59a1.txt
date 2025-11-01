@@ -5,12 +5,12 @@
 	"createdTime":1761983589842,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761987911107,
+		"deployedAt":1761987976209,
 		"deployedBy":76193,
-		"deployedDefinitionId":"6905cd46fd20297e4288a8eb",
+		"deployedDefinitionId":"6905cd88fd20297e4288b277",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":5
+		"version":5,
+		"workflowVersion":6
 	},
 	"edges":[
 		{
@@ -29,9 +29,9 @@
 		}
 	],
 	"id":"6905bc655aa33c758cbd59a1",
-	"lastModifiedBy":76193,
+	"lastModifiedBy":43069,
 	"lcName":"virtusa | google chats approval flow",
-	"modifiedTime":1761987974375,
+	"modifiedTime":1761988946842,
 	"name":"virtusa | google chats approval flow",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Yay0R-1",
 			"id":"n_mtN9U",
@@ -63,9 +63,7 @@
 				"setup":{
 					"type":"object",
 					"additionalProperties":false,
-					"required":[
-						"action"
-					],
+					"required":[],
 					"properties":{
 						"action":{
 							"type":"string",
@@ -90,7 +88,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Yay0R-1",
 			"id":"n_d1ceI",
@@ -178,5 +176,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
