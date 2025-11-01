@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761983590696,
 	"deleted":false,
@@ -32,8 +32,15 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_P6FdH",
+			"toNodeId":"n_mwDFF",
 			"type":"if"
+		},
+		{
+			"fromNodeId":"n_mwDFF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8048h",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"n_ZhAEo",
@@ -128,7 +135,7 @@
 			"type":"if"
 		},
 		{
-			"fromNodeId":"n_P6FdH",
+			"fromNodeId":"n_8048h",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_YZmY6",
@@ -214,7 +221,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761985514045,
+	"modifiedTime":1761985980271,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -457,14 +464,76 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Pue@n_ZhAEo@_NyQKV-1@1@y",
-			"id":"n_P6FdH",
+			"id":"n_mwDFF",
 			"index":5,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"ActivityId":{
+							"type":"string",
+							"title":"Activity Id"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"payload":{
+							"type":"string",
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"def result = [\n    ActivityId: payload[\"ActivityId\"] ?: 0\n]\nreturn result",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_RObK4.outputs.body.payload }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":1886,
+				"resourceName":"storage_by_unifyapps_get_record_by_id",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_h7Pue@n_ZhAEo@_NyQKV-1@1@y",
+			"id":"n_8048h",
+			"index":6,
+			"inputs":{
+				"object_type":"badges_activities",
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"readThroughSessionVariables":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch record by ID",
 			"type":"ACTION"
 		},
 		{
@@ -479,7 +548,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@2",
 			"id":"n_ZhAEo@2",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"name":"Branch 2",
 				"conditions":{
@@ -511,7 +580,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@2",
 			"id":"n_v2xEl",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"filters":[
 					{
@@ -535,7 +604,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_v2xEl@n_ZhAEo@_NyQKV-1@2@y",
 			"id":"n_ZudrT",
-			"index":8,
+			"index":9,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -552,7 +621,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@3",
 			"id":"n_ZhAEo@3",
-			"index":9,
+			"index":10,
 			"inputs":{
 				"name":"Branch 3",
 				"conditions":{
@@ -584,7 +653,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@3",
 			"id":"n_uv1kj",
-			"index":10,
+			"index":11,
 			"inputs":{
 				"filters":[
 					{
@@ -622,7 +691,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_uv1kj@n_ZhAEo@_NyQKV-1@3@y",
 			"id":"n_y3JVN",
-			"index":11,
+			"index":12,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -639,7 +708,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@4",
 			"id":"n_ZhAEo@4",
-			"index":12,
+			"index":13,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -671,7 +740,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@4",
 			"id":"n_gNw8s",
-			"index":13,
+			"index":14,
 			"inputs":{
 				"filters":[
 					{
@@ -695,7 +764,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_gNw8s@n_ZhAEo@_NyQKV-1@4@y",
 			"id":"n_4kQl4",
-			"index":14,
+			"index":15,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -712,7 +781,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@5",
 			"id":"n_ZhAEo@5",
-			"index":15,
+			"index":16,
 			"inputs":{
 				"name":"Branch 5",
 				"conditions":{
@@ -744,7 +813,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@5",
 			"id":"n_Cfp0Q",
-			"index":16,
+			"index":17,
 			"inputs":{
 				"filters":[
 					{
@@ -775,7 +844,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Cfp0Q@n_ZhAEo@_NyQKV-1@5@y",
 			"id":"n_Jft48",
-			"index":17,
+			"index":18,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -792,7 +861,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
 			"id":"n_YZmY6",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_not ok",
@@ -821,5 +890,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
