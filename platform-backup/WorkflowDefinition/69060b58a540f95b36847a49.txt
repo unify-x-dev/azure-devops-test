@@ -128,7 +128,7 @@
 	"id":"69060b58a540f95b36847a49",
 	"lastModifiedBy":308,
 	"lcName":"[empowerbadgesschedulerfn] employeesyncendpointhttp",
-	"modifiedTime":1762008772163,
+	"modifiedTime":1762009017737,
 	"name":"[emPowerBadgesSchedulerFN] EmployeeSyncEndpointHTTP",
 	"nodes":[
 		{
@@ -384,7 +384,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n  \"UserName\": payload[\"UserName\"] ?: \"\",\n  \"Email\": payload[\"Email\"] ?: \"\",\n  \"FullName\": payload[\"FullName\"] ?: \"\",\n  \"ManagerUserName\": payload[\"ManagerUserName\"] ?: \"\",\n  \"EmployeeNumber\": payload[\"EmployeeNumber\"] ?: \"\",\n  \"IsActive\": payload[\"EmployeeNumber\"] ?: \"true\"\n]\nreturn result",
+				"code":"def result = [\n  \"UserName\": payload[\"userName\"] ?: \"\",\n  \"Email\": payload[\"email\"] ?: \"\",\n  \"FullName\": payload[\"fullName\"] ?: \"\",\n  \"ManagerUserName\": payload[\"managerUserName\"] ?: \"\",\n  \"EmployeeNumber\": payload[\"employeeNumber\"] ?: \"\",\n  \"IsActive\": payload[\"isActive\"] ?: false\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -666,5 +666,5 @@
 		}
 	},
 	"standard":false,
-	"version":5
+	"version":6
 }
