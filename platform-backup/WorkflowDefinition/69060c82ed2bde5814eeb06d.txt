@@ -4,6 +4,14 @@
 	],
 	"createdTime":1762004098810,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1762004370526,
+		"deployedBy":27,
+		"deployedDefinitionId":"69060d92ed2bde5814eeb519",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_Ff9PD",
@@ -37,7 +45,7 @@
 	"id":"69060c82ed2bde5814eeb06d",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | copilot",
-	"modifiedTime":1762004368595,
+	"modifiedTime":1762004723578,
 	"name":"Best Practices | Check Group | Copilot",
 	"nodes":[
 		{
@@ -813,7 +821,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `interfacePage` is assumed to be provided\n  const page = interfacePage?.properties || {};\n\n  // --- helpers ---\n  const makeCheckResult = (checkId, status, targets) => ({\n    check_id: checkId,\n    status,\n    targets: targets || [],\n  });\n\n  const runCheckSafe = (checkId, fn) => {\n    try {\n      return fn(checkId);\n    } catch {\n      return makeCheckResult(checkId, \"failed\", []);\n    }\n  };\n\n  // --- all checks defined in a single object ---\n  const CHECKS = {\n    CHECK_12: ({ checkId }) => {\n      const failedIds = [];\n      const blocks = page.blocks || {};\n\n      for (const blockId in blocks) {\n        const block = blocks[blockId];\n        const comp = block?.component;\n        if (!comp) continue;\n\n        if (comp.componentType === \"CopilotInput\") {\n          const actions = Array.isArray(comp.content?.actions)\n            ? comp.content.actions\n            : [];\n\n          const hasSendMessage = actions.some(\n            (act) => act?.action === \"sendMessage\"\n          );\n\n          if (!hasSendMessage) {\n            failedIds.push(blockId);\n          }\n        }\n      }\n\n      const status = failedIds.length > 0 ? \"failed\" : \"passed\";\n      const targets = failedIds.map((id) => ({\n        targetId: id,\n        targetType: \"block\",\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    },\n  };\n\n  // --- execute all defined checks safely ---\n  const checks = Object.entries(CHECKS).map(([id, fn]) =>\n    runCheckSafe(id, (checkId) => fn({ checkId }))\n  );\n\n  return { items: checks };\n})();",
+				"code":"(() => {\n  // `interfacePage` is assumed to be provided\n  const page = interfacePage?.properties || {};\n\n  // --- helpers ---\n  const makeCheckResult = (checkId, status, targets) => ({\n    check_id: checkId,\n    status,\n    targets: targets || [],\n  });\n\n  const runCheckSafe = (checkId, fn) => {\n    try {\n      return fn(checkId);\n    } catch {\n      return makeCheckResult(checkId, \"failed\", []);\n    }\n  };\n\n  // --- all checks defined in a single object ---\n  const CHECKS = {\n    CHECK_12: ({ checkId }) => {\n      const failedIds = [];\n      const blocks = page.blocks || {};\n\n      for (const blockId in blocks) {\n        const block = blocks[blockId];\n        const comp = block?.component;\n        if (!comp) continue;\n\n        if (comp.componentType === \"CopilotInput\") {\n          const actions = Array.isArray(comp.content?.actions)\n            ? comp.content.actions\n            : [];\n\n          const hasSendMessage = actions.some(\n            (act) => act?.action === \"sendMessage\"\n          );\n\n          if (!hasSendMessage) {\n            failedIds.push(blockId);\n          }\n        }\n      }\n\n      const status = failedIds.length > 0 ? \"failed\" : \"passed\";\n      const targets = failedIds.map((id) => ({\n        targetId: id,\n        targetType: \"block\",\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    },\n    CHECK_13: ({ checkId }) => {\n      const failedIds = [];\n      const blocks = page.blocks || {};\n      const mobileBlocks = page.devices?.mobile?.blocks || {};\n\n      for (const blockId in blocks) {\n        const block = blocks[blockId];\n        const comp = block?.component;\n        if (!comp || comp.componentType !== \"Copilot\") continue;\n\n        // check if mobile override exists\n        const mobileOverride = mobileBlocks[blockId];\n        if (!mobileOverride) continue;\n\n        // Extract the size property\n        const mobileSize =\n          mobileOverride?.component?.appearance?.size ||\n          mobileOverride?.component?.appearance?.size?.[0];\n\n        // if override exists and size is not \"sm\", it's a violation\n        if (mobileSize !== \"sm\") {\n          failedIds.push(blockId);\n        }\n      }\n\n      const status = failedIds.length > 0 ? \"failed\" : \"passed\";\n      const targets = failedIds.map((id) => ({\n        targetId: id,\n        targetType: \"block\"\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    }\n  };\n\n  // --- execute all defined checks safely ---\n  const checks = Object.entries(CHECKS).map(([id, fn]) =>\n    runCheckSafe(id, (checkId) => fn({ checkId }))\n  );\n\n  return { items: checks };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
@@ -944,5 +952,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":1
+	"version":2
 }
