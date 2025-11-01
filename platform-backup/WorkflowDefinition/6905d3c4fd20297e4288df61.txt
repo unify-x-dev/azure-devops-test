@@ -1,51 +1,107 @@
 {
 	"appsUsed":[
-		
+		"storage_by_unifyapps"
 	],
 	"createdTime":1761989572516,
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_UMJxi",
+			"fromNodeId":"n_IaXQC",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_4DcN7",
+			"toNodeId":"n_mtxsC",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_mtxsC",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Za8JY",
 			"type":"next"
 		}
 	],
 	"id":"6905d3c4fd20297e4288df61",
-	"lastModifiedBy":161958,
+	"lastModifiedBy":4130,
 	"lcName":"testing webjobs",
-	"modifiedTime":1761989572516,
+	"modifiedTime":1762000165649,
 	"name":"Testing Webjobs",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_UMJxi-1",
-			"id":"_UMJxi",
-			"index":0,
+			"id":"n_IaXQC",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_UMJxi-1",
-			"id":"_4DcN7",
-			"index":0,
+			"id":"n_mtxsC",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Storage by UnifyApps",
+			"title":"Select an action",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.metadata.replaceValues.items.key",
+					"root.metadata.replaceValues.items.value",
+					"root.metadata.scriptArguments.items"
+				]
+			},
+			"context":{
+				"appName":"tcc_by_unifyapps",
+				"resourceVersion":110,
+				"resourceName":"tcc_by_unifyapps_execute_web_jobs",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_UMJxi-1",
+			"id":"n_Za8JY",
+			"index":3,
+			"inputs":{
+				"webJobFile":"e_69048c784d2a0f4652bf779e",
+				"setupFile":"e_690496086f280a77f37d8125",
+				"javaFile":"e_6904a37969e66e0167b7503e"
+			},
+			"skip":false,
+			"subTitle":"TCC by UnifyApps",
+			"title":"Execute Web Jobs",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":161958,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +115,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
