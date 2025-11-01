@@ -9,36 +9,6 @@
 			"fromNodeId":"dLtOG",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_RlNwt",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_RlNwt",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_D0cuW",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_D0cuW",
-			"name":"no",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_TY4dC",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_D0cuW",
-			"name":"yes",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_5q2eJ",
-			"type":"if"
-		},
-		{
-			"fromNodeId":"n_TY4dC",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_5q2eJ",
 			"type":"next"
 		},
@@ -83,7 +53,7 @@
 	"id":"6905f653d58a32314cd7711e",
 	"lastModifiedBy":679,
 	"lcName":"mdm record processor (copy)",
-	"modifiedTime":1761998453254,
+	"modifiedTime":1761998523350,
 	"name":"MDM Record Processor (copy)",
 	"nodes":[
 		{
@@ -145,81 +115,6 @@
 			"type":"START"
 		},
 		{
-			"context":{
-				"appName":"mdm_by_unifyapps",
-				"resourceVersion":513,
-				"resourceName":"mdm_by_unifyapps_fetch_staging_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"Ia0uz-1",
-			"id":"n_RlNwt",
-			"index":2,
-			"inputs":{
-				"size":100,
-				"modelId":"{{ dLtOG.outputs.modelId }}",
-				"unifiedEntityId":"{{ dLtOG.outputs.entityId }}"
-			},
-			"skip":true,
-			"subTitle":"MDM",
-			"title":"Fetch Staging Records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"if_else",
-				"resourceVersion":757,
-				"resourceName":"if_else_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"Ia0uz-1",
-			"id":"n_D0cuW",
-			"index":3,
-			"inputs":{
-				"filters":[
-					{
-						"property":"{{ n_RlNwt.outputs.records[0].stageRecordId }}",
-						"filter":{
-							"operator":"EXISTS"
-						}
-					}
-				],
-				"operator":"AND"
-			},
-			"skip":true,
-			"subTitle":"Condition",
-			"title":"Condition",
-			"type":"IF_ELSE"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":797,
-				"resourceName":"callables_return_to_automation",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"n_D0cuW@Ia0uz-1@n",
-			"id":"n_TY4dC",
-			"index":4,
-			"inputs":{
-				"result":{
-					"processed":0
-				}
-			},
-			"skip":true,
-			"subTitle":"Callable",
-			"title":"Respond to automation",
-			"type":"STOP"
-		},
-		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.records.items.recordEventType"
@@ -232,24 +127,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"Ia0uz-1",
 			"id":"n_5q2eJ",
-			"index":5,
+			"index":2,
 			"inputs":{
-				"modelId":"{{ dLtOG.outputs.modelId }}",
-				"records":{
-					"source":"{{ n_RlNwt.outputs.records }}",
-					"ua:type":"mappedArray",
-					"items":{
-						"stageRecordId":"{{ n_RlNwt.outputs.records[0].stageRecordId }}",
-						"recordEventType":"{{ n_RlNwt.outputs.records[0].recordEventType }}",
-						"properties":"{{ n_RlNwt.outputs.records[0].properties }}",
-						"sourceId":"{{ n_RlNwt.outputs.records[0].sourceId }}"
-					}
-				},
-				"unifiedEntityId":"{{ dLtOG.outputs.entityId }}"
+				"modelId":"69036ed1c6724a1d001bb209",
+				"unifiedEntityId":"ttx_split"
 			},
 			"skip":false,
 			"subTitle":"MDM",
@@ -268,7 +153,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"Ia0uz-1",
 			"id":"n_Bs1tU",
-			"index":6,
+			"index":3,
 			"inputs":{
 				"filters":[
 					{
@@ -297,7 +182,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Bs1tU@Ia0uz-1@y",
 			"id":"n_AtvaR",
-			"index":7,
+			"index":4,
 			"inputs":{
 				"result":{
 					"processed":"=LEN({{ n_RlNwt.outputs.records }})"
@@ -328,7 +213,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"Ia0uz-1",
 			"id":"n_crTrc",
-			"index":8,
+			"index":5,
 			"inputs":{
 				"applySurvivorshipRules":true,
 				"modelId":"{{ dLtOG.outputs.modelId }}",
@@ -361,7 +246,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"Ia0uz-1",
 			"id":"n_sgg1q",
-			"index":9,
+			"index":6,
 			"inputs":{
 				"result":{
 					"processed":"=LEN({{ n_RlNwt.outputs.records }})"
@@ -387,5 +272,5 @@
 		}
 	},
 	"standard":false,
-	"version":1
+	"version":2
 }
