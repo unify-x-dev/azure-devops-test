@@ -9,11 +9,18 @@
 			"fromNodeId":"n_7wuTc",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_9Y69a",
+			"toNodeId":"n_QLm54",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_9Y69a",
+			"fromNodeId":"n_QLm54",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_89mX5",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_89mX5",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_b9sF0",
@@ -37,7 +44,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761989527468,
+	"modifiedTime":1761999549760,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -47,7 +54,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_7wuTc",
@@ -114,86 +121,72 @@
 			"type":"START"
 		},
 		{
-			"additional":{
-				"visibleOptionalFields":[
-					"root.cardsV2.items.cardId",
-					"root.cardsV2.items.card.header.title",
-					"root.cardsV2.items.card.header.subtitle",
-					"root.cardsV2.items.card.header.imageUrl",
-					"root.cardsV2.items.card.header.imageType",
-					"root.cardsV2.items.card.header.imageAltText",
-					"root.cardsV2.items.card.sections.items.header",
-					"root.cardsV2.items.card.sections.items.collapsible",
-					"root.cardsV2.items.card.sections.items.uncollapsibleWidgetsCount",
-					"root.cardsV2.items.card.sectionDividerStyle",
-					"root.cardsV2.items.card.cardActions.items.actionLabel",
-					"root.cardsV2.items.card.name",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.altText",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.iconUrl",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.name",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.fill",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.weight",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.grade",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.knownIcon",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.color.red",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.color.green",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.color.blue",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.color.alpha",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.disabled",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.altText",
-					"root.cardsV2.items.card.fixedFooter.primaryButton.type",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.altText",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.iconUrl",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.name",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.fill",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.weight",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.grade",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.knownIcon",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.red",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.green",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.blue",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.alpha",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.disabled",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.altText",
-					"root.cardsV2.items.card.fixedFooter.secondaryButton.type",
-					"root.cardsV2.items.card.displayStyle",
-					"root.cardsV2.items.card.peekCardHeader.title",
-					"root.cardsV2.items.card.peekCardHeader.subtitle",
-					"root.cardsV2.items.card.peekCardHeader.imageUrl",
-					"root.cardsV2.items.card.peekCardHeader.imageType",
-					"root.cardsV2.items.card.peekCardHeader.imageAltText"
-				]
-			},
 			"context":{
 				"appName":"gchat",
-				"resourceVersion":771,
-				"connectionId":"68ef6fa6e40fff78dedfdba9",
-				"resourceName":"gchat_send_card_message",
+				"resourceVersion":6442,
+				"connectionId":"6905bbf5f6045216396cb55e",
+				"resourceName":"gchat_create_space",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
-			"id":"n_9Y69a",
+			"id":"n_QLm54",
 			"index":2,
 			"inputs":{
-				"spaceId":"AAQA7C6nvuE",
-				"name":"{{ __USER__.outputs.name }}",
-				"webhookToken":"go6iqy7CzOd_wSAGDCElg_9P4TTvYWaFcsFsGIfEVlo",
-				"text":"Hi",
+				"spaceType":"SPACE",
+				"displayName":"Virtusa Test",
+				"name":"Virtusa Test"
+			},
+			"skip":false,
+			"subTitle":"Google Chat",
+			"title":"Create a space",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gchat",
+				"resourceVersion":23,
+				"connectionId":"6905bbf5f6045216396cb55e",
+				"resourceName":"gchat_bot_send_message",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DLST3-1",
+			"id":"n_89mX5",
+			"index":3,
+			"inputs":{
+				"spaceId":"{{ n_QLm54.outputs.name }}",
+				"name":"Approval request",
+				"text":"Please accept or reject this request",
 				"cardsV2":{
 					"items":{
 						"card":{
-							"sections":{
-								"items":{
+							"sections":[
+								{
 									"widgets":{
 										"items":{
 											"widgetType":"buttonList",
 											"buttonList":{
 												"buttons":[
 													{
-														"text":"accept",
+														"text":"Accept",
+														"onClick":{
+															"actionType":"openLink",
+															"openLink":{
+																"url":"qa.unifyapps.com",
+																"openAs":"OVERLAY"
+															}
+														},
+														"color":{
+															"green":1
+														}
+													},
+													{
+														"text":"Reject",
 														"color":{
 															"red":1
 														},
@@ -209,21 +202,16 @@
 										},
 										"ua:type":"mappedArray"
 									}
-								},
-								"ua:type":"mappedArray"
-							},
-							"header":{
-								"title":"Hi please click below"
-							}
+								}
+							]
 						}
 					},
 					"ua:type":"mappedArray"
-				},
-				"webhookKey":"AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI"
+				}
 			},
-			"skip":true,
+			"skip":false,
 			"subTitle":"Google Chat",
-			"title":"Send card message",
+			"title":"Bot send card message",
 			"type":"ACTION"
 		},
 		{
@@ -234,11 +222,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_b9sF0",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -295,7 +283,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_JCa2J",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"automationId":"{{ n_b9sF0.outputs.result.id_output }}",
 				"runtimeConnections":"",
@@ -316,11 +304,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_sICMl",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"result":{
 					"status":"200"
@@ -349,5 +337,5 @@
 	"tags":[
 		
 	],
-	"version":26
+	"version":27
 }
