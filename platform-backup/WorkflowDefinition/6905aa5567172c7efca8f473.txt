@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_gy1iS",
+			"fromNodeId":"n_GJiDG",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_maVQq",
@@ -18,25 +18,39 @@
 			"skip":false,
 			"toNodeId":"n_gK0lG",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_gK0lG",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8uyZx",
+			"type":"next"
 		}
 	],
 	"id":"6905aa5567172c7efca8f473",
 	"lastModifiedBy":39714,
 	"lcName":"swiggydemomamanna",
-	"modifiedTime":1761986981771,
+	"modifiedTime":1761986991180,
 	"name":"swiggydemomamanna",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1080,
+				"resourceName":"callables_from_automation"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_gy1iS-1",
-			"id":"_gy1iS",
+			"id":"n_GJiDG",
 			"index":1,
+			"inputs":{},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -86,6 +100,25 @@
 			"subTitle":"Utility by UnifyApps",
 			"title":"Decode file content",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1116,
+				"resourceName":"callables_return_to_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_gy1iS-1",
+			"id":"n_8uyZx",
+			"index":4,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to automation",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":189412,
@@ -105,5 +138,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
