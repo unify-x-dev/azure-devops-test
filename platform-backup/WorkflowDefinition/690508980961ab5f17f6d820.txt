@@ -11,12 +11,26 @@
 			"skip":false,
 			"toNodeId":"n_yElic",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_yElic",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_pG2e1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_pG2e1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_9Y69a",
+			"type":"next"
 		}
 	],
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761938927023,
+	"modifiedTime":1761975756795,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -37,7 +51,7 @@
 			"context":{
 				"appName":"gchat",
 				"resourceVersion":6418,
-				"connectionId":"69050dcac7c0443cae9dfff1",
+				"connectionId":"68ef6fa6e40fff78dedfdba9",
 				"resourceName":"gchat_create_space",
 				"type":"APPLICATION"
 			},
@@ -56,6 +70,139 @@
 			"skip":false,
 			"subTitle":"Google Chat",
 			"title":"Create a space",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gchat",
+				"resourceVersion":47,
+				"connectionId":"68ef6fa6e40fff78dedfdba9",
+				"resourceName":"gchat_add_bot_to_chatspace",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DLST3-1",
+			"id":"n_pG2e1",
+			"index":3,
+			"inputs":{
+				"spaceId":"{{ n_yElic.outputs.name }}"
+			},
+			"skip":false,
+			"subTitle":"Google Chat",
+			"title":"Add bot to chatspace",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.cardsV2.items.cardId",
+					"root.cardsV2.items.card.header.title",
+					"root.cardsV2.items.card.header.subtitle",
+					"root.cardsV2.items.card.header.imageUrl",
+					"root.cardsV2.items.card.header.imageType",
+					"root.cardsV2.items.card.header.imageAltText",
+					"root.cardsV2.items.card.sections.items.header",
+					"root.cardsV2.items.card.sections.items.collapsible",
+					"root.cardsV2.items.card.sections.items.uncollapsibleWidgetsCount",
+					"root.cardsV2.items.card.sectionDividerStyle",
+					"root.cardsV2.items.card.cardActions.items.actionLabel",
+					"root.cardsV2.items.card.name",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.altText",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.iconUrl",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.name",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.fill",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.weight",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.materialIcon.grade",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.icon.knownIcon",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.color.red",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.color.green",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.color.blue",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.color.alpha",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.disabled",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.altText",
+					"root.cardsV2.items.card.fixedFooter.primaryButton.type",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.altText",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.iconUrl",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.name",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.fill",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.weight",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.materialIcon.grade",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.icon.knownIcon",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.red",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.green",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.blue",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.color.alpha",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.disabled",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.altText",
+					"root.cardsV2.items.card.fixedFooter.secondaryButton.type",
+					"root.cardsV2.items.card.displayStyle",
+					"root.cardsV2.items.card.peekCardHeader.title",
+					"root.cardsV2.items.card.peekCardHeader.subtitle",
+					"root.cardsV2.items.card.peekCardHeader.imageUrl",
+					"root.cardsV2.items.card.peekCardHeader.imageType",
+					"root.cardsV2.items.card.peekCardHeader.imageAltText"
+				]
+			},
+			"context":{
+				"appName":"gchat",
+				"resourceVersion":771,
+				"connectionId":"68ef6fa6e40fff78dedfdba9",
+				"resourceName":"gchat_send_card_message",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DLST3-1",
+			"id":"n_9Y69a",
+			"index":4,
+			"inputs":{
+				"spaceId":"{{ n_yElic.outputs.name }}",
+				"name":"{{ __USER__.outputs.name }}",
+				"text":"Hi",
+				"cardsV2":{
+					"items":{
+						"card":{
+							"sections":{
+								"items":{
+									"widgets":{
+										"items":{
+											"widgetType":"buttonList",
+											"buttonList":{
+												"buttons":[
+													{
+														"text":"accept",
+														"color":{
+															"red":1
+														},
+														"onClick":{
+															"actionType":"openLink",
+															"openLink":{
+																"url":"qa.unifyapps.com"
+															}
+														}
+													}
+												]
+											}
+										},
+										"ua:type":"mappedArray"
+									}
+								},
+								"ua:type":"mappedArray"
+							},
+							"header":{
+								"title":"Hi please click below"
+							}
+						}
+					},
+					"ua:type":"mappedArray"
+				}
+			},
+			"skip":false,
+			"subTitle":"Google Chat",
+			"title":"Send card message",
 			"type":"ACTION"
 		}
 	],
@@ -76,5 +223,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
