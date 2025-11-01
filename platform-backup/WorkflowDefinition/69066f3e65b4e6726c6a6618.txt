@@ -75,7 +75,7 @@
 	"id":"69066f3e65b4e6726c6a6618",
 	"lastModifiedBy":504,
 	"lcName":"hs-test-edge-label",
-	"modifiedTime":1762029488487,
+	"modifiedTime":1762029527608,
 	"name":"hs-test-edge-label",
 	"nodes":[
 		{
@@ -120,7 +120,7 @@
 				"start":0,
 				"limit":4,
 				"step":1,
-				"captureIterations":false
+				"captureIterations":true
 			},
 			"skip":false,
 			"subTitle":"Loop",
@@ -193,7 +193,18 @@
 			"groupId":"n_ty0gd@_Gb21j-1@l",
 			"id":"n_31WcQ",
 			"index":4,
-			"inputs":{},
+			"inputs":{
+				"filters":[
+					{
+						"property":"1",
+						"filter":{
+							"operator":"EQUAL",
+							"value":"1"
+						}
+					}
+				],
+				"operator":"AND"
+			},
 			"skip":false,
 			"subTitle":"Condition",
 			"title":"Condition",
@@ -230,7 +241,9 @@
 					]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"test":"{{ n_ty0gd.outputs.index }}"
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -283,7 +296,9 @@
 					]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"test":"{{ n_ty0gd.outputs.index }}"
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -336,7 +351,9 @@
 					]
 				}
 			},
-			"inputs":{},
+			"inputs":{
+				"test":"{{ n_ty0gd.outputs.index }}"
+			},
 			"outputSchema":{
 				"dynamic":false,
 				"schema":{
@@ -391,5 +408,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
