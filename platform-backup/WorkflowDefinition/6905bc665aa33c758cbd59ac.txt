@@ -221,7 +221,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761985980271,
+	"modifiedTime":1761986139505,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -499,7 +499,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    ActivityId: payload[\"ActivityId\"] ?: 0\n]\nreturn result",
+				"code":"return [\"ActivityId\" : payload[\"ActivityId\"]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -890,5 +890,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
