@@ -292,7 +292,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761998525593,
+	"modifiedTime":1761998587924,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -1312,6 +1312,28 @@
 			"id":"n_u2Goq",
 			"index":25,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"UserName":{
+							"type":"string",
+							"title":"UserName"
+						},
+						"BadgeId":{
+							"type":"integer",
+							"title":"BadgeId"
+						},
+						"Date":{
+							"type":"string",
+							"title":"Date"
+						},
+						"ExpireDate":{
+							"type":"string",
+							"title":"ExpireDate"
+						}
+					}
+				},
 				"input":{
 					"type":"object",
 					"additionalProperties":false,
@@ -1353,10 +1375,10 @@
 				"object_type":"badges_badges_employees",
 				"skipIfBlank":false,
 				"record":{
-					"UserName":"{{ n_u2Goq.outputs.result.result.UserName }}",
-					"BadgeId":"{{ n_u2Goq.outputs.result.result.BadgeId }}",
-					"Date":"{{ n_u2Goq.outputs.result.result.Date }}",
-					"ExpireDate":"{{ n_u2Goq.outputs.result.result.ExpireDate }}"
+					"UserName":"{{ n_u2Goq.outputs.result.UserName }}",
+					"BadgeId":"{{ n_u2Goq.outputs.result.BadgeId }}",
+					"Date":"{{ n_u2Goq.outputs.result.Date }}",
+					"ExpireDate":"{{ n_u2Goq.outputs.result.ExpireDate }}"
 				}
 			},
 			"skip":false,
@@ -1424,5 +1446,5 @@
 		"enableVariableLogging":true
 	},
 	"standard":false,
-	"version":38
+	"version":39
 }
