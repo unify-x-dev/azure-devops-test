@@ -44,7 +44,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761989112138,
+	"modifiedTime":1761989131851,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -292,7 +292,7 @@
 						}
 					}
 				},
-				"code":"def input : id.toString()\nreturn [\"id_output\": input]\n",
+				"code":"def input = id.toString()\nreturn [\"id_output\": input]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -319,10 +319,9 @@
 			"index":5,
 			"inputs":{
 				"automationId":"{{ n_b9sF0.outputs.result.id_output }}",
-				"runtimeConnections":{},
 				"synchronous":false,
 				"version":"-1",
-				"parameters":{}
+				"parameters":""
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -370,5 +369,5 @@
 	"tags":[
 		
 	],
-	"version":18
+	"version":19
 }
