@@ -17,6 +17,13 @@
 			"fromNodeId":"n_QLm54",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_o6juV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_o6juV",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_89mX5",
 			"type":"next"
 		},
@@ -52,7 +59,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1762020805323,
+	"modifiedTime":1762027241660,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -147,11 +154,35 @@
 				"spaceType":"SPACE",
 				"displayName":"Virtusa Test",
 				"name":"Virtusa Test",
+				"spaceHistoryState":"HISTORY_ON",
 				"customer":"C010g2gcw"
 			},
 			"skip":false,
 			"subTitle":"Google Chat",
 			"title":"Create a space",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"gchat",
+				"resourceVersion":4,
+				"connectionId":"6905bbf5f6045216396cb55e",
+				"resourceName":"gchat_add_user_to_chatspace",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DLST3-1",
+			"id":"n_o6juV",
+			"index":3,
+			"inputs":{
+				"spaceId":"=TRIM(RIGHT({{ n_QLm54.outputs.name }}, LEN({{ n_QLm54.outputs.name }}) - FIND(\"§\", SUBSTITUTE({{ n_QLm54.outputs.name }}, \"/\", \"§\", LEN({{ n_QLm54.outputs.name }}) - LEN(SUBSTITUTE({{ n_QLm54.outputs.name }}, \"/\", \"\"))))))",
+				"userId":"samridhi.aggarwal@unifyapps.com"
+			},
+			"skip":false,
+			"subTitle":"Google Chat",
+			"title":"Add user to chatspace",
 			"type":"ACTION"
 		},
 		{
@@ -217,7 +248,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_89mX5",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"spaceId":"=TRIM(RIGHT({{ n_QLm54.outputs.name }}, LEN({{ n_QLm54.outputs.name }}) - FIND(\"§\", SUBSTITUTE({{ n_QLm54.outputs.name }}, \"/\", \"§\", LEN({{ n_QLm54.outputs.name }}) - LEN(SUBSTITUTE({{ n_QLm54.outputs.name }}, \"/\", \"\"))))))",
 				"name":"Approval request",
@@ -269,11 +300,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_b550f",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"writeThroughSessionVariables":false,
 				"skipIfBlank":false
@@ -295,7 +326,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_b9sF0",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -352,7 +383,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_JCa2J",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"automationId":"{{ n_b9sF0.outputs.result.id_output }}",
 				"runtimeConnections":"",
@@ -377,7 +408,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_sICMl",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"result":{
 					"status":"200"
@@ -406,5 +437,5 @@
 	"tags":[
 		
 	],
-	"version":37
+	"version":39
 }
