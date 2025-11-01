@@ -51,35 +51,6 @@
 		},
 		{
 			"fromNodeId":"n_tvbJT",
-			"name":"2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_tvbJT@2",
-			"type":"branch"
-		},
-		{
-			"fromNodeId":"n_tvbJT@2",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"_xcyok",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"_xcyok",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Z1Gef",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_Z1Gef",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_TtGqV",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_tvbJT",
 			"name":"3",
 			"priority":0,
 			"skip":false,
@@ -159,13 +130,6 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_TtGqV",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_Km2Dj",
-			"type":"next"
-		},
-		{
 			"fromNodeId":"n_ohqQD",
 			"priority":0,
 			"skip":false,
@@ -191,7 +155,7 @@
 	"id":"6905b8e55aa33c758cbd47aa",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeedesignationobjectautomation",
-	"modifiedTime":1761982693171,
+	"modifiedTime":1761982937577,
 	"name":"[virtu-reps] EmployeeDesignationObjectAutomation",
 	"nodes":[
 		{
@@ -201,7 +165,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_b2pce",
@@ -274,7 +238,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_tvbJT",
@@ -300,27 +264,9 @@
 						}
 					},
 					{
-						"id":"2",
-						"inputs":{
-							"name":"Branch 2",
-							"conditions":{
-								"filters":[
-									{
-										"property":"{{ n_b2pce.outputs.body.operationName }}",
-										"filter":{
-											"operator":"EQUAL",
-											"value":"CountAsync"
-										}
-									}
-								],
-								"operator":"AND"
-							}
-						}
-					},
-					{
 						"id":"3",
 						"inputs":{
-							"name":"Branch 3",
+							"name":"Branch 2",
 							"conditions":{
 								"filters":[
 									{
@@ -371,7 +317,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@1",
 			"id":"n_tvbJT@1",
@@ -403,7 +349,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@1",
 			"id":"_RF2Uu",
@@ -414,7 +360,7 @@
 						"property":"{{ n_b2pce.outputs.body.payload }}",
 						"filter":{
 							"operator":"CONTAINS",
-							"value":"ReferenceNumber"
+							"value":"EmployeeId"
 						}
 					}
 				],
@@ -433,7 +379,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RF2Uu@n_tvbJT@_JfTSF-1@1@y",
 			"id":"_NQ71p",
@@ -443,12 +389,12 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"ReferenceNumber"
+						"EmployeeId"
 					],
 					"properties":{
-						"ReferenceNumber":{
-							"type":"string",
-							"title":"ReferenceNumber"
+						"EmployeeId":{
+							"type":"integer",
+							"title":"EmployeeId"
 						}
 					}
 				},
@@ -465,7 +411,7 @@
 						}
 					}
 				},
-				"code":"return [\"ReferenceNumber\" : payload[\"ReferenceNumber\"]]",
+				"code":"return [\"EmployeeId\" : payload[\"EmployeeId\"]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -473,7 +419,7 @@
 				}
 			},
 			"skip":false,
-			"subTitle":"Fetch ReferenceNumber",
+			"subTitle":"Fetch EmployeeId",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
@@ -485,7 +431,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RF2Uu@n_tvbJT@_JfTSF-1@1@y",
 			"id":"_YrWVH",
@@ -494,16 +440,16 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_ReferenceNumber",
+							"property":"properties_EmployeeId",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ _NQ71p.outputs.result.ReferenceNumber }}"
+								"value":"{{ _NQ71p.outputs.result.EmployeeId }}"
 							}
 						}
 					],
 					"operator":"AND"
 				},
-				"object_type":"reps_business_unit",
+				"object_type":"reps_employee_designation",
 				"includeRoleMappings":false,
 				"includeCurrentUserPermissions":false,
 				"translationsOption":"DEFAULT",
@@ -516,7 +462,7 @@
 				"includeTotalCount":false
 			},
 			"skip":false,
-			"subTitle":"Business Repo",
+			"subTitle":"Employee Designation",
 			"title":"Fetch records",
 			"type":"ACTION"
 		},
@@ -528,7 +474,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_RF2Uu@n_tvbJT@_JfTSF-1@1@y",
 			"id":"_MhFJu",
@@ -554,156 +500,13 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_tvbJT@_JfTSF-1@2",
-			"id":"n_tvbJT@2",
-			"index":8,
-			"inputs":{
-				"name":"Branch 2",
-				"conditions":{
-					"filters":[
-						{
-							"property":"{{ n_b2pce.outputs.body.operationName }}",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"CountAsync"
-							}
-						}
-					],
-					"operator":"AND"
-				}
-			},
-			"skip":false,
-			"title":"",
-			"type":"BRANCH_CONDITION"
-		},
-		{
-			"context":{
-				"appName":"code_by_unifyapps",
-				"resourceVersion":1037,
-				"resourceName":"code_by_unifyapps_groovy",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_tvbJT@_JfTSF-1@2",
-			"id":"_xcyok",
-			"index":9,
-			"inputs":{
-				"output":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"ReferenceNumber"
-					],
-					"properties":{
-						"ReferenceNumber":{
-							"type":"string",
-							"title":"ReferenceNumber"
-						}
-					}
-				},
-				"input":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"payload"
-					],
-					"properties":{
-						"payload":{
-							"type":"string",
-							"title":"Payload"
-						}
-					}
-				},
-				"code":"return [\"ReferenceNumber\" : payload[\"ReferenceNumber\"]]",
-				"compile_static":false,
-				"captureStdOutput":false,
-				"parameters":{
-					"payload":"{{ n_b2pce.outputs.body.payload }}"
-				}
-			},
-			"skip":false,
-			"subTitle":"Fetch ReferenceNumber",
-			"title":"Execute Groovy code",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"resourceVersion":4631,
-				"resourceName":"storage_by_unifyapps_count_records",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_tvbJT@_JfTSF-1@2",
-			"id":"n_Z1Gef",
-			"index":10,
-			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_ReferenceNumber",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ _xcyok.outputs.result.ReferenceNumber }}"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"reps_business_unit"
-			},
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Count records",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"callables",
-				"resourceVersion":1136,
-				"resourceName":"callables_return_response_to_api",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
-			"fallbackMode":"STOP",
-			"groupId":"n_tvbJT@_JfTSF-1@2",
-			"id":"n_TtGqV",
-			"index":11,
-			"inputs":{
-				"streamingCompleted":true,
-				"responseName":"200_response",
-				"body":{
-					"response":"{{ n_Z1Gef.outputs.count }}"
-				},
-				"status":200
-			},
-			"skip":false,
-			"subTitle":"Callable",
-			"title":"Respond to API request",
-			"type":"STOP"
-		},
-		{
-			"context":{
-				"appName":"branch_condition",
-				"resourceVersion":0,
-				"resourceName":"branch_condition",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@3",
 			"id":"n_tvbJT@3",
-			"index":12,
+			"index":8,
 			"inputs":{
-				"name":"Branch 3",
+				"name":"Branch 2",
 				"conditions":{
 					"filters":[
 						{
@@ -734,11 +537,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@3",
 			"id":"_EhUzU",
-			"index":13,
+			"index":9,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -746,8 +549,8 @@
 					"required":[
 						"Id",
 						"row_num",
-						"ReferenceNumber",
-						"Name"
+						"DesignationId",
+						"EmployeeId"
 					],
 					"properties":{
 						"Id":{
@@ -758,13 +561,13 @@
 							"type":"integer",
 							"title":"row_num"
 						},
-						"ReferenceNumber":{
-							"type":"string",
-							"title":"ReferenceNumber"
+						"DesignationId":{
+							"type":"integer",
+							"title":"DesignationId"
 						},
-						"Name":{
-							"type":"string",
-							"title":"Name"
+						"EmployeeId":{
+							"type":"integer",
+							"title":"EmployeeId"
 						}
 					}
 				},
@@ -783,7 +586,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    Name                 : payload.Name ?: '',\n    Id                   : payload.Id ?: 0,\n    ReferenceNumber      : payload.ReferenceNumber ?: 0,\n    row_num              : payload.row_num ?: 0\n]\n\nreturn result",
+				"code":"def result = [\n    EmployeeId           : payload.EmployeeId ?: '',\n    Id                   : payload.Id ?: 0,\n    DesignationId        : payload.DesignationId ?: 0,\n    row_num              : payload.row_num ?: 0\n]\n\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -803,24 +606,24 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@3",
 			"id":"n_r3Nsp",
-			"index":14,
+			"index":10,
 			"inputs":{
 				"writeThroughSessionVariables":false,
-				"object_type":"reps_business_unit",
+				"object_type":"reps_employee_designation",
 				"skipIfBlank":true,
 				"record":{
-					"ReferenceNumber":"{{ _EhUzU.outputs.result.ReferenceNumber }}",
+					"DesignationId":"{{ _EhUzU.outputs.result.DesignationId }}",
 					"Id":"{{ _EhUzU.outputs.result.Id }}",
 					"row_num":"{{ _EhUzU.outputs.result.row_num }}",
-					"Name":"{{ _EhUzU.outputs.result.Name }}"
+					"EmployeeId":"{{ _EhUzU.outputs.result.EmployeeId }}"
 				}
 			},
 			"skip":false,
-			"subTitle":"Business Repo",
+			"subTitle":"Employee Designation",
 			"title":"Create record",
 			"type":"ACTION"
 		},
@@ -832,11 +635,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@3",
 			"id":"n_ohqQD",
-			"index":15,
+			"index":11,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
@@ -858,11 +661,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
 			"id":"n_tvbJT@4",
-			"index":16,
+			"index":12,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -890,11 +693,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
 			"id":"_Gs9EY",
-			"index":17,
+			"index":13,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -947,11 +750,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
 			"id":"_owbfX",
-			"index":18,
+			"index":14,
 			"inputs":{
 				"output":{
 					"type":"object",
@@ -1016,11 +819,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
 			"id":"n_iinWr",
-			"index":19,
+			"index":15,
 			"inputs":{
 				"numberOfRecordsToUpdate":"MULTIPLE",
 				"triggerInputCondition":{
@@ -1078,11 +881,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
 			"id":"n_KaTth",
-			"index":20,
+			"index":16,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_response",
@@ -1104,11 +907,11 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_JfTSF-1",
 			"id":"n_Km2Dj",
-			"index":21,
+			"index":17,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_undefined",
@@ -1138,5 +941,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
