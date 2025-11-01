@@ -67,12 +67,26 @@
 			"skip":false,
 			"toNodeId":"n_ajhLl",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ajhLl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_iK5sb",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_iK5sb",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_8VbuC",
+			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761989644174,
+	"modifiedTime":1761990107655,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -311,6 +325,47 @@
 			"subTitle":"Keka",
 			"title":"Add time entry to attendance summary",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":138,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_adhoc_transaction",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_iK5sb",
+			"index":11,
+			"inputs":{
+				"payGroupId":"5f1a5bba-b240-4b8a-870c-b46072076d9a",
+				"amount":455,
+				"payCycleId":"9be84764-fa8d-4ca3-b563-e61a00a01846",
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update the adhoc transaction",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_8VbuC",
+			"index":12,
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Select an action",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
@@ -330,5 +385,5 @@
 	"tags":[
 		
 	],
-	"version":9
+	"version":10
 }
