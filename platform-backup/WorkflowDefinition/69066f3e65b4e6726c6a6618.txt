@@ -75,7 +75,7 @@
 	"id":"69066f3e65b4e6726c6a6618",
 	"lastModifiedBy":504,
 	"lcName":"hs-test-edge-label",
-	"modifiedTime":1762029435461,
+	"modifiedTime":1762029488487,
 	"name":"hs-test-edge-label",
 	"nodes":[
 		{
@@ -106,6 +106,8 @@
 		{
 			"context":{
 				"appName":"loop",
+				"resourceVersion":36,
+				"resourceName":"loop_for",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -114,9 +116,15 @@
 			"groupId":"_Gb21j-1",
 			"id":"n_ty0gd",
 			"index":2,
+			"inputs":{
+				"start":0,
+				"limit":4,
+				"step":1,
+				"captureIterations":false
+			},
 			"skip":false,
 			"subTitle":"Loop",
-			"title":"Select an action",
+			"title":"For loop",
 			"type":"LOOP"
 		},
 		{
@@ -383,5 +391,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
