@@ -221,12 +221,54 @@
 			"skip":false,
 			"toNodeId":"n_ZciFp",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZciFp",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Izeq1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Izeq1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_3KJzw",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_3KJzw",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_KZnvy",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_KZnvy",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_wt8Pu",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_wt8Pu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_AdcNS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_AdcNS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_517nF",
+			"type":"next"
 		}
 	],
 	"id":"6905a5fe67172c7efca8f02c",
 	"lastModifiedBy":3546,
 	"lcName":"wfert5y5",
-	"modifiedTime":1761986246811,
+	"modifiedTime":1761997867829,
 	"name":"wfert5y5",
 	"nodes":[
 		{
@@ -680,8 +722,8 @@
 				"employeeIds":"495572d0-608d-4b86-a9d0-f37eed275cfb",
 				"pageNumber":3,
 				"pageSize":100,
-				"from":"",
-				"to":"2025-10-10T08:13:00.000Z"
+				"from":"2026-01-06T02:30:00.000Z",
+				"to":"2026-01-07T02:30:00.000Z"
 			},
 			"skip":false,
 			"subTitle":"Keka",
@@ -994,6 +1036,153 @@
 			"subTitle":"Keka",
 			"title":"Get all weekly off policies",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":167,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_attachment_download_url",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_Izeq1",
+			"index":33,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get attachment download URL",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":193,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_add_employee_component_claim",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_3KJzw",
+			"index":34,
+			"inputs":{
+				"employeeId":"00d09275-aa8c-4b1f-9bf5-6b9c6f8ce931"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Add employee component claim",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":192,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_add_employee_salary",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_KZnvy",
+			"index":35,
+			"inputs":{
+				"isBonusAmountIncludedInSalary":true,
+				"amount":1000,
+				"structureId":"897435b0-676c-ef11-bdfd-6045bdcf1f95",
+				"employeeId":"f81a2bfb-77da-4541-8421-3dce0130488f",
+				"effectiveFrom":"2025-11-01T10:21:00.000Z",
+				"apiBonusDto":{
+					"dueDate":"2025-11-07T10:43:00.000Z"
+				}
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Add employee salary",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":221,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_add_a_wfh_request",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_wt8Pu",
+			"index":36,
+			"inputs":{
+				"employeeId":"495572d0-608d-4b86-a9d0-f37eed275cf"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Add a WFH request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":223,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_adds_an_od_request",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_AdcNS",
+			"index":37,
+			"inputs":{
+				"fromDate":"2025-11-13T02:30:00.000Z",
+				"fromSession":1,
+				"toSession":1,
+				"toDate":"2025-11-14T02:30:00.000Z",
+				"employeeId":"00e1e791-2b5d-47aa-be09-11f5f33116aa"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Add OD request",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":221,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_create_leave_request",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_517nF",
+			"index":38,
+			"inputs":{
+				"fromDate":"2025-11-19T11:37:00.000Z",
+				"requestedBy":"1ef67f9f-5846-473d-84e5-11f5f12b37a3",
+				"reason":"Observing holiday",
+				"note":"This is my first comp off",
+				"toDate":"2025-11-20T11:37:00.000Z",
+				"employeeId":"1ef67f9f-5846-473d-84e5-11f5f12b37a3",
+				"leaveTypeId":"A9497B95-9B5F-4455-B43B-F314BFB49315"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Create a leave request",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
@@ -1013,5 +1202,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
