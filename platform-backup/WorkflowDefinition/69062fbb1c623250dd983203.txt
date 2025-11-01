@@ -9,14 +9,28 @@
 			"fromNodeId":"_TnMP3",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_2Ikel",
+			"toNodeId":"n_uUQVo",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_uUQVo",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"usryV",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"usryV",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HABUo",
 			"type":"next"
 		}
 	],
 	"id":"69062fbb1c623250dd983203",
 	"lastModifiedBy":39712,
 	"lcName":"test",
-	"modifiedTime":1762013115371,
+	"modifiedTime":1762013867332,
 	"name":"test",
 	"nodes":[
 		{
@@ -25,7 +39,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_TnMP3-1",
 			"id":"_TnMP3",
-			"index":0,
+			"index":1,
 			"skip":false,
 			"title":"Select a trigger event",
 			"trigger":{
@@ -34,18 +48,115 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"data_quality_by_unifyapps",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_TnMP3-1",
-			"id":"_2Ikel",
-			"index":0,
+			"id":"n_uUQVo",
+			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Data Quality By UnifyApps",
+			"title":"Select an action",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.records.items.stageRecordId",
+					"root.records.items.recordEventType",
+					"root.records.items.properties",
+					"root.records.items.sourceId"
+				]
+			},
+			"context":{
+				"appName":"mdm_by_unifyapps",
+				"resourceVersion":1,
+				"resourceName":"mdm_by_unifyapps_apply_data_quality_rules",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"CONTINUE",
+			"groupId":"_TnMP3-1",
+			"id":"usryV",
+			"index":3,
+			"inputs":{
+				"records":{
+					"source":"{{ o1lnC.outputs.records }}",
+					"ua:type":"mappedArray",
+					"items":{
+						"stageRecordId":"{{ o1lnC.outputs.records[0].stageRecordId }}",
+						"recordEventType":"{{ o1lnC.outputs.records[0].recordEventType }}",
+						"properties":"{{ o1lnC.outputs.records[0].properties }}",
+						"sourceId":"{{ o1lnC.outputs.records[0].sourceId }}"
+					}
+				},
+				"modelId":"{{ dLtOG.outputs.modelId }}",
+				"unifiedEntityId":"{{ dLtOG.outputs.entityId }}"
+			},
+			"options":{
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false
+				},
+				"logConfig":{
+					"enabled":false
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"CONTINUE",
+				"telemetryConfig":{
+					"enableTelemetry":false
+				}
+			},
+			"skip":false,
+			"subTitle":"MDM by UnifyApps",
+			"title":"Apply Data Quality Rules",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"data_quality_by_unifyapps",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_TnMP3-1",
+			"id":"n_HABUo",
+			"index":4,
+			"skip":false,
+			"subTitle":"Data Quality By UnifyApps",
+			"title":"Select an action",
 			"type":"ACTION"
 		}
 	],
 	"ownerUserId":39712,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +170,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
