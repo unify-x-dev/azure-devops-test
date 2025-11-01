@@ -60,12 +60,19 @@
 			"skip":false,
 			"toNodeId":"n_2xzgL",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_2xzgL",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ajhLl",
+			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761988584354,
+	"modifiedTime":1761989288899,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -277,6 +284,33 @@
 			"subTitle":"Keka",
 			"title":"Revise employee salary",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":199,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_time_entry_summary",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_ajhLl",
+			"index":10,
+			"inputs":{
+				"employeeIdentifier":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"punchStatus":0,
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"attendanceLogSource":2,
+				"manualClockinType":0,
+				"timestamp":"2025-11-01T09:16:39.749Z"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Add time entry to attendance summary",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
@@ -296,5 +330,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
