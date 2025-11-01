@@ -117,6 +117,13 @@
 			"type":"next"
 		},
 		{
+			"fromNodeId":"n_apjIY",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_nA174",
+			"type":"next"
+		},
+		{
 			"fromNodeId":"n_ZhAEo",
 			"name":"4",
 			"priority":0,
@@ -136,8 +143,15 @@
 			"name":"yes",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_4kQl4",
+			"toNodeId":"_ZTjPu",
 			"type":"if"
+		},
+		{
+			"fromNodeId":"_ZTjPu",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_P0zSB",
+			"type":"next"
 		},
 		{
 			"fromNodeId":"n_ZhAEo",
@@ -193,7 +207,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_apjIY",
+			"fromNodeId":"n_nA174",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_YZmY6",
@@ -208,7 +222,7 @@
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_4kQl4",
+			"fromNodeId":"_P0zSB",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_YZmY6",
@@ -249,7 +263,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761986980409,
+	"modifiedTime":1761988033890,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -966,6 +980,29 @@
 		},
 		{
 			"context":{
+				"appName":"callables",
+				"resourceVersion":1138,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_uv1kj@n_ZhAEo@_NyQKV-1@3@y",
+			"id":"n_nA174",
+			"index":17,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"200_ok",
+				"status":200
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
+		},
+		{
+			"context":{
 				"appName":"branch_condition",
 				"resourceVersion":0,
 				"resourceName":"branch_condition",
@@ -976,7 +1013,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@4",
 			"id":"n_ZhAEo@4",
-			"index":17,
+			"index":18,
 			"inputs":{
 				"name":"Branch 4",
 				"conditions":{
@@ -1008,7 +1045,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@4",
 			"id":"n_gNw8s",
-			"index":18,
+			"index":19,
 			"inputs":{
 				"filters":[
 					{
@@ -1027,14 +1064,100 @@
 			"type":"IF_ELSE"
 		},
 		{
+			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_gNw8s@n_ZhAEo@_NyQKV-1@4@y",
-			"id":"n_4kQl4",
-			"index":19,
+			"id":"_ZTjPu",
+			"index":20,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"ActivityId":{
+							"type":"string",
+							"title":"Activity Id"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"payload":{
+							"type":"string",
+							"title":"Payload"
+						}
+					}
+				},
+				"code":"return [\"ActivityId\" : payload[\"ActivityId\"]]",
+				"compile_static":false,
+				"captureStdOutput":false,
+				"parameters":{
+					"payload":"{{ n_RObK4.outputs.body.payload }}"
+				}
+			},
 			"skip":false,
-			"title":"Select an app and action",
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"storage_by_unifyapps",
+				"resourceVersion":4636,
+				"resourceName":"storage_by_unifyapps_fetch_records",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_gNw8s@n_ZhAEo@_NyQKV-1@4@y",
+			"id":"_P0zSB",
+			"index":21,
+			"inputs":{
+				"triggerInputCondition":{
+					"filters":[
+						{
+							"property":"id",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"{{ n_mwDFF.outputs.result.ActivityId }}"
+							}
+						},
+						{
+							"property":"properties_IsActive",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"true"
+							}
+						}
+					],
+					"operator":"AND"
+				},
+				"includeRoleMappings":false,
+				"includeCurrentUserPermissions":false,
+				"translationsOption":"DEFAULT",
+				"page":{
+					"paginateBy":"OFFSET",
+					"limit":20
+				},
+				"numberOfRecordsToFetch":"SINGLE",
+				"readThroughSessionVariables":false,
+				"includeTotalCount":false
+			},
+			"skip":false,
+			"subTitle":"Storage by UnifyApps",
+			"title":"Fetch records",
 			"type":"ACTION"
 		},
 		{
@@ -1049,7 +1172,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@5",
 			"id":"n_ZhAEo@5",
-			"index":20,
+			"index":22,
 			"inputs":{
 				"name":"Branch 5",
 				"conditions":{
@@ -1081,7 +1204,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@5",
 			"id":"n_Cfp0Q",
-			"index":21,
+			"index":23,
 			"inputs":{
 				"filters":[
 					{
@@ -1112,7 +1235,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_Cfp0Q@n_ZhAEo@_NyQKV-1@5@y",
 			"id":"n_Jft48",
-			"index":22,
+			"index":24,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
@@ -1129,7 +1252,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
 			"id":"n_YZmY6",
-			"index":23,
+			"index":25,
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"500_not ok",
@@ -1158,5 +1281,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":11
 }
