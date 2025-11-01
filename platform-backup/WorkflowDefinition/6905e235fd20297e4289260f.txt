@@ -4,13 +4,21 @@
 	],
 	"createdTime":1761993269323,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761993284864,
+		"deployedBy":155341,
+		"deployedDefinitionId":"6905e2437ff9833294abf5d4",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		
 	],
 	"id":"6905e235fd20297e4289260f",
 	"lastModifiedBy":155341,
 	"lcName":"fsfs",
-	"modifiedTime":1761993282261,
+	"modifiedTime":1761993300207,
 	"name":"fsfs",
 	"nodes":[
 		{
@@ -27,6 +35,7 @@
 			"id":"n_1wiID",
 			"index":1,
 			"inputs":{
+				"jql":"Project = DP",
 				"objectSourceResourceName":"jira_fetch_issue_schema"
 			},
 			"skip":false,
@@ -55,5 +64,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
