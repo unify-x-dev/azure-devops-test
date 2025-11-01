@@ -128,7 +128,7 @@
 	"id":"69060b58a540f95b36847a49",
 	"lastModifiedBy":308,
 	"lcName":"[empowerbadgesschedulerfn] employeesyncendpointhttp",
-	"modifiedTime":1762007670546,
+	"modifiedTime":1762008417286,
 	"name":"[emPowerBadgesSchedulerFN] EmployeeSyncEndpointHTTP",
 	"nodes":[
 		{
@@ -307,7 +307,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_ZhAEo@_NyQKV-1@1",
 			"id":"n_h7Pue",
@@ -318,7 +318,7 @@
 						"property":"{{ n_RObK4.outputs.body.payload }}",
 						"filter":{
 							"operator":"CONTAINS",
-							"value":"ActivityId"
+							"value":"userName"
 						}
 					}
 				],
@@ -337,7 +337,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Pue@n_ZhAEo@_NyQKV-1@1@y",
 			"id":"n_mwDFF",
@@ -365,7 +365,7 @@
 						}
 					}
 				},
-				"code":"return [\"ActivityId\" : payload[\"ActivityId\"]]",
+				"code":"def result = [\n  \"UserName\": payload[\"UserName\"] ?: \"\",\n  \"Email\": payload[\"Email\"] ?: \"\",\n  \"FullName\": payload[\"FullName\"] ?: \"\",\n  \"ManagerUserName\": payload[\"ManagerUserName\"] ?: \"\",\n  \"EmployeeNumber\": payload[\"EmployeeNumber\"] ?: \"\",\n  \"IsActive\": payload[\"EmployeeNumber\"] ?: \"true\"\n]\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -380,51 +380,24 @@
 		{
 			"context":{
 				"appName":"storage_by_unifyapps",
-				"resourceVersion":4636,
-				"resourceName":"storage_by_unifyapps_fetch_records",
+				"resourceVersion":4634,
+				"resourceName":"storage_by_unifyapps_create_record",
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Pue@n_ZhAEo@_NyQKV-1@1@y",
 			"id":"n_8048h",
 			"index":6,
 			"inputs":{
-				"triggerInputCondition":{
-					"filters":[
-						{
-							"property":"properties_Id",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"{{ n_mwDFF.outputs.result.ActivityId }}"
-							}
-						},
-						{
-							"property":"properties_IsActive",
-							"filter":{
-								"operator":"EQUAL",
-								"value":"true"
-							}
-						}
-					],
-					"operator":"AND"
-				},
-				"object_type":"badges_activities",
-				"includeRoleMappings":false,
-				"includeCurrentUserPermissions":false,
-				"translationsOption":"DEFAULT",
-				"page":{
-					"paginateBy":"OFFSET",
-					"limit":20
-				},
-				"numberOfRecordsToFetch":"SINGLE",
-				"readThroughSessionVariables":false,
-				"includeTotalCount":false
+				"writeThroughSessionVariables":false,
+				"object_type":"badges_employees",
+				"skipIfBlank":false
 			},
 			"skip":false,
 			"subTitle":"Storage by UnifyApps",
-			"title":"Fetch records",
+			"title":"Create record",
 			"type":"ACTION"
 		},
 		{
@@ -670,5 +643,5 @@
 		}
 	},
 	"standard":false,
-	"version":1
+	"version":2
 }
