@@ -1,0 +1,77 @@
+{
+	"appsUsed":[
+		"keka"
+	],
+	"createdTime":1762028256568,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"n_2KRAr",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_x4lJv",
+			"type":"next"
+		}
+	],
+	"id":"69066ae055218d7940742ce3",
+	"lastModifiedBy":2621,
+	"lcName":"test",
+	"modifiedTime":1762028269323,
+	"name":"test",
+	"nodes":[
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":3,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_on_employee_birthday_polling"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_63l6m-1",
+			"id":"n_2KRAr",
+			"index":1,
+			"inputs":{
+				"interval":1,
+				"batchSize":1
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"On employee birthday",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_63l6m-1",
+			"id":"_x4lJv",
+			"index":2,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":2621,
+	"schemaReferences":[
+		
+	],
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":1
+}
