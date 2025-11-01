@@ -5,12 +5,12 @@
 	"createdTime":1761658228689,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761745114802,
+		"deployedAt":1761745581180,
 		"deployedBy":27,
-		"deployedDefinitionId":"690218da74105b7eb8dc746f",
+		"deployedDefinitionId":"69021aade868e513826899a9",
 		"status":"DEPLOYED",
-		"version":3,
-		"workflowVersion":8
+		"version":4,
+		"workflowVersion":9
 	},
 	"edges":[
 		{
@@ -45,7 +45,7 @@
 	"id":"6900c5741cd6437e88618b81",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | repeatable",
-	"modifiedTime":1761745579095,
+	"modifiedTime":1762001435961,
 	"name":"Best Practices | Check Group | Repeatable",
 	"nodes":[
 		{
@@ -797,7 +797,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `interfacePage` is assumed to be provided (with properties.blocks)\n\n  const makeCheckResult = (checkId, status, targets) => ({\n    check_id: checkId,\n    status,\n    targets: targets || []\n  });\n\n  const runCheckSafe = (fn, checkId) => {\n    try {\n      return fn();\n    } catch (err) {\n      return makeCheckResult(checkId, \"failed\", []);\n    }\n  };\n\n  // ============================================================\n  // CHECK_5 — Define a primary key for Repeatables\n  // ============================================================\n  const runCHECK_6 = () => {\n    const failedIds = [];\n\n    const blocks = interfacePage?.properties?.blocks || {};\n\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      const comp = block?.component;\n      if (!comp) continue;\n\n      if (comp.componentType === \"Repeatable\" && !comp.content?.primaryKey) {\n        failedIds.push(blockId);\n      }\n    }\n\n    const status = failedIds.length > 0 ? \"failed\" : \"passed\";\n    const targets = failedIds.map((id) => ({\n      targetId: id,\n      targetType: \"block\"\n    }));\n\n    return makeCheckResult(\"CHECK_6\", status, targets);\n  };\n\n  // ============================================================\n  // CHECK_1 — Enable pagination for Repeatables\n  // ============================================================\n  const runCHECK_1 = () => {\n    const failedIds = [];\n\n    const blocks = interfacePage?.properties?.blocks || {};\n\n    for (const blockId in blocks) {\n      const block = blocks[blockId];\n      const comp = block?.component;\n      if (!comp) continue;\n\n      if (comp.componentType === \"Repeatable\" && !comp.content?.addOns?.page) {\n        failedIds.push(blockId);\n      }\n    }\n\n    const status = failedIds.length > 0 ? \"failed\" : \"passed\";\n    const targets = failedIds.map((id) => ({\n      targetId: id,\n      targetType: \"block\"\n    }));\n\n    return makeCheckResult(\"CHECK_1\", status, targets);\n  };\n\n  // ============================================================\n  // Execute all repeatable checks safely\n  // ============================================================\n  const checks = [];\n  checks.push(runCheckSafe(runCHECK_1, \"CHECK_1\"));\n  checks.push(runCheckSafe(runCHECK_6, \"CHECK_6\"));\n\n  return { items: checks };\n})();",
+				"code":"(() => {\n  // `interfacePage` is assumed to be provided (with properties.blocks)\n\n  const makeCheckResult = (checkId, status, targets) => ({\n    check_id: checkId,\n    status,\n    targets: targets || []\n  });\n\n  const runCheckSafe = (checkId, fn) => {\n    try {\n      return fn(checkId);\n    } catch {\n      return makeCheckResult(checkId, \"failed\", []);\n    }\n  };\n\n  // ============================================================\n  // Define all checks once — ID is the only source of truth\n  // ============================================================\n  const CHECKS = {\n    CHECK_1: ({ checkId }) => {\n      const failedIds = [];\n      const blocks = interfacePage?.properties?.blocks || {};\n\n      for (const blockId in blocks) {\n        const comp = blocks[blockId]?.component;\n        if (!comp) continue;\n\n        if (comp.componentType === \"Repeatable\" && !comp.content?.addOns?.page) {\n          failedIds.push(blockId);\n        }\n      }\n\n      const status = failedIds.length ? \"failed\" : \"passed\";\n      const targets = failedIds.map((id) => ({\n        targetId: id,\n        targetType: \"block\"\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    },\n\n    CHECK_6: ({ checkId }) => {\n      const failedIds = [];\n      const blocks = interfacePage?.properties?.blocks || {};\n\n      for (const blockId in blocks) {\n        const comp = blocks[blockId]?.component;\n        if (!comp) continue;\n\n        if (comp.componentType === \"Repeatable\" && !comp.content?.primaryKey) {\n          failedIds.push(blockId);\n        }\n      }\n\n      const status = failedIds.length ? \"failed\" : \"passed\";\n      const targets = failedIds.map((id) => ({\n        targetId: id,\n        targetType: \"block\"\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    }\n  };\n\n  // ============================================================\n  // Execute dynamically — no repeated check IDs\n  // ============================================================\n  const checks = Object.entries(CHECKS).map(([id, fn]) =>\n    runCheckSafe(id, (checkId) => fn({ checkId }))\n  );\n\n  return { items: checks };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
@@ -922,5 +922,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":9
+	"version":10
 }
