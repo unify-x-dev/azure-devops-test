@@ -6,41 +6,90 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"n_VggMd",
+			"fromNodeId":"n_7wuTc",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_9Y69a",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_9Y69a",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_PcIe1",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_PcIe1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_JCa2J",
 			"type":"next"
 		}
 	],
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761983420973,
+	"modifiedTime":1761987311803,
 	"name":"approval workflow",
 	"nodes":[
 		{
 			"context":{
-				"appName":"webhooks",
-				"resourceVersion":833,
-				"resourceName":"webhooks_default"
+				"appName":"callables",
+				"resourceVersion":1080,
+				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
-			"id":"n_VggMd",
+			"id":"n_7wuTc",
 			"index":1,
 			"inputs":{
-				"request":{
-					"contentType":"application/json"
+				"setup":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"approverEmail",
+						"requesterEmail",
+						"requesterName",
+						"responseAutomationId"
+					],
+					"properties":{
+						"approverEmail":{
+							"type":"array",
+							"items":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false
+							},
+							"title":"Approver Email"
+						},
+						"requesterEmail":{
+							"type":"string",
+							"title":"Requester Email"
+						},
+						"requesterName":{
+							"type":"string",
+							"title":"Requester Name"
+						},
+						"attachements":{
+							"type":"string",
+							"format":"file-input",
+							"title":"Attachements"
+						},
+						"responseAutomationId":{
+							"type":"string",
+							"title":"Response Automation Id"
+						}
+					}
 				}
 			},
 			"skip":false,
-			"subTitle":"Webhook",
-			"title":"New event",
+			"subTitle":"Callable",
+			"title":"Trigger via automation",
 			"trigger":{
-				"type":"WEBHOOK"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
@@ -156,6 +205,51 @@
 			"subTitle":"Google Chat",
 			"title":"Send card message",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"utility_by_unifyapps_to_json_object",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DLST3-1",
+			"id":"n_PcIe1",
+			"index":3,
+			"inputs":{
+				"jsonString":"{\"action\":\"accept\"}"
+			},
+			"skip":false,
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1136,
+				"resourceName":"callables_call_automation",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DLST3-1",
+			"id":"n_JCa2J",
+			"index":4,
+			"inputs":{
+				"automationId":"{{ n_7wuTc.outputs.responseAutomationId }}",
+				"runtimeConnections":"",
+				"synchronous":true,
+				"version":"-1"
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Call automation",
+			"type":"CALL_WORKFLOW"
 		}
 	],
 	"ownerUserId":76193,
@@ -175,5 +269,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
