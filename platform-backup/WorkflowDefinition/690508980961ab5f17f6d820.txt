@@ -44,7 +44,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761999549760,
+	"modifiedTime":1761999623746,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -222,7 +222,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_b9sF0",
@@ -266,7 +266,7 @@
 					"id":"{{ n_7wuTc.outputs.responseAutomationId }}"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
@@ -291,7 +291,7 @@
 				"version":"-1",
 				"parameters":""
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Callable",
 			"title":"Call automation",
 			"type":"CALL_WORKFLOW"
@@ -337,5 +337,5 @@
 	"tags":[
 		
 	],
-	"version":27
+	"version":28
 }
