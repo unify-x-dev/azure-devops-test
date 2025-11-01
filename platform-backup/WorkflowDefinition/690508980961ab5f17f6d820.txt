@@ -23,6 +23,13 @@
 			"fromNodeId":"n_PcIe1",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_b9sF0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_b9sF0",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_JCa2J",
 			"type":"next"
 		},
@@ -35,9 +42,9 @@
 		}
 	],
 	"id":"690508980961ab5f17f6d820",
-	"lastModifiedBy":43069,
+	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761988758107,
+	"modifiedTime":1761988838186,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -249,6 +256,53 @@
 		},
 		{
 			"context":{
+				"appName":"code_by_unifyapps",
+				"resourceVersion":0,
+				"resourceName":"code_by_unifyapps_groovy",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_DLST3-1",
+			"id":"n_b9sF0",
+			"index":4,
+			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"id_output"
+					],
+					"properties":{
+						"id_output":{
+							"type":"string",
+							"title":"Id Output"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"id":{
+							"type":"string",
+							"title":"Id"
+						}
+					}
+				},
+				"code":"return [\"id_output\": id]",
+				"compile_static":false,
+				"captureStdOutput":false
+			},
+			"skip":false,
+			"subTitle":"Code by UnifyApps",
+			"title":"Execute Groovy code",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1136,
 				"resourceName":"callables_call_automation",
@@ -259,7 +313,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_JCa2J",
-			"index":4,
+			"index":5,
 			"inputs":{
 				"automationId":"{{ n_7wuTc.outputs.responseAutomationId }}",
 				"runtimeConnections":"",
@@ -284,7 +338,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_sICMl",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"result":{
 					"status":"200"
@@ -313,5 +367,5 @@
 	"tags":[
 		
 	],
-	"version":15
+	"version":16
 }
