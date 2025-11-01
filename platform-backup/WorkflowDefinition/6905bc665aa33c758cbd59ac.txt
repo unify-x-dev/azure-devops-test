@@ -6,46 +6,603 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_NyQKV",
+			"fromNodeId":"n_RObK4",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_aDVRu",
+			"toNodeId":"n_ZhAEo",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZhAEo",
+			"name":"1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZhAEo@1",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_ZhAEo@1",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_h7Pue",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_h7Pue",
+			"name":"yes",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_P6FdH",
+			"type":"if"
+		},
+		{
+			"fromNodeId":"n_ZhAEo",
+			"name":"2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZhAEo@2",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_ZhAEo@2",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_omlUl",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZhAEo",
+			"name":"3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZhAEo@3",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_ZhAEo@3",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Ipvv0",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZhAEo",
+			"name":"4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZhAEo@4",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_ZhAEo@4",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_Qkswm",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZhAEo",
+			"name":"5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_ZhAEo@5",
+			"type":"branch"
+		},
+		{
+			"fromNodeId":"n_ZhAEo@5",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_HmEr6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_P6FdH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YZmY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_h7Pue",
+			"name":"no",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YZmY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_omlUl",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YZmY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Ipvv0",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YZmY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_Qkswm",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YZmY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_HmEr6",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YZmY6",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_ZhAEo",
+			"name":"default",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_YZmY6",
+			"type":"branch"
 		}
 	],
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761983590696,
+	"modifiedTime":1761985090479,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1168,
+				"resourceName":"callables_from_api"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
-			"id":"_NyQKV",
-			"index":0,
+			"id":"n_RObK4",
+			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json",
+					"body":{
+						"type":"object",
+						"properties":{
+							"payload":{
+								"type":"object",
+								"properties":{},
+								"additionalProperties":false,
+								"title":"Payload"
+							},
+							"operationName":{
+								"type":"string",
+								"title":"Operation Name"
+							}
+						},
+						"additionalProperties":false,
+						"required":[
+							"payload"
+						]
+					}
+				},
+				"endpointType":"REST",
+				"response":[
+					{
+						"name":"ok",
+						"status":200,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					},
+					{
+						"name":"not ok",
+						"status":500,
+						"contentType":"application/json",
+						"textBody":{
+							"type":"string"
+						}
+					}
+				],
+				"streamingResponse":false
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Callable",
+			"title":"Trigger via API",
 			"trigger":{
-				"type":"EVENT"
+				"type":"CALLABLE"
 			},
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"branch",
+				"type":"APPLICATION"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_NyQKV-1",
-			"id":"_aDVRu",
-			"index":0,
+			"id":"n_ZhAEo",
+			"index":2,
+			"inputs":{
+				"branches":[
+					{
+						"id":"1",
+						"inputs":{
+							"name":"Branch 1",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_RObK4.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"ValidateActivityAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"2",
+						"inputs":{
+							"name":"Branch 2",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_RObK4.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"ValidateEmployeeAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"3",
+						"inputs":{
+							"name":"Branch 3",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_RObK4.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"AddIndividualMetricAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"4",
+						"inputs":{
+							"name":"Branch 4",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_RObK4.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"GetBadgeActivitiesAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"5",
+						"inputs":{
+							"name":"Branch 5",
+							"conditions":{
+								"filters":[
+									{
+										"property":"{{ n_RObK4.outputs.body.operationName }}",
+										"filter":{
+											"operator":"EQUAL",
+											"value":"GenerateBadgeAsync"
+										}
+									}
+								],
+								"operator":"AND"
+							}
+						}
+					},
+					{
+						"id":"default"
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Branch",
+			"title":"",
+			"type":"BRANCH"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@1",
+			"id":"n_ZhAEo@1",
+			"index":3,
+			"inputs":{
+				"name":"Branch 1",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_RObK4.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"ValidateActivityAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"context":{
+				"appName":"if_else",
+				"resourceVersion":791,
+				"resourceName":"if_else_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@1",
+			"id":"n_h7Pue",
+			"index":4,
+			"inputs":{
+				"filters":[
+					{
+						"property":"{{ n_RObK4.outputs.body.payload }}",
+						"filter":{
+							"operator":"CONTAINS",
+							"value":"ActivityId"
+						}
+					}
+				],
+				"operator":"AND"
+			},
+			"skip":false,
+			"subTitle":"Condition",
+			"title":"Condition",
+			"type":"IF_ELSE"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_h7Pue@n_ZhAEo@_NyQKV-1@1@y",
+			"id":"n_P6FdH",
+			"index":5,
 			"skip":false,
 			"title":"Select an app and action",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@2",
+			"id":"n_ZhAEo@2",
+			"index":6,
+			"inputs":{
+				"name":"Branch 2",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_RObK4.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"ValidateEmployeeAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@2",
+			"id":"n_omlUl",
+			"index":7,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@3",
+			"id":"n_ZhAEo@3",
+			"index":8,
+			"inputs":{
+				"name":"Branch 3",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_RObK4.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"AddIndividualMetricAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@3",
+			"id":"n_Ipvv0",
+			"index":9,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@4",
+			"id":"n_ZhAEo@4",
+			"index":10,
+			"inputs":{
+				"name":"Branch 4",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_RObK4.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"GetBadgeActivitiesAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@4",
+			"id":"n_Qkswm",
+			"index":11,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"branch_condition",
+				"resourceVersion":0,
+				"resourceName":"branch_condition",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@5",
+			"id":"n_ZhAEo@5",
+			"index":12,
+			"inputs":{
+				"name":"Branch 5",
+				"conditions":{
+					"filters":[
+						{
+							"property":"{{ n_RObK4.outputs.body.operationName }}",
+							"filter":{
+								"operator":"EQUAL",
+								"value":"GenerateBadgeAsync"
+							}
+						}
+					],
+					"operator":"AND"
+				}
+			},
+			"skip":false,
+			"title":"",
+			"type":"BRANCH_CONDITION"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_ZhAEo@_NyQKV-1@5",
+			"id":"n_HmEr6",
+			"index":13,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"callables",
+				"resourceVersion":1137,
+				"resourceName":"callables_return_response_to_api",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_NyQKV-1",
+			"id":"n_YZmY6",
+			"index":14,
+			"inputs":{
+				"streamingCompleted":true,
+				"responseName":"500_not ok",
+				"status":500
+			},
+			"skip":false,
+			"subTitle":"Callable",
+			"title":"Respond to API request",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":308,
+	"schemaReferences":[
+		
+	],
 	"settings":{
 		"enableNodeLevelLogging":true,
 		"enableRunLogging":true,
@@ -59,5 +616,5 @@
 	"tags":[
 		
 	],
-	"version":0
+	"version":1
 }
