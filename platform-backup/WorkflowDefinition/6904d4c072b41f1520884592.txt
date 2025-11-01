@@ -51,7 +51,7 @@
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761978741198,
+	"modifiedTime":1761981013804,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -156,18 +156,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SSoEQ-1",
 			"id":"n_KVctE",
 			"index":5,
 			"inputs":{
-				"payGroupId":"4c792db2-b6ff-49a0-9207-87951602e6ae",
 				"pageNumber":1,
-				"month":11,
-				"year":2023,
-				"pageSize":1,
-				"runStatus":"Finalized"
+				"pageSize":1
 			},
 			"skip":false,
 			"subTitle":"Keka",
@@ -183,7 +179,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SSoEQ-1",
 			"id":"n_e9iwi",
@@ -207,12 +203,14 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_SSoEQ-1",
 			"id":"n_4FqmB",
 			"index":7,
 			"inputs":{
+				"payGroupId":"5f1a5bba-b240-4b8a-870c-b46072076d9a",
+				"payCycleId":"9be84764-fa8d-4ca3-b563-e61a00a01846",
 				"pageSize":100
 			},
 			"skip":false,
@@ -238,5 +236,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
