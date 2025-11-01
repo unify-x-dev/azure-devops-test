@@ -44,7 +44,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761989191670,
+	"modifiedTime":1761989255691,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -54,7 +54,7 @@
 				"resourceName":"callables_from_automation"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_7wuTc",
@@ -179,7 +179,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_9Y69a",
@@ -262,7 +262,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_b9sF0",
@@ -272,12 +272,19 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"id_output"
+						"id_output",
+						"parameters"
 					],
 					"properties":{
 						"id_output":{
 							"type":"string",
 							"title":"Id Output"
+						},
+						"parameters":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"Parameters"
 						}
 					}
 				},
@@ -292,7 +299,7 @@
 						}
 					}
 				},
-				"code":"def input = id.toString()\nreturn [\"id_output\": input]\n",
+				"code":"def input = id.toString()\nreturn [\"id_output\": input,\n\"parameters\": {\"action\":\"accept\"}]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -337,7 +344,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_sICMl",
@@ -370,5 +377,5 @@
 	"tags":[
 		
 	],
-	"version":20
+	"version":21
 }
