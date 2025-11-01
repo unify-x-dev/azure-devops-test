@@ -35,9 +35,9 @@
 		}
 	],
 	"id":"690508980961ab5f17f6d820",
-	"lastModifiedBy":76193,
+	"lastModifiedBy":43069,
 	"lcName":"approval workflow",
-	"modifiedTime":1761988745493,
+	"modifiedTime":1761988758107,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -234,7 +234,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_PcIe1",
@@ -242,7 +242,7 @@
 			"inputs":{
 				"jsonString":"{\n  \"action\": \"accept\"\n}"
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Utility by UnifyApps",
 			"title":"Deserialise string to JSON object",
 			"type":"ACTION"
@@ -264,7 +264,8 @@
 				"automationId":"{{ n_7wuTc.outputs.responseAutomationId }}",
 				"runtimeConnections":"",
 				"synchronous":false,
-				"version":"-1"
+				"version":"-1",
+				"parameters":""
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -312,5 +313,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
