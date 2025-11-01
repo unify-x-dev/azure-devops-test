@@ -1,0 +1,63 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761999380013,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_qETHt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_d8PPZ",
+			"type":"next"
+		}
+	],
+	"id":"6905fa14cf8e161eb53d6a4b",
+	"lastModifiedBy":21056,
+	"lcName":"write data to excel",
+	"modifiedTime":1761999380013,
+	"name":"Write data to excel",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_qETHt-1",
+			"id":"_qETHt",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_qETHt-1",
+			"id":"_d8PPZ",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":21056,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
