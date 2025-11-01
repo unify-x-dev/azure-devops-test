@@ -116,12 +116,19 @@
 			"skip":false,
 			"toNodeId":"n_5oAeH",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_5oAeH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_zepXl",
+			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761993290939,
+	"modifiedTime":1761994276297,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -491,6 +498,9 @@
 		{
 			"context":{
 				"appName":"keka",
+				"resourceVersion":164,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee_tax_declaration",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -499,17 +509,18 @@
 			"groupId":"_SSoEQ-1",
 			"id":"n_t973w",
 			"index":16,
+			"inputs":{},
 			"skip":false,
 			"subTitle":"Keka",
-			"title":"Select an action",
+			"title":"Get employee tax declaration",
 			"type":"ACTION"
 		},
 		{
 			"context":{
 				"appName":"keka",
-				"resourceVersion":164,
+				"resourceVersion":145,
 				"connectionId":"690475a3e45b9336f8e9c858",
-				"resourceName":"keka_get_employee_tax_declaration",
+				"resourceName":"keka_revise_employee_salary",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -521,8 +532,23 @@
 			"inputs":{},
 			"skip":false,
 			"subTitle":"Keka",
-			"title":"Get employee tax declaration",
+			"title":"Revise employee salary",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"stop"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_zepXl",
+			"index":18,
+			"skip":false,
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":3546,
@@ -542,5 +568,5 @@
 	"tags":[
 		
 	],
-	"version":13
+	"version":14
 }
