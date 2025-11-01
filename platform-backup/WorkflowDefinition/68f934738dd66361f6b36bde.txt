@@ -5,12 +5,12 @@
 	"createdTime":1761162355258,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761162781275,
-		"deployedBy":34802,
-		"deployedDefinitionId":"68f9361ce036397d0fe8dfc3",
+		"deployedAt":1761543834178,
+		"deployedBy":155543,
+		"deployedDefinitionId":"68ff069777db7a5bde98270c",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":3
+		"version":4,
+		"workflowVersion":6
 	},
 	"edges":[
 		{
@@ -22,9 +22,9 @@
 		}
 	],
 	"id":"68f934738dd66361f6b36bde",
-	"lastModifiedBy":49915,
+	"lastModifiedBy":34802,
 	"lcName":"send email, twice callable",
-	"modifiedTime":1761292634868,
+	"modifiedTime":1762028463879,
 	"name":"Send email, Twice callable",
 	"nodes":[
 		{
@@ -67,7 +67,7 @@
 			"id":"n_cjRoF",
 			"index":2,
 			"inputs":{
-				"toRecipients":"raghav.arora@unifyapps.com,puskin.jakhar@unifyapps.com,dhrupal.kukadia@unifyapps.com",
+				"toRecipients":"raghav.arora@unifyapps.com,puskin.jakhar@unifyapps.com",
 				"emailType":"html",
 				"subject":"Test twice call",
 				"message":"<!DOCTYPE html> \n<html lang=\"en\"> \n<head> \n<meta charset=\"UTF-8\"> \n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> \n<title>Professional Email Template</title> \n<style type=\"text/css\"> \n/* Reset styles */ \nbody, p, h1, h2, h3, h4, h5, h6 { \nmargin: 0; \npadding: 0; \n} \nbody { \nbackground-color: #f6f9fc; \nfont-family: 'Segoe UI', Arial, sans-serif; \nline-height: 1.6; \ncolor: #2d3748; \n} \n/* Container styles */ \n.email-container { \nmax-width: 600px; \nmargin: 40px auto; \npadding: 0; \nbackground-color: #ffffff; \nborder-radius: 12px; \nbox-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); \noverflow: hidden;\n} \n/* Header styles */ \n.header { \ntext-align: center; \npadding: 35px 0; \nbackground: #ff0041; \nposition: relative;\n} \n.header::after {\ncontent: '';\nposition: absolute;\nbottom: 0;\nleft: 0;\nright: 0;\nheight: 6px;\nbackground: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.7), rgba(255,255,255,0.3));\n}\n.header h2 {\ncolor: #ffffff;\nfont-size: 28px;\nletter-spacing: 1px;\ntext-transform: uppercase;\nmargin-bottom: 5px;\n}\n.header p {\ncolor: rgba(255,255,255,0.9);\nfont-size: 14px;\nletter-spacing: 0.5px;\n}\n/* Content styles */ \n.content { \npadding: 40px; \nbackground-color: #ffffff; \n} \n.content h1 { \ncolor: #1a202c; \nmargin-bottom: 24px; \nfont-size: 24px; \nfont-weight: 600; \nborder-bottom: 2px solid #f0f0f0;\npadding-bottom: 12px;\n} \n.content p { \nmargin-bottom: 20px; \nfont-size: 16px; \ncolor: #4a5568; \nline-height: 1.8; \n} \n.button { \ndisplay: inline-block; \npadding: 14px 36px; \ncolor: #ffffff; \ntext-decoration: none; \nborder-radius: 50px; \nfont-weight: 600; \ntransition: all 0.3s ease; \ntext-align: center;\nmin-width: 130px;\nbox-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\ntext-transform: uppercase;\nletter-spacing: 1px;\nfont-size: 14px;\n} \n.button:hover { \ntransform: translateY(-3px); \nbox-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); \n} \n/* Button group styles */\n.button-group {\ndisplay: flex;\njustify-content: center;\ngap: 25px;\nmargin: 40px 0;\n}\n.accept-button {\nbackground: #ff0041;\ncolor: #ffffff; /* Ensuring Accept button text is white */\n}\n.accept-button:hover {\nbackground: #e6003a;\n}\n.reject-button {\nbackground: #333333;\n}\n.reject-button:hover {\nbackground: #222222;\n}\n/* Card style for content */\n.document-card {\nbackground-color: #f9f9f9;\nborder-radius: 10px;\npadding: 25px;\nmargin: 20px 0;\nborder-left: 4px solid #ff0041;\n}\n.document-card h3 {\ncolor: #ff0041;\nmargin-bottom: 10px;\nfont-size: 18px;\n}\n/* Footer styles */ \n.footer { \ntext-align: center; \npadding: 30px; \nbackground-color: #f8fafc; \nfont-size: 14px; \ncolor: #718096; \nborder-top: 1px solid #e2e8f0; \n} \n.footer-logo {\nmargin-bottom: 15px;\nfont-weight: 700;\ncolor: #ff0041;\nfont-size: 16px;\n}\n/* Signature styles */ \n.signature { \nmargin-top: 30px; \npadding-top: 20px; \nborder-top: 1px solid #e2e8f0; \n} \n.signature p {\nmargin-bottom: 5px;\n}\n.signature .name {\nfont-weight: 600;\ncolor: #333;\n}\n.signature .title {\nfont-size: 14px;\ncolor: #666;\nfont-style: italic;\n}\n/* Responsive styles */ \n@media screen and (max-width: 600px) { \n.email-container { \nwidth: 100% !important; \nmargin: 0 auto !important; \nborder-radius: 0 !important; \n} \n.content { \npadding: 25px !important; \n} \n.button-group {\nflex-direction: column;\nalign-items: center;\ngap: 15px;\n}\n.button { \ndisplay: block; \nwidth: 80%;\nmargin: 0 auto;\n} \n} \n</style> \n</head> \n<body> \n<div class=\"email-container\">\n<div class=\"header\">\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/1/1f/AirArabia_logo_English_%281%29.jpg\" alt=\"Air Arabia Logo\" style=\"max-width: 200px; height: auto; margin-bottom: 10px;\"/>\n</div>\n<div class=\"content\"> \n<h1>Important Document Attached</h1> \n<div class=\"document-card\">\n<h3>Document Details</h3>\n<p>The attached document requires your attention and acknowledgement.</p>\n<p>Acknowledgment is mandatory and is required by clicking the “Acknowledge” button.</p>\n</div>\n<div class=\"button-group\">\n<a href=\"https://harshaltest45-qa.matrix-qa.unifyapps.com/homepage\" class=\"button accept-button\" style=\"color: #ffffff !important; text-decoration: none;\">Acknowledge</a>\n\n\n</div>\n<div class=\"signature\"> \n<p class=\"name\">Best regards,</p>\n<p>Cabin Crew Training</p>\n\n\n</div> \n</div> \n</div> \n</div>\n</body> \n</html>"
@@ -95,5 +95,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":7
 }
