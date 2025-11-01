@@ -53,12 +53,19 @@
 			"skip":false,
 			"toNodeId":"n_xdkJO",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_xdkJO",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_2xzgL",
+			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761983048552,
+	"modifiedTime":1761988584354,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -228,9 +235,9 @@
 		{
 			"context":{
 				"appName":"keka",
-				"resourceVersion":203,
+				"resourceVersion":145,
 				"connectionId":"690475a3e45b9336f8e9c858",
-				"resourceName":"keka_list_groups",
+				"resourceName":"keka_list_pay_register",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -239,10 +246,36 @@
 			"groupId":"_SSoEQ-1",
 			"id":"n_xdkJO",
 			"index":8,
-			"inputs":{},
+			"inputs":{
+				"includeOutSideCTCPayables":false,
+				"payCycleId":"9be84764-fa8d-4ca3-b563-e61a00a01846",
+				"pageSize":100
+			},
 			"skip":false,
 			"subTitle":"Keka",
-			"title":"List groups",
+			"title":"List pay register",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":145,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_revise_employee_salary",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_2xzgL",
+			"index":9,
+			"inputs":{
+				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Revise employee salary",
 			"type":"ACTION"
 		}
 	],
@@ -263,5 +296,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
