@@ -74,12 +74,26 @@
 			"skip":false,
 			"toNodeId":"n_oJCNI",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_oJCNI",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_3UTSH",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_3UTSH",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_6pLA0",
+			"type":"next"
 		}
 	],
 	"id":"6905a5fe67172c7efca8f02c",
 	"lastModifiedBy":3546,
 	"lcName":"wfert5y5",
-	"modifiedTime":1761982863909,
+	"modifiedTime":1761983823138,
 	"name":"wfert5y5",
 	"nodes":[
 		{
@@ -342,12 +356,58 @@
 			"id":"n_oJCNI",
 			"index":11,
 			"inputs":{
-				"employeeIds":"00d09275-aa8c-4b1f-9bf5-6b9c6f8ce931",
-				"paygroupIds":"4c792db2-b6ff-49a0-9207-87951602e6ae"
+				"employeeIds":"00e1e791-2b5d-47aa-be09-11f5f33116aa,00d09275-aa8c-4b1f-9bf5-6b9c6f8ce931",
+				"paygroupIds":"6e749047-ac9a-47c9-907b-3f9c5728dbfb,4c792db2-b6ff-49a0-9207-87951602e6ae"
 			},
 			"skip":false,
 			"subTitle":"Keka",
 			"title":"Get all employee salaries",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":9,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_all_exit_reasons",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_3UTSH",
+			"index":12,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get all exit reasons",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":8,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_all_groups",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_6pLA0",
+			"index":13,
+			"inputs":{
+				"pageNumber":1,
+				"systemGroupTypes":"1,2",
+				"pageSize":2,
+				"lastModified":"",
+				"groupTypeIds":"5db821e7-5138-440a-885a-495c0e99430c,6312d7eb-d662-4a93-b90e-88bc8817433b"
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get all groups",
 			"type":"ACTION"
 		}
 	],
@@ -368,5 +428,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
