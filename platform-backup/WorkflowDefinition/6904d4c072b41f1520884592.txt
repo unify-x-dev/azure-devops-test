@@ -46,12 +46,26 @@
 			"skip":false,
 			"toNodeId":"n_4FqmB",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_4FqmB",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_xdkJO",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_xdkJO",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_mkhJZ",
+			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761981380689,
+	"modifiedTime":1761982553373,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -219,6 +233,42 @@
 			"subTitle":"Keka",
 			"title":"List batch payments",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":203,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_list_groups",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_xdkJO",
+			"index":8,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"List groups",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_mkhJZ",
+			"index":9,
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Select an action",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
@@ -238,5 +288,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
