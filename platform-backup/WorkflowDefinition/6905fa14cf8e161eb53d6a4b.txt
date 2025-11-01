@@ -9,11 +9,11 @@
 			"fromNodeId":"n_r5GQI",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_xXYf9",
+			"toNodeId":"n_wL4a9",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"n_xXYf9",
+			"fromNodeId":"n_wL4a9",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_OtLxW",
@@ -37,7 +37,7 @@
 	"id":"6905fa14cf8e161eb53d6a4b",
 	"lastModifiedBy":21056,
 	"lcName":"write data to excel",
-	"modifiedTime":1762000225094,
+	"modifiedTime":1762000546279,
 	"name":"Write data to excel",
 	"nodes":[
 		{
@@ -67,25 +67,53 @@
 		},
 		{
 			"context":{
-				"appName":"files_by_unifyapps",
-				"resourceVersion":980,
-				"resourceName":"files_by_unifyapps_upload_file",
+				"appName":"utility_by_unifyapps",
+				"resourceVersion":1122,
+				"resourceName":"utility_by_unifyapps_to_json_object",
 				"type":"APPLICATION"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qETHt-1",
-			"id":"n_xXYf9",
+			"id":"n_wL4a9",
 			"index":2,
 			"inputs":{
-				"fileName":"newww.xlsx",
-				"url":"https://docs.google.com/spreadsheets/d/1dX1Ls-dQP0m09h1QStCaNc7zzhNfMSo1/edit?usp=sharing&ouid=105266011078395335811&rtpof=true&sd=true",
-				"option":"url"
+				"jsonSchema":{
+					"type":"object",
+					"additionalProperties":false,
+					"properties":{
+						"name":{
+							"type":"string",
+							"title":"name"
+						},
+						"size":{
+							"type":"integer",
+							"title":"size"
+						},
+						"source":{
+							"type":"string",
+							"title":"source"
+						},
+						"sourceType":{
+							"type":"string",
+							"title":"sourceType"
+						},
+						"type":{
+							"type":"string",
+							"title":"type"
+						},
+						"link":{
+							"type":"string",
+							"title":"link"
+						}
+					}
+				},
+				"jsonString":"{     \"name\": \"Plantilla_FDVUsuario_(1).xlsx\",     \"size\": 0,     \"source\": \"user-uploads/1/1762000425737/Plantilla_FDVUsuario_(1).xlsx\",     \"sourceType\": \"CLOUD_STORAGE\",     \"type\": \"FILE\",     \"link\": \"https://qa.unifyapps.com//api/file/download/__UNIFY_ENCR_UNIFYAPPS__V3__eUyHSsActGkfSGnoeZIdT9aepwsW75AG4o9IUNjkYkP%2BQ%2Bax8Gn71cRCKp4%2FxRNUYAju43kJolTKdjVtJMP4pYDXrkbK2Tn0WR0%3D\"   }"
 			},
 			"skip":false,
-			"subTitle":"Files by UnifyApps",
-			"title":"Upload file",
+			"subTitle":"Utility by UnifyApps",
+			"title":"Deserialise string to JSON object",
 			"type":"ACTION"
 		},
 		{
@@ -96,7 +124,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_qETHt-1",
 			"id":"n_OtLxW",
@@ -395,7 +423,7 @@
 			"inputs":{
 				"rowOffset":1,
 				"columnOffset":12,
-				"fileDetails":"{{ n_xXYf9.outputs.fileDetails }}",
+				"fileDetails":"{{ n_wL4a9.outputs.result }}",
 				"sheetName":"Parametros",
 				"staticHeaders":[
 					{
@@ -446,5 +474,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
