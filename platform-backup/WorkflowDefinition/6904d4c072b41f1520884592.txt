@@ -53,19 +53,12 @@
 			"skip":false,
 			"toNodeId":"n_xdkJO",
 			"type":"next"
-		},
-		{
-			"fromNodeId":"n_xdkJO",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_mkhJZ",
-			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761982553373,
+	"modifiedTime":1761983048552,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -200,10 +193,8 @@
 			"id":"n_e9iwi",
 			"index":6,
 			"inputs":{
-				"payGroupId":"4c792db2-b6ff-49a0-9207-87951602e6ae",
 				"payCycleId":"f61691ba-5b41-4377-b24e-b8fa92a80c29",
-				"pageSize":100,
-				"status":"UnPaid, Paid"
+				"pageSize":100
 			},
 			"skip":false,
 			"subTitle":"Keka",
@@ -253,22 +244,6 @@
 			"subTitle":"Keka",
 			"title":"List groups",
 			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"keka",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_SSoEQ-1",
-			"id":"n_mkhJZ",
-			"index":9,
-			"skip":false,
-			"subTitle":"Keka",
-			"title":"Select an action",
-			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
@@ -288,5 +263,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
