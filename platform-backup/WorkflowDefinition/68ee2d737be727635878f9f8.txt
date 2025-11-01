@@ -5,12 +5,12 @@
 	"createdTime":1760439667919,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1760537814428,
-		"deployedBy":33452,
-		"deployedDefinitionId":"68efacd41ff997436ed2cd85",
+		"deployedAt":1762018786167,
+		"deployedBy":1,
+		"deployedDefinitionId":"690645e11a17db58c40fd2a3",
 		"status":"DEPLOYED",
-		"version":16,
-		"workflowVersion":31
+		"version":17,
+		"workflowVersion":32
 	},
 	"edges":[
 		{
@@ -109,7 +109,7 @@
 	"id":"68ee2d737be727635878f9f8",
 	"lastModifiedBy":1,
 	"lcName":"excel test go",
-	"modifiedTime":1762018782368,
+	"modifiedTime":1762020675433,
 	"name":"Excel test go",
 	"nodes":[
 		{
@@ -182,7 +182,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_4IlKI-1",
 			"id":"n_ceV2l",
@@ -190,6 +190,7 @@
 			"inputs":{
 				"fileDetails":"{{ n_waGDH.outputs.properties.invoiceCopyPDF }}",
 				"use_excelize":true,
+				"includeStartingNRows":5,
 				"fileType":"XLSX"
 			},
 			"skip":false,
@@ -647,7 +648,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_4IlKI-1",
 			"id":"n_yQ3iS",
@@ -911,5 +912,5 @@
 	"tags":[
 		
 	],
-	"version":32
+	"version":33
 }
