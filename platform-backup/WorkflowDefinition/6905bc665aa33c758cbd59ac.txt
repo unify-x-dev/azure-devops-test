@@ -221,7 +221,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761986139505,
+	"modifiedTime":1761986184102,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -529,6 +529,7 @@
 				"includeRoleMappings":false,
 				"includeCurrentUserPermissions":false,
 				"translationsOption":"DEFAULT",
+				"id":"{{ n_mwDFF.outputs.result.ActivityId }}",
 				"readThroughSessionVariables":false
 			},
 			"skip":false,
@@ -890,5 +891,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
