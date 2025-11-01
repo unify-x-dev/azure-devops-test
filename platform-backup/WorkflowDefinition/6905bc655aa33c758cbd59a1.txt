@@ -23,7 +23,7 @@
 	"id":"6905bc655aa33c758cbd59a1",
 	"lastModifiedBy":76193,
 	"lcName":"virtusa | google chats approval flow",
-	"modifiedTime":1761986649623,
+	"modifiedTime":1761986660063,
 	"name":"virtusa | google chats approval flow",
 	"nodes":[
 		{
@@ -64,6 +64,8 @@
 		{
 			"context":{
 				"appName":"variable_by_unifyapps",
+				"resourceVersion":1096,
+				"resourceName":"variable_by_unifyapps_create_variables",
 				"type":"APPLICATION"
 			},
 			"debug":false,
@@ -72,9 +74,44 @@
 			"groupId":"_Yay0R-1",
 			"id":"n_d1ceI",
 			"index":2,
+			"inputSchema":{
+				"type":"SCHEMA_AND_LAYOUT",
+				"dynamic":false,
+				"layout":{},
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					},
+					"required":[
+						"a"
+					]
+				}
+			},
+			"inputs":{},
+			"outputSchema":{
+				"dynamic":false,
+				"schema":{
+					"additionalProperties":false,
+					"type":"object",
+					"properties":{
+						"a":{
+							"type":"string",
+							"title":"A"
+						}
+					},
+					"required":[
+						"a"
+					]
+				}
+			},
 			"skip":false,
 			"subTitle":"Variable by UnifyApps",
-			"title":"Select an action",
+			"title":"Create variables",
 			"type":"ACTION"
 		},
 		{
@@ -118,5 +155,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
