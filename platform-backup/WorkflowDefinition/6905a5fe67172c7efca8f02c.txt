@@ -277,12 +277,19 @@
 			"skip":false,
 			"toNodeId":"n_gaXkF",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_gaXkF",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_B7uj7",
+			"type":"next"
 		}
 	],
 	"id":"6905a5fe67172c7efca8f02c",
 	"lastModifiedBy":3546,
 	"lcName":"wfert5y5",
-	"modifiedTime":1761999071964,
+	"modifiedTime":1762002549767,
 	"name":"wfert5y5",
 	"nodes":[
 		{
@@ -1159,10 +1166,11 @@
 			"id":"n_AdcNS",
 			"index":37,
 			"inputs":{
-				"fromDate":"2025-11-13T02:30:00.000Z",
+				"fromDate":"2025-11-15T02:30:00.000Z",
+				"note":"This is my second",
 				"fromSession":1,
 				"toSession":1,
-				"toDate":"2025-11-14T02:30:00.000Z",
+				"toDate":"2025-11-16T02:30:00.000Z",
 				"employeeId":"00e1e791-2b5d-47aa-be09-11f5f33116aa"
 			},
 			"skip":false,
@@ -1213,19 +1221,19 @@
 			"id":"n_VpBmn",
 			"index":39,
 			"inputs":{
-				"lastName":"s",
+				"lastName":"K",
 				"gender":1,
-				"displayName":"John",
-				"mobileNumber":"9123456782",
+				"displayName":"Johnsen",
+				"mobileNumber":"9123456723",
 				"dateJoined":"2025-10-31T11:53:00.000Z",
 				"jobTitle":"2b5c294a-cfa4-432f-89ed-7e2ce3fb0032",
 				"dateOfBirth":"1985-11-02T11:53:00.000Z",
-				"employeeNumber":"123",
+				"employeeNumber":"125",
 				"firstName":"John",
-				"middleName":"Dev",
+				"middleName":"sen",
 				"location":"b23b3415-383d-437d-8361-050c1ecd261b",
 				"department":"077826d4-f552-4088-8035-b856d9867374",
-				"email":"johndev@example.com"
+				"email":"johnsens@example.com"
 			},
 			"skip":false,
 			"subTitle":"Keka",
@@ -1250,12 +1258,48 @@
 				"exitType":1,
 				"comments":"Thank you for incredible experience",
 				"exitReason":"affe52f6-bdf1-4663-8750-4528d4c80de8",
-				"id":"03d507b5-e7fd-4f7c-941b-7e89f37aca34",
+				"lastWorkingDate":"2025-11-14T12:35:00.000Z",
+				"isOkToRehire":true,
+				"id":"91ed3a7e-696b-40b7-911c-e327fa52fd3a",
 				"resignationDate":"2025-11-15T11:58:00.000Z"
 			},
 			"skip":false,
 			"subTitle":"Keka",
 			"title":"Deactivate an employee",
+			"type":"ACTION"
+		},
+		{
+			"additional":{
+				"visibleOptionalFields":[
+					"root.salaryComponents.items.componentId",
+					"root.salaryComponents.items.declaredAmount"
+				]
+			},
+			"context":{
+				"appName":"keka",
+				"resourceVersion":195,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_declare_flexi_benefits",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_qlrJB-1",
+			"id":"n_B7uj7",
+			"index":41,
+			"inputs":{
+				"employeeId":"4b3a6946-3d4e-4a50-b514-e88550664a28",
+				"salaryComponents":[
+					{
+						"componentId":"c024e76f-ed2c-4e42-93fa-45055712900a",
+						"declaredAmount":2000
+					}
+				]
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Declare flexi benefits",
 			"type":"ACTION"
 		}
 	],
@@ -1276,5 +1320,5 @@
 	"tags":[
 		
 	],
-	"version":6
+	"version":7
 }
