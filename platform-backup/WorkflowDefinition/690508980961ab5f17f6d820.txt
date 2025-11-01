@@ -44,7 +44,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1762004763551,
+	"modifiedTime":1762004959028,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -213,13 +213,18 @@
 				"spaceId":"=TRIM(RIGHT({{ n_QLm54.outputs.name }}, LEN({{ n_QLm54.outputs.name }}) - FIND(\"§\", SUBSTITUTE({{ n_QLm54.outputs.name }}, \"/\", \"§\", LEN({{ n_QLm54.outputs.name }}) - LEN(SUBSTITUTE({{ n_QLm54.outputs.name }}, \"/\", \"\"))))))",
 				"name":"Approval request",
 				"text":"Please accept or reject this request",
-				"cardsV2":{
-					"items":{
+				"cardsV2":[
+					{
 						"card":{
+							"header":{
+								"title":"Test",
+								"subtitle":"Virtusa"
+							},
 							"sections":[
 								{
-									"widgets":{
-										"items":{
+									"header":"Virtusa",
+									"widgets":[
+										{
 											"widgetType":"buttonList",
 											"buttonList":{
 												"buttons":[
@@ -228,25 +233,19 @@
 														"onClick":{
 															"actionType":"openLink",
 															"openLink":{
-																"url":"qa.unifyapps.com",
-																"openAs":"OVERLAY"
+																"url":"qa.unifyapps.com"
 															}
-														},
-														"color":{
-															"green":1
 														}
 													}
 												]
 											}
-										},
-										"ua:type":"mappedArray"
-									}
+										}
+									]
 								}
 							]
 						}
-					},
-					"ua:type":"mappedArray"
-				}
+					}
+				]
 			},
 			"skip":false,
 			"subTitle":"Google Chat",
@@ -376,5 +375,5 @@
 	"tags":[
 		
 	],
-	"version":34
+	"version":35
 }
