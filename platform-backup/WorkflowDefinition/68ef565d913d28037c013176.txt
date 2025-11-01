@@ -66,7 +66,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1761986731620,
+	"modifiedTime":1762028784658,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -509,7 +509,7 @@
 			"index":7,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"from pypdf import PdfWriter\nimport base64\n\n# Read both PDF files\nwith open(test1, \"rb\") as f:\n    pdf1_content = f.read()\n\nwith open(test2, \"rb\") as f:\n    pdf2_content = f.read()\n\n# Merge PDFs\nmerger = PdfWriter()\nmerger.append(test1)\nmerger.append(test2)\n\n# Write merged PDF\nwith open(\"merged_output.pdf\", \"wb\") as f:\n    merger.write(f)\n\n# Create a summary report\nwith open(\"merge_summary.txt\", \"w\") as f:\n    f.write(\"=== PDF MERGE SUMMARY ===\\n\\n\")\n    f.write(f\"Input Files:\\n\")\n    f.write(f\"  - test1: {len(pdf1_content)} bytes\\n\")\n    f.write(f\"  - test2: {len(pdf2_content)} bytes\\n\\n\")\n    f.write(f\"Output File: merged_output.pdf\\n\")\n    f.write(f\"Status: Successfully merged\\n\")\n\nresult = {\n    \"status\": \"success\",\n    \"input_file_1_size\": len(pdf1_content),\n    \"input_file_2_size\": len(pdf2_content),\n    \"merged_file\": \"merged_output.pdf\",\n    \"total_input_size\": len(pdf1_content) + len(pdf2_content)\n}",
+				"code":"from pypdf import PdfWriter\nimport base64\n\n# Read both PDF files\nwith open(test1, \"rb\") as f:\n    pdf1_content = f.read()\n\nwith open(test2, \"rb\") as f:\n    pdf2_content = f.read()\n\n# Merge PDFs\nmerger = PdfWriter()\nmerger.append(test1)\nmerger.append(test2)\n\n# Write merged PDF\nwith open(\"merged_output12345678.pdf\", \"wb\") as f:\n    merger.write(f)\n\n# Create a summary report\nwith open(\"merge_summary.txt\", \"w\") as f:\n    f.write(\"=== PDF MERGE SUMMARY ===\\n\\n\")\n    f.write(f\"Input Files:\\n\")\n    f.write(f\"  - test1: {len(pdf1_content)} bytes\\n\")\n    f.write(f\"  - test2: {len(pdf2_content)} bytes\\n\\n\")\n    f.write(f\"Output File: merged_output.pdf\\n\")\n    f.write(f\"Status: Successfully merged\\n\")\n\nresult = {\n    \"status\": \"success\",\n    \"input_file_1_size\": len(pdf1_content),\n    \"input_file_2_size\": len(pdf2_content),\n    \"merged_file\": \"merged_output.pdf\",\n    \"total_input_size\": len(pdf1_content) + len(pdf2_content)\n}",
 				"imports":{
 					"items":"pypdf",
 					"ua:type":"mappedArray"
@@ -573,5 +573,5 @@
 	"tags":[
 		
 	],
-	"version":43
+	"version":44
 }
