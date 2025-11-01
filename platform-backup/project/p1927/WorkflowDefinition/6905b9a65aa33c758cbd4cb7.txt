@@ -1,0 +1,64 @@
+{
+	"appsUsed":[
+		
+	],
+	"createdTime":1761982886477,
+	"deleted":false,
+	"edges":[
+		{
+			"fromNodeId":"_RMYmt",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"_h23Sc",
+			"type":"next"
+		}
+	],
+	"id":"6905b9a65aa33c758cbd4cb7",
+	"lastModifiedBy":308,
+	"lcName":"[power] activityrepourl",
+	"modifiedTime":1761982886477,
+	"name":"[Power] ActivityRepoUrl",
+	"nodes":[
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_RMYmt-1",
+			"id":"_RMYmt",
+			"index":0,
+			"skip":false,
+			"title":"Select a trigger event",
+			"trigger":{
+				"type":"EVENT"
+			},
+			"type":"START"
+		},
+		{
+			"debug":false,
+			"dirty":false,
+			"fallbackMode":"STOP",
+			"groupId":"_RMYmt-1",
+			"id":"_h23Sc",
+			"index":0,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
+		}
+	],
+	"ownerUserId":308,
+	"projectId":1927,
+	"settings":{
+		"enableNodeLevelLogging":true,
+		"enableRunLogging":true,
+		"enableVariableLogging":true,
+		"route":{
+			"default":false,
+			"tierName":"global"
+		}
+	},
+	"standard":false,
+	"tags":[
+		
+	],
+	"version":0
+}
