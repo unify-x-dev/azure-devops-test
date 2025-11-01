@@ -5,12 +5,12 @@
 	"createdTime":1761672971965,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761981445973,
+		"deployedAt":1762000400066,
 		"deployedBy":308,
-		"deployedDefinitionId":"6905b405ad7f1c10e14af998",
+		"deployedDefinitionId":"6905fe10a540f95b3684528c",
 		"status":"DEPLOYED",
-		"version":2,
-		"workflowVersion":138
+		"version":3,
+		"workflowVersion":142
 	},
 	"edges":[
 		{
@@ -52,7 +52,7 @@
 	"id":"6900ff0b9d505c7da12c5dd9",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeeactivitiesbulkhttptrigger",
-	"modifiedTime":1762000394015,
+	"modifiedTime":1762001105174,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeActivitiesBulkHttpTrigger",
 	"nodes":[
 		{
@@ -62,7 +62,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
 			"id":"n_ySIoa",
@@ -101,6 +101,21 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"result":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Result"
+								}
+							},
+							"additionalProperties":false,
+							"required":[
+								"result"
+							]
 						}
 					}
 				],
@@ -343,7 +358,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_C52UY-1",
 			"id":"n_GVBx1",
@@ -352,6 +367,9 @@
 				"streamingCompleted":true,
 				"responseName":"200_ok",
 				"set_cookies":[],
+				"body":{
+					"result":"{{ n_2G9Iq.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -378,5 +396,5 @@
 	"tags":[
 		
 	],
-	"version":142
+	"version":143
 }
