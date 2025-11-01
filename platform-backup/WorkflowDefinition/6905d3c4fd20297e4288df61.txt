@@ -1,19 +1,12 @@
 {
 	"appsUsed":[
-		"storage_by_unifyapps"
+		
 	],
 	"createdTime":1761989572516,
 	"deleted":false,
 	"edges":[
 		{
 			"fromNodeId":"n_IaXQC",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_mtxsC",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_mtxsC",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_Za8JY",
@@ -23,7 +16,7 @@
 	"id":"6905d3c4fd20297e4288df61",
 	"lastModifiedBy":4130,
 	"lcName":"testing webjobs",
-	"modifiedTime":1762000165649,
+	"modifiedTime":1762000170147,
 	"name":"Testing Webjobs",
 	"nodes":[
 		{
@@ -52,22 +45,6 @@
 			"type":"START"
 		},
 		{
-			"context":{
-				"appName":"storage_by_unifyapps",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_UMJxi-1",
-			"id":"n_mtxsC",
-			"index":2,
-			"skip":false,
-			"subTitle":"Storage by UnifyApps",
-			"title":"Select an action",
-			"type":"ACTION"
-		},
-		{
 			"additional":{
 				"visibleOptionalFields":[
 					"root.metadata.replaceValues.items.key",
@@ -86,7 +63,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_UMJxi-1",
 			"id":"n_Za8JY",
-			"index":3,
+			"index":2,
 			"inputs":{
 				"webJobFile":"e_69048c784d2a0f4652bf779e",
 				"setupFile":"e_690496086f280a77f37d8125",
@@ -115,5 +92,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
