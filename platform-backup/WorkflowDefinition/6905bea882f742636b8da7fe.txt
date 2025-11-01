@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761984206989,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761984207060,
+		"deployedBy":175325,
+		"deployedDefinitionId":"6905becf5aa33c758cbd665c",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":1
+	},
 	"edges":[
 		{
 			"fromNodeId":"lZXRK",
@@ -13,10 +21,54 @@
 			"type":"next"
 		}
 	],
+	"grants":{
+		"configs":[
+			{
+				"permissions":[
+					"EXPORT_AS_TEMPLATE",
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"TEST",
+					"VIEW_RUNS",
+					"E",
+					"V",
+					"VS",
+					"DEP"
+				],
+				"principalIds":[
+					"168834"
+				],
+				"principalType":"USER"
+			},
+			{
+				"permissions":[
+					"EXPORT_AS_TEMPLATE",
+					"A",
+					"C",
+					"S",
+					"VI",
+					"D",
+					"TEST",
+					"VIEW_RUNS",
+					"E",
+					"V",
+					"VS",
+					"DEP"
+				],
+				"principalIds":[
+					"169044"
+				],
+				"principalType":"USER"
+			}
+		]
+	},
 	"id":"6905bea882f742636b8da7fe",
 	"lastModifiedBy":175325,
 	"lcName":"changesetlocalautokugdyaosxw",
-	"modifiedTime":1761984206989,
+	"modifiedTime":1761984265306,
 	"name":"changeSetLocalautoKugdYaOsXW",
 	"nodes":[
 		{
@@ -107,5 +159,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":3
 }
