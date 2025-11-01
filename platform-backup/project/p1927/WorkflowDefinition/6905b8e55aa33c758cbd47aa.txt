@@ -90,18 +90,18 @@
 			"fromNodeId":"n_tvbJT@4",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_Gs9EY",
+			"toNodeId":"_Bfkm9",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_Gs9EY",
+			"fromNodeId":"_Bfkm9",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_owbfX",
+			"toNodeId":"_iZrMq",
 			"type":"next"
 		},
 		{
-			"fromNodeId":"_owbfX",
+			"fromNodeId":"_iZrMq",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_iinWr",
@@ -155,7 +155,7 @@
 	"id":"6905b8e55aa33c758cbd47aa",
 	"lastModifiedBy":39715,
 	"lcName":"[virtu-reps] employeedesignationobjectautomation",
-	"modifiedTime":1761982948393,
+	"modifiedTime":1761983851214,
 	"name":"[virtu-reps] EmployeeDesignationObjectAutomation",
 	"nodes":[
 		{
@@ -696,19 +696,19 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
-			"id":"_Gs9EY",
+			"id":"_Bfkm9",
 			"index":13,
 			"inputs":{
 				"output":{
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"ReferenceNumber"
+						"EmployeeId"
 					],
 					"properties":{
-						"ReferenceNumber":{
-							"type":"string",
-							"title":"ReferenceNumber"
+						"EmployeeId":{
+							"type":"integer",
+							"title":"EmployeeId"
 						}
 					}
 				},
@@ -725,7 +725,7 @@
 						}
 					}
 				},
-				"code":"return [\"ReferenceNumber\" : payload[\"ReferenceNumber\"]]",
+				"code":"return [\"EmployeeId\" : payload[\"EmployeeId\"]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -733,7 +733,7 @@
 				}
 			},
 			"skip":false,
-			"subTitle":"Fetch ReferenceNumber",
+			"subTitle":"Fetch EmployeeId",
 			"title":"Execute Groovy code",
 			"type":"ACTION"
 		},
@@ -753,7 +753,7 @@
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_tvbJT@_JfTSF-1@4",
-			"id":"_owbfX",
+			"id":"_iZrMq",
 			"index":14,
 			"inputs":{
 				"output":{
@@ -762,8 +762,8 @@
 					"required":[
 						"Id",
 						"row_num",
-						"ReferenceNumber",
-						"Name"
+						"DesignationId",
+						"EmployeeId"
 					],
 					"properties":{
 						"Id":{
@@ -774,13 +774,13 @@
 							"type":"integer",
 							"title":"row_num"
 						},
-						"ReferenceNumber":{
-							"type":"string",
-							"title":"ReferenceNumber"
+						"DesignationId":{
+							"type":"integer",
+							"title":"DesignationId"
 						},
-						"Name":{
-							"type":"string",
-							"title":"Name"
+						"EmployeeId":{
+							"type":"integer",
+							"title":"EmployeeId"
 						}
 					}
 				},
@@ -799,7 +799,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n    Name                 : payload.Name ?: '',\n    Id                   : payload.Id ?: 0,\n    ReferenceNumber      : payload.ReferenceNumber ?: 0,\n    row_num              : payload.row_num ?: 0\n]\n\nreturn result",
+				"code":"def result = [\n    EmployeeId           : payload.EmployeeId ?: '',\n    Id                   : payload.Id ?: 0,\n    DesignationId        : payload.DesignationId ?: 0,\n    row_num              : payload.row_num ?: 0\n]\n\nreturn result",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -829,37 +829,37 @@
 				"triggerInputCondition":{
 					"filters":[
 						{
-							"property":"properties_ReferenceNumber",
+							"property":"properties_EmployeeId",
 							"filter":{
 								"operator":"EQUAL",
-								"value":"{{ _Gs9EY.outputs.result.ReferenceNumber }}"
+								"value":"{{ _iZrMq.outputs.result.EmployeeId }}"
 							}
 						}
 					],
 					"operator":"AND"
 				},
-				"object_type":"reps_business_unit",
+				"object_type":"reps_employee_designation",
 				"skipIfBlank":true,
 				"updateFields":[
 					{
 						"fieldName":"properties.Id",
 						"actionType":"SET",
-						"setValue":"{{ _owbfX.outputs.result.Id }}"
+						"setValue":"{{ _iZrMq.outputs.result.Id }}"
 					},
 					{
-						"fieldName":"properties.Name",
+						"fieldName":"properties.EmployeeId",
 						"actionType":"SET",
-						"setValue":"{{ _owbfX.outputs.result.Name }}"
+						"setValue":"{{ _iZrMq.outputs.result.EmployeeId }}"
 					},
 					{
-						"fieldName":"properties.ReferenceNumber",
+						"fieldName":"properties.DesignationId",
 						"actionType":"SET",
-						"setValue":"{{ _owbfX.outputs.result.ReferenceNumber }}"
+						"setValue":"{{ _iZrMq.outputs.result.DesignationId }}"
 					},
 					{
 						"fieldName":"properties.row_num",
 						"actionType":"SET",
-						"setValue":"{{ _owbfX.outputs.result.row_num }}"
+						"setValue":"{{ _iZrMq.outputs.result.row_num }}"
 					}
 				],
 				"page":{
@@ -941,5 +941,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
