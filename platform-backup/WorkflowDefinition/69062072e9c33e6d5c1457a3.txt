@@ -396,7 +396,7 @@
 	"id":"69062072e9c33e6d5c1457a3",
 	"lastModifiedBy":308,
 	"lcName":"syncemployeeactivitiesbulkhttptriggerdb",
-	"modifiedTime":1762026916037,
+	"modifiedTime":1762026956580,
 	"name":"SyncEmployeeActivitiesBulkHttpTriggerDb",
 	"nodes":[
 		{
@@ -1486,7 +1486,7 @@
 						}
 					}
 				},
-				"code":"def result = [\n  \"UserName\": payload[\"UserName\"] ?: \"\",\n  \"BadgeId\": payload[\"BadgeId\"] ?: 0,\n  \"Date\": payload[\"Date\"] ?: new java.text.SimpleDateFormat(\"yyyy-MM-dd\").format(new Date()),\n  \"ExpireDate\": payload[\"ExpireDate\"] ?: new java.text.SimpleDateFormat(\"yyyy-MM-dd\").format(new Date() + 3650) // 10 years from now\n]\nreturn result",
+				"code":"def calculateFutureDate(days) {\n    def calendar = java.util.Calendar.getInstance()\n    calendar.setTime(new Date())\n    calendar.add(java.util.Calendar.DAY_OF_MONTH, days)\n    return new java.text.SimpleDateFormat(\"yyyy-MM-dd\").format(calendar.getTime())\n}",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -1956,5 +1956,5 @@
 		}
 	},
 	"standard":false,
-	"version":19
+	"version":20
 }
