@@ -21,12 +21,34 @@
 			"skip":false,
 			"toNodeId":"n_kQLJc",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_kQLJc",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_gqbnP",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_gqbnP",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_cERDY",
+			"type":"loop"
+		},
+		{
+			"fromNodeId":"n_cERDY",
+			"name":"loopback",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_gqbnP",
+			"type":"next"
 		}
 	],
 	"id":"69032dda2947f05678489e32",
 	"lastModifiedBy":643,
 	"lcName":"triggerworkflow_117618146261810",
-	"modifiedTime":1761978215859,
+	"modifiedTime":1761979549594,
 	"name":"triggerWorkflow_117618146261810",
 	"nodes":[
 		{
@@ -77,6 +99,33 @@
 			"subTitle":"Slack",
 			"title":"Post message",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"loop",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_9CBzr-1",
+			"id":"n_gqbnP",
+			"index":3,
+			"skip":false,
+			"subTitle":"Loop",
+			"title":"Select an action",
+			"type":"LOOP"
+		},
+		{
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"n_gqbnP@_9CBzr-1@l",
+			"id":"n_cERDY",
+			"index":4,
+			"skip":false,
+			"title":"Select an app and action",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":175325,
@@ -96,5 +145,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
