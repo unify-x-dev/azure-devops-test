@@ -23,6 +23,13 @@
 			"fromNodeId":"n_G4ZXQ",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"_EgN9n",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"_EgN9n",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_u3z18",
 			"type":"next"
 		},
@@ -66,7 +73,7 @@
 	"id":"68ef565d913d28037c013176",
 	"lastModifiedBy":39714,
 	"lcName":"test-python",
-	"modifiedTime":1762028784658,
+	"modifiedTime":1762028939646,
 	"name":"test-python",
 	"nodes":[
 		{
@@ -138,6 +145,29 @@
 		},
 		{
 			"context":{
+				"appName":"files_by_unifyapps",
+				"resourceVersion":976,
+				"resourceName":"files_by_unifyapps_upload_file",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_Ekzdv-1",
+			"id":"_EgN9n",
+			"index":4,
+			"inputs":{
+				"fileName":"test3",
+				"url":"https://tourism.gov.in/sites/default/files/2019-04/dummy-pdf_2.pdf",
+				"option":"url"
+			},
+			"skip":false,
+			"subTitle":"Files by UnifyApps",
+			"title":"Upload file",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"variable_by_unifyapps",
 				"resourceVersion":1044,
 				"resourceName":"variable_by_unifyapps_create_list",
@@ -148,7 +178,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_u3z18",
-			"index":4,
+			"index":5,
 			"inputSchema":{
 				"type":"SCHEMA_AND_LAYOUT",
 				"dynamic":false,
@@ -408,7 +438,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_jAviR",
-			"index":5,
+			"index":6,
 			"inputs":{
 				"start":0,
 				"limit":2,
@@ -432,7 +462,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"n_jAviR@_Ekzdv-1@l",
 			"id":"n_ti5JR",
-			"index":6,
+			"index":7,
 			"inputs":{
 				"itemToAdd":"{{ _wAt1k.outputs.fileDetails }}",
 				"insertLocation":"END",
@@ -506,10 +536,10 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_kEFgb",
-			"index":7,
+			"index":8,
 			"inputs":{
 				"configurationMode":"DEFAULT",
-				"code":"from pypdf import PdfWriter\nimport base64\n\n# Read both PDF files\nwith open(test1, \"rb\") as f:\n    pdf1_content = f.read()\n\nwith open(test2, \"rb\") as f:\n    pdf2_content = f.read()\n\n# Merge PDFs\nmerger = PdfWriter()\nmerger.append(test1)\nmerger.append(test2)\n\n# Write merged PDF\nwith open(\"merged_output12345678.pdf\", \"wb\") as f:\n    merger.write(f)\n\n# Create a summary report\nwith open(\"merge_summary.txt\", \"w\") as f:\n    f.write(\"=== PDF MERGE SUMMARY ===\\n\\n\")\n    f.write(f\"Input Files:\\n\")\n    f.write(f\"  - test1: {len(pdf1_content)} bytes\\n\")\n    f.write(f\"  - test2: {len(pdf2_content)} bytes\\n\\n\")\n    f.write(f\"Output File: merged_output.pdf\\n\")\n    f.write(f\"Status: Successfully merged\\n\")\n\nresult = {\n    \"status\": \"success\",\n    \"input_file_1_size\": len(pdf1_content),\n    \"input_file_2_size\": len(pdf2_content),\n    \"merged_file\": \"merged_output.pdf\",\n    \"total_input_size\": len(pdf1_content) + len(pdf2_content)\n}",
+				"code":"from pypdf import PdfWriter\nimport base64\n\n# Read both PDF files\nwith open(xyz1, \"rb\") as f:\n    pdf1_content = f.read()\n\nwith open(xyz123, \"rb\") as f:\n    pdf2_content = f.read()\n\nwith open(abc123, \"rb\") as f:\n    pdf2_content = f.read()\n\n# Merge PDFs\nmerger = PdfWriter()\nmerger.append(xyz1)\nmerger.append(xyz123)\nmerger.append(abc123)\n\n# Write merged PDF\nwith open(\"merged_output12345678.pdf\", \"wb\") as f:\n    merger.write(f)\n\n# Create a summary report\nwith open(\"merge_summary.txt\", \"w\") as f:\n    f.write(\"=== PDF MERGE SUMMARY ===\\n\\n\")\n    f.write(f\"Input Files:\\n\")\n    f.write(f\"  - test1: {len(pdf1_content)} bytes\\n\")\n    f.write(f\"  - test2: {len(pdf2_content)} bytes\\n\\n\")\n    f.write(f\"Output File: merged_output.pdf\\n\")\n    f.write(f\"Status: Successfully merged\\n\")\n\nresult = {\n    \"status\": \"success\",\n    \"input_file_1_size\": len(pdf1_content),\n    \"input_file_2_size\": len(pdf2_content),\n    \"merged_file\": \"merged_output.pdf\",\n    \"total_input_size\": len(pdf1_content) + len(pdf2_content)\n}",
 				"imports":{
 					"items":"pypdf",
 					"ua:type":"mappedArray"
@@ -546,7 +576,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_Ekzdv-1",
 			"id":"n_Am7AV",
-			"index":8,
+			"index":9,
 			"inputs":{
 				"result":"{{ n_188Pp.outputs.success }}"
 			},
@@ -573,5 +603,5 @@
 	"tags":[
 		
 	],
-	"version":44
+	"version":45
 }
