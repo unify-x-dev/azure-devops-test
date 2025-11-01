@@ -30,7 +30,7 @@
 	"id":"6905d0c7fd20297e4288d672",
 	"lastModifiedBy":43069,
 	"lcName":"asd",
-	"modifiedTime":1761988968423,
+	"modifiedTime":1761988990060,
 	"name":"asd",
 	"nodes":[
 		{
@@ -93,6 +93,19 @@
 			"id":"n_e9YbF",
 			"index":2,
 			"inputs":{
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"action"
+					],
+					"properties":{
+						"action":{
+							"type":"string",
+							"title":"Action"
+						}
+					}
+				},
 				"code":"return [\"action\": \"abc\"]",
 				"compile_static":false,
 				"captureStdOutput":false
@@ -110,15 +123,17 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_QTDb1-1",
 			"id":"n_blNLv",
 			"index":3,
 			"inputs":{
 				"automationId":"{{ n_QYBhL.outputs.automationId }}",
+				"runtimeConnections":"",
 				"synchronous":true,
-				"version":"-1"
+				"version":"-1",
+				"parameters":"{{ n_e9YbF.outputs.result }}"
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -166,5 +181,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
