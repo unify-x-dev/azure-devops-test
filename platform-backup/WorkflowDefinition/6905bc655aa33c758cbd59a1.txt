@@ -5,16 +5,16 @@
 	"createdTime":1761983589842,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761987976209,
-		"deployedBy":76193,
-		"deployedDefinitionId":"6905cd88fd20297e4288b277",
+		"deployedAt":1761988948378,
+		"deployedBy":43069,
+		"deployedDefinitionId":"6905d1547ff9833294abc4f9",
 		"status":"DEPLOYED",
-		"version":5,
-		"workflowVersion":6
+		"version":6,
+		"workflowVersion":7
 	},
 	"edges":[
 		{
-			"fromNodeId":"n_mtN9U",
+			"fromNodeId":"n_ONk20",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_d1ceI",
@@ -29,54 +29,33 @@
 		}
 	],
 	"id":"6905bc655aa33c758cbd59a1",
-	"lastModifiedBy":43069,
+	"lastModifiedBy":76193,
 	"lcName":"virtusa | google chats approval flow",
-	"modifiedTime":1761988946842,
+	"modifiedTime":1762027362630,
 	"name":"virtusa | google chats approval flow",
 	"nodes":[
 		{
 			"context":{
-				"appName":"callables",
-				"resourceVersion":1080,
-				"resourceName":"callables_from_automation"
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
 			},
 			"debug":false,
 			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_Yay0R-1",
-			"id":"n_mtN9U",
+			"id":"n_ONk20",
 			"index":1,
 			"inputs":{
-				"result":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[
-						"status"
-					],
-					"properties":{
-						"status":{
-							"type":"string",
-							"title":"Status"
-						}
-					}
-				},
-				"setup":{
-					"type":"object",
-					"additionalProperties":false,
-					"required":[],
-					"properties":{
-						"action":{
-							"type":"string",
-							"title":"Action"
-						}
-					}
+				"request":{
+					"contentType":"application/json"
 				}
 			},
 			"skip":false,
-			"subTitle":"Callable",
-			"title":"Trigger via automation",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"CALLABLE"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -88,7 +67,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_Yay0R-1",
 			"id":"n_d1ceI",
@@ -153,7 +132,7 @@
 					"status":"{{ n_d1ceI.outputs.a }}"
 				}
 			},
-			"skip":false,
+			"skip":true,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
 			"type":"STOP"
@@ -176,5 +155,5 @@
 	"tags":[
 		
 	],
-	"version":7
+	"version":8
 }
