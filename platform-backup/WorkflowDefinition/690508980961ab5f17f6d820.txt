@@ -44,7 +44,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761989310083,
+	"modifiedTime":1761989393609,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -299,7 +299,7 @@
 						}
 					}
 				},
-				"code":"def input = id.toString()\ndef parameters_obj = {\"action\":\"accept\"}\nreturn [\"id_output\": input,\n\"parameters\": parameters_obj]\n",
+				"code":"def input = id.toString()\ndef parameters_obj = [\"action\":\"accept\"]\nreturn [\"id_output\": input,\n\"parameters\": parameters_obj]\n",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -377,5 +377,5 @@
 	"tags":[
 		
 	],
-	"version":22
+	"version":23
 }
