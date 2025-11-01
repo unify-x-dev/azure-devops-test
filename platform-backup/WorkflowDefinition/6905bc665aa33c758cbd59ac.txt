@@ -284,7 +284,7 @@
 	"id":"6905bc665aa33c758cbd59ac",
 	"lastModifiedBy":308,
 	"lcName":"empowerbadgesschedulerfn",
-	"modifiedTime":1761989819775,
+	"modifiedTime":1761989874443,
 	"name":"emPowerBadgesSchedulerFN",
 	"nodes":[
 		{
@@ -335,14 +335,14 @@
 							"type":"object",
 							"properties":{
 								"response":{
-									"type":"string",
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
 									"title":"Response"
 								}
 							},
 							"additionalProperties":false,
-							"required":[
-								"response"
-							]
+							"required":[]
 						}
 					},
 					{
@@ -645,7 +645,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_h7Pue@n_ZhAEo@_NyQKV-1@1@y",
 			"id":"n_Alywo",
@@ -653,6 +653,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_ok",
+				"body":{
+					"response":"{{ n_8048h.outputs.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -821,7 +824,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_v2xEl@n_ZhAEo@_NyQKV-1@2@y",
 			"id":"n_sGvuz",
@@ -829,6 +832,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_ok",
+				"body":{
+					"response":"{{ n_j16xu.outputs.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1020,7 +1026,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_uv1kj@n_ZhAEo@_NyQKV-1@3@y",
 			"id":"n_nA174",
@@ -1028,6 +1034,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_ok",
+				"body":{
+					"response":"{{ n_apjIY.outputs.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1196,7 +1205,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_gNw8s@n_ZhAEo@_NyQKV-1@4@y",
 			"id":"n_k8CWW",
@@ -1204,6 +1213,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_ok",
+				"body":{
+					"response":"{{ _P0zSB.outputs.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1380,7 +1392,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_Cfp0Q@n_ZhAEo@_NyQKV-1@5@y",
 			"id":"n_aLQZi",
@@ -1388,6 +1400,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_ok",
+				"body":{
+					"response":"{{ n_AYhuf.outputs.properties }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -1436,5 +1451,5 @@
 	"tags":[
 		
 	],
-	"version":14
+	"version":15
 }
