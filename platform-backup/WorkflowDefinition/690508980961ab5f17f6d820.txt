@@ -9,20 +9,6 @@
 			"fromNodeId":"n_VggMd",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"n_yElic",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_yElic",
-			"priority":0,
-			"skip":false,
-			"toNodeId":"n_pG2e1",
-			"type":"next"
-		},
-		{
-			"fromNodeId":"n_pG2e1",
-			"priority":0,
-			"skip":false,
 			"toNodeId":"n_9Y69a",
 			"type":"next"
 		}
@@ -30,7 +16,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761975761237,
+	"modifiedTime":1761983420973,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -57,53 +43,6 @@
 				"type":"WEBHOOK"
 			},
 			"type":"START"
-		},
-		{
-			"context":{
-				"appName":"gchat",
-				"resourceVersion":6418,
-				"connectionId":"68ef6fa6e40fff78dedfdba9",
-				"resourceName":"gchat_create_space",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_DLST3-1",
-			"id":"n_yElic",
-			"index":2,
-			"inputs":{
-				"spaceType":"SPACE",
-				"displayName":"virtu",
-				"name":"sample",
-				"singleUserBotDm":true
-			},
-			"skip":false,
-			"subTitle":"Google Chat",
-			"title":"Create a space",
-			"type":"ACTION"
-		},
-		{
-			"context":{
-				"appName":"gchat",
-				"resourceVersion":47,
-				"connectionId":"68ef6fa6e40fff78dedfdba9",
-				"resourceName":"gchat_add_bot_to_chatspace",
-				"type":"APPLICATION"
-			},
-			"debug":false,
-			"dirty":true,
-			"fallbackMode":"STOP",
-			"groupId":"_DLST3-1",
-			"id":"n_pG2e1",
-			"index":3,
-			"inputs":{
-				"spaceId":"{{ n_yElic.outputs.name }}"
-			},
-			"skip":false,
-			"subTitle":"Google Chat",
-			"title":"Add bot to chatspace",
-			"type":"ACTION"
 		},
 		{
 			"additional":{
@@ -168,10 +107,11 @@
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
 			"id":"n_9Y69a",
-			"index":4,
+			"index":2,
 			"inputs":{
-				"spaceId":"{{ n_yElic.outputs.name }}",
+				"spaceId":"AAQA7C6nvuE",
 				"name":"{{ __USER__.outputs.name }}",
+				"webhookToken":"go6iqy7CzOd_wSAGDCElg_9P4TTvYWaFcsFsGIfEVlo",
 				"text":"Hi",
 				"cardsV2":{
 					"items":{
@@ -209,7 +149,8 @@
 						}
 					},
 					"ua:type":"mappedArray"
-				}
+				},
+				"webhookKey":"AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI"
 			},
 			"skip":false,
 			"subTitle":"Google Chat",
@@ -234,5 +175,5 @@
 	"tags":[
 		
 	],
-	"version":3
+	"version":4
 }
