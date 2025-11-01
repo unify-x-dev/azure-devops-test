@@ -23,7 +23,7 @@
 	"id":"69060a4fa540f95b36847865",
 	"lastModifiedBy":1246,
 	"lcName":"tinyautomation",
-	"modifiedTime":1762003656129,
+	"modifiedTime":1762003712543,
 	"name":"tinyAutomation",
 	"nodes":[
 		{
@@ -56,12 +56,12 @@
 					"type":"object",
 					"additionalProperties":false,
 					"required":[
-						"a"
+						"name"
 					],
 					"properties":{
-						"a":{
+						"name":{
 							"type":"string",
-							"title":"A"
+							"title":"Name"
 						}
 					}
 				}
@@ -89,7 +89,7 @@
 			"index":2,
 			"inputs":{
 				"input_schema":{
-					"name":"Manan"
+					"name":"{{ n_VCu4N.outputs.name }}"
 				},
 				"template_id":"e_69060a8de4e18109ae3a52e1"
 			},
@@ -139,5 +139,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
