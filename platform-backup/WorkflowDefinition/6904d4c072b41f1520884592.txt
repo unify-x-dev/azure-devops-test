@@ -95,12 +95,33 @@
 			"skip":false,
 			"toNodeId":"n_GSE0m",
 			"type":"next"
+		},
+		{
+			"fromNodeId":"n_GSE0m",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_1oyuS",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_1oyuS",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_t973w",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_t973w",
+			"priority":0,
+			"skip":false,
+			"toNodeId":"n_5oAeH",
+			"type":"next"
 		}
 	],
 	"id":"6904d4c072b41f1520884592",
 	"lastModifiedBy":6701,
 	"lcName":"keka_anohtet",
-	"modifiedTime":1761991462516,
+	"modifiedTime":1761993290939,
 	"name":"keka_anohtet",
 	"nodes":[
 		{
@@ -331,9 +352,9 @@
 				"employeeIdentifier":"0aeca400-b75f-477a-8b31-509d51b273e8",
 				"punchStatus":0,
 				"employeeId":"0aeca400-b75f-477a-8b31-509d51b273e8",
-				"attendanceLogSource":2,
+				"attendanceLogSource":1,
 				"manualClockinType":0,
-				"timestamp":"2025-11-01T09:16:39.749Z"
+				"timestamp":"2025-11-02T09:16:00.000Z"
 			},
 			"skip":false,
 			"subTitle":"Keka",
@@ -436,6 +457,72 @@
 			"subTitle":"Keka",
 			"title":"Update employee bank details",
 			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":134,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_update_employee_financial_details",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_1oyuS",
+			"index":15,
+			"inputs":{
+				"employeeIds":"0aeca400-b75f-477a-8b31-509d51b273e8",
+				"pfDetailsAvailable":false,
+				"pfDetails":{
+					"contributionToPf":false
+				},
+				"contributionToPf":false,
+				"isMemberToEps":false,
+				"lwfEligible":false,
+				"abryEligibility":false
+			},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Update employee financial details",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_t973w",
+			"index":16,
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Select an action",
+			"type":"ACTION"
+		},
+		{
+			"context":{
+				"appName":"keka",
+				"resourceVersion":164,
+				"connectionId":"690475a3e45b9336f8e9c858",
+				"resourceName":"keka_get_employee_tax_declaration",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_SSoEQ-1",
+			"id":"n_5oAeH",
+			"index":17,
+			"inputs":{},
+			"skip":false,
+			"subTitle":"Keka",
+			"title":"Get employee tax declaration",
+			"type":"ACTION"
 		}
 	],
 	"ownerUserId":3546,
@@ -455,5 +542,5 @@
 	"tags":[
 		
 	],
-	"version":12
+	"version":13
 }
