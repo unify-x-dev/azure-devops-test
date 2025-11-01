@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761650463170,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761660888887,
+		"deployedBy":27,
+		"deployedDefinitionId":"6900cfd8c273210924d07fb3",
+		"status":"DEPLOYED",
+		"version":2,
+		"workflowVersion":23
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_Ff9PD",
@@ -37,7 +45,7 @@
 	"id":"6900a71f151fb15bb24a763d",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | page",
-	"modifiedTime":1761654959656,
+	"modifiedTime":1762001608254,
 	"name":"Best Practices | Check Group | Page",
 	"nodes":[
 		{
@@ -47,7 +55,7 @@
 				"resourceName":"callables_from_interface"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_Ff9PD",
@@ -56,44 +64,55 @@
 				"result":{
 					"additionalProperties":false,
 					"type":"object",
+					"required":[],
 					"ua:modal":{
 						"field_type":"STRING",
 						"is_optional":true
 					},
 					"properties":{
-						"check_id":{
-							"type":"string",
-							"title":"check_id"
-						},
-						"status":{
-							"type":"string",
-							"title":"status"
-						},
-						"targets":{
+						"checks":{
 							"type":"array",
 							"items":{
 								"type":"object",
 								"properties":{
-									"entityId":{
+									"check_id":{
 										"type":"string",
-										"title":"entityId"
+										"title":"check_id"
 									},
-									"entityType":{
+									"status":{
 										"type":"string",
-										"title":"entityType"
+										"title":"status"
 									},
-									"path":{
+									"targets":{
 										"type":"array",
 										"items":{
-											"type":"string"
+											"type":"object",
+											"properties":{
+												"path":{
+													"type":"array",
+													"items":{
+														"type":"string"
+													},
+													"title":"path"
+												},
+												"targetId":{
+													"type":"string",
+													"title":"targetId"
+												},
+												"targetType":{
+													"type":"string",
+													"title":"targetType"
+												}
+											},
+											"additionalProperties":false,
+											"required":[]
 										},
-										"title":"path"
+										"title":"targets"
 									}
 								},
-								"additionalProperties":false,
-								"required":[]
+								"additionalProperties":false
 							},
-							"title":"targets"
+							"title":"checks"
 						}
 					}
 				},
@@ -257,7 +276,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_4hXDW",
@@ -477,20 +496,13 @@
 											"items":{
 												"type":"object",
 												"properties":{
-													"entityId":{
+													"targetId":{
 														"type":"string",
-														"title":"entityId"
+														"title":"targetId"
 													},
-													"entityType":{
+													"targetType":{
 														"type":"string",
-														"title":"entityType"
-													},
-													"selectors":{
-														"type":"array",
-														"items":{
-															"type":"string"
-														},
-														"title":"selectors"
+														"title":"targetType"
 													}
 												},
 												"additionalProperties":false
@@ -498,11 +510,7 @@
 											"title":"targets"
 										}
 									},
-									"additionalProperties":false,
-									"required":[
-										"check_id",
-										"status"
-									]
+									"additionalProperties":false
 								}
 							}
 						}
@@ -541,31 +549,20 @@
 										"items":{
 											"type":"object",
 											"properties":{
-												"entityId":{
+												"targetId":{
 													"type":"string",
-													"title":"entityId"
+													"title":"targetId"
 												},
-												"entityType":{
+												"targetType":{
 													"type":"string",
-													"title":"entityType"
-												},
-												"selectors":{
-													"type":"array",
-													"items":{
-														"type":"string"
-													},
-													"title":"selectors"
+													"title":"targetType"
 												}
 											},
 											"additionalProperties":false
 										},
 										"title":"targets"
 									}
-								},
-								"required":[
-									"check_id",
-									"status"
-								]
+								}
 							}
 						}
 					}
@@ -627,31 +624,20 @@
 										"items":{
 											"type":"object",
 											"properties":{
-												"entityId":{
+												"targetId":{
 													"type":"string",
-													"title":"entityId"
+													"title":"targetId"
 												},
-												"entityType":{
+												"targetType":{
 													"type":"string",
-													"title":"entityType"
-												},
-												"selectors":{
-													"type":"array",
-													"items":{
-														"type":"string"
-													},
-													"title":"selectors"
+													"title":"targetType"
 												}
 											},
 											"additionalProperties":false
 										},
 										"title":"targets"
 									}
-								},
-								"required":[
-									"check_id",
-									"status"
-								]
+								}
 							}
 						}
 					}
@@ -799,7 +785,7 @@
 						}
 					}
 				},
-				"code":"// check 8\n// check 3\n// check 11\n// check 10\n\n// check_id , interfacePage, dataSources is availble in context\n\n\n// we need to return checks array\n{checks: [{\"check_id\": \"check_1\",\n    \"status\": \"passed\",\n    \"targets\": [{\n        \"entityId\": \"<id>\",\n        \"entityType\": \"e_component\",\n    }]}]}\n",
+				"code":"(() => {\n  // Both `interfacePage` and `dataSources` are assumed to be provided\n  const page = interfacePage?.properties || {};\n\n  const makeCheckResult = (checkId, status, targets) => ({\n    check_id: checkId,\n    status,\n    targets: targets || []\n  });\n\n  const runCheckSafe = (checkId, fn) => {\n    try {\n      return fn(checkId);\n    } catch {\n      return makeCheckResult(checkId, \"failed\", []);\n    }\n  };\n\n  // ============================================================\n  // ✅ Define all checks in one map (ID appears only once)\n  // ============================================================\n  const CHECKS = {\n    CHECK_8: ({ checkId }) => {\n      const blocks = page.blocks || {};\n      let totalBlockCount = 0;\n      for (const _ in blocks) totalBlockCount++;\n\n      const status = totalBlockCount > 300 ? \"failed\" : \"passed\";\n      const targets = [\n        { targetId: interfacePage.id || null, targetType: \"page\" }\n      ];\n      return makeCheckResult(checkId, status, targets);\n    },\n\n    CHECK_3: ({ checkId }) => {\n      const hiddenBlockIds = [];\n      const baseBlocks = page.blocks || {};\n      const devices = page.devices || {};\n\n      for (const blockId in baseBlocks) {\n        if (blockId === \"header_id\" || blockId === \"footer_id\") continue;\n        const block = baseBlocks[blockId];\n        if (!block) continue;\n\n        const baseVisibility = block?.visibility?.value;\n        if (baseVisibility !== false) continue;\n\n        let visibleOrConditional = false;\n        for (const deviceName in devices) {\n          const deviceBlock = devices[deviceName]?.blocks?.[blockId];\n          if (!deviceBlock) continue;\n          const v = deviceBlock?.visibility?.value;\n          if (v === true || v === \"conditions\") {\n            visibleOrConditional = true;\n            break;\n          }\n        }\n\n        if (!visibleOrConditional) hiddenBlockIds.push(blockId);\n      }\n\n      const status = hiddenBlockIds.length ? \"failed\" : \"passed\";\n      const targets = hiddenBlockIds.map((id) => ({\n        targetId: id,\n        targetType: \"block\"\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    },\n\n    CHECK_11: ({ checkId }) => {\n      const slug = page.slug || \"\";\n      const invalidSlugPattern = /^page[-_]\\w+$/i;\n      const badSlug = invalidSlugPattern.test(slug);\n      const status = badSlug ? \"failed\" : \"passed\";\n\n      const targets = [\n        { targetId: interfacePage.id || null, targetType: \"page\" }\n      ];\n      return makeCheckResult(checkId, status, targets);\n    },\n\n    CHECK_10: ({ checkId }) => {\n      const failedBlocks = new Set();\n      const failedFns = new Set();\n\n      const safeStringify = (v) => {\n        try {\n          if (v && typeof v.toJSONString === \"function\") return v.toJSONString();\n          return JSON.stringify(v || \"\");\n        } catch {\n          return \"\";\n        }\n      };\n\n      // Blocks\n      const blocks = page.blocks || {};\n      for (const blockId in blocks) {\n        const block = blocks[blockId];\n        if (!block) continue;\n        const events = Array.isArray(block.events) ? block.events : [];\n        for (const evt of events) {\n          const code = safeStringify(evt?.action);\n          if (code.includes(\"console.\") || code.includes(\"debugger\")) {\n            failedBlocks.add(blockId);\n            break;\n          }\n        }\n      }\n\n      // Page functions\n      const funcs = page.pageFunctions || {};\n      for (const funcId in funcs) {\n        const fn = funcs[funcId];\n        if (!fn) continue;\n        let body = \"\";\n        try {\n          body =\n            typeof fn.functionBody?.toJSONString === \"function\"\n              ? fn.functionBody.toJSONString()\n              : String(fn.functionBody || \"\");\n        } catch {\n          body = \"\";\n        }\n        if (body.includes(\"console.\") || body.includes(\"debugger\")) {\n          failedFns.add(funcId);\n        }\n      }\n\n      const hasIssues = failedBlocks.size || failedFns.size;\n      const status = hasIssues ? \"failed\" : \"passed\";\n      const targets = [\n        ...Array.from(failedBlocks).map((id) => ({\n          targetId: id,\n          targetType: \"block\"\n        })),\n        ...Array.from(failedFns).map((id) => ({\n          targetId: id,\n          targetType: \"function\"\n        }))\n      ];\n\n      if (!hasIssues)\n        targets.push({ targetId: interfacePage.id || null, targetType: \"page\" });\n\n      return makeCheckResult(checkId, status, targets);\n    }\n  };\n\n  // ============================================================\n  // Run all checks dynamically\n  // ============================================================\n  const checks = Object.entries(CHECKS).map(([id, fn]) =>\n    runCheckSafe(id, (checkId) => fn({ checkId }))\n  );\n\n  return { items: checks };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
@@ -827,9 +813,10 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.itemsToAdd.items.targets.items.entityId",
-					"root.itemsToAdd.items.targets.items.entityType",
-					"root.itemsToAdd.items.targets.items.selectors.items"
+					"root.itemsToAdd.items.check_id",
+					"root.itemsToAdd.items.status",
+					"root.itemsToAdd.items.targets.items.targetId",
+					"root.itemsToAdd.items.targets.items.targetType"
 				]
 			},
 			"context":{
@@ -839,7 +826,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_LUkEA",
@@ -856,13 +843,8 @@
 							"source":"{{ n_4gk0w.outputs.result.items[0].targets }}",
 							"ua:type":"mappedArray",
 							"items":{
-								"entityId":"{{ n_4gk0w.outputs.result.items[0].targets[0].entityId }}",
-								"entityType":"{{ n_4gk0w.outputs.result.items[0].targets[0].entityType }}",
-								"selectors":{
-									"source":"{{ n_4gk0w.outputs.result.items[0].targets[0].selectors }}",
-									"ua:type":"mappedArray",
-									"items":"{{ n_4gk0w.outputs.result.items[0].targets[0].selectors[0] }}"
-								}
+								"targetId":"{{ n_4gk0w.outputs.result.items[0].targets[0].targetId }}",
+								"targetType":"{{ n_4gk0w.outputs.result.items[0].targets[0].targetType }}"
 							}
 						}
 					}
@@ -882,15 +864,29 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_VdssN",
 			"index":5,
 			"inputs":{
 				"result":{
-					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
-					"status":"passed"
+					"checks":{
+						"source":"{{ n_4hXDW.outputs.items }}",
+						"ua:type":"mappedArray",
+						"items":{
+							"check_id":"{{ n_4hXDW.outputs.items[0].check_id }}",
+							"status":"{{ n_4hXDW.outputs.items[0].status }}",
+							"targets":{
+								"source":"{{ n_4hXDW.outputs.items[0].targets }}",
+								"ua:type":"mappedArray",
+								"items":{
+									"targetId":"{{ n_4hXDW.outputs.items[0].targets[0].targetId }}",
+									"targetType":"{{ n_4hXDW.outputs.items[0].targets[0].targetType }}"
+								}
+							}
+						}
+					}
 				}
 			},
 			"skip":false,
@@ -916,5 +912,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":10
+	"version":24
 }
