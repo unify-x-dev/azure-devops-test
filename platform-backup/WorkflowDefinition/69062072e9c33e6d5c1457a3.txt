@@ -396,7 +396,7 @@
 	"id":"69062072e9c33e6d5c1457a3",
 	"lastModifiedBy":308,
 	"lcName":"syncemployeeactivitiesbulkhttptriggerdb",
-	"modifiedTime":1762025974272,
+	"modifiedTime":1762026040002,
 	"name":"SyncEmployeeActivitiesBulkHttpTriggerDb",
 	"nodes":[
 		{
@@ -1457,9 +1457,21 @@
 					"additionalProperties":false,
 					"required":[],
 					"properties":{
-						"activityId":{
+						"UserName":{
 							"type":"string",
-							"title":"Activity Id"
+							"title":"User Name"
+						},
+						"BadgeId":{
+							"type":"string",
+							"title":"Badge Id"
+						},
+						"Date":{
+							"type":"string",
+							"title":"Date"
+						},
+						"ExpireDate":{
+							"type":"string",
+							"title":"Expire Date"
 						}
 					}
 				},
@@ -1505,7 +1517,7 @@
 				"skipIfBlank":false,
 				"record":{
 					"UserName":"{{ n_u2Goq.outputs.result.UserName }}",
-					"BadgeId":"",
+					"BadgeId":"{{ n_u2Goq.outputs.result.BadgeId }}",
 					"Date":"{{ n_u2Goq.outputs.result.Date }}",
 					"ExpireDate":"{{ n_u2Goq.outputs.result.ExpireDate }}"
 				}
@@ -1950,5 +1962,5 @@
 		}
 	},
 	"standard":false,
-	"version":8
+	"version":9
 }
