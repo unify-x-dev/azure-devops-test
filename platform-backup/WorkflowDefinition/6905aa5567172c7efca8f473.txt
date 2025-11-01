@@ -30,7 +30,7 @@
 	"id":"6905aa5567172c7efca8f473",
 	"lastModifiedBy":39714,
 	"lcName":"swiggydemomamanna",
-	"modifiedTime":1761986991180,
+	"modifiedTime":1761987006729,
 	"name":"swiggydemomamanna",
 	"nodes":[
 		{
@@ -45,7 +45,21 @@
 			"groupId":"_gy1iS-1",
 			"id":"n_GJiDG",
 			"index":1,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[
+						"success"
+					],
+					"properties":{
+						"success":{
+							"type":"boolean",
+							"title":"Success"
+						}
+					}
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Trigger via automation",
@@ -114,7 +128,11 @@
 			"groupId":"_gy1iS-1",
 			"id":"n_8uyZx",
 			"index":4,
-			"inputs":{},
+			"inputs":{
+				"result":{
+					"success":true
+				}
+			},
 			"skip":false,
 			"subTitle":"Callable",
 			"title":"Respond to automation",
@@ -138,5 +156,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
