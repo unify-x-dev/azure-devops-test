@@ -4,6 +4,14 @@
 	],
 	"createdTime":1761657249336,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1761682199525,
+		"deployedBy":27,
+		"deployedDefinitionId":"690123162a483b60c43c04da",
+		"status":"DEPLOYED",
+		"version":4,
+		"workflowVersion":8
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_Ff9PD",
@@ -37,7 +45,7 @@
 	"id":"6900c1a11cd6437e88616bd1",
 	"lastModifiedBy":27,
 	"lcName":"best practices | check group | data source",
-	"modifiedTime":1761658045230,
+	"modifiedTime":1762001491522,
 	"name":"Best Practices | Check Group | Data Source",
 	"nodes":[
 		{
@@ -47,7 +55,7 @@
 				"resourceName":"callables_from_interface"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_Ff9PD",
@@ -80,20 +88,20 @@
 										"items":{
 											"type":"object",
 											"properties":{
-												"entityId":{
-													"type":"string",
-													"title":"entityId"
-												},
-												"entityType":{
-													"type":"string",
-													"title":"entityType"
-												},
 												"path":{
 													"type":"array",
 													"items":{
 														"type":"string"
 													},
 													"title":"path"
+												},
+												"targetId":{
+													"type":"string",
+													"title":"targetId"
+												},
+												"targetType":{
+													"type":"string",
+													"title":"targetType"
 												}
 											},
 											"additionalProperties":false,
@@ -268,7 +276,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_uv02c-1",
 			"id":"n_4hXDW",
@@ -488,33 +496,21 @@
 											"items":{
 												"type":"object",
 												"properties":{
-													"entityId":{
+													"targetId":{
 														"type":"string",
-														"title":"entityId"
+														"title":"targetId"
 													},
-													"entityType":{
+													"targetType":{
 														"type":"string",
-														"title":"entityType"
-													},
-													"path":{
-														"type":"array",
-														"items":{
-															"type":"string"
-														},
-														"title":"path"
+														"title":"targetType"
 													}
 												},
-												"additionalProperties":false,
-												"required":[]
+												"additionalProperties":false
 											},
 											"title":"targets"
 										}
 									},
-									"additionalProperties":false,
-									"required":[
-										"check_id",
-										"status"
-									]
+									"additionalProperties":false
 								}
 							}
 						}
@@ -553,32 +549,20 @@
 										"items":{
 											"type":"object",
 											"properties":{
-												"entityId":{
+												"targetId":{
 													"type":"string",
-													"title":"entityId"
+													"title":"targetId"
 												},
-												"entityType":{
+												"targetType":{
 													"type":"string",
-													"title":"entityType"
-												},
-												"path":{
-													"type":"array",
-													"items":{
-														"type":"string"
-													},
-													"title":"path"
+													"title":"targetType"
 												}
 											},
-											"additionalProperties":false,
-											"required":[]
+											"additionalProperties":false
 										},
 										"title":"targets"
 									}
-								},
-								"required":[
-									"check_id",
-									"status"
-								]
+								}
 							}
 						}
 					}
@@ -640,32 +624,20 @@
 										"items":{
 											"type":"object",
 											"properties":{
-												"entityId":{
+												"targetId":{
 													"type":"string",
-													"title":"entityId"
+													"title":"targetId"
 												},
-												"entityType":{
+												"targetType":{
 													"type":"string",
-													"title":"entityType"
-												},
-												"path":{
-													"type":"array",
-													"items":{
-														"type":"string"
-													},
-													"title":"path"
+													"title":"targetType"
 												}
 											},
-											"additionalProperties":false,
-											"required":[]
+											"additionalProperties":false
 										},
 										"title":"targets"
 									}
-								},
-								"required":[
-									"check_id",
-									"status"
-								]
+								}
 							}
 						}
 					}
@@ -813,7 +785,7 @@
 						}
 					}
 				},
-				"code":"(() => {\n  // `dataSources` is assumed to be provided (array of data source objects)\n\n  const makeCheckResult = (checkId, status, targets) => ({\n    check_id: checkId,\n    status,\n    targets: targets || []\n  });\n\n  const runCheckSafe = (fn, checkId) => {\n    try {\n      return fn();\n    } catch (err) {\n      return makeCheckResult(checkId, \"failed\", []);\n    }\n  };\n\n  // ============================================================\n  // CHECK_2 — Disable auto-run for data sources on page load\n  // ============================================================\n  const runCHECK_2 = () => {\n    const failedIds = [];\n\n    if (!Array.isArray(dataSources)) {\n      return makeCheckResult(\"CHECK_2\", \"passed\", []);\n    }\n\n    for (let i = 0; i < dataSources.length; i++) {\n      const ds = dataSources[i];\n      const schema = ds?.properties;\n      const advOptions = schema?.advancedOptions;\n      const timing = advOptions?.timing;\n      const isAutomatic = advOptions?.runBehaviour === \"automatic\";\n      const runOnPageLoad = Boolean(timing?.runQueryOnPageLoad);\n\n      if (isAutomatic && runOnPageLoad) {\n        failedIds.push(ds.id);\n      }\n    }\n\n    const status = failedIds.length > 0 ? \"failed\" : \"passed\";\n    const targets = failedIds.map((id) => ({\n      entityId: id,\n      entityType: \"e_data_source\"\n    }));\n\n    return makeCheckResult(\"CHECK_2\", status, targets);\n  };\n\n  // ============================================================\n  // CHECK_7 — Avoid using logged-in user pills in data sources\n  // ============================================================\n  const runCHECK_7 = () => {\n    const failedIds = [];\n\n    if (!Array.isArray(dataSources)) {\n      return makeCheckResult(\"CHECK_7\", \"passed\", []);\n    }\n\n    for (let i = 0; i < dataSources.length; i++) {\n      const ds = dataSources[i];\n      const props = ds?.properties || {};\n      const inputs = props.inputs;\n      const transformerCode =\n        props.options?.transformerConfig?.inputs?.code || \"\";\n\n      let inputsStr = \"{}\";\n\n      try {\n        if (inputs && typeof inputs.toJSONString === \"function\") {\n          inputsStr = inputs.toJSONString();\n        } else if (inputs && typeof inputs.toString === \"function\") {\n          inputsStr = inputs.toString();\n        } else {\n          inputsStr = JSON.stringify(inputs || {});\n        }\n      } catch {\n        inputsStr = \"{}\";\n      }\n\n      if (inputsStr.includes(\"userContext\") || transformerCode.includes(\"userContext\")) {\n        failedIds.push(ds.id);\n      }\n    }\n\n    const status = failedIds.length > 0 ? \"failed\" : \"passed\";\n    const targets = failedIds.map((id) => ({\n      entityId: id,\n      entityType: \"e_data_source\"\n    }));\n\n    return makeCheckResult(\"CHECK_7\", status, targets);\n  };\n\n  // ============================================================\n  // Execute all data source checks safely\n  // ============================================================\n  const checks = [];\n  checks.push(runCheckSafe(runCHECK_2, \"CHECK_2\"));\n  checks.push(runCheckSafe(runCHECK_7, \"CHECK_7\"));\n\n  return { items: checks };\n})();",
+				"code":"(() => {\n  // Both `dataSources` and `interfacePage` may be provided in context\n  const dataSourceList =\n    (typeof dataSources !== \"undefined\" && dataSources) || [];\n\n  const makeCheckResult = (checkId, status, targets) => ({\n    check_id: checkId,\n    status,\n    targets: targets || [],\n  });\n\n  const runCheckSafe = (checkId, fn) => {\n    try {\n      return fn(checkId);\n    } catch {\n      return makeCheckResult(checkId, \"failed\", []);\n    }\n  };\n\n  // ============================================================\n  // Define all data-source-related checks (ID defined only once)\n  // ============================================================\n  const CHECKS = {\n    CHECK_2: ({ checkId }) => {\n      const failedIds = [];\n\n      for (let i = 0; i < dataSourceList.length; i++) {\n        const ds = dataSourceList[i];\n        const schema = ds?.properties;\n        const advOptions = schema?.advancedOptions;\n        const timing = advOptions?.timing;\n        const isAutomatic = advOptions?.runBehaviour === \"automatic\";\n        const runOnPageLoad = Boolean(timing?.runQueryOnPageLoad);\n\n        if (isAutomatic && runOnPageLoad) {\n          failedIds.push(ds.id);\n        }\n      }\n\n      const status = failedIds.length ? \"failed\" : \"passed\";\n      const targets = failedIds.map((id) => ({\n        targetId: id,\n        targetType: \"dataSource\",\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    },\n\n    CHECK_7: ({ checkId }) => {\n      const failedIds = [];\n\n      for (let i = 0; i < dataSourceList.length; i++) {\n        const ds = dataSourceList[i];\n        const props = ds?.properties || {};\n        const inputs = props.inputs;\n        const transformerCode =\n          props.options?.transformerConfig?.inputs?.code || \"\";\n\n        let inputsStr = \"{}\";\n        try {\n          if (inputs && typeof inputs.toJSONString === \"function\") {\n            inputsStr = inputs.toJSONString();\n          } else if (inputs && typeof inputs.toString === \"function\") {\n            inputsStr = inputs.toString();\n          } else {\n            inputsStr = JSON.stringify(inputs || {});\n          }\n        } catch {\n          inputsStr = \"{}\";\n        }\n\n        if (\n          inputsStr.includes(\"userContext\") ||\n          transformerCode.includes(\"userContext\")\n        ) {\n          failedIds.push(ds.id);\n        }\n      }\n\n      const status = failedIds.length ? \"failed\" : \"passed\";\n      const targets = failedIds.map((id) => ({\n        targetId: id,\n        targetType: \"dataSource\",\n      }));\n\n      return makeCheckResult(checkId, status, targets);\n    },\n  };\n\n  // ============================================================\n  // Execute all checks dynamically (no repeated IDs)\n  // ============================================================\n  const checks = Object.entries(CHECKS).map(([id, fn]) =>\n    runCheckSafe(id, (checkId) => fn({ checkId }))\n  );\n\n  return { items: checks };\n})();",
 				"isAsync":false,
 				"parameters":{
 					"check_id":"{{ n_Ff9PD.outputs.check_id }}",
@@ -833,6 +805,57 @@
 					}
 				}
 			},
+			"options":{
+				"bulkheadConfig":{
+					"enabled":false,
+					"maxLeaseTimeUnit":"SECONDS",
+					"maxWaitDurationUnit":"SECONDS"
+				},
+				"businessHoursConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"cacheConfig":{
+					"enabled":false,
+					"usagePolicy":"ALWAYS"
+				},
+				"circuitBreakerConfig":{
+					"enabled":false
+				},
+				"disableLogging":false,
+				"enabledForReExecution":false,
+				"hookConfig":{
+					"enabled":false,
+					"postHooks":[
+						
+					],
+					"preHooks":[
+						
+					]
+				},
+				"logConfig":{
+					"enabled":false,
+					"logPolicies":[
+						
+					]
+				},
+				"rateLimitConfig":{
+					"enabled":false,
+					"waitForNextWindow":false
+				},
+				"retryConfig":{
+					"backOffFactor":null,
+					"captureRetries":false,
+					"enabled":false
+				},
+				"stepError":"STOP",
+				"telemetryConfig":{
+					"enableTelemetry":false,
+					"metricConfigs":[
+						
+					]
+				}
+			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
 			"title":"Execute Javascript",
@@ -841,9 +864,10 @@
 		{
 			"additional":{
 				"visibleOptionalFields":[
-					"root.itemsToAdd.items.targets.items.entityId",
-					"root.itemsToAdd.items.targets.items.entityType",
-					"root.itemsToAdd.items.targets.items.path.items"
+					"root.itemsToAdd.items.check_id",
+					"root.itemsToAdd.items.status",
+					"root.itemsToAdd.items.targets.items.targetId",
+					"root.itemsToAdd.items.targets.items.targetType"
 				]
 			},
 			"context":{
@@ -870,13 +894,8 @@
 							"source":"{{ n_4gk0w.outputs.result.items[0].targets }}",
 							"ua:type":"mappedArray",
 							"items":{
-								"entityId":"{{ n_4gk0w.outputs.result.items[0].targets[0].entityId }}",
-								"entityType":"{{ n_4gk0w.outputs.result.items[0].targets[0].entityType }}",
-								"path":{
-									"source":"{{ n_4gk0w.outputs.result.items[0].targets[0].path }}",
-									"ua:type":"mappedArray",
-									"items":"{{ n_4gk0w.outputs.result.items[0].targets[0].path[0] }}"
-								}
+								"targetId":"{{ n_4gk0w.outputs.result.items[0].targets[0].targetId }}",
+								"targetType":"{{ n_4gk0w.outputs.result.items[0].targets[0].targetType }}"
 							}
 						}
 					}
@@ -913,8 +932,8 @@
 								"source":"{{ n_4hXDW.outputs.items[0].targets }}",
 								"ua:type":"mappedArray",
 								"items":{
-									"entityId":"{{ n_4hXDW.outputs.items[0].targets[0].entityId }}",
-									"entityType":"{{ n_4hXDW.outputs.items[0].targets[0].entityType }}"
+									"targetId":"{{ n_4hXDW.outputs.items[0].targets[0].targetId }}",
+									"targetType":"{{ n_4hXDW.outputs.items[0].targets[0].targetType }}"
 								}
 							}
 						}
@@ -944,5 +963,5 @@
 	"tags":[
 		"BPC"
 	],
-	"version":3
+	"version":9
 }
