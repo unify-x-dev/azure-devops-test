@@ -5,12 +5,12 @@
 	"createdTime":1761984514822,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761986454564,
+		"deployedAt":1761986551144,
 		"deployedBy":155341,
-		"deployedDefinitionId":"6905c796fd20297e42885c60",
+		"deployedDefinitionId":"6905c7f3fd20297e42885eae",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":4
+		"version":5,
+		"workflowVersion":5
 	},
 	"edges":[
 		
@@ -18,7 +18,7 @@
 	"id":"6905c0025aa33c758cbd6bbb",
 	"lastModifiedBy":155341,
 	"lcName":"jira webhook test",
-	"modifiedTime":1761986545551,
+	"modifiedTime":1761986593448,
 	"name":"jira webhook test",
 	"nodes":[
 		{
@@ -35,6 +35,7 @@
 			"id":"n_Ahl87",
 			"index":1,
 			"inputs":{
+				"jql":"PROJECT = DP",
 				"objectSourceResourceName":"jira_fetch_issue_schema"
 			},
 			"skip":false,
@@ -63,5 +64,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
