@@ -9,14 +9,14 @@
 			"fromNodeId":"n_BldB1",
 			"priority":0,
 			"skip":false,
-			"toNodeId":"_HlHL2",
+			"toNodeId":"n_LLQ5N",
 			"type":"next"
 		}
 	],
 	"id":"690673ed65b4e6726c6a6924",
 	"lastModifiedBy":2621,
 	"lcName":"test dnd",
-	"modifiedTime":1762030586167,
+	"modifiedTime":1762030594132,
 	"name":"test DND",
 	"nodes":[
 		{
@@ -45,15 +45,19 @@
 			"type":"START"
 		},
 		{
+			"context":{
+				"appName":"stop"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_LHyZP-1",
-			"id":"_HlHL2",
+			"id":"n_LLQ5N",
 			"index":2,
 			"skip":false,
-			"title":"Select an app and action",
-			"type":"ACTION"
+			"subTitle":"Stop",
+			"title":"Stop",
+			"type":"STOP"
 		}
 	],
 	"ownerUserId":2621,
@@ -73,5 +77,5 @@
 	"tags":[
 		
 	],
-	"version":1
+	"version":2
 }
