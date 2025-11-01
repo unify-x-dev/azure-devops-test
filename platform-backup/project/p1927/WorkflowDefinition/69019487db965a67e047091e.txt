@@ -5,12 +5,12 @@
 	"createdTime":1761711239457,
 	"deleted":false,
 	"deploymentState":{
-		"deployedAt":1761825949758,
+		"deployedAt":1761842002377,
 		"deployedBy":46209,
-		"deployedDefinitionId":"6903549dfa52cd1f4770bd7f",
+		"deployedDefinitionId":"69039352f1f899563c5a2e2d",
 		"status":"DEPLOYED",
-		"version":4,
-		"workflowVersion":9
+		"version":5,
+		"workflowVersion":10
 	},
 	"edges":[
 		{
@@ -31,7 +31,7 @@
 	"id":"69019487db965a67e047091e",
 	"lastModifiedBy":46209,
 	"lcName":"[azure-function]sendemailnotificationshttptrigger",
-	"modifiedTime":1761841999687,
+	"modifiedTime":1761991240879,
 	"name":"[Azure-function]SendEmailNotificationsHttpTrigger",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_PGafL-1",
 			"id":"n_lVFc8",
@@ -57,6 +57,19 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"Response":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Response"
+								}
+							},
+							"additionalProperties":false,
+							"required":[]
 						}
 					}
 				],
@@ -84,8 +97,41 @@
 			"id":"n_PITia",
 			"index":2,
 			"inputs":{
-				"code":"using System;\nusing System.Text.Json;\nusing System.Text.Json.Serialization;\nusing System.Net.Http;\nusing System.Net.Http.Headers;\nusing System.IO;\nusing System.Text;\nusing System.Linq;\nusing System.Collections.Generic;\nusing System.Linq.Expressions;\nusing System.Threading.Tasks;\nusing Microsoft.Identity.Client;\n\npublic class BaseEntity\n{\n  public int Id { get; set; }\n}\npublic enum NotificationImportance\n{\n  High = 1,\n  Normal = 2,\n  Low = 3\n}\n\npublic enum NotificationStatus\n{\n  Pending = 1,\n  Sent = 2,\n  Fail = 3,\n  Delivered = 4\n}\n\npublic enum RecipientTypes\n{\n  None = 0,\n  To = 1,\n  Cc = 2,\n  Bcc = 3\n}\n\npublic class MailRecipientModel\n{\n  public RecipientTypes RecipientTypes { get; set; }\n  public string Email { get; set; }\n}\n\npublic class MailNotificationModel\n{\n  public string Subject { get; set; }\n  public string MessageBody { get; set; }\n  public IEnumerable<MailRecipientModel> Recipients { get; set; }\n  public IEnumerable<string> CcRecipients { get; set; }\n  public NotificationImportance Importance { get; set; }\n  public string FromMail { get; set; }\n}\n\npublic class MailRecipient : BaseEntity\n{\n  public RecipientTypes RecipientTypes { get; set; }\n  public NotificationStatus Status { get; set; }\n  public string Email { get; set; }\n  public int NotificationId { get; set; }\n  public MailNotification Notification { get; set; }\n}\n\npublic class MailNotification : BaseEntity\n{\n  public string Subject { get; set; }\n  public string MessageBody { get; set; }\n  public NotificationImportance Importance { get; set; }\n  public DateTime CreatedDate { get; set; }\n  public ICollection<MailRecipient> Recipients { get; set; }\n  public string FromEmail { get; set; }\n}\n\nprivate static readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions\n{\n    PropertyNameCaseInsensitive = true,\n    Converters = { new JsonStringEnumConverter() }\n};\n\nprivate string FormatMessage(MailNotification notification)\n{\n  return JsonSerializer.Serialize(new\n  {\n      message = new\n      {\n          body = new\n          {\n              contentType = \"HTML\",\n              content = notification.MessageBody\n          },\n          toRecipients = notification.Recipients\n          .Where(n => n.RecipientTypes == RecipientTypes.To)\n          .Select(n => new\n          {\n              EmailAddress = new\n              {\n                  Address = n.Email\n              }\n          }),\n          ccRecipients = notification.Recipients\n          .Where(n => n.RecipientTypes == RecipientTypes.Cc)\n          .Select(n => new\n          {\n              EmailAddress = new\n              {\n                  Address = n.Email\n              }\n          }),\n          bccRecipients = notification.Recipients\n          .Where(n => n.RecipientTypes == RecipientTypes.Bcc)\n          .Select(n => new\n          {\n              EmailAddress = new\n              {\n                  Address = n.Email\n              }\n          }),\n          subject = notification.Subject,\n          importance = notification.Importance.ToString()\n      }\n  });\n}\n\npublic async Task<string> GetGraphApiAccessToken()\n{\n    string authority = \"https://login.microsoftonline.com/001c9923-a86c-4ce3-8fe2-e7153b70be85\";\n    string clientId =  \"839227b5-b0ee-48e4-a227-6dce101999f4\";\n    string clientSecret = \"rd.8Q~MyHkKzUqRsH~zQVs6ftcbvpky9uhbuuaFc\";\n    try\n    {\n        IConfidentialClientApplication clientApplication = ConfidentialClientApplicationBuilder.Create(clientId)\n            .WithClientSecret(clientSecret)\n            .WithAuthority(new Uri(authority))\n            .Build();\n\n        string[] scopes = new string[] { \"https://graph.microsoft.com/.default\" };\n        AuthenticationResult result = await clientApplication.AcquireTokenForClient(scopes)\n              .ExecuteAsync();\n        return result?.AccessToken;\n    }\n    catch (Exception ex)\n    {\n        //_appLogger.LogError($\"An error occured on Acquire Token {ex.Message}\");\n        Console.WriteLine($\"An error occured on Acquire Token {ex.Message}\");\n        throw;\n    }\n}\n\nprivate async Task Send(MailNotification mailNotification)\n{\n    string sendFrom ;\n    if (mailNotification.FromEmail != null)\n    {\n        sendFrom = mailNotification.FromEmail;\n    }\n    else\n    {\n        sendFrom = \"vplus@virtusa.com\";\n    }\n    string accessToken = await GetGraphApiAccessToken();\n    const string mediaType = \"application/json\";\n    const string Bearer = \"Bearer\";\n\n    try\n    {\n        using (HttpClient httpClient = new HttpClient())\n        {\n            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Bearer, accessToken);\n            HttpContent content = new StringContent(FormatMessage(mailNotification),\n                Encoding.UTF8,\n                mediaType);\n\n            var response = await httpClient\n                  .PostAsync($\"https://graph.microsoft.com/v1.0/users/{sendFrom}/sendMail\", content);\n            response.EnsureSuccessStatusCode();\n        }\n    }\n    catch (HttpRequestException ex)\n    {\n        //_appLogger.LogError($\"SendNotificationsTimerTrigger, An error occured on Post request {ex.Message}\");\n        Console.WriteLine($\"SendNotificationsTimerTrigger, An error occured on Post request {ex.Message}\");\n        throw;\n    }\n}\n\npublic async Task Send(string subject, string messageBody, IEnumerable<MailRecipient> recipients, NotificationImportance importance)\n{\n    using (HttpClient httpClient = new HttpClient())\n    {\n        string accessToken = await GetGraphApiAccessToken();\n        MailNotification notification = new MailNotification\n            {\n                Subject = subject,\n                CreatedDate = DateTime.Now,\n                Importance = importance,\n                MessageBody = messageBody,\n                Recipients = recipients.ToList()\n            };\n        await Send(notification);\n    }\n}\n\nasync Task<IDictionary<string, object>> mainFunction(string requestBody) {\n   try\n   {\n      MailNotificationModel _mailNotification = JsonSerializer.Deserialize<MailNotificationModel>(requestBody, jsonOptions);\n\n      // Validate input parameters\n      if (string.IsNullOrEmpty(_mailNotification.Subject)\n          || string.IsNullOrEmpty(_mailNotification.MessageBody)\n          || _mailNotification.Recipients == null\n          || !_mailNotification.Recipients.Any())\n      {\n        //return new BadRequestObjectResult($\"Invalid inputs:  {_mailNotification}\");\n        // Replaced BadRequestObjectResult\n        return new Dictionary<string, object> {\n              { \"statusCode\", 400 },\n              { \"body\", $\"Invalid inputs:  {_mailNotification}\"}};\n      }\n\n      // set importance of the mail to default if nothins is mentioned\n      if (string.IsNullOrEmpty(_mailNotification.Importance.ToString())\n          || _mailNotification.Importance != NotificationImportance.High\n          || _mailNotification.Importance != NotificationImportance.Low)\n      {\n          _mailNotification.Importance = NotificationImportance.Normal;\n      }\n\n      // sending the mail\n      await Send(\n          _mailNotification.Subject,\n          _mailNotification.MessageBody,\n          _mailNotification.Recipients.Select(r => new MailRecipient\n          {\n              Email = r.Email,\n              RecipientTypes = r.RecipientTypes == RecipientTypes.None ? RecipientTypes.To : r.RecipientTypes\n          }),\n          _mailNotification.Importance);\n   }\n   catch (JsonException ex)\n   {\n      Console.WriteLine($\"Invalid inputs: {ex.Message}\");\n      // Optionally log stack trace ex.StackTrace\n      return new Dictionary<string, object>\n      {\n        { \"statusCode\", 400 },\n        { \"body\", $\"Invalid inputs: {ex.Message}\" }\n      };\n   }\n   catch (Exception ex)\n   {\n      Console.WriteLine($\"Failed to send the mail:  {ex.Message}\");\n      // Optionally log stack trace ex.StackTrace\n      return new Dictionary<string, object>\n      {\n        { \"statusCode\", 500 },\n        { \"body\", $\"Failed to send the mail:  {ex.Message}\" }\n      };\n   }\n    \n   return new Dictionary<string, object>\n   {\n      { \"statusCode\", 200 },\n      { \"body\", \"Mail Sent\" }\n   };\n}\n\nstring requestBody = @\"{\n  \"\"importance\"\": \"\"high\"\",\n  \"\"messageBody\"\": \"\"Test message Body\"\",\n  \"\"recipients\"\": [\n    {\n      \"\"email\"\": \"\"testUser@virtusa.com\"\",\n      \"\"recipientTypes\"\": 1\n    }\n  ],\n  \"\"subject\"\": \"\"Test subject\"\"\n}\";\n// How you call this async function depends on your environment.\n// In many C# script/hosting environments, you would 'await' it.\nvar resultObject = await mainFunction(requestBody);\n// var resultObject = requestBody;\n\nresultObject",
-				"isAsync":false
+				"output":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"statusCode":{
+							"type":"integer",
+							"title":"statusCode"
+						},
+						"body":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"body"
+						}
+					}
+				},
+				"input":{
+					"type":"object",
+					"additionalProperties":false,
+					"required":[],
+					"properties":{
+						"requestBody":{
+							"type":"object",
+							"properties":{},
+							"additionalProperties":false,
+							"title":"requestBody"
+						}
+					}
+				},
+				"code":"#r \"nuget: Microsoft.Identity.Client\"\n#r \"nuget: Microsoft.IdentityModel.Abstractions\"\n#r \"nuget: Microsoft.Bcl.AsyncInterfaces\"\n\nusing System;\nusing System.Text.Json;\nusing System.Text.Json.Serialization;\nusing System.Net.Http;\nusing System.Net.Http.Headers;\nusing System.IO;\nusing System.Text;\nusing System.Linq;\nusing System.Collections.Generic;\nusing System.Linq.Expressions;\nusing System.Threading.Tasks;\nusing Microsoft.Identity.Client;\n\npublic class BaseEntity\n{\n  public int Id { get; set; }\n}\npublic enum NotificationImportance\n{\n  High = 1,\n  Normal = 2,\n  Low = 3\n}\n\npublic enum NotificationStatus\n{\n  Pending = 1,\n  Sent = 2,\n  Fail = 3,\n  Delivered = 4\n}\n\npublic enum RecipientTypes\n{\n  None = 0,\n  To = 1,\n  Cc = 2,\n  Bcc = 3\n}\n\npublic class MailRecipientModel\n{\n  public RecipientTypes RecipientTypes { get; set; }\n  public string Email { get; set; }\n}\n\npublic class MailNotificationModel\n{\n  public string Subject { get; set; }\n  public string MessageBody { get; set; }\n  public IEnumerable<MailRecipientModel> Recipients { get; set; }\n  public IEnumerable<string> CcRecipients { get; set; }\n  public NotificationImportance Importance { get; set; }\n  public string FromMail { get; set; }\n}\n\npublic class MailRecipient : BaseEntity\n{\n  public RecipientTypes RecipientTypes { get; set; }\n  public NotificationStatus Status { get; set; }\n  public string Email { get; set; }\n  public int NotificationId { get; set; }\n  public MailNotification Notification { get; set; }\n}\n\npublic class MailNotification : BaseEntity\n{\n  public string Subject { get; set; }\n  public string MessageBody { get; set; }\n  public NotificationImportance Importance { get; set; }\n  public DateTime CreatedDate { get; set; }\n  public ICollection<MailRecipient> Recipients { get; set; }\n  public string FromEmail { get; set; }\n}\n\nprivate static readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions\n{\n    PropertyNameCaseInsensitive = true,\n    Converters = { new JsonStringEnumConverter() }\n};\n\nprivate string FormatMessage(MailNotification notification)\n{\n  return JsonSerializer.Serialize(new\n  {\n      message = new\n      {\n          body = new\n          {\n              contentType = \"HTML\",\n              content = notification.MessageBody\n          },\n          toRecipients = notification.Recipients\n          .Where(n => n.RecipientTypes == RecipientTypes.To)\n          .Select(n => new\n          {\n              EmailAddress = new\n              {\n                  Address = n.Email\n              }\n          }),\n          ccRecipients = notification.Recipients\n          .Where(n => n.RecipientTypes == RecipientTypes.Cc)\n          .Select(n => new\n          {\n              EmailAddress = new\n              {\n                  Address = n.Email\n              }\n          }),\n          bccRecipients = notification.Recipients\n          .Where(n => n.RecipientTypes == RecipientTypes.Bcc)\n          .Select(n => new\n          {\n              EmailAddress = new\n              {\n                  Address = n.Email\n              }\n          }),\n          subject = notification.Subject,\n          importance = notification.Importance.ToString()\n      }\n  });\n}\n\npublic async Task<string> GetGraphApiAccessToken()\n{\n    string authority = \"https://login.microsoftonline.com/001c9923-a86c-4ce3-8fe2-e7153b70be85\";\n    string clientId =  \"6d86ccc3-23a6-401e-9c4a-82c386548772\";\n    string clientSecret = \"cwO8Q~kjmcmJCtIE.MdbfakDj7RSG6V1QKWjRagG\";\n    try\n    {\n        IConfidentialClientApplication clientApplication = ConfidentialClientApplicationBuilder.Create(clientId)\n            .WithClientSecret(clientSecret)\n            .WithAuthority(new Uri(authority))\n            .Build();\n\n        string[] scopes = new string[] { \"https://graph.microsoft.com/.default\" };\n        AuthenticationResult result = await clientApplication.AcquireTokenForClient(scopes)\n              .ExecuteAsync();\n        return result?.AccessToken;\n    }\n    catch (Exception ex)\n    {\n        //_appLogger.LogError($\"An error occured on Acquire Token {ex.Message}\");\n        Console.WriteLine($\"An error occured on Acquire Token {ex.Message}\");\n        throw;\n    }\n}\n\nprivate async Task Send(MailNotification mailNotification)\n{\n    string sendFrom ;\n    if (mailNotification.FromEmail != null)\n    {\n        sendFrom = mailNotification.FromEmail;\n    }\n    else\n    {\n        sendFrom = \"integrations@unifyapps.com\";\n    }\n    string accessToken = await GetGraphApiAccessToken();\n    const string mediaType = \"application/json\";\n    const string Bearer = \"Bearer\";\n\n    try\n    {\n        using (HttpClient httpClient = new HttpClient())\n        {\n            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Bearer, accessToken);\n            HttpContent content = new StringContent(FormatMessage(mailNotification),\n                Encoding.UTF8,\n                mediaType);\n\n            var response = await httpClient\n                  .PostAsync($\"https://graph.microsoft.com/v1.0/users/{sendFrom}/sendMail\", content);\n            response.EnsureSuccessStatusCode();\n        }\n    }\n    catch (HttpRequestException ex)\n    {\n        //_appLogger.LogError($\"SendNotificationsTimerTrigger, An error occured on Post request {ex.Message}\");\n        Console.WriteLine($\"SendNotificationsTimerTrigger, An error occured on Post request {ex.Message}\");\n        throw;\n    }\n}\n\npublic async Task Send(string subject, string messageBody, IEnumerable<MailRecipient> recipients, NotificationImportance importance)\n{\n    using (HttpClient httpClient = new HttpClient())\n    {\n        string accessToken = await GetGraphApiAccessToken();\n        MailNotification notification = new MailNotification\n            {\n                Subject = subject,\n                CreatedDate = DateTime.Now,\n                Importance = importance,\n                MessageBody = messageBody,\n                Recipients = recipients.ToList()\n            };\n        await Send(notification);\n    }\n}\n\nasync Task<IDictionary<string, object>> mainFunction(string requestBody) {\n   try\n   {\n      MailNotificationModel _mailNotification = JsonSerializer.Deserialize<MailNotificationModel>(requestBody, jsonOptions);\n\n      // Validate input parameters\n      if (string.IsNullOrEmpty(_mailNotification.Subject)\n          || string.IsNullOrEmpty(_mailNotification.MessageBody)\n          || _mailNotification.Recipients == null\n          || !_mailNotification.Recipients.Any())\n      {\n        //return new BadRequestObjectResult($\"Invalid inputs:  {_mailNotification}\");\n        // Replaced BadRequestObjectResult\n        return new Dictionary<string, object> {\n              { \"statusCode\", 400 },\n              { \"body\", $\"Invalid inputs:  {_mailNotification}\"}};\n      }\n\n      // set importance of the mail to default if nothins is mentioned\n      if (string.IsNullOrEmpty(_mailNotification.Importance.ToString())\n          || _mailNotification.Importance != NotificationImportance.High\n          || _mailNotification.Importance != NotificationImportance.Low)\n      {\n          _mailNotification.Importance = NotificationImportance.Normal;\n      }\n\n      // sending the mail\n      await Send(\n          _mailNotification.Subject,\n          _mailNotification.MessageBody,\n          _mailNotification.Recipients.Select(r => new MailRecipient\n          {\n              Email = r.Email,\n              RecipientTypes = r.RecipientTypes == RecipientTypes.None ? RecipientTypes.To : r.RecipientTypes\n          }),\n          _mailNotification.Importance);\n   }\n   catch (JsonException ex)\n   {\n      Console.WriteLine($\"Invalid inputs: {ex.Message}\");\n      // Optionally log stack trace ex.StackTrace\n      return new Dictionary<string, object>\n      {\n        { \"statusCode\", 400 },\n        { \"body\", $\"Invalid inputs: {ex.Message}\" }\n      };\n   }\n   catch (Exception ex)\n   {\n      Console.WriteLine($\"Failed to send the mail:  {ex.Message}\");\n      // Optionally log stack trace ex.StackTrace\n      return new Dictionary<string, object>\n      {\n        { \"statusCode\", 500 },\n        { \"body\", $\"Failed to send the mail:  {ex.ToString()}\" }\n      };\n   }\n    \n   return new Dictionary<string, object>\n   {\n      { \"statusCode\", 200 },\n      { \"body\", \"Mail Sent\" }\n   };\n}\n\n// string requestBody = @\"{\n//   \"\"importance\"\": \"\"High\"\",\n//   \"\"messageBody\"\": \"\"Test message Body\"\",\n//   \"\"recipients\"\": [\n//     {\n//       \"\"email\"\": \"\"integrations@unifyapps.com\"\",\n//       \"\"recipientTypes\"\": 1\n//     }\n//   ],\n//   \"\"subject\"\": \"\"Test subject\"\"\n// }\";\nstring reqBody = JsonSerializer.Serialize(requestBody);\n// How you call this async function depends on your environment.\n// In many C# script/hosting environments, you would 'await' it.\nvar resultObject = await mainFunction(reqBody);\n// var resultObject = requestBody;\n\nresultObject",
+				"isAsync":false,
+				"parameters":{
+					"requestBody":"{{ n_lVFc8.outputs.body }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -108,6 +154,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_undefined",
+				"body":{
+					"Response":"{{ n_PITia.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -134,5 +183,5 @@
 	"tags":[
 		
 	],
-	"version":10
+	"version":12
 }
