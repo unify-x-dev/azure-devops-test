@@ -31,7 +31,7 @@
 	"id":"690100afa0bcbf740ac62c6b",
 	"lastModifiedBy":308,
 	"lcName":"[virtu-empowerbadgesschedulerfn] syncemployeehttptrigger",
-	"modifiedTime":1762018129254,
+	"modifiedTime":1762019118025,
 	"name":"[virtu-emPowerBadgesSchedulerFN] SyncEmployeeHttpTrigger",
 	"nodes":[
 		{
@@ -41,7 +41,7 @@
 				"resourceName":"callables_from_api"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DCdiC-1",
 			"id":"n_AiorO",
@@ -69,6 +69,21 @@
 						"contentType":"application/json",
 						"textBody":{
 							"type":"string"
+						},
+						"body":{
+							"type":"object",
+							"properties":{
+								"result":{
+									"type":"object",
+									"properties":{},
+									"additionalProperties":false,
+									"title":"Result"
+								}
+							},
+							"additionalProperties":false,
+							"required":[
+								"result"
+							]
 						}
 					}
 				],
@@ -90,7 +105,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":true,
+			"dirty":false,
 			"fallbackMode":"STOP",
 			"groupId":"_DCdiC-1",
 			"id":"n_TfOCG",
@@ -137,7 +152,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DCdiC-1",
 			"id":"n_oqJ7A",
@@ -145,6 +160,9 @@
 			"inputs":{
 				"streamingCompleted":true,
 				"responseName":"200_200 ok",
+				"body":{
+					"result":"{{ n_TfOCG.outputs.result }}"
+				},
 				"status":200
 			},
 			"skip":false,
@@ -171,5 +189,5 @@
 	"tags":[
 		
 	],
-	"version":8
+	"version":9
 }
