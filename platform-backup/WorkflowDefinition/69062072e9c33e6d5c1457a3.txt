@@ -396,7 +396,7 @@
 	"id":"69062072e9c33e6d5c1457a3",
 	"lastModifiedBy":308,
 	"lcName":"syncemployeeactivitiesbulkhttptriggerdb",
-	"modifiedTime":1762026042466,
+	"modifiedTime":1762026214626,
 	"name":"SyncEmployeeActivitiesBulkHttpTriggerDb",
 	"nodes":[
 		{
@@ -1873,8 +1873,8 @@
 					}
 				},
 				"input":{
-					"type":"string",
-					"title":"Activity Id",
+					"type":"object",
+					"additionalProperties":false,
 					"required":[],
 					"properties":{
 						"activityId":{
@@ -1891,7 +1891,11 @@
 				},
 				"code":"def result = \"Badge calculation started for activity ${activityId}\"\n\n// 1. GET BADGE ACTIVITIES (RULES) FOR THIS ACTIVITY ID\n// In UnifyApps, we need to query the badges_activities table directly\n// Assuming badges_activities has: Id, Name, Points (required score)\n\ndef badgeRules = [] // You need to implement database query here\n// TODO: Query badges_activities where some field matches activityId\n\n// For now, using hardcoded logic - replace with actual database query\nif (activityId == 14) { // Example: Activity 14 requires 1 point for badge 1\n    badgeRules = [\n        [\"BadgeId\": 1, \"RequiredScore\": 1, \"BadgeName\": \"Bronze Badge\"],\n        [\"BadgeId\": 2, \"RequiredScore\": 5, \"BadgeName\": \"Silver Badge\"],\n        [\"BadgeId\": 3, \"RequiredScore\": 10, \"BadgeName\": \"Gold Badge\"]\n    ]\n}\n\ndef employeeScore = metric.Score ?: 0\ndef userName = metric.UserName ?: \"\"\ndef generatedBadges = []\n\n// 2. CHECK EACH BADGE RULE\nbadgeRules.each { rule ->\n    def badgeId = rule.BadgeId\n    def requiredScore = rule.RequiredScore ?: 0\n    \n    if (employeeScore >= requiredScore) {\n        // 3. EMPLOYEE QUALIFIES - CREATE BADGE ASSIGNMENT\n        def badgeData = [\n            \"UserName\": userName,\n            \"BadgeId\": badgeId,\n            \"Date\": new Date().format(\"yyyy-MM-dd\"),\n            \"ExpireDate\": \"\" // Set expiry if needed\n        ]\n        \n        // TODO: Insert into badges_badges_employees table\n        // For now, just log what would be created\n        generatedBadges.add(\"Badge ${badgeId} (${rule.BadgeName})\")\n        \n        result += \"\\n✓ Qualified for ${rule.BadgeName} (needed ${requiredScore}, got ${employeeScore})\"\n    } else {\n        result += \"\\n✗ Not qualified for ${rule.BadgeName} (needed ${requiredScore}, got ${employeeScore})\"\n    }\n}\n\nif (generatedBadges.isEmpty()) {\n    result += \"\\nNo badges earned\"\n} else {\n    result += \"\\nGenerated badges: ${generatedBadges.join(', ')}\"\n}\n\nreturn [\"result\": result]",
 				"compile_static":false,
-				"captureStdOutput":false
+				"captureStdOutput":false,
+				"parameters":{
+					"activityId":"{{ _SKsK0.outputs.result.activityId }}",
+					"metric":"{{ _SKsK0.outputs.result.metric }}"
+				}
 			},
 			"skip":false,
 			"subTitle":"Code by UnifyApps",
@@ -1962,5 +1966,5 @@
 		}
 	},
 	"standard":false,
-	"version":10
+	"version":11
 }
