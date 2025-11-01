@@ -4,6 +4,14 @@
 	],
 	"createdTime":1762003800319,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1762009067316,
+		"deployedBy":308,
+		"deployedDefinitionId":"69061febe9c33e6d5c145746",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":7
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_RObK4",
@@ -128,7 +136,7 @@
 	"id":"69060b58a540f95b36847a49",
 	"lastModifiedBy":308,
 	"lcName":"[empowerbadgesschedulerfn] employeesyncendpointhttp",
-	"modifiedTime":1762009064737,
+	"modifiedTime":1762009139915,
 	"name":"[emPowerBadgesSchedulerFN] EmployeeSyncEndpointHTTP",
 	"nodes":[
 		{
@@ -551,7 +559,7 @@
 						}
 					}
 				},
-				"code":"return [\"UserName\" : payload[\"UserName\"]]",
+				"code":"return [\"UserName\" : payload[\"userName\"]]",
 				"compile_static":false,
 				"captureStdOutput":false,
 				"parameters":{
@@ -666,5 +674,5 @@
 		}
 	},
 	"standard":false,
-	"version":7
+	"version":8
 }
