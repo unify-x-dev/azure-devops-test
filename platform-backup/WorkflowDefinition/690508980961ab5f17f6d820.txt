@@ -30,7 +30,7 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761987311803,
+	"modifiedTime":1761987325785,
 	"name":"approval workflow",
 	"nodes":[
 		{
@@ -244,7 +244,8 @@
 				"automationId":"{{ n_7wuTc.outputs.responseAutomationId }}",
 				"runtimeConnections":"",
 				"synchronous":true,
-				"version":"-1"
+				"version":"-1",
+				"parameters":"{{ n_PcIe1.outputs.result }}"
 			},
 			"skip":false,
 			"subTitle":"Callable",
@@ -269,5 +270,5 @@
 	"tags":[
 		
 	],
-	"version":5
+	"version":6
 }
