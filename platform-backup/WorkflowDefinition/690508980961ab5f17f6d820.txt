@@ -6,7 +6,7 @@
 	"deleted":false,
 	"edges":[
 		{
-			"fromNodeId":"_DLST3",
+			"fromNodeId":"n_VggMd",
 			"priority":0,
 			"skip":false,
 			"toNodeId":"n_yElic",
@@ -30,20 +30,31 @@
 	"id":"690508980961ab5f17f6d820",
 	"lastModifiedBy":76193,
 	"lcName":"approval workflow",
-	"modifiedTime":1761975756795,
+	"modifiedTime":1761975761237,
 	"name":"approval workflow",
 	"nodes":[
 		{
+			"context":{
+				"appName":"webhooks",
+				"resourceVersion":833,
+				"resourceName":"webhooks_default"
+			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"_DLST3-1",
-			"id":"_DLST3",
+			"id":"n_VggMd",
 			"index":1,
+			"inputs":{
+				"request":{
+					"contentType":"application/json"
+				}
+			},
 			"skip":false,
-			"title":"Select a trigger event",
+			"subTitle":"Webhook",
+			"title":"New event",
 			"trigger":{
-				"type":"EVENT"
+				"type":"WEBHOOK"
 			},
 			"type":"START"
 		},
@@ -223,5 +234,5 @@
 	"tags":[
 		
 	],
-	"version":2
+	"version":3
 }
