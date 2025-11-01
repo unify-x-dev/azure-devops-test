@@ -1,6 +1,6 @@
 {
 	"appsUsed":[
-		
+		"openai"
 	],
 	"createdTime":1762003535122,
 	"deleted":false,
@@ -16,6 +16,13 @@
 			"fromNodeId":"n_e9ba6",
 			"priority":0,
 			"skip":false,
+			"toNodeId":"n_VHXU7",
+			"type":"next"
+		},
+		{
+			"fromNodeId":"n_VHXU7",
+			"priority":0,
+			"skip":false,
 			"toNodeId":"n_yfuwu",
 			"type":"next"
 		}
@@ -23,7 +30,7 @@
 	"id":"69060a4fa540f95b36847865",
 	"lastModifiedBy":1246,
 	"lcName":"tinyautomation",
-	"modifiedTime":1762003804841,
+	"modifiedTime":1762003905777,
 	"name":"tinyAutomation",
 	"nodes":[
 		{
@@ -100,6 +107,30 @@
 		},
 		{
 			"context":{
+				"appName":"openai",
+				"resourceVersion":5543,
+				"connectionId":"68ea9540a5e5253b2d030eea",
+				"resourceName":"openai_analyze_text",
+				"type":"APPLICATION"
+			},
+			"debug":false,
+			"dirty":true,
+			"fallbackMode":"STOP",
+			"groupId":"_CeO3j-1",
+			"id":"n_VHXU7",
+			"index":3,
+			"inputs":{
+				"source_text":"{{ n_e9ba6.outputs.output }}",
+				"instruction":"Execute the given prompt",
+				"model":"gpt-4o"
+			},
+			"skip":false,
+			"subTitle":"OpenAI",
+			"title":"Analyser le texte",
+			"type":"ACTION"
+		},
+		{
+			"context":{
 				"appName":"callables",
 				"resourceVersion":1117,
 				"resourceName":"callables_return_to_automation",
@@ -110,7 +141,7 @@
 			"fallbackMode":"STOP",
 			"groupId":"_CeO3j-1",
 			"id":"n_yfuwu",
-			"index":3,
+			"index":4,
 			"inputs":{
 				"result":{
 					"a":"ok"
@@ -139,5 +170,5 @@
 	"tags":[
 		
 	],
-	"version":4
+	"version":5
 }
