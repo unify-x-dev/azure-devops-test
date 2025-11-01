@@ -4,6 +4,14 @@
 	],
 	"createdTime":1762016666942,
 	"deleted":false,
+	"deploymentState":{
+		"deployedAt":1762016670182,
+		"deployedBy":19752,
+		"deployedDefinitionId":"69063d9b480ff44bf283fc6f",
+		"status":"DEPLOYED",
+		"version":1,
+		"workflowVersion":26
+	},
 	"edges":[
 		{
 			"fromNodeId":"n_2QzsE",
@@ -107,9 +115,9 @@
 		}
 	],
 	"id":"6905f883cf8e161eb53d61d2",
-	"lastModifiedBy":19752,
+	"lastModifiedBy":4446,
 	"lcName":"customer modules update flow",
-	"modifiedTime":1762016666942,
+	"modifiedTime":1762017544685,
 	"name":"Customer Modules Update Flow",
 	"nodes":[
 		{
@@ -835,7 +843,7 @@
 				"type":"APPLICATION"
 			},
 			"debug":false,
-			"dirty":false,
+			"dirty":true,
 			"fallbackMode":"STOP",
 			"groupId":"n_E47pp@n_q8Atc@_tkmH3-1@l@l",
 			"id":"n_3OUpK",
@@ -856,7 +864,7 @@
 				},
 				"connectionType":"DIRECT",
 				"sslVerify":false,
-				"path":"/internal/customer-management/update-customer-modules",
+				"path":"/internal/customer/update-customer-modules",
 				"baseUrl":"http://internal-global-svc.unifyapps.svc.cluster.local:80",
 				"httpVersion":"HTTP_2",
 				"bodySchema":{
@@ -982,5 +990,5 @@
 	"tags":[
 		
 	],
-	"version":26
+	"version":27
 }
